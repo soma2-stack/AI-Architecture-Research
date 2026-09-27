@@ -1,0 +1,470 @@
+[
+ {
+  "seed": 1,
+  "budget": 100000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "WWM",
+    "L2": "WWMX"
+   },
+   "true_abstraction": "WWMX",
+   "flat": {
+    "solved": 0.06666666666666667,
+    "median_programs": 100001.0,
+    "by_type": {
+     "AA": 0.0,
+     "APA": 0.2,
+     "AAA": 0.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 357.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 234.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 1,
+  "budget": 1000000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "WWM",
+    "L2": "WWMX"
+   },
+   "true_abstraction": "WWMX",
+   "flat": {
+    "solved": 0.6,
+    "median_programs": 687510.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 0.8,
+     "AAA": 0.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 357.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 234.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 2,
+  "budget": 100000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "SSXR",
+    "L2": "SS"
+   },
+   "true_abstraction": "XSRS",
+   "flat": {
+    "solved": 0.13333333333333333,
+    "median_programs": 100001.0,
+    "by_type": {
+     "AA": 0.0,
+     "APA": 0.4,
+     "AAA": 0.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 301.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 240.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 2,
+  "budget": 1000000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "SSXR",
+    "L2": "SS"
+   },
+   "true_abstraction": "XSRS",
+   "flat": {
+    "solved": 1.0,
+    "median_programs": 117260.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 301.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 240.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 3,
+  "budget": 100000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "WRM",
+    "L2": "RWRM"
+   },
+   "true_abstraction": "RWRM",
+   "flat": {
+    "solved": 0.9333333333333333,
+    "median_programs": 11749.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 0.8,
+     "AAA": 1.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 252.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 186.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 3,
+  "budget": 1000000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "WRM",
+    "L2": "RWRM"
+   },
+   "true_abstraction": "RWRM",
+   "flat": {
+    "solved": 1.0,
+    "median_programs": 11749.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 252.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 186.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 4,
+  "budget": 100000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "SSXW",
+    "L2": "SSW"
+   },
+   "true_abstraction": "SXWS",
+   "flat": {
+    "solved": 0.06666666666666667,
+    "median_programs": 100001.0,
+    "by_type": {
+     "AA": 0.0,
+     "APA": 0.2,
+     "AAA": 0.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 307.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 240.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 4,
+  "budget": 1000000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "SSXW",
+    "L2": "SSW"
+   },
+   "true_abstraction": "SXWS",
+   "flat": {
+    "solved": 0.6,
+    "median_programs": 978553.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 0.8,
+     "AAA": 0.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 307.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 240.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 5,
+  "budget": 100000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "MXRX",
+    "L2": "SXRX"
+   },
+   "true_abstraction": "MXRX",
+   "flat": {
+    "solved": 0.9333333333333333,
+    "median_programs": 124.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 0.8,
+     "AAA": 1.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 228.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 172.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 5,
+  "budget": 1000000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "MXRX",
+    "L2": "SXRX"
+   },
+   "true_abstraction": "MXRX",
+   "flat": {
+    "solved": 0.9333333333333333,
+    "median_programs": 124.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 0.8,
+     "AAA": 1.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 228.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 172.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 6,
+  "budget": 100000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "SWWW",
+    "L2": "SWWR"
+   },
+   "true_abstraction": "WWWS",
+   "flat": {
+    "solved": 1.0,
+    "median_programs": 63.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 114.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 87.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ },
+ {
+  "seed": 6,
+  "budget": 1000000,
+  "res": {
+   "phase1_solved": 1.0,
+   "learned_abstractions": {
+    "L1": "SWWW",
+    "L2": "SWWR"
+   },
+   "true_abstraction": "WWWS",
+   "flat": {
+    "solved": 1.0,
+    "median_programs": 63.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "library": {
+    "solved": 1.0,
+    "median_programs": 114.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   },
+   "oracle_lib": {
+    "solved": 1.0,
+    "median_programs": 87.0,
+    "by_type": {
+     "AA": 1.0,
+     "APA": 1.0,
+     "AAA": 1.0
+    }
+   }
+  }
+ }
+]

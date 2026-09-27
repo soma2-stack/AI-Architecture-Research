@@ -1,0 +1,258 @@
+[
+ {
+  "policy": "CSL",
+  "seed": 1,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.3077489362738707,
+  "oracle": 0.12538684651269413,
+  "post_change_regret": 0.1906977551311624,
+  "n_changes": 5,
+  "admissions": 65,
+  "false_admissions": 2,
+  "harmful_at_admission": 4,
+  "final_size": 43
+ },
+ {
+  "policy": "HW",
+  "seed": 1,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.6137797038198852,
+  "oracle": 0.12538684651269413,
+  "post_change_regret": 0.44230616371322906,
+  "n_changes": 5,
+  "admissions": 18,
+  "false_admissions": 6,
+  "harmful_at_admission": 11,
+  "final_size": 5
+ },
+ {
+  "policy": "CSL",
+  "seed": 2,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.3017726465841516,
+  "oracle": 0.12208329211799153,
+  "post_change_regret": 0.16215894620592752,
+  "n_changes": 5,
+  "admissions": 61,
+  "false_admissions": 5,
+  "harmful_at_admission": 13,
+  "final_size": 44
+ },
+ {
+  "policy": "HW",
+  "seed": 2,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.569356589936383,
+  "oracle": 0.12208329211799153,
+  "post_change_regret": 0.4174539861753093,
+  "n_changes": 5,
+  "admissions": 48,
+  "false_admissions": 14,
+  "harmful_at_admission": 14,
+  "final_size": 14
+ },
+ {
+  "policy": "CSL",
+  "seed": 3,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.26762926998904446,
+  "oracle": 0.12449946667323777,
+  "post_change_regret": 0.0899095465293703,
+  "n_changes": 5,
+  "admissions": 46,
+  "false_admissions": 3,
+  "harmful_at_admission": 9,
+  "final_size": 34
+ },
+ {
+  "policy": "HW",
+  "seed": 3,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.4979413979240527,
+  "oracle": 0.12449946667323777,
+  "post_change_regret": 0.3115064780625628,
+  "n_changes": 5,
+  "admissions": 75,
+  "false_admissions": 33,
+  "harmful_at_admission": 33,
+  "final_size": 26
+ },
+ {
+  "policy": "CSL",
+  "seed": 4,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.3199458339410067,
+  "oracle": 0.12845453158684889,
+  "post_change_regret": 0.18309347306869977,
+  "n_changes": 5,
+  "admissions": 62,
+  "false_admissions": 4,
+  "harmful_at_admission": 12,
+  "final_size": 40
+ },
+ {
+  "policy": "HW",
+  "seed": 4,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5968601503521072,
+  "oracle": 0.12845453158684889,
+  "post_change_regret": 0.45902748271853144,
+  "n_changes": 5,
+  "admissions": 44,
+  "false_admissions": 13,
+  "harmful_at_admission": 15,
+  "final_size": 11
+ },
+ {
+  "policy": "CSL",
+  "seed": 5,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.2735823454293059,
+  "oracle": 0.10469191513161337,
+  "post_change_regret": 0.15711249130361152,
+  "n_changes": 5,
+  "admissions": 55,
+  "false_admissions": 3,
+  "harmful_at_admission": 5,
+  "final_size": 43
+ },
+ {
+  "policy": "HW",
+  "seed": 5,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.6184066658783266,
+  "oracle": 0.10469191513161337,
+  "post_change_regret": 0.5447469425021548,
+  "n_changes": 5,
+  "admissions": 26,
+  "false_admissions": 2,
+  "harmful_at_admission": 6,
+  "final_size": 13
+ },
+ {
+  "policy": "CSL",
+  "seed": 6,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.2588953716428293,
+  "oracle": 0.09734437351089625,
+  "post_change_regret": 0.1377932331643762,
+  "n_changes": 5,
+  "admissions": 57,
+  "false_admissions": 8,
+  "harmful_at_admission": 11,
+  "final_size": 40
+ },
+ {
+  "policy": "HW",
+  "seed": 6,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5495071904787909,
+  "oracle": 0.09734437351089625,
+  "post_change_regret": 0.44762849059047527,
+  "n_changes": 5,
+  "admissions": 46,
+  "false_admissions": 16,
+  "harmful_at_admission": 17,
+  "final_size": 8
+ },
+ {
+  "policy": "CSL",
+  "seed": 7,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.2534519567104207,
+  "oracle": 0.09008417461705412,
+  "post_change_regret": 0.1565276468910224,
+  "n_changes": 5,
+  "admissions": 61,
+  "false_admissions": 5,
+  "harmful_at_admission": 10,
+  "final_size": 40
+ },
+ {
+  "policy": "HW",
+  "seed": 7,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.49189871244365124,
+  "oracle": 0.09008417461705412,
+  "post_change_regret": 0.3611881740360367,
+  "n_changes": 5,
+  "admissions": 25,
+  "false_admissions": 4,
+  "harmful_at_admission": 6,
+  "final_size": 7
+ },
+ {
+  "policy": "CSL",
+  "seed": 8,
+  "kw": {
+   "center": false
+  },
+  "avg_loss": 0.24993705895791393,
+  "oracle": 0.08199018725868805,
+  "post_change_regret": 0.14341145962425106,
+  "n_changes": 5,
+  "admissions": 48,
+  "false_admissions": 5,
+  "harmful_at_admission": 8,
+  "final_size": 40
+ },
+ {
+  "policy": "HW",
+  "seed": 8,
+  "kw": {
+   "center": false,
+   "tau_a": 0.0,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5571184481341115,
+  "oracle": 0.08199018725868805,
+  "post_change_regret": 0.41000477388373463,
+  "n_changes": 5,
+  "admissions": 55,
+  "false_admissions": 10,
+  "harmful_at_admission": 13,
+  "final_size": 16
+ }
+]

@@ -1,0 +1,330 @@
+[
+ {
+  "policy": "CSL",
+  "seed": 1,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5271399963712555,
+  "admissions": 15,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "HW",
+  "seed": 1,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.533817212433024,
+  "admissions": 68,
+  "proxy_only_admissions": 1,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 5
+ },
+ {
+  "policy": "NRT",
+  "seed": 1,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.5263417536944645,
+  "admissions": 15,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "CSL",
+  "seed": 2,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5678348525199435,
+  "admissions": 11,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "HW",
+  "seed": 2,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5821445302038992,
+  "admissions": 74,
+  "proxy_only_admissions": 1,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "NRT",
+  "seed": 2,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.5679248873044995,
+  "admissions": 13,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 5
+ },
+ {
+  "policy": "CSL",
+  "seed": 3,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5303099940792364,
+  "admissions": 11,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "HW",
+  "seed": 3,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5383634311138477,
+  "admissions": 65,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "NRT",
+  "seed": 3,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.5294148930419993,
+  "admissions": 13,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "CSL",
+  "seed": 4,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5199655067536026,
+  "admissions": 12,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "HW",
+  "seed": 4,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5267722744127419,
+  "admissions": 76,
+  "proxy_only_admissions": 4,
+  "mean_proxy_share_of_structure": 0.010451977401129945,
+  "final_size": 3
+ },
+ {
+  "policy": "NRT",
+  "seed": 4,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.5199490063779342,
+  "admissions": 10,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "CSL",
+  "seed": 5,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5481617738229111,
+  "admissions": 16,
+  "proxy_only_admissions": 1,
+  "mean_proxy_share_of_structure": 0.015476190476190477,
+  "final_size": 4
+ },
+ {
+  "policy": "HW",
+  "seed": 5,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5604323258732711,
+  "admissions": 99,
+  "proxy_only_admissions": 5,
+  "mean_proxy_share_of_structure": 0.009604519774011298,
+  "final_size": 4
+ },
+ {
+  "policy": "NRT",
+  "seed": 5,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.549103330688,
+  "admissions": 16,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 5
+ },
+ {
+  "policy": "CSL",
+  "seed": 6,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5165381168589549,
+  "admissions": 15,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 5
+ },
+ {
+  "policy": "HW",
+  "seed": 6,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5231214462581047,
+  "admissions": 57,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "NRT",
+  "seed": 6,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.5243793818927093,
+  "admissions": 19,
+  "proxy_only_admissions": 1,
+  "mean_proxy_share_of_structure": 0.013392857142857144,
+  "final_size": 5
+ },
+ {
+  "policy": "CSL",
+  "seed": 7,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5372568488098886,
+  "admissions": 12,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "HW",
+  "seed": 7,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5467797534396617,
+  "admissions": 79,
+  "proxy_only_admissions": 2,
+  "mean_proxy_share_of_structure": 0.007627118644067797,
+  "final_size": 4
+ },
+ {
+  "policy": "NRT",
+  "seed": 7,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.5413889218654555,
+  "admissions": 18,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 9
+ },
+ {
+  "policy": "CSL",
+  "seed": 8,
+  "kw": {
+   "propose_k": 1,
+   "adm_mode": "score",
+   "ret_mode": "statement",
+   "ret_detector": "sr"
+  },
+  "avg_loss": 0.5489637771049918,
+  "admissions": 16,
+  "proxy_only_admissions": 0,
+  "mean_proxy_share_of_structure": 0.0,
+  "final_size": 4
+ },
+ {
+  "policy": "HW",
+  "seed": 8,
+  "kw": {
+   "propose_k": 1,
+   "tau_a": 0.01,
+   "tau_r": 0.0
+  },
+  "avg_loss": 0.5552251662594094,
+  "admissions": 67,
+  "proxy_only_admissions": 1,
+  "mean_proxy_share_of_structure": 0.0033898305084745766,
+  "final_size": 4
+ },
+ {
+  "policy": "NRT",
+  "seed": 8,
+  "kw": {
+   "propose_k": 1
+  },
+  "avg_loss": 0.5556369733019835,
+  "admissions": 18,
+  "proxy_only_admissions": 1,
+  "mean_proxy_share_of_structure": 0.051212121212121216,
+  "final_size": 8
+ }
+]

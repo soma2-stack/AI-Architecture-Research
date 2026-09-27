@@ -1,0 +1,642 @@
+[
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 1,
+  "avg_loss": 0.5532612583618371,
+  "admissions": 8,
+  "spurious": 0,
+  "det_delay_median": 1274.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 1,
+  "avg_loss": 0.5549557647492779,
+  "admissions": 29,
+  "spurious": 0,
+  "det_delay_median": 676.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 2,
+  "avg_loss": 0.5738163897391491,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 733.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 2,
+  "avg_loss": 0.5868391881245785,
+  "admissions": 46,
+  "spurious": 0,
+  "det_delay_median": 600.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 3,
+  "avg_loss": 0.5377983862147424,
+  "admissions": 8,
+  "spurious": 0,
+  "det_delay_median": 934.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 3,
+  "avg_loss": 0.5473724135148794,
+  "admissions": 38,
+  "spurious": 3,
+  "det_delay_median": 715.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 4,
+  "avg_loss": 0.5369697419991222,
+  "admissions": 9,
+  "spurious": 0,
+  "det_delay_median": 814.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 4,
+  "avg_loss": 0.5388564334895976,
+  "admissions": 31,
+  "spurious": 2,
+  "det_delay_median": 751.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 5,
+  "avg_loss": 0.5724110105456617,
+  "admissions": 10,
+  "spurious": 0,
+  "det_delay_median": 1277.0,
+  "det_missed": 1
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 5,
+  "avg_loss": 0.5826559474470633,
+  "admissions": 41,
+  "spurious": 2,
+  "det_delay_median": 700.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 6,
+  "avg_loss": 0.5707177360890814,
+  "admissions": 9,
+  "spurious": 0,
+  "det_delay_median": 694.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 6,
+  "avg_loss": 0.5710567947266203,
+  "admissions": 26,
+  "spurious": 3,
+  "det_delay_median": 600.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 7,
+  "avg_loss": 0.552734994881492,
+  "admissions": 8,
+  "spurious": 0,
+  "det_delay_median": 973.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 7,
+  "avg_loss": 0.5581453667104989,
+  "admissions": 32,
+  "spurious": 3,
+  "det_delay_median": 800.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "CSL",
+  "seed": 8,
+  "avg_loss": 0.5545575802947796,
+  "admissions": 9,
+  "spurious": 0,
+  "det_delay_median": 1249.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "residual",
+  "policy": "HW",
+  "seed": 8,
+  "avg_loss": 0.5619810012728482,
+  "admissions": 31,
+  "spurious": 1,
+  "det_delay_median": 1108.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 1,
+  "avg_loss": 0.5511989373267197,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 909.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 1,
+  "avg_loss": 0.5503069462691563,
+  "admissions": 20,
+  "spurious": 3,
+  "det_delay_median": 646.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 2,
+  "avg_loss": 0.5733853681521769,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 800.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 2,
+  "avg_loss": 0.5789656640570593,
+  "admissions": 28,
+  "spurious": 1,
+  "det_delay_median": 564.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 3,
+  "avg_loss": 0.533781112439566,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 721.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 3,
+  "avg_loss": 0.5410580102236933,
+  "admissions": 29,
+  "spurious": 2,
+  "det_delay_median": 550.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 4,
+  "avg_loss": 0.5318093143070094,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 763.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 4,
+  "avg_loss": 0.5312348787323569,
+  "admissions": 16,
+  "spurious": 1,
+  "det_delay_median": 597.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 5,
+  "avg_loss": 0.5698676119154645,
+  "admissions": 6,
+  "spurious": 0,
+  "det_delay_median": 685.5,
+  "det_missed": 1
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 5,
+  "avg_loss": 0.5754477005172137,
+  "admissions": 27,
+  "spurious": 3,
+  "det_delay_median": 650.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 6,
+  "avg_loss": 0.5664347595632933,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 626.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 6,
+  "avg_loss": 0.568235455291238,
+  "admissions": 23,
+  "spurious": 2,
+  "det_delay_median": 600.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 7,
+  "avg_loss": 0.5484121876204617,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 644.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 7,
+  "avg_loss": 0.5516638382750718,
+  "admissions": 22,
+  "spurious": 3,
+  "det_delay_median": 650.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "CSL",
+  "seed": 8,
+  "avg_loss": 0.5475566113664493,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 570.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "good",
+  "policy": "HW",
+  "seed": 8,
+  "avg_loss": 0.5543120182208612,
+  "admissions": 26,
+  "spurious": 2,
+  "det_delay_median": 600.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 1,
+  "avg_loss": 0.6009870972028691,
+  "admissions": 9,
+  "spurious": 0,
+  "det_delay_median": 3699.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 1,
+  "avg_loss": 0.6226202692634336,
+  "admissions": 48,
+  "spurious": 8,
+  "det_delay_median": 2198.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 2,
+  "avg_loss": 0.617420804936464,
+  "admissions": 8,
+  "spurious": 0,
+  "det_delay_median": 1595.0,
+  "det_missed": 3
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 2,
+  "avg_loss": 0.6467889905087263,
+  "admissions": 45,
+  "spurious": 6,
+  "det_delay_median": 1268.0,
+  "det_missed": 3
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 3,
+  "avg_loss": 0.570643546335947,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 430.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 3,
+  "avg_loss": 0.572288088323274,
+  "admissions": 29,
+  "spurious": 4,
+  "det_delay_median": 600.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 4,
+  "avg_loss": 0.5955709495020665,
+  "admissions": 8,
+  "spurious": 0,
+  "det_delay_median": 1514.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 4,
+  "avg_loss": 0.6161719350118391,
+  "admissions": 47,
+  "spurious": 0,
+  "det_delay_median": 1750.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 5,
+  "avg_loss": 0.6211980708683096,
+  "admissions": 10,
+  "spurious": 0,
+  "det_delay_median": 3832.0,
+  "det_missed": 5
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 5,
+  "avg_loss": 0.6289620404928096,
+  "admissions": 35,
+  "spurious": 6,
+  "det_delay_median": 1900.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 6,
+  "avg_loss": 0.6119312199528768,
+  "admissions": 11,
+  "spurious": 0,
+  "det_delay_median": 1069.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 6,
+  "avg_loss": 0.6297643847036282,
+  "admissions": 54,
+  "spurious": 7,
+  "det_delay_median": 850.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 7,
+  "avg_loss": 0.6002418688537973,
+  "admissions": 8,
+  "spurious": 0,
+  "det_delay_median": 2358.5,
+  "det_missed": 5
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 7,
+  "avg_loss": 0.6115785037898555,
+  "admissions": 39,
+  "spurious": 3,
+  "det_delay_median": 3983.0,
+  "det_missed": 3
+ },
+ {
+  "proposer": "random",
+  "policy": "CSL",
+  "seed": 8,
+  "avg_loss": 0.6143807392836634,
+  "admissions": 10,
+  "spurious": 0,
+  "det_delay_median": 4865.0,
+  "det_missed": 6
+ },
+ {
+  "proposer": "random",
+  "policy": "HW",
+  "seed": 8,
+  "avg_loss": 0.6376990497392049,
+  "admissions": 59,
+  "spurious": 3,
+  "det_delay_median": 7000.0,
+  "det_missed": 4
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 1,
+  "avg_loss": 0.5590067217205255,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 1792.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 1,
+  "avg_loss": 0.5642570134315608,
+  "admissions": 18,
+  "spurious": 3,
+  "det_delay_median": 1295.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 2,
+  "avg_loss": 0.5878206742858433,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 2322.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 2,
+  "avg_loss": 0.5992713991973168,
+  "admissions": 24,
+  "spurious": 7,
+  "det_delay_median": 1750.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 3,
+  "avg_loss": 0.5417403355566797,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 1117.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 3,
+  "avg_loss": 0.5472730117107745,
+  "admissions": 24,
+  "spurious": 3,
+  "det_delay_median": 950.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 4,
+  "avg_loss": 0.5421344724190738,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 1514.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 4,
+  "avg_loss": 0.5368429478132419,
+  "admissions": 14,
+  "spurious": 4,
+  "det_delay_median": 850.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 5,
+  "avg_loss": 0.5796181139925427,
+  "admissions": 6,
+  "spurious": 0,
+  "det_delay_median": 1438.0,
+  "det_missed": 1
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 5,
+  "avg_loss": 0.5955184035346756,
+  "admissions": 31,
+  "spurious": 8,
+  "det_delay_median": 1150.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 6,
+  "avg_loss": 0.5880945996556473,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 2443.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 6,
+  "avg_loss": 0.5935696007004396,
+  "admissions": 16,
+  "spurious": 2,
+  "det_delay_median": 2300.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 7,
+  "avg_loss": 0.5566656264207286,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 696.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 7,
+  "avg_loss": 0.5597539813552734,
+  "admissions": 20,
+  "spurious": 3,
+  "det_delay_median": 700.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "CSL",
+  "seed": 8,
+  "avg_loss": 0.55878006253672,
+  "admissions": 7,
+  "spurious": 0,
+  "det_delay_median": 1143.0,
+  "det_missed": 0
+ },
+ {
+  "proposer": "adversarial",
+  "policy": "HW",
+  "seed": 8,
+  "avg_loss": 0.5692573328241153,
+  "admissions": 25,
+  "spurious": 5,
+  "det_delay_median": 1007.0,
+  "det_missed": 0
+ }
+]

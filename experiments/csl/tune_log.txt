@@ -1,0 +1,17 @@
+tuning done 127.74987435340881
+HW {'propose_k': 1, 'tau_a': 0.01, 'tau_r': 0.0} loss 0.5556 spur 3.00
+HW {'propose_k': 1, 'tau_a': 0.005, 'tau_r': 0.0} loss 0.5556 spur 41.33
+HW {'propose_k': 1, 'tau_a': 0.01, 'tau_r': 0.001} loss 0.5560 spur 3.00
+HW {'propose_k': 1, 'tau_a': 0.005, 'tau_r': 0.001} loss 0.5580 spur 34.33
+HW {'propose_k': 1, 'tau_a': 0.02, 'tau_r': 0.0} loss 0.5589 spur 0.00
+HW {'propose_k': 1, 'tau_a': 0.02, 'tau_r': 0.001} loss 0.5589 spur 0.00
+HW worst {'propose_k': 1, 'tau_a': 0.002, 'tau_r': 0.003} 0.5635
+L1 {'l1': 0.005, 'lr': 0.002} loss 0.5786 spur 0.52
+L1 {'l1': 0.001, 'lr': 0.002} loss 0.5788 spur 0.80
+L1 {'l1': 0.0001, 'lr': 0.002} loss 0.5809 spur 0.88
+L1 {'l1': 0.001, 'lr': 0.0005} loss 0.5885 spur 0.09
+L1 {'l1': 0.0001, 'lr': 0.0005} loss 0.5887 spur 0.09
+L1 {'l1': 0.005, 'lr': 0.0005} loss 0.5930 spur 0.09
+L1 worst {'l1': 0.0001, 'lr': 0.008} 0.6455
+tuned: {'HW': {'tau_a': 0.01, 'tau_r': 0.0}, 'L1': {'l1': 0.005, 'lr': 0.002}}
+EXIT 0

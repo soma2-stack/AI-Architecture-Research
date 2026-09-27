@@ -1,0 +1,92 @@
+[
+ {
+  "kind": "search",
+  "seed": 1,
+  "acc": {
+   "depth2_train": 1.0,
+   "depth2_heldout": 1.0,
+   "depth3": 1.0,
+   "depth4": 1.0,
+   "new_prim": 0.95
+  },
+  "secs": 0.5
+ },
+ {
+  "kind": "tf",
+  "seed": 1,
+  "steps": 6000,
+  "acc": {
+   "depth2_train": 0.0,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0,
+   "new_prim": 0.0
+  },
+  "secs": 3617.9
+ },
+ {
+  "kind": "tf",
+  "seed": 2,
+  "steps": 6000,
+  "acc": {
+   "depth2_train": 0.0,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0,
+   "new_prim": 0.0
+  },
+  "secs": 3615.6
+ },
+ {
+  "kind": "tf",
+  "seed": 3,
+  "steps": 6000,
+  "acc": {
+   "depth2_train": 0.1599999964237213,
+   "depth2_heldout": 0.006666666828095913,
+   "depth3": 0.0033333334140479565,
+   "depth4": 0.0,
+   "new_prim": 0.0
+  },
+  "secs": 3618.3
+ },
+ {
+  "kind": "gru",
+  "seed": 1,
+  "steps": 6000,
+  "acc": {
+   "depth2_train": 0.0,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0,
+   "new_prim": 0.0
+  },
+  "secs": 2872.8
+ },
+ {
+  "kind": "gru",
+  "seed": 2,
+  "steps": 6000,
+  "acc": {
+   "depth2_train": 0.0,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0,
+   "new_prim": 0.0
+  },
+  "secs": 2865.7
+ },
+ {
+  "kind": "gru",
+  "seed": 3,
+  "steps": 6000,
+  "acc": {
+   "depth2_train": 0.0,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0,
+   "new_prim": 0.0
+  },
+  "secs": 2868.4
+ }
+]

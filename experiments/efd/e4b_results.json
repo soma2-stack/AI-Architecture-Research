@@ -1,0 +1,53 @@
+[
+ {
+  "kind": "search",
+  "seed": 1,
+  "acc": {
+   "depth2_train": 1.0,
+   "depth2_heldout": 1.0,
+   "depth3": 1.0,
+   "depth4": 1.0,
+   "new_prim": 0.9933333333333333
+  },
+  "secs": 0.3
+ },
+ {
+  "kind": "tf",
+  "seed": 1,
+  "steps": 20000,
+  "acc": {
+   "depth2_train": 0.046666666865348816,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0,
+   "new_prim": 0.0
+  },
+  "secs": 2620.3
+ },
+ {
+  "kind": "tf",
+  "seed": 2,
+  "steps": 20000,
+  "acc": {
+   "depth2_train": 0.07333333045244217,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0033333334140479565,
+   "new_prim": 0.0
+  },
+  "secs": 2618.7
+ },
+ {
+  "kind": "tf",
+  "seed": 3,
+  "steps": 20000,
+  "acc": {
+   "depth2_train": 0.006666666828095913,
+   "depth2_heldout": 0.0,
+   "depth3": 0.0,
+   "depth4": 0.0,
+   "new_prim": 0.0033333334140479565
+  },
+  "secs": 2620.0
+ }
+]
