@@ -127,3 +127,28 @@ def score_suffixes_batched(model, cache, plen, suffixes, cand_ids, B=16):
         out = model(input_ids=torch.tensor(chunk), past_key_values=c, use_cache=True)
         res.append(out.logits[:, -1][:, cand_ids].float().numpy())
     return np.concatenate(res)
+
+
+def csp_count(n, demos, cap=10000):
+    """backtracking count of bijections pi (symbol -> number) with (pi[i] + pi[j]) % n == pi[k] for all demos."""
+    order = sorted(range(n), key=lambda s: -sum(s in d for d in demos))
+    assign = [-1] * n; used = [False] * n; cnt = [0]
+    def ok():
+        for i, j, k in demos:
+            a, b, c = assign[i], assign[j], assign[k]
+            if a >= 0 and b >= 0:
+                t = (a + b) % n
+                if c >= 0 and c != t: return False
+                if c < 0 and used[t]: return False
+        return True
+    def rec(p):
+        if cnt[0] >= cap: return
+        if p == n: cnt[0] += 1; return
+        s = order[p]
+        for v in range(n):
+            if used[v]: continue
+            assign[s] = v; used[v] = True
+            if ok(): rec(p + 1)
+            assign[s] = -1; used[v] = False
+    rec(0)
+    return cnt[0]

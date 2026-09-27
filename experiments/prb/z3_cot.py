@@ -98,7 +98,7 @@ def episode(n, seed, m, think=True):
     unseen = [p for p in pairs if p not in dset]
     queries = [unseen[q] for q in rng.choice(len(unseen), 4, replace=False)]
     truth = [T_inv(pi, i, j, n) for i, j in queries]
-    rec = dict(n=n, seed=seed, m=m, syms=syms, pi=pi, csp_n_solutions=len(P.csp_consistent(n, demos)))
+    rec = dict(n=n, seed=seed, m=m, syms=syms, pi=pi, csp_n_solutions=P.csp_count(n, demos))
     for cond in ["direct_map", "direct_told", "cot_map", "cot_told"]:
         ok, used, apps = gpu_ok()
         if not ok:

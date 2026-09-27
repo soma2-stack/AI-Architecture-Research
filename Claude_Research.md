@@ -8,14 +8,16 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-27, session 5
+# Resume Pointer (read this first in a new session) — updated 2026-09-27, session 6
 
-- **Current stage (session 5):** the Hypothesis-Family Discovery phase (Part Y) is complete. Result: *hypothesis-family discovery reduces to existing learning/search methods or identification limits* (Y.5); no mechanism survives. See the status block "Hypothesis-Family Discovery Status".
+- **Current stage (session 6):** the Pretrained Structural Rebinding phase (Part Z) is complete: **Outcome C — pretraining reduces but does not eliminate the E2/Y.4 failure; explicit discrete search removes it** (Z.5). No further tests were run after the user's "no more test" instruction.
+- **Earlier stages:**
+  - Session 5: hypothesis-family discovery reduces to existing methods or identification limits (Part Y).
 - **Earlier stages:**
   - Session 4: experiment-first phase (Part X), outcome (2) — tested failure classes are handled by known machinery.
   - Session 3: CSL closed at CPU scale, novelty low; rounds 7–8 found no survivors.
 - **Lead candidate:** N02 **Certified Structural Learning (CSL)** — a lifecycle *learning mechanism* for architectures that grow and prune parts. It is **not** a new model class and **not** a new mechanism: every property of its narrowest claim is published (G.3). It remains "lead" only because nothing else survived.
-- **Experiments completed:** H.1–H.1t, H.2, H.4; Part X diagnostics E1–E8 with E1b, E3b, E4b, E5b; Part Y experiments Y.4, Y.4b, Y.4c (all CPU-only; GPU never used). **Running:** none.
+- **Experiments completed:** H.1–H.1t, H.2, H.4; Part X E1–E8 (+E1b, E3b, E4b, E5b); Part Y Y.4, Y.4b, Y.4c; Part Z Z.2, Z.3 (n = 5, 7, 9), Z.4 (n = 7). Everything is CPU-only except the Ollama thinking runs (GPU, ≈ 4.5 GB). **Running:** the Z.4 m = 20 seeds 1–3 job, left to finish on its own.
 - **Strongest negative results:**
   - H.1d/H.1m: a dense MLP beats CSL on smooth regression and on adaptation.
   - H.1e/H.1o: in LawWorld, fit-all-then-prune beats CSL on loss, and a representation-matched control erased CSL's apparent win.
@@ -47,17 +49,16 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 # Pretrained Structural Rebinding Status (session 6 — read first)
 
-- **Environment / models:** no installs or downloads. Qwen3-VL-4B-Instruct (HF cache; text-only, fp32, CPU) and qwen3.5:4b (existing Ollama server). Ollama runs on the GPU only for thinking-mode runs: ≈ 4.5 GB, checked before every condition, no other GPU compute process.
+- **Environment / models:** no local installs or downloads. Qwen3-VL-4B-Instruct (HF cache; text-only, fp32, CPU) and qwen3.5:4b (existing Ollama server; GPU used only for thinking runs, ≈ 4.5 GB, checked before every condition).
 - **Exact research question:** do pretrained LMs adapt to a one-to-one relabelling of a known rule (addition mod n) *without recovering the correspondence*, as the toy networks did in E2/Y.4?
-- **Model(s) tested:** Qwen3-VL-4B-Instruct (single-pass in-context, Z.2; gradient embedding adaptation, Z.4); qwen3.5:4b (direct vs thinking, Z.3).
-- **Strongest measured result so far:**
-  - Single pass: fits the demonstrations (84–97%) but unseen accuracy stays near chance (0.18–0.29, chance 0.14) — the E2 signature. But single-pass execution fails even with the code given (0.16–0.24), so it is execution-bound.
-  - With thinking, qwen3.5:4b recovers the code (correct up to automorphism, consistent with every demonstration) and answers from it: 4/4 on n = 5 pilots.
-  - Gradient: free embedding rows fit 100% and generalize at 0.07 with the wrong mapping (E2 reproduced); a Sinkhorn assignment over existing digit rows recovered the exact mapping (1 pilot).
-- **Was the true structure recovered?** By reasoning (thinking) and by constrained assignment: yes, in the pilots. By single pass and by free gradient: no.
-- **Discrete-search comparison:** CSP and model-as-scorer search are 100% in every episode (the correspondence is identified up to the 6 automorphisms of ℤ₇ from m = 10).
-- **Current interpretation (provisional):** Outcome C — mixed. The failure survives in single-pass and free-gradient adaptation; explicit discrete search (in chain of thought, or by constraining adaptation to bindings onto existing concepts) removes it.
-- **Exact next action:** finish the Z.3 grid (n = 7) and the Z.4 grid (n = 7, 4 seeds × 3 coverages); then synthesize.
+- **Model(s) tested:** Qwen3-VL-4B-Instruct (single-pass in-context, Z.2; gradient embedding adaptation, Z.4); qwen3.5:4b (direct vs thinking, Z.3; n = 5, 7, 9).
+- **Strongest measured result:**
+  - Free-embedding gradient adaptation reproduces E2 at scale: 100% training fit, 0.02–0.10 on unseen pairs, mapping never recovered (0/9).
+  - Thinking mode recovers the exact correspondence in 14/16 episodes (2 truncations).
+- **Was the true structure recovered?** Single pass: no. Free gradient: no. Relaxed assignment onto existing concepts: 5/9. Reasoning mode: yes (14/16).
+- **Discrete-search comparison:** CSP and model-as-scorer search are 100% in every episode.
+- **Current interpretation:** **Outcome C — pretraining reduces but does not eliminate the failure** (Z.5). Explicit discrete hypothesis search removes it. No new architecture is proposed.
+- **Exact next action:** none. Further tests were stopped at the user's request ("no more test"). The prepared-but-unrun follow-ups are the Z.4c Latin-square control and n = 11/13 thinking probes. The running Z.4 job (m = 20, seeds 1–3) finishes on its own.
 
 ---
 
@@ -1978,6 +1979,75 @@ With these, the pilot (n = 5, m = 12, 4 consistent codes) gives:
 - Thinking-mode token use: 11–19k per condition.
 - Summary: **10/12 thinking runs with a secret code recovered the correspondence exactly** (up to automorphism) and answered all 4 unseen queries from it. The 2 misses were truncations, not wrong answers.
 - Without thinking, the same model neither states a code consistent with the demos (6–18% of demos satisfied) nor executes a given code (its answers follow its own restated code only 25–58% of the time).
+
+**n = 9 scaling probe (VERIFIED;** 4 episodes, m ∈ {25, 45} of 81, 6 consistent codes = automorphisms of ℤ₉):
+- **Thinking, code secret:** 4/4 correct; code correct up to automorphism and consistent with all demos; 13–14k tokens.
+- **Thinking, code given:** 3/4 (one run hit the token limit).
+- **Direct, either condition:** 0.00–0.12.
+
+No breakdown of reasoning-based rebinding was found up to n = 9. **Overall, thinking with a secret code: 14/16 episodes (n = 5, 7, 9) recovered the correspondence exactly and answered every query from it; the 2 misses were truncations.**
+
+## Z.4 Gradient (embedding-level) adaptation — Qwen3-VL-4B, fp32 CPU — code `experiments/prb/z4_grad.py` (VERIFIED EXPERIMENT)
+
+**Setup:**
+- Compact format `a+b=c`, one token per operand.
+- Frozen prefix: instruction plus 5 digit examples; the digit-interface accuracy with this prefix is 1.00 in every episode.
+- Only the 7 symbol-token embedding rows are adapted. They are tied, so the same rows serve as input embeddings and output unembeddings; the tied-logit computation was verified against the model to within 10⁻⁵.
+- 100 Adam steps on the m demonstrated lines.
+- Two variants:
+  - **free** — rows = pretrained rows + trained offset, the E2 "ft_embed_tied" analogue;
+  - **Sinkhorn** — rows = Sinkhorn(S/τ) · (digit rows), a relaxed assignment onto existing concepts, annealed and hardened by the Hungarian algorithm; the E2/Y.4b relaxation analogue.
+- n = 7; m ∈ {10, 20, 35}.
+
+**Result (9 episodes finished when this was written; the m = 20 seeds 1–3 run was still finishing):**
+
+| m | free: training / unseen accuracy | free: mapping recovered? | Sinkhorn: training / unseen accuracy | Sinkhorn: exact recovery | exact search (CSP; model-as-scorer) |
+|---|---|---|---|---|---|
+| 10 | **1.00 / 0.10** (per episode 0.10, 0.05, 0.21, 0.03) | map score 0.29; bijection 0/4 | 0.45 / 0.40 | 1/4 | 1.00 |
+| 20 | **1.00 / 0.07** | 0.29; 0/1 | 1.00 / 1.00 | 1/1 | 1.00 |
+| 35 | **1.00 / 0.02** (0.00, 0.07, 0.00, 0.00) | 0.36; 0/4 | 0.79 / 0.80 | 3/4 | 1.00 |
+
+**What this shows (VERIFIED):**
+- **Free embedding adaptation reproduces E2 exactly in the pretrained model:**
+  - it fits every demonstrated line (100%) and generalizes at or below chance (0.02–0.10; chance 0.14);
+  - the learned rows are not nearest to the digits they denote, and the implied mapping is never a bijection (0/9);
+  - more demonstrations do not help (m = 35: 0.02).
+- **The relaxed assignment onto existing concepts often recovers the exact correspondence** (5/9 episodes, rising with coverage).
+  - This **differs from toy Y.4b** (0/125).
+  - Its failures are *wrong but perfectly coherent* permutations (coherence 1.00 in every run): a local optimum of the discrete family, not an off-manifold fit.
+
+## Z.5 Synthesis — does the E2/Y.4 failure survive pretraining and scale?
+
+**Result: Outcome C (mixed) — pretraining reduces but does not eliminate the failure. What decides the outcome is whether discrete hypothesis search is part of the computation.**
+
+| Mode (models) | Fits the given examples? | Unseen combinations | True correspondence recovered? | Verdict |
+|---|---|---|---|---|
+| Single forward pass, in context (Qwen3-VL-4B; qwen3.5:4b direct) | yes (84–97% demo fit) | near chance (0.00–0.29) | no — mapping probe never a bijection; stated codes consistent with only 6–18% of demos | **E2 signature present, but execution-bound**: even with the code given, single-pass accuracy is 0.00–0.58 |
+| Reasoning / thinking, in context (qwen3.5:4b) | yes | 1.00 when finished | **yes: 14/16 episodes, n = 5–9**, code correct up to automorphism and consistent with all demos | **failure removed**; the trace shows explicit discrete search (identity detection, enumeration of consistent codes, verification) |
+| Gradient, free embedding rows (Qwen3-VL-4B) | yes (100%) | 0.02–0.10 | no (0/9 bijective) | **E2 reproduced at scale** |
+| Gradient, relaxed assignment onto existing concepts (Qwen3-VL-4B) | mostly | 0.40–1.00 | 5/9 exactly; failures are coherent wrong permutations | **failure largely removed; residual local optima** |
+| Exact discrete search (CSP; search scored by the model itself) | yes | 1.00 | yes, in every episode | control |
+
+**Separating the claims:**
+
+- **VERIFIED EXPERIMENT:** the table above. The correspondence was identifiable in every episode (the consistent bijections are exactly the automorphisms of ℤₙ). The pretrained model *knows* the rule: the digit interface scores 1.00, and the model's own log-probabilities, used as a scorer inside discrete search, recover the mapping every time.
+- **INTERPRETATION:**
+  - The toy-network phenomenon is **not** a small-model artifact. It persists in a 4B pretrained model whenever adaptation is unconstrained and continuous (free embeddings) or confined to one forward pass.
+  - It disappears when the process commits to discrete hypotheses — either serially in reasoning text (the thinking model searches over codes) or by restricting adaptation to bindings onto existing concepts.
+  - This matches the Part X/Y conclusion: the operation that works is discrete structure search, and it already exists — in classical solvers, and apparently in trained reasoning behaviour.
+  - Why Y.4b's relaxation always failed but Z.4's often succeeds is **not established**. The candidate explanation — addition gives a graded landscape where partial assignments score partially, whereas a random Latin square does not — was to be tested by the prepared Z.4c Latin-square control, **which was not run** (see protocol notes).
+- **PRIOR ART:** prompt waywardness (Khashabi et al. 2022) for off-manifold continuous adaptation; reasoning shortcuts (Marconato et al. 2023); in-context algebra (Todd et al., ICLR 2026) — transformers trained on variable binding learn symbolic in-context mechanisms; integrality gaps of relaxed assignment problems; reasoning-model search behaviour on cryptarithm-like puzzles.
+- **SPECULATION:** non-reasoning adaptation lacks a "commit to a binding and test it" step; reasoning models supply it serially in text. This is **not** a new-architecture claim. The appropriate fixes — reasoning-time search, constrained assignment with restarts, and exact search with the model as scorer — are all known structured-inference methods.
+
+**Protocol problems and limits (disclosed):**
+- **Single-pass confound:** single-pass conditions are execution-bound, so they cannot on their own isolate binding inference.
+- **Protocol changes during Z.3 piloting:** an ambiguity clarification, "answers must be symbols", and a switch from greedy to Qwen's recommended sampling after greedy decoding looped. The pilot run under the old protocol is excluded from the grid.
+- **Coverage:** only one model family was tested (Qwen); episode counts are small (16 thinking episodes, 9–12 gradient episodes).
+- **Truncations:** 2 thinking runs and 1 code-given run hit the 22k-token limit.
+- **Z.4 was still running** when this was written (m = 20, seeds 1–3); its results will be in `z4_n7.jsonl` but are not in the table above.
+- **Not run, per the user's instruction "no more test":** the Z.4c Latin-square control (`z4c_latin.py`, prepared) and the n = 11/13 thinking probes (backtracking CSP counter prepared in `prb_common.py`).
+
+**Final answer to the Part Z question:** *pretraining reduces but does not eliminate the toy failure.* The failure — fitting examples without recovering an identifiable discrete correspondence — survives in single-pass and free continuous adaptation of a 4B pretrained model. Explicit discrete search removes it: the model's own reasoning mode, constrained assignment, or exact search with the model as scorer. **No new architecture is proposed.**
 
 ---
 
