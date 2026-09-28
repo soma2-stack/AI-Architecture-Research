@@ -840,8 +840,106 @@
    "wall_seconds": 0.0,
    "note": "v8 Stage-2 confirmation funnel on stage2_v8 (42 elites, seeds 6000-6007)",
    "utc": "2026-09-28T17:59:30Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_smoke",
+   "cpu_seconds": 10.867,
+   "wall_seconds": 7.776,
+   "note": "dev smoke test on dev seed 9001 (not an official seed) (rc=0): python3 /tmp/claude-0/-home-user-AI-Architecture-Research/1354bf78-6234-5a44-b842-5f9630ec16a2/scratchpad/dev_smoke.py",
+   "utc": "2026-09-28T21:18:49Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_tests",
+   "cpu_seconds": 9.382,
+   "wall_seconds": 11.681,
+   "note": "pilot unit tests (dev/oracle only) (rc=1): python3 -m pytest -x",
+   "utc": "2026-09-28T21:26:25Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_debug",
+   "cpu_seconds": 1.982,
+   "wall_seconds": 1.23,
+   "note": "debug LFU oracle extraction (synthetic) (rc=1): python3 /tmp/claude-0/-home-user-AI-Architecture-Research/1354bf78-6234-5a44-b842-5f9630ec16a2/scratchpad/dbg_lfu.py",
+   "utc": "2026-09-28T21:26:34Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_debug",
+   "cpu_seconds": 2.659,
+   "wall_seconds": 1.9,
+   "note": "debug LFU oracle extraction (synthetic) (rc=0): python3 /tmp/claude-0/-home-user-AI-Architecture-Research/1354bf78-6234-5a44-b842-5f9630ec16a2/scratchpad/dbg_lfu.py",
+   "utc": "2026-09-28T21:26:41Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_debug",
+   "cpu_seconds": 2.638,
+   "wall_seconds": 1.884,
+   "note": "debug LFU oracle extraction (synthetic) (rc=0): python3 /tmp/claude-0/-home-user-AI-Architecture-Research/1354bf78-6234-5a44-b842-5f9630ec16a2/scratchpad/dbg_lfu.py",
+   "utc": "2026-09-28T21:26:48Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_debug",
+   "cpu_seconds": 2.677,
+   "wall_seconds": 1.913,
+   "note": "debug LFU oracle extraction after soft-prior fix (synthetic) (rc=0): python3 /tmp/claude-0/-home-user-AI-Architecture-Research/1354bf78-6234-5a44-b842-5f9630ec16a2/scratchpad/dbg_lfu.py",
+   "utc": "2026-09-28T21:27:53Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_tests",
+   "cpu_seconds": 10.962,
+   "wall_seconds": 8.29,
+   "note": "pilot unit tests (dev/oracle only) (rc=0): python3 -m pytest",
+   "utc": "2026-09-28T21:28:05Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_tests",
+   "cpu_seconds": 10.644,
+   "wall_seconds": 7.959,
+   "note": "pilot unit tests (dev/oracle only) (rc=0): python3 -m pytest",
+   "utc": "2026-09-28T21:29:07Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_phaseA_train",
+   "cpu_seconds": 15.462,
+   "wall_seconds": 11.639,
+   "note": "train 12 controllers + held-out imitation gate",
+   "utc": "2026-09-28T21:29:30Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_phaseA_blind",
+   "cpu_seconds": 1.961,
+   "wall_seconds": 1.301,
+   "note": "closed-loop rollouts on training streams for blinded extraction",
+   "utc": "2026-09-28T21:29:32Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_phaseA_extract",
+   "cpu_seconds": 5.414,
+   "wall_seconds": 5.319,
+   "note": "blinded quotient extraction of 12 controllers",
+   "utc": "2026-09-28T21:29:38Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_phaseA_judge",
+   "cpu_seconds": 0.907,
+   "wall_seconds": 0.814,
+   "note": "unblind and judge extractions",
+   "utc": "2026-09-28T21:29:39Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_phaseB",
+   "cpu_seconds": 0.13,
+   "wall_seconds": 0.127,
+   "note": "causal intervention gate [ended with FileNotFoundError]",
+   "utc": "2026-09-28T21:29:40Z"
+  },
+  {
+   "stage": "omd_pilot1_dev_debug",
+   "cpu_seconds": 5.818,
+   "wall_seconds": 3.235,
+   "note": "dev interface check of Phase B/C with an untrained neural controller (rc=0): python3 /tmp/claude-0/-home-user-AI-Architecture-Research/1354bf78-6234-5a44-b842-5f9630ec16a2/scratchpad/dev_bc.py",
+   "utc": "2026-09-28T21:29:58Z"
   }
  ],
- "total_cpu_seconds": 18458.528,
- "total_cpu_hours": 5.12737
+ "total_cpu_seconds": 18540.031,
+ "total_cpu_hours": 5.15001
 }
