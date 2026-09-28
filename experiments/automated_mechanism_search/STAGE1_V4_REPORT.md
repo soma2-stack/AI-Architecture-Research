@@ -9,7 +9,7 @@
 - Results:
   - `runs/stage1_v4/stage1_result.json` (all gates, summaries, learning-rate tables);
   - `runs/stage1_v4/raw_runs.json`;
-  - `runs/stage1_v4/manifest.json` (git at start `0fb4be1`, clean).
+  - `runs/stage1_v4/manifest.json` (git at start `0fb4be1`). **Erratum (session 16):** the manifest records `dirty_excluding_runs: true`. The only uncommitted file was `config/run_config_v4.json`, which the script itself writes before capturing git state; all code was committed.
 - The v3 evidence in `runs/stage1/` is untouched.
 
 ## Gate results

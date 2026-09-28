@@ -4365,7 +4365,7 @@ Implementation:
 
 ## AH.2 Results
 
-**Verified.** Seeds 100–104; manifest git `0fb4be1`, clean.
+**Verified.** Seeds 100–104; manifest git `0fb4be1`. *Erratum (session 16):* the manifest's `dirty_excluding_runs: true` comes only from the run configuration file that the script writes at start; the code was committed.
 
 | Gate | Outcome |
 |---|---|

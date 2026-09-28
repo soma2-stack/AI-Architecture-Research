@@ -35,6 +35,13 @@ class BudgetExhausted(Exception):
     pass
 
 
+class StopSearch(Exception):
+    """Frozen stop condition other than a budget (CPU cap, repeated implementation defects)."""
+
+
+MAX_DEFECTS = 5
+
+
 @dataclass
 class Record:
     pid: str
@@ -51,7 +58,7 @@ class Record:
     tier1: Optional[dict] = None
 
     def to_json(self) -> str:
-        d = dict(self.__dict__)
+        d = {k: v for k, v in self.__dict__.items() if k != "raw_program"}
         return json.dumps(d, default=lambda o: o.tolist() if hasattr(o, "tolist") else str(o))
 
 
@@ -70,7 +77,7 @@ class Pipeline:
         self.counts = {"generated": 0, "invalid": 0, "dup_syntactic": 0, "dup_behavioral": 0,
                        "probe_nonfinite": 0, "pure_rule": 0, "no_signal": 0, "REDISCOVERY": 0,
                        "REDISCOVERY_inert": 0, "sanity_evaluated": 0, "sanity_fail": 0,
-                       "tier1_evaluated": 0, "tier1_unstable": 0, "tier1_error": 0}
+                       "tier1_evaluated": 0, "tier1_unstable": 0, "tier1_error": 0, "defect": 0}
         self.rediscovery_by_family: Dict[str, int] = {}
         self.archive: Dict[Tuple[int, int, int], Record] = {}
         self.records: List[Record] = []
@@ -85,6 +92,19 @@ class Pipeline:
         self.counts["generated"] += 1
         pid = f"P{self.counts['generated']:05d}"
         rawd = program_to_dict(raw)
+        try:
+            return self._try_add(raw, pid, rawd)
+        except (BudgetExhausted, StopSearch):
+            raise
+        except Exception as ex:                       # implementation defect (D-S2v4-2)
+            import traceback
+            self.counts["defect"] += 1
+            self._emit(Record(pid, rawd, "defect", detail={"error": repr(ex), "trace": traceback.format_exc()[-2000:]}))
+            if self.counts["defect"] > MAX_DEFECTS:
+                raise StopSearch(f"implementation defects > {MAX_DEFECTS}")
+            return None
+
+    def _try_add(self, raw: Program, pid: str, rawd: dict) -> Optional[Record]:
         code = valid(raw)
         if code is not None:
             self.counts["invalid"] += 1
@@ -198,18 +218,23 @@ def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[
                     continue
                 elites = list(pipe.archive.values())
                 A = rng.choice(elites)
+                child = None
                 for _ in range(MAX_RETRY):
                     if rng.random() < P_CROSS:
-                        child = gen.crossover(A.raw_program, rng.choice(elites).raw_program)
+                        cand = gen.crossover(A.raw_program, rng.choice(elites).raw_program)
                     else:
-                        child = gen.mutate(A.raw_program)
-                    if valid(child) is None:
+                        cand = gen.mutate(A.raw_program)
+                    if valid(cand) is None:
+                        child = cand
                         break
-                    pipe.counts["generated"] += 1          # invalid retries count as generated
-                    pipe.counts["invalid"] += 1
                     if pipe.counts["generated"] >= N_GEN_MAX:
                         raise BudgetExhausted("N_GEN_MAX")
-                pipe.try_add(child)
+                    pipe.counts["generated"] += 1          # invalid retries count as generated (AE.3.5)
+                    pipe.counts["invalid"] += 1
+                    pipe._emit(Record(f"P{pipe.counts['generated']:05d}", program_to_dict(cand), "invalid",
+                                      detail={"code": valid(cand), "retry_of": A.pid}))
+                if child is not None:                      # after 10 invalid retries: skipped
+                    pipe.try_add(child)
             new_cells = set(pipe.archive) - before_cells
             gain = max([pipe.archive[k].quality - before_q.get(k, -np.inf) for k in pipe.archive
                         if k in before_q] + [0.0])
@@ -220,7 +245,7 @@ def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[
             if stale >= PATIENCE:
                 return {"stop": "PATIENCE", "generations": stats}
         return {"stop": "G_MAX", "generations": stats}
-    except BudgetExhausted as e:
+    except (BudgetExhausted, StopSearch) as e:
         return {"stop": str(e), "generations": stats}
 
 

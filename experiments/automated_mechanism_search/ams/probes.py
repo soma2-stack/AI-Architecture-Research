@@ -132,10 +132,29 @@ def regeneration_check(path: str = CORPUS_PATH) -> Dict:
 class ProbeRunner:
     def __init__(self, corpus: Optional[List[Dict]] = None):
         self.corpus = corpus if corpus is not None else load_corpus()
+        self._cache: Dict[str, Dict[str, object]] = {}
+
+    def _compiled(self, p: Program) -> Dict[str, object]:
+        """Per-program compiled phases (performance only; D-S2v4-1)."""
+        from .grammar import serialize
+        key = serialize(p)
+        c = self._cache.get(key)
+        if c is None:
+            rt = p.reg_types()
+            fwd = [e for e in (p.w_eff, p.gain) if e is not None]
+            c = {"fwd": Compiled(fwd, rt) if fwd else None,
+                 "cvec": Compiled([p.cvec], rt) if p.cvec is not None else None,
+                 "state": Compiled(list(p.reg_updates), rt) if p.regs else None,
+                 "param": Compiled([p.dW, p.db], rt)}
+            if len(self._cache) > 256:
+                self._cache.clear()
+            self._cache[key] = c
+        return c
 
     def step(self, p: Program, q: Dict, slot_of: Optional[Dict[str, int]] = None):
         """One FORWARD + update of a single tanh layer on probe q (float64)."""
         rt = p.reg_types()
+        cc = self._compiled(p)
         dims = {I: PI, O: PO}
         if slot_of is None:
             slot_of = {r.name: k for k, r in enumerate(p.regs)}
@@ -148,7 +167,7 @@ class ProbeRunner:
             W_eff, g = q["W"], None
             fwd = [e for e in (p.w_eff, p.gain) if e is not None]
             if fwd:
-                outs = Compiled(fwd, rt)(env, 0, dims, np.float64)
+                outs = cc["fwd"](env, 0, dims, np.float64)
                 k = 0
                 if p.w_eff is not None:
                     W_eff = q["W"] + outs[0]
@@ -164,16 +183,16 @@ class ProbeRunner:
                         "d_fa": q["d_fa"], "e": q["e"], "L": q["L"], "dL": q["dL"],
                         "Lbar": q["Lbar"]})
             if p.cvec is not None:
-                env["cvec"] = Compiled([p.cvec], rt)(env, 0, dims, np.float64)[0]
+                env["cvec"] = cc["cvec"](env, 0, dims, np.float64)[0]
             new = dict(regs_old)
             if p.regs:
-                vs = Compiled(list(p.reg_updates), rt)(env, 0, dims, np.float64)
+                vs = cc["state"](env, 0, dims, np.float64)
                 for rd, v in zip(p.regs, vs):
                     new[rd.name] = np.clip(rd.decay * regs_old[rd.name] + (1 - rd.decay) * v,
                                            -REG_CLIP, REG_CLIP)
             for k, v in new.items():
                 env["reg:" + k] = v
-            dW, db = Compiled([p.dW, p.db], rt)(env, 0, dims, np.float64)
+            dW, db = cc["param"](env, 0, dims, np.float64)
             dW = np.broadcast_to(dW, (PO, PI))
             db = np.broadcast_to(db, (PO,))
         dr = {rd.name: np.broadcast_to(new[rd.name] - regs_old[rd.name], regs_old[rd.name].shape)
