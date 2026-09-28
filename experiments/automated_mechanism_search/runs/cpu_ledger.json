@@ -133,8 +133,351 @@
    "wall_seconds": 0.0,
    "note": "prereg v7 static validation (seed 70707, official, 3.04 CPU-s measured) plus one scratch dry run with non-official seed 71717 (conservative 3.5 CPU-s); structural only, no T0/probe/benchmark evaluation",
    "utc": "2026-09-28T13:56:28Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 5.076,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 Tier-1 baselines",
+   "utc": "2026-09-28T13:56:58Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 150.139,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #25",
+   "utc": "2026-09-28T13:58:39Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 125.871,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #50",
+   "utc": "2026-09-28T14:00:01Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 121.374,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #75",
+   "utc": "2026-09-28T14:01:20Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 113.098,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #100",
+   "utc": "2026-09-28T14:02:33Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 106.243,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #125",
+   "utc": "2026-09-28T14:03:35Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 114.832,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #150",
+   "utc": "2026-09-28T14:04:41Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 113.231,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #175",
+   "utc": "2026-09-28T14:05:46Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 120.776,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #200",
+   "utc": "2026-09-28T14:06:56Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 151.773,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #225",
+   "utc": "2026-09-28T14:08:23Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 159.017,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #250",
+   "utc": "2026-09-28T14:09:50Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 144.544,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #275",
+   "utc": "2026-09-28T14:11:10Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 142.403,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #300",
+   "utc": "2026-09-28T14:12:28Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 145.78,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #325",
+   "utc": "2026-09-28T14:13:51Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 157.011,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #350",
+   "utc": "2026-09-28T14:15:17Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 158.199,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #375",
+   "utc": "2026-09-28T14:16:47Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 180.249,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #400",
+   "utc": "2026-09-28T14:18:28Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 150.286,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #425",
+   "utc": "2026-09-28T14:19:53Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 167.329,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #450",
+   "utc": "2026-09-28T14:21:26Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 164.96,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #475",
+   "utc": "2026-09-28T14:22:58Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 155.649,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #500",
+   "utc": "2026-09-28T14:24:28Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 166.268,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #525",
+   "utc": "2026-09-28T14:26:03Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 173.605,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #550",
+   "utc": "2026-09-28T14:27:45Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 165.749,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #575",
+   "utc": "2026-09-28T14:29:21Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 164.536,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #600",
+   "utc": "2026-09-28T14:30:54Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 170.98,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #625",
+   "utc": "2026-09-28T14:32:32Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 186.625,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #650",
+   "utc": "2026-09-28T14:34:23Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 170.23,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #675",
+   "utc": "2026-09-28T14:36:03Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 184.248,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #700",
+   "utc": "2026-09-28T14:37:51Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 169.499,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #725",
+   "utc": "2026-09-28T14:39:28Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 171.63,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #750",
+   "utc": "2026-09-28T14:41:05Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 172.545,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #775",
+   "utc": "2026-09-28T14:42:44Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 183.498,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #800",
+   "utc": "2026-09-28T14:44:30Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 167.477,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #825",
+   "utc": "2026-09-28T14:46:08Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 165.039,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #850",
+   "utc": "2026-09-28T14:47:42Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 157.379,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #875",
+   "utc": "2026-09-28T14:49:14Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 169.524,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #900",
+   "utc": "2026-09-28T14:50:52Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 187.446,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #925",
+   "utc": "2026-09-28T14:52:41Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 176.586,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #950",
+   "utc": "2026-09-28T14:54:25Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 156.138,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #975",
+   "utc": "2026-09-28T14:55:56Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 161.298,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1000",
+   "utc": "2026-09-28T14:57:32Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 175.335,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1025",
+   "utc": "2026-09-28T14:59:13Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 197.258,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1050",
+   "utc": "2026-09-28T15:01:08Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 183.323,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1075",
+   "utc": "2026-09-28T15:02:56Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 172.861,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1100",
+   "utc": "2026-09-28T15:04:39Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 180.192,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1125",
+   "utc": "2026-09-28T15:06:23Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 191.816,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1150",
+   "utc": "2026-09-28T15:08:14Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 157.187,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 through Tier-1 #1175",
+   "utc": "2026-09-28T15:09:47Z"
+  },
+  {
+   "stage": "stage2_v7",
+   "cpu_seconds": 152.471,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 final",
+   "utc": "2026-09-28T15:11:15Z"
   }
  ],
- "total_cpu_seconds": 2372.172,
- "total_cpu_hours": 0.65894
+ "total_cpu_seconds": 10050.755,
+ "total_cpu_hours": 2.79188
 }

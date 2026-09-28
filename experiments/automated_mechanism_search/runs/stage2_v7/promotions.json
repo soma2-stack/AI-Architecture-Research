@@ -1,0 +1,2072 @@
+[
+ {
+  "pid": "P02743",
+  "quality": 0.4959513151383261,
+  "best_task": "Cstar",
+  "descriptor": [
+   0,
+   0,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) r1)"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (tanh r1) 1)",
+   "cvec": null,
+   "dW": "(neg (outer d_bp a))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) r1)"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (mul (tanh r1) 1) 1)",
+   "cvec": null,
+   "dW": "(neg (outer d_bp a))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 0,
+    "F5_eligibility_trace": 0,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 0,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 0,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 0,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 1,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C1"
+   ],
+   "learning_signal": true,
+   "credit_class": "bp",
+   "state_footprint": "feature",
+   "descriptor": [
+    0,
+    0,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": false,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": false,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": false,
+    "input_dependent_routing": false,
+    "normalization": false,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": false,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [
+     "RUN"
+    ],
+    "forward_depends_on_learning_state": true
+   }
+  },
+  "family_nearest": {
+   "family": "R21_continual_backprop",
+   "sim": 0.9503779458478913
+  },
+  "beta_hash": "7ae27336456b269d16e23113d9862c63ee94cb52ada122e006f9cdbbe9c8081c",
+  "struct_hash": "8eeeae6515de89263c880ead56d9519284617e0ef39195b51e33caa9dca046a9",
+  "tier1": {
+   "q": 0.4959513151383261,
+   "effects": {
+    "B": 0.0,
+    "Cstar": 0.5,
+    "F": -0.010162601626016496
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": true
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "B": 100.0,
+    "Cstar": 6.0,
+    "F": 0.8283333333333335
+   },
+   "summaries": {
+    "B": {
+     "stable": true,
+     "lr": 0.1,
+     "fit_reduction": 0.9834370185425341,
+     "fit_reduction_seeds": [
+      0.9864163992266365,
+      0.9825265639194668,
+      0.9813680924814987
+     ],
+     "forgetting": 100.0,
+     "retention": 0.0,
+     "T2_final_mse": 0.022613590583205223,
+     "L1_pre": 0.022558946162462234,
+     "L1_post": 3.755000670750936,
+     "L1_init": 1.3620357513427734,
+     "forgetting_seeds": [
+      100.0,
+      100.0,
+      100.0
+     ],
+     "L1_post_gt_pre_all": true
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 6.0,
+     "hl_seeds": [
+      4.0,
+      8.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      4.0,
+      8.0,
+      6.0
+     ],
+     "return_ok_count": 3,
+     "R0_pre_shift": 0.0837089866399765,
+     "R1_entry_mse_min": 0.7911559343338013,
+     "R1_entry_mse": [
+      [
+       0.7911559343338013,
+       0.8657889366149902
+      ],
+      [
+       1.325566291809082,
+       0.8402835726737976
+      ],
+      [
+       1.3171639442443848,
+       1.1831319332122803
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.1,
+     "train_acc": 1.0,
+     "ood_acc": 0.17166666666666663,
+     "sgg": 82.83333333333333,
+     "ood_err_seeds": [
+      0.8240000000000001,
+      0.841,
+      0.8200000000000001
+     ],
+     "train_acc_seeds": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "cost": {
+    "flops": 18356.0,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.0266219239373602,
+    "state_floats": 68,
+    "params": 2244,
+    "penalty": 0.004048684861673915
+   },
+   "lr": {
+    "B": 0.1,
+    "Cstar": 0.1,
+    "F": 0.1
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "(neg (outer d_bp a))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [],
+   "stripped_gates": [],
+   "inert_registers": [
+    "r1"
+   ],
+   "dropped_slots": [
+    "gain"
+   ]
+  },
+  "cos_P_KP": 0.8389149220569816
+ },
+ {
+  "pid": "P04957",
+  "quality": 0.48746872642844075,
+  "best_task": "Cstar",
+  "descriptor": [
+   5,
+   0,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": "(add W_ep0 (dot (div_s a a) xi_I))",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (min (mul (nrm dphi) 0.1) dphi) 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh (mul (nrm dphi) 0.1))"
+   }
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "EXAMPLE",
+     "init": "0",
+     "decay": 0.9,
+     "update": "(nrm dphi)"
+    }
+   ],
+   "w_eff": "(add W_ep0 (dot (div_s a a) xi_I))",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (min dphi r1) 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh r1)"
+   }
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 0,
+    "F5_eligibility_trace": 0,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 1,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 1,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 1,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 0,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C2",
+    "C3"
+   ],
+   "learning_signal": true,
+   "credit_class": "bp",
+   "state_footprint": "feature",
+   "descriptor": [
+    5,
+    0,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": false,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": false,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": true,
+    "input_dependent_routing": false,
+    "normalization": true,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": true,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [],
+    "forward_depends_on_learning_state": false
+   }
+  },
+  "family_nearest": {
+   "family": "R1_SGD",
+   "sim": 0.8863421201713181
+  },
+  "beta_hash": "a83affd8b46e73c86fa1492efe1defb6c240e8c802c9d9f5ef84d3b34efa06c4",
+  "struct_hash": "445bffe69f3e74b481f5ee389587968392f1746ed5bb2e08d413f6df9f75aae2",
+  "tier1": {
+   "q": 0.48746872642844075,
+   "effects": {
+    "B": 0.0,
+    "Cstar": 0.5555555555555556,
+    "F": -0.008130081300812926
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": true
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "B": 70.55573698989654,
+    "Cstar": 5.333333333333333,
+    "F": 0.8266666666666665
+   },
+   "summaries": {
+    "B": {
+     "stable": true,
+     "lr": 0.1,
+     "fit_reduction": 0.9760066980111678,
+     "fit_reduction_seeds": [
+      0.9780207108101575,
+      0.9746196575249456,
+      0.9753797256984003
+     ],
+     "forgetting": 70.55573698989654,
+     "retention": 29.44426301010346,
+     "T2_final_mse": 0.12088607003291447,
+     "L1_pre": 0.12078189353148143,
+     "L1_post": 3.5822296142578125,
+     "L1_init": 5.0398783683776855,
+     "forgetting_seeds": [
+      68.18197484589844,
+      74.90919176503779,
+      68.57604435875339
+     ],
+     "L1_post_gt_pre_all": true
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 5.333333333333333,
+     "hl_seeds": [
+      4.0,
+      6.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      4.0,
+      6.0,
+      6.0
+     ],
+     "return_ok_count": 2,
+     "R0_pre_shift": 0.21999931832154593,
+     "R1_entry_mse_min": 1.005326271057129,
+     "R1_entry_mse": [
+      [
+       1.3541152477264404,
+       1.3173105716705322
+      ],
+      [
+       1.407132625579834,
+       1.005326271057129
+      ],
+      [
+       1.5917389392852783,
+       2.1021676063537598
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.1,
+     "train_acc": 1.0,
+     "ood_acc": 0.17333333333333334,
+     "sgg": 82.66666666666666,
+     "ood_err_seeds": [
+      0.841,
+      0.838,
+      0.8009999999999999
+     ],
+     "train_acc_seeds": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "cost": {
+    "flops": 23328.760000000002,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.3047404921700225,
+    "state_floats": 2176,
+    "params": 2244,
+    "penalty": 0.06808682912711483
+   },
+   "lr": {
+    "B": 0.1,
+    "Cstar": 0.1,
+    "F": 0.1
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "0@M",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [
+    [
+     "dW",
+     "(rowscale (neg (outer d_bp a)) (topk (min (mul (nrm dphi) C) dphi)))"
+    ],
+    [
+     "w_eff",
+     "W_ep0"
+    ],
+    [
+     "w_eff",
+     "(dot (div_s a a) xi_I)"
+    ]
+   ],
+   "stripped_gates": [],
+   "inert_registers": [],
+   "dropped_slots": [
+    "struct"
+   ]
+  },
+  "cos_P_KP": 0.7217376010348918
+ },
+ {
+  "pid": "P05100",
+  "quality": 0.4864921784340356,
+  "best_task": "Cstar",
+  "descriptor": [
+   0,
+   3,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) r1)"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (abs r1) 1)",
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (min d_fa r1) 4))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) r1)"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (mul (abs r1) 1) 1)",
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (min d_fa r1) 4))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 1,
+    "F5_eligibility_trace": 0,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 0,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 0,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 0,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 1,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C1"
+   ],
+   "learning_signal": true,
+   "credit_class": "mixed",
+   "state_footprint": "feature",
+   "descriptor": [
+    0,
+    3,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": true,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": false,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": false,
+    "input_dependent_routing": false,
+    "normalization": false,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": false,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [
+     "RUN"
+    ],
+    "forward_depends_on_learning_state": true
+   }
+  },
+  "family_nearest": {
+   "family": "R21_continual_backprop",
+   "sim": 0.8857968931479797
+  },
+  "beta_hash": "9132e8e0d2f2a3f202bbeca75a7033ea6102db82a1e275d497141ff4e20ccd1a",
+  "struct_hash": "adc19951f8fb9c97bd446bbdf1b0122a88d30a3f9bd3da8014e45a4ba551f081",
+  "tier1": {
+   "q": 0.4864921784340356,
+   "effects": {
+    "B": 0.0,
+    "Cstar": 0.5,
+    "F": 0.0
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "B": 100.0,
+    "Cstar": 6.0,
+    "F": 0.7956666666666666
+   },
+   "summaries": {
+    "B": {
+     "stable": true,
+     "lr": 0.1,
+     "fit_reduction": 0.947740284333665,
+     "fit_reduction_seeds": [
+      0.951851215601169,
+      0.9447735463830197,
+      0.9465960910168063
+     ],
+     "forgetting": 100.0,
+     "retention": 0.0,
+     "T2_final_mse": 0.07065973182519276,
+     "L1_pre": 0.07096513360738754,
+     "L1_post": 3.7209599812825522,
+     "L1_init": 1.3620357513427734,
+     "forgetting_seeds": [
+      100.0,
+      100.0,
+      100.0
+     ],
+     "L1_post_gt_pre_all": true
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 6.0,
+     "hl_seeds": [
+      4.0,
+      8.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      4.0,
+      8.0,
+      6.0
+     ],
+     "return_ok_count": 2,
+     "R0_pre_shift": 0.16950267304976782,
+     "R1_entry_mse_min": 0.8342705368995667,
+     "R1_entry_mse": [
+      [
+       1.083437442779541,
+       0.8342705368995667
+      ],
+      [
+       1.6578154563903809,
+       1.1365699768066406
+      ],
+      [
+       1.6369128227233887,
+       1.7329466342926025
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.01,
+     "train_acc": 0.8566666666666666,
+     "ood_acc": 0.20433333333333334,
+     "sgg": 65.23333333333333,
+     "ood_err_seeds": [
+      0.8,
+      0.817,
+      0.77
+     ],
+     "train_acc_seeds": [
+      0.89,
+      0.84,
+      0.84
+     ]
+    }
+   },
+   "cost": {
+    "flops": 20928.0,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.1704697986577182,
+    "state_floats": 68,
+    "params": 2244,
+    "penalty": 0.013507821565964421
+   },
+   "lr": {
+    "B": 0.1,
+    "Cstar": 0.1,
+    "F": 0.01
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "0@M",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [
+    [
+     "dW",
+     "(rowscale (neg (outer d_bp a)) (topk (min d_fa R)))"
+    ]
+   ],
+   "stripped_gates": [],
+   "inert_registers": [
+    "r1"
+   ],
+   "dropped_slots": [
+    "gain"
+   ]
+  },
+  "cos_P_KP": 0.6482261598564759
+ },
+ {
+  "pid": "P05115",
+  "quality": 0.4863429258722569,
+  "best_task": "Cstar",
+  "descriptor": [
+   2,
+   0,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.9,
+     "update": "(mul (min (sqrt_s d_bp) (amax d_fa)) (dot (min b 0.5) d_bp))"
+    }
+   ],
+   "w_eff": "(add W_ep0 (amax xi_I))",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk d_bp 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh r1)"
+   }
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.9,
+     "update": "(mul (min (sqrt_s d_bp) (amax d_fa)) (dot (min b 0.5) d_bp))"
+    }
+   ],
+   "w_eff": "(add W_ep0 (amax xi_I))",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (where e d_bp d_bp) 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh r1)"
+   }
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 1,
+    "F5_eligibility_trace": 0,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 0,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 0,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 1,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 0,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C3"
+   ],
+   "learning_signal": true,
+   "credit_class": "bp",
+   "state_footprint": "feature",
+   "descriptor": [
+    2,
+    0,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": true,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": false,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": false,
+    "input_dependent_routing": false,
+    "normalization": false,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": true,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [
+     "RUN"
+    ],
+    "forward_depends_on_learning_state": false
+   }
+  },
+  "family_nearest": {
+   "family": "R1_SGD",
+   "sim": 0.7121445426723263
+  },
+  "beta_hash": "1a76c3b74a86f20370e1ca32bdba5882867998f3c98515234eb7eeb048a8180d",
+  "struct_hash": "62b9c7fad907d80317bba658a4dafb8e09cc1cc7d2ef90b6aabbc9311fd3b580",
+  "tier1": {
+   "q": 0.4863429258722569,
+   "effects": {
+    "B": 0.0,
+    "Cstar": 0.5555555555555556,
+    "F": 0.0
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "B": 77.24514382833239,
+    "Cstar": 5.333333333333333,
+    "F": 0.7613333333333333
+   },
+   "summaries": {
+    "B": {
+     "stable": true,
+     "lr": 0.1,
+     "fit_reduction": 0.9786031694146587,
+     "fit_reduction_seeds": [
+      0.980014550421428,
+      0.9776342586617781,
+      0.97816069916077
+     ],
+     "forgetting": 77.24514382833239,
+     "retention": 22.754856171667612,
+     "T2_final_mse": 0.11510301878054936,
+     "L1_pre": 0.10773918280998866,
+     "L1_post": 3.904526869455973,
+     "L1_init": 5.039878209431966,
+     "forgetting_seeds": [
+      75.73468462445263,
+      82.60944688645162,
+      73.39129997409293
+     ],
+     "L1_post_gt_pre_all": true
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 5.333333333333333,
+     "hl_seeds": [
+      4.0,
+      6.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      4.0,
+      6.0,
+      6.0
+     ],
+     "return_ok_count": 3,
+     "R0_pre_shift": 0.23396767675876617,
+     "R1_entry_mse_min": 1.176171898841858,
+     "R1_entry_mse": [
+      [
+       1.3662254810333252,
+       1.2652230262756348
+      ],
+      [
+       1.3690071105957031,
+       1.176171898841858
+      ],
+      [
+       2.1918466091156006,
+       1.222159743309021
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.01,
+     "train_acc": 0.84,
+     "ood_acc": 0.23866666666666667,
+     "sgg": 60.13333333333333,
+     "ood_err_seeds": [
+      0.783,
+      0.771,
+      0.73
+     ],
+     "train_acc_seeds": [
+      0.86,
+      0.8,
+      0.86
+     ]
+    }
+   },
+   "cost": {
+    "flops": 23336.68,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.3051834451901567,
+    "state_floats": 2244,
+    "params": 2244,
+    "penalty": 0.06921262968329867
+   },
+   "lr": {
+    "B": 0.1,
+    "Cstar": 0.1,
+    "F": 0.01
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "0@M",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [
+    [
+     "dW",
+     "(rowscale (neg (outer d_bp a)) (topk d_bp))"
+    ],
+    [
+     "w_eff",
+     "W_ep0"
+    ],
+    [
+     "w_eff",
+     "(amax xi_I)"
+    ]
+   ],
+   "stripped_gates": [],
+   "inert_registers": [
+    "r1"
+   ],
+   "dropped_slots": [
+    "struct"
+   ]
+  },
+  "cos_P_KP": 0.6150010261100987
+ },
+ {
+  "pid": "P04064",
+  "quality": 0.4861330403832769,
+  "best_task": "Cstar",
+  "descriptor": [
+   5,
+   3,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.9,
+     "update": "(mul (min (sqrt_s d_bp) (amax d_fa)) (dot (min b 0.5) d_bp))"
+    }
+   ],
+   "w_eff": "(add W_ep0 (amax xi_I))",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (where e z d_bp) 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh r1)"
+   }
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.9,
+     "update": "(mul (min (sqrt_s d_bp) (amax d_fa)) (dot (min b 0.5) d_bp))"
+    }
+   ],
+   "w_eff": "(add W_ep0 (amax xi_I))",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (where e z d_bp) 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh r1)"
+   }
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 1,
+    "F5_eligibility_trace": 0,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 1,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 0,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 1,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 0,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C2",
+    "C3"
+   ],
+   "learning_signal": true,
+   "credit_class": "mixed",
+   "state_footprint": "feature",
+   "descriptor": [
+    5,
+    3,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": true,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": false,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": true,
+    "input_dependent_routing": false,
+    "normalization": false,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": true,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [
+     "RUN"
+    ],
+    "forward_depends_on_learning_state": false
+   }
+  },
+  "family_nearest": {
+   "family": "R1_SGD",
+   "sim": 0.7414120838699687
+  },
+  "beta_hash": "f4130a2155e8b1e84bd40e41418e3afae70f29e500f20dbad0813585bdd3f185",
+  "struct_hash": "f2ab578b1c1e01061ea3f560cfddf38a811129f67f7f6602dba91eaf3b4e991c",
+  "tier1": {
+   "q": 0.4861330403832769,
+   "effects": {
+    "B": 0.0,
+    "Cstar": 0.5555555555555556,
+    "F": 0.0
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "B": 77.24514382833239,
+    "Cstar": 5.333333333333333,
+    "F": 0.7613333333333333
+   },
+   "summaries": {
+    "B": {
+     "stable": true,
+     "lr": 0.1,
+     "fit_reduction": 0.9786031694146587,
+     "fit_reduction_seeds": [
+      0.980014550421428,
+      0.9776342586617781,
+      0.97816069916077
+     ],
+     "forgetting": 77.24514382833239,
+     "retention": 22.754856171667612,
+     "T2_final_mse": 0.11510301878054936,
+     "L1_pre": 0.10773918280998866,
+     "L1_post": 3.904526869455973,
+     "L1_init": 5.039878209431966,
+     "forgetting_seeds": [
+      75.73468462445263,
+      82.60944688645162,
+      73.39129997409293
+     ],
+     "L1_post_gt_pre_all": true
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 5.333333333333333,
+     "hl_seeds": [
+      4.0,
+      6.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      4.0,
+      6.0,
+      6.0
+     ],
+     "return_ok_count": 3,
+     "R0_pre_shift": 0.23396767675876617,
+     "R1_entry_mse_min": 1.176171898841858,
+     "R1_entry_mse": [
+      [
+       1.3662254810333252,
+       1.2652230262756348
+      ],
+      [
+       1.3690071105957031,
+       1.176171898841858
+      ],
+      [
+       2.1918466091156006,
+       1.222159743309021
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.01,
+     "train_acc": 0.84,
+     "ood_acc": 0.23866666666666667,
+     "sgg": 60.13333333333333,
+     "ood_err_seeds": [
+      0.783,
+      0.771,
+      0.73
+     ],
+     "train_acc_seeds": [
+      0.86,
+      0.8,
+      0.86
+     ]
+    }
+   },
+   "cost": {
+    "flops": 23404.68,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.3089865771812081,
+    "state_floats": 2244,
+    "params": 2244,
+    "penalty": 0.06942251517227864
+   },
+   "lr": {
+    "B": 0.1,
+    "Cstar": 0.1,
+    "F": 0.01
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "0@M",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [
+    [
+     "dW",
+     "(rowscale (neg (outer d_bp a)) (topk (where e z d_bp)))"
+    ],
+    [
+     "w_eff",
+     "W_ep0"
+    ],
+    [
+     "w_eff",
+     "(amax xi_I)"
+    ]
+   ],
+   "stripped_gates": [],
+   "inert_registers": [
+    "r1"
+   ],
+   "dropped_slots": [
+    "struct"
+   ]
+  },
+  "cos_P_KP": 0.6150010261100987
+ },
+ {
+  "pid": "P03951",
+  "quality": 0.43093662287848,
+  "best_task": "Cstar",
+  "descriptor": [
+   3,
+   0,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) r1)"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (abs r1) 1)",
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (min dphi r1) 4))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) r1)"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (mul (abs r1) 1) 1)",
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk (min dphi r1) 4))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 0,
+    "F5_eligibility_trace": 0,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 1,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 0,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 0,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 1,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C1",
+    "C2"
+   ],
+   "learning_signal": true,
+   "credit_class": "bp",
+   "state_footprint": "feature",
+   "descriptor": [
+    3,
+    0,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": false,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": false,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": true,
+    "input_dependent_routing": false,
+    "normalization": false,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": false,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [
+     "RUN"
+    ],
+    "forward_depends_on_learning_state": true
+   }
+  },
+  "family_nearest": {
+   "family": "R21_continual_backprop",
+   "sim": 0.8994534891416354
+  },
+  "beta_hash": "ded4b5122a4980d7188c884d7089a54d3985052da9015494dba63a5d5cbb4497",
+  "struct_hash": "7d030326fc784be7bed56fdf229d9ee31baebc7ff4af937fce0d7858fc9186c8",
+  "tier1": {
+   "q": 0.43093662287848,
+   "effects": {
+    "B": 0.0,
+    "Cstar": 0.4444444444444444,
+    "F": -0.01544715447154491
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": true
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "B": 100.0,
+    "Cstar": 6.666666666666667,
+    "F": 0.8326666666666668
+   },
+   "summaries": {
+    "B": {
+     "stable": true,
+     "lr": 0.1,
+     "fit_reduction": 0.9543894221970065,
+     "fit_reduction_seeds": [
+      0.9597009918441721,
+      0.9473054321046266,
+      0.9561618426422209
+     ],
+     "forgetting": 100.0,
+     "retention": 0.0,
+     "T2_final_mse": 0.06456459065278371,
+     "L1_pre": 0.061439658204714455,
+     "L1_post": 3.7339443365732827,
+     "L1_init": 1.3620357513427734,
+     "forgetting_seeds": [
+      100.0,
+      100.0,
+      100.0
+     ],
+     "L1_post_gt_pre_all": true
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 6.666666666666667,
+     "hl_seeds": [
+      4.0,
+      10.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      4.0,
+      10.0,
+      6.0
+     ],
+     "return_ok_count": 2,
+     "R0_pre_shift": 0.1728107805053393,
+     "R1_entry_mse_min": 0.9964587092399597,
+     "R1_entry_mse": [
+      [
+       1.0423849821090698,
+       0.9974321126937866
+      ],
+      [
+       1.7565196752548218,
+       0.9964587092399597
+      ],
+      [
+       1.3422718048095703,
+       1.4686256647109985
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.1,
+     "train_acc": 0.9966666666666667,
+     "ood_acc": 0.16733333333333333,
+     "sgg": 82.93333333333332,
+     "ood_err_seeds": [
+      0.847,
+      0.85,
+      0.8009999999999999
+     ],
+     "train_acc_seeds": [
+      1.0,
+      0.99,
+      1.0
+     ]
+    }
+   },
+   "cost": {
+    "flops": 20928.0,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.1704697986577182,
+    "state_floats": 68,
+    "params": 2244,
+    "penalty": 0.013507821565964421
+   },
+   "lr": {
+    "B": 0.1,
+    "Cstar": 0.1,
+    "F": 0.1
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "0@M",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [
+    [
+     "dW",
+     "(rowscale (neg (outer d_bp a)) (topk (min dphi R)))"
+    ]
+   ],
+   "stripped_gates": [],
+   "inert_registers": [
+    "r1"
+   ],
+   "dropped_slots": [
+    "gain"
+   ]
+  },
+  "cos_P_KP": 0.6482261598564759
+ },
+ {
+  "pid": "P03376",
+  "quality": 0.33843358784828903,
+  "best_task": "Cstar",
+  "descriptor": [
+   3,
+   3,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) (tanh (rowsum (outer h xi_I))))"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (tanh r1) 1)",
+   "cvec": null,
+   "dW": "(rowscale (rowscale (neg (outer d_bp a)) (topk (min dphi r1) 4)) (topk (min (matvec (outer d_fa xi_I) (topk xi_I 8)) z) 4))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.5,
+     "update": "(sub (exp_c xi_O) (tanh (rowsum (outer h xi_I))))"
+    }
+   ],
+   "w_eff": null,
+   "gain": "(add (mul (tanh r1) 1) 1)",
+   "cvec": null,
+   "dW": "(rowscale (rowscale (neg (outer d_bp a)) (topk (min dphi r1) 4)) (topk (min z (matvec (outer d_fa xi_I) (topk xi_I 8))) 4))",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 1,
+    "F5_eligibility_trace": 1,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 1,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 0,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 0,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 1,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C1",
+    "C2"
+   ],
+   "learning_signal": true,
+   "credit_class": "mixed",
+   "state_footprint": "feature",
+   "descriptor": [
+    3,
+    3,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": true,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": true,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": true,
+    "input_dependent_routing": false,
+    "normalization": false,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": false,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [
+     "RUN"
+    ],
+    "forward_depends_on_learning_state": true
+   }
+  },
+  "family_nearest": {
+   "family": "R21_continual_backprop",
+   "sim": 0.855594900677831
+  },
+  "beta_hash": "0f3020837a77b3e75507e241a23578a6145111f9eca8bd5fe8ba836403e39c48",
+  "struct_hash": "d938c7973ad9ec2a62f0c0aa04b2536281717a5b0b9d724b6c5f0979a9e8fe0c",
+  "tier1": {
+   "q": 0.33843358784828903,
+   "effects": {
+    "B": 0.0,
+    "Cstar": 0.3888888888888889,
+    "F": 0.0
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "B": 100.0,
+    "Cstar": 7.333333333333333,
+    "F": 0.8170000000000001
+   },
+   "summaries": {
+    "B": {
+     "stable": true,
+     "lr": 0.1,
+     "fit_reduction": 0.8826912561013426,
+     "fit_reduction_seeds": [
+      0.8906325208597521,
+      0.8598888133106833,
+      0.8975524341335925
+     ],
+     "forgetting": 100.0,
+     "retention": 0.0,
+     "T2_final_mse": 0.15388626356919607,
+     "L1_pre": 0.15722981095314026,
+     "L1_post": 3.5606956481933594,
+     "L1_init": 1.3620357513427734,
+     "forgetting_seeds": [
+      100.0,
+      100.0,
+      100.0
+     ],
+     "L1_post_gt_pre_all": true
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 7.333333333333333,
+     "hl_seeds": [
+      8.0,
+      8.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      8.0,
+      8.0,
+      6.0
+     ],
+     "return_ok_count": 2,
+     "R0_pre_shift": 0.18671835462252298,
+     "R1_entry_mse_min": 0.9490097761154175,
+     "R1_entry_mse": [
+      [
+       1.1606686115264893,
+       1.022526502609253
+      ],
+      [
+       1.6701496839523315,
+       0.9490097761154175
+      ],
+      [
+       1.4697375297546387,
+       1.939897894859314
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.1,
+     "train_acc": 0.9566666666666667,
+     "ood_acc": 0.18299999999999997,
+     "sgg": 77.36666666666666,
+     "ood_err_seeds": [
+      0.855,
+      0.806,
+      0.79
+     ],
+     "train_acc_seeds": [
+      0.93,
+      0.95,
+      0.99
+     ]
+    }
+   },
+   "cost": {
+    "flops": 34928.0,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.953467561521253,
+    "state_floats": 68,
+    "params": 2244,
+    "penalty": 0.05045530104059985
+   },
+   "lr": {
+    "B": 0.1,
+    "Cstar": 0.1,
+    "F": 0.1
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "0@M",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [
+    [
+     "dW",
+     "(rowscale (rowscale (neg (outer d_bp a)) (topk (min dphi R))) (topk (min (matvec (outer d_fa xi_I) (topk xi_I)) z)))"
+    ]
+   ],
+   "stripped_gates": [],
+   "inert_registers": [
+    "r1"
+   ],
+   "dropped_slots": [
+    "gain"
+   ]
+  },
+  "cos_P_KP": 0.6398075629319943
+ },
+ {
+  "pid": "P01024",
+  "quality": 0.20928585918858256,
+  "best_task": "Cstar",
+  "descriptor": [
+   2,
+   3,
+   0
+  ],
+  "canonical": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.9,
+     "update": "(nrm dphi)"
+    }
+   ],
+   "w_eff": "(add W_ep0 tep)",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk e 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh r1)"
+   }
+  },
+  "raw": {
+   "update_every": 1,
+   "regs": [
+    {
+     "name": "r1",
+     "type": "O",
+     "lifetime": "RUN",
+     "init": "0",
+     "decay": 0.9,
+     "update": "(nrm dphi)"
+    }
+   ],
+   "w_eff": "(add W_ep0 tep)",
+   "gain": null,
+   "cvec": null,
+   "dW": "(rowscale (neg (outer d_bp a)) (topk e 4))",
+   "db": "(neg d_bp)",
+   "struct": {
+    "kind": "reinit",
+    "theta": 0.1,
+    "mask": "(tanh r1)"
+   }
+  },
+  "fingerprint": {
+   "features": {
+    "F1_global_bp": 1,
+    "F2_local_objective": 0,
+    "F3_transpose": 0,
+    "F4_fixed_feedback": 0,
+    "F5_eligibility_trace": 0,
+    "F6_momentum": 0,
+    "F7_second_moment": 0,
+    "F8_fast_weights": 0,
+    "F9_fast_slow": 0,
+    "F10_fixed_point": 0,
+    "F11_local_energy": 0,
+    "F12_explicit_memory": 0,
+    "F13_routing": 0,
+    "F14_multiplicative_plasticity": 0,
+    "F15_normalization": 0,
+    "F16_orthogonal_projection": 0,
+    "F17_freezing": 0,
+    "F18_structural_growth": 1,
+    "F19_hebbian": 0,
+    "F20_oja_decay": 0,
+    "F21_reward_modulated": 0,
+    "F22_perturbation": 0,
+    "F23_anchor_consolidation": 0,
+    "F24_gain_modulation": 0,
+    "F25_loss_shaping": 0,
+    "F26_credit_predictor": 0
+   },
+   "couplings": [
+    "C3"
+   ],
+   "learning_signal": true,
+   "credit_class": "mixed",
+   "state_footprint": "feature",
+   "descriptor": [
+    2,
+    3,
+    0
+   ],
+   "codex": {
+    "global_gradient": true,
+    "local_gradient": false,
+    "fixed_feedback": false,
+    "transpose_required": true,
+    "momentum_state": false,
+    "second_moment_state": false,
+    "eligibility_state": false,
+    "fast_weights": false,
+    "fast_slow_state": false,
+    "activation_dependent_update": false,
+    "input_dependent_routing": false,
+    "normalization": false,
+    "projection": false,
+    "fixed_point_or_root_solve": false,
+    "parameter_birth_reinit_freeze": true,
+    "test_time_update": true,
+    "meta_learned_update": false,
+    "persistent_state_lifetimes": [
+     "RUN"
+    ],
+    "forward_depends_on_learning_state": false
+   }
+  },
+  "family_nearest": {
+   "family": "R1_SGD",
+   "sim": 0.6577004965985912
+  },
+  "beta_hash": "982aeb77048d6f525ba2ce9295533c9325c0896b6f89b4c50935dbe8238950a9",
+  "struct_hash": "bfee3cc5ab5a1cfdad9b3cba2162a901c5c56de2ac98b72ba3370a79e0035eea",
+  "tier1": {
+   "q": 0.20928585918858256,
+   "effects": {
+    "B": -Infinity,
+    "Cstar": 0.27777777777777785,
+    "F": 0.0
+   },
+   "constraints": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "tier1_gate": {
+    "B": false,
+    "Cstar": true,
+    "F": false
+   },
+   "best_task": "Cstar",
+   "tier1_pass_on_best": true,
+   "metrics": {
+    "Cstar": 8.666666666666666,
+    "F": 0.707
+   },
+   "summaries": {
+    "B": {
+     "stable": false
+    },
+    "Cstar": {
+     "stable": true,
+     "lr": 0.1,
+     "hl_censored_mean": 8.666666666666666,
+     "hl_seeds": [
+      4.0,
+      16.0,
+      6.0
+     ],
+     "hl_censored_seeds": [
+      4.0,
+      16.0,
+      6.0
+     ],
+     "return_ok_count": 3,
+     "R0_pre_shift": 0.17806880176067352,
+     "R1_entry_mse_min": 0.5329294204711914,
+     "R1_entry_mse": [
+      [
+       0.9179936647415161,
+       1.1332675218582153
+      ],
+      [
+       1.531259298324585,
+       0.5329294204711914
+      ],
+      [
+       1.5224287509918213,
+       1.5060946941375732
+      ]
+     ]
+    },
+    "F": {
+     "stable": true,
+     "lr": 0.1,
+     "train_acc": 0.82,
+     "ood_acc": 0.293,
+     "sgg": 52.699999999999996,
+     "ood_err_seeds": [
+      0.759,
+      0.771,
+      0.591
+     ],
+     "train_acc_seeds": [
+      0.86,
+      0.93,
+      0.67
+     ]
+    }
+   },
+   "cost": {
+    "flops": 23104.68,
+    "flops_sgd": 17880.0,
+    "flops_ratio": 1.2922080536912752,
+    "state_floats": 2244,
+    "params": 2244,
+    "penalty": 0.06849191858919529
+   },
+   "lr": {
+    "B": null,
+    "Cstar": 0.1,
+    "F": 0.1
+   }
+  },
+  "K": {
+   "update_every": 1,
+   "regs": [],
+   "w_eff": null,
+   "gain": null,
+   "cvec": null,
+   "dW": "0@M",
+   "db": "(neg d_bp)",
+   "struct": null
+  },
+  "K_info": {
+   "dropped_terms": [
+    [
+     "dW",
+     "(rowscale (neg (outer d_bp a)) (topk e))"
+    ],
+    [
+     "w_eff",
+     "W_ep0"
+    ],
+    [
+     "w_eff",
+     "tep"
+    ]
+   ],
+   "stripped_gates": [],
+   "inert_registers": [
+    "r1"
+   ],
+   "dropped_slots": [
+    "struct"
+   ]
+  },
+  "cos_P_KP": 0.5463916382388257
+ }
+]

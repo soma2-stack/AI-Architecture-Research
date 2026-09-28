@@ -9,7 +9,33 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 18
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 19
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v7** (sole active protocol; unchanged by me);
+  - `SHARED_RESEARCH_MAP.md`;
+  - this notebook.
+
+  `origin/main` `c31c97f` (the v7 amendment, the Codex v6 audit and its artifacts) was merged in. The only conflict was `runs/cpu_ledger.json`, where `main` was a strict superset. All v5, v6, Codex and Cursor work is preserved.
+- **Carried forward:** the v3 Stage-0 PASS and the v5 Stage-1 PASS (not rerun); the v5 Stage-2 negative; the v6 static-validation failure (no v6 search).
+- **Current stage:** v7 Stage 2 is complete, and Stage 3 runs on its 8 promotions. See Part AL and `experiments/automated_mechanism_search/STAGE2_V7_REPORT.md`.
+  - Implementation `27f2e81`:
+    - `ams/v7gen.py`: C1 and C3 as in v6; C2 = SGD + 0.1 × topk/where-routed residual, selector depth 0–1;
+    - the `where` 0.0 branch is spelled `(sub 1.0 1.0)`, because 0.0 is not a legal constant, and canonicalizes to exactly `where(sel, 1, 0)` (D-V7-2);
+    - the golden snapshot is unchanged, and the suite passes (194 tests).
+  - Static validation (seed 70707): **PASS**. 1,000/1,000 emitted proposals, 0 invalid; C1 320, C2 350, C3 330 (p = 0.50); every intended class is recognized by the unchanged fingerprint.
+  - Official Stage 2 (seed 2026092806, clean `1334cca`):
+    - stop reason `G_MAX` (20 generations); 5,544 generated; 2,230 T0; **1,200 Tier-1**; archive **35/56**;
+    - **8 promoted, all on C\***;
+    - 3 defects (interpreter broadcasting errors in offspring, below the stop threshold);
+    - 7,679 CPU-s.
+  - Stage 3: `scripts/stage3.py stage2_v7 stage3_v7` (the runner was committed as `94e23bb` before the promotion list was final).
+- **Strongest surviving candidate(s):** decided by Stage 3 (see Part AL). The maximum label this lane may assign is POSSIBLE ARCHITECTURE CANDIDATE — CROSS-LANE AUDIT REQUIRED.
+- **CPU:** about 2.8 CPU-h of 30 before Stage 3; no GPU.
+- **Exact next action:** see Part AL once Stage 3 is recorded.
+
+# Resume Pointer as of session 18 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; verified);
