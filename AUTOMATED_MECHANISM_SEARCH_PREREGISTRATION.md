@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN v7 — STAGES 0–3 AUTHORIZED BY OWNER**
+**FROZEN DESIGN v8 — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -362,7 +362,230 @@ Do not pre-test or tune v7 based on behavioral-inertness rates. The official col
 
 A v7 no-yield/no-promotion result is a negative result for this detector-aligned SGD-anchored search design, not proof that no novel mechanism exists.
 
-**Version 7 is now the sole active protocol.** Stages 0–3 remain authorized. Claude is the primary search runner; Codex and Cursor/Gemini remain independent auditors and must not duplicate the full search.
+Version 7 governed the first successful anchored MAP-Elites search and matched validation.
+
+## Version 8 amendment — robust adaptation metric and confirmation funnel
+
+Official v7 completed successfully as an experiment:
+- static validation passed;
+- Stage 2 generated 5,544 programs, evaluated 2,230 at T0 and exactly 1,200 at Tier 1;
+- 35/56 MAP-Elites cells were occupied;
+- 8 candidates were promoted, all on Task C*;
+- Stage 3 evaluated all 8 on fresh seeds 10000–10009;
+- all 8 failed Gate 3 and received **NEGATIVE** labels;
+- independent Codex and Cursor/Gemini audits reproduced the Stage-2 counts, q values, fresh-seed metrics, Holm correction, bootstrap intervals and labels.
+
+The v7 failure mode was methodological rather than an implementation stop: the 3-seed C* censored adaptation half-life was a coarse, high-variance threshold-crossing metric. MAP-Elites selected apparent gains that did not replicate on 10 fresh seeds. v8 therefore changes the C* selection metric and adds an intermediate confirmation funnel before promotion. It does **not** widen the grammar, weaken novelty gates, increase compute limits, or authorize Stage 4.
+
+### v8 fixed generator and search substrate
+
+Carry forward unchanged:
+- the v7 detector-aligned anchored initial constructor;
+- the existing grammar and node/depth/register limits;
+- the existing C1/C2/C3 fingerprint;
+- behavioral probes and collision library;
+- T0 and its threshold;
+- Tasks B and F, including their metrics and constraints;
+- MAP-Elites descriptors;
+- mutation/crossover probabilities except for the implementation repair below;
+- learning-rate grid `{1e-3,1e-2,1e-1}`;
+- q cost penalty;
+- max 6,000 generated;
+- max 3,000 T0 sanity evaluations;
+- max 1,200 fast Tier-1 evaluations;
+- max 20 final Stage-2 promotions;
+- max 8 promotions per task;
+- CPU-only execution and the cumulative 30 CPU-hour hard cap.
+
+Official v8 search RNG seed:
+
+`2026092808`
+
+Do not reuse v7's official search RNG state.
+
+### v8 Task C* metric — normalized adaptation AULC
+
+The Task C* generator, regime schedule, no-boundary-input rule, fixed 128-point evaluation grid, 4-step evaluation cadence and `tau_C = 0.05` remain unchanged.
+
+For each entry `e` into R1:
+- let `E_e = MSE_R1(e)` on the fixed evaluation grid;
+- for `k in {4,8,...,64}`, let
+
+`r_e(k) = max(MSE_R1(e+k) - tau_C, 0) / max(E_e - tau_C, 1e-8)`.
+
+Define the per-entry normalized adaptation area:
+
+`A_e = mean_k r_e(k)`.
+
+Define the seed-level Task-C* metric:
+
+`A_C = 0.5 * (A_first_R1 + A_second_R1)`.
+
+Properties:
+- lower is better;
+- `A_C = 1` corresponds approximately to no reduction in excess error across the two R1 segments;
+- values below 1 indicate sustained adaptation;
+- values above 1 indicate, on average, worsening relative to entry;
+- no clipping or winsorization is applied beyond the floor at zero in the numerator.
+
+The old adaptation half-life remains **diagnostic only** in v8. It must still be recorded for continuity, but it is no longer used for q, archive quality, Tier-1 selection, promotion, or Stage-3 Gate 3.
+
+The existing R0 return condition remains unchanged.
+
+### v8 fresh search and confirmation seeds
+
+To avoid reusing the v7 search-selection seeds:
+
+Fast Tier-1 discovery seeds:
+`5000, 5001, 5002`
+
+Intermediate confirmation seeds:
+`6000, 6001, 6002, 6003, 6004, 6005, 6006, 6007`
+
+Final Stage-3 seeds:
+`30000, 30001, 30002, 30003, 30004, 30005, 30006, 30007, 30008, 30009`
+
+These sets are disjoint. Stage-3 seeds must not be used for implementation tests, search, confirmation, tuning or diagnostics before Stage 3.
+
+### v8 fast Tier-1 scoring
+
+Fast Tier-1 still evaluates B, C* and F on exactly 3 discovery seeds with the equal LR grid and training-side LR selection.
+
+For C*:
+- the per-seed lower-is-better metric is `A_C`;
+- let `m_P` be the candidate seed-mean AULC and `m_G` the best generic seed-mean AULC;
+- define
+
+`e_C = (m_G - m_P) / max(m_G, 1e-8)`.
+
+The R0 return constraint remains:
+- all 3 discovery seeds are evaluated;
+- at least 2/3 must satisfy the existing `return_ok` condition.
+
+The existing AdamW minimum-effect gate is retained and is applied to C* AULC:
+- candidate improvement over AdamW mean must be at least `2 * AdamW sample SD` on the 3 discovery seeds.
+
+B and F fast Tier-1 scoring remain unchanged.
+
+Fast q remains:
+
+`q_fast = max(e_B, e_C, e_F) - cost_penalty`.
+
+The fast archive remains an **exploration archive**. A fast archive elite is not itself promotion evidence.
+
+### v8 Stage-2 confirmation funnel
+
+After the MAP-Elites search stops, do not promote directly from 3-seed archive scores.
+
+For every occupied archive cell:
+1. take its current elite;
+2. freeze its fast-selected `best_task`;
+3. evaluate that candidate on the 8 intermediate confirmation seeds for that task only, with the same LR grid and training-side LR selection;
+4. precompute the generic baselines and AdamW statistics on the same confirmation seeds for each task;
+5. compute the task effect using the same task formula, using AULC for C*;
+6. reuse the candidate's already-recorded cost penalty.
+
+Define:
+
+`q_confirm = e_confirm - cost_penalty`.
+
+A candidate is **confirmation-eligible** only if all of the following hold:
+- stable on all required confirmation runs after LR selection;
+- task-specific constraint passes;
+- `q_confirm >= 0.15`;
+- improvement over confirmation-set AdamW mean is at least `2 * AdamW sample SD`;
+- candidate beats the best generic on at least **6 of 8 paired confirmation seeds** on the lower-is-better task metric.
+
+For C* additionally:
+- at least **6 of 8** confirmation seeds must satisfy the unchanged R0 return condition.
+
+Promotion is selected **only from confirmation-eligible archive elites**, ordered by descending `q_confirm`, with the existing maximum of 8 per task and 20 total.
+
+The 3-seed fast q is retained in the record for search provenance but must not determine the final promotion order.
+
+The confirmation funnel has its own hard cap:
+- at most 56 candidate confirmations, one current elite per occupied archive cell;
+- generic confirmation baselines are computed once per task and do not count toward the 56 candidate cap.
+
+### v8 Stage-3 Task C* rule
+
+Stage 3 uses the fresh seeds 30000–30009.
+
+For C*:
+- `metric = A_C`;
+- best generic `G` is the stable generic with the lowest seed-mean AULC;
+- the deterministic effect threshold remains deliberately strong:
+
+`m_P <= 0.5 * m_G`;
+
+- at least 8/10 fresh seeds must satisfy the unchanged R0 return condition;
+- the existing paired one-sided Wilcoxon test, Holm correction across promoted candidates, and 10,000-resample bootstrap CI requirement remain unchanged.
+
+Thus Gate 3 for C* requires:
+1. the 50% AULC threshold;
+2. return condition on at least 8/10 seeds;
+3. Holm-significant paired improvement;
+4. bootstrap 95% CI for `G - P` strictly above zero.
+
+Half-life is recorded only as a diagnostic.
+
+B and F Stage-3 rules remain unchanged.
+
+### v8 nearest-family substitution ablation
+
+The v7 run exposed a limitation in the frozen `K(P)` residual decomposition: for many gated SGD-like candidates it removed the entire gated update term and produced `dW = 0`, making Gate 4 artificially easy.
+
+In v8:
+- keep the old `K(P)` result as a recorded diagnostic;
+- do **not** use that old residual decomposition for Gate 4a/4b when it destroys the nearest-family learning backbone;
+- define `KF(P)` as the exact canonical nearest known-family reference program selected by the existing collision library, run under the same substrate, LR grid and task protocol;
+- use `KF(P)` for the Gate-4 nearest-family substitution comparison.
+
+For Gate 4:
+- the claimed candidate effect must drop by at least 50% under `KF(P)`;
+- P must beat `KF(P)` by at least half the task threshold, exactly as the old Gate-4 magnitude rule intended.
+
+A1 coupling-cut remains a separate mandatory ablation.
+
+This change is conservative: it prevents a broken zero-update ablation from creating false novelty evidence.
+
+### v8 pre-search implementation repairs
+
+Two deterministic implementation issues known before v8 search are authorized to be fixed before the official run:
+
+1. **Gate mutation zero constant**
+   - the existing mutation path that intends `where(selector,1,0)` must encode zero with the grammar-legal equivalent `sub(1.0,1.0)`;
+   - canonicalization must still produce the intended zero branch;
+   - mutation probabilities themselves remain unchanged.
+
+2. **Exact generation-cap boundary**
+   - anchored proposal code must check `N_GEN_MAX` before constructing another full candidate when the cap has already been reached;
+   - no uncounted proposal may be constructed after the exact 6,000-program boundary.
+
+These are implementation repairs, not permission to alter mutation weights, grammar semantics, budgets or candidate thresholds.
+
+### v8 pre-search validation
+
+Before official v8 Stage 2:
+- full test suite passes;
+- the 155-reference/disguise collision golden snapshot remains unchanged;
+- v7 C1/C2/C3 constructor structural invariants remain unchanged;
+- add regression tests for the gate-mutation zero spelling and exact 6,000-cap boundary;
+- add unit tests for C* AULC using hand-constructed loss curves, including no-adaptation (`A_C ~= 1`), monotone adaptation (`A_C < 1`) and worsening (`A_C > 1`);
+- replay stored v7 generic C* curves **offline only** to verify the new AULC calculation is finite and deterministic; do not use v7 candidate outcomes to tune v8 thresholds;
+- verify confirmation seed separation and Stage-3 seed lock.
+
+No new candidate training is permitted before these implementation checks pass.
+
+### Interpretation and authorization
+
+v8 is designed to test whether v7's apparent C* gains disappeared because search selected on a noisy point-threshold metric. It is not allowed to reinterpret v7 negatives as positives.
+
+A v8 positive still requires all unchanged resource, optimizer, ablation, collision and novelty gates after the new robust Gate 3.
+
+A v8 no-promotion or all-negative result is a negative result for the v8 robust-metric anchored search design, not proof that no novel mechanism exists.
+
+**Version 8 is now the sole active protocol.** Stages 0–3 remain authorized under v8. Stage 4, GPU execution, and any increase to the 30 CPU-hour hard cap remain unauthorized. Claude is the primary implementation/search runner; Codex and Cursor/Gemini are independent auditors and must not duplicate the full search.
 
 ---
 
@@ -1195,4 +1418,4 @@ As of this commit:
 
 Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
 
-The v6 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
+The v8 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
