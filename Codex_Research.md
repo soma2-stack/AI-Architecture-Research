@@ -6,16 +6,18 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
-### Codex resume/status — 2026-09-28
+### Codex resume/status -- 2026-09-28
 
-- **Lane and lens:** Independent v6 generator, rediscovery, and candidate audit. Do not duplicate Claude's full MAP-Elites search.
-- **Stage:** v6 generator audit complete; the required static gate fails because the frozen C2 detector misses most soft-gated C2 proposals. Claude stopped before the official v6 Stage-2 search. No Tier-1 or promoted candidate exists; resolving the C2/descriptor incompatibility requires an owner-authorized design decision.
-- **Strongest surviving candidates:** None. v6 did not pass static validation or reach candidate evaluation.
-- **Completed:** Read latest `AGENTS.md`, v6 preregistration, `SHARED_RESEARCH_MAP.md`, and this Resume from the latest fetched main state (`9c8382a`). Audited Claude's implementation at `956efdf` and static-validation fix/results at `6331de4` / `c233c85`. Ran 1,000 structural-only slots with seed `2026092807`, inspected raw proposals and descriptors, checked constructor-only imports and the budget boundary, and compared against Claude's seed-60606 output. Root checkout and its pre-existing staged/local work remain untouched.
-- **Protocol invariants confirmed:** v6 changes only the initial proposal source; grammar, T0, B/C*/F, collision/probe assets, Tier-1 metrics, q, 56-cell archive, budgets, promotion thresholds, and Stage-3 gates remain unchanged. Invalid retries are counted; a separate cap-boundary defect constructs one uncounted attempt after the 6,000 limit.
-- **Static validation:** Codex generated 1,000 valid slots in 1,253 attempts (C1/C2/C3: 349/328/323). All templates, type/node/register limits, exact SGD backbone, update rate, and learning-signal checks passed. C2 was detected by the frozen classifier in only 39/328 proposals; 289/328 had no descriptor. Claude independently reproduced the same failure (53/338 detected; 286/338 descriptorless). No training/T0/B/C*/F or full Stage-2 search ran.
-- **Exact next action:** Hold candidate audit until the owner resolves the frozen C2 constructor/classifier incompatibility and Claude has a static-passing implementation. Then fetch that exact revision and repeat only the targeted structural audit. No official v6 Stage-2 run or candidate artifacts exist to audit.
-- **Resource constraint:** The Codex structural validator body used 0.719 CPU-seconds; the ledger includes Claude's three static-run entries and a conservative 1.5-second Codex audit allocation (0.719 seconds measured inside the validator): 2,365.632 seconds (0.657120 CPU-hours) of the 30-hour cap. CPU only; no training or GPU use.
+- **Lane and lens:** Independent novelty, rediscovery, and artifact audit. Do not duplicate Claude's full MAP-Elites search.
+- **Stage:** AMS v7 Stage 2 and Stage 3 are complete and independently audited from the raw run artifacts. No Stage-3 candidate survived Gate 3.
+- **Strongest surviving candidates:** None. All eight promoted candidates received `NEGATIVE` labels on fresh seeds 10000-10009.
+- **Completed:** Fetched and safely fast-forwarded the tracked checkout to `origin/main` at `e516ab5fb82a56a6a64e03f258f7dad3a93f8311`. Read the current governance, frozen preregistration, shared map, and this Resume; inspected v7 raw gzip records/jobs, manifests, promotion records, source-level gate logic, and the bounded Stage-2 run report. Did not read either full Claude or Cursor notebook. Existing untracked `experiments/ams_audit/audit_stage3_v7.py` was preserved and not edited.
+- **Stage-2 audit:** Independently counted 5,544 proposal records; 2,230 sanity evaluations; and 1,200 Tier-1 attempts, comprising 1,197 scored records plus three logged Task-F broadcast defects. Recomputed `q = max(finite task effects) - cost penalty` exactly for every scored Tier-1 record. The archive has 35/56 cells; 41 scored Tier-1 candidates had q >= 0.15; 12 archived candidates met promotion eligibility; the top eight were promoted. All eight are Cstar-task offspring.
+- **Stage-3 audit:** Re-summarized candidate and shared-SGD metrics from raw job results; all matched the stored per-seed metrics. Independently recomputed paired Wilcoxon tests, preregistered bootstrap intervals, threshold checks, Holm step-down, Gate 3, and labels. Every Gate 3 is false and every label is `NEGATIVE`.
+- **Rediscovery screen:** Every promoted program retains the exact R1_SGD parameter-update backbone or gates that backbone. Nearest-family results split four R21 continual-backprop matches (similarity 0.8556-0.9504) and four R1_SGD matches (0.6577-0.8863); residual terms are combinations of sparse/top-k update gating, noisy or activation-derived state/gain, effective-weight perturbation, and/or reinitialization. These are not exact R21 identities, but no candidate has a replicated material advantage or a supported architecture claim.
+- **Cap accounting:** The v6 exact-boundary construction issue did not affect v7's final count: v7 stopped at G_MAX after 20 generations with 5,544/6,000 generated and 1,200/1,200 Tier-1 attempts. The shared helper still has the latent exact-cap construction behavior; it was not exercised, and this audit did not alter it.
+- **Exact next action:** No independent search or experiment. Await the next owner-authorized audit/search phase; if a future run promotes candidates, audit only its exact raw artifacts and run fresh prior-art review only for mechanisms that pass their preregistered empirical gates.
+- **Resource constraint:** This audit used lightweight file parsing, source inspection, and statistics over stored outputs only. No model runs, search, benchmark, training, GPU, or protocol changes.
 
 - **Rolling state correction (2026-09-27; supersedes the older snapshot below):** candidate ledger now runs C001–C038, and no broad model class has survived yet. Recent additions: AR-112 robustness result (operator-matched gains under mild noise, loss under misspecification), AR-113 KBANN prior-art audit, AR-114 QPT/QSIM archaeology, AR-115 saturation theorem proving, AR-116 Warren Abstract Machine, AR-117 Graphplan, AR-118 set-valued reachability, AR-119 Cellular Potts, AR-120 oscillator Ising machines, and C029's Incrementally-Computable Neural Network prior-art update. This continuation adds AR-121 for HTN planning, HY-106 for learned HTN method-selection collisions, and AR-122 for active inference; these are established planning/inference frameworks, not new broad model classes. It also adds an FCM source correction: nonlinear edges and delays predate KA-FCM, with Fuzzy Relational Maps recorded as a narrow bipartite variant. HY-100 now separates predictive-basis test selection from physical sensing; HY-103–HY-107 record oscillator-learning, Rete/neural-Datalog, heteroclinic-learning, HTN, and deep-active-inference collisions. A JTMS/ATMS addendum sharpens the truth-maintenance prior-art comparison. The latest pass adds AR-123/HY-108 closing generic reversible structural edits, AR-124/HY-109 closing persistent entity identity plus learned slots, AR-125/HY-110 closing runtime symbol/operator growth, and AR-126/HY-111 closing generic frame/script knowledge plus neural grounding. This continuation adds AR-127/HY-112 for KL-ONE classification and learned ontology construction; AR-128 for DL concept revision; AR-129/HY-113 for incremental TBox/ABox maintenance and conservative extension; AR-130/HY-114 for proof-carrying updates; AR-131 for learned specification generation; AR-132 for policy learning via membership/equivalence queries; AR-133 for per-update translation validation; AR-134 for live code/state replacement through dynamic software updating; AR-135 for reflective interpretation and executable code as data; AR-136 for automatic revision/creation of executable rules and programs; and AR-137 for evaluators/objectives inferred from feedback or generated internally. Each has direct same-operation prior art or reduces to known tools and explicit oracle/specification/update-point assumptions. No broad or hybrid architecture candidate survives. Continue literature and formal reduction only under the owner's no-experiment rule; only `Codex_Research.md` was changed.
 - **Calibration rolling update (2026-09-27):** AR-138 tests the owner-updated primitive/architecture/pipeline standard against attention, residual connections, backpropagation, diffusion, and CDCL, and re-audits C003, C007, C014, C017, C020, and HY-80. CDCL and Strassen serve as positive controls; no current Codex architecture candidate survives. No experiment ran.
@@ -139,6 +141,86 @@ Claude's machine-readable validation (`6331de4`) independently fails the same C2
 The exact independent machine-readable proposal dump and run summary are committed in `experiments/automated_mechanism_search/audit_artifacts/v6_static_codex_20260928/`; the compressed proposal dump is SHA-256 `EC5D0026647DB1BF978215389BDD4633F70A7F07F6FB7769B6E48CEAF6A6B7BB`. The shared ledger incorporates Claude's three static-validation entries and a conservative 1.5-second Codex audit allocation (0.719 seconds measured inside the validator), totaling 2,365.632 CPU-seconds (0.657120 hours) of the 30-hour cap. No GPU or training ran. The Codex Python environment did not have `pytest`, so the constructor test module was not independently rerun; Claude's branch report records its full suite as 167/167 passing.
 
 **Conclusion:** `STOP — v6 static validity failure; no Stage-2 search or novelty candidate audit.` The failure is the concrete C2 constructor/frozen-classifier mismatch, with a separate one-at-cap uncounted constructor attempt. No protocol, detector, preregistration, or Claude file was changed. **Exact next action:** wait for an owner-authorized resolution and a static-passing implementation; then fetch that revision and audit only its structural outputs before any candidate work.
+
+## AR-145 -- Independent AMS v7 Stage-2/Stage-3 artifact and rediscovery audit (2026-09-28)
+
+### Scope and provenance
+
+The tracked local checkout was safely synchronized to `origin/main` at `e516ab5fb82a56a6a64e03f258f7dad3a93f8311`; no reset or clean was used. I read the current `AGENTS.md`, active AMS preregistration, `SHARED_RESEARCH_MAP.md`, and the Codex Resume. I did not read either full independent-lane notebook. The v7 run artifacts audited were `experiments/automated_mechanism_search/runs/stage2_v7/` and `runs/stage3_v7/`. Stage 2 records implementation commit `94e23bbe319bc00bd694fca7a4bc717ea74afa40` and clean-at-start code commit `1334cca492e493d58e3fe388c822e9dfa0551d1f` (excluding run outputs); Stage 3 records run-start commit `365b2647562ede712a16aa8cf2a28144e608a915`. Both manifests carry config hash `1df8d0cb5799b7c8f8e14c287544e00c886a645ba99b98bdd95f8d0f1961eb20`, CPU-only execution, and the exact v7 seed declarations. Only this notebook was edited.
+
+### Stage-2 raw recount and promotion metrics
+
+I recounted each JSONL record in `records.jsonl.gz`; its 5,544 rows equal the recorded `generated` count and partition exactly as follows:
+
+| Terminal record label | Recount |
+|---|---:|
+| `invalid` | 175 |
+| `dup_syntactic` | 1,621 |
+| `dup_behavioral` | 1,317 |
+| `REDISCOVERY_inert` | 11 |
+| `pure_rule` | 66 |
+| `no_signal` | 124 |
+| `sanity_fail` | 1,030 |
+| `TIER1_EVALUATED` with a score | 1,197 |
+| `defect` during Tier-1 | 3 |
+| **Total generated records** | **5,544** |
+
+The counters also reconcile: 2,230 sanity evaluations = 1,030 failures + 1,200 advanced Tier-1 attempts. The Tier-1 counter is 1,200 because it increments before candidate evaluation; the three defects are P04273, P04973, and P05189, each with a Task-F `numpy.matmul` broadcast `ValueError` during prediction. They have no score and were not promotion candidates. Counts record attempts, not 1,200 successful score rows; this distinction is retained here.
+
+For all 1,197 scored rows, independently recomputed `q = max(finite(effects)) - cost.penalty`; maximum absolute difference from stored q was zero. Forty-one scored candidates have q >= 0.15. Rebuilding the descriptor maxima yields 35 occupied cells out of 56; 12 archive elites meet both q >= 0.15 and the Tier-1 best-task gate, and the frozen top-eight promotion order matches `promotions.json`. The promoted candidates are all best-task Cstar and none appears in the 481-entry initial-constructor log, so all eight are offspring.
+
+| PID | Recomputed q | Tier-1 Cstar half-life (seeds 1000-1002) | Return passes | Nearest family (similarity) |
+|---|---:|---:|---:|---|
+| P02743 | 0.495951315 | 6.000 (4, 8, 6) | 3 | R21_continual_backprop (0.950378) |
+| P04957 | 0.487468726 | 5.333 (4, 6, 6) | 2 | R1_SGD (0.886342) |
+| P05100 | 0.486492178 | 6.000 (4, 8, 6) | 2 | R21_continual_backprop (0.885797) |
+| P05115 | 0.486342926 | 5.333 (4, 6, 6) | 3 | R1_SGD (0.712145) |
+| P04064 | 0.486133040 | 5.333 (4, 6, 6) | 3 | R1_SGD (0.741412) |
+| P03951 | 0.430936623 | 6.667 (4, 10, 6) | 2 | R21_continual_backprop (0.899453) |
+| P03376 | 0.338433588 | 7.333 (8, 8, 6) | 2 | R21_continual_backprop (0.855595) |
+| P01024 | 0.209285859 | 8.667 (4, 16, 6) | 3 | R1_SGD (0.657700) |
+
+### Independent candidate-level rediscovery screen
+
+I inspected each promoted raw and canonical program, fingerprint, nearest-family result, and residual/removal information. All eight retain the exact base `dW = neg(outer(d_bp,a))` / `db = neg(d_bp)` update, with the weight update altered only by additional state-dependent or signal-dependent gates where present. This is not exact behavioral identity with the nearest family in every case; the family score is a nearest-match signal, not an equivalence proof.
+
+| PID | Operation added around R1_SGD | Closest collision | Independent screen |
+|---|---|---|---|
+| P02743 | RUN O register tracks `exp_c(xi_O)-r1`; `1+tanh(r1)` modulates forward gain; SGD updates stay exact. | R21, 0.950378 | SGD plus a noise-driven gain state; no distinct learning or adaptation benefit is established. |
+| P04957 | Top-k row gate on the SGD gradient, `W_ep0` plus a feedback/noise effective-weight term, and reinitialization mask. | R1, 0.886342 | Sparse gradient routing plus perturbation and known structural reinitialization motifs. |
+| P05100 | Noise-driven RUN O register, absolute-value gain, and top-k gate using DFA activity. | R21, 0.885797 | SGD with stochastic gain and feedback-conditioned sparse update. |
+| P05115 | Top-k gate on `d_bp`, noise-dependent effective-weight term, RUN O mixed trace, and reinitialization mask. | R1, 0.712145 | SGD with sparse gating, feedback/noise perturbation, trace state, and known reinitialization. |
+| P04064 | As P05115, with a `where(e,z,d_bp)` top-k gate. | R1, 0.741412 | Same known motif composition; the gate variant has no surviving fresh-seed advantage. |
+| P03951 | Noise-driven RUN O register, absolute-value gain, and top-k gate from `dphi` and state. | R21, 0.899453 | SGD with stochastic gain and state-conditioned sparse update. |
+| P03376 | Noise/activity-mixed register and gain, with nested top-k masks combining `dphi`, random feedback, and `d_fa`. | R21, 0.855595 | SGD plus stacked sparse masks and feedback alignment/random projection signals. |
+| P01024 | RUN O state from `nrm(dphi)`, `W_ep0 + tep` effective weights, top-k gate, and reinitialization. | R1, 0.657700 | SGD with sparse update, fast/effective-weight perturbation, and known reinitialization motifs. |
+
+None reaches a new architecture classification. All added operations map to familiar sparse/top-k update gating, stochastic or activity-derived gain/state, effective-weight/fast-state perturbation, feedback-alignment signals, or structural reinitialization around a backprop optimizer. More importantly, the required fresh-seed Stage-3 effect is absent for every candidate. I do not claim that a nearest-family score proves exact equivalence; I classify this promoted set as negative with no novelty established, rather than extrapolating a new architecture from Tier-1 q.
+
+### Stage-3 raw-job Gate-3 recomputation
+
+The raw `jobs.jsonl.gz` contains 139 jobs, no job errors, and 4,170 seed/LR runs (139 x 30); every job uses exactly seeds 10000-10009. Re-summarizing the stored raw job result arrays reproduced the saved per-seed candidate and shared-SGD metrics exactly. From those arrays I recomputed paired Wilcoxon signed-rank p-values and the 10,000-replicate bootstrap intervals using the frozen seed 12345; both match `results.json` exactly. The best generic is SGD for all eight, with `m_G=21.8` and Cstar threshold `m_P <= 10.9` plus at least 8/10 return passes.
+
+| PID | m_P | Return | Wilcoxon p | Bootstrap 95% CI for G-P | Threshold | Holm | Gate 3 | Label |
+|---|---:|---:|---:|---:|---|---|---|---|
+| P02743 | 18.0 | 5/10 | 0.406250 | [-4.0, 14.6] | fail | fail | fail | NEGATIVE |
+| P04957 | 12.4 | 5/10 | 0.070313 | [1.6, 17.8] | fail | fail | fail | NEGATIVE |
+| P05100 | 23.0 | 8/10 | 0.765625 | [-6.2, 3.6] | fail | fail | fail | NEGATIVE |
+| P05115 | 17.0 | 3/10 | 0.007813 | [2.0, 8.0] | fail | fail | fail | NEGATIVE |
+| P04064 | 17.0 | 3/10 | 0.007813 | [2.0, 8.0] | fail | fail | fail | NEGATIVE |
+| P03951 | 23.8 | 7/10 | 0.812500 | [-6.6, 2.6] | fail | fail | fail | NEGATIVE |
+| P03376 | 26.4 | 3/10 | 0.920898 | [-13.6, 7.4] | fail | fail | fail | NEGATIVE |
+| P01024 | 22.6 | 6/10 | 0.125000 | [-13.0, 7.0] | fail | fail | fail | NEGATIVE |
+
+All eight fail the deterministic threshold: P05100 is the only one with 8 returns but has mP=23.0; P04957 has the best mP=12.4 but only 5 returns and exceeds 10.9. The minimum p-value is 0.0078125, above the first Holm cutoff 0.05/8=0.00625, so the step-down procedure rejects no candidate. Positive bootstrap lower bounds for P04957/P05115/P04064 cannot rescue the failed threshold and multiplicity gates. Gate 3 is false for all, which directly yields `NEGATIVE` for all eight; no later gate can promote them.
+
+One interpretation caveat: the frozen residual remover maps the gated `dW` term to zero for seven candidates, rather than retaining the SGD backbone while neutralizing only the gate. Only P02743's K(P) retains exact SGD `dW`. Therefore the later K(P)-based ablation comparisons are not clean mechanism-removal evidence for those seven. This does not change their Gate-3 failures or labels, which are decided earlier from the fresh-seed threshold, paired test, and bootstrap.
+
+### v6 cap-boundary check against v7 counts
+
+The v6 issue was that `_v6_slot` could ask the constructor for a valid object before `Pipeline.try_add` rejected a proposal when `generated` was already 6,000, leaving one uncounted construction at the exact boundary. The v7 run ended with 5,544 generated records after all 20 generations (`G_MAX`), 456 below the cap; the Tier-1 counter ended exactly at 1,200. The cap path was never invoked, raw record count equals the generated counter, and there is no count discrepancy attributable to the v6 boundary behavior. The shared helper still contains the latent exact-cap ordering; this audit confirms only that it had no effect on this v7 run, not that the helper is repaired.
+
+**Conclusion:** Stage-2 totals, archive, q values, eligible-promotion ordering, and all eight promotions reconcile to the raw artifacts. Stage-3 raw jobs independently reproduce every stored Gate-3 statistic and all eight `NEGATIVE` labels. Independent rediscovery screening finds R1_SGD backbones with known motif combinations and no surviving material fresh-seed advantage; no architecture candidate survives. The v6 cap-boundary issue did not affect v7's 5,544 final generated count. No search or experiment was rerun and no frozen/protocol/governance file was edited.
 
 ## AR-143 — Independent AMS v4 Stage-1 verification (2026-09-28)
 
