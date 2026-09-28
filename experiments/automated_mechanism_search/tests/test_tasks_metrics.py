@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 
 from ams import metrics as MX
-from ams.runners import first_layer_grad, taskB_gate
+from ams.runners import V3_SEEDS, first_layer_grad, taskB_gate, taskB_gate_v3_decide
 from ams.substrate import Net
 from ams.tasks import (TaskA, TaskB, TaskCstar, TaskD, TaskE, TaskF, TaskT0, discrete_synthesis,
                        generator_fingerprint, synthesis_predict)
@@ -79,7 +79,32 @@ def test_taskB_gate_gradient_numeric():
 
 def test_taskB_gate_deterministic():
     a, b = taskB_gate(100), taskB_gate(100)
-    assert a["mean_cos"] == b["mean_cos"] and a["n_pairs"] == 64
+    assert a["mean_cos"] == b["mean_cos"] and a["n_pairs"] == 64 and a["cosines"] == b["cosines"]
+    assert a["n_negative"] == sum(c < 0 for c in a["cosines"])
+
+
+def test_taskB_gate_v3_seed_set():
+    assert tuple(V3_SEEDS) == (100, 101, 102, 103, 104, 1000, 1001, 1002)
+
+
+def _fake(seed, cos):
+    return {"seed": seed, "mean_cos": float(np.mean(cos)), "cosines": list(cos)}
+
+
+def test_taskB_gate_v3_decision_rule():
+    """prereg v3: pass iff every seed mean < 0 and >= 90% of all cosines < 0 (no magnitude rule)."""
+    ok = [_fake(s, [-0.01] * 64) for s in V3_SEEDS]                     # weak but consistent conflict
+    assert taskB_gate_v3_decide(ok)["pass"]
+    one_pos_seed = ok[:-1] + [_fake(1002, [0.01] * 64)]                    # a seed mean >= 0
+    d = taskB_gate_v3_decide(one_pos_seed)
+    assert not d["cond1_all_seed_means_negative"] and not d["pass"]
+    mixed = [_fake(s, [-0.5] * 57 + [0.1] * 7) for s in V3_SEEDS]           # 57/64 = 89.06% < 90%
+    d = taskB_gate_v3_decide(mixed)
+    assert d["cond1_all_seed_means_negative"] and not d["cond2_pass"] and not d["pass"]
+    edge = [_fake(s, [-0.5] * 58 + [0.1] * 6) for s in V3_SEEDS]            # 58/64 = 90.6%
+    assert taskB_gate_v3_decide(edge)["pass"]
+    zero_mean = ok[:-1] + [_fake(1002, [-0.5] * 32 + [0.5] * 32)]          # mean exactly 0 is not < 0
+    assert not taskB_gate_v3_decide(zero_mean)["cond1_all_seed_means_negative"]
 
 
 # ---------------------------------------------------------------- Task C* (v2)

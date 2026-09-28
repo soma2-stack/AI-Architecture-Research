@@ -116,6 +116,24 @@ def test_config_immutable(tmp_path):
         manifest.write_or_verify_config(p)
 
 
+def test_v3_config_markers():
+    from ams import PROTOCOL_VERSION
+    assert PROTOCOL_VERSION == "AMS-prereg-v3"
+    c = manifest.RUN_CONFIG
+    assert c["protocol"] == "AMS-prereg-v3" and c["substrate"]["init"] == "glorot_normal"
+    g = c["taskB_stage0_gate_v3"]
+    assert g["seed_mean_cos_lt"] == 0.0 and g["frac_pairs_negative_min"] == 0.90 and g["pairs_per_seed"] == 64
+    assert "taskB_gate_mean_cos" not in c["thresholds"]                  # v2 magnitude gate superseded
+    assert manifest.CONFIG.endswith("run_config_v3.json")
+
+
+def test_v2_config_record_unchanged():
+    import hashlib, os
+    d = json.load(open(manifest.CONFIG_V2))
+    assert d["config"]["protocol"] == "AMS-prereg-v2"
+    assert hashlib.sha256(json.dumps(d["config"], sort_keys=True).encode()).hexdigest() == d["sha256"]
+
+
 def test_seed_sets_disjoint_no_confirmation_leakage():
     s = manifest.RUN_CONFIG["seeds"]
     sets = [set(v) for v in s.values()]

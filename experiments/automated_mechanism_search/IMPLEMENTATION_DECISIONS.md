@@ -388,3 +388,97 @@ Git history of this file is the evidence of timing.
   - Plus substrate forward (2oi+3o) and, if `d_bp` is read, backward (2oi+2o) per layer above the first.
   - Plus update application.
   - STRUCT cost is amortized over 100 steps.
+
+---
+
+# v3 amendment and Stage-1/2 operational clarifications (session 14)
+
+Committed **before** the v3 Stage-0 gate was computed and **before** any Stage-1 training.
+
+- The only result visible at this point is the published v2 Stage-0 outcome:
+  - Task-B cosines: all 512 negative; 3/8 seeds at ≤ −0.50; pooled −0.459;
+  - Stage 0 otherwise passed.
+- Nothing in this section changes a threshold, schedule, budget or rule of the v3 preregistration.
+- Items marked **clarification** resolve an ambiguity in an earlier D-item in the direction the earlier text most naturally reads.
+
+## D-V3 — v3 protocol changes (owner amendment `91bb7d8`)
+
+- **D-V3-1. Task-B gate.** `D-TASK-B-GATE` and gate `M1` are superseded. The v3 gate:
+  - Gradient: first-layer weight gradient of the batch-mean ½‖e‖² loss at the Glorot-normal initialization of each seed (unchanged).
+  - Seeds: 100–104 and 1000–1002.
+  - Pairs: 64 per seed, sharing `c` (unchanged).
+  - The gate passes iff:
+    - (1) every one of the 8 seed-level mean cosines is < 0; **and**
+    - (2) at least 90% of the 512 individual cosines are < 0.
+  - No magnitude threshold.
+- **D-V3-2. Ratified by v3.** Glorot-normal initialization (D-SUB-1), `W_ep0` probe derivation (D-PROBE-2), and gates M2 / M3.
+- **D-V3-3. Run configuration.** The v3 run configuration is written to `config/run_config_v3.json`. `config/run_config.json` is kept unchanged as the v2 record.
+- **D-V3-4. Output locations.** Official Stage-0 output: `runs/stage0_v3/`. Stage-1 output: `runs/stage1/`.
+
+## D-S1 — Stage-1 clarifications
+
+- **D-S1-1. Official generic controls** are SGD, SGDM and AdamW run through the substrate update pipeline, with clipping (D-SUB-8) identical to candidates.
+  - The same three methods without clipping run as recorded diagnostics only; they never enter a gate or a selection.
+  - Known-family program controls (R12, R13, R15, R17, R18) are canonical reference programs run through `ProgramLearner`.
+  - GPM is the D-LR-2 native control.
+- **D-S1-2. Learning-rate selection.** Stage 1 uses seeds 100–104, the grid {1e-3, 1e-2, 1e-1}, and the D-LR-1 selection rule. All "seed-mean" quantities below are means over these 5 seeds at the selected learning rate.
+- **D-S1-3. Best generic baseline** (clarification of D-S2-1 / D-CAL M7). Among SGD / SGDM / AdamW at their selected learning rates, it is the one with the lowest seed-mean task metric:
+
+  | Task | Metric |
+  |---|---|
+  | B | Forgetting_B |
+  | C\* | censored median R1 half-life |
+  | F | OOD error |
+
+  Ties go to the first of (SGD, SGDM, AdamW).
+- **D-S1-4. M2 / M3 / M4 / M6.** Exactly as in D-CAL and v3. M3's `L1_post > L1_pre` must hold on each of the 5 seeds.
+- **D-S1-5. M7** (clarification). For the best generic C\* baseline:
+  - seed-mean `MSE_R0(256) < 0.25`; and
+  - seed-mean R1 entry MSE > 0.05 at the first entry (step 256) **and** at the second (step 384).
+- **D-S1-6. V1-B.** Pass iff some control in {GPM, R17, R18, R13} has, at its own selected learning rate, both:
+  - seed-mean `Forgetting_B ≤ 0.85 ×` SGD's seed-mean `Forgetting_B`; and
+  - seed-mean Task-2 final MSE ≤ 1.1 × SGD's.
+
+  SGD here is the clipped official SGD at its selected learning rate.
+- **D-S1-7. V2-C\*.** Pass iff some control in {R12, R13, R15} has a seed-mean censored R1 half-life ≤ 0.9 × SGD's.
+- **D-S1-8. V3-F.** Discrete synthesis (D-TASK-F) on each calibration seed must reach a seed-mean OOD accuracy ≥ 0.95.
+- **D-S1-9. V-D.** For each method and κ:
+  - the selected learning rate minimizes seed-mean final loss among learning rates with no diverged seed;
+  - `S_τ` is the seed-mean `S_τ` at that learning rate, or ∞ if any seed never reaches τ;
+  - a method with no non-diverged learning rate has `S_τ = ∞`.
+
+  The gate passes iff, for κ ∈ {1e4, 1e6}, `S_τ(natgrad)` is finite and `S_τ(natgrad) ≤ min(S_τ(SGD), S_τ(SGDM)) / 3`, with ∞/3 = ∞.
+- **D-S1-10. M5.** Read from the official v3 Stage-0 result: test suite pass and detector recall 100%.
+- **D-S1-11. Stop rule.** Any failed mandatory gate (M2–M7, V1-B, V2-C\*, V3-F, V-D) stops the run before Stage 2. Recorded-only items never stop it.
+
+## D-T1 — Tier-1 evaluator clarifications (Stage 2)
+
+- **D-T1-1. Baselines.**
+  - Official generic baselines on the Tier-1 seeds 1000–1002 are computed once, after Stage 1 passes and before the first candidate is evaluated. They use the same selection rule.
+  - The best generic per task follows D-S1-3 on these seeds.
+  - AdamW's seed-level metrics feed the D-S2-3 gate.
+- **D-T1-2. Evaluation.**
+  - A candidate is evaluated on B, C\* and F, each with 3 seeds × 3 learning rates vectorized, and the learning rate selected per task by D-LR-1.
+  - A task with no stable learning rate gets `e_t = −∞` and cannot be the promoted task.
+  - If all three tasks lack a stable learning rate, the result is `tier1_unstable` (NEGATIVE: unstable).
+  - A timeout or out-of-memory condition gives `tier1_error`.
+- **D-T1-3. Per-seed metrics.**
+  - B: `Forgetting_B`.
+  - C\*: censored median half-life.
+  - F: `1 − OOD accuracy`.
+
+  Effects and constraints follow D-S2-2, using seed means.
+  - The C\* return check "holds in ≥ 2 of 3 seeds".
+  - The F constraint uses seed-mean train accuracy ≥ 0.98.
+- **D-T1-4. Cost terms in q.** FLOPs and state are measured on the Task-B substrate `[32, 32, 32, 4]`.
+  - `FLOPs_SGD` is the R1 reference program on the same substrate.
+  - params = 2,276.
+- **D-T1-5. Tier-1 minimum effect** (D-S2-3). On task t:
+  - AdamW's seed metrics give mean `m_A` and sample standard deviation `s_A` (ddof = 1; floor 1e-9);
+  - pass iff `m_A − m_P ≥ 2·s_A` and task t's constraint holds.
+- **D-T1-6. Promotion** (D-S2-4). The promoted task is `argmax_t e_t`.
+- **D-T1-7. Parallelism and CPU accounting.**
+  - The three task evaluations of a candidate run in a pool of 3 worker processes at `nice 10`. Candidates are processed sequentially, which preserves AE.3.4 archive semantics.
+  - Each worker returns its own process-CPU delta. Parent plus worker CPU is appended to the ledger after every 25 Tier-1 evaluations.
+  - The cap check (30 CPU-h cumulative) runs before every Tier-1 evaluation.
+- **D-T1-8. Search RNG.** `random.Random(20260928)` drives generation, mutation and parent choice. The search log is `runs/stage2/records.jsonl` (every generated program, including invalid ones and negatives).

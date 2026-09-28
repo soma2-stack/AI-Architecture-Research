@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/user/AI-Architecture-Research/experiments/automated_mechanism_search
+configfile: pytest.ini
+collected 118 items
+
+tests/test_collision.py ........................                         [ 20%]
+tests/test_grammar.py .........................                          [ 41%]
+tests/test_interp_substrate.py ......................................... [ 76%]
+.                                                                        [ 77%]
+tests/test_search_accounting.py ..........                               [ 85%]
+tests/test_tasks_metrics.py .................                            [100%]
+
+============================= 118 passed in 6.01s ==============================

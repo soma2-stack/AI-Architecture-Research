@@ -1,10 +1,10 @@
-# Automated mechanism search (AMS) — preregistration v2 implementation
+# Automated mechanism search (AMS) — preregistration v3 implementation
 
-Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v2).
+Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v3; v2 package reused with the v3 Task-B gate).
 
 Open choices are fixed in `IMPLEMENTATION_DECISIONS.md`, committed before any gate or run.
 
-**Status:** Stage 0 **failed** on the v2 Task-B gradient-conflict gate (see `STAGE0_REPORT.md`). Stages 1–3 have not run.
+**Status:** v2 Stage 0 failed (`STAGE0_REPORT.md`). Under v3, Stage 0 passed (`runs/stage0_v3/`) and official Stage 1 failed gates M2, V1-B and V2-C* (`STAGE1_REPORT.md`). Stages 2–3 have not run.
 
 ## Layout
 

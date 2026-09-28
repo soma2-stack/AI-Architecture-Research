@@ -1,0 +1,83 @@
+{
+ "status": "POST-HOC DIAGNOSTIC ONLY (not a gate, no protocol change)",
+ "finding": "R12/R13 fast-weight controls diverge at every learning rate: the shared program's Hebbian register on the identity (linear) output layer, r <- mix(r, outer(h=z, a), 0.9), has unbounded positive feedback; register dynamics do not depend on eta.",
+ "trace_Cstar_seed100_lr1e-3": [
+  {
+   "step": 1,
+   "loss": 0.3838649094104767,
+   "max_abs_r_output_layer": 0.005723681766539812,
+   "max_abs_r_hidden2": 0.03046119585633278,
+   "alive": true
+  },
+  {
+   "step": 2,
+   "loss": 0.1832515299320221,
+   "max_abs_r_output_layer": 0.024155912920832634,
+   "max_abs_r_hidden2": 0.09467348456382751,
+   "alive": true
+  },
+  {
+   "step": 3,
+   "loss": 0.0012779638636857271,
+   "max_abs_r_output_layer": 0.07206271588802338,
+   "max_abs_r_hidden2": 0.17793986201286316,
+   "alive": true
+  },
+  {
+   "step": 4,
+   "loss": 0.06100546196103096,
+   "max_abs_r_output_layer": 0.19866053760051727,
+   "max_abs_r_hidden2": 0.2489672750234604,
+   "alive": true
+  },
+  {
+   "step": 5,
+   "loss": 1.0165834426879883,
+   "max_abs_r_output_layer": 0.26340097188949585,
+   "max_abs_r_hidden2": 0.23382200300693512,
+   "alive": true
+  },
+  {
+   "step": 6,
+   "loss": 8.896488189697266,
+   "max_abs_r_output_layer": 0.7514413595199585,
+   "max_abs_r_hidden2": 0.30624517798423767,
+   "alive": true
+  },
+  {
+   "step": 7,
+   "loss": 157.09498596191406,
+   "max_abs_r_output_layer": 2.516054630279541,
+   "max_abs_r_hidden2": 0.37472987174987793,
+   "alive": true
+  },
+  {
+   "step": 8,
+   "loss": 2499.48486328125,
+   "max_abs_r_output_layer": 9.408585548400879,
+   "max_abs_r_hidden2": 0.4171801805496216,
+   "alive": true
+  },
+  {
+   "step": 9,
+   "loss": 40071.7265625,
+   "max_abs_r_output_layer": 36.85764694213867,
+   "max_abs_r_hidden2": 0.459242045879364,
+   "alive": true
+  },
+  {
+   "step": 10,
+   "loss": 652131.0625,
+   "max_abs_r_output_layer": 147.43936157226562,
+   "max_abs_r_hidden2": 0.4889249801635742,
+   "alive": true
+  },
+  {
+   "step": 11,
+   "loss": 10699299.0,
+   "max_abs_r_output_layer": 595.3043823242188,
+   "max_abs_r_hidden2": 0.5107223391532898,
+   "alive": false
+  }
+ ]
+}

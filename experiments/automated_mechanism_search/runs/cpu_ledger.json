@@ -28,8 +28,22 @@
    "wall_seconds": 15.0,
    "note": "intermediate rerun on commit 9ae42d8 (same verdict); its ledger line was overwritten when runs/ was reset, re-entered here from the observed runtime (~18 CPU-s)",
    "utc": "2026-09-28T04:34:34Z"
+  },
+  {
+   "stage": "stage0_v3",
+   "cpu_seconds": 17.262,
+   "wall_seconds": 14.66,
+   "note": "official v3 Stage-0 script (tests, v3 gate, self-check, profile)",
+   "utc": "2026-09-28T04:55:14Z"
+  },
+  {
+   "stage": "stage1",
+   "cpu_seconds": 66.545,
+   "wall_seconds": 12.151,
+   "note": "official Stage-1 calibration (parent 33.8s + workers 32.7s)",
+   "utc": "2026-09-28T04:57:12Z"
   }
  ],
- "total_cpu_seconds": 952.499,
- "total_cpu_hours": 0.26458
+ "total_cpu_seconds": 1036.306,
+ "total_cpu_hours": 0.28786
 }
