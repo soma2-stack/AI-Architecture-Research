@@ -1,6 +1,7 @@
 """Official Stage 3 (frozen D-S3 / D-S3-v4): matched validation of the Stage-2 promotions.
 
-Usage: python3 scripts/stage3.py <stage2_run> <stage3_run>      e.g. stage2_v7 stage3_v7
+Usage: python3 scripts/stage3.py <stage2_run> <stage3_run>      e.g. stage2_v7 stage3_v7;
+       prereg v8: stage2_v8_confirm stage3_v8 (locked seeds 30000-30009, C* AULC, Gate 4 on KF(P))
 Reads runs/<stage2_run>/promotions.json; writes runs/<stage3_run>/{results.json, jobs.jsonl.gz,
 manifest.json}.  Fresh seeds 10000-10009; CPU only; the shared 30 CPU-h cap is checked before
 every batch of jobs.  Labels never exceed POSSIBLE ARCHITECTURE CANDIDATE — CROSS-LANE AUDIT REQUIRED."""
@@ -29,6 +30,10 @@ STAGE2 = sys.argv[1] if len(sys.argv) > 1 else "stage2_v7"
 RUN_NAME = sys.argv[2] if len(sys.argv) > 2 else "stage3_v7"
 OUT = os.path.join(HERE, "runs", RUN_NAME)
 assert not os.path.exists(os.path.join(OUT, "manifest.json")), f"{OUT} already holds a run; refusing to overwrite"
+V8 = RUN_NAME.startswith("stage3_v8")          # prereg v8: locked seeds 30000-30009, C* AULC, Gate 4 on KF(P)
+S3.configure("v8" if V8 else "v7")
+if V8:
+    os.environ["AMS_STAGE3_UNLOCK"] = "1"       # the official v8 Stage 3 is the only permitted user of 30000-30009
 
 
 def _json(o):
@@ -59,7 +64,10 @@ def main():
         return 0
     manifest.write_or_verify_config()
     accounting.check_cap()
-    assert set(S3.STAGE3_SEEDS).isdisjoint({500, 1000, 1001, 1002, *range(20000, 20010)})
+    assert set(S3.STAGE3_SEEDS).isdisjoint({500, 1000, 1001, 1002, *range(5000, 5003), *range(6000, 6008),
+                                            *range(20000, 20010)})
+    if V8:
+        assert S3.STAGE3_SEEDS == list(range(30000, 30010)) and S3.CM == "aulc" and S3.GATE4_REF == "KF"
     lib = FamilyLibrary()
     parent0 = accounting.self_cpu_seconds()
     state = {"workers": 0.0}
@@ -80,11 +88,16 @@ def main():
         if has_persistent:
             conds["A2"], hooks["A2"] = prog_spec(P, "A2"), "zero"
             conds["A3"], hooks["A3"] = prog_spec(P, "A3"), "noise"
+        kf_name = None
+        if V8:                                  # KF(P): exact nearest known-family reference (v8 Gate 4)
+            kf_name = pr["family_nearest"]["family"]
+            assert lib.nearest(P)["family"] == kf_name, "nearest family differs from the Stage-2 record"
+            conds["KF"] = prog_spec(S3.nearest_family_program(kf_name), "KF")
         rob = S3.robustness_variants(P)
         for name, q in rob:
             conds["rob:" + name] = prog_spec(q, "rob")
         fl = {"flops_P": S3.flops(task, ProgramLearner(P)), "flops_SGD": S3.flops(task, make("SGD")())}
-        cands.append({"pid": pr["pid"], "task": task, "P": P, "K": K, "K_info": kinfo, "conds": conds,
+        cands.append({"pid": pr["pid"], "task": task, "P": P, "K": K, "K_info": kinfo, "conds": conds, "KF": kf_name,
                       "hooks": hooks, "has_persistent": has_persistent, "flops": fl,
                       "flops_ratio": fl["flops_P"] / fl["flops_SGD"]})
 
@@ -145,19 +158,21 @@ def main():
     decisions = {c["pid"]: S3.pre_decide(c["task"], c["S"], c["has_persistent"], c["flops_ratio"]) for c in cands}
     pv = {pid: d["wilcoxon_p"] for pid, d in decisions.items() if "wilcoxon_p" in d}
     hol = S3.holm(pv)
-    out = {"stage2_run": STAGE2, "seeds": S3.STAGE3_SEEDS, "git_at_start": git_at_start, "candidates": []}
+    out = {"stage2_run": STAGE2, "seeds": S3.STAGE3_SEEDS, "git_at_start": git_at_start, "candidates": [],
+           "profile": {"version": "v8" if V8 else "v7", "cstar_metric": S3.CM, "gate4_reference": S3.GATE4_REF}}
     for c in cands:
         d = decisions[c["pid"]]
         d["holm_significant"] = hol.get(c["pid"], False)
         lab = S3.label(d, d["holm_significant"])
         out["candidates"].append({
             "pid": c["pid"], "task": c["task"], "label": lab, "decision": d, "matching": c.get("matching"),
-            "flops": c["flops"], "K_info": c["K_info"], "program": program_to_dict(c["P"]),
+            "flops": c["flops"], "K_info": c["K_info"], "KF_family": c["KF"], "program": program_to_dict(c["P"]),
             "K": program_to_dict(c["K"]), "has_persistent": c["has_persistent"],
             "summaries": {k: {kk: vv for kk, vv in v.items() if kk in ("stable", "lr", "metric", "seed_metric",
                                                                         "return_ok_count", "R0_pre_shift",
                                                                         "retention", "T2_final_mse", "train_acc",
-                                                                        "sgg", "error")}
+                                                                        "sgg", "error", "hl_censored_seeds",
+                                                                        "aulc_seeds")}
                           for k, v in c["S"].items()},
         })
     cpu = accounting.self_cpu_seconds() - parent0 + state["workers"]

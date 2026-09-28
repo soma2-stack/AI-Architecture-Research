@@ -18,36 +18,48 @@ from .canon import canon
 from .families import REFERENCES
 from .grammar import Program, program_to_dict
 
-TIER1_SEEDS = [1000, 1001, 1002]
+TIER1_SEEDS = [1000, 1001, 1002]                 # v5-v7 fast Tier-1 seeds
+V8_TIER1_SEEDS = [5000, 5001, 5002]              # prereg v8 fast discovery seeds
 TASKS = ("B", "Cstar", "F")
+CSTAR_METRICS = ("hl", "aulc")                   # v5-v7: censored half-life; v8: normalized AULC
 
 
-def seed_metrics(task: str, summ: Dict) -> List[float]:
-    """Per-seed lower-is-better metric (D-T1-3)."""
+def seed_metrics(task: str, summ: Dict, cm: str = "hl") -> List[float]:
+    """Per-seed lower-is-better metric (D-T1-3; C* per prereg v8 when cm='aulc')."""
     if task == "B":
         return list(summ["forgetting_seeds"])
     if task == "Cstar":
-        return list(summ["hl_censored_seeds"])
+        return list(summ["aulc_seeds"] if cm == "aulc" else summ["hl_censored_seeds"])
     return list(summ["ood_err_seeds"])
 
 
-def mean_metric(task: str, summ: Dict) -> float:
-    return float(np.mean(seed_metrics(task, summ)))
+def mean_metric(task: str, summ: Dict, cm: str = "hl") -> float:
+    return float(np.mean(seed_metrics(task, summ, cm)))
 
 
-def compute_baselines(results: Dict[str, Dict]) -> Dict:
-    """results[f'{task}:{method}'] = runner output on TIER1_SEEDS."""
-    out = {"seeds": TIER1_SEEDS, "summaries": {}, "best_generic": {}, "adamw": {}}
+def effect(task: str, g: float, mP: float, cm: str = "hl") -> float:
+    """Task effect vs the best generic (D-S2-2; C* per prereg v8 when cm='aulc')."""
+    if task == "B":
+        return (g - mP) / max(g, 1.0)
+    if task == "Cstar":
+        return (g - mP) / (max(g, 1e-8) if cm == "aulc" else max(g, 4.0))
+    return (g - mP) / max(g, 0.01)
+
+
+def compute_baselines(results: Dict[str, Dict], cm: str = "hl", seeds=None) -> Dict:
+    """results[f'{task}:{method}'] = runner output on the Tier-1 seeds."""
+    seeds = TIER1_SEEDS if seeds is None else list(seeds)
+    out = {"seeds": seeds, "cstar_metric": cm, "summaries": {}, "best_generic": {}, "adamw": {}}
     for t in TASKS:
         out["summaries"][t] = {}
         for m in GENERIC:
-            s = summarize(t, select_lr(results[f"{t}:{m}"], TIER1_SEEDS))
+            s = summarize(t, select_lr(results[f"{t}:{m}"], seeds))
             out["summaries"][t][m] = s
         best, bv = None, math.inf
         for m in GENERIC:
             s = out["summaries"][t][m]
-            if s["stable"] and mean_metric(t, s) < bv:
-                best, bv = m, mean_metric(t, s)
+            if s["stable"] and mean_metric(t, s, cm) < bv:
+                best, bv = m, mean_metric(t, s, cm)
         if best is None:
             raise RuntimeError(f"no stable generic baseline on {t} (Tier-1 seeds)")
         g = out["summaries"][t][best]
@@ -57,7 +69,7 @@ def compute_baselines(results: Dict[str, Dict]) -> Dict:
         a = out["summaries"][t]["AdamW"]
         if not a["stable"]:
             raise RuntimeError(f"AdamW unstable on {t} (Tier-1 seeds)")
-        sm = seed_metrics(t, a)
+        sm = seed_metrics(t, a, cm)
         out["adamw"][t] = {"mean": float(np.mean(sm)), "sd": max(float(np.std(sm, ddof=1)), 1e-9), "seeds": sm}
     return out
 
@@ -74,15 +86,16 @@ def _cost_terms(prog: Program) -> Dict:
             "penalty": 0.05 * math.log2(f_p / f_s) + 0.05 * math.log2(1 + st / params)}
 
 
-def score(prog: Program, task_results: Dict[str, Dict], base: Dict) -> Dict:
+def score(prog: Program, task_results: Dict[str, Dict], base: Dict, cm: str = "hl", seeds=None) -> Dict:
     """Effects, constraints, q and Tier-1 gate from per-task runner outputs (D-S2-2/3)."""
+    seeds = TIER1_SEEDS if seeds is None else list(seeds)
     effects, cons, gates, summ, metr = {}, {}, {}, {}, {}
     for t in TASKS:
         r = task_results[t]
         if r.get("error"):
             s = {"stable": False, "error": r["error"]}
         else:
-            s = summarize(t, select_lr(r, TIER1_SEEDS))
+            s = summarize(t, select_lr(r, seeds))
         summ[t] = s
         if not s["stable"]:
             effects[t] = -math.inf
@@ -90,16 +103,14 @@ def score(prog: Program, task_results: Dict[str, Dict], base: Dict) -> Dict:
             gates[t] = False
             continue
         g = base["best_generic"][t]
-        mP = mean_metric(t, s)
+        mP = mean_metric(t, s, cm)
         metr[t] = mP
+        e = effect(t, g["metric"], mP, cm)
         if t == "B":
-            e = (g["metric"] - mP) / max(g["metric"], 1.0)
             ok = s["T2_final_mse"] <= 1.25 * g["T2_final_mse"]
         elif t == "Cstar":
-            e = (g["metric"] - mP) / max(g["metric"], 4.0)
             ok = s["return_ok_count"] >= 2
         else:
-            e = (g["metric"] - mP) / max(g["metric"], 0.01)
             ok = s["train_acc"] >= 0.98
         if not ok:
             e = min(e, 0.0)
@@ -118,13 +129,14 @@ def score(prog: Program, task_results: Dict[str, Dict], base: Dict) -> Dict:
             "metrics": metr, "summaries": summ, "cost": cost}
 
 
-def evaluate(prog: Program, base: Dict, pool) -> Dict:
+def evaluate(prog: Program, base: Dict, pool, cm: str = "hl", seeds=None) -> Dict:
     """Run the three tasks for a candidate (in the pool) and score them."""
+    seeds = TIER1_SEEDS if seeds is None else list(seeds)
     d = program_to_dict(prog)
-    jobs = [{"task": t, "learner": "P", "program": d, "seeds": TIER1_SEEDS} for t in TASKS]
+    jobs = [{"task": t, "learner": "P", "program": d, "seeds": seeds} for t in TASKS]
     res = pool.map(run_job, jobs, chunksize=1)
     tr = {t: r for t, r in zip(TASKS, res)}
-    out = score(prog, tr, base)
+    out = score(prog, tr, base, cm, seeds)
     out["cpu_s_workers"] = float(sum(r.get("cpu_s", 0.0) for r in res))
     out["lr"] = {t: (out["summaries"][t].get("lr") if out["summaries"][t].get("stable") else None) for t in TASKS}
     return out

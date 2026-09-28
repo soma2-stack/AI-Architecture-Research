@@ -6,8 +6,11 @@ shared 30 CPU-h cap is checked before every Tier-1 evaluation.  Writes runs/<RUN
 Run names: stage2, stage2_repair1 (prereg v5, uniform random constructor, seed 20260928);
 stage2_v6 (prereg v6, SGD-anchored constructor, seed 2026092806; refuses to start unless the
 v6 static validation in runs/v6_static_validation/ passed -- it failed, so this never ran);
-stage2_v7 (prereg v7, detector-aligned constructor, seed 2026092806; refuses to start unless the
-v7 static validation in runs/v7_static_validation/ passed)."""
+stage2_v7 (prereg v7, detector-aligned constructor, seed 2026092806; complete, final);
+stage2_v8 (prereg v8: v7 constructor + gate-mutation zero repair + exact cap, seed 2026092808, fast
+Tier-1 seeds 5000-5002, C* normalized AULC; refuses to start unless runs/v8_presearch_validation/
+passed; promotions come only from scripts/stage2_confirm.py).  Each version refuses to start unless
+it is the active protocol."""
 import json
 import math
 import multiprocessing as mp
@@ -33,8 +36,11 @@ OUT = os.path.join(HERE, "runs", RUN_NAME)
 assert not os.path.exists(os.path.join(OUT, "manifest.json")), f"{OUT} already holds a run; refusing to overwrite"
 V6 = RUN_NAME.startswith("stage2_v6")
 V7 = RUN_NAME.startswith("stage2_v7")
-INIT = "v7" if V7 else ("v6" if V6 else "v5")
-SEARCH_SEED = 2026092806 if (V6 or V7) else 20260928
+V8 = RUN_NAME.startswith("stage2_v8")
+INIT = "v8" if V8 else ("v7" if V7 else ("v6" if V6 else "v5"))
+SEARCH_SEED = 2026092808 if V8 else (2026092806 if (V6 or V7) else 20260928)
+RUN_TIER1_SEEDS = tier1.V8_TIER1_SEEDS if V8 else tier1.TIER1_SEEDS     # prereg v8: 5000-5002
+CM = "aulc" if V8 else "hl"                                            # prereg v8: C* normalized AULC
 SANITY_SEED = 500
 CHECKPOINT_EVERY = 25
 
@@ -52,15 +58,16 @@ def _json(o):
 
 
 def main():
-    if V6 or V7:
+    if V6 or V7 or V8:
         ver = INIT
-        assert manifest.RUN_CONFIG[f"stage2_{ver}"]["search_seed"] == SEARCH_SEED
-        sv = os.path.join(HERE, "runs", f"{ver}_static_validation", "validation.json")
-        if not (os.path.exists(sv) and json.load(open(sv))["pass"]):
-            print(f"{ver} static validation missing or failed; the official {ver} Stage 2 is not allowed.")
+        if manifest.RUN_CONFIG["protocol"] != f"AMS-prereg-{ver}":
+            print(f"prereg {ver} is not the active protocol; the {ver} Stage 2 is not allowed.")
             return 4
-        if V6 and manifest.RUN_CONFIG["protocol"] != "AMS-prereg-v6":
-            print("prereg v6 is no longer the active protocol; the v6 Stage 2 is not allowed.")
+        assert manifest.RUN_CONFIG[f"stage2_{ver}"]["search_seed"] == SEARCH_SEED
+        vdir = "v8_presearch_validation" if V8 else f"{ver}_static_validation"
+        sv = os.path.join(HERE, "runs", vdir, "validation.json")
+        if not (os.path.exists(sv) and json.load(open(sv))["pass"]):
+            print(f"{ver} pre-search validation missing or failed; the official {ver} Stage 2 is not allowed.")
             return 4
     os.makedirs(OUT, exist_ok=True)
     git_at_start = {"commit": manifest._git("rev-parse", "HEAD"),
@@ -71,7 +78,9 @@ def main():
         return 3
     manifest.write_or_verify_config()
     accounting.check_cap()
-    assert max(tier1.TIER1_SEEDS + [SANITY_SEED]) < 10000, "confirmation-seed leakage"
+    assert max(RUN_TIER1_SEEDS + [SANITY_SEED]) < 10000, "confirmation-seed leakage"
+    if V8:
+        assert set(RUN_TIER1_SEEDS).isdisjoint(set(range(6000, 6008)) | set(range(30000, 30010)))
     wall0 = time.time()
     state = {"parent0": accounting.self_cpu_seconds(), "workers": 0.0, "ledgered": 0.0, "n_t1": 0}
     log = open(os.path.join(OUT, "records.jsonl"), "w")
@@ -94,10 +103,11 @@ def main():
     workers = max(1, min(3, (os.cpu_count() or 2) - 1))
     with mp.get_context("fork").Pool(workers, initializer=init_worker) as pool:
         # D-T1-1: Tier-1 generic baselines, once, before any candidate
-        jobs = [{"task": t, "learner": m, "seeds": tier1.TIER1_SEEDS} for t in tier1.TASKS for m in GENERIC]
+        jobs = [{"task": t, "learner": m, "seeds": RUN_TIER1_SEEDS} for t in tier1.TASKS for m in GENERIC]
         res = pool.map(run_job, jobs, chunksize=1)
         state["workers"] += sum(r["cpu_s"] for r in res)
-        base = tier1.compute_baselines({f"{j['task']}:{j['learner']}": r for j, r in zip(jobs, res)})
+        base = tier1.compute_baselines({f"{j['task']}:{j['learner']}": r for j, r in zip(jobs, res)},
+                                       cm=CM, seeds=RUN_TIER1_SEEDS)
         with open(os.path.join(OUT, "baselines_tier1.json"), "w") as f:
             json.dump(base, f, indent=1, default=_json)
         progress(f"baselines: { {t: base['best_generic'][t] for t in tier1.TASKS} }")
@@ -110,7 +120,7 @@ def main():
 
         def t1(c):
             accounting.check_cap(total_cpu() - state["ledgered"])
-            out = tier1.evaluate(c, base, pool)
+            out = tier1.evaluate(c, base, pool, cm=CM, seeds=RUN_TIER1_SEEDS)
             state["workers"] += out.pop("cpu_s_workers")
             state["n_t1"] += 1
             if state["n_t1"] % CHECKPOINT_EVERY == 0:
@@ -134,7 +144,9 @@ def main():
         log.close()
     checkpoint("Stage-2 final")
 
-    promo = search.select_promotions(pipe)
+    # prereg v8: the fast archive is an exploration archive; promotion is decided only by the
+    # confirmation funnel (scripts/stage2_confirm.py), never by the 3-seed fast q.
+    promo = [] if V8 else search.select_promotions(pipe)
     arch = {str(k): {"pid": r.pid, "quality": r.quality, "descriptor": r.descriptor, "canonical": r.canonical,
                      "raw": r.raw, "fingerprint": r.fingerprint, "family_nearest": r.family,
                      "tier1": r.tier1} for k, r in pipe.archive.items()}
@@ -154,27 +166,28 @@ def main():
         "archive_occupancy": f"{len(pipe.archive)}/{search.N_CELLS}",
         "tier1_q_ge_0.15": q_pass,
         "tier1_negative": evald - len(promo),
-        "promoted": [r.pid for r in promo],
+        "promoted": ("deferred to the v8 confirmation funnel" if V8 else [r.pid for r in promo]),
         "cpu_seconds": total_cpu(), "wall_seconds": time.time() - wall0,
         "cumulative_cpu_hours": accounting.load_ledger()["total_cpu_hours"],
     }
     with open(os.path.join(OUT, "counts.json"), "w") as f:
         json.dump(summary, f, indent=1, default=_json)
-    with open(os.path.join(OUT, "promotions.json"), "w") as f:
-        json.dump([{"pid": r.pid, "quality": r.quality, "best_task": r.tier1["best_task"],
-                    "descriptor": r.descriptor, "canonical": r.canonical, "raw": r.raw,
-                    "fingerprint": r.fingerprint, "family_nearest": r.family, "beta_hash": r.beta_hash,
-                    "struct_hash": r.struct_hash, "tier1": r.tier1, "K": r.detail.get("K"),
-                    "K_info": r.detail.get("K_info"), "cos_P_KP": r.detail.get("cos_P_KP")} for r in promo],
-                  f, indent=1, default=_json)
+    if not V8:                                  # v8: promotions come only from the confirmation funnel
+        with open(os.path.join(OUT, "promotions.json"), "w") as f:
+            json.dump([{"pid": r.pid, "quality": r.quality, "best_task": r.tier1["best_task"],
+                        "descriptor": r.descriptor, "canonical": r.canonical, "raw": r.raw,
+                        "fingerprint": r.fingerprint, "family_nearest": r.family, "beta_hash": r.beta_hash,
+                        "struct_hash": r.struct_hash, "tier1": r.tier1, "K": r.detail.get("K"),
+                        "K_info": r.detail.get("K_info"), "cos_P_KP": r.detail.get("cos_P_KP")} for r in promo],
+                      f, indent=1, default=_json)
     if pipe.construction:
         import gzip as _gz
         with _gz.open(os.path.join(OUT, "construction.jsonl.gz"), "wt", 9) as f:
             for pid, meta in pipe.construction.items():
                 f.write(json.dumps({"pid": pid, **meta}, default=_json) + "\n")
     man = manifest.build_manifest(RUN_NAME, {"git_at_start": git_at_start, "search_seed": SEARCH_SEED,
-                                             "initial_constructor": INIT,
-                                             "tier1_seeds": tier1.TIER1_SEEDS, "sanity_seed": SANITY_SEED,
+                                             "initial_constructor": INIT, "cstar_metric": CM,
+                                             "tier1_seeds": RUN_TIER1_SEEDS, "sanity_seed": SANITY_SEED,
                                              "stop": outcome["stop"], "counts": c,
                                              "cpu_seconds": total_cpu(), "n_promoted": len(promo)})
     with open(os.path.join(OUT, "manifest.json"), "w") as f:

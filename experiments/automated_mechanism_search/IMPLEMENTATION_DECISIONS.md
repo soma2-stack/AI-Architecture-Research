@@ -712,3 +712,53 @@ Committed before the v7 static validation and before any v7 search. Prereg v7 ch
 - **Known control:** the strongest stable control. It passes if P's seed mean is better and the one-sided Wilcoxon test (control − P) gives p < 0.05, uncorrected.
 - **Tier 3** (Tasks A and E, seeds 20000–20009) is only listed for candidates with the maximum label; it is not implemented yet.
 - **Smoke test:** only non-official seeds 900–901 were used. The Stage-3 seeds had not been run before the official Stage 3.
+
+---
+
+# v8 amendment — C* adaptation AULC, confirmation funnel, KF(P), pre-search repairs (session 20)
+
+Committed before the v8 pre-search validation and before any v8 candidate training.
+
+**Unchanged:** the grammar, the canonicalizer, the fingerprint, the collision library, the probes, T0, Tasks B and F, the descriptors, mutation and crossover probabilities, the LR grid, the cost penalty, and every budget. `ams/fingerprint.py`, `ams/families.py`, `ams/canon.py`, `ams/probes.py`, `ams/grammar.py` and `tests/fixtures` have no diff against `956efdf`.
+
+**v5–v7 reproducibility:** every v8 change is opt-in (a parameter, subclass or profile), so the recorded v5–v7 paths behave exactly as before.
+
+- **D-V8-1. C\* metric.**
+  - `metrics.adaptation_area` / `adaptation_aulc` implement prereg v8 exactly:
+    - `A_e = mean_{k=4,8,…,64} max(MSE_R1(e+k) − τ, 0) / max(MSE_R1(e) − τ, 1e-8)`;
+    - `A_C = 0.5·(A_256 + A_384)`, with τ = 0.05;
+    - no clipping beyond the numerator floor.
+  - `runners.run_C` records `aulc` and `aulc_entries` for every run alongside the unchanged half-life fields (diagnostic). On a shortened test schedule, where e+64 is not an evaluation step, it records NaN; that never happens under the frozen schedule.
+  - `summarize("Cstar")` adds `aulc_mean` and `aulc_seeds`.
+- **D-V8-2. Tier-1** (`tier1.*(…, cm, seeds)`).
+  - `cm="aulc"` makes the C\* per-seed metric A_C and the effect `(m_G − m_P) / max(m_G, 1e-8)`.
+  - Unchanged: the return constraint (≥ 2/3) and the AdamW 2σ gate, now applied to AULC.
+  - `cm="hl"` (the default) is the v5–v7 rule.
+  - v8 fast seeds are `tier1.V8_TIER1_SEEDS` = 5000–5002.
+- **D-V8-3. Gate-mutation zero.** `Gen.where_zero` (the default `None`) keeps the historical literal 0.0. `ams/v8gen.py V8Gen` sets it to `(sub 1.0 1.0)`, which the unchanged canonicalizer folds to the intended `where(sel, 1, 0)` (struct-hash identity is tested). `V8Gen` is the v7 `DetectorAlignedGen` with only this attribute changed; a test checks that its initial proposals are identical to v7's.
+- **D-V8-4. Exact N_GEN_MAX boundary.** With `map_elites(init="v8")`, N_GEN_MAX is checked before each anchored attempt is constructed (`_v6_slot(exact_cap=True)`, `v6_attempts(cap_check=…)`) and before each mutation or crossover offspring is constructed. A regression test counts constructions: under v8, constructed = counted = the cap; the v7 path built one uncounted candidate at the cap.
+- **D-V8-5. Stage 2** (`scripts/stage2.py stage2_v8`).
+  - Seed 2026092808, fast Tier-1 seeds 5000–5002, `cm="aulc"`, `init="v8"`.
+  - It refuses to start unless `runs/v8_presearch_validation/validation.json` passes and the active protocol is v8. Every version's run now refuses unless it is the active protocol, so v7 cannot be rerun.
+  - It writes no fast promotions file: promotion comes only from the confirmation funnel.
+- **D-V8-6. Confirmation funnel** (`ams/confirm.py`, `scripts/stage2_confirm.py stage2_v8 stage2_v8_confirm`).
+  - Every occupied cell's current elite (at most 56) is evaluated on its frozen fast `best_task` over seeds 6000–6007.
+  - The generic baselines (SGD / SGDM / AdamW) are computed once per task, for all three tasks, on the same seeds.
+  - `e_confirm` uses the Tier-1 task formula (C\* on AULC), and `q_confirm = e_confirm − the recorded fast cost penalty`.
+  - **Task constraint:**
+    - B: T2 ≤ 1.25·T2_G;
+    - C\*: the R0 return check on ≥ 6/8 seeds (the v8 "additionally" rule is the C\* constraint on the 8 seeds);
+    - F: train accuracy ≥ 0.98;
+    - a failed constraint caps e at 0, as in Tier 1.
+  - **Eligible** = stable ∧ constraint ∧ q_confirm ≥ 0.15 ∧ (AdamW mean − m_P ≥ 2·AdamW sample SD, with the floor 1e-9) ∧ strictly lower metric than the best generic G on ≥ 6/8 paired seeds.
+  - **Promotion:** eligible elites only, by descending q_confirm; ties go to lower library similarity, then pid. At most 8 per task and 20 in total.
+  - `promotions.json` keeps the v7 record fields, plus `q_fast` and the confirmation record.
+- **D-V8-7. Stage 3** (`scripts/stage3.py stage2_v8_confirm stage3_v8`, profile `stage3.configure("v8")`).
+  - Seeds 30000–30009; C\* on AULC.
+  - Gate 3 for C\*: m_P ≤ 0.5·m_G, return check ≥ 8/10, Holm-corrected Wilcoxon, and a bootstrap CI above 0.
+  - τ for C\* is 0.5·m_G on AULC.
+  - **KF(P)** = `canon(REFERENCES[nearest])`, where `nearest` is the Stage-2 recorded nearest family (`lib.nearest`), re-verified at Stage 3. It is run as its own condition, and Gates 4a/4b use KF(P).
+  - The old K(P) still runs and is recorded as a diagnostic, as is the half-life.
+  - B and F rules are unchanged.
+- **D-V8-8. Stage-3 seed lock.** `runners._runs` raises `SeedLockError` for seeds 30000–30009 unless `AMS_STAGE3_UNLOCK=1`, which only `scripts/stage3.py` sets, in the v8 profile. The C\* regime-entry events for A2 / A3 are taken from the seed-independent schedule, so no locked seed's task is instantiated before Stage 3.
+- **D-V8-9. Pre-search validation** (`scripts/v8_presearch_validation.py`). The checks are listed in its docstring. `test_v8.py`'s runner test trains only the generic SGD on the non-official seed 7; no v8 candidate is trained before the validation passes.

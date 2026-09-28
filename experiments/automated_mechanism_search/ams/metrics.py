@@ -7,6 +7,26 @@ from typing import Dict, List, Optional, Sequence
 import numpy as np
 
 CENSOR_HL = 128.0
+AULC_KS = tuple(range(4, 65, 4))          # prereg v8: k in {4, 8, ..., 64}
+AULC_FLOOR = 1e-8
+
+
+def adaptation_area(eval_steps: Sequence[int], mse_R1: Sequence[float], entry: int, tau: float) -> float:
+    """Prereg v8 per-entry normalized adaptation area
+        A_e = mean_k max(MSE_R1(e+k) - tau, 0) / max(MSE_R1(e) - tau, 1e-8),  k in {4, 8, ..., 64}.
+    No clipping beyond the floor at zero in the numerator."""
+    steps = list(eval_steps)
+    E = float(mse_R1[steps.index(entry)])
+    den = max(E - tau, AULC_FLOOR)
+    return float(np.mean([max(float(mse_R1[steps.index(entry + k)]) - tau, 0.0) / den for k in AULC_KS]))
+
+
+def adaptation_aulc(eval_steps: Sequence[int], mse_R1: Sequence[float], entries: Sequence[int],
+                    tau: float) -> float:
+    """Prereg v8 seed-level Task-C* metric A_C = 0.5 * (A_first_R1 + A_second_R1); lower is better."""
+    assert len(entries) == 2
+    return 0.5 * (adaptation_area(eval_steps, mse_R1, entries[0], tau)
+                  + adaptation_area(eval_steps, mse_R1, entries[1], tau))
 
 
 def retention_B(L1_init: float, L1_pre: float, L1_post: float) -> float:

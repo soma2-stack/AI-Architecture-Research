@@ -19,6 +19,12 @@ MAX_RETRY = 10
 
 
 class Gen:
+    # Zero branch of the m_gate `where` variant.  v5-v7 historical behaviour: a literal 0.0, which is
+    # outside the frozen constant set, so that variant always produced an invalid offspring.  Prereg
+    # v8 repairs it in `ams.v8gen.V8Gen` with the grammar-legal (sub 1.0 1.0); this default keeps the
+    # recorded v5-v7 traces reproducible.
+    where_zero = None
+
     def __init__(self, rng: random.Random):
         self.r = rng
 
@@ -261,7 +267,7 @@ class Gen:
         if self.r.random() < 0.5:
             g = Node("topk", (sel,), self.r.choice(TOPK_KS))
         else:
-            g = Node("where", (sel, const(1.0), const(0.0)))
+            g = Node("where", (sel, const(1.0), const(0.0) if self.where_zero is None else self.where_zero))
         return replace(p, dW=Node("rowscale", (p.dW, g)))
 
     def m_struct(self, p):
