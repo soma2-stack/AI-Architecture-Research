@@ -147,6 +147,24 @@ Strong measured lesson:
 
 No architecture candidate survives.
 
+## Claude session 7 update (2026-09-28) — irreducible-operation discovery
+
+Added by the Claude lane under §13. Details: `Claude_Research.md` Part AA. Scope: literature and reasoning only, no experiments.
+
+- **21 candidates, I01–I21.** Each is written as STATE + OPERATION + WRITE + GUARANTEE, drawn from the seams between the granted machines of §6. **0 survive.**
+- **Structural results:**
+  - **Library closure.** Once an interpreter, synthesis and Bayesian inference are granted, a survivor can only be (a) a cost separation from a genuinely new efficiency paradigm or (b) a new *specification*.
+  - **Worst-case no-gos behind recurring themes.** Each has a loophole that is already occupied:
+    - "create new variables that make problems easy" → proof-system non-automatability (Atserias–Müller 2019; ER under cryptographic assumptions);
+    - "reliably commit to discrete structure" → global stability ⟺ finite Littlestone dimension (Bun–Livni–Moran 2020; only finite classes when agnostic, STOC 2024); Lin–Kelly 2012 tracking impossibility;
+    - "exact deletion / isolation" → additive-statistic characterization + Pitman–Koopman–Darmois.
+  - **Neural components add search heuristics, not proof-system power** (for sound systems). Neural × symbolic fusions can therefore only give distributional gains.
+  - **The specification for "commit to discrete structure from continuous belief" already exists** in formal epistemology (Leitgeb P-stability; Lin–Kelly) and learning theory (replicability, STOC 2022).
+- **Filter calibration (interpretation).** The current filter would kill attention, backpropagation, residual connections and even CDCL, despite CDCL's proven separation. Historically, only new specifications pass. The Claude notebook records a proposal for the owner: a separation-proof exemption to the "pipeline" kill rule, and optionally a separate empirical tier.
+- **Handoff:** `HANDOFF_Claude_to_Codex_filter_calibration.md` (Codex: find counterexamples).
+- **Lens 13, discovery by dissection** (operations observed inside trained networks, literature only): **0/17** mechanisms lack a library counterpart. Gradient descent rediscovers the human paradigm set: Fourier arithmetic, parallel prefix, pointers, BFS / bidirectional search, sketching. Trained systems contribute new *knowledge* (e.g. AlphaZero's chess concepts), not new operations.
+- **Claude lane status:** owner decision requested on the AA.6 proposal. Default if unanswered: specification invention from requirements reported for agentic systems (Lens 11c).
+
 ---
 
 # 3. Codex lane — novelty assassin + computational archaeology
@@ -722,6 +740,7 @@ Unless genuinely new contradictory evidence appears, do not restart:
 | Primitive Batch P1–P20 | 0 survivors |
 | Primitive Batch P21–P40 | 0 survivors |
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
+| Claude session 7: irreducible-operation batch I01–I21 | 0/21 survive; no-go map + filter calibration recorded |
 | **Genuinely new architecture found** | **0** |
 
 ---

@@ -2,13 +2,44 @@
 
 Owner: Claude (Opus 5.5). Started 2026-09-27.
 This is my persistent research record. It follows `01_MISSION.md`, `02_RESEARCH_METHOD.md`, `03_IDEA_CRITERIA.md`, and the output format of `04_RESEARCH_STATE.md`.
-I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or modify `Codex_Research.md` or `Cursor_Research.md`. I have followed these instructions (neither file was opened in any session).
+I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or modify `Codex_Research.md` or `Cursor_Research.md`. I have followed these instructions (neither file was opened in any session). From session 7 on, `AGENTS.md` governs and the owner-authorized `SHARED_RESEARCH_MAP.md` is used; the two other lane notebooks are still unopened.
 
 `00_PRIOR_RESEARCH.md` (an independent earlier study) is treated as evidence and a starting point, not as a conclusion I have to accept.
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-27, session 6
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 7
+
+- **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (owner-authorized cross-lane synthesis; read in session 7) → this notebook. `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
+- **Current search lens:** *irreducible-operation discovery*. Grant every machine in map §6, then ask what useful operation is still missing (Part AA).
+- **Current stage (session 7):**
+  - Lens 13 (dissection) done in two literature passes: 0/14 (AA.9) and 0/3 (AA.10).
+  - Lenses 9–12 done: library closure + no-go map; seams between granted machines (candidates I01–I21); specification genesis; separation-first fusion.
+  - **0/21 survive.** No experiments; web search and one algebra sanity check only.
+- **Strongest surviving candidate(s):** **none.** Nothing is at `SURVIVES INITIAL REDUCTION`. CSL remains a useful combination with low novelty (Part K); it is not an architecture candidate.
+- **Key structural results (AA.1–AA.6):**
+  - (1) **Library closure:** with an interpreter, synthesis and Bayes granted, a survivor can only be a *cost separation from a new paradigm* or a *new specification*. This explains the ~340 cross-lane kills as structural.
+  - (2) **No-go map NG-1…NG-9.** The project's three aspirations each have a worst-case no-go with an occupied loophole:
+    - "create new variables" → proof-system non-automatability;
+    - "reliable discrete commitment" → global stability ⟺ Littlestone dimension, and Lin–Kelly tracking impossibility;
+    - "exact isolation / deletion" → additive-statistic characterization + Pitman–Koopman–Darmois.
+  - (3) **Neural components add heuristics, not proof power,** so neural × symbolic fusions can only give distributional gains.
+  - (4) **The spec for "commit to discrete structure" already exists:** Leitgeb P-stability; replicability.
+  - (5) **Filter calibration:** the current novelty filter would kill every major historical ML primitive and even CDCL; only new *specifications* pass.
+- **Killed / closed this session (do not reopen):** I01–I21 (Part J). Also closed: worst-case concept invention; exact unlearning with feature learning; commitment primitives weaker than P-stability + replicability; neural regional-certificate propagators; orbit commitment; classical-spec → learning transfers; the relational-spec grid; neural × symbolic worst-case separations.
+- **Unresolved prior-art questions:**
+  - (a) Are there historical mechanisms that pass the current filter and are *not* new specifications? Handed to Codex in `HANDOFF_Claude_to_Codex_filter_calibration.md`.
+  - (b) Has the AA.6 refinement (a separation proof exempts a fusion from the "pipeline" kill) been formalized for neuro-symbolic systems? Nothing found; a 2026 survey calls tight-vs-federated coupling unanswered.
+  - (c) 2025–26 items were verified from abstracts / snippets only, because arXiv full text was blocked.
+- **Owner-level proposal (notebook only, AGENTS.md untouched):** AA.6 — refine the pipeline kill rule with a separation-proof exemption, and optionally add a separate "distributional primitive" tier judged by experiment.
+- **Lens 13 first pass (AA.9):** 14 mechanisms observed in trained networks; **0/14 lack a library counterpart.** Gradient descent rediscovers the human paradigm set.
+- **Lens 13 second pass (AA.10):** non-language systems (AlphaZero, protein LMs, MuZero); 0/3. Dissection finds new *knowledge* (AlphaZero chess concepts), not new *operations*.
+- **Session conclusion (AA.10):** 21 candidates + 17 observed mechanisms, **0 survivors**. Under the current standard the remaining target appears to be only new *specifications* or *separation-proved fusions*.
+- **Exact next action:** **owner decision on AA.6** (keep the standard / separation-proof exemption / empirical tier). Also pending: the Codex answer to `HANDOFF_Claude_to_Codex_filter_calibration.md`.
+- **Default if the owner only says "continue":** Lens 11c, specification invention from requirements reported for agentic / multi-agent LLM systems in 2025–26. Literature only; each candidate must be a spec + mechanism.
+- **ID scheme addition:** `I01–I21` (session 7, Part AA); `NG-1…NG-9` (no-go map).
+
+# Resume Pointer as of session 6 (historical; superseded by the block above)
 
 - **Current stage (session 6):** the Pretrained Structural Rebinding phase (Part Z) is complete: **Outcome C — pretraining reduces but does not eliminate the E2/Y.4 failure; explicit discrete search removes it** (Z.5). No further tests were run after the user's "no more test" instruction.
 - **Earlier stages:**
@@ -2051,6 +2082,443 @@ No breakdown of reasoning-based rebinding was found up to n = 9. **Overall, thin
 
 ---
 
+# Part AA — Irreducible-Operation Discovery (session 7, 2026-09-28)
+
+**Brief (from the owner, session 7).** Assume a hypothetical system already has every machine in `SHARED_RESEARCH_MAP.md` §6: neural nets, RAM/stacks/graphs, SAT/SMT/CSP/ILP, theorem provers, interpreters, program synthesis, search and planning, Bayesian and causal inference, TMS/provenance, incremental computation, version spaces, persistent data structures, abstract interpretation, reversible computation, rewriting, architecture search, control, and established physical substrates. Then ask: **what useful operation is still missing?** Every candidate must be written as `STATE + OPERATION + WRITE/TRANSITION RULE + GUARANTEE` and then attacked. No experiments and no heavy compute. A survivor is only `SURVIVES INITIAL REDUCTION`.
+
+**Resources used:** web search (about 25 queries) and one 30-line algebra sanity check in the scratchpad (no training, no GPU). `arxiv.org` full text was blocked by the network proxy, so 2025–26 papers below were verified at **abstract or search-snippet level only**. This is marked "(snippet)" where it matters.
+
+**Labels used in this part:** **VERIFIED** (a cited published result); **DERIVATION** (my own elementary argument, checked but not peer-reviewed); **INTERPRETATION**; **SPECULATION**.
+
+---
+
+## AA.1 Lens 9a — What does "missing operation" mean once the library is granted? (the Library-Closure argument)
+
+**DERIVATION (elementary; folklore-level, no novelty claimed).** The granted library L contains a universal interpreter, program synthesis / universal (Levin) search, and Bayesian inference over computable models.
+- **Computability.** For any operation O whose input–output relation (or interactive protocol) is computable and can be written down, L implements O: write O as a program and run it on the interpreter. So **no computable operation is "missing" from L** in the computability sense.
+- **Sample efficiency.** Bayesian mixture over all computable predictors (Solomonoff) has expected cumulative KL loss ≤ K(μ)·ln 2 against any computable source μ (Solomonoff 1978; Hutter 2005). So no mechanism can beat L's *statistical* efficiency by more than the prior constant. Every practical sample-efficiency gap is really a *compute* gap (universal Bayes cannot be run) or a *prior* gap.
+- **Acquisition.** "The system cannot acquire O from experience" means the prior or search cost of synthesizing O (about 2^K(O) in Levin search) is too high. Lowering it is again a cost or prior question over a distribution of tasks. That is amortization, which L already contains (library learning, learned heuristics).
+- **Information.** If O's output is not determined by the available information, no machine does O. That is an identification limit, not a missing primitive (map §5G).
+
+**Consequence (INTERPRETATION).** A surviving primitive can only be one of two kinds:
+- **(Q1) a cost separation from a new efficiency paradigm.** An implementation that beats every composition of L on a natural problem family by an asymptotic margin in time, space, communication or energy. It counts as a primitive only if its efficiency comes from a new *paradigm*, not from a new instance of DP, divide-and-conquer, relaxation, hashing, sketching, propagation, amortization, conflict learning, and so on.
+- **(Q2) a new specification.** A guarantee type that no machine in L states, together with an efficient mechanism meeting it. Bloom filters, consistent hashing, LSH, differential privacy, CRDTs and zero-knowledge all entered computing this way.
+
+**Explains the project's null result.** This is why roughly 340 candidates across three lanes all died at the "operation" level. That was a structural necessity, not a failure to think of the right idea. Every candidate named an operation, and every nameable computable operation is already in L. The only live questions are cost (Q1) and specification (Q2). AA.2–AA.5 attack both.
+
+---
+
+## AA.2 Lens 9b — No-go map: families of primitives that are impossible in their strong form
+
+For each no-go below: the family of primitives it rules out in worst-case form; the loophole; and who already occupies the loophole. The purpose is to stop future search in these areas.
+
+| # | No-go result | Kills this family of candidate primitives (strong form) | Loophole | Loophole already occupied by |
+|---|---|---|---|---|
+| NG-1 | **VERIFIED:** resolution is NP-hard to automate (Atserias & Müller, FOCS 2019 / JACM 2020); depth-d Frege is NP-hard to automate; extended Frege / ER is not automatable under cryptographic assumptions (Krajíček & Pudlák 1998; Bonet, Pitassi & Raz 2000) | **"Invent the new variables / concepts that make hard problems easy"** with a worst-case guarantee. Extension variables give exponential speedups (PHP needs 2^Ω(n) resolution, Haken 1985; it has poly-size ER proofs, Cook 1976), but *finding* them is not efficiently automatable | distributional / amortized invention | library learning (DreamCoder / Stitch abstractions are ER-style definitions); ERCL via Dual Implication Points (arXiv 2406.14190, 2024); SBVA; GlucoseER (2010) |
+| NG-2 | **DERIVATION** (from the proof-size lower bounds just cited): a sound solver whose UNSAT answers are backed by proofs in system Π runs in time ≥ the minimum Π-proof size. Heuristics, learned or not, only choose *which* proof is found | **"Neural × symbolic fusion gives new reasoning power."** Neural guidance can change only *automatability on a distribution*, never proof complexity. Worst-case gains need a stronger Π (ER, cutting planes, algebraic reasoning), and those are known symbolic machines | amortization over a task distribution | neural-guided CDCL, learned branching, expert iteration (all known) |
+| NG-3 | **DERIVATION** (elementary, checked by brute force in the scratchpad): let a learner's state depend only on the multiset of training items and support exact deletion. Then inserts are commuting invertible maps, i.e. an action of the free abelian group Z^(X). Hence s(D) = h(s₀ + Σ_{x∈D} φ(x)) with φ **fixed** (it cannot depend on D). Adding fixed-size sufficiency for an i.i.d. fixed-support family forces an exponential family (**VERIFIED:** Pitman–Koopman–Darmois) | **"Exact, cheap unlearning / order-free merging for a feature-learning model."** Exact O(1)-state deletion excludes data-dependent features. This one statement explains Q02 (exact-deletion context), N09 (CRDT learner) and why exact unlearning keeps reducing to linear heads | growing state; approximate deletion; sharding | ridge / analytic heads on frozen features (ACIL; "Exact Federated Continual Unlearning for Ridge Heads on Frozen Foundation Models", arXiv 2603.12977, snippet); SISA; certified approximate unlearning |
+| NG-4 | **VERIFIED:** optimal continual learning requires perfect memory and is NP-hard (Knoblauch, Husain & Diethe, ICML 2020) | **"A continual learner that never forgets and stays cheap"** | replay, approximation, restricted classes | the whole continual-learning literature |
+| NG-5 | **VERIFIED:** realizable case: *global stability* (the same hypothesis output across independent samples with probability ≥ η) is characterized by finite Littlestone dimension (Bun, Livni & Moran, FOCS 2020). Agnostic case: only **finite** classes are globally stably learnable (Chase, Chornomaz, Moran & Yehudayoff, STOC 2024, snippet) | **"A primitive that makes continuous learning reliably commit to discrete structure"**, i.e. the owner's AGENTS.md question in its sharpest learning-theory form. Reliable commitment is *possible exactly* for Littlestone classes (realizable) or finite classes (agnostic). Otherwise no mechanism achieves it | restrict to a finite or Littlestone class; list-replicability | replicable learning (Impagliazzo, Lei, Pitassi & Sorrell, STOC 2022: shared-randomness rounding); list-replicability (COLT 2025) |
+| NG-6 | **VERIFIED:** no uncertain acceptance rule realizes AGM belief revision while *tracking* Bayesian conditioning (Lin & Kelly, J. Phil. Logic 2012). Lockean threshold rules also violate conjunction closure (lottery paradox, Kyburg 1961) | **"Discrete commitments that revise minimally and stay coherent with a continuously updated model"** | non-AGM revision; context-dependent thresholds | Lin–Kelly's odds-based acceptance + Shoham revision; Leitgeb's stability theory (P-stable sets, 2014 / 2017); arXiv 2509.02495 and 2507.06042 (2025, snippet) |
+| NG-7 | **VERIFIED:** Löbian obstacle for self-trusting successors (tiling agents, 2013) | **"Safe self-modification with a proof that the successor keeps the guarantee"** | weakened self-trust | logical induction (2016); model polymorphism; Gödel machines |
+| NG-8 | **VERIFIED:** statistical-query lower bounds (Kearns 1998; Blum et al. 1994) | **"A gradient-trained primitive that learns parity-like exact structure"** | non-SQ algorithms, which need exact algebraic structure | Gaussian elimination / CAS (in L); Q07 |
+| NG-9 | **VERIFIED:** Gold 1967; Locatello et al. 2019; Markov equivalence; proper learning of 3-term DNF is NP-hard (Pitt & Valiant 1988) | **"Identify the true latent structure from fit alone"** | extra data or assumptions (stochastic text, interventions, multiple environments, sparsity) | the corresponding known methods (map §5G) |
+
+**Main result of AA.1–AA.2 (INTERPRETATION).** The project's three recurring aspirations have precise formal counterparts, and each has a no-go in worst-case form:
+- "create new internal variables" → NG-1 / NG-2;
+- "reliably commit to discrete structure" → NG-5 / NG-6;
+- "exact isolation / editing without interference" → NG-3 / NG-4.
+
+The loopholes are all **distributional** (amortized) or **restrictive** (finite / Littlestone / linear-head classes), and each loophole is already occupied. So what the project found empirically in Parts X, Y and Z (the failure is real; known search removes it) is what these theorems predict.
+
+---
+
+## AA.3 Lens 10 — Seams between granted machines: candidate batch I01–I21
+
+**Lens.** Grant the whole library. Look at the *seams*: operations needed where two granted machines meet, or where a guarantee spans two of them, that neither machine provides alone. Candidates were chosen to be deeply different in *operation kind* (listed next to each).
+- **Attack template (the owner's 9 questions):** (1) new operation? (2) an existing machine implements it exactly? (3) representation trick? (4) search over a new space? (5) pipeline? (6) identification or impossibility limit? (7) closest historical prior art (8) closest modern prior art (9) immediate kill.
+- **Detail level:** full entries for the four candidates I judged strongest going in (I01, I02, I05, I06); compact entries for the rest.
+
+### I01 — Orbit commitment (commit to structure only up to the evidence's symmetry group) · *kind: symmetry-deferred commitment*
+- **STATE:** partial relational evidence R. The consistent hypotheses are held as an orbit: a canonical representative h* plus the group G = Aut(R) acting on hypotheses, stored as a strong generating set.
+- **OPERATION:** `answer(q)`. If q's answer is G-invariant, return it. Otherwise return the orbit of answers and the cheapest symmetry-breaking query.
+- **WRITE:** new evidence e → G ← Stab_G(e) (subgroup refinement, Schreier–Sims); h* ← canonical form.
+- **GUARANTEE:** never commits beyond what the evidence determines; answers are exactly the certain answers; polynomial time whenever the consistent set is a coset of a permutation group. (In Z.4 the consistent bijections were exactly Aut(ℤₙ).)
+- **Attack:**
+  - (1) Certain-answer querying modulo a group.
+  - (2) Yes: permutation-group algorithms (Sims 1970), canonical labelling (McKay 1981), certain answers (Imieliński & Lipski 1984); lifted inference over orbits (Niepert, UAI 2012, *Markov chains on orbits of permutation groups*).
+  - (3) Partly: it is a compressed version space.
+  - (4) Only when the consistent set is not a coset, which is the general case. Then it falls back to CSP / version spaces.
+  - (5) Group algorithms + certain-answer semantics.
+  - (6) The Z.4 automorphism ambiguity is an identification limit that any exact version-space method already reports.
+  - (7) Sims; Imieliński–Lipski.
+  - (8) Niepert 2012; symmetry breaking in SAT (Crawford et al. 1996).
+  - (9) Killed by the observation that consistent sets in real tasks are rarely group orbits.
+- **Verdict:** ✗ **KILLED — pipeline of known machines.**
+
+### I02 — P-stable commitment operator (continuous belief → coherent discrete commitment) · *kind: acceptance / commitment*
+- **STATE:** a learned probability P over a finite structure space W (e.g., bindings); a committed proposition K ⊆ W.
+- **OPERATION:** `commit(P, r)` returns the logically strongest **P-stable^r** proposition: every evidence E consistent with K and P(E) > 0 satisfies P(K | E) > r (Leitgeb).
+- **WRITE:** on evidence e, condition P and recompute K. Revision should *track* conditioning.
+- **GUARANTEE:** commitments are consistent and closed under conjunction; stable under any evidence compatible with them; Lockean at a context-dependent threshold.
+- **Attack:**
+  - (1) An acceptance rule applied to a model's posterior.
+  - (2) Yes: P-stable sets form a nested chain computable by sorting worlds (Leitgeb, *Phil. Review* 2014; *The Stability of Belief*, 2017).
+  - (3) A readout of P, not a new state.
+  - (4) No.
+  - (5) Learner + acceptance rule.
+  - (6) **Lin & Kelly 2012: AGM revision cannot track conditioning.** This is the exact no-go for "minimal-change discrete commitments coherent with continuous updating" (NG-6).
+  - (7) Kyburg 1961; Levi 1996; Shoham 1987.
+  - (8) Leitgeb 2017; arXiv 2509.02495 (probabilistically stable revision, 2025); arXiv 2507.06042 (deductively closed Lockean beliefs with minimal change, 2025).
+  - (9) Already exists.
+- **Verdict:** ✗ **KILLED — prior art (formal epistemology).**
+- **Kept as a reference:** this is the *correct specification* for the project's recurring question "commit to discrete structure from continuous belief". Any future commitment primitive must be compared against P-stability plus Lin–Kelly tracking, not against argmax or thresholds.
+
+### I03 — Discrete adjoint (propagate minimal flip-sets backwards through a chain of discrete decisions) · *kind: credit assignment across discrete commitments*
+- **STATE:** a pipeline of discrete decisions with their inputs.
+- **OPERATION:** for a downstream failure, compute the minimal set of upstream decisions whose flip repairs it, and pass it back as the discrete analogue of a gradient.
+- **WRITE:** revise those upstream decisions and retrain the modules that made them.
+- **GUARANTEE:** the minimal repair is consistent with the constraints.
+- **Attack:** this is **abductive learning**: revise pseudo-labels by minimal inconsistency with the knowledge base, then retrain perception (Zhou, *SCIS* 2019; Dai et al., NeurIPS 2019; ambiguity-aware ABL, ICML 2024). Also prime-implicant / abductive explanations of classifiers (Ignatiev et al. 2019) and MIP sensitivity ranging.
+- **Verdict:** ✗ **KILLED — existing.**
+
+### I04 — Exactly deletable, order-free learner state · *kind: isolation / unlearning*
+- **STATE:** a fixed-size state s.
+- **OPERATION:** insert(x), delete(x), predict(q).
+- **WRITE:** s ← s ⊕ φ(x) or s ⊖ φ(x).
+- **GUARANTEE:** after delete, the state equals training without x, at O(1) cost.
+- **Attack:** NG-3 (derivation) shows this class *is* the additive-statistic learners, with φ fixed. Instances: ridge / analytic heads on frozen features (ACIL; arXiv 2603.12977), DeepSets-style ρ(Σφ). Feature learning is excluded by the algebra itself.
+- **Verdict:** ✗ **KILLED — characterized by an elementary no-go; the instances are known.**
+
+### I05 — Learned extension-variable invention · *kind: runtime creation of new variables with provable payoff*
+- **STATE:** CDCL solver state (trail, implication graph, clause DB) + a definitions table.
+- **OPERATION:** from conflict structure, introduce x ↔ f(a, b) (Tseitin extension) proposed by a learned model.
+- **WRITE:** add the defining clauses; branch on x and learn clauses over x.
+- **GUARANTEE:** moves the solver from resolution toward ER power: exponentially shorter proofs on PHP-like families (Haken 1985 vs Cook 1976).
+- **Attack:**
+  - (1) Choosing extension variables.
+  - (2) Yes: ERCL via Dual Implication Points introduces definitions at runtime from implication-graph structure (arXiv 2406.14190; xMapleLCM); GlucoseER (Audemard et al. 2010); SBVA preprocessing (2023); PDR with ER (arXiv 2505.18998).
+  - (3) No.
+  - (4) Yes: search over definitions.
+  - (5) "Old algorithm + neural proposer" (map §10, do-not-reopen).
+  - (6) **NG-1:** the worst-case form is non-automatable, so only distributional versions exist.
+  - (7) Tseitin 1966/68.
+  - (8) ERCL/DIP 2024.
+  - (9) Killed by the map rule and NG-1.
+- **Verdict:** ✗ **KILLED.**
+- **Kept as a reference:** this is the precise formal location of AGENTS.md's "create new internal variables … while running". The payoff is real and exponential. The obstacle is a hardness theorem, not a missing mechanism.
+
+### I06 — Explanation-emitting neural propagator (fusion via globally valid regional explanations) · *kind: neural × CDCL fusion*
+- **STATE:** a ReLU network. Each forward pass also yields its activation pattern, i.e. a polytope on which the network is exactly affine.
+- **OPERATION:** every neural inference emits a *regional certificate* ("for all inputs in polytope P this conclusion holds"). A CDCL / lazy-clause-generation engine consumes it as a clause.
+- **WRITE:** learned clauses over regions; nogoods generalize over whole regions instead of points.
+- **GUARANTEE:** sound, region-level explanations obtained almost for free from the forward pass.
+- **Attack:** DeepCDCL (arXiv 2403.07956, 2024); NeuralSAT (DPLL(T) with a DNN theory solver); Picid, proof-driven clause learning in NN verification (arXiv 2503.12083, 2025); *Incremental NN Verification via Learned Conflicts* (arXiv 2603.12232, 2026); *Learning Lookahead Lemmas for NN Verification* (arXiv 2607.29051, 2026). The general principle is lazy clause generation (Ohrimenko, Stuckey & Codish 2009).
+- **Verdict:** ✗ **KILLED — existing (2024–26).**
+
+### I07 — Reflective (martingale) belief state · *kind: self-predictive consistency*
+- **STATE:** predictive p_t plus a model of its own future predictions.
+- **OPERATION:** enforce E[p_{t+k} | now] = p_t.
+- **GUARANTEE:** no predictable drift of the system's own beliefs.
+- **Attack:** Bayesian conditioning already guarantees this; martingale posteriors (Fong, Holmes & Walker, *JRSSB* 2023) build inference from it; logical induction (2016) covers logical uncertainty. For a non-Bayesian network it could only be imposed as a loss (map §5H).
+- **Verdict:** ✗ **KILLED.**
+
+### I08 — Exact retroactive evidence reallocation when a concept splits · *kind: representation refinement*
+- **OPERATION:** split concept C into C₁ and C₂, and reassign all past evidence as if both had always existed, without replaying data.
+- **Attack (DERIVATION, same algebra as NG-3):** exactness for an arbitrary *future* split function needs a state that is sufficient for the whole split family. For a rich family that is the data itself. Known partial versions: Hoeffding trees keep per-candidate-split counts; split–merge samplers (Jain & Neal 2004).
+- **Verdict:** ✗ **KILLED — impossibility plus known partial versions.**
+
+### I09 — Commit–freeze–revoke invariants during continued training · *kind: hard structural commitment in a trained model*
+- **Prior art:** PackNet (2018), parameter isolation, hard-constraint layers (HardNet), GRACE; revocation is the closed TMS seam.
+- **Verdict:** ✗ **KILLED.**
+
+### I10 — Type creation gated by inhabitation, distinguishability and MDL gain · *kind: runtime type creation*
+- **Prior art:** COBWEB category utility (Fisher 1987); CRP / Bayesian nonparametrics; predicate invention (do-not-reopen); formal concept analysis.
+- **Verdict:** ✗ **KILLED.**
+
+### I11 — Sheaf-obstruction detection across modular knowledge · *kind: local-to-global consistency*
+- **OPERATION:** find pairwise-consistent local models that cannot be glued into a global one, and localize the obstruction cycle.
+- **Attack:** for finite data this is CSP satisfiability + MUS extraction. The known efficient partial version is cohomological k-consistency (Ó Conghaile, MFCS 2022). Other prior art: knowledge sheaves (Gebhart, Hansen & Schrater, AISTATS 2023); Robinson's consistency radius; Abramsky's contextuality / cohomology.
+- **Verdict:** ✗ **KILLED.**
+
+### I12 — Closure-operator creation (build f*, f^n or fix(f) when a learned f is iterated) · *kind: runtime operator creation*
+- **Prior art:** DEQ / monDEQ (with contraction certificates); tropical transitive closure (NeurIPS 2025); repeated squaring.
+- **Verdict:** ✗ **KILLED.**
+
+### I13 — Packed-ambiguity state (a shared forest of alternative structural interpretations) · *kind: native uncertainty over structures*
+- **Prior art:** GLR packed forests (Tomita 1986); AND/OR search spaces (Dechter & Mateescu 2007); probabilistic circuits / SDDs; version-space algebra (Lau et al. 2003); FlashMeta (2015).
+- **Verdict:** ✗ **KILLED.**
+
+### I14 — Scoped plasticity (an update carries a declared behavioural scope and provably changes nothing outside it) · *kind: editing locality*
+- **Prior art:** GRACE (codebook with deferral radius, NeurIPS 2023), SERAC, WISE.
+- **Verdict:** ✗ **KILLED.**
+
+### I15 — Identity by causal continuity (identity assigned only along an unbroken chain of continuity checks) · *kind: persistent identity*
+- **Prior art:** object files (Kahneman, Treisman & Gibbs 1992); multi-object tracking; persistent IDs (in L).
+- **Verdict:** ✗ **KILLED.**
+
+### I16 — Proof-carrying generalization (each prediction on a novel input carries a checkable certificate of the invariance it used) · *kind: verified generalization*
+- **Prior art:** proof-carrying code (Necula 1997); self-proving models (2024); certified robustness.
+- **Verdict:** ✗ **KILLED.**
+
+### I17 — Interface invention between modules (a learned codec with round-trip laws) · *kind: inter-module representation invention*
+- **Prior art:** bidirectional transformations / lenses (Foster et al. 2007; Q08); autoencoders; emergent communication.
+- **Verdict:** ✗ **KILLED.**
+
+### I18 — Conflict-driven learning in parameter space (a refuted structure writes an exclusion region into the loss landscape) · *kind: learning from training failures*
+- **Motivation:** addresses the Z.4 "coherent wrong permutation" optimum.
+- **Prior art:** tabu search (Glover 1986); deflation (Farrell, Birkisson & Funke 2015); metadynamics (Laio & Parrinello 2002).
+- **Structure:** local search + nogoods over discrete structure = search.
+- **Verdict:** ✗ **KILLED.**
+
+### I19 — Minimal-disruption vocabulary growth (a consistent-hashing analogue: adding a concept moves few existing assignments) · *kind: bounded-disruption structural growth*
+- **Prior art:** consistent k-clustering (Lattanzi & Vassilvitskii, ICML 2017: Ω(k log n) lower bound on changes and an O(k² log⁴ n)-change algorithm); backward-compatible representation learning (BCT, 2020); positive-congruent training (2021).
+- **Verdict:** ✗ **KILLED.**
+
+### I20 — Library-level unification (detect that two granted machines are instances of one semiring / aggregate computation and run the general one) · *kind: meta-operation on the machine library*
+- **Prior art:** FAQ / InsideOut (Abo Khamis, Ngo & Rudra, PODS 2016); semiring CSP (Bistarelli et al. 1997); Dyna; provenance semirings.
+- **Verdict:** ✗ **KILLED.**
+
+### I21 — Replicable + P-stable commitment · *kind: commitment that is stable across retraining and logically coherent*
+- **GUARANTEE sought:** the committed K is closed under conjunction and P-stable (I02), and it is the same across independent training samples with probability ≥ 1 − ρ (replicability).
+- **Attack (DERIVATION):** P-stable sets form a nested chain. Pick the element by rounding a *shared random* threshold (Impagliazzo et al. 2022 style). The selection changes only when a chain boundary falls within the estimation error of the random threshold. That probability is ≤ (#boundaries × error / threshold range), so replicability costs polynomially many extra samples. So I21 is a **direct composition** of two published mechanisms.
+- **Verdict:** ✗ **KILLED — composition.**
+
+### Batch result: 0 of 21 survive
+
+| Kill reason | Candidates |
+|---|---|
+| Existing machine or published mechanism | I03, I06, I07, I09, I10, I12, I13, I14, I15, I16, I17, I19, I20 |
+| Pipeline / direct composition of known machines | I01, I18, I21 |
+| Formal no-go in strong form; loophole occupied | I04 (NG-3), I05 (NG-1/2), I08 (NG-3-type) |
+| Prior art that *is* the correct spec for the project's theme | I02 (Leitgeb; Lin–Kelly) |
+
+---
+
+## AA.4 Lens 11 — Specification genesis (the Q2 category)
+
+Historically, primitives that pass a strict "new operation" filter entered computing as **new specifications** created by a **new setting**:
+- Bloom filters: one-sided approximate membership;
+- consistent hashing: minimal remapping as servers change;
+- LSH: similarity-preserving hashing;
+- differential privacy: bounded influence of one individual;
+- CRDTs: convergence without coordination;
+- zero-knowledge: conviction without disclosure;
+- persistent data structures: access to old versions at O(1) amortized cost.
+
+Two generators were tried.
+
+**(a) Transfer each classical specification to learning systems.** All occupied:
+- Bloom → learned Bloom filters (Kraska 2018; Mitzenmacher 2018);
+- consistent hashing → consistent clustering (2017), BCT;
+- CRDT → analytic / closed-form continual learning (N09);
+- DP → DP-SGD;
+- LSH → learned hashing;
+- persistent DS → model versioning;
+- self-adjusting computation → incremental learning;
+- ZK / Merkle → zkML, proof-of-learning (2021);
+- sketches → learned sketches (Q20);
+- transactions → atomic multi-edit (R8, system-level).
+
+The transfer pipeline is saturated, as round 7 found for properties.
+
+**(b) Relational-specification grid.** A specification typically constrains a *relation between two computations*. I enumerated 25 pair types and asked which relations have a named guarantee:
+- two inputs: robustness, invariance, monotonicity;
+- neighbouring datasets: DP, stability, unlearning, near-access-freeness (Vyas, Kakade & Barak 2023);
+- two samples: replicability, global stability;
+- two runs: determinism, Rashomon;
+- two model versions: backward compatibility, differential verification (ReluDiff, 2020);
+- two orders: commutativity;
+- two times: anytime validity;
+- two principals: noninterference;
+- two representations: lens laws, fidelity (TREPAN 1996), linear identifiability (Roeder et al. 2021);
+- related queries: consistency (BeliefBank, ConCoRD);
+- two agents: agreement, incentive compatibility;
+- two granularities: causal abstraction;
+- system vs explanation: faithfulness;
+- system vs its future self: reflection;
+- two tasks: non-interference;
+- two consistent hypotheses: certain answers;
+- two budgets: nested / Matryoshka representations;
+- two phrasings: paraphrase invariance;
+- module ablation: graceful degradation;
+- counterfactual input: counterfactual invariance;
+- confidence vs frequency: calibration;
+- data vs output: memorization / copyright bounds.
+
+**Every useful cell I could construct already has a named guarantee.** Unnamed cells (e.g., "explanations replicable across retraining") were either weak or immediate compositions.
+
+**Most useful finding of this lens (VERIFIED + INTERPRETATION).** The project's central question — can continuous learning *reliably create and commit to* discrete structure? — has already been **specified and partly answered in two independent literatures that the three lanes had not connected to it**:
+1. **Formal epistemology.** Commitment coherent with probability: Leitgeb's P-stability; Lin–Kelly's tracking impossibility for AGM; 2025 follow-ups.
+2. **Learning theory.** Commitment stable across samples: replicability (STOC 2022); global stability ⟺ finite Littlestone dimension (FOCS 2020); only finite classes in the agnostic case (STOC 2024).
+
+Together they give a sharp answer to AGENTS.md's question: **reliable discrete commitment is possible exactly for restricted hypothesis classes, by shared-randomness rounding or stability-based acceptance. Otherwise it is impossible for any mechanism.** The Z.4 pattern fits this: free embeddings (an unrestricted continuous class) never committed, while restriction to a finite class of bindings did. The Z.4 gap itself is ordinary Occam / VC sample complexity: log n! bits against a d·n-dimensional continuous class.
+
+---
+
+## AA.5 Lens 12 — Separation-first fusion search (the Q1 category)
+
+**Motivation.** The kill rule "PIPELINE OF EXISTING MACHINES" is too coarse in one known case. **CDCL** is DPLL (search) + resolution (learning) + dependency-directed backtracking (Stallman & Sussman 1977) + CSP nogood learning (Dechter 1990). By the letter of the rule it is a pipeline. But its fusion (learning clauses from the *internal* implication graph at conflicts) **p-simulates general resolution**, while DPLL sits at tree-like resolution: an exponential separation (**VERIFIED:** Pipatsrisawat & Darwiche, AIJ 2011). Other known fusions with separations:
+- lazy clause generation (CP propagators explain their inferences as clauses);
+- DPLL(T) (theory solvers explain conflicts);
+- branch-and-cut;
+- SAT + Gaussian elimination (Tseitin formulas);
+- ER-CDCL.
+
+**The fusion principle (INTERPRETATION).** In every known case the separation comes from **explanation exchange at conflict points**. One machine exposes a *globally valid* derivation of an internal inference; the other generalizes it. A pipeline exchanges only *outputs*, whose explanatory content is bounded by the output (the "decision clause").
+
+**Analytic closure of this lens for neural components (NG-2).** For sound systems, a neural component contributes heuristics, not proof power. So every worst-case separation must come from a stronger symbolic proof system, and all of those are known. Neural × symbolic fusions can only give **distributional** separations, which is the amortization category. The neural analogue of a globally valid explanation (activation-region certificates) is already fused with CDCL in NN verification (I06). A 2026 neuro-symbolic survey states that whether tight coupling beats federated designs "remains unanswered" (*Frontiers in AI* 2026, snippet). That is a *theory* gap, not a missing primitive.
+
+**Lens 12 result:** closed analytically. It still leaves a useful **refinement of the kill rule** (proposal in AA.6).
+
+---
+
+## AA.6 Calibration of the project's novelty filter against history
+
+**Question.** If the §8 filter of `SHARED_RESEARCH_MAP.md` and the AGENTS.md candidate standard had been applied at the time of invention, which historically important primitives would have survived?
+
+| Primitive | Prior operation it would be reduced to | Verdict under the current filter |
+|---|---|---|
+| Attention (2014) | Nadaraya–Watson kernel regression (1964) + content-addressable memory | KILLED |
+| Convolution / weight sharing (1980/89) | filter banks | KILLED |
+| Backpropagation (1986) | reverse-mode AD (Linnainmaa 1970; Werbos 1974) | KILLED |
+| LSTM (1997), residual connections (2015) | gated recurrence; LSTM constant error carousel / highway nets | KILLED |
+| Transformer (2017) | combination of known parts | KILLED |
+| GAN (2014) | predictability minimization (Schmidhuber 1992); minimax games | KILLED |
+| Diffusion models (2015/2020) | score matching + Langevin dynamics | KILLED |
+| Dropout, BatchNorm, MoE | noise injection / ensembles; whitening; Jacobs et al. 1991 | KILLED |
+| CDCL (1996) | dependency-directed backtracking (1977) + nogood learning (1990) + resolution | KILLED as pipeline, **despite a proven exponential separation** |
+| Bloom filter, consistent hashing, LSH, DP, ZK proofs, persistent DS, CRDTs | new specifications (DP's mechanism existed as randomized response, Warner 1965; the spec was new) | **PASS as new specifications** |
+
+**Result (INTERPRETATION).** Under the current standard:
+- the positive class is essentially **"new specification + efficient mechanism"**;
+- **no historically important machine-learning architecture primitive would pass**;
+- the one clear *fusion with a proven separation* (CDCL) would be wrongly killed.
+
+This does not show that the standard is wrong. The owner chose a deliberately strict standard, and AGENTS.md wants genuinely new operations. It shows two things:
+- **what a survivor would have to look like**: a new specification, or a fusion with a proof of separation;
+- **that the prior probability of finding one by concept generation is very low**, consistent with ~360 kills across lanes.
+
+**Proposal for the owner (recorded only here, as AGENTS.md requires; AGENTS.md and the shared map's rules are not modified):**
+1. **Refine the pipeline kill rule.** A composition of known machines should *not* be killed as a pipeline if the candidate supplies a **proof of worst-case separation** from every black-box composition of the same machines (CDCL-type). Distributional-only gains stay killed.
+2. **Optionally, define a second, explicitly weaker tier.** A "distributional primitive" would be a known operation whose placement or parameterization gives large empirical gains. It would be judged only by experiment. This is the tier where attention and residual connections live. Whether such a tier serves the project's mission is the owner's decision; I do not assume it.
+
+---
+
+## AA.7 Derived next lens — Lens 13: discovery by dissection
+
+**What the failures of Lenses 9–12 reveal (INTERPRETATION).**
+- **Invention is recall-bound.** Every operation I can name comes from a named concept, and named computable operations are in L (AA.1). Generating candidates from my own knowledge, in any field or by any grid, can therefore only rediscover.
+- **Where unnamed operations come from.** An operation with no name can only be found by *observing a system that implements it without having been told to*. Trained networks are the natural place.
+
+**Precedent (VERIFIED).**
+- Zhong, Liu, Tegmark & Andreas (NeurIPS 2023) found that networks trained on modular addition implement a **previously undescribed** procedure (the "Pizza" algorithm) alongside the known Clock algorithm. It is a variant of known Fourier arithmetic, not a primitive, but it shows that dissection *can* yield unnamed procedures.
+- Binding IDs (Feng & Steinhardt 2023, and follow-ups through 2025): entity–attribute binding by additive ID vectors. This reduces to additive tag / role–filler binding, which is known.
+
+**First literature pass (this session):** nothing irreducible found yet.
+
+**Plan for Lens 13 (literature first; any probing experiment needs owner authorization).**
+1. Survey 2023–2026 mechanistic-interpretability reports of *algorithmic* mechanisms: binding, entity tracking, in-context algebra, search / planning circuits, state tracking, counting, routing ("One mechanism for many mental spaces: a shared router over a value slot", arXiv 2607.10248, 2026).
+2. Map each mechanism onto L.
+3. Keep only mechanisms with **no L-counterpart**. For those, formalize STATE / OP / WRITE / GUARANTEE and attack as usual.
+4. Also check whether the Q2 category (a specification) is implicitly satisfied by some mechanism: for example, a trained system that maintains a guarantee nobody specified.
+
+**Kill criteria set in advance:**
+- a mechanism that reduces to a named operation (lookup, copy, Fourier arithmetic, additive binding, gradient descent in context);
+- one found only in toy models, with no stated invariant.
+
+---
+
+## AA.8 Session-7 status
+
+- **Survivors:** **none** (0/21 candidates). No primitive `SURVIVES INITIAL REDUCTION`.
+- **Structural results (new to this notebook):**
+  - Library-Closure argument (AA.1);
+  - no-go map NG-1 … NG-9 with occupied loopholes (AA.2);
+  - additive-statistic characterization of exact deletion (NG-3, derivation);
+  - proof-power bound on neural × symbolic fusion (NG-2, derivation);
+  - identification of the formal specification of "reliable discrete commitment" in formal epistemology and learning theory (AA.4);
+  - calibration of the novelty filter (AA.6).
+- **Closed directions (add to do-not-reopen):**
+  - worst-case concept / variable invention (NG-1);
+  - exact cheap unlearning with feature learning (NG-3);
+  - "commitment primitives" that do not beat P-stability + replicability (I02 / I21);
+  - neural propagators with regional explanations (I06);
+  - orbit / symmetry-deferred commitment (I01);
+  - classical-spec → learning transfers (AA.4a);
+  - the relational-spec grid (AA.4b);
+  - neural × symbolic worst-case separations (AA.5).
+- **Handoff:** `HANDOFF_Claude_to_Codex_filter_calibration.md` asks the archaeology lane for counterexamples to AA.6. Are there historical mechanisms that would pass the current filter *and* are not new specifications?
+- **Exact next action:** Lens 13, step 1 (a literature survey of mechanistic reports, then mapping onto L). If that yields nothing irreducible, the remaining option is Q2 specification invention driven by *new settings created by agentic systems*, or an owner decision on AA.6.
+
+
+## AA.9 Lens 13, first pass — discovery by dissection (literature only)
+
+**Method.** Take algorithmic mechanisms that mechanistic-interpretability work (2023–26) reports *inside trained networks*. Map each onto the granted library L. Keep only mechanisms with no L-counterpart. Kill criteria were set in AA.7 before the search. Items were verified from abstracts or search snippets; arXiv full text was blocked.
+
+| # | Mechanism observed in a trained system (source) | What it computes | L-counterpart | Verdict |
+|---|---|---|---|---|
+| D1 | "Pizza" algorithm for modular addition (Zhong, Liu, Tegmark & Andreas, NeurIPS 2023) | average two tokens' circle embeddings, double the frequency with an MLP, score candidates by dot product | Fourier / trigonometric arithmetic | reduces; a new *instance* of a known paradigm |
+| D2 | Clock / helix addition (Nanda et al. 2023; Kantamneni & Tegmark 2025) | compose rotations | group representations / Fourier | reduces |
+| D3 | Binding IDs; ordering IDs (Feng & Steinhardt 2023; 2024–25 follow-ups) | additive tag vectors bind entity ↔ attribute | role–filler / tag binding (VSA) | reduces |
+| D4 | Lookback mechanism for belief tracking (Prakash et al., NeurIPS 2025) | copy a reference to an *address* and a *pointer*, later dereference by attention | pointers / RAM dereference | reduces |
+| D5 | Variable-binding dereference chains (Wu et al., ICML 2025) | residual stream as addressable memory; multi-step dereferencing | pointer chasing | reduces |
+| D6 | Permutation state tracking (Li, Guo & Andreas, ICML 2025) | associative scan; or parity feature to prune, then scan | parallel prefix (Blelloch 1990); invariant-based pruning | reduces |
+| D7 | Shared value slot + low-rank "space router" for belief / counterfactual / fiction / time (arXiv 2607.10248; 2607.11945, 2026) | one slot format, one index selects which "mental space" is read | contexts ist(c, p) (McCarthy 1993); mental spaces (Fauconnier 1985); tagged / indexed memory | reduces |
+| D8 | Spectral Line Navigator (Cohen et al., ICLR 2025 workshop) | greedy navigation in the line-graph spectral embedding (no DP found) | greedy / geographic routing in embeddings; Laplacian eigenmaps | reduces; new approximate *instance* |
+| D9 | Sokoban DRC planner (Taufeeque et al. 2024; ICLR 2026 path channels / plan-extension kernels) | bidirectional plan extension, internal transition model, value-driven backtracking; "pacing" to buy computation | bidirectional search (Pohl 1971); value iteration; adaptive computation time | reduces |
+| D10 | Reasoning by superposition (Zhu et al., NeurIPS 2025) | each continuous thought holds a *set* of frontier nodes: reachability in D steps vs O(n²) for discrete CoT | BFS with a set-valued frontier; set as a sum of near-orthogonal codes (Bloom / VSA) | reduces (the separation is BFS vs sampled single paths) |
+| D11 | Computation in superposition: universal-AND (Hänni, Mendel, Vaintrob & Chan 2024) | ε-approximate ANDs of all m-choose-2 feature pairs with Õ(m^{2/3}) neurons | sketching of x⊗x (TensorSketch, Pham & Pagh 2013; count sketch); a 2026 paper argues it is compressed computation rather than superposition (arXiv 2606.14673) | reduces |
+| D12 | In-context gradient descent (von Oswald et al. 2023); function / task vectors (Todd et al. 2024); induction, successor and retrieval heads | GD in the forward pass; task vectors; copy / increment / lookup | gradient descent; lookup / copy | reduces |
+| D13 | Self-repair / Hydra effect (McGrath et al. 2023; Rushing & Nanda 2024) | downstream components compensate for ablated ones, partly via normalization | redundancy / graceful degradation | reduces |
+| D14 | In-context algebra (Todd et al., ICLR 2026; already in Z.5) | symbolic in-context mechanisms for variable binding | symbolic binding | reduces |
+
+**Result: 0/14 mechanisms lack an L-counterpart.**
+
+**What this reveals (INTERPRETATION).**
+- **Paradigm convergence.** Gradient descent rediscovers the *same small set of paradigms* humans use: Fourier arithmetic, parallel prefix, pointers, BFS / bidirectional search, sketching, greedy embedding routing, additive binding.
+- **New instances, not new paradigms.** Two reports describe algorithms "not previously described" (D1, D8). Both are new *instances* of known paradigms.
+- **Superposition.** The most "neural-native" feature, several objects held in one vector (D3, D10, D11), is the known sketching / VSA family.
+
+This matches AA.1: learning is a search over programs, and what it finds is built from the known paradigm set.
+
+**Status of Lens 13:** first pass closed with no survivor. Not exhausted: only literature, only 14 mechanisms, almost all from language or toy models.
+
+**Next step inside the lens:** a second pass over *non-language* trained systems whose problem structure humans have not studied closely (RL agents in novel environments, scientific foundation models). Same kill criteria.
+
+
+## AA.10 Lens 13, second pass (non-language trained systems) and session conclusion
+
+| # | Mechanism (source) | What it computes | L-counterpart | Verdict |
+|---|---|---|---|---|
+| D15 | AlphaZero concept discovery (Schut, Tomašev, McGrath, Hassabis, Paquet & Kim; PNAS 2025) | chess concepts unknown to humans, extracted from internal representations and learned by four grandmasters | *content* of a value / policy network; the computation is MCTS + evaluation | reduces as an **operation**; novel as **knowledge** |
+| D16 | Protein language models (Zhang et al., PNAS 2024; Bhattacharya et al. 2022) | store and look up coevolutionary motif statistics | Potts models / direct-coupling analysis | reduces |
+| D17 | MuZero learned model (arXiv 2411.04580, 2024); model-free Sokoban planning (arXiv 2504.01871, 2025) | latent dynamics + tree search; concept-based plans | MCTS over a learned model; D9 | reduces |
+
+**Result:** 0/17 across both passes.
+
+**Distinction the second pass makes clear (INTERPRETATION):** dissection finds **new content** (AlphaZero's chess concepts are a verified case of machine knowledge that humans lacked) but **not new operations**. Trained systems are a source of novel *knowledge* running on standard computation. This fits AA.1: an architecture primitive is an operation, and operations are what the library already closes over.
+
+### Session-7 conclusion
+
+- **Lenses tried:** 9 (library closure + no-go map), 10 (seams: I01–I21), 11 (specification genesis: classical-spec transfer; relational grid), 12 (separation-first fusion), 13 (dissection, two literature passes).
+- **Candidates / mechanisms examined:** 21 + 17. **Survivors: 0.** Nothing is at `SURVIVES INITIAL REDUCTION`.
+- **Strongest supported claim (INTERPRETATION, grounded in AA.1, AA.2 and AA.6):** under the current standard with the §6 library granted, the remaining target set is at most:
+  - (i) **new specifications** with an efficient mechanism, and
+  - (ii) **fusions with a proven worst-case separation** over black-box composition.
+
+  NG-2 shows neural components cannot supply (ii). Lenses 11a/11b found no unnamed specification that learned systems need. Lens 13 found that trained systems rediscover known operations.
+- **This is not a proof that the target set is empty.** It shows that concept generation from recall, and literature dissection, are very unlikely to reach it.
+
+**Owner input now genuinely required (AGENTS.md "Autonomy": stop when owner input is required).** Productive continuation depends on a choice only the owner can make (AA.6):
+1. **Keep the standard.** Then the only remaining route is *specification invention*. Next action: **Lens 11c**. Collect requirements reported for agentic / multi-agent LLM systems in 2025–26 (memory compaction, handoffs between agents, parallel agents on shared state, self-editing skills, tool permissions). For each, check whether a named guarantee covers it. Candidates must be a *spec + mechanism*.
+2. **Admit a separation-proof exemption to the pipeline rule.** Then search for fusions with worst-case separation proofs outside neural × symbolic (by NG-2, neural parts cannot provide proof power).
+3. **Add a "distributional primitive" tier.** Then candidates must be tested empirically, which requires experiment authorization under AGENTS.md.
+
+**Default if the owner says only "continue":** option 1 (Lens 11c), literature only.
+
+---
+
 # Part K — Research Proposal: Certified Structural Learning (CSL)
 
 *(Living summary of the lead candidate. Evidence details are in H.1–H.1h.)*
@@ -2153,6 +2621,10 @@ The proofs are standard, and nothing in them depends on the component type. **No
 13. **Check the minimal description length of every test target** (E8). A diagnostic built from invertible, partly commuting primitives lets deep compositions collapse into short programs, so "depth" stopped measuring difficulty. Always verify the true minimal program length (or group diameter) before claiming a test requires deep search.
 14. **Condition switch/regime metrics on actual changes** (E3). If the "next regime" can equal the current one, the share of no-change "switches" depends on the number of regimes. That makes every learner look worse as regimes are added, including the optimal filter; always check that the optimal baseline's curve behaves as theory predicts.
 15. **Separate "does not have the family" from "cannot optimize within it"** (Y.4b). Give the gradient learner the correct hypothesis family as a relaxation and compare it with discrete search over the *same* family. In Y.4b the relaxation failed in 0/125 restarts while discrete search succeeded, which localizes the failure to optimization-by-relaxation rather than representation.
+16. **Once a universal interpreter, synthesis and Bayes are granted, operation-level novelty is impossible in the computability sense** (AA.1). Ask of every candidate: is it a *cost separation from a new paradigm*, or a *new specification*? If it is neither, kill it immediately.
+17. **Neural components add heuristics, not proof power** (NG-2). For a sound system, runtime is bounded below by proof size in the proof system it uses. A neural × symbolic fusion can only win on a distribution. Look for a worst-case gain in the *proof system*, not in the guidance.
+18. **Calibrate a novelty filter on history before trusting its nulls** (AA.6). The current filter would kill attention, backpropagation, residual connections and even CDCL. Only new *specifications* pass. A null result under a filter with an almost empty historical positive class is weak evidence about the idea space.
+19. **Invention from recall can only rediscover** (AA.7). Every operation I can name has a name. Unnamed operations must be *observed* in systems that implement them, e.g. by dissecting trained networks; they cannot be generated from memory.
 
 # Part I — Open Questions
 
@@ -2164,6 +2636,8 @@ The proofs are standard, and nothing in them depends on the component type. **No
 6. **Does CSL help at GPU scale** (adapters/memory slots of a small language model on a drifting text stream; expert birth in MoE)? Not testable here without installing a CUDA build of PyTorch into the shared environment.
 7. Inherited from the prior study and still open: can discrete structural credit assignment avoid re-creating backpropagation under another name? CSL answers "yes, by sequential testing", but only for components whose value can be measured by a shadow comparison.
 8. Is there any *non-statistical* new primitive that survives a workstation test? Rounds 1–7 found none (round 7 was dedicated to primitives: 0/20). Still open: whether any lens remains unsaturated (see D.8).
+9. **Is the project's target set empty under its current standard?** AA.1 and AA.6 suggest it contains only new *specifications* (with an efficient mechanism) and *fusions with a proven worst-case separation*. Neural × symbolic fusions cannot supply the latter (NG-2). Open: is there any specification that learned or agentic systems need and that has not been named? (Lenses 11a and 11b found none.)
+10. **Do trained networks implement operations with no counterpart in the granted library?** This is the Lens 13 question. Precedent: the "Pizza" algorithm (NeurIPS 2023) was previously undescribed but reduces to Fourier arithmetic.
 
 # Part J — Rejected Ideas Log
 
@@ -2239,3 +2713,24 @@ Never silently delete. Format follows `04_RESEARCH_STATE.md` (compressed into a 
 | Q20 Sketch-state layer | count-min/HLL recurrent state | external-structure category | learned sketches; Meta-sketch (AAAI 2023) | — |
 | R8-1 Declassification Transformer | typed control/data streams; untrusted content reaches control only via k-ary declassification reads (≤ 2^B behaviours) | system-level design relocated into one network; anticipated in print | FIDES (typed low-capacity declassification), CaMeL, ASIDE, arXiv 2606.27567 | best application direction for LLM-scale security work |
 | CSL narrow claim (G.3) | generic valid admit/retire lifecycle with open-ended multiplicity control | every property published; combination only | Amoukou et al. 2026; AMRules; ARF; α-investing; mem-FDR; Medeiros–Teräsvirta 2006; SMCS 2026 | kept as best available mechanism, novelty low |
+| I01 Orbit commitment | commit only up to the evidence's automorphism group; certain answers modulo G | pipeline; consistent sets are rarely orbits | permutation-group algorithms (Sims 1970), certain answers (Imieliński–Lipski 1984), lifted MCMC on orbits (Niepert 2012) | report version-space ambiguity (any exact method already does) |
+| I02 P-stable commitment | commit to the strongest P-stable proposition; revision tracks conditioning | prior art (formal epistemology) | Leitgeb 2014/2017; Lin & Kelly 2012 (AGM cannot track conditioning); arXiv 2509.02495, 2507.06042 | **reference spec** for any future "commitment primitive" |
+| I03 Discrete adjoint | propagate minimal flip-sets backwards through discrete decisions | existing | abductive learning (Zhou 2019; Dai et al. 2019); abductive explanations (Ignatiev 2019) | — |
+| I04 Exactly deletable order-free state | O(1) insert/delete with exact counterfactual state | elementary no-go (NG-3): equals additive-statistic learners with fixed φ | ACIL; ridge heads on frozen features (arXiv 2603.12977); Pitman–Koopman–Darmois | explains Q02 and N09 |
+| I05 Learned extension-variable invention | a learned model proposes Tseitin definitions from conflicts | map §10 rule + NG-1 non-automatability | ERCL via DIPs (arXiv 2406.14190); GlucoseER; SBVA | formal location of "create new variables"; only distributional versions are possible |
+| I06 Explanation-emitting neural propagator | activation-region certificates used as clauses | existing 2024–26 | DeepCDCL; NeuralSAT; Picid (2503.12083); learned conflicts (2603.12232); lookahead lemmas (2607.29051); lazy clause generation | — |
+| I07 Reflective martingale belief | E[p_{t+k}\|now] = p_t by construction | existing / loss-only | Bayesian conditioning; martingale posteriors (JRSSB 2023); logical induction | — |
+| I08 Exact evidence reallocation on split | redistribute past evidence exactly when a concept splits | impossibility for arbitrary splits (needs statistics sufficient for the split family) | Hoeffding trees; split–merge samplers (Jain & Neal 2004) | — |
+| I09 Commit–freeze–revoke | hard invariants during continued training, revoked by test | existing + closed TMS seam | PackNet; HardNet; GRACE | — |
+| I10 Gated type creation | new type only with inhabitant + distinguishing test + MDL gain | existing | COBWEB (Fisher 1987); CRP; predicate invention; FCA | — |
+| I11 Sheaf-obstruction detection | find pairwise-consistent but unglueable local models | CSP + MUS; partial efficient version exists | cohomological k-consistency (Ó Conghaile 2022); knowledge sheaves (AISTATS 2023) | — |
+| I12 Closure-operator creation | build f*, f^n or fix(f) with a certificate | existing | DEQ / monDEQ; tropical closure | — |
+| I13 Packed-ambiguity state | shared forest of interpretations | existing | GLR forests; AND/OR search; SDDs; version-space algebra | — |
+| I14 Scoped plasticity | edit provably changes nothing outside a declared scope | existing | GRACE; SERAC; WISE | — |
+| I15 Causal-continuity identity | identity only along an unbroken chain of continuity checks | existing | object files (1992); multi-object tracking | — |
+| I16 Proof-carrying generalization | predictions carry invariance certificates | existing | PCC (1997); self-proving models (2024) | — |
+| I17 Interface invention | learned inter-module codec with round-trip laws | existing | lenses / BX; autoencoders; emergent communication | — |
+| I18 Conflict-driven parameter learning | refuted structure writes an exclusion region into the loss landscape | search | tabu (1986); deflation (2015); metadynamics (2002) | — |
+| I19 Minimal-disruption vocabulary growth | adding a concept moves few assignments | existing | consistent k-clustering (ICML 2017); BCT (2020) | — |
+| I20 Library-level unification | recognise and run the common semiring computation behind two machines | existing | FAQ / InsideOut (2016); semiring CSP; Dyna | — |
+| I21 Replicable + P-stable commitment | coherent commitment identical across retraining | direct composition (shared-randomness rounding over the P-stable chain) | Leitgeb; Impagliazzo et al. (STOC 2022) | — |
