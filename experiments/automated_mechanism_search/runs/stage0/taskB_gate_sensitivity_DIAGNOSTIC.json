@@ -1,0 +1,149 @@
+{
+ "status": "POST-HOC DIAGNOSTIC ONLY - computed after the frozen gate failed; cannot be used to pass the gate",
+ "rows": [
+  {
+   "init": "glorot",
+   "gradient": "W1",
+   "per_seed_mean": [
+    -0.5009,
+    -0.477,
+    -0.4639,
+    -0.432,
+    -0.5106,
+    -0.5094,
+    -0.4255,
+    -0.3511
+   ],
+   "pooled_mean": -0.4588,
+   "seeds_passing": 3
+  },
+  {
+   "init": "glorot",
+   "gradient": "W1+b1",
+   "per_seed_mean": [
+    -0.5025,
+    -0.4764,
+    -0.4657,
+    -0.4321,
+    -0.5115,
+    -0.5105,
+    -0.4274,
+    -0.3537
+   ],
+   "pooled_mean": -0.46,
+   "seeds_passing": 3
+  },
+  {
+   "init": "glorot",
+   "gradient": "all_layers",
+   "per_seed_mean": [
+    -0.4082,
+    -0.4392,
+    -0.3928,
+    -0.3373,
+    -0.4474,
+    -0.4378,
+    -0.3311,
+    -0.2206
+   ],
+   "pooled_mean": -0.3768,
+   "seeds_passing": 0
+  },
+  {
+   "init": "lecun",
+   "gradient": "W1",
+   "per_seed_mean": [
+    -0.5804,
+    -0.5593,
+    -0.5498,
+    -0.5231,
+    -0.5823,
+    -0.5806,
+    -0.5234,
+    -0.4583
+   ],
+   "pooled_mean": -0.5446,
+   "seeds_passing": 7
+  },
+  {
+   "init": "lecun",
+   "gradient": "W1+b1",
+   "per_seed_mean": [
+    -0.5825,
+    -0.5595,
+    -0.552,
+    -0.5239,
+    -0.5838,
+    -0.5823,
+    -0.5257,
+    -0.4609
+   ],
+   "pooled_mean": -0.5463,
+   "seeds_passing": 7
+  },
+  {
+   "init": "lecun",
+   "gradient": "all_layers",
+   "per_seed_mean": [
+    -0.5243,
+    -0.5545,
+    -0.5064,
+    -0.452,
+    -0.5606,
+    -0.5434,
+    -0.4623,
+    -0.3567
+   ],
+   "pooled_mean": -0.495,
+   "seeds_passing": 5
+  },
+  {
+   "init": "he",
+   "gradient": "W1",
+   "per_seed_mean": [
+    -0.329,
+    -0.2971,
+    -0.2986,
+    -0.2671,
+    -0.3355,
+    -0.347,
+    -0.2519,
+    -0.1839
+   ],
+   "pooled_mean": -0.2888,
+   "seeds_passing": 0
+  },
+  {
+   "init": "he",
+   "gradient": "W1+b1",
+   "per_seed_mean": [
+    -0.3289,
+    -0.2946,
+    -0.2991,
+    -0.2649,
+    -0.3339,
+    -0.3461,
+    -0.2524,
+    -0.1855
+   ],
+   "pooled_mean": -0.2882,
+   "seeds_passing": 0
+  },
+  {
+   "init": "he",
+   "gradient": "all_layers",
+   "per_seed_mean": [
+    -0.1733,
+    -0.2317,
+    -0.1682,
+    -0.1149,
+    -0.2279,
+    -0.217,
+    -0.0953,
+    0.0032
+   ],
+   "pooled_mean": -0.1531,
+   "seeds_passing": 0
+  }
+ ]
+}

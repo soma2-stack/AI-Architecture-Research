@@ -3,12 +3,53 @@
 Owner: Claude (Opus 5.5). Started 2026-09-27.
 This is my persistent research record. It follows `01_MISSION.md`, `02_RESEARCH_METHOD.md`, `03_IDEA_CRITERIA.md`, and the output format of `04_RESEARCH_STATE.md`.
 I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or modify `Codex_Research.md` or `Cursor_Research.md`. I have followed these instructions (neither file was opened in any session). From session 7 on, `AGENTS.md` governs and the owner-authorized `SHARED_RESEARCH_MAP.md` is used; the two other lane notebooks are still unopened.
+**Correction (sessions 12–13):** for the owner-authorized execution of the frozen preregistration I read only the bounded sections the preregistration references — `Cursor_Research.md` lines 8042–8444 (benchmark suite) and `Codex_Research.md` lines 4546–4908 (AR-141; in session 13 this range also contained AR-142). The full notebooks remain unread.
 
 `00_PRIOR_RESEARCH.md` (an independent earlier study) is treated as evidence and a starting point, not as a conclusion I have to accept.
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 11
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 13
+
+- **Governing files:**
+  - `AGENTS.md` (highest authority; never edit);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v2** (sole active execution protocol; owner amended v1 → v2 before any official Stage 1 or search);
+  - `SHARED_RESEARCH_MAP.md` §12 (Claude = primary implementation and search runner);
+  - this notebook.
+
+  The branch was fast-forwarded to `origin/main` `5076b55`. Other lane notebooks: only the preregistration-referenced ranges were read (see the correction under the title).
+- **Current search lens:** execution of the preregistered automated mechanism search (AMS) under v2.
+- **Current stage:** **official v2 Stage 0 completed; verdict FAIL.**
+  - **Stop reason:** PREREGISTRATION VALIDITY FAILURE (v2), Task-B first-layer gradient-conflict gate. Mean cosine over 64 paired mini-batches at the frozen initialization was ≤ −0.50 on only **3 of 8** pre-declared seeds; pooled mean −0.459.
+  - **Stage 1 was not legally allowed and did not start.** Stages 2–3 did not run. Task B was not redesigned.
+  - Everything else in Stage 0 passes:
+    - 114/114 tests;
+    - probe blob `d5a8e0d1…` verified;
+    - 100% rediscovery recall on 31 references × 5 variants;
+    - profiling ≈ 7 CPU-s per Tier-1 candidate.
+  - Full record: Part AF; `experiments/automated_mechanism_search/STAGE0_REPORT.md`; `runs/stage0/*.json`.
+- **Strongest surviving candidate(s):** none. No candidate was generated or evaluated in an official run.
+- **Search outcome counts:** rediscoveries 0 / 0; negatives 0 / 0; promoted IDs none. No Stage-2 search took place.
+- **Killed / closed:** unchanged from sessions 7–11 (Parts AA–AD).
+- **CPU:**
+  - 0.265 CPU-h of the 30 CPU-h cap (three ledgered Stage-0 script runs of ~17–18 CPU-s each, plus an upper-bound estimate of 0.25 CPU-h for interactive development);
+  - no GPU.
+- **Unresolved questions for the owner:**
+  - (a) Task-B amendment. Options (a)–(d) are listed in `STAGE0_REPORT.md` §6 (restate the aggregation or threshold; fix the initialization, where LeCun gives 7/8 seeds; enlarge the shared block; drop B). A post-hoc diagnostic, which cannot pass the gate, shows the result depends on the initialization scale.
+  - (b) The probe corpus lacks `W_ep0` (D-PROBE-2 derivation used).
+  - (c) One-step probe blind spots: STRUCT events, top-k with k ≥ 8, scalar modulation.
+- **Exact next action:**
+  - wait for an owner decision recorded as a v3 amendment;
+  - then rerun `scripts/stage0.py` unchanged except for the amended item;
+  - proceed to Stage 1 only if Stage 0 passes.
+
+  Do not run Stage 1 under v2 as written.
+- **ID scheme addition:**
+  - `D-*` implementation decisions (`experiments/automated_mechanism_search/IMPLEMENTATION_DECISIONS.md`, committed `ee08823` before any gate);
+  - `R1–R24`, `X1–X7` reference families;
+  - Stage-1 gates `M1–M7`, `V1-B`, `V2-C*`, `V3-F`, `V-D`.
+
+# Resume Pointer as of session 11 (historical; superseded by the block above)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (§6.6: the conceptual learning-dynamics round is closed; §12: Claude = protocol designer + mechanism-grammar formalizer) → this notebook. The branch was fast-forwarded to `origin/main` (`34ec0cd`). `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** **preregistered low-compute automated mechanism search (Part AE)**, a *design only*. **Nothing has been executed**: no stage, no unit test, no micro-benchmark.
@@ -4066,6 +4107,102 @@ probe_seed: 20260928
 - Approve or amend the frozen preregistration.
 - Authorize Stages 0–3 (CPU, ≤ 30 CPU-h).
 - Stage 4 needs separate approval.
+
+---
+
+# Part AF — AMS Execution under Preregistration v2: Official Stage 0 (session 13, 2026-09-28)
+
+**Status: Stage 0 FAILED on a frozen v2 validity gate. Stage 1 did not start.**
+
+**Brief.** The owner authorized Stages 0–3 under the amended v2 preregistration: CPU only, a 30 CPU-h cap, no Stage 4, and no protocol changes after results are visible. The standing instructions:
+- restart Stage 0 from scratch;
+- verify the frozen probe corpus;
+- run the Task-B gradient-conflict gate before Stage 1;
+- stop on any failure without redesigning.
+
+## AF.1 Evidence and timing
+
+Verified facts, with git evidence:
+
+1. Synced to `origin/main` `5076b55` (v2 preregistration, probe corpus commit `3cef5a3`). Read `AGENTS.md`, the v2 preregistration, the shared map and my Resume, in that order.
+2. The open implementation choices were written and **pushed before any gate or training** as commit `ee08823`: `experiments/automated_mechanism_search/IMPLEMENTATION_DECISIONS.md`. It covers:
+   - seeds and random streams;
+   - batch semantics for AE's grammar under v2 mini-batches;
+   - initialization (Glorot normal);
+   - the exact Task-B gate rule (first-layer weight gradient; mean over 64 pairs ≤ −0.50 on every seed in {100–104, 1000–1002});
+   - learning-rate selection on training-side metrics only;
+   - Stage-1 gates M1–M7 and known-family signatures V1-B, V2-C\*, V3-F, V-D;
+   - Tier-1 effects and promotion;
+   - Stage-3 conditions;
+   - accounting.
+
+   The only results visible at that commit were collision-library self-checks. No task, training or gate result existed.
+3. The Stage-0 package `experiments/automated_mechanism_search/ams/` implements every item on the owner's list. Details are in `STAGE0_REPORT.md` §1.
+4. **Test suite: 114/114 pass.** It includes:
+   - typing (31 valid references, 21 invalid fixtures);
+   - register lifetimes and read-before-write;
+   - 30 known-equivalent canonical pairs, with online semantics preserved;
+   - behavioural duplicates;
+   - reference fingerprints;
+   - rediscovery recall 100% on 31 references × {identity, reorder, rescale, inert register, rename};
+   - C1 / C2 / C3 eligibility;
+   - exact v2 schedules for B, C\*, D, E and F;
+   - metric formulas;
+   - timeout, overflow and divergence guards;
+   - bit-identical reruns;
+   - FLOP / state counters;
+   - archive and budgets (with stub evaluators);
+   - CPU ledger and cap;
+   - config immutability;
+   - disjoint seed sets.
+
+## AF.2 Stage-0 results
+
+Machine-readable results are in `runs/stage0/`.
+
+| Check | Result |
+|---|---|
+| Probe corpus exists, blob `d5a8e0d1…`, 16 probes, I = 8, O = 6, 4 slots | PASS. The regeneration aid reproduces all vector/matrix fields; the scalar-field mapping is undocumented in the corpus. |
+| Test suite | PASS (114/114) |
+| Detector recall | PASS (0 misses / 155). 3 rescaled disguises are attributed to a behaviourally identical family. 7 of 465 reference pairs collide at 0.99 (probe blind spots and true near-equivalences). |
+| **Task-B gradient-conflict gate** | **FAIL:** 3 of 8 seeds; per-seed means −0.35 to −0.51; pooled −0.459 |
+| Profiling | ≈ 7.2 CPU-s per Tier-1 candidate (≈ 2.4 CPU-h for 1,200) |
+
+**Verdict: STAGE 0 FAILED.** Stop reason, verbatim from `stage0_result.json`: `PREREGISTRATION VALIDITY FAILURE (v2): taskB_gradient_conflict_gate`.
+
+- Whether Stage 2 legally began: **no.** Stage 1 was not allowed.
+- Stage-2 summary: none.
+- Stage-3 validation: none.
+- Rediscovery count/rate: n/a (0 programs searched).
+- Negative count/rate: n/a.
+- Promoted candidate IDs: none.
+
+## AF.3 Interpretation (not a verdict)
+
+- **Size of the conflict.** The v2 construction does create consistent conflict: all 512 pairs have negative cosines. Its magnitude is capped because only 8 of the 20 active input dimensions are shared. The orthogonal private blocks add gradient norm but no inner product, and the random output of the network at initialization dilutes the target-driven anti-alignment.
+- **Post-hoc sensitivity** (`taskB_gate_sensitivity_DIAGNOSTIC.json`). This was computed after the failure and cannot pass the gate.
+  - LeCun-normal initialization: 7/8 seeds, pooled −0.545.
+  - Glorot (pre-declared): 3/8.
+  - He: 0/8.
+  - Including the bias makes no difference; all-layer gradients are weaker.
+
+  The failure therefore depends on the initialization scale, which v2 did not fix. No reasonable variant passes on every seed.
+- **Other findings the owner should know** (not stop conditions):
+  - the probe corpus has no `W_ep0` field;
+  - the one-step probe cannot see STRUCT events, top-k gates with k ≥ 8, or per-step scalar modulation. This is conservative: it can suppress candidates but cannot create a novelty claim;
+  - two canonicalizer / decomposition defects were caught by the Stage-0 tests and fixed before the verdict. They are unrelated to the gate.
+
+## AF.4 Compute
+
+- Ledger (`runs/cpu_ledger.json`): 17.6 CPU-s for the official Stage-0 script, plus an upper-bound estimate of ≤ 0.25 CPU-h for interactive development in this session.
+- **Cumulative: 0.265 CPU-h of 30** (three identical-verdict Stage-0 script runs: on the pre-commit tree, on clean commit `9ae42d8`, and on `bd6e282` for the final manifest).
+- No GPU.
+
+## AF.5 Lessons
+
+1. A gate that depends on an unfrozen implementation choice (here, the initialization scale) should freeze that choice in the protocol, or state a robustness requirement across the reasonable choices.
+2. Pre-committing implementation decisions before the first gate computation is what makes this failure clean. The initialization was fixed (Glorot) before any cosine was seen, so there is no question of it having been chosen to fail or to pass.
+3. One-step behavioural probes cannot represent multi-step or event-driven mechanisms (STRUCT, delayed register effects). A future probe corpus version could add short exogenous tapes that cover a STRUCT event (AR-141 Level B already recommends tapes).
 
 ---
 

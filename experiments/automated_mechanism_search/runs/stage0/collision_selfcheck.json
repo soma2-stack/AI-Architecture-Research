@@ -1,0 +1,66 @@
+{
+ "n_references": 31,
+ "n_variants": 155,
+ "recall_misses": [],
+ "attribution_differs": [
+  [
+   "R19_forward_hard_routing",
+   "rescale",
+   "R1_SGD"
+  ],
+  [
+   "R22_forward_forward",
+   "rescale",
+   "R9_hebbian"
+  ],
+  [
+   "R24_loss_shaping",
+   "rescale",
+   "R1_SGD"
+  ]
+ ],
+ "reference_pairs": 465,
+ "family_rule_collisions": [
+  [
+   "R1_SGD",
+   "R19_forward_hard_routing",
+   1.0
+  ],
+  [
+   "R1_SGD",
+   "R24_loss_shaping",
+   1.0
+  ],
+  [
+   "R4_rmsprop_adam",
+   "X5_adamw_like",
+   0.99964
+  ],
+  [
+   "R9_hebbian",
+   "R10_oja",
+   0.99483
+  ],
+  [
+   "R9_hebbian",
+   "R22_forward_forward",
+   1.0
+  ],
+  [
+   "R10_oja",
+   "R22_forward_forward",
+   0.99483
+  ],
+  [
+   "R19_forward_hard_routing",
+   "R24_loss_shaping",
+   1.0
+  ]
+ ],
+ "known_blind_spots": [
+  "STRUCT events are not executed by the one-step probe",
+  "topk with k >= probe dimension (I=8, O=6) is all-ones in probes",
+  "per-step scalar modulation of the whole update is scale-invariant in beta",
+  "W_ep0 is not a corpus field (D-PROBE-2 derivation)"
+ ]
+}

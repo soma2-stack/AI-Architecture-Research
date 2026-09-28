@@ -1,0 +1,133 @@
+{
+ "stage": 0,
+ "protocol": "v2",
+ "pass": false,
+ "stop_reason": "PREREGISTRATION VALIDITY FAILURE (v2): taskB_gradient_conflict_gate",
+ "checks": {
+  "probe_corpus": {
+   "pass": true,
+   "blob": "d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1",
+   "regeneration_aid": {
+    "W": {
+     "n": 768,
+     "scale": 0.35,
+     "exact": true
+    },
+    "b": {
+     "n": 96,
+     "scale": 0.15,
+     "exact": true
+    },
+    "a": {
+     "n": 128,
+     "scale": 0.75,
+     "exact": true
+    },
+    "d_bp": {
+     "n": 96,
+     "scale": 0.3,
+     "exact": true
+    },
+    "d_fa": {
+     "n": 96,
+     "scale": 0.3,
+     "exact": true
+    },
+    "e": {
+     "n": 96,
+     "scale": 0.3,
+     "exact": true
+    },
+    "L": {
+     "n": 16,
+     "scale": -1.1986765,
+     "exact": false
+    },
+    "dL": {
+     "n": 16,
+     "scale": -0.525703,
+     "exact": false
+    },
+    "Lbar": {
+     "n": 16,
+     "scale": -0.518738,
+     "exact": false
+    },
+    "xi_I": {
+     "n": 128,
+     "scale": 0.01,
+     "exact": true
+    },
+    "xi_O": {
+     "n": 96,
+     "scale": 0.01,
+     "exact": true
+    },
+    "tep": {
+     "n": 16,
+     "scale": 0.9964345,
+     "exact": false
+    },
+    "reg_I": {
+     "n": 512,
+     "scale": 0.25,
+     "exact": true
+    },
+    "reg_O": {
+     "n": 384,
+     "scale": 0.25,
+     "exact": true
+    },
+    "reg_M": {
+     "n": 3072,
+     "scale": 0.1,
+     "exact": true
+    }
+   }
+  },
+  "run_config": {
+   "pass": true,
+   "sha256": "8e0fc6b8e972db23c75fb71d85fd453475d65c68cb9b7a19ec0b6e847876dcf4"
+  },
+  "test_suite": {
+   "pass": true,
+   "summary": "============================= 114 passed in 5.81s =============================="
+  },
+  "taskB_gradient_conflict_gate": {
+   "pass": false,
+   "threshold": -0.5,
+   "per_seed_mean_cos": {
+    "100": -0.5009,
+    "101": -0.477,
+    "102": -0.4639,
+    "103": -0.432,
+    "104": -0.5106,
+    "1000": -0.5094,
+    "1001": -0.4255,
+    "1002": -0.3511
+   },
+   "seeds_passing": 3,
+   "n_seeds": 8,
+   "pooled_mean_cos": -0.4588
+  },
+  "detector_recall": {
+   "pass": true,
+   "misses": 0,
+   "attribution_differs": 3,
+   "reference_collisions": 7
+  },
+  "profiling": {
+   "pass": true,
+   "ms_per_step_batch32_9runs": 4.028,
+   "ms_per_step_online_9runs": 0.685,
+   "est_tier1_cpu_s_per_candidate": 7.3,
+   "est_tier1_cpu_h_for_1200": 2.43,
+   "AE_stage0_exit_criterion_cpu_s": 20.0,
+   "within_AE_estimate": true
+  }
+ },
+ "stage1_allowed": false,
+ "cpu_seconds": 16.93,
+ "wall_seconds": 14.25,
+ "cumulative_cpu_hours": 0.25958
+}
