@@ -9,7 +9,33 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 20
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 21
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v8** (unchanged; no v9);
+  - `SHARED_RESEARCH_MAP.md` (§12: the post-v8 grammar-gap audit; my role is candidate grammar-expansion designer);
+  - this notebook.
+
+  Merged `origin/main` `7710376`: the v8 outcome, independently verified by both audit lanes (0/42 confirmed, 0 promotions, Stage 3 not run).
+- **Current lens:** the post-v8 **grammar-gap audit**. No code, search, training or GPU.
+- **Current stage:** audit complete. See Part AN.
+  - **8 candidates:** GG1 conflict-forked units; GG2 conflict-to-context rerouting; GG3 error-keyed snapshot bank; GG4 tag-and-capture provisional deltas; GG5 surprise-gated state lifetime; GG6 self-keyed parameter superposition; GG7 counterexample edge deletion; GG8 in-loop unit crystallization.
+  - **7 killed:** DEN; CN-DPM / FTN / Active Dendrites; Narendra multiple models, switching and tuning / COIN / MOLe; fast/slow weights / synaptic tagging and capture / metaplasticity; LSTM gates / change-point resets; PSP / SupSup; candidate elimination / JTT; rule extraction / logic-gate networks.
+  - **1 weakly unresolved: GG2.** The conflicting gradient component is re-homed into a cue-gated low-rank term instead of being projected out or routed. It probably reduces to task-free LoRA-adapter + router.
+  - **Structural results:**
+    - C\* no-go: improving both AULC and return needs regime-specific state that grows with K;
+    - B trichotomy: isolation, replay, or re-homing;
+    - F is discrete hypothesis search.
+- **Strongest surviving candidate(s):** none. GG2 is only unresolved at the transition-rule level, not an architecture candidate.
+- **Killed / closed:** AMS v5–v8 search designs (negatives); 7 of 8 grammar-gap candidates.
+- **Unresolved prior-art question:** is there prior art for "re-home the conflicting gradient component into context-conditional parameters keyed by an input-statistics change, without task IDs or router training"? Checks needed: TRGP, InfLoRA / O-LoRA, MoE-adapters, XdG / Active Dendrites, gradient routing, COIN / CN-DPM.
+- **CPU:** 5.13 CPU-h of 30 (unchanged this session); no GPU.
+- **Exact next action:**
+  - Codex: hostile reduction of GG2. Cursor/Gemini: the smallest matched B test (GG2 against a task-free adapter + cue router at equal parameters and state). Both work from `HANDOFF_Claude_grammar_gap_audit.md`.
+  - If GG2 dies, recommend closing the AMS grammar-expansion path. Do not start v9 without an owner decision.
+
+# Resume Pointer as of session 20 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
@@ -4729,6 +4755,184 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AN — Post-v8 grammar-gap audit (session 21, 2026-09-28; reasoning and 11 prior-art searches; no code, no compute)
+
+**Question** (`SHARED_RESEARCH_MAP.md` §12): which architecture-level operations can the frozen AMS grammar genuinely not express? Could any of them address an observed failure without being an established architecture or classical mechanism?
+
+**Result: 8 candidates; 7 KILLED; 1 weakly UNRESOLVED (GG2), sent to the auditor lanes. 0 architecture or primitive candidates.**
+
+The grammar gaps are real. But every operation that fills a gap for B, C\* or F that I could specify is a known family, or reduces to one under ordinary decomposition. Expanding the grammar to include them would mostly enable rediscovery.
+
+## AN.1 What the three failures actually require (verified from `ams/tasks.py` and the v7/v8 records)
+
+- **Task B.**
+  - Setup: `x = [c(8) | p1(12) | p2(12)]`. Task 1 is `y = A_c c + 0.1 A_1 p1`; Task 2 is `y = −A_c c + 0.1 A_2 p2`.
+  - The shared block's map **flips sign**. The joint function needs a *context × shared-input* interaction, where the context is which private block is active; no task ID is given.
+  - It is jointly representable (V1-B-REP ≥ 0.95 at 4,000 updates). Sequential SGD forgets 100 pp, and GPM still forgets 93.8 pp, because T2's required change lies in T1's protected input subspace.
+  - Retention while still learning T2 requires one of:
+    - (a) parameters that T2 does not update (isolation or expansion);
+    - (b) T1 data or pseudo-data (replay);
+    - (c) T2's conflicting update written into context-conditional parameters instead of shared ones.
+- **Task C\*.**
+  - Setup: R0 (256 steps) → R1 (64) → R0 (64) → R1 (64); batch 1; no boundary signal.
+  - Fast R1 re-adaptation (AULC) and R0 return (≤ max(1.1·pre, pre + 0.01) after 64 steps) conflict. v8's P03974 shows the trade-off directly: AULC 8/8 wins, but R0 return on only 5/8 seeds.
+  - Improving **both** requires retaining regime-specific information for both regimes across the switches (AN.4, no-go).
+- **Task F.**
+  - Setup: `y = x0 ⊕ x1 ⊕ x2` over 20 bits; 100 training examples; the shortcut `x3` agrees on 90% of training data and 10% of OOD data.
+  - x0, x1 and x2 are individually uncorrelated with y, so the true features carry no first-order signal. Recent theory shows SGD provably prioritizes such a shortcut in the XOR model (arXiv 2606.30444).
+  - Discrete synthesis (V3-F) recovers the rule (OOD 1.00). The capability needed is **discrete hypothesis search** over input subsets, which Part Y already classified as known machinery.
+
+## AN.2 What the frozen grammar cannot express (verified against `ams/grammar.py` and `ams/substrate.py`)
+
+| # | Gap | Frozen behaviour |
+|---|---|---|
+| g1 | Event-triggered writes, latches, data-dependent state lifetime | Register mixing uses a constant decay from a fixed set; resets only at EXAMPLE, EPISODE or RUN boundaries |
+| g2 | Indexed multi-slot state and content-addressed retrieval | ≤ 4 registers (≤ 2 matrix registers) per layer; one `W_ep0` anchor, set only at episode starts, so under C\* it is the initial weights |
+| g3 | Structural ops beyond reinit / freeze | Only threshold reinit or freeze of output rows every 100 steps, with the mask recomputed each time. No copy, restore, fork, merge, input-edge deletion or latched freeze |
+| g4 | Topology change | Fixed 32 × 32 two-hidden-layer tanh MLP; no unit creation, skip paths or rewiring |
+| g5 | On-demand higher-order (context × input) weights | Expressible only as a fixed expression `W_eff = W + E_M` over current leaves; cannot be created in response to an event; forward gain is clipped at ≥ 0 |
+| g6 | Per-layer heterogeneity | One program shared by all layers |
+| g7 | Discrete hypothesis objects | None |
+| g8 | Example memory (replay) | Excluded by design |
+
+## AN.3 Candidates
+
+Each candidate is given as STATE + OPERATION + WRITE/TRANSITION + CLAIM, followed by the grammar gap it needs, its closest prior art, the reduction and a falsifier.
+
+### GG1 — Conflict-forked units (Task B) — KILLED
+
+- **State:** per hidden unit, a consolidation latch κ_j (write-once) and an input-activity signature s_j (the EMA of the inputs while it was consolidated).
+- **Operation:** if κ_j = 1 and the unit's incoming gradient is persistently anti-aligned with its consolidated-period gradient EMA, **fork**: create j′ = a copy of j, freeze j, and gate the outputs of j and j′ by the input's similarity to s_j.
+- **Transition:** the fork is irreversible; only the unfrozen copy updates its signature.
+- **Claim:** exact T1 retention plus unimpeded T2 learning in the conflicting subspace, without task IDs.
+- **Gap:** g1 (latch), g3 (fork), g4 (unit creation).
+- **Closest prior art:**
+  - DEN (Yoon et al. 2018), which splits or duplicates units on semantic drift;
+  - task-free expansion with routing: CN-DPM (2020), Active Dendrites (2022), Functional Task Networks (McKee et al., arXiv 2604.24637, 2026 — unsupervised task-subnetwork instantiation and recovery without labels).
+- **Reduction:** duplication triggered by drift (DEN) plus an input-signature router (MoE / dendritic gating). The ordinary decomposition preserves both retention and learning. Primitive and architecture claims both die.
+- **Falsifier (moot):** a DEN-plus-router decomposition matches it at equal parameters.
+
+### GG2 — Conflict-to-context rerouting (Task B) — UNRESOLVED (weak); sent to Codex / Cursor
+
+- **State:** per layer:
+  - a consolidated gradient-direction EMA Ḡ (matrix register);
+  - a consolidation-period input-activity profile ā (I-vector);
+  - a growable set of context-gated low-rank terms {u_k v_kᵀ ⊙ gate_k(a)}, each gate_k reading only the inputs whose activity statistics differ between the consolidation period and now (|E_now[a] − ā| large).
+- **Operation:** decompose each update ΔW = Δ_∥ + Δ_⊥ relative to Ḡ. When the anti-aligned component Δ_∥ (cosine < −ρ) persists, it is **not** written into W. It is written into a new or existing context-gated term whose gate is keyed on the differing inputs. Δ_⊥ goes into W as usual.
+- **Transition:** a gated term is created at the first persistent conflict. Gate inputs are chosen once, when the term is created, then frozen. The terms are otherwise trained by the backprop signal.
+- **Claim:** B retention with full T2 learning and **no** stored data, task ID or separate router training. The only extra capacity is rank-1 per conflict, and it arises exactly where the conflict is.
+- **Gap:** g1, g3, g4, g5 (on-demand creation of context-gated higher-order terms keyed by a detected statistic difference).
+- **Closest prior art:**
+  - OWM / GPM / PCGrad (project or drop the conflicting component; they do not re-home it);
+  - TRGP (Lin et al., ICLR 2022: scaled reuse of correlated old-task subspaces, but with task identity);
+  - InfLoRA / O-LoRA and MoE-adapters for continual learning (low-rank per-task terms with a learned router);
+  - XdG (Masse et al. 2018) and Active Dendrites (context cue supplied externally);
+  - gradient routing (Cloud et al. 2024, user-specified masks);
+  - hypernetworks / FiLM;
+  - COIN (Heald et al. 2021), CN-DPM (context inference creates new memories).
+- **Reduction attempt:**
+  - Once the gate inputs are found, the computation is FiLM / hypernetwork conditioning on a discovered cue, plus low-rank adapters.
+  - Discovering the cue from input-statistic differences is a simple change detector on input marginals.
+  - So "task-free LoRA adapters plus a cue router trained on the same data" probably preserves the property.
+  - **Not found in 11 searches:** the specific transition that the *conflicting gradient component* is *re-homed* into a *cue-gated* higher-order term (instead of projected out, dropped, or given to a routed expert).
+  - Whether this rule preserves anything the adapter + router decomposition loses (e.g. zero router-training interference, or rank growth tied only to conflict) is **unresolved**.
+- **Falsifiers:**
+  - (i) *Architecture:* a task-free "shared trunk + LoRA adapter + input-cue router" at equal parameters and state matches it on B's retention and T2 fit (≤ 1.25 × T2_G). Expected; this kills GG2.
+  - (ii) *Primitive:* the gate fails to key on the private blocks (e.g. picks noise features), so retention does not rise above GPM's (93.8 pp forgetting).
+  - (iii) *Prior art:* any paper implementing "re-home conflicting gradient component into context-conditional parameters". GG2 is then dead.
+
+### GG3 — Error-signature-keyed snapshot and restore (Task C\*) — KILLED
+
+- **State:** a bank of weight snapshots {W_k}, each keyed by a short error signature.
+- **Operation:** on a loss spike, store the current W under the last regime's key; score the stored snapshots on the last few examples; restore the best one if it beats the current weights; otherwise keep adapting.
+- **Transition:** snapshots are write-on-event and restores are discrete.
+- **Claim:** instant R0 return and instant R1 re-entry (A_second ≈ 0).
+- **Gap:** g1, g2, g3.
+- **Closest prior art:**
+  - multiple models, switching and tuning (Narendra & Balakrishnan 1992–1997; identical mechanism in adaptive control);
+  - recurring-concept model pools in concept-drift learning;
+  - MOLe (Nagabandi et al. 2019);
+  - CN-DPM (2020);
+  - COIN (2021);
+  - FTN (2026, recovery of a prior task subnetwork in one gradient step).
+- **Reduction:** change detector + model pool + selection is a classical pipeline that preserves the property. KILLED.
+- **Structural note:** see the no-go in AN.4.
+
+### GG4 — Provisional delta with hysteretic capture ("tag-and-capture weights", Task C\*) — KILLED
+
+- **State:** W = W_c + Δ, where Δ is provisional and decays with a half-life.
+- **Operation:** new learning writes to Δ. Δ is captured into W_c only once the current regime has persisted for more than τ steps with low error.
+- **Transition:** capture is a write-once event per episode of persistence.
+- **Claim:** fast adaptation; return by the decay of the uncaptured Δ.
+- **Gap:** g1 (event-conditioned capture). Decaying fast weights alone are already expressible (R12 / R13).
+- **Closest prior art:** fast / slow weights (Hinton & Plaut 1987; Ba et al. 2016); synaptic tagging and capture (Frey & Morris 1997; spiking-network STC models, Commun. Biol. 2021); Benna–Fusi cascade synapses (2016); metaplasticity (Laborieux et al. 2021).
+- **Reduction:** known consolidation machinery. Under C\*'s schedule it cannot beat the trade-off:
+  - if τ > 64, R1 is never captured, so the second R1 entry re-adapts from scratch;
+  - if τ ≤ 64, R0 is overwritten.
+- **Falsifier:** no τ improves AULC and return together over R13-type fast/slow weights. KILLED.
+
+### GG5 — Surprise-gated state lifetime (Tasks C\* and B) — KILLED
+
+- **State:** registers with a data-dependent decay λ_t = f(surprise), plus a clear-on-surprise latch.
+- **Operation / transition:** integrate while predictions are good; clear or restart the register on a surprise event.
+- **Claim:** state that adapts immediately after a regime switch without drift contamination.
+- **Gap:** g1. The frozen grammar allows constant decays only; this is a genuine gap.
+- **Closest prior art:** LSTM forget gates; Bayesian online change-point detection with run-length resets (Adams & MacKay 2007); ART reset; surprise-modulated learning rates (Faraji, Preuschoff & Gerstner 2018); optimizer-state resets on change detection.
+- **Reduction:** a gated state update, i.e. optimizer / recurrent-state machinery. Not architecture-level. KILLED.
+
+### GG6 — Parameter superposition with self-inferred context keys (Tasks B and C\*) — KILLED
+
+- **State:** a shared W; a discrete inferred context index k_t; a fixed random ±1 key per context.
+- **Operation:** `W_eff = W ⊙ key(k_t)`; writes are unbound with the same key. k_t is inferred from the input statistics (B) or the error signature (C\*).
+- **Claim:** several solutions stored in one parameter set with little interference.
+- **Gap:** g2 (discrete context index state), g5.
+- **Closest prior art:** Parameter Superposition (Cheung et al. 2019; needs the key); SupSup (Wortsman et al. 2020; infers the task by entropy minimization); HRR / VSA binding.
+- **Reduction:** PSP + SupSup-style inference preserves the property. KILLED.
+
+### GG7 — Counterexample-refuted input-edge deletion (Task F) — KILLED
+
+- **State:** per input feature, a refutation count: the distinct training examples on which the feature's learned sign contradicts the label while the feature carries a large weight.
+- **Operation:** when the count exceeds m, permanently delete that input's edges and reinitialize the dependent units.
+- **Transition:** deletion is irreversible.
+- **Claim:** removes near-predictive but falsified shortcuts (x3) while train fit is kept through the remaining features.
+- **Gap:** g3 (persistent edge deletion; freeze is per row and recomputed), g1.
+- **Closest prior art:** candidate elimination and version spaces (Mitchell 1977); JTT / LfF / DFR (shortcut mitigation by counterexample reweighting or retraining); sparse rewiring (DEEP R, SET, RigL).
+- **Reduction:** hypothesis elimination plus known shortcut mitigation. It also fails on F by construction:
+  - with x3 removed, the remaining problem is 3-parity from 100 examples, which an MLP can fit by memorization without generalizing;
+  - the true features have no first-order signal to protect them.
+- **Falsifier:** OOD error stays near 0.8 after the deletion. KILLED.
+
+### GG8 — In-loop unit crystallization (Task F) — KILLED
+
+- **State:** per hidden unit, the truth table of its activation over the finite training set.
+- **Operation:** when a unit's activation is an exact boolean function of ≤ k inputs on all training examples, replace its weights by that exact rule, freeze it, and cut its other input edges.
+- **Transition:** crystallization is irreversible.
+- **Claim:** commits to discrete structure in the loop, giving systematic generalization.
+- **Gap:** g3, g7.
+- **Closest prior art:** rule extraction (KBANN / TREPAN); differentiable logic-gate networks (Petersen et al. 2022); ∂ILP; neural-guided synthesis; the project's own Part Y/Z discrete-commitment results.
+- **Reduction:** known. It is also harmful on F: units that implement the shortcut x3 crystallize first, because it is the easiest exact-on-90% feature and the closest to exact, so the shortcut gets locked in.
+- **Falsifier:** crystallized units select x3, or none become exact on 100 examples. KILLED.
+
+## AN.4 Structural results (interpretation, with argument)
+
+- **C\* no-go.** With no boundary signal, a mechanism that improves *both* second-entry AULC and R0 return must carry information separating the R0 and R1 solutions across the switch. Its regime-specific persistent state therefore grows with the number of distinct recurring regimes K times the information in each regime's solution difference.
+  - An O(1)-state native mechanism cannot guarantee both for arbitrary K. For K = 2, fast/slow weights or a two-slot bank already suffice.
+  - The design space is therefore memory (a bank) or interference (a trade-off), and both corners are occupied (GG3, GG4).
+- **B trichotomy.** Retention while learning a sign-flipped shared map needs (a) isolation or expansion, (b) replay, or (c) re-homing the conflicting update into context-conditional parameters.
+  - (a) and (b) are established families.
+  - (c) is GG2, the only corner without an exact match found.
+- **F.** The failure is a discrete-hypothesis identification problem. Occupied: explicit synthesis (V3-F) and known shortcut mitigation. No in-network operation found here avoids reducing to one of them (GG7, GG8).
+
+## AN.5 Disposition and recommendation
+
+- **Survivors:** none as architecture or primitive candidates. GG2 is the only transition rule without an exact prior-art match. It goes to Codex (hostile reduction: TRGP, InfLoRA / O-LoRA, MoE-adapters, XdG / Active Dendrites, COIN / CN-DPM, gradient routing) and to Cursor (the smallest matched B test: GG2 against a task-free adapter + cue router at equal parameters and state).
+- **Recommendation (interpretation):**
+  - If Codex reduces GG2 or Cursor finds no property that the adapter + router decomposition loses, **close the AMS grammar-expansion path** rather than spending the remaining ~24.9 CPU-h. The operations that fill the grammar's real gaps (g1–g8) are known continual-learning, model-bank or discrete-search machinery, and a broader grammar would mainly enable rediscovery.
+  - Only if GG2 survives both lanes should a v9 be considered, and then only as a narrow matched test of GG2 on Task B, not as another broad search.
+- **Handoff:** `HANDOFF_Claude_grammar_gap_audit.md`, a self-contained candidate list for the auditor lanes.
+- **Prior-art searches (11):** DEN / splitting; COIN; gradient routing; metaplasticity (BNN); conflict → context gating; multiple models, switching and tuning; parameter superposition; synaptic tagging and capture; JTT / shortcut; FTN (2604.24637); dendritic gating without task identity.
+
 
 # Part AM — AMS v8: robust C* AULC, confirmation funnel, official Stage 2 (session 20, 2026-09-28)
 
