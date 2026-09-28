@@ -8,7 +8,33 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 10
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 11
+
+- **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (§6.6: the conceptual learning-dynamics round is closed; §12: Claude = protocol designer + mechanism-grammar formalizer) → this notebook. The branch was fast-forwarded to `origin/main` (`34ec0cd`). `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
+- **Current search lens:** **preregistered low-compute automated mechanism search (Part AE)**, a *design only*. **Nothing has been executed**: no stage, no unit test, no micro-benchmark.
+- **Current stage (session 11):** protocol specification **complete** (AE.1–AE.10).
+  - **Grammar:** typed S / I / O / M; ≤ 4 registers (≤ 2 of type M) with lifetimes EXAMPLE / EPISODE / RUN; FORWARD (W_eff, gain), CREDIT, STATE (mix), PARAM, ≤ 1 STRUCT.
+  - **Required coupling:** state→forward, activity-routed credit, or structural. Otherwise the program is a pure update rule and is never evaluated.
+  - **Limits:** ≤ 40 nodes, depth ≤ 5, one program shared across layers.
+  - **Rediscovery filter:** canonicalization, behavioural hash, a 26-feature fingerprint, a reference library R1–R24 with syntactic plus behavioural matching, and residual attribution.
+  - **Search:** MAP-Elites over 56 structural cells.
+  - **Budget:** ≤ 6,000 generated / 3,000 Stage-1 / 1,200 Stage-2 / 20 Stage-3.
+  - **Promotion:** eight gates.
+  - **Preregistration:** tasks T0–T3 (interference, recurring-regime re-adaptation, symbol rebinding), validity checks V1–V4, YAML freeze block.
+  - **Compute:** CPU only, expected ≈ 6–8 CPU-h, **hard cap 30 CPU-h**.
+- **Strongest surviving candidate(s):** none (no search has been run). Q06 stays parked.
+- **Killed / closed:** unchanged from session 10 (Parts AA–AD).
+- **Unresolved prior-art questions:**
+  - (a) Codex: complete and verify the reference library and the gate-8 procedure (AE.10).
+  - (b) Cursor / Gemini: finalize tasks and metrics so V1–V3 hold.
+  - (c) 2025–26 items were verified from abstracts / snippets only.
+- **Exact next action:**
+  - cross-lane synthesis merges the Claude (AE), Codex and Gemini protocol pieces into one frozen preregistration;
+  - **the owner authorizes (or not) Stages 0–3 (CPU, ≤ 30 CPU-h)**;
+  - no execution before that.
+- **ID scheme addition:** `R1–R24` (reference families), `T0–T3` (tasks), `V1–V4` (validity checks), gates 1–8 (AE.4).
+
+# Resume Pointer as of session 10 (historical; superseded by the block above)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (owner closed the native-coupling round and set the learning-dynamics phase, §6.5 / §12) → this notebook. The branch was fast-forwarded to `origin/main` (`4ada31d`). `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** **single-model learning dynamics (Part AD)**. Look for internal organization that changes what or how a model learns, where the strongest matched baseline with the same function class cannot preserve the property.
@@ -36,7 +62,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 - **Default if the owner only says "continue":** add a learning-dynamics occupancy table to the shared map, then *design without running* the (A) protocol for approval.
 - **ID scheme addition:** `LD1–LD12` (session 10, Part AD); channels `K1–K8`.
 
-# Resume Pointer as of session 9 (historical; superseded by the block above)
+# Resume Pointer as of session 9 (historical)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit; primitive / architecture / pipeline levels) → `SHARED_RESEARCH_MAP.md` → this notebook. The branch was fast-forwarded to `origin/main` (`479dd08`; only the other lanes' notebooks had changed). `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** **Interface-Blocked Signal / Native Coupling (Lens 14, Part AC)**. Look for architectures whose important property exists because signals cross components internally in a way ordinary interfaces cannot preserve.
@@ -3380,6 +3406,666 @@ The 14 answers are compressed as:
 - **Default if the owner only says "continue":**
   - add a learning-dynamics occupancy table (AD.2 condensed) to the shared map;
   - then *design, without running*, the pre-registered protocol for (A): search space, primitive set, matched baselines, the ablation rule, rediscovery filter and compute estimate, for the owner to approve or reject.
+
+---
+
+# Part AE — Preregistered Low-Compute Automated Mechanism Search: Protocol Specification (session 11, 2026-09-28)
+
+**Status: DESIGN ONLY.** Nothing in this Part has been executed: no stage, no unit test, no timing micro-benchmark. Execution requires explicit owner authorization (shared map §6.6 / §12).
+
+**Owner brief (session 11).**
+- **Goal:** design a preregistered, low-compute automated search for *learning mechanisms* that could reveal a genuinely different architecture-level learning dynamic.
+- **Deliverables:**
+  - a bounded mechanism grammar compiling to `STATE → FORWARD → CREDIT/LOCAL SIGNAL → STATE UPDATE → PARAMETER UPDATE`;
+  - a rediscovery fingerprint plus canonical simplification;
+  - a CPU-first search strategy that prioritizes diversity;
+  - promotion gates;
+  - a full preregistration;
+  - a staged resource plan (Stages 0–4).
+- **Must not simply rediscover:** SGD / momentum / Adam; natural gradient / K-FAC / Shampoo; mirror descent; TP; FA; SG; PC; EP; FF; Hebbian; eligibility traces; fast weights; differentiable plasticity; MAML; TTT; continual-learning projection; MoE routing; residual; recurrence; attention; DEQ / ODE; train-only reparameterization; standard loss shaping.
+
+**Lane roles (shared map §12):**
+- Claude designs the grammar and search.
+- Codex converts the collision library into machine-checkable families and defines the prior-art gate.
+- Cursor/Gemini finalize the benchmark tasks and metrics.
+
+This Part fixes interfaces for both so their contributions slot in (AE.10).
+
+---
+
+## AE.0 Design rationale: lessons carried in from earlier work and prior searches
+
+1. **Update-rule-only searches rediscover.** VERIFIED:
+   - Bengio, Bengio & Cloutier (1990–95) optimized parametric synaptic rules;
+   - Confavreux et al. (NeurIPS 2020) "(re)discovered" plasticity rules such as Oja's;
+   - Jordan et al. (eLife 2021, Cartesian GP): about half of the evolutionary runs produced rules matching, and interpretable as approximations of, a known gradient-descent rule (Urbanczik & Senn 2014);
+   - AutoML-Zero (ICML 2020) rediscovered backprop, weight averaging and normalized gradients;
+   - evolved plastic networks are a whole field (Soltoggio, Stanley & Risi, "Born to Learn", 2018).
+
+   **Design consequence:**
+   - the grammar *requires* an architecture-level coupling (AE.1.6);
+   - known families are rejected *before* evaluation (AE.2);
+   - any effect must be carried by the non-family *residual* (AE.2.5).
+2. **Pure reparameterizations are optimizer-restorable** (AD.1). *Consequence:* a pure update rule (no coupling to the forward computation or routing) is classified as an optimizer / local-rule family and is never evaluated as a candidate.
+3. **Performance is not novelty** (AB, AC, AD). *Consequence:* quality scores learning-*dynamics* properties against the **best matched control**, not raw loss. Gates 7–8 (fingerprint, prior art) are separate from gates 1–6 (empirics).
+4. **Representation-matched controls erase fake wins** (Part M lesson 1, H.1o). *Consequence:* capacity-, state- and FLOP-matched baselines are mandatory (gate 6).
+5. **Selection bias.** *Consequence:* candidates are chosen on Stage-2 data and confirmed only on **fresh seeds and fresh task instances** in Stage 3.
+
+---
+
+## AE.1 Part 1 — Mechanism representation (exact grammar)
+
+### AE.1.1 Substrate (fixed; not searched)
+- **Network:** an MLP with input d_in, two hidden layers of width H = 32, and output d_out.
+  - Hidden activation φ = tanh.
+  - Output: linear, with MSE for regression tasks or softmax + cross-entropy for classification tasks.
+- **Precision and seeds:** float32; parameters Wℓ, bℓ for ℓ = 1, 2, 3.
+- **Shared program:** the *same* mechanism program P is applied to every layer ℓ (weight-shared program, as in AutoML-Zero). This forces generality and shrinks the search space.
+- **Online stream:** examples arrive one at a time. Parameters change only through P.
+- **Excluded by construction** (these cannot be generated):
+  - skip connections (residual);
+  - token interactions (attention);
+  - within-step iteration or fixed points (DEQ, EP, predictive-coding inference loops, ODE solvers);
+  - an outer meta-learning loop through the program (MAML / TTT meta-training).
+
+  Evolution is the only "meta" level.
+
+### AE.1.2 Types and read-only leaves (per layer ℓ, per example)
+
+Types:
+- `S` — scalar.
+- `I` — vector over the layer's inputs (n_in).
+- `O` — vector over the layer's outputs (n_out).
+- `M` — matrix n_out × n_in.
+
+No I×I or O×O matrices exist. This excludes full-matrix preconditioners (natural gradient, K-FAC, Shampoo, orthogonal projection) by typing.
+
+| Leaf | Type | Meaning | Fingerprint flag |
+|---|---|---|---|
+| `a` | I | layer input | — |
+| `z` | O | pre-activation (computed with W_eff and gain) | — |
+| `h` | O | post-activation φ(z) (output layer: identity) | — |
+| `dphi` | O | φ′(z) | — |
+| `W`, `b` | M, O | current parameters | `reads_W` |
+| `W_ep0` | M | W at the start of the current episode (read-only snapshot) | `anchor` |
+| `d_bp` | O | backprop credit ∂L/∂z for this step, computed through W_eff with registers held constant (**no** backprop through time) | `global_bp` |
+| `d_fa` | O | fixed random feedback Bℓ·e (Bℓ ~ N(0, 1/d_out), frozen) | `fixed_feedback` |
+| `e` (output layer only) | O | output error ŷ − y | — |
+| `L`, `dL`, `Lbar` | S | current loss, loss change since the last step, running mean loss (λ = 0.99, provided) | `reward_mod` if used as a multiplier |
+| `xi_O`, `xi_I` | O, I | fresh N(0, 0.01) noise | `perturbation` |
+| `tep` | S | steps since episode start ÷ episode length (0 in boundary-free tasks) | `episode_clock` |
+| `c` | S | constant from {−1, −0.5, 0.1, 0.5, 1, 2} | — |
+| `r1 … r4` | declared type | state registers (AE.1.3) | per-register flags |
+
+### AE.1.3 State registers (persistent state)
+- **Count:** at most **4** registers per program, of which at most **2** have type M.
+- **Declaration:** each register is `(name, type ∈ {I, O, M}, lifetime, init ∈ {0, 1, N(0, 0.01)}, decay λ ∈ {0, 0.5, 0.9, 0.99, 0.999})`.
+- **Lifetimes:**
+  - `EXAMPLE` — reset every step; a named temporary; inlined by the canonicalizer;
+  - `EPISODE` — reset at an episode boundary (only in tasks that provide boundaries, AE.5);
+  - `RUN` — never reset.
+- **Transition:** each register has exactly one update per example:
+  `r ← mix(r, v, λ) = λ·r + (1 − λ)·v`, with v a typed expression of r's type.
+  - λ = 0 means overwrite.
+  - Registers can be fast (small λ or EPISODE lifetime) or slow (λ = 0.999, RUN).
+- **Clipping:** all register values are clipped to [−10³, 10³] after update.
+
+### AE.1.4 Operators (typed)
+
+| Class | Operators | Typing |
+|---|---|---|
+| Unary elementwise | `neg, abs, sign, square, sqrt_s(x)=sign(x)√(\|x\|+ε), log_s(x)=sign(x)log(1+\|x\|), exp_c(x)=exp(clip(x,−10,10)), relu, tanh, sigmoid, step(x)=[x>0], recip_s(x)=sign(x)/(\|x\|+ε)` | T → T for T ∈ {S, I, O, M} |
+| Binary elementwise | `add, sub, mul, div_s(x,y)=x·recip_s(y), max, min` | (T, T) → T; (T, S) → T (broadcast) |
+| Structural | `outer(O, I) → M`; `matvec(M, I) → O`; `matTvec(M, O) → I` (flag `transpose`); `rowsum(M) → O`; `colsum(M) → I`; `rowscale(M, O) → M`; `colscale(M, I) → M` | as listed |
+| Reductions | `mean(X) → S`, `norm(X) → S` (L2), `dot(X, X) → S`, `amax(X) → S` | X ∈ {I, O, M} |
+| Normalization | `nrm(x) = (x − mean)/(std + ε)`, `unit(x) = x/(‖x‖ + ε)` (flag `normalization`) | T → T, T ∈ {I, O} |
+| Selection / gating | `topk(x, k)` with k ∈ {1, 4, 8} → a 0/1 mask; `where(x > 0, y, w)` (flag `routing` when x depends on a, z or h) | O → O; I → I |
+
+ε = 10⁻⁶. `div_s`, `log_s`, `sqrt_s` and `exp_c` are the only division / log / sqrt / exp forms, so they are numerically safe by construction.
+
+### AE.1.5 Program slots (the compile target)
+```
+PROGRAM :=
+  HEADER    update_every ∈ {1, 8}                   # ΔW averaged over k examples, then applied
+  REGS      r1..r4 declarations (AE.1.3)
+  FORWARD   W_eff := W  |  W + E_M                    # E_M may read M-registers  (flag state→forward)
+            g     := 1  |  clip(E_O, 0, 4)            # multiplicative gain on W_eff·a
+            z     := g ⊙ (W_eff·a) + b ;  h := φ(z)   # fixed form; only W_eff and g are searched
+  CREDIT    cvec  := E_O                              # the layer's credit/local signal; may use d_bp, d_fa, e, L, dL, h, z, registers
+  STATE     rj    ← mix(rj, E_type(rj), λj)  for each register (read-before-write: RHS sees old values)
+  PARAM     ΔW    := E_M ;  Δb := E_O                 # may use cvec, a, h, W, registers
+            W ← W + η·clipF(mean_k ΔW) ;  b ← b + η·clip(mean_k Δb)
+  STRUCT    none | reinit(mask_O) | freeze(mask_O)    # at most one; mask_O := step(E_O − θ), θ ∈ {0, 0.1, 0.5};
+                                                      # evaluated every 100 steps (flag structural)
+```
+- **Order within a step:** FORWARD (all layers) → loss → backward to obtain `d_bp` (only if some expression reads it) → CREDIT → STATE → PARAM (applied every `update_every` steps) → STRUCT (every 100 steps).
+- **Learning rate:** η is **not** evolved. It is tuned per candidate on a fixed grid (AE.5.4).
+- **Update clipping:** `clipF` rescales ΔW to Frobenius norm ≤ 1. `clip` bounds each Δb element to [−1, 1].
+- **reinit:** resamples the masked units' incoming weights from the initialization distribution.
+- **freeze:** zeroes ΔW rows for masked units until the next structural evaluation.
+
+### AE.1.6 Required coupling (architecture-level channel)
+A program is a **mechanism candidate** only if it contains at least one of the following:
+- **(C1) state → forward:** `W_eff` or `g` reads a register whose update depends on data (channel K2);
+- **(C2) activity-routed credit:** ΔW is multiplied by a mask or gate computed from `a`, `z` or `h` through `topk` or `where` (channel K3);
+- **(C3) structural:** a `reinit` or `freeze` op whose mask depends on data (channel K1).
+
+A program with **none** is a *pure update rule* (optimizer or local-rule family). Pure rules are logged and never evaluated as candidates; they appear only as reference controls (AE.2.4).
+
+The program must also *learn from data*: ΔW must depend on at least one of {`d_bp`, `d_fa`, `e`, `L`, `dL`} or on a register that does. Otherwise it is logged as `no-learning-signal` and rejected.
+
+### AE.1.7 Size limits
+- ≤ **40** AST nodes in total, across all slots.
+- Every expression has depth ≤ **5**.
+- ≤ 4 registers (≤ 2 of type M).
+- ≤ 1 structural op.
+- Constants only from the fixed sets above.
+
+A typed grammar with these limits is large enough to express every family in AE.2.4 and every coupling above, while staying enumerable.
+
+### AE.1.8 Compiled form (example: a known family, written in the grammar)
+```
+# R12 fast weights (known family; must be rejected by AE.2)
+HEADER update_every=1
+REGS   r1: M, RUN, init 0, λ=0.9
+FORWARD W_eff := W + r1 ; g := 1
+CREDIT cvec := d_bp
+STATE  r1 ← mix(r1, outer(h, a), 0.9)
+PARAM  ΔW := neg(outer(cvec, a)) ; Δb := neg(cvec)
+STRUCT none
+```
+
+---
+
+## AE.2 Part 2 — Preventing trivial rediscovery
+
+### AE.2.1 Canonicalization (symbolic simplification before anything else)
+```
+canon(P):
+  P ← typecheck(P)                       # reject ill-typed / oversize programs
+  P ← inline_EXAMPLE_registers(P)        # temporaries become expressions
+  P ← dead_code_elim(P)                  # drop registers and subtrees that reach neither FORWARD, PARAM nor STRUCT
+  P ← const_fold(P)
+  repeat until fixpoint (≤ 20 passes):
+      apply rewrite rules RW:
+        x+0→x, x·1→x, x·0→0, x−x→0, neg(neg x)→x, abs(abs x)→abs x,
+        mul(x,x)→square x, sign(square x)→step(abs x), nrm(nrm x)→nrm x, unit(unit x)→unit x,
+        mix(r,v,0)→v (when r is not read before write), outer(c·o, i)→c·outer(o,i),
+        rowscale(outer(o,i), m)→outer(o⊙m, i), where(x>0, y, y)→y, topk(x,k) with k ≥ n → 1
+  P ← sort_commutative_operands(P, key=structural_hash)
+  P ← rename_registers(P, order=first_use)
+  return P
+struct_hash(P) = sha256(serialize(canon(P)))
+```
+
+### AE.2.2 Behavioural hash (catches equivalences the rewrite system misses)
+- **Probe set:** a fixed set 𝒫 of 16 probe tuples, sampled once with seed 20260928 and stored with the preregistration. Each tuple holds W, b, a, target, loss, register states and noise.
+- **Behaviour vector** β(P): for each probe, run one FORWARD + one full update of a single layer and collect
+  (h, unit(vec(ΔW)), unit(Δb), unit(Δr_j) for each register).
+- **Duplicates:** two programs are duplicates if round(β, 6) are identical, or if cos(β₁, β₂) ≥ 0.999.
+- **Scale:** a program's rescalings are duplicates by construction, because vectors are unit-normalized and η is tuned separately.
+
+### AE.2.3 Fingerprint (26 features extracted from the canonical AST)
+
+| # | Feature | Extraction rule |
+|---|---|---|
+| F1 | global_bp | any expression reads `d_bp` |
+| F2 | local_objective | cvec depends on a scalar function of the layer's own `h` (e.g. norm, mean) without `d_bp` / `d_fa` / `e` (Forward-Forward-like "goodness") |
+| F3 | transpose | `matTvec` present |
+| F4 | fixed_feedback | reads `d_fa` |
+| F5 | eligibility_trace | a register of type M (or O / I) whose update includes an activity product (outer(h, a), outer(dphi, a), h⊙…) and is later multiplied by `L`, `dL`, `Lbar` or cvec in PARAM |
+| F6 | momentum | a register updated with v ⊇ the ΔW term (or with outer(cvec, a)) and used in PARAM |
+| F7 | second_moment | a register updated with square / abs of an update-like term and used as a divisor or `recip_s` in PARAM |
+| F8 | fast_weights | an M-register updated from activity products and read in W_eff |
+| F9 | fast_slow | ≥ 2 M-contributors to W_eff with different λ or lifetimes (or W plus a register with λ < 0.99) |
+| F10 | fixed_point | always 0 (disallowed) |
+| F11 | local_energy | ΔW derived from a local scalar of activity without an error signal (F2 ∪ Hebbian-with-threshold forms) |
+| F12 | explicit_memory | always 0 (no key–value store in the grammar) |
+| F13 | routing | `topk` or `where` gating on a, z or h, applied in FORWARD (g) or on ΔW |
+| F14 | multiplicative_plasticity | ΔW contains mul(W, ·) or mul(register_M, ·) as a factor (EG / mirror-type or plasticity-coefficient-type) |
+| F15 | normalization | `nrm` or `unit` applied to cvec, ΔW or its factors |
+| F16 | orthogonal_projection | always 0 (untyped in the grammar) |
+| F17 | freezing | `freeze` op, or ΔW gated by a slowly accumulated importance register |
+| F18 | structural_growth | `reinit` op |
+| F19 | hebbian | ΔW or a register update contains outer(f(h), g(a)) with no error / credit factor |
+| F20 | oja_decay | Hebbian term plus a − rowscale(W, square(h))-type term |
+| F21 | reward_modulated | an update multiplied by `L`, `dL` or (`L` − `Lbar`) |
+| F22 | perturbation | reads `xi_O` / `xi_I` and correlates with `L` / `dL` (node / weight perturbation) |
+| F23 | anchor_consolidation | reads `W_ep0` or an importance register in PARAM (EWC / SI-type) |
+| F24 | gain_modulation | g ≠ 1 reads a register (intrinsic plasticity / homeostasis-type) |
+| F25 | loss_shaping | cvec = f(L)·(d_bp-term) with no other structure |
+| F26 | credit_predictor | a register updated toward `d_bp` and later used as credit in place of `d_bp` (synthetic-gradient-type) |
+
+### AE.2.4 Known-family rules and the reference library
+
+**Two-layer rediscovery filter.**
+- **Syntactic:** a rule over fingerprint features plus a canonical-template match.
+- **Behavioural:** cosine ≥ 0.99 between β(P) and β(R) for some reference program R, or an R-plus-inert-extras variant, in the reference library ℛ.
+
+A program that fully matches a family is logged as **REDISCOVERY** and never evaluated.
+
+Initial reference library ℛ, written in the grammar. It is **Codex's deliverable** to complete and verify:
+
+| Ref | Family | Canonical template (per layer) |
+|---|---|---|
+| R1 | SGD | ΔW = −outer(d_bp, a) |
+| R2 | sign-SGD | ΔW = −sign(outer(d_bp, a)) |
+| R3 | momentum / Nesterov-type | r ← mix(r, outer(d_bp, a), 0.9); ΔW = −r |
+| R4 | RMSProp / Adam-diagonal | m, v registers; ΔW = −div_s(m, sqrt_s(v)) |
+| R5 | Lion-type | ΔW = −sign(mix-term of gradient) |
+| R6 | EG / mirror (multiplicative) | ΔW = −mul(W, outer(d_bp, a)) (or exp form) |
+| R7 | weight decay | ΔW = −outer(d_bp, a) − c·W |
+| R8 | DFA / FA | ΔW = −outer(d_fa ⊙ dphi, a) |
+| R9 | Hebbian | ΔW = outer(h, a) |
+| R10 | Oja | ΔW = outer(h, a) − rowscale(W, square(h)) |
+| R11 | BCM | θ ← mix(θ, square(h), 0.99); ΔW = outer(h ⊙ (h − θ), a) |
+| R12 | fast weights | as AE.1.8 |
+| R13 | fast / slow weights | two M-registers in W_eff with λ ∈ {0.9, 0.999} |
+| R14 | differentiable-plasticity-type | W_eff = W + mul(α, A); A Hebbian trace; α ← α − outer(d_bp, a) ⊙ A |
+| R15 | three-factor / eligibility | E ← mix(E, outer(h, a), λ); ΔW = (Lbar − L)·E |
+| R16 | node perturbation | ΔW = −(L − Lbar)·outer(xi_O, a) |
+| R17 | EWC / SI-type consolidation | Ω ← mix(Ω, square(outer(d_bp, a)), 0.99); ΔW = −outer(d_bp, a) − c·Ω ⊙ (W − W_ep0) |
+| R18 | k-WTA / sparse-update (SDMLP-type) | ΔW = −rowscale(outer(d_bp, a), topk(h, k)) |
+| R19 | hard routing in forward (MoE-type units) | g = topk(h_prev-style score, k) |
+| R20 | intrinsic plasticity / homeostatic gain | g ← register tracking the inverse of the mean activity |
+| R21 | continual-backprop-type | utility register u; reinit(step(θ − u)) |
+| R22 | Forward-Forward-type | cvec = (θ − norm(h))·h; ΔW = outer(cvec, a) |
+| R23 | synthetic-gradient-type | P ← mix(P, d_bp, λ); cvec = P |
+| R24 | loss-shaping | cvec = f(L)·d_bp |
+
+**Out of reach by construction:** target propagation (needs a learned inverse), predictive coding / EP (need inference loops), natural gradient / K-FAC / Shampoo / projections (need I×I or O×O), attention, recurrence, residual, DEQ / ODE, MAML / TTT meta-training. They are listed only so that Codex can confirm that no disguised form fits within the typing.
+
+### AE.2.5 Residual attribution (known component + novel residual)
+Programs that *contain* family components but are not full matches are **kept**. Their effect must come from the part that is not a known family.
+```
+decompose(P):
+  C_fam  ← maximal subtrees / register chains of canon(P) that match any family template in ℛ
+  K(P)   ← P with every non-family subtree replaced by its neutral element
+           (additive term → dropped; multiplicative gate → 1; W_eff addition → dropped; STRUCT → none)
+  P−R    ← P with the residual (non-family) subtrees replaced by neutral elements
+  return K(P), P−R
+# Pre-evaluation rule: if β(P) ≈ β(K(P)) (cos ≥ 0.99) the residual is inert → REDISCOVERY.
+# Stage-3 rule (gate 4): the effect must drop by ≥ 50% under P−R, and P must beat K(P).
+```
+
+### AE.2.6 Rediscovery statistics (always reported)
+For every run, report the counts and rates of:
+- ill-typed;
+- oversize;
+- duplicate (structural / behavioural);
+- pure-rule (no coupling);
+- REDISCOVERY (by family);
+- inert-residual;
+- Stage-1 fail;
+- Stage-2 evaluated.
+
+A very high rediscovery rate is itself a result about the grammar's bias (AE.9, risk 1).
+
+---
+
+## AE.3 Part 3 — Search strategy
+
+### AE.3.1 Comparison
+
+| Strategy | Diversity | Sample efficiency on CPU | Fit to typed program trees | Verdict |
+|---|---|---|---|---|
+| Random grammar sampling | high, unguided | poor | trivial | **use for initialization only** |
+| Evolutionary (regularized evolution, as in AutoML-Zero) | medium; converges to one niche | good | good | inner operator set |
+| Genetic programming (tree / Cartesian GP) | medium | good | native | mutation / crossover operators borrowed |
+| Beam search | low (greedy) | good | needs a heuristic | rejected |
+| Novelty search | high | no quality pressure | good | partly (descriptors) |
+| **Quality-diversity (MAP-Elites)** | **high, structured by descriptors** | **good** | **good** | **chosen** |
+| Bayesian optimization over programs | medium | best per evaluation, heavy surrogate | awkward for trees | rejected for the pilot |
+
+**Choice: MAP-Elites** over a structural descriptor grid, with typed GP mutation / crossover and random initialization. It keeps one elite per *kind* of mechanism, so diversity is enforced by the archive, not merely rewarded. It is also embarrassingly parallel on CPU.
+
+### AE.3.2 Descriptors (archive cells: 7 × 4 × 2 = 56)
+- **D1 coupling subset:** a non-empty subset of {C1 state→forward, C2 activity-routed credit, C3 structural} — 7 values.
+- **D2 credit source:** {`d_bp`, `d_fa`, reward-only (`L`, `dL`), mixed / other} — 4 values.
+- **D3 state footprint:** {per-feature only (I / O registers), per-synapse (≥ 1 M register)} — 2 values.
+
+### AE.3.3 Quality (for elites; Stage-2 data only)
+- **Effect per task:** eₜ = (m_ctrl,t − m_P,t) / |m_ctrl,t|, with metrics oriented so lower is better (AE.5.3).
+  - m_ctrl,t is the **best** of the matched controls on task t (AE.5.4).
+  - Both candidate and controls use their best learning rate from the same grid.
+- **Quality:** q(P) = maxₜ eₜ − 0.05·log₂(FLOPs_P / FLOPs_SGD) − 0.05·log₂(1 + state_floats_P / param_floats).
+- **Why max over tasks:** it rewards specialists. Stage 3 confirms only the task each elite was promoted for.
+
+### AE.3.4 Algorithm (exact)
+```
+N_GEN_MAX = 6000        # programs generated (including invalid / rejected)
+N_S1_MAX  = 3000        # Stage-1 evaluations
+N_S2_MAX  = 1200        # Stage-2 evaluations (the real budget)
+N_INIT    = 200         # Stage-2-evaluated random programs before evolution
+OFFSPRING = 50          # Stage-2-evaluated offspring per generation
+G_MAX     = 20
+PATIENCE  = 5           # generations without a new cell and without an elite gain ≥ 0.02
+P_CROSS   = 0.2
+
+refs = stage2_reference_library(ℛ_controls)        # known families on all tasks (AE.5.4)
+assert benchmark_valid(refs)                       # AE.5.5 — else ABORT (redesign tasks)
+
+archive = {}                                       # cell → (P, q, record)
+def try_add(P):
+    count generated; if generated > N_GEN_MAX: STOP
+    if not typecheck(P) or oversize(P): log('invalid'); return
+    P = canon(P)
+    if duplicate(struct_hash(P), β(P)): log('dup'); return
+    fp = fingerprint(P)
+    if not has_coupling(P):            log('pure_rule', fp); return
+    if not has_learning_signal(P):     log('no_signal'); return
+    fam = match_family(fp, P, ℛ)       # syntactic + behavioural
+    if fam.full:                       log('REDISCOVERY', fam); return
+    if inert_residual(P):              log('REDISCOVERY_inert', fam); return
+    s1 = stage1(P)                     # AE.6 Stage 1
+    if not s1.pass:                    log('s1_fail', s1); return
+    if stage2_used ≥ N_S2_MAX:         STOP
+    s2 = stage2(P); stage2_used += 1   # 3 tasks × 3 seeds × 3 learning rates, vectorized
+    q  = quality(s2, refs); cell = (D1(fp), D2(fp), D3(fp))
+    if cell ∉ archive or q > archive[cell].q: archive[cell] = (P, q, s2)
+
+while stage2_used < N_INIT: try_add(random_program())      # grow-method sampling, depth 2–4
+for gen in 1..G_MAX:
+    for _ in range(OFFSPRING evaluated):                    # retry generation until evaluated or caps hit
+        A = uniform_choice(archive.values())                # uniform over occupied cells (QD)
+        child = crossover(A, uniform_choice(archive.values())) if rand() < P_CROSS else mutate(A)
+        try_add(child)
+    if no new cell and no elite gain ≥ 0.02 for PATIENCE generations: break
+promote = stage3_selection(archive)                         # AE.4 / AE.5.6
+```
+
+### AE.3.5 Mutation and crossover operators (typed, all shape-preserving)
+
+| Operator | Probability (given mutation) | Effect |
+|---|---|---|
+| point_op | 0.25 | replace one operator with a random operator of the same signature |
+| subtree | 0.20 | replace a random subtree with a fresh random typed subtree (depth ≤ 3) |
+| leaf_swap | 0.15 | replace a leaf with another leaf of the same type |
+| const | 0.10 | resample a constant, λ, k, θ or init from its set |
+| register | 0.10 | add or remove a register (respecting limits), or change its lifetime |
+| rewire_forward | 0.08 | change what W_eff / g read (keeping ≥ 1 coupling) |
+| gate | 0.07 | insert or remove a `topk` / `where` gate on ΔW |
+| struct | 0.03 | toggle / modify the structural op |
+| timing | 0.02 | flip `update_every` |
+
+- **Crossover:** swap a random subtree between two parents *within the same slot and type* (FORWARD–FORWARD, STATE–STATE, PARAM–PARAM).
+- **Invalid offspring:** retried up to 10 times, then skipped. Invalid attempts count toward N_GEN_MAX.
+
+### AE.3.6 Numerical-stability rules (enforced by the interpreter)
+- Only safe division / log / sqrt / exp forms exist (AE.1.4).
+- ‖ΔW‖_F ≤ 1 before scaling by η; |Δb| ≤ 1; registers clipped to [−10³, 10³]; gain in [0, 4].
+- A NaN / Inf check runs every 50 steps.
+- **Divergence:** if the loss exceeds 10 × the initial loss, or ‖W‖_F exceeds 10⁴ in any layer, the run stops and is marked unstable.
+- **Candidate stability:** a candidate is unstable if **any** of its seeds is unstable at the chosen learning rate.
+- **Early stop:** a run stops if, at 50% of its steps, its loss is still ≥ the trivial predictor's loss. It is marked `no_learning`.
+
+---
+
+## AE.4 Part 4 — Promotion gates (all eight must pass, at Stage 3, on fresh data)
+
+| Gate | Criterion (preregistered) |
+|---|---|
+| **1 Stable execution** | 10 / 10 fresh seeds complete without NaN, Inf or divergence at the chosen learning rate, on the target task |
+| **2 Learns above trivial** | final-window loss ≤ 0.5 × the trivial predictor's loss (regression), or accuracy ≥ chance + 0.3 (classification), on the target task |
+| **3 Material difference on the target property** | effect vs the **best matched control** ≥ τₜ (AE.5.3), with a one-sided paired Wilcoxon test p < 0.05 after Holm correction over all promoted (candidate, task) pairs, **and** a bootstrap 95% CI of the effect (10,000 resamples) excluding 0 |
+| **4 Survives mechanism ablation** | (a) the effect drops by ≥ 50% under **P−R** (residual removed); (b) P beats **K(P)** (its own known components) by ≥ τₜ/2; (c) cutting the coupling (C1 / C2 / C3 → neutral) drops the effect by ≥ 50% |
+| **5 Survives optimizer swap** | if P reads `d_bp`: feeding P's ΔW into Adam's moment machinery (P∘Adam) keeps ≥ 50% of the effect **against the Adam baseline**; if P does not read `d_bp`: P must still beat the Adam baseline by ≥ τₜ/2 |
+| **6 Not explained by extra state / parameters / FLOPs** | (a) beats the capacity-matched baseline B4a (extra hidden units so that parameter count ≥ P's params + persistent state floats) by ≥ τₜ; (b) beats the compute-matched baseline B4b (SGD / Adam with k inner updates per example, so FLOPs ≥ P's) by ≥ τₜ; (c) P's FLOPs per step ≤ 3 × SGD's |
+| **7 Fingerprint not known** | no full family match and no inert residual (automatic); **plus** a manual Codex review of the canonical program against the collision library |
+| **8 Fresh prior-art search** | the Codex-defined procedure (AE.10) finds no publication implementing substantially the same mechanism. Two lanes must agree. |
+
+**Robustness add-on for gate 3.** P's evolved constants (λ, k, θ, c) are perturbed to their neighbouring set values, one at a time; ≥ 70% of the perturbations must retain ≥ 50% of the effect. This guards against the constants being effectively tuned by selection.
+
+---
+
+## AE.5 Part 5 — Preregistration (fixed before any run)
+
+### AE.5.1 Search space
+- Grammar AE.1 with limits AE.1.7.
+- Program applied to all 3 layers.
+- Substrate AE.1.1 (width 32, tanh).
+
+### AE.5.2 Tasks (initial; Cursor/Gemini may replace them only **before** freezing, subject to AE.5.5)
+
+| Task | Stream | Target property and metric (lower is better unless noted) |
+|---|---|---|
+| **T0 sanity** (Stage 1 only) | online regression from a random linear teacher (d_in = 8, d_out = 2, noise σ = 0.1), 300 steps | learns: final-50-step MSE ≤ 0.5 × trivial (running-mean predictor) |
+| **T1 interference** | 4 sequential tasks; random 2-layer tanh teachers (16 → 8 → 4) on shared N(0, I) inputs; 1,000 steps each; **boundaries given** (EPISODE resets allowed) | **forgetting** F = mean over tasks k < 4 of [Lₖ(end) − Lₖ(after k)] / Lₖ(init), subject to **plasticity** Pl = mean over k of Lₖ(after k) / Lₖ(init) ≤ 1.1 × the control's Pl |
+| **T2 recurring regimes** | 3 random linear regimes (16 → 4, σ = 0.1); switch every 150 steps in random order; 3,000 steps; **no boundary signal** | **re-adaptation** A = mean normalized MSE over the first 15 steps after each switch, averaged over the second half of the stream (once regimes have recurred) |
+| **T3 symbol rebinding** (the project's E2 / Z.4 failure) | phase A: one-hot pairs (s₁, s₂) ∈ ℤ₅ × ℤ₅ → (s₁ + s₂) mod 5, 2,000 steps; phase B: input symbols permuted by a hidden π; train on 10 of 25 pairs for 500 steps | **held-out rebinding error** = 1 − accuracy on the 15 unseen relabelled pairs (higher accuracy is better) |
+
+Metrics are normalized per task by the trivial predictor's loss.
+
+### AE.5.3 Effect thresholds τₜ
+- **T1:** forgetting reduced by ≥ **25%** relative to the best control, at plasticity within 1.1×.
+- **T2:** re-adaptation error reduced by ≥ **20%**.
+- **T3:** held-out accuracy ≥ best control + **0.20** (absolute).
+
+### AE.5.4 Baselines and controls (every candidate on every task, each with the same learning-rate grid {0.3, 0.1, 0.03, 0.01, 0.003}; 3 values at Stage 2: {0.1, 0.03, 0.01})
+- **B1** SGD (R1).
+- **B2** Adam (β = 0.9 / 0.999).
+- **B3** property-specific best known families from ℛ, each with its own constants tuned on the same number of configurations (≤ 9 at Stage 2, ≤ 25 at Stage 3):
+  - T1: EWC / SI-type consolidation (R17), k-WTA sparse updates (R18), fast / slow weights (R13);
+  - T2: fast weights (R12), fast / slow weights (R13), three-factor (R15);
+  - T3: SGD, Adam and fast weights. No known gradient mechanism is expected to succeed (E2).
+- **B4a** capacity-matched: SGD / Adam with widened hidden layers so the parameter count covers the candidate's params + persistent state floats.
+- **B4b** compute-matched: SGD / Adam with k inner updates per example so FLOPs per step match the candidate's.
+- **K(P)** (the candidate's own known components) and **P−R** (Stage 3).
+- **P∘Adam** (Stage 3, gate 5).
+
+**Best matched control on task t:** the minimum over {B1, B2, B3, B4a, B4b} of the metric at each control's best configuration.
+
+### AE.5.5 Benchmark-validity checks (run once, with reference families only, before any search; failing → ABORT and redesign)
+- **V1:** on T1, some B3 consolidation / sparse-update reference reduces forgetting by ≥ 15% vs SGD at plasticity ≤ 1.1×.
+- **V2:** on T2, some B3 fast / slow-weight reference reduces re-adaptation error by ≥ 10% vs SGD.
+- **V3:** on T3, SGD's held-out accuracy is ≤ 0.40 (the failure exists), **and** an oracle (π given) is ≥ 0.95 (the task is solvable).
+- **V4:** seed-to-seed coefficient of variation of each metric under SGD is ≤ 0.3. Otherwise increase seeds before running (a preregistered amendment).
+
+**Rationale:** if known mechanisms cannot show their known signatures, the benchmark cannot detect a new one either.
+
+### AE.5.6 Stage-3 selection (fixed)
+- Promote elites with **q ≥ 0.15**, at most **1 per cell**, at most **8 per task**, at most **20** in total.
+- **Ordering:** highest q first; ties go to lower max behavioural similarity to ℛ.
+
+### AE.5.7 Stopping criteria
+- **Search:** stop at the first of: N_S2_MAX Stage-2 evaluations; N_GEN_MAX generated; G_MAX generations; PATIENCE; or the compute cap (AE.7).
+- **Runs:** early stop per AE.3.6.
+- **Global kill switch:** cumulative CPU-hours > 30, or any sign of interference with other processes on the machine (AGENTS.md "Resource Use").
+
+### AE.5.8 Outcome classes (fixed definitions)
+- **REDISCOVERY:** any of the following:
+  - a full family match or an inert residual (automatic);
+  - at Stage 3, gate 4(a) / 4(b) fails, so the effect is carried by known components;
+  - the gate-8 prior-art search finds the same mechanism.
+- **NEGATIVE RESULT:** no candidate passes all eight gates. It is reported with:
+  - archive coverage (occupied cells / 56);
+  - rediscovery statistics (AE.2.6);
+  - the best effect per task with CIs;
+  - the statement: *"within grammar G, substrate S, tasks T0–T3 and budget N, no non-family mechanism showed a matched, ablation-robust advantage."*
+- **INTERESTING EMPIRICAL MECHANISM:** passes gates 1–6 but fails 7 or 8 (a close variant of a known family), **or** passes all gates on one task with an effect < 1.5 τₜ. It is recorded with no novelty claim.
+- **ARCHITECTURE CANDIDATE:** passes gates 1–8 on at least one task, labelled **"Supported architecture candidate — small-scale empirical"** (AGENTS.md evidence strength). It is still **not** a primitive candidate unless it separately survives the same-operation reduction test. Stage 4 is required before any stronger wording.
+
+### AE.5.9 Post-search prior-art procedure (skeleton; Codex finalizes, AE.10)
+For each promoted candidate:
+1. Write the canonical program as equations (per layer: W_eff, g, cvec, register updates, ΔW).
+2. Codex extracts 3–6 technical key phrases and searches 1960s–present literature: synaptic plasticity / computational neuroscience; optimization; continual learning; meta-learning / evolved plasticity; local learning rules; neuromorphic.
+3. Check against the collision library (shared map, Parts AD / AE, the Codex AR entries).
+4. **Decision:**
+   - *same mechanism* → REDISCOVERY;
+   - *same family, different residual* → keep;
+   - *no match* → gate 8 passes.
+5. A second lane reviews independently. Disagreement blocks promotion.
+
+### AE.5.10 Freezing
+- The preregistration is this Part plus the machine-readable block below, frozen by commit hash **before** Stage 1.
+- The probe set 𝒫, the reference library ℛ, the task generators and all seeds are stored with the freeze.
+- Any change after freezing is a dated amendment, recorded **before** the affected results are seen.
+
+```yaml
+prereg_version: 1.0-draft
+status: design_only_not_authorized
+substrate: {type: mlp, hidden: [32, 32], act: tanh, program_shared_across_layers: true, precision: float32}
+grammar:
+  types: [S, I, O, M]
+  registers: {max: 4, max_M: 2, lifetimes: [EXAMPLE, EPISODE, RUN], decays: [0, 0.5, 0.9, 0.99, 0.999], init: [0, 1, noise_0.01]}
+  constants: [-1, -0.5, 0.1, 0.5, 1, 2]
+  topk_k: [1, 4, 8]
+  struct_thresholds: [0, 0.1, 0.5]
+  max_nodes: 40
+  max_depth: 5
+  max_struct_ops: 1
+  update_every: [1, 8]
+  required_coupling: [state_to_forward, activity_routed_credit, structural]   # at least one
+excluded_by_construction: [skip_connections, attention, inner_loops, fixed_points, I_x_I_or_O_x_O_matrices, meta_outer_loop, bptt_through_registers]
+search:
+  algorithm: map_elites
+  cells: {coupling_subset: 7, credit_source: 4, state_footprint: 2}
+  N_GEN_MAX: 6000
+  N_S1_MAX: 3000
+  N_S2_MAX: 1200
+  N_INIT: 200
+  offspring_per_gen: 50
+  G_MAX: 20
+  patience: 5
+  p_crossover: 0.2
+  quality: "max_t effect_t - 0.05*log2(flops_ratio) - 0.05*log2(1+state/params)"
+stage2: {tasks: [T1, T2, T3], seeds: 3, lr_grid: [0.1, 0.03, 0.01]}
+stage3:
+  max_candidates: 20
+  per_cell: 1
+  per_task: 8
+  q_min: 0.15
+  fresh_seeds: 10
+  fresh_task_instances: true
+  lr_grid: [0.3, 0.1, 0.03, 0.01, 0.003]
+  tuning_seeds: 2
+  control_config_budget: 25
+thresholds: {T1_forgetting_reduction: 0.25, T1_plasticity_ratio_max: 1.1, T2_readapt_reduction: 0.20, T3_heldout_acc_gain: 0.20}
+stats: {test: wilcoxon_one_sided_paired, alpha: 0.05, correction: holm, bootstrap: 10000}
+validity: {V1_min_forgetting_reduction: 0.15, V2_min_readapt_reduction: 0.10, V3_sgd_max_heldout: 0.40, V3_oracle_min: 0.95, V4_max_cv: 0.30}
+resources: {gpu: false, max_workers: "min(4, nproc//2)", nice: 10, ram_gb_max: 4, cpu_hours_cap: 30, stage_caps_cpu_h: {s0: 0.5, s1: 1.5, s2: 12, s3: 8}}
+probe_seed: 20260928
+```
+
+---
+
+## AE.6 Part 6 — Staged process (none executed)
+
+| Stage | Purpose | Contents | Exit criterion | Cap |
+|---|---|---|---|---|
+| **0 Compiler / unit tests** | correctness before any learning | see list below | all tests pass; **profiling** puts Stage-2 cost ≤ 20 CPU-s per candidate (estimate unverified; if higher, cut steps or N_S2_MAX by a preregistered amendment) | 0.5 CPU-h |
+| **1a Validity** | benchmark validity with reference families only | ℛ controls on T1–T3 | V1–V4 pass, otherwise ABORT | incl. in 1.5 CPU-h |
+| **1b Sanity filter** | cheap learning filter inside the search loop | each surviving program on T0 (300 steps, 1 seed, learning rate 0.03) | gate "learns above trivial" | 1.5 CPU-h |
+| **2 Learning-dynamics benchmark** | QD search quality | T1–T3 × 3 seeds × 3 learning rates, vectorized across the 9 runs | archive filled or budget reached | 12 CPU-h |
+| **3 Matched validation** | promotion gates 1–6 on fresh data, then 7–8 | ≤ 20 candidates × target task × {P, P−R, K(P), coupling-cut, P∘Adam, B1, B2, B3, B4a, B4b} × (2 tuning seeds × 5 learning rates + 10 fresh seeds) | AE.5.8 classification | 8 CPU-h |
+| **4 Larger confirmation** | only for architecture candidates, and only with **separate owner approval** | width 256, depth 4; 2 additional task families; optional GPU | replication of the gate-3 effect ≥ τₜ | set at approval |
+
+**Stage 0 test list:**
+1. The type checker accepts / rejects 40 fixture programs as labelled.
+2. `canon` is idempotent, and 30 known-equivalent pairs map to the same struct_hash.
+3. Behavioural hash: a program and its rescaled / commuted variants collide; 30 known-distinct pairs do not.
+4. Fingerprints of all R1–R24 match their expected feature sets.
+5. The family matcher has 100% recall on ℛ **and** on 3 disguised variants of each reference: operand reordering, constant rescaling, inert extra register.
+6. The interpreter reproduces hand-written NumPy SGD, fast weights and DFA on fixed seeds within max-abs diff 1e-6.
+7. Numerical guards fire on 10 crafted overflow programs.
+8. Determinism: same seed → bit-identical results.
+9. FLOP and state counters are correct on fixtures.
+
+**Compute estimate (unverified; to be confirmed in Stage 0).** NumPy interpreter, runs vectorized over the 9 (seed × learning-rate) configurations. About 40 program ops × 3 layers × ≈ 10 µs ≈ 1.2 ms per step.
+- ≈ 9,500 stream steps per Stage-2 candidate → ≈ 11 CPU-s.
+- 1,200 candidates ≈ 3.7 CPU-h.
+- Stage 1: 3,000 × ≈ 0.4 s ≈ 0.3 CPU-h.
+- Stage 3: ≈ 20 × 10 conditions × 20 runs (vectorized per condition) ≈ 1–3 CPU-h.
+- **Expected total ≈ 6–8 CPU-h; hard cap 30 CPU-h.**
+- Wall time < 1 day with ≤ 4 workers at `nice 10`. RAM < 4 GB. **No GPU.**
+
+**Pre-run resource check (AGENTS.md):** `nproc`, free memory and load average are recorded. Workers = min(4, nproc // 2). Abort if another lane's process is using > 50% of the machine.
+
+**Proposed code layout (not created):**
+- `experiments/lds/grammar.py`, `typecheck.py`, `canon.py`, `fingerprint.py`;
+- `families.py` (Codex);
+- `interp.py` (vectorized executor);
+- `tasks.py` (Gemini);
+- `evaluate.py`, `search_mapelites.py`, `stage3.py`;
+- `prereg.yaml`, `probes.npz`.
+
+---
+
+## AE.7 Summary: exact specification (as requested)
+
+- **Exact mechanism grammar:**
+  - AE.1.2–AE.1.7: types S / I / O / M; the listed leaves; ≤ 4 registers (≤ 2 of type M) with lifetimes EXAMPLE / EPISODE / RUN and λ ∈ {0, .5, .9, .99, .999}; the listed operator set with safe numerics; the slot structure `HEADER / REGS / FORWARD(W_eff, g) / CREDIT / STATE(mix) / PARAM(ΔW, Δb) / STRUCT(≤ 1)`.
+  - At least one required coupling (state→forward, activity-routed credit, structural), plus a data-dependent learning signal.
+  - ≤ 40 nodes; depth ≤ 5; one program shared across layers; no inner loops, skips, attention, I×I / O×O matrices, meta outer loop, or BPTT through registers.
+- **Exact search algorithm:** MAP-Elites over 56 structural cells, random initialization (200 Stage-2 evaluations), then ≤ 20 generations × 50 evaluated offspring. Typed GP mutation (9 operators with fixed probabilities) and within-slot crossover (p = 0.2). Uniform cell parent selection. Patience 5. Quality = max-task effect vs the best matched control, minus cost penalties.
+- **Exact candidate budget:**
+  - ≤ 6,000 generated;
+  - ≤ 3,000 Stage-1 evaluations;
+  - ≤ 1,200 Stage-2 evaluations;
+  - ≤ 20 Stage-3 candidates;
+  - ≤ 3 Stage-4 candidates (owner approval).
+- **Exact resource limits:** CPU only; ≤ min(4, nproc/2) workers at `nice 10`; ≤ 4 GB RAM. Stage caps 0.5 / 1.5 / 12 / 8 CPU-h; **hard total cap 30 CPU-h**; kill switch on interference.
+- **Exact promotion criteria:** gates 1–8 (AE.4), thresholds τ (AE.5.3), statistics (Wilcoxon + Holm + bootstrap CI), constant-perturbation robustness, outcome classes (AE.5.8).
+
+---
+
+## AE.8 What this protocol can and cannot establish
+
+- **Can:**
+  - a bounded, preregistered NEGATIVE result for grammar G, which is informative given the project's 360+ conceptual kills;
+  - or a **small-scale supported architecture candidate** whose advantage is matched, ablation-robust, optimizer-robust, capacity- and compute-robust, and not a known family.
+- **Cannot:**
+  - establish a *primitive*;
+  - establish scale transfer (Stage 4 is required);
+  - rule out mechanisms outside G, such as token interactions, inner loops, or I×I preconditioners.
+
+---
+
+## AE.9 Unresolved risks
+
+1. **Grammar bias toward known families.** Built from known primitives, the grammar may mostly produce recombinations; the rediscovery rate may be very high. *Mitigation:* the residual-attribution gate and reported statistics. *Residual risk:* novelty may require primitives outside G.
+2. **Benchmark validity / triviality.** Tiny streams may not isolate the targeted properties. *Mitigation:* validity checks V1–V4 with ABORT. *Residual risk:* effects that exist only at scale are invisible.
+3. **T3 may be non-discriminative.** Online SGD with a trainable first layer may partially re-learn the permuted embeddings. V3 checks this; Gemini should vary the coverage (10 / 25 pairs) if needed **before** freezing.
+4. **Fingerprint errors.** False negatives (disguised known mechanisms) and false positives (a novel mechanism flagged because it contains a family component). *Mitigation:* behavioural matching plus residual attribution plus manual Codex review.
+5. **Selection bias / winner's curse.** *Mitigation:* fresh seeds and fresh task instances at Stage 3, Holm correction, preregistered thresholds.
+6. **Tuning asymmetry.** Evolved constants act as tuning. *Mitigation:* equal configuration budgets for B3 (≤ 25) and the constant-perturbation robustness test.
+7. **Optimizer in disguise.** Per-feature registers reading `d_bp` can act as diagonal preconditioners wrapped in a coupling. *Mitigation:* gates 4(c) and 5, and the second-moment / momentum fingerprints.
+8. **Compute estimates are unverified.** *Mitigation:* Stage-0 profiling exit criterion and hard caps.
+9. **Scale transfer.** Most small-scale learning-rule effects vanish at scale. Stage 4 is required before any claim beyond "small-scale".
+10. **Metric gaming.** For example, T1 forgetting can be reduced by not learning. *Mitigation:* the plasticity constraint (≤ 1.1× control) and gate 2.
+
+---
+
+## AE.10 Required contributions before execution
+
+**Codex (rediscovery filter + prior-art gate):**
+- Complete and verify the reference library ℛ, written in this grammar, from the collision library. At least R1–R24 are needed; missing families to consider include:
+  - anti-Hebbian decorrelation;
+  - STDP-like rate rules;
+  - e-prop;
+  - Urbanczik–Senn dendritic prediction;
+  - neuromodulated plasticity (Soltoggio);
+  - backpropamine;
+  - weight perturbation;
+  - AdaGrad;
+  - SDMLP;
+  - GRACE-style local edits.
+- Supply disguised variants of each reference for Stage-0 matcher tests.
+- Confirm that no out-of-grammar family (TP, PC, EP, natural gradient, projections, attention, recurrence, DEQ, MAML, TTT) has a disguised in-grammar form.
+- Finalize the gate-8 procedure: sources, queries, decision rules, independent second review.
+- Audit the quality function and gates for rewards that could come from optimizer tricks, capacity or compute.
+
+**Cursor / Gemini (evaluation design):**
+- Finalize or replace T1–T3 so that known families show *distinct verified signatures* (V1–V3) and so that metrics isolate interference, re-adaptation and rebinding rather than raw capability.
+- Specify exact metric formulas and normalization.
+- Specify matched-budget accounting (params, persistent state floats, FLOPs per step), including B4a / B4b constructions.
+- Specify the optimizer-swap construction P∘Adam.
+- Propose one additional task only if it isolates a property not covered by T1–T3 (e.g. a conditioning proxy in a deeper, narrow substrate), within the same compute caps.
+
+**Owner:**
+- Approve or amend the frozen preregistration.
+- Authorize Stages 0–3 (CPU, ≤ 30 CPU-h).
+- Stage 4 needs separate approval.
 
 ---
 
