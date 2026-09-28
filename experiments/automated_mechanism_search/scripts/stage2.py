@@ -22,7 +22,9 @@ from ams.families import FamilyLibrary  # noqa: E402
 from ams.grammar import program_to_dict  # noqa: E402
 from ams.runners import run_T0  # noqa: E402
 
-OUT = os.path.join(HERE, "runs", "stage2")
+RUN_NAME = sys.argv[1] if len(sys.argv) > 1 else "stage2"      # official repaired rerun: stage2_repair1
+OUT = os.path.join(HERE, "runs", RUN_NAME)
+assert not os.path.exists(os.path.join(OUT, "manifest.json")), f"{OUT} already holds a run; refusing to overwrite"
 SEARCH_SEED = 20260928
 SANITY_SEED = 500
 CHECKPOINT_EVERY = 25
@@ -67,7 +69,7 @@ def main():
         tot = total_cpu()
         delta = tot - state["ledgered"]
         if delta > 0:
-            accounting.record("stage2", delta, 0.0, note)
+            accounting.record(RUN_NAME, delta, 0.0, note)
             state["ledgered"] = tot
 
     workers = max(1, min(3, (os.cpu_count() or 2) - 1))
@@ -146,13 +148,18 @@ def main():
                     "struct_hash": r.struct_hash, "tier1": r.tier1, "K": r.detail.get("K"),
                     "K_info": r.detail.get("K_info"), "cos_P_KP": r.detail.get("cos_P_KP")} for r in promo],
                   f, indent=1, default=_json)
-    man = manifest.build_manifest("stage2", {"git_at_start": git_at_start, "search_seed": SEARCH_SEED,
+    man = manifest.build_manifest(RUN_NAME, {"git_at_start": git_at_start, "search_seed": SEARCH_SEED,
                                              "tier1_seeds": tier1.TIER1_SEEDS, "sanity_seed": SANITY_SEED,
                                              "stop": outcome["stop"], "counts": c,
                                              "cpu_seconds": total_cpu(), "n_promoted": len(promo)})
     with open(os.path.join(OUT, "manifest.json"), "w") as f:
         json.dump(man, f, indent=1, default=_json)
     progress(f"DONE stop={outcome['stop']} promoted={len(promo)}")
+    import gzip
+    import shutil
+    with open(os.path.join(OUT, "records.jsonl"), "rb") as fi, gzip.open(os.path.join(OUT, "records.jsonl.gz"), "wb", 9) as fo:
+        shutil.copyfileobj(fi, fo)
+    os.remove(os.path.join(OUT, "records.jsonl"))
     print(json.dumps({k: summary[k] for k in ("stop", "counts", "archive_occupancy", "promoted",
                                              "rediscovery_total", "cumulative_cpu_hours")}, indent=1, default=_json))
     return 0

@@ -11,7 +11,7 @@ from ams import PROBE_BLOB_SHA
 from ams.canon import canon, canon_hash, struct_hash
 from ams.families import DISGUISES, REFERENCES, FamilyLibrary, strip_gates
 from ams.fingerprint import Analysis, fingerprint
-from ams.grammar import I, M, O, S, make_program, parse, serialize, type_of
+from ams.grammar import I, M, O, S, make_program, parse, serialize, sexpr, type_of
 from ams.interp import Compiled
 from ams.probes import (CORPUS_PATH, DuplicateIndex, ProbeCorpusError, ProbeRunner, cos, git_blob_sha,
                         load_corpus, regeneration_check)
@@ -200,7 +200,7 @@ def test_strip_gates_preserves_type_for_scalar_where_branch():
     assert type_of(e, rt) == O
     stripped = strip_gates(e, rt)
     assert type_of(stripped, rt) == O
-    assert serialize(stripped) == "(add 0@O L)"
+    assert sexpr(stripped) == "(add 0@O L)"
 
 
 EXPECTED_FEATURES = {
