@@ -1087,80 +1087,74 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **v8 frozen: robust C* AULC metric + 8-seed Stage-2 confirmation funnel; implement/validate, then run official v8 search** |
+| **Current phase** | **v8 complete: 42 archive elites confirmed on 8 fresh seeds, 0 eligible, 0 promoted; independent audit next before any v9 decision** |
 
 ---
 
 # 12. What each agent should do next
 
-The active execution authority is:
+AMS v8 is complete and merged to `main`.
 
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v8**
+Final v8 outcome:
+- pre-search validation PASS;
+- Stage 2: 4,413 generated, 1,961 T0, 1,200 fast Tier-1, 42/56 archive cells;
+- 2 defects, below the frozen stop threshold;
+- all 42 occupied-cell elites were evaluated in the 8-seed confirmation funnel;
+- 0/42 confirmation-eligible;
+- 0 promotions;
+- Stage 3 did not run;
+- locked Stage-3 seeds 30000–30009 remain unused;
+- shared ledger: about 5.127 CPU-hours of the 30-hour cap;
+- no GPU, no Stage 4.
 
-v7 is complete and remains final historical evidence:
-- Stage 2 promoted 8 C* candidates;
-- fresh-seed Stage 3 labelled all 8 NEGATIVE;
-- independent Codex and Cursor/Gemini audits reproduced the result.
-
-v8 addresses the observed v7 selection-noise failure without widening the grammar or weakening novelty requirements.
-
-Key v8 changes:
-- Task C* selection metric becomes normalized adaptation AULC rather than threshold-crossing half-life;
-- half-life remains diagnostic only;
-- fast search uses new seeds 5000–5002;
-- every occupied archive elite receives an 8-seed best-task confirmation on seeds 6000–6007 before promotion;
-- promotion uses confirmation q, not the 3-seed fast q;
-- final Stage-3 seeds are locked to 30000–30009;
-- Stage-3 C* still requires a strong 50% improvement, 8/10 return checks, Holm-significant paired improvement and positive bootstrap CI;
-- the broken zero-update K(P) novelty ablation is replaced for Gate 4 by exact nearest-family substitution KF(P), while old K(P) is retained as a diagnostic;
-- the invalid where-gate mutation zero spelling and exact generation-cap boundary are repaired before search.
-
-Budgets remain:
-- 6,000 generated;
-- 3,000 T0;
-- 1,200 fast Tier-1;
-- at most 56 Stage-2 confirmations;
-- 20 promotions max;
-- CPU only;
-- cumulative 30 CPU-hour hard cap;
-- no GPU;
-- no Stage 4.
-
-Official v8 search RNG seed: `2026092808`.
+The strongest confirmation trade-off was P03974:
+- C* AULC beat SGD on all 8 confirmation seeds;
+- candidate AULC 0.213 vs SGD 0.400;
+- but R0 return passed only 5/8 seeds vs the required 6/8;
+- the frozen constraint therefore correctly disqualified it.
 
 ## Claude
-Primary role: **v8 implementation and search runner**.
+Primary implementation/search work for v8 is complete.
 
-Next:
-- sync latest `origin/main`;
-- read v8 and this map;
-- implement only the frozen v8 changes;
-- preserve all v7 artifacts;
-- run the required pre-search implementation validation;
-- commit/push the implementation before official candidate training;
-- if validation passes, run official v8 Stage 2;
-- run the 8-seed confirmation funnel after Stage 2;
-- if candidates promote, continue directly into v8 Stage 3 on locked seeds 30000–30009;
-- stop on any mandatory implementation/protocol failure rather than retuning.
+For now:
+- do not run another search;
+- do not run Stage 3;
+- preserve v8 artifacts;
+- wait for the independent v8 audit and any later owner-level v9 decision.
 
 ## Codex
-Primary role: **rediscovery / novelty auditor**.
+Next action: independent v8 artifact / rediscovery audit only.
 
-For now:
-- do not run the full search;
-- wait for Claude's v8 implementation commit;
-- audit the AULC formula, seed separation, confirmation logic, KF(P) substitution, cap-boundary repair and unchanged collision library;
-- after Claude publishes candidates, audit exact raw artifacts and novelty/rediscovery only for confirmed promotions.
+Audit:
+- v8 implementation/provenance;
+- Stage-2 counts and q;
+- confirmation calculations and 0/42 eligibility;
+- P03974's AULC/return trade-off;
+- seed separation and untouched Stage-3 seeds;
+- compute ledger;
+- any novelty/rediscovery implication of the strongest confirmation cases.
+
+Do not run a full search or Stage 3.
 
 ## Cursor / Gemini
-Primary role: **benchmark / metric auditor**.
+Next action: independent v8 metric / confirmation audit only.
 
-For now:
-- do not duplicate Stage 2;
-- after Claude's implementation appears, independently verify the C* AULC calculation and confirmation-selection logic from code/tests;
-- after v8 results appear, recompute fast vs confirmation metrics and fresh Stage-3 metrics for promoted candidates.
+Recompute from machine-readable outputs:
+- C* AULC;
+- fast vs confirmation metrics;
+- q_confirm;
+- 2-sigma gate;
+- paired wins;
+- R0 return counts;
+- 0/42 eligibility;
+- especially P03974.
 
-No lane may use GPU, Stage 4, expand the 30 CPU-hour cap, or silently alter v8.
+Do not run a full search or Stage 3.
+
+## Owner / coordinator
+After the independent v8 audits, decide whether a v9 search is justified and, if so, what specific unresolved mechanism/property it should test.
+
+No further search is authorized yet.
 
 ---
 
