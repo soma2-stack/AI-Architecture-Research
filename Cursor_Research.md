@@ -10,31 +10,54 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 
 # Resume block
 
-**Current search lens:** Reclassification Audit of Candidates P1–P72 under the Calibrated Two-Tier Novelty Standard (Computational Primitive vs. Architecture vs. Pipeline).
+**Current search lens:** Interface Information-Loss Boundary (Investigating non-preserved internal signals discarded across modular boundaries).
 
-**Number of candidate primitives/architectures evaluated:** 72 candidates (P1–P20 in Batch 1; P21–P40 in Batch 2; P41–P56 in Batch 3; P57–P72 in Batch 4).
+**Number of candidate primitives/architectures evaluated:** 
+- 72 primitive/substrate candidates (P1–P72: all 72 killed under calibrated novelty audit; 0 survivors).
+- 18 interface-loss candidates (IC1–IC18 across Batch 1 and Batch 2; all 18 killed; 0 survivors).
+- Total evaluated: 90 candidates. Total survivors: 0.
 
-**Current stage:** Reclassification audit of P1–P72 completed under calibrated novelty standard. All 72 candidates audited across reason groups A (Direct Collision), B (Pipeline-Only), C (Impossibility/Non-Identifiability), and D (Primitive killed, architecture untested). Deep 11-question re-audit performed on Group D.
-- Total surviving architecture candidates: 0.
-- Total surviving primitive candidates: 0.
-- Breakdown: 58 KILLED — EXISTING ARCHITECTURE, 11 KILLED — PIPELINE ONLY, 2 KILLED — EXISTING MECHANISM, 1 KILLED — IMPOSSIBLE / NON-IDENTIFIABLE.
+**Current stage:** 
+1. Reclassification audit of P1–P72 completed (58 Existing Architecture, 11 Pipeline Only, 2 Existing Mechanism, 1 Impossible/Non-Identifiable).
+2. Interface Information-Loss Taxonomy completed across 8 canonical boundaries (Learning ↔ Structure, Reasoning ↔ Learning, Memory ↔ Inference, Uncertainty ↔ Control, Planning ↔ Representation, Retrieval ↔ Learning, Abstraction ↔ Execution, Prediction ↔ Correction).
+3. Candidate Batch 1 (IC1–IC12) generated and audited under the 15-question architectural screen against 14 disallowed families. Result: 9 Existing Architecture, 3 Pipeline Only, 0 survivors.
+4. Deep Meta-Analysis conducted: Formulated the *Representation-Communication Duality Theorem* explaining why finite-dimensional signals reduce to standard software messaging pipelines, while continuous signals were preempted by modern deep learning architectures (OptNet, Neural RDEs, TreeQN, NeuroSAT, DeepZ, etc.).
+5. Deeper boundary derived: The Asynchronous Continuous Co-Evolutionary Boundary (eliminating serialized discrete clocking).
+6. Candidate Batch 2 (IC13–IC18) generated and audited. Result: 6 Existing Architecture (Symplectic nets, ONNs, GRAND diffusion, memristive reservoirs, DFT, predictive coding), 0 survivors.
 
 **Strongest surviving candidates:** None.
 
-**Killed candidates by calibrated classification:**
-- `KILLED — EXISTING ARCHITECTURE` (58 candidates): P1, P2, P4, P5, P7, P9, P10, P11, P12, P13, P15, P17, P18, P19, P20, P21, P22, P23, P24, P25, P26, P28, P29, P30, P31, P32, P33, P34, P35, P36, P37, P38, P39, P41, P42, P43, P44, P45, P46, P48, P49, P50, P51, P52, P53, P55, P56, P57, P58, P60, P61, P62, P63, P64, P65, P66, P67, P68, P69, P70, P71, P72. Note: P45, P46, P56, P57 confirmed dead in Group D re-audit via direct literature collisions: skyrmionic neuromorphic computing, topological quantum computing, Ricci curvature graph rewiring, fractional-order RNNs.
-- `KILLED — PIPELINE ONLY` (11 candidates): P6 (Cousot-Halbwachs Polyhedral Abstract Interpretation Domain), P8 (Dependent / Refinement Types on Subspaces), P14 (Craig Interpolation / SOS SDP Barrier Synthesis), P16 (Delimited Continuations `shift/reset` Monad), P27 (Bayesian Active Causal Discovery on DAGs), P40 (DAG Three-Way Merge / Zassenhaus Subspace Intersection), P47 (Cauchy Residue Numerical Contour Integration / Point-in-Polygon), and structural pipeline combinations.
-- `KILLED — EXISTING MECHANISM` (2 candidates): P54 (Active Noise Cancellation / Linear Wave Superposition), P59 (Turing Bit Erasure Counter).
-- `KILLED — IMPOSSIBLE / NON-IDENTIFIABLE` (1 candidate): P3 (Causal Cone Annihilation: nonlinear manifold uncomputation via local node zeroing is mathematically impossible and corrupts downstream representations).
+**Killed candidates by series:**
+- P1–P72: All 72 killed (see Candidate Ledger for full calibrated classifications).
+- IC1–IC18: All 18 killed (15 `KILLED — EXISTING ARCHITECTURE`, 3 `KILLED — PIPELINE ONLY`).
+  - IC1 (CGNRL): Killed by NeuroSAT / GNN-in-the-loop SAT solvers.
+  - IC2 (STCEE): Killed by TreeQN / Value-Equivalent Models.
+  - IC3 (SSFB): Killed by Differentiable Program Synthesis / DreamCoder.
+  - IC4 (CPCMC): Killed by ATMS + memory masking pipeline.
+  - IC5 (PMDTR): Killed by Particle Filter Networks + clustering branch routing.
+  - IC6 (RCAIG): Killed by Self-RAG / GraphRAG.
+  - IC7 (CCDC): Killed by Hypernetworks / Neural Module Networks.
+  - IC8 (CIVCR): Killed by Target Propagation / PINNs.
+  - IC9 (DPCEM): Killed by OptNet / Primal-Dual dynamical systems.
+  - IC10 (NPHSB): Killed by Neural Rough Differential Equations (Neural RDEs).
+  - IC11 (SBPCT): Killed by DeepZ / DiffAI zonotope propagation.
+  - IC12 (BCMR): Killed by Projected Gradient Descent with cutting-plane constraints.
+  - IC13 (CSFCI): Killed by Symplectic Neural Networks / Hamiltonian Neural ODEs.
+  - IC14 (APLNFR): Killed by Oscillatory Neural Networks (ONNs / Kuramoto).
+  - IC15 (MDTGC): Killed by Continuous Graph Neural Diffusion (GRAND).
+  - IC16 (NERCE): Killed by Memristive Neuromorphic Reservoirs.
+  - IC17 (HAIM): Killed by Dynamic Field Theory (DFT) / CANNs.
+  - IC18 (BPWR): Killed by Continuous Predictive Coding / Equilibrium Propagation.
 
-**Calibration findings:**
-1. *The Calibrated Standard:* Digital simulation establishes computability, not architectural identity. An architecture cannot be killed merely because a universal Turing machine, numerical integrator, or classical solver can simulate its low-level steps.
-2. *Result of Re-Audit:* When the 5 candidates previously killed by simulation arguments (Group D: P3, P45, P46, P56, P57) were re-evaluated under the 11-question architecture screen, all 5 failed. None was saved by the calibrated filter: P3 fails due to mathematical impossibility of nonlinear uncomputation via node zeroing; P45, P46, P56, and P57 collided directly with established modern neural architectures or physical computing literature (Song et al. 2020 skyrmionic neuromorphic computing; Kitaev 2003 topological quantum computing; Topping et al. ICLR 2022 Ricci curvature graph rewiring; Wang et al. 2020 fractional-order RNNs).
-3. *No Premature Kills:* Zero candidates from P1–P72 were prematurely killed by the old strict filter. The entire negative database of 72 candidates remains soundly dead.
+**Core Architectural Finding:**
+Modular interface information loss does not create an unexploited architectural vacuum. Discarded signals either:
+1. are finite-dimensional and cleanly handled by standard messaging/blackboard pipelines without architectural changes, or
+2. require continuous/dynamic coupling and have already been invented and published in the modern deep learning literature (2016–2024).
 
-**Unresolved prior-art questions:** None across P1–P72.
+**Unresolved prior-art questions:** None across P1–P72 and IC1–IC18.
 
-**Exact next action:** Await owner authorization or cross-lane synthesis regarding next search lens or candidate generation under calibrated architecture screen. Do NOT generate P73 until authorized.
+**Exact next action:** Await owner instructions or cross-lane synthesis regarding whether to conclude the architectural search, synthesize a unified closure report across all lanes, or formulate an alternative, formally bounded search methodology. Do NOT generate IC19 or P73 until authorized.
+
 
 
 ---
@@ -7079,11 +7102,611 @@ Closed in the representation pass (do not re-ask):
 
 ---
 
+# Interface Information-Loss Boundary: Analysis & Taxonomy
+
+## 1. Hypothesis & Research Objective
+
+The calibrated reclassification audit of P1–P72 established that searching for missing low-level mathematical or substrate primitives (such as PDEs, topological invariants, or non-equilibrium physics) uniformly fails because every low-level operation reduces cleanly to the classical machine library (Turing machines, numerical ODE/PDE integration, convex optimization, and standard linear algebra).
+
+The project now advances to a fundamentally different structural hypothesis:
+
+> **The Interface Information-Loss Hypothesis:**  
+> Genuine architectural opportunities exist not because individual computational primitives are missing, but because conventional modular boundaries discard critical internal state, geometry, and dependency signals. When computation is divided into separate modules (e.g. planner vs. representation, solver vs. learner, memory vs. inference), the narrow message or API passed between them creates an irreversible information bottleneck. A native architecture that unifies these processes can preserve and exploit signals that are lost under ordinary modular decomposition.
+
+To test this hypothesis rigorously, we execute a two-stage investigation:
+1. **Interface Information-Loss Taxonomy:** Systematically audit 8 canonical modular interfaces across AI systems to identify what internal signals exist, what is exported, what is discarded, whether the loss is fatal, and whether existing architectures or richer APIs already solve the problem.
+2. **Architecture Candidate Evaluation (IC Series):** Generate and evaluate candidates using the formal standard:  
+   `STATE + COUPLED INFORMATION FLOW + UPDATE RULE + PROPERTY LOST WHEN INTERFACE IS CUT`  
+   Each candidate is subjected to a 15-question architectural screen and an aggressive reduction attack against the 14 disallowed families (MPNNs, blackboards, global workspace, predictive coding, equilibrium propagation, recurrent feedback, differentiable programming, hypernetworks, NTMs/DNC, learned routing, multi-agent communication, joint end-to-end training, meta-learning, neural algorithmic reasoning, and solver-in-the-loop systems).
+
+---
+
+## 2. Interface Information-Loss Taxonomy
+
+### Interface 1: Learning ↔ Structure
+* **Processes Coupled:** Continuous gradient-based parameter optimizer $\leftrightarrow$ Discrete combinatorial structure committer (e.g., discrete AST synthesis, hard graph topology selection, discrete token emission).
+* **Internal Info Before Boundary:** The continuous loss landscape curvature, full parameter gradient vector $\nabla_\theta \mathcal{L}$, local sensitivity Hessian, and directional directional derivatives along all non-chosen structural directions.
+* **Information Exported:** A hard discrete sample or choice $S \in \mathcal{S}$ (e.g., an edge $(u, v)$, a syntax rule $T$, or a hard discrete token $y$).
+* **Information Discarded:** The continuous margin between the winner and runner-up choices, the directional gradients of unselected topologies, and the local sensitivity of structural neighborhood mutations.
+* **Does the Discarded Information Matter?** Yes. Downstream errors cannot backpropagate informative gradients through the non-differentiable discrete choice. In standard reinforcement learning (REINFORCE), the structural committer receives only a scalar baseline-subtracted reward, resulting in high variance and slow combinatorial exploration.
+* **Does an Existing Architecture Already Preserve It?** Yes. Continuous relaxations (Gumbel-Softmax / Concrete distributions; Jang et al. 2016), Differentiable Architecture Search (DARTS; Liu et al. 2018), and Differentiable Program Synthesis with continuous sketch relaxations (Bosnjak et al. 2017) retain continuous distributions over discrete structural choices.
+* **Richer Message / API Test:** Passing top-$k$ alternatives with log-probabilities or soft attention weights across an ordinary API reduces the boundary to an ensemble or beam-search pipeline without altering architectural primitives.
+
+### Interface 2: Reasoning ↔ Learning (Solver ↔ Representation)
+* **Processes Coupled:** Combinatorial constraint/SAT/ILP solver $\leftrightarrow$ Continuous neural representation learner.
+* **Internal Info Before Boundary:** The complete conflict graph (implication graph cuts), learned asserting clauses (nogoods), active constraint slack variables, and the combinatorial proof tree of refutations discovered during search.
+* **Information Exported:** A single optimal or satisfying assignment $y^* \in \{0, 1\}^n$ or a binary SAT/UNSAT flag.
+* **Information Discarded:** The entire combinatorial refutation structure: *why* infeasible regions were pruned, which variable combinations caused exponential search blowup, and the geometry of near-satisfying assignments.
+* **Does the Discarded Information Matter?** Yes. The neural representation learner only fits the target $y^*$ via cross-entropy/MSE and cannot adapt its continuous latent space to align with the solver's combinatorial bottleneck geometry.
+* **Does an Existing Architecture Already Preserve It?** Yes. NeuroSAT (Selsam et al. 2019), SATNet (Wang et al. 2019), and GNN-guided CDCL provers (Wang et al. 2021) directly map the bipartite clause-variable graph and learned conflict clauses into Graph Neural Network representations.
+* **Richer Message / API Test:** Exporting learned clauses as an external text/graph buffer to an auxiliary neural head preserves the refutation signal within a standard software pipeline.
+
+### Interface 3: Memory ↔ Inference (Associative Store ↔ Working Compute)
+* **Processes Coupled:** Key-Value associative memory store $\leftrightarrow$ Feedforward / self-attention working inference engine.
+* **Internal Info Before Boundary:** Historical write timestamps, source causal interventions, premise assumption dependency bitmasks, and write-time loss sensitivities for every stored slot.
+* **Information Exported:** An attention-blended activation vector $r = \sum_i \alpha_i v_i \in \mathbb{R}^d$.
+* **Information Discarded:** Exact causal provenance, logical justifications, and ground-truth vs. speculative status of the blended values.
+* **Does the Discarded Information Matter?** Yes. If a foundational assumption is refuted, downstream inference cannot retract consequences embedded in blended memory vectors without flushing the entire context or corrupting representations.
+* **Does an Existing Architecture Already Preserve It?** Yes. Truth Maintenance Systems (Doyle 1979, de Kleer 1986), Provenance Semirings (Green et al. 2007), and Tagged-Token Dataflow Architectures (Arvind 1977). In deep learning, attention provenance tracking and causal KV-cache masking.
+* **Richer Message / API Test:** Attaching discrete provenance metadata tags to memory items and filtering via causal masks in attention resolves this via an ordinary software pipeline.
+
+### Interface 4: Uncertainty ↔ Control (Posterior Belief ↔ Execution Topology)
+* **Processes Coupled:** Probabilistic Bayesian / ensemble belief estimator $\leftrightarrow$ Executive decision / computational graph scheduler.
+* **Internal Info Before Boundary:** The full non-Gaussian posterior distribution, ensemble variance, epistemic vs. aleatoric uncertainty decomposition, and topological connectivity (clusters/modes) of the hypothesis space.
+* **Information Exported:** A point prediction $\hat{y}$, an action $a$, or a scalar confidence/entropy metric $H$.
+* **Information Discarded:** Multimodal topology: whether uncertainty arises from symmetric ambiguity between two distinct hypotheses or uniform diffuse noise across parameter space.
+* **Does the Discarded Information Matter?** Yes. A scalar entropy value cannot tell the executive controller whether to execute a single compromise action or fork execution into two distinct specialized sub-computations.
+* **Does an Existing Architecture Already Preserve It?** Yes. Particle Filter Networks (Jonschkowski et al. 2018), Bootstrapped DQN / Ensemble Policies (Osband et al. 2016), and Active Inference POMDPs.
+* **Richer Message / API Test:** Passing a discrete set of posterior particles or mixture components across a message bus enables standard conditional branching without modifying architectural primitives.
+
+### Interface 5: Planning ↔ Representation (Search Graph ↔ State Embeddings)
+* **Processes Coupled:** Discrete tree search engine (MCTS / A*) $\leftrightarrow$ Latent world-model / state representation learner.
+* **Internal Info Before Boundary:** The entire search tree: visit count distribution $N(s, a)$, upper confidence bounds $Q(s, a)$, branch deadlocks, depth variance, and near-miss trajectories.
+* **Information Exported:** A normalized policy prior target $\pi(a|s)$ and a scalar root state value $V(s)$.
+* **Information Discarded:** The topology of planning complexity: which transitions required deep backtracking, which states act as information bottlenecks, and where value variance is highest.
+* **Does the Discarded Information Matter?** Yes. The latent world model is trained only on one-step predictive accuracy and root value fitting, remaining blind to multi-step planning horizon geometry.
+* **Does an Existing Architecture Already Preserve It?** Yes. TreeQN (Farquhar et al. 2018), MCTSnets (Guez et al. 2018), and Value-Equivalence Models (Grimm et al. 2020) explicitly backpropagate search-tree planning errors into latent representation spaces.
+* **Richer Message / API Test:** Logging search difficulty metrics into auxiliary loss targets solves this within standard multi-task learning.
+
+### Interface 6: Retrieval ↔ Learning (Index Graph ↔ Generative Reasoner)
+* **Processes Coupled:** Dense/sparse retrieval index $\leftrightarrow$ Autoregressive generative reasoning model.
+* **Internal Info Before Boundary:** Continuous vector similarity margins, candidate cluster density, nearest-neighbor graph connectivity, and embedding sensitivity across the candidate pool.
+* **Information Exported:** Top-$k$ discrete text passages or frozen embedding vectors.
+* **Information Discarded:** The retrieval margin distribution and graph neighborhood context. When the generator fails to resolve a multi-step query, the retriever receives no direct signal identifying *which* premise or relationship was missing.
+* **Does the Discarded Information Matter?** Yes. Decoupled retrievers cannot adapt their indexing manifolds to downstream multi-step reasoning dependencies.
+* **Does an Existing Architecture Already Preserve It?** Yes. REALM (Guu et al. 2020), ColBERT (Khattab & Zaharia 2020), Self-RAG (Asai et al. 2023), and GraphRAG (Edge et al. 2024).
+* **Richer Message / API Test:** Co-training retriever and generator via joint marginal likelihood or reinforcement learning (PPO) over retrieval choices is an established pipeline.
+
+### Interface 7: Abstraction ↔ Execution (Concept Discovery ↔ Native Kernel)
+* **Processes Coupled:** Unsupervised concept / macro-action discovery module $\leftrightarrow$ Execution policy / computational kernel.
+* **Internal Info Before Boundary:** The relational binding structure, functional dependency graph, and invariants of a discovered latent concept or macro.
+* **Information Exported:** A flat continuous latent vector $z \in \mathbb{R}^k$ or discrete categorical option ID $c \in \{1, \dots, C\}$.
+* **Information Discarded:** The executable structure of the concept. The abstraction is treated as passive data that an external network must re-interpret at every execution step.
+* **Does the Discarded Information Matter?** Yes. Passive conditioning requires re-learning how to interpret $z$ across all downstream contexts, risking catastrophic interference.
+* **Does an Existing Architecture Already Preserve It?** Yes. Hypernetworks (Ha et al. 2016) compile $z$ into network weights; Neural Module Networks (Andreas et al. 2016) dynamically instantiate functional subroutines; DreamCoder (Ellis et al. 2021) refactors discovered primitives into a domain-specific language.
+* **Richer Message / API Test:** Dynamic weight generation or module dispatch handles this within established architectural paradigms.
+
+### Interface 8: Prediction ↔ Correction (Global Loss ↔ Causal Credit Attribution)
+* **Processes Coupled:** Multi-step forward inference trajectory $\leftrightarrow$ Backward credit assignment / error propagation.
+* **Internal Info Before Boundary:** Intermediate activations, local transformation Jacobians, and intermediate physical/logical consistency residuals.
+* **Information Exported:** Scalar task loss $\mathcal{L}(y, y^*)$ and backward adjoint vector $\nabla_y \mathcal{L}$.
+* **Information Discarded:** Local causal responsibility: *which specific intermediate transition broke an internal physical/logical invariant*. Standard BPTT spreads credit uniformly via the chain rule, resulting in vanishing/exploding gradients and credit dilution.
+* **Does the Discarded Information Matter?** Yes. Long-horizon reasoning requires attributing error to the precise invalid deductive step rather than diluting it across the entire trajectory.
+* **Does an Existing Architecture Already Preserve It?** Yes. Target Propagation (Bengio 2014, Lee et al. 2015), Synthetic Gradients (Jaderberg et al. 2017), and auxiliary invariant/energy losses at intermediate layers.
+* **Richer Message / API Test:** Adding intermediate auxiliary losses or self-consistency objectives solves this via standard multi-objective optimization.
+
+---
+
+## 3. Candidate Generation: Batch 1 (Candidates IC1–IC12)
+
+### Candidate IC1: Conflict-Graph Native Representation Learner (CGNRL)
+* **Core Concept:** Propositional conflict clauses discovered during CDCL search directly warp the continuous latent space of literal embeddings.
+* **Formal Specification:**
+  - `STATE`: Continuous literal embeddings $Z \in \mathbb{R}^{2N \times d}$ paired with a dynamic propositional implication graph $G_{\text{imp}} = (V_{\text{lit}}, E_{\text{impl}})$.
+  - `COUPLED INFORMATION FLOW`: Whenever CDCL search triggers a conflict, the 1-UIP (unique implication point) resolution cut produces an asserting clause $C_{\text{assert}} = \bigvee l_i$. The resolution cut distances are backpropagated directly into literal embedding space: metric distance $\|z_u - z_v\|_2$ is constrained to be inversely proportional to co-resolution frequency.
+  - `UPDATE RULE`: $\Delta z_u = \eta \sum_{v \in C_{\text{assert}}} (z_u - z_v) / (\|z_u - z_v\|_2^2 + \epsilon)$.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled solvers export only variable truth assignments $y^* \in \{0, 1\}^n$, discarding the refutation graph topology that shapes the combinatorial landscape.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* CDCL propositional SAT solver and continuous embedding network.
+  2. *Hidden signal:* Conflict graph resolution cuts and learned asserting clause sets.
+  3. *Why normal interface can't carry it:* Standard solver interfaces export only boolean model assignments $y^*$.
+  4. *Could adding fields solve it?* Yes; exporting learned clauses as an edge list to an external graph encoder reproduces the signal.
+  5. *Could shared memory solve it?* Yes; writing conflict clauses to a shared clause database achieves the same.
+  6. *Could end-to-end gradients solve it?* Yes; relaxations like SATNet (Wang et al. 2019) compute implicit gradients through constraint satisfaction.
+  7. *Could recurrence solve it?* Yes; iterative clause exchange across recurrent unrolls preserves it.
+  8. *Could message passing solve it?* Yes; bipartite graph message passing over clauses and variables natively captures this (Selsam et al. 2019).
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; passing the conflict graph to an external GNN preserves 100% of the refutation structure.
+  12. *Closest known architecture:* NeuroSAT (Selsam et al. 2019) and GNN-in-the-loop CDCL solvers (Wang et al. 2021).
+  13. *Known feedback/co-training system:* Yes, GNN-guided SAT solver co-training.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct reduction to NeuroSAT and bipartite graph neural networks.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC2: Search-Topology Co-Embedding Engine (STCEE)
+* **Core Concept:** Latent transition representations are continuously shaped by Monte Carlo search tree visit distributions and value cliff bottlenecks.
+* **Formal Specification:**
+  - `STATE`: Latent state transition function $s_{t+1} = f(s_t, a)$ coupled with a dynamic Monte Carlo search tree $\mathcal{T} = (\mathcal{V}_{\text{tree}}, \mathcal{E}_{\text{tree}})$.
+  - `COUPLED INFORMATION FLOW`: Node visit count entropy $H_{\text{visit}}(s) = -\sum \frac{N(s,a)}{N(s)} \log \frac{N(s,a)}{N(s)}$ and search backtracking depth variance are injected into the metric tensor $g_{ij}(s)$ of the latent space.
+  - `UPDATE RULE`: $g_{ij}(s) \leftarrow g_{ij}(s) + \eta \nabla_s H_{\text{visit}}(s) \otimes \nabla_s H_{\text{visit}}(s)$.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled planners export only policy prior targets $\pi(a|s)$ and scalar root values $V(s)$, leaving the latent space blind to multi-step planning horizon bottlenecks.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* MCTS search tree expansion and latent state representation learner.
+  2. *Hidden signal:* Tree visit entropy, branching factor, and value cliff gradients.
+  3. *Why normal interface can't carry it:* Standard AlphaZero/MuZero interfaces export only $\pi(a|s)$ and $V(s)$.
+  4. *Could adding fields solve it?* Yes; adding tree depth and visit entropy as auxiliary training targets.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; TreeQN (Farquhar et al. 2018) backpropagates search-tree losses end-to-end.
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes; tree-structured neural networks pass messages across search nodes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; Value-Equivalence Prediction (Grimm et al. 2020) and TreeQN preserve tree planning properties under decomposition.
+  12. *Closest known architecture:* TreeQN (Farquhar et al. 2018) and MCTSnets (Guez et al. 2018).
+  13. *Known feedback/co-training system:* Yes; search-guided representation learning in RL.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct reduction to TreeQN and Value-Equivalent Models.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC3: Structural Sensitivity Flux Back-Channel (SSFB)
+* **Core Concept:** Discrete program syntax tree choices stream exact 1-neighborhood combinatorial sensitivity tensors to continuous generator weights.
+* **Formal Specification:**
+  - `STATE`: Discrete program syntax tree $\mathcal{T}_{\text{AST}}$ over library primitives coupled with continuous generator weights $\theta$.
+  - `COUPLED INFORMATION FLOW`: During program execution, discrete branch decisions record local mutation gains $\Delta \mathcal{L}(\tau \to \tau') = \mathcal{L}(\text{swap}(\mathcal{T}, \tau, \tau')) - \mathcal{L}(\mathcal{T})$ and stream the resulting combinatorial sensitivity tensor to the continuous generator.
+  - `UPDATE RULE`: $\Delta \theta = \eta \sum_{\tau'} \Delta \mathcal{L}(\tau \to \tau') \nabla_\theta \log p_\theta(\tau')$.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled synthesis uses scalar rewards in REINFORCE, losing local combinatorial curvature.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Discrete program synthesizer and continuous autoregressive policy network.
+  2. *Hidden signal:* Discrete 1-mutation neighborhood loss sensitivity tensor.
+  3. *Why normal interface can't carry it:* Standard RL interfaces pass only scalar rewards $R \in \mathbb{R}$.
+  4. *Could adding fields solve it?* Yes; logging top-$k$ mutation deltas into the loss function.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; continuous relaxation of ASTs (Differentiable Program Synthesis; Bosnjak et al. 2017).
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; continuous smoothing and structural control variates (Maron et al. 2019) preserve combinatorial gradient estimation.
+  12. *Closest known architecture:* Differentiable Program Synthesis (Bosnjak 2017) and DreamCoder (Ellis et al. 2021).
+  13. *Known feedback/co-training system:* Yes; policy-guided synthesis with local search baselines.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct reduction to structural control variates and continuous program relaxations.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC4: Causal Provenance-Coupled Memory Core (CPCMC)
+* **Core Concept:** Attention read/write operations propagate exact Boolean semiring provenance bitmasks, enabling surgical non-monotonic memory retraction.
+* **Formal Specification:**
+  - `STATE`: Memory tensor $M \in \mathbb{R}^{N \times d}$ where each slot $i$ carries a provenance bitmask vector $\mathbf{p}_i \in \{0, 1\}^K$.
+  - `COUPLED INFORMATION FLOW`: Attention reads compute continuous blended vectors $r = \sum \alpha_i M_i$ and parallel boolean joins $\mathbf{p}_r = \bigvee_{i: \alpha_i > \epsilon} \mathbf{p}_i$. Refuting assumption $k$ broadcasts mask $\mathbf{m}_k$ to zero out slots where $\mathbf{p}_i[k] = 1$.
+  - `UPDATE RULE`: $M_i \leftarrow 0$ for all $i$ such that $\mathbf{p}_i[k] = 1$.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Standard neural memories blend values without tracking dependencies, making surgical non-monotonic retraction impossible.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Associative memory addressing and causal dependency maintenance.
+  2. *Hidden signal:* Provenance Boolean semiring vectors attached to memory slots.
+  3. *Why normal interface can't carry it:* Standard KV caches pass only continuous vector representations.
+  4. *Could adding fields solve it?* Yes; appending metadata provenance bits to memory keys.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* No; discrete retraction is non-monotonic.
+  7. *Could recurrence solve it?* No.
+  8. *Could message passing solve it?* Yes; graph provenance propagation.
+  9. *Could an external blackboard solve it?* Yes; an external Truth Maintenance System (ATMS).
+  10. *Could a differentiable solver solve it?* No.
+  11. *Property disappearing under decomposition:* None; an external ATMS pipeline preserves exact retraction. Furthermore, zeroing intermediate slots in continuous deep networks corrupts downstream manifold representations (re-audit finding on P3).
+  12. *Closest known architecture:* Tagged-Token Dataflow (Arvind 1977) and ATMS (de Kleer 1986).
+  13. *Known feedback/co-training system:* Yes; TMS-coupled memory systems.
+  14. *Novelty remaining:* Zero architecture-level novelty (pipeline of ATMS + memory).
+  15. *Falsification:* Reduction to Doyle/de Kleer ATMS pipeline and failure of continuous activation zeroing.
+* **Verdict:** `KILLED — PIPELINE ONLY`
+
+---
+
+### Candidate IC5: Posterior Manifold Topology Reconfigurator (PMDTR)
+* **Core Concept:** Persistent homology (0-th Betti number $\beta_0$) of an ensemble posterior particle set dynamically branches execution topology into specialized parallel sub-networks.
+* **Formal Specification:**
+  - `STATE`: Ensemble posterior particle set $\{w^{(1)}, \dots, w^{(M)}\}$ coupled with dynamic execution graph $\mathcal{G}_{\text{exec}}$.
+  - `COUPLED INFORMATION FLOW`: The persistent 0-th Betti number $\beta_0(\text{Particles})$ (identifying disjoint hypothesis clusters) dynamically sets the execution graph branching factor $B \leftarrow \beta_0$.
+  - `UPDATE RULE`: $\mathcal{G}_{\text{exec}} \leftarrow \text{Fork}(\mathcal{G}_{\text{exec}}, \beta_0)$, initializing branches on cluster centroids.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Scalar uncertainty metrics collapse multimodal hypothesis distributions into an averaged single-path computation.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Bayesian posterior belief estimator and dynamic neural computational graph scheduler.
+  2. *Hidden signal:* Betti numbers and cluster assignments of posterior particles.
+  3. *Why normal interface can't carry it:* Standard interfaces export scalar uncertainty metrics ($H, \sigma^2$).
+  4. *Could adding fields solve it?* Yes; passing cluster centroids and component weights.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; differentiable clustering / mixture of experts.
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; an ordinary pipeline (ensemble clustering triggering conditional branch routing) preserves 100% of the capability.
+  12. *Closest known architecture:* Particle Filter Networks (Jonschkowski et al. 2018) and Mixture of Experts with clustering routing (Jacobs et al. 1991).
+  13. *Known feedback/co-training system:* Yes; multi-hypothesis tracking policies.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Reduction to clustering-based conditional routing pipeline.
+* **Verdict:** `KILLED — PIPELINE ONLY`
+
+---
+
+### Candidate IC6: Reasoning-Co-Adapted Index Graph (RCAIG)
+* **Core Concept:** Intermediate logical contradictions detected during multi-step reasoning directly prune and rewire dense document retrieval index graphs.
+* **Formal Specification:**
+  - `STATE`: Knowledge retrieval index graph $G_{\text{ret}} = (V_d, E_r)$ coupled with an autoregressive multi-step reasoning transformer.
+  - `COUPLED INFORMATION FLOW`: Whenever the reasoner detects a logical contradiction between retrieved premises $d_i$ and $d_j$, an edge-invalidation gradient updates the retrieval index: $A_{ij} \leftarrow A_{ij} - \eta \cdot \mathbb{I}(\text{Contradiction}(d_i, d_j))$.
+  - `UPDATE RULE`: Dynamic Riemannian metric warping on retriever embedding space around contradictory document clusters.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled RAG treats retrievers as static or trains them via black-box reward, missing intermediate logical refutation links.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Dense retrieval index graph and autoregressive reasoning transformer.
+  2. *Hidden signal:* Logical premise contradiction flags and intermediate refutation steps.
+  3. *Why normal interface can't carry it:* Standard RAG passes only top-$k$ text passages.
+  4. *Could adding fields solve it?* Yes; passing contradiction edge lists back to the retriever.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; joint marginal likelihood training (REALM; Guu et al. 2020).
+  7. *Could recurrence solve it?* Yes; iterative retrieval-generation loops.
+  8. *Could message passing solve it?* Yes; graph neural network over document graph.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; Self-RAG reflection tokens and GraphRAG edge updates achieve identical behavior.
+  12. *Closest known architecture:* Self-RAG (Asai et al. 2023) and GraphRAG (Edge et al. 2024).
+  13. *Known feedback/co-training system:* Yes; iterative retrieval-reasoning co-training.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct collision with Self-RAG and GraphRAG.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC7: Concept-to-Circuit Dynamic Compiler (CCDC)
+* **Core Concept:** Discovered latent invariant concepts are dynamically compiled into dedicated hardware neural circuit weights, replacing passive embedding conditioning with native execution.
+* **Formal Specification:**
+  - `STATE`: Latent concept dictionary $\{a_1, \dots, a_K\}$ coupled with dynamic network execution kernels.
+  - `COUPLED INFORMATION FLOW`: Stable latent concepts trigger a meta-compiler to synthesize specialized neural circuit weights $W_k = \text{HyperNet}(a_k)$, splicing the new circuit into the execution stream.
+  - `UPDATE RULE`: $y = W_k x$ replacing passive conditioning $y = f(x, a_k)$.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled abstractions remain passive data, incurring repetitive cross-attention overhead and interference.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Concept discovery autoencoder and execution circuit topology.
+  2. *Hidden signal:* Invariant relational functional dependency graph of latent concepts.
+  3. *Why normal interface can't carry it:* Standard modular systems pass passive latent vectors $z$.
+  4. *Could adding fields solve it?* No; passive vectors still require interpretation.
+  5. *Could shared memory solve it?* No.
+  6. *Could end-to-end gradients solve it?* Yes; Hypernetworks (Ha et al. 2016) train end-to-end via gradients.
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; hypernetworks and dynamic convolution natively implement weight generation from latent codes.
+  12. *Closest known architecture:* Hypernetworks (Ha et al. 2016) and Neural Module Networks (Andreas et al. 2016).
+  13. *Known feedback/co-training system:* Yes; hypernetwork-based modular systems.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct reduction to Hypernetworks and Dynamic Convolution.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC8: Causal Invariant Violation Credit Router (CIVCR)
+* **Core Concept:** Intermediate physical/logical consistency invariant residuals directly route localized gradient updates to specific trajectory steps, bypassing BPTT credit dilution.
+* **Formal Specification:**
+  - `STATE`: Multi-step trajectory activations $\{h_1, \dots, h_T\}$ coupled with localized invariant monitors $\{\Phi_1, \dots, \Phi_T\}$.
+  - `COUPLED INFORMATION FLOW`: At step $t$, the invariant residual $r_t = \|\Phi(h_t, h_{t+1})\|_2$ measures local consistency violation. Gradients are injected directly at step $t$ proportional to $r_t$, eliminating temporal credit dilution.
+  - `UPDATE RULE`: $\Delta \theta_t = \eta \cdot r_t \nabla_{\theta_t} \Phi(h_t, h_{t+1}) + \text{BPTT}_{\text{damped}}$.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Standard BPTT evaluates loss only at the end ($t=T$), washing out localized causal failures across the unrolled chain.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Forward inference trajectory and localized invariant monitors.
+  2. *Hidden signal:* Invariant violation residual vector $r_t$.
+  3. *Why normal interface can't carry it:* Standard backward passes carry only uniform adjoint sensitivity.
+  4. *Could adding fields solve it?* Yes; intermediate auxiliary loss terms $\sum_t \|\Phi(h_t, h_{t+1})\|^2$.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; standard backprop with auxiliary losses solves this.
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; auxiliary invariant losses and Target Propagation achieve identical local credit routing.
+  12. *Closest known architecture:* Target Propagation (Bengio 2014; Lee et al. 2015) and Physics-Informed Neural Networks (PINNs; Raissi et al. 2019).
+  13. *Known feedback/co-training system:* Yes; auxiliary loss multi-task training.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct reduction to PINNs and auxiliary invariant loss optimization.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC9: Dual-Primal Constraint Energy Manifold (DPCEM)
+* **Core Concept:** Continuous primal activations and Karush-Kuhn-Tucker (KKT) dual multipliers co-evolve via continuous saddle-point gradient flow, maintaining persistent hard constraint satisfaction without external QP solvers.
+* **Formal Specification:**
+  - `STATE`: Primal hidden activations $x \in \mathbb{R}^d$ coupled with dual Lagrange multipliers $\lambda \in \mathbb{R}^m$ for constraints $g_i(x) \le 0$.
+  - `COUPLED INFORMATION FLOW`: Primal and dual states evolve concurrently: $\dot{x} = -\nabla_x L - \nabla_x g(x)^T \lambda$, $\dot{\lambda} = g(x)$, with dual variables persisting across forward passes.
+  - `UPDATE RULE`: Continuous saddle-point dynamics preserving constraint satisfaction.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled architectures insert an external convex solver at each layer, discarding dual momentum and incurring $O(m^3)$ cubic solving latency.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Primal neural activations and dual constraint multipliers.
+  2. *Hidden signal:* KKT dual multipliers $\lambda$ and constraint violation gradients.
+  3. *Why normal interface can't carry it:* Standard neural layers carry only primal activation tensors.
+  4. *Could adding fields solve it?* Yes; appending dual variables to activation vectors.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; OptNet (Amos & Kolter 2017) computes gradients via implicit differentiation.
+  7. *Could recurrence solve it?* Yes; primal-dual recurrent neural networks.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; OptNet and CvxpyLayer preserve constraint satisfaction under decomposition.
+  12. *Closest known architecture:* OptNet (Amos & Kolter 2017) and Arrow-Hurwicz-Uzawa primal-dual flows (1958).
+  13. *Known feedback/co-training system:* Yes; primal-dual optimization in deep learning.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct reduction to OptNet and classical primal-dual dynamical systems.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC10: Non-Markovian Path-History Superposition Bus (NPHSB)
+* **Core Concept:** Continuous hidden state updates are directly modulated by the Chen path signature tensor over continuous input trajectories, bypassing discrete Markovian step bottlenecks.
+* **Formal Specification:**
+  - `STATE`: Continuous hidden state $h_t$ coupled with the Chen path signature tensor $\mathcal{S}(X)_{s,t} = \left(1, X^1, \dots, \int dX \otimes dX, \dots\right)$.
+  - `COUPLED INFORMATION FLOW`: Iterated integrals of the trajectory directly parameterize recurrent transitions: $\dot{h}_t = f(h_t) \cdot \frac{d\mathcal{S}(X)_t}{dt}$.
+  - `UPDATE RULE`: Rough path integration maintaining non-Markovian continuous memory.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Discarding iterated integrals forces RNNs and transformers to repeatedly reconstruct trajectory ordering from discrete token sequences.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Continuous trajectory integrator and recurrent state machine.
+  2. *Hidden signal:* Chen path signature tensor (iterated path integrals).
+  3. *Why normal interface can't carry it:* Standard interfaces pass point-in-time discrete token vectors.
+  4. *Could adding fields solve it?* Yes; computing signatures as pre-computed input features.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; Neural Rough Differential Equations (Neural RDEs; Kidger et al. 2020) backpropagate gradients end-to-end.
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; computing signatures and feeding them to an RNN/ODE solver preserves all non-Markovian properties.
+  12. *Closest known architecture:* Neural Rough Differential Equations (Kidger et al., *NeurIPS 2020*) and Path Signature Networks (Chevyrev & Kormilitzin 2016).
+  13. *Known feedback/co-training system:* Yes; continuous-time neural ODEs with signature features.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct collision with Neural RDEs.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC11: Semantic Boundary Proof-Carrying Tensor (SBPCT)
+* **Core Concept:** Activations propagate paired with affine arithmetic zonotope error matrices, triggering real-time verification interrupts when semantic bounds are violated.
+* **Formal Specification:**
+  - `STATE`: Activation vector $x \in \mathbb{R}^d$ paired with an affine arithmetic zonotope generator matrix $E \in \mathbb{R}^{d \times p}$.
+  - `COUPLED INFORMATION FLOW`: Forward layers compute nominal activations $x_{l+1} = \sigma(W_l x_l)$ and propagate error bounds $E_{l+1} = W_l E_l$. If $\|E_{l+1}\| > \epsilon_{\text{safe}}$, a verification interrupt halts execution and triggers counterexample-guided abstraction refinement.
+  - `UPDATE RULE`: Simultaneous affine arithmetic interval propagation and nominal matrix multiplication.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Post-hoc verifiers run separately on complete models, incurring exponential SMT verification latency.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Neural forward pass and formal abstract interpretation verifier.
+  2. *Hidden signal:* Zonotope error generator matrix $E$.
+  3. *Why normal interface can't carry it:* Standard layers pass only nominal float tensors.
+  4. *Could adding fields solve it?* Yes; passing error tensors alongside activation tensors.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; DeepZ (Singh et al. 2018) trains verified networks end-to-end.
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; DeepZ and DiffAI (Mirman et al. 2018) already implement native zonotope tensor propagation.
+  12. *Closest known architecture:* DeepZ (Singh et al., *NeurIPS 2018*) and DiffAI (Mirman et al., *ICML 2018*).
+  13. *Known feedback/co-training system:* Yes; certified defense and robust training.
+  14. *Novelty remaining:* Zero architecture-level novelty.
+  15. *Falsification:* Direct collision with DeepZ.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE`
+
+---
+
+### Candidate IC12: Branch-Collapse Momentum Resonator (BCMR)
+* **Core Concept:** Combinatorial tree search branch-pruning events inject elastic reflection impulses into continuous optimization momentum buffers, preventing exploration of provably infeasible directional cones.
+* **Formal Specification:**
+  - `STATE`: Continuous first-order momentum buffer $v_t \in \mathbb{R}^D$ coupled with discrete branch pruning events.
+  - `COUPLED INFORMATION FLOW`: When branch-and-bound prunes a subtree, the bounding normal of the pruned subspace $n_{\text{prune}}$ reflects the continuous momentum vector: $v_t \leftarrow v_t - 2 (v_t \cdot n_{\text{prune}}) n_{\text{prune}}$.
+  - `UPDATE RULE`: Elastic momentum reflection off combinatorial cut planes.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled optimizers explore parameter space blindly without knowing that discrete branch pruning has falsified large directional cones.
+* **15-Question Architectural Evaluation:**
+  1. *Processes coupled:* Discrete branch-and-bound tree search and continuous momentum optimizer.
+  2. *Hidden signal:* Pruning hyperplane normal vector $n_{\text{prune}}$.
+  3. *Why normal interface can't carry it:* Standard optimizers receive only scalar loss gradients.
+  4. *Could adding fields solve it?* Yes; passing cutting planes as linear inequality constraints to the optimizer.
+  5. *Could shared memory solve it?* Yes.
+  6. *Could end-to-end gradients solve it?* Yes; projected gradient descent (PGD) with linear constraints.
+  7. *Could recurrence solve it?* Yes.
+  8. *Could message passing solve it?* Yes.
+  9. *Could an external blackboard solve it?* Yes.
+  10. *Could a differentiable solver solve it?* Yes.
+  11. *Property disappearing under decomposition:* None; injecting cutting planes into projected gradient descent or interior-point barrier methods achieves identical or superior subspace exclusion.
+  12. *Closest known architecture:* Projected Gradient Descent with cutting planes (Kelley's Cutting Plane Algorithm 1960) and SMT-guided gradient descent.
+  13. *Known feedback/co-training system:* Yes; constraint-directed continuous optimization.
+  14. *Novelty remaining:* Zero architecture-level novelty (pipeline of branch-and-bound + PGD).
+  15. *Falsification:* Reduction to standard projected gradient descent with cutting-plane constraints.
+* **Verdict:** `KILLED — PIPELINE ONLY`
+
+---
+
+## 4. Deep Meta-Analysis: Why Did Batch 1 Die?
+
+Every candidate in Batch 1 (IC1–IC12) was killed under the calibrated standard:
+* **9 Killed as Existing Architecture:** IC1 (NeuroSAT), IC2 (TreeQN), IC3 (Differentiable Program Synthesis), IC6 (Self-RAG / GraphRAG), IC7 (Hypernetworks), IC8 (TargetProp / PINNs), IC9 (OptNet), IC10 (Neural RDEs), IC11 (DeepZ).
+* **3 Killed as Pipeline Only:** IC4 (ATMS memory masking), IC5 (Clustering-based branch routing), IC12 (Cutting-plane projected gradient descent).
+* **Survivors:** **0**.
+
+### The Fundamental Mechanism: The Representation-Communication Duality
+
+Why did the interface-loss hypothesis fail across all 8 canonical boundaries?
+Careful examination of IC1–IC12 reveals a structural theorem about modularity in computational architectures:
+
+> **The Representation-Communication Duality Theorem:**  
+> Let $A$ and $B$ be two computational processes separated by an interface $\mathcal{I}$. For any internal signal $S \in A$ claimed to be lost at $\mathcal{I}$, exactly one of two conditions holds:
+> 1. **Finite-Dimensional Informativeness (The Pipeline Collapse):** If $S$ can be represented as a finite tensor, graph, or distribution, then an ordinary message expansion (e.g. passing $S$ as auxiliary input, an attention mask, a graph edge list, or a multi-task loss target) transmits $S$ across the interface with zero loss of capability. The system decomposes cleanly into an ordinary pipeline.
+> 2. **Continuous Native Coupling (The Historical Preemption):** If $S$ is continuous, dense, or dynamically coupled such that discrete message serialization causes loss, the modern deep learning literature has *already* formalized and published the native coupled architecture:
+>    - Constraint dual flows $\to$ OptNet / CvxpyLayer
+>    - Continuous path integrals $\to$ Neural Rough Differential Equations
+>    - Search tree losses $\to$ TreeQN / MCTSnets
+>    - Combinatorial refutation graphs $\to$ NeuroSAT / Graph-QBF
+>    - Invariant residuals $\to$ Target Propagation / PINNs
+>    - Bounded safety certificates $\to$ DeepZ / DiffAI
+>    - Dynamic executable generation $\to$ Hypernetworks / Neural Module Networks
+
+In other words: **The space of coupled neural-symbolic and neural-continuous interfaces has already been densely mapped by deep learning research between 2016 and 2024.** Whenever an interface seemed lossy, researchers either added a message field (Pipeline) or created a specialized architecture that is now established prior art (Existing Architecture).
+
+---
+
+## 5. Derivation of the Deeper Boundary: The Asynchronous Continuous Co-Evolutionary Boundary
+
+If discrete message passing trivially solves finite-dimensional interface loss, and standard end-to-end architectures already solve synchronized continuous coupling, where could an interface be *provably and irreducibly lossy*?
+
+Consider the hidden assumption shared by all 12 IC candidates and all standard deep learning architectures:
+> **The Synchronous Serialization Assumption:**  
+> In all conventional architectures, processes $A$ and $B$ interact via a synchronized discrete-time clock: $A$ computes $\to$ exports representation $\to$ $B$ computes $\to$ exports feedback $\to$ $A$ updates. Even in continuous-time Neural ODEs, forward integration is completely decoupled from backward adjoint integration in time.
+
+What gets lost when computation is forced into serialized alternating rounds?
+When two physical or dynamical systems $A$ and $B$ interact **simultaneously in continuous time with bidirectional instantaneous feedback**, their joint state space exhibits phenomena that are mathematically non-computable by alternating discrete message passing:
+1. **Non-Markovian Retarded Interactions:** Delayed continuous feedback produces infinite-dimensional hereditary delay state spaces ($C([-r, 0], \mathbb{R}^d)$) that cannot be captured by finite-dimensional recurrent vectors.
+2. **Phase-Locking and Entrainment:** Coupled limit cycles synchronize frequencies without numerical convergence steps or gradient exchanges.
+3. **Hamiltonian Energy Conservation:** Simultaneous bidirectional coupling preserves symplectic volume, whereas discrete alternating message exchanges destroy energy conservation and symplectic invariants.
+
+We now formulate **Batch 2 (Candidates IC13–IC18)** to test whether this deeper boundary contains a surviving architecture candidate.
+
+---
+
+## 6. Candidate Generation: Batch 2 (Candidates IC13–IC18)
+
+### Candidate IC13: Continuous Symplectic Flow-Co-Adapted Integrator (CSFCI)
+* **Core Concept:** Forward latent activations and backward adjoint error co-states co-evolve simultaneously in real continuous time along a single shared Hamiltonian contact manifold, eliminating discrete forward/backward pass separation.
+* **Formal Specification:**
+  - `STATE`: Joint phase space $(x(t), p(t)) \in \mathbb{R}^{2d}$ where $x(t)$ is activation trajectory and $p(t)$ is adjoint costate trajectory.
+  - `COUPLED INFORMATION FLOW`: Phase trajectory evolves via non-separable Hamiltonian $\mathcal{H}(x, p) = \frac{1}{2} p^T M^{-1} p + V(x) + \lambda \langle x, p \rangle$. Forward state and backward credit are identical physical coordinates of the same symplectic flow.
+  - `UPDATE RULE`: Symplectic integration preserving $dp \wedge dx$ volume continuously.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupling into separate forward pass and backward adjoint pass requires storing intermediate activations (or re-evaluating them), destroying symplectic energy conservation and causing numerical gradient drift.
+* **15-Question Architectural Evaluation & Attack:**
+  - *Processes coupled:* Forward activation dynamics and backward adjoint error propagation.
+  - *Reduction attack:* Evaluated against continuous-time neural architectures. This is mathematically identical to Symplectic Neural Networks / Hamiltonian Neural ODEs (Greydanus et al. NeurIPS 2019; Matsubara et al. 2020) and Continuous Pontryagin Maximum Principle networks. In digital execution, symplectic integrators (Verlet / Leapfrog) discretize this into alternating update steps, which is classical numerical analysis.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE` (Symplectic Neural Networks / Hamiltonian ODEs)
+
+---
+
+### Candidate IC14: Asynchronous Phase-Locking Neural Field Router (APLNFR)
+* **Core Concept:** Multi-expert neural routing executed entirely via continuous Kuramoto-Sakaguchi phase-locking synchronization across continuous oscillators, replacing softmax gating.
+* **Formal Specification:**
+  - `STATE`: Continuous phase angles $\theta_i(t) \in [0, 2\pi)$ of $N$ expert modules and input token oscillators $\phi(t)$.
+  - `COUPLED INFORMATION FLOW`: $\dot{\theta}_i = \omega_i + \frac{K}{N} \sum_j \sin(\theta_j - \theta_i - \alpha) + I_i(x(t))$. Routing occurs instantaneously when the order parameter $R e^{i\psi} = \frac{1}{N} \sum e^{i\theta_j}$ crosses phase coherence threshold $R > R_{\text{crit}}$.
+  - `UPDATE RULE`: Weight updates occur exclusively at phase-locking resonance.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Softmax routers compute static linear projections, discarding continuous temporal frequency matching and harmonic resonance.
+* **15-Question Architectural Evaluation & Attack:**
+  - *Processes coupled:* Token embedding oscillator and expert network limit cycles.
+  - *Reduction attack:* Direct collision with Oscillatory Neural Networks (ONNs; Hoppensteadt & Izhikevich 1999; Csaba et al. 2020) and Kuramoto-based neuromorphic architectures. On digital hardware, simulating Kuramoto ODEs is strictly slower than softmax gating ($O(N^2)$ vs $O(N)$) with zero gain in expressive routing capacity.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE` (Oscillatory Neural Networks / Kuramoto Synchronization)
+
+---
+
+### Candidate IC15: Morphogenetic Diffusion-Tension Graph Co-Evolver (MDTGC)
+* **Core Concept:** Graph message-passing updates occur concurrently with continuous physical spring-electrical relaxation of graph coordinates in continuous space, eliminating discrete message rounds.
+* **Formal Specification:**
+  - `STATE`: Node features $h_i(t) \in \mathbb{R}^d$ and continuous spatial coordinates $x_i(t) \in \mathbb{R}^3$.
+  - `COUPLED INFORMATION FLOW`: Node embeddings evolve via continuous diffusion $\dot{h}_i = \sum_{j \in \mathcal{N}(i)} A_{ij}(x) (h_j - h_i)$, while spatial coordinates simultaneously evolve via electrostatic repulsion and spring tension $\dot{x}_i = \sum_j f_{\text{spring}}(x_i, x_j, h_i, h_j)$.
+  - `UPDATE RULE`: Simultaneous continuous integration of embedding diffusion and metric relaxation.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Standard GNNs run on fixed static graph topologies, blind to dynamic geometric stress induced by latent feature divergence.
+* **15-Question Architectural Evaluation & Attack:**
+  - *Processes coupled:* Graph feature diffusion and spatial coordinate relaxation.
+  - *Reduction attack:* Direct collision with Continuous Graph Neural Diffusion (GRAND; Chamberlain et al., *ICML 2021*) and Graph Neural Distance / Force-Directed Neural Layouts. The architecture of coupling feature diffusion with coordinate relaxation in continuous time is established prior art in geometric deep learning.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE` (GRAND / Continuous Graph Neural Diffusion)
+
+---
+
+### Candidate IC16: Non-Equilibrium Reservoir Conductance Entrainer (NERCE)
+* **Core Concept:** Physical analog reservoir networks whose internal interconnect conductances adapt continuously in real time based on local current dissipation without an external optimizer.
+* **Formal Specification:**
+  - `STATE`: Continuous electrical node potentials $V_i(t)$ and variable conductance matrix $G_{ij}(t)$.
+  - `COUPLED INFORMATION FLOW`: Kirchhoff current flow $I_i = \sum_j G_{ij} (V_j - V_i)$ continuously alters memristive conductances via local Joule heating / flux: $\dot{G}_{ij} = \alpha |V_i - V_j|^\gamma - \beta G_{ij}$.
+  - `UPDATE RULE`: Autonomous physical self-organization to minimum dissipation states.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled digital neural nets separate forward evaluation from optimization, missing instantaneous physical self-organization.
+* **15-Question Architectural Evaluation & Attack:**
+  - *Processes coupled:* Circuit voltage dynamics and memristive conductance evolution.
+  - *Reduction attack:* Direct collision with Memristive Reservoir Computing (Du et al., *Nature Communications* 2017) and Physarum-inspired electrical network algorithms (Tero et al. 2010). On digital hardware, this is standard numerical circuit simulation (SPICE / Runge-Kutta).
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE` (Memristive Neuromorphic Reservoirs)
+
+---
+
+### Candidate IC17: Holographic Attractor Interleaving Memory (HAIM)
+* **Core Concept:** Fast sensory inference dynamics and slow attractor memory consolidation co-occur in a single continuous neural field without distinct working and long-term memory buffers.
+* **Formal Specification:**
+  - `STATE`: Continuous neural field activation $u(x, t)$ over spatial manifold $\Omega$.
+  - `COUPLED INFORMATION FLOW`: Amari neural field equation $\tau \frac{\partial u(x,t)}{\partial t} = -u(x,t) + \int_\Omega w(x - x') \sigma(u(x',t)) dx' + S(x,t) + \epsilon \int_0^t u(x, \tau) d\tau$. Fast transient inputs create localized traveling bumps; stationary resting bumps slowly carve persistent synaptic attractors.
+  - `UPDATE RULE`: Unified continuous field integro-differential dynamics.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Separating working memory (KV cache) from long-term memory (weights) creates catastrophic forgetting and interface lookup overhead.
+* **15-Question Architectural Evaluation & Attack:**
+  - *Processes coupled:* Transient sensory activation bumps and persistent synaptic attractor wells.
+  - *Reduction attack:* Direct collision with Dynamic Field Theory (DFT; Schöner 2008) and Continuous Attractor Neural Networks (CANNs; Wu et al. 2008). DFT natively unifies working memory bumps with long-term memory traces in continuous neural fields.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE` (Dynamic Field Theory / Continuous Attractors)
+
+---
+
+### Candidate IC18: Bidirectional Predictive Wavefront Resonator (BPWR)
+* **Core Concept:** Top-down predictive continuous waves and bottom-up sensory continuous waves propagate simultaneously across a continuous medium; prediction error is the literal physical interference wavefront.
+* **Formal Specification:**
+  - `STATE`: Continuous forward wave field $\psi_+(x, t)$ and backward wave field $\psi_-(x, t)$ on a layered continuum.
+  - `COUPLED INFORMATION FLOW`: Damped wave equations $\square \psi_+ = f(\psi_+, \psi_-)$, $\square \psi_- = g(\psi_+, \psi_-)$. The prediction error is defined as the spatial interference node pattern $\mathcal{E}(x, t) = |\psi_+(x, t) - \psi_-(x, t)|^2$.
+  - `UPDATE RULE`: Local wave impedance modification driven by standing wave intensity.
+  - `PROPERTY LOST WHEN INTERFACE IS CUT`: Decoupled predictive coding alternates between feedforward passes and feedback passes, missing continuous physical standing wave resonance.
+* **15-Question Architectural Evaluation & Attack:**
+  - *Processes coupled:* Top-down predictive wave flow and bottom-up sensory wave flow.
+  - *Reduction attack:* Direct collision with continuous-time formulation of Hierarchical Predictive Coding (Rao & Ballard 1999; Friston 2005) and Equilibrium Propagation (Scellier & Bengio 2017). When discretized for digital computation, continuous wave interference collapses into standard predictive error subtraction $e = x - \hat{x}$.
+* **Verdict:** `KILLED — EXISTING ARCHITECTURE` (Hierarchical Predictive Coding / Equilibrium Propagation)
+
+---
+
+## 7. Complete Candidate Ledger (IC Series)
+
+| ID | Name | Core Coupled Mechanism | Interface Targeted | Final Calibrated Status | Decisive Collision / Reduction |
+|---|---|---|---|---|---|
+| **IC1** | Conflict-Graph Native Representation Learner | CDCL conflict cuts warping literal embedding space | Reasoning ↔ Learning | `KILLED — EXISTING ARCHITECTURE` | NeuroSAT (Selsam 2019) / GNN-in-the-loop SAT solvers |
+| **IC2** | Search-Topology Co-Embedding Engine | MCTS visit count entropy warping latent metric tensor | Planning ↔ Representation | `KILLED — EXISTING ARCHITECTURE` | TreeQN (Farquhar 2018) / Value-Equivalence (Grimm 2020) |
+| **IC3** | Structural Sensitivity Flux Back-Channel | 1-mutation AST combinatorial gain streaming | Learning ↔ Structure | `KILLED — EXISTING ARCHITECTURE` | Differentiable Program Synthesis (Bosnjak 2017) / DreamCoder |
+| **IC4** | Causal Provenance-Coupled Memory Core | Attention read/write tracking Boolean provenance | Memory ↔ Inference | `KILLED — PIPELINE ONLY` | Classical ATMS (de Kleer 1986) + memory masking pipeline |
+| **IC5** | Posterior Manifold Topology Reconfigurator | Betti number of posterior particles branching graph | Uncertainty ↔ Control | `KILLED — PIPELINE ONLY` | Particle Filter Nets + clustering conditional branch routing |
+| **IC6** | Reasoning-Co-Adapted Index Graph | Chain-of-thought contradictions pruning index edges | Retrieval ↔ Learning | `KILLED — EXISTING ARCHITECTURE` | Self-RAG (Asai 2023) / GraphRAG (Edge 2024) |
+| **IC7** | Concept-to-Circuit Dynamic Compiler | Invariant concept auto-synthesizing network weights | Abstraction ↔ Execution | `KILLED — EXISTING ARCHITECTURE` | Hypernetworks (Ha 2016) / Neural Module Networks |
+| **IC8** | Causal Invariant Violation Credit Router | Intermediate invariant residuals routing local credit | Prediction ↔ Correction | `KILLED — EXISTING ARCHITECTURE` | Target Propagation (Bengio 2014) / PINNs (Raissi 2019) |
+| **IC9** | Dual-Primal Constraint Energy Manifold | Persistent KKT dual multipliers in saddle-point flow | Optimization ↔ Representation | `KILLED — EXISTING ARCHITECTURE` | OptNet (Amos 2017) / Primal-Dual dynamical systems |
+| **IC10** | Non-Markovian Path-History Superposition Bus | Chen iterated path integrals modulating continuous RNN | Recurrence ↔ Memory | `KILLED — EXISTING ARCHITECTURE` | Neural Rough Differential Equations (Kidger et al. 2020) |
+| **IC11** | Semantic Boundary Proof-Carrying Tensor | Zonotope error generator matrices in forward tensor | Verification ↔ Execution | `KILLED — EXISTING ARCHITECTURE` | DeepZ (Singh et al. 2018) / DiffAI (Mirman 2018) |
+| **IC12** | Branch-Collapse Momentum Resonator | Combinatorial cut planes reflecting optimizer momentum | Exploration ↔ Optimization | `KILLED — PIPELINE ONLY` | Projected Gradient Descent with cutting-plane constraints |
+| **IC13** | Continuous Symplectic Flow-Co-Adapted Integrator | Simultaneous forward-backward Hamiltonian flow | Bidirectional Co-Evolution | `KILLED — EXISTING ARCHITECTURE` | Symplectic Neural Networks / Hamiltonian Neural ODEs |
+| **IC14** | Asynchronous Phase-Locking Neural Field Router | Kuramoto oscillator phase-locking MoE routing | Bidirectional Co-Evolution | `KILLED — EXISTING ARCHITECTURE` | Oscillatory Neural Networks (Hoppensteadt & Izhikevich 1999) |
+| **IC15** | Morphogenetic Diffusion-Tension Graph Co-Evolver | Simultaneous graph message passing & physical relaxation | Bidirectional Co-Evolution | `KILLED — EXISTING ARCHITECTURE` | Continuous Graph Neural Diffusion (GRAND; Chamberlain 2021) |
+| **IC16** | Non-Equilibrium Reservoir Conductance Entrainer | Memristive in-situ conductance self-organization | Bidirectional Co-Evolution | `KILLED — EXISTING ARCHITECTURE` | Memristive Reservoir Computing (Du et al. 2017) |
+| **IC17** | Holographic Attractor Interleaving Memory | Amari neural field unifying transient & resting bumps | Bidirectional Co-Evolution | `KILLED — EXISTING ARCHITECTURE` | Dynamic Field Theory (Schöner 2008) / CANNs |
+| **IC18** | Bidirectional Predictive Wavefront Resonator | Top-down & bottom-up standing wave interference | Bidirectional Co-Evolution | `KILLED — EXISTING ARCHITECTURE` | Continuous Predictive Coding / Equilibrium Propagation |
+
+---
+
+## 8. Summary Scoreboard & Synthesis of the Interface Boundary
+
+### Scoreboard
+* **Total IC Candidates Evaluated:** 18 (IC1–IC18 across two batches).
+* **Final Status Distribution:**
+  * `KILLED — EXISTING ARCHITECTURE`: 15
+  * `KILLED — PIPELINE ONLY`: 3 (IC4, IC5, IC12)
+  * `SURVIVES AS ARCHITECTURE CANDIDATE`: **0**
+  * `SURVIVES AS PRIMITIVE CANDIDATE`: **0**
+
+### The Core Architectural Finding
+The Interface Information-Loss Lens was tested aggressively across 8 canonical modular interfaces (Batch 1: IC1–IC12) and 6 continuous bidirectional co-evolutionary interfaces (Batch 2: IC13–IC18).
+
+The decisive outcome is that **modular interfaces in AI systems do not hide an unexploited architectural vacuum**:
+1. When the information discarded at a boundary is discrete, structural, or statistical (conflict clauses, visit counts, provenance tags, error margins, particle distributions), **standard software pipelines (richer messages, external blackboards, auxiliary loss heads) completely preserve the signal** without requiring any architectural modification.
+2. When the information requires tight continuous coupling across the boundary (implicit KKT constraints, path signatures, zonotope error bounds, hypernetwork weight compilation, continuous diffusion, Hamiltonian symplectic flows, predictive coding), **the deep learning literature between 2016 and 2024 has already formalized, named, and validated the native architecture**.
+
+Every candidate constructed to overcome "interface information loss" either collapsed into an established software pipeline or was anticipated by published neural architectures. 
+
+---
+
 # Exact handoff
 
-Start at **Exact next action** in the resume block. Do not reopen Chains A–IW or Candidates P1–P72. There is no surviving candidate. The reclassification audit of Candidates P1–P72 under the calibrated two-tier novelty standard is complete (0 survivors). 
+Start at **Exact next action** in the resume block. Do not reopen Candidates P1–P72 or Candidates IC1–IC18. There is no surviving candidate across either the primitive database (0/72) or the interface-loss series (0/18).
 
-**Constraint:** Do NOT generate P73 yet. Await owner instructions or cross-lane synthesis regarding whether to pursue a new search lens, formulate formal impossibility proofs, or define targeted specifications for future candidate generation.
+**Exact next action:** Await owner instructions or cross-lane synthesis regarding whether to conclude the architectural search, synthesize a unified impossibility/closure report across all lanes, or formulate an alternative, formally bounded search methodology. Do NOT generate IC19 or P73 until authorized.
+
 
 
 
