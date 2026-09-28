@@ -93,6 +93,15 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
       - Canonical AST verification: $W_{\text{eff}} = W + W_{\text{ep0}}$ with an inert freeze rule ($\tanh(r_1) \le 0$ always). Adding initial weight snapshot $W_{\text{ep0}}$ accelerates R1 adaptation but causes stability/plasticity imbalance on $R_1 \to R_0$ recovery.
     - **Final Outcome:** **0 of 42 elites confirmation-eligible $\to$ 0 promotions to Stage 3 $\to$ Stage 3 did not run** (locked confirmation seeds 30000–30009 remain untouched).
     - **Shared Compute Ledger:** Cumulative compute is 5.127 CPU-hours across all stages (17.09% of 30-hour cap; 24.87 CPU-hours headroom remaining). Zero GPU consumed.
+15. **OMD-0 T1 RET Identifiability & Extraction-Validity Independent Audit:** Completed.
+    - **Hostile Prior-Art Baseline:** Ratified Codex verdict that T1 RET survives only as an OMD target family (0 novel architectures or primitives claimed; no OMD-1 frozen).
+    - **Identifiability Audit:** Proved that raw continuous latent coordinates $(h_1, h_2) \in \mathbb{R}^2$ and $g \in \mathbb{R}^1$ are fundamentally non-identifiable due to slot permutation symmetry, diffeomorphism invariance ($\Phi, \Psi$), and rank-preserving monotonic transformations. Established that the correct mathematical equivalence class is a **Labeled Transition System on the Quotient State Space (Abstract Policy Automaton)** under bisimulation, defined by invariant topological partitioning and induced eviction orderings.
+    - **Extraction Validity & Thresholds:** Rejected Claude's $R^2 \ge 0.99$ and $\ge 95\%$ decision agreement thresholds as dangerously loose for closed-loop cache eviction (5% error induces catastrophic thrashing on loop scans and misses 100% of probational promotions). Mandated closed-loop rollout agreement $\ge 98\%$, stationary agreement $\ge 99\%$, and $\ge 95\%$ MIN-gap closure under full closed-loop execution. Formulated a 6-point verification battery including counterfactual event flips, state swapping, and targeted vs. random ablation testing.
+    - **Resource Matching & $F_{\text{tick}}$ Compute Advantage:** Uncovered that the proposed instrument's $F_{\text{tick}}$ update across all $C$ resident slots on every request grants an unfair $O(C)$ compute luxury ($\approx 9,600$ FLOPs/req) unavailable to classical $O(1)$ policies. Mandated lazy event-driven updates (or explicit charging of $O(C)$ baseline rankers). Formulated the complete decomposition suite (ARC, CAR, SIEVE, S3-FIFO, LeCaR, CACHEUS, EVA, LHD, PolicySmith, CacheCraft).
+    - **Transfer Validity (T-KV Audit):** Rejected T-KV due to continuous softmax discretization, $\tau$-tuning leakage, and direct subsumption by H2O/StreamingLLM. Proposed a clean, zero-tuning alternative: **Bounded Lexicon / Dictionary Entry Retention** (exact discrete query hits/misses, zero hyperparameter leakage).
+    - **GRUMA Audit:** Verified directly from CSAIDE 2025 proceedings. Negative on all 5 target criteria: GRUMA is a standard external sequence model (GRU + multi-head attention) on PC/address streams evaluated on SPEC CPU2006. It lacks per-object resident slot states, online event updates, mixed nonstationary streams, symbolic extraction, and causal validation.
+    - **Minimum Decisive Pilot Design:** Formulated a staged, CPU-only planted-control pilot (Phase A: blinded rediscovery of LRU, LFU, SIEVE, 2Q; Phase B: causal state patching; Phase C: plain-code closed-loop transplant) requiring $\le 1.0$ CPU-hour (8x–14x cheaper than Claude's 8–14h estimate).
+    - **Required Final Recommendation:** **`RETAIN ONLY FOR MINIMAL IDENTIFIABILITY PILOT`**.
 
 **Strongest surviving candidates:** None.
 
@@ -102,11 +111,11 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 - LD1–LD13: All 13 killed (11 `KILLED — EXISTING ARCHITECTURE`, 2 `KILLED — EXISTING ARCHITECTURE / OPTIMIZER`).
 
 **Core Architectural Finding:**
-Within continuous parameter optimization, every viable credit assignment, conditioning, and memory mechanism is occupied by existing architectures. In AMS v5 Stage 2, uniform random program generation yielded 0 Tier-1 evaluations because unanchored expressions cannot discover gradient descent from scratch. In AMS v7, learnability-anchored generation populated the archive but suffered from selection on noise under a 3-seed threshold half-life metric. In AMS v8, replacing the point-in-time half-life with normalized adaptation AULC and enforcing an 8-seed confirmation funnel completely eliminated selection on noise: 0 of 42 archive elites proved confirmation-eligible, with zero promotions to Stage 3. The strongest candidate, P03974 ($W_{\text{eff}} = W + W_{\text{ep0}}$), achieved an uncapped 46.7% AULC reduction and 8/8 paired wins over SGD, but failed the R0 return constraint (5/8 vs $\ge 6/8$ required), demonstrating that additive weight offsets represent a stability/plasticity trade-off rather than genuine architectural adaptation.
+Following the completion of the continuous optimization search series (AMS v5–v8: all yielding negative results due to classical basin saturation and stability/plasticity trade-offs such as P03974's $W_{\text{eff}} = W + W_{\text{ep0}}$), the project pivoted to the Origin Mechanism Discovery (OMD) paradigm. In OMD-0, 18 target families were screened, leaving only T1 RET (capacity-bounded retention under nonstationary reuse). Cursor's independent audit establishes that continuous neural latent coordinates are non-identifiable, but the mechanism's quotient transition automaton is identifiable under bisimulation. The all-slot $F_{\text{tick}}$ update grants an unfair $O(C)$ compute advantage requiring lazy-clock event-driven discretization, and T-KV transfer suffers from $\tau$-calibration leakage. T1 is retained strictly for a minimal planted-control pilot ($\le 1.0$ CPU-h) to validate extraction before any mixed-regime search or OMD-1 freeze.
 
-**Unresolved prior-art questions:** None across P1–P72, IC1–IC18, and LD1–LD13.
+**Unresolved prior-art questions:** None across P1–P72, IC1–IC18, and LD1–LD13. GRUMA verified from proceedings as an external sequence model (not a per-slot recurrent cache mechanism).
 
-**Exact next action:** Await owner/coordinator authorization following the verified completion of AMS v8 Stages 0–2 + confirmation funnel (0/42 eligible, 0 promotions, Stage 3 not run). If a subsequent search iteration (v9) is proposed, assess whether novel expressivity requires grammar expansion (e.g. dynamic state typing or structural graph rewrites) rather than further optimizer perturbations on the SGD backbone. Do NOT run an independent search or Stage 3.
+**Exact next action:** Await owner authorization of the minimal OMD-0 planted-control pilot protocol (Phases A–C: blinded rediscovery of planted LRU/LFU/SIEVE/2Q controls, causal patching, plain-code transplant, $\le 1.0$ CPU-hour cap). Do NOT freeze OMD-1, do NOT train on mixed discovery regimes, and do NOT run benchmarks until the extraction pipeline passes the planted controls.
 
 
 
@@ -9372,11 +9381,259 @@ The compute consumption across all search phases was audited against the frozen 
 
 ---
 
+---
+
+## 10. OMD-0 T1 RET Identifiability and Extraction-Validity Audit Report
+
+### 10.1 Hostile Prior-Art Baseline & Target Boundary
+
+Following the conclusive completion and negative outcome of the continuous optimization search series (AMS v5–v8, consuming 5.127 CPU-hours of the 30.0-hour cap), the research program pivoted from unguided AST generation to **Origin Mechanism Discovery (OMD)**. In OMD-0, 18 candidate target families were screened by Claude, of which exactly one survived: **T1 RET (capacity-bounded retention under hidden nonstationary reuse)**.
+
+Codex completed the hostile prior-art audit (AR-147) and delivered the verdict:
+$$\mathbf{T1\ RET\ —\ SURVIVES\ AS\ OMD\ TARGET}$$
+
+#### Critical Target Boundaries & Non-Claims
+1. **Target, Not Candidate:** T1 RET is a target task family and discovery instrument specification; it is **NOT** an architecture candidate and **NOT** a new computational primitive.
+2. **Primitive Novelty Dead on Sight:** A per-slot event-updated state with argmin eviction is formally a priority queue with event-updated keys. No new computational primitive can be claimed.
+3. **No Frozen OMD-1:** OMD-1 is **not frozen**. No training, no candidate search, no benchmarking, and no GPU allocation is authorized.
+4. **Scope of This Audit:** Independent mathematical and methodological verification of:
+   - State and transition identifiability under continuous latent symmetries;
+   - Minimum evidence criteria for symbolic/FSM/plain-code extraction;
+   - Resource-matched decomposition and the $F_{\text{tick}}$ $O(C)$ compute advantage;
+   - Transfer task validity (critique of T-KV and formulation of a clean alternative);
+   - Literature forensic audit of GRUMA;
+   - Design of the minimum decisive CPU-only planted pilot.
+
+---
+
+### 10.2 Mathematical Identifiability Analysis & The Quotient Equivalence Class
+
+The proposed OMD-0 discovery instrument maintains for a cache of capacity $C$:
+- Local slot states: $h_i(t) \in \mathbb{R}^2$ for each resident slot $i \in \{1, \dots, C\}$;
+- Global macro-state: $g(t) \in \mathbb{R}^1$;
+- Shared event update operators: $F_{\text{hit}}(h, g)$, $F_{\text{tick}}(h, g)$, $F_{\text{ins}}(g)$, $F_g(g, \text{event}, h_{\text{victim}})$, and eviction score $S(h, g)$.
+
+#### 1. Fundamental Non-Identifiability of Raw Continuous Coordinates
+A mathematical audit reveals that individual continuous coordinates $(h_{i, 1}, h_{i, 2})$ and $g$ have **zero independent physical or semantic meaning**:
+
+1. **Permutation Equivariance:** Cache slots form an unordered multiset $\mathcal{H} = \{h_1, \dots, h_C\}$. Any permutation $\pi \in S_C$ over slot indices produces bit-for-bit identical eviction decisions, because scoring is evaluated slot-wise and eviction is the permutation-invariant argmin:
+   $$\text{victim} = \arg\min_{i \in \{1, \dots, C\}} S(h_i, g)$$
+2. **Diffeomorphism Invariance (Reparameterization Gauge Freedom):**
+   Let $\Phi: \mathbb{R}^2 \to \mathbb{R}^2$ be any smooth diffeomorphism (invertible nonlinear map) and $\Psi: \mathbb{R} \to \mathbb{R}$ be an invertible scalar map. Define the transformed states $h'_i = \Phi(h_i)$ and $g' = \Psi(g)$, with conjugate operators:
+   $$\widetilde{F}_{\text{hit}}(h', g') = \Phi\left(F_{\text{hit}}(\Phi^{-1}(h'), \Psi^{-1}(g'))\right)$$
+   $$\widetilde{F}_{\text{tick}}(h', g') = \Phi\left(F_{\text{tick}}(\Phi^{-1}(h'), \Psi^{-1}(g'))\right)$$
+   $$\widetilde{S}(h', g') = \mu\left(S(\Phi^{-1}(h'), \Psi^{-1}(g'))\right)$$
+   where $\mu: \mathbb{R} \to \mathbb{R}$ is any strictly monotonic increasing function.
+   The transformed instrument $(\widetilde{F}_{\text{hit}}, \widetilde{F}_{\text{tick}}, \widetilde{S})$ generates **identically the same sequence of eviction decisions** on every possible request stream. Consequently, fitting symbolic equations directly to raw coordinate trajectories $(h_1, h_2)$ merely fits an arbitrary gauge choice.
+3. **Dimensional Collapse on Visited Attractors:**
+   Although $h \in \mathbb{R}^2$, the visited state manifold $\mathcal{M} \subset \mathbb{R}^2$ in typical cache policies is 1-dimensional (e.g. an age counter curve in LRU, a frequency line in LFU, or a discrete 1-bit cycle in SIEVE). The orthogonal dimension in $\mathbb{R}^2$ represents redundant capacity or unconstrained drift.
+4. **Out-of-Distribution Extrapolation Artifacts:**
+   Global symbolic regression over a bounding box $[-1, 1]^2$ will fit arbitrary neural extrapolation in unvisited state space rather than the operational policy.
+
+#### 2. Definition of the Valid Semantic Equivalence Class
+What is identifiable is not the continuous coordinate embedding, but the **Labeled Transition System on the Quotient State Space (Abstract Policy Automaton)**:
+$$\mathcal{T} = (\mathcal{Q}, \Sigma, \delta, \prec_g)$$
+where:
+- $\mathcal{Q} = \mathcal{H} / \sim$ is the quotient space under the observational equivalence relation:
+  $$h_a \sim h_b \iff \forall \sigma \in \Sigma^*, \forall g, \quad \text{rank}(h_a \mid \sigma, g) = \text{rank}(h_b \mid \sigma, g)$$
+  Two states are equivalent if and only if no sequence of future events can cause them to be prioritized differently for eviction.
+- $\Sigma = \{\text{hit}, \text{tick}, \text{insert}\}$ is the discrete input alphabet.
+- $\delta: \mathcal{Q} \times \Sigma \to \mathcal{Q}$ is the deterministic quotient transition function.
+- $\prec_g$ is the induced total preorder on $\mathcal{Q}$ defining eviction priority at macro-state $g$.
+
+**Formal Equivalence Definition:**
+Two learned mechanisms $M_1$ and $M_2$ implement the **same mechanism** ($M_1 \cong M_2$) if and only if there exists a **bisimulation relation** $R \subseteq \mathcal{Q}_1 \times \mathcal{Q}_2$ such that:
+1. $F_{\text{ins}, 1}(g_1) \, R \, F_{\text{ins}, 2}(g_2)$;
+2. $\forall e \in \Sigma, \quad q_1 \, R \, q_2 \implies \delta_1(q_1, e) \, R \, \delta_2(q_2, e)$;
+3. Eviction order is strictly preserved: for any resident sets $\{q_1^{(i)}\}$ and related $\{q_2^{(i)}\}$, $q_1^{(i)} \prec_{g_1} q_1^{(j)} \iff q_2^{(i)} \prec_{g_2} q_2^{(j)}$.
+
+**Identifiability Conclusion:** Any extraction method based on aligning Euclidean coordinates across seeds is mathematically invalid. Extraction must target the **discrete quotient partition boundaries and the topological transition graph**.
+
+---
+
+### 10.3 Extraction Validity Audit & Critique of Proposed Thresholds
+
+#### 1. Critique of Claude's Proposed Acceptance Thresholds
+Claude proposed three acceptance criteria for extracted rules in `HANDOFF_Claude_OMD0_targets.md`:
+1. *Symbolic fit $R^2 \ge 0.99$ on visited states;*
+2. *Decision agreement $\ge 95\%$ when substituted;*
+3. *Extracted rule reproduces $\ge 90\%$ of MIN-gap closure.*
+
+Our audit rejects these thresholds as **dangerously loose for cache eviction**:
+
+- **Why $R^2 \ge 0.99$ is Insufficient:**
+  In closed-loop autoregressive dynamics, an $R^2 = 0.99$ function fit allows a 1% error per step. Over a rollout of 10,000 requests, small function-approximation errors accumulate exponentially, causing latent trajectory drift, boundary crossing failures, and topological cycle corruption. $R^2$ is an open-loop metric that provides zero guarantee of closed-loop stability.
+- **Why $\ge 95\%$ Decision Agreement is Dangerously Weak:**
+  In a cache of capacity $C = 16$ or $32$, evicting the wrong item 5% of the time causes catastrophic performance degradation:
+  - On loops of length $L = C + 1$ (e.g. 17 items in 16 slots), evicting the wrong item 5% of the time can collapse hit rates from 90% down to 0% due to full-cache thrashing.
+  - In multi-tier policies like S3-FIFO or 2Q, promotion from the small FIFO to the main cache occurs on a tiny fraction of requests ($\approx 2-5\%$). A 5% decision error rate can completely miss every single promotional hit.
+  - Decision agreement must be measured under **autonomous closed-loop rollouts** (driving its own state), where agreement must be $\ge 98.0\%$ overall and $\ge 99.0\%$ on stationary regimes.
+- **Why $\ge 90\%$ MIN-Gap Closure is Loose:**
+  Capturing only 90% of the gap closure allows an extracted rule to leave 10% of the true adaptive mechanism behind. True structural sufficiency requires $\ge 95\%$ of MIN-gap closure under identical matched traces.
+
+#### 2. Mandatory 6-Point Extraction Verification Battery
+Before any extracted plain-code rule can be claimed causally and behaviorally equivalent to the trained instrument, it must pass the following battery:
+
+1. **Autonomous Closed-Loop Rollout:**
+   The plain-code rule must drive its own cache state without teacher-forcing for $T \ge 10^5$ requests on held-out RET-synth streams. Closed-loop decision agreement must be $\ge 98.0\%$, and total hit-rate difference must be $\le 1.0\%$ relative.
+2. **Stress-Regime Dynamic Precision:**
+   - *Scan Isolation (G3):* One-hit scans of length $10 \times C$ must evict incoming scan items with $100.0\%$ precision, leaving resident hot items untouched.
+   - *Loop Stress ($L > C$, G4):* On loop lengths $L \in \{C+1, 1.5C, 2C\}$, the extracted rule must replicate the neural instrument's cyclic eviction sequence exactly.
+   - *Regime Transition Tracking:* Decision agreement during the first 100 requests immediately following a hidden regime shift must remain $\ge 95.0\%$.
+3. **Deterministic Tie-Breaking & Cold Initialization:**
+   The plain-code rule must implement an explicit, deterministic tie-breaking rule (e.g. FIFO on arrival timestamp), and cold-cache fill must enter identical base states.
+4. **Counterfactual Event Interventions:**
+   On identical cache snapshots $\mathcal{H}_t$, flipping a single request from Miss to Hit must cause identical ordinal rank shifts in both the neural instrument and plain-code rule.
+5. **Latent State Patching:**
+   Swapping the states of two slots $h_a \leftrightarrow h_b$ must invert their eviction priority with $100.0\%$ consistency.
+6. **Targeted vs. Random Ablation Separation:**
+   Clamping global state $g = \bar{g}$ or zeroing an extracted counter must collapse MIN-gap closure by $\ge 50\%$, whereas random noise perturbations of matched magnitude must degrade gap closure by $< 10\%$.
+
+---
+
+### 10.4 Resource-Matched Ordinary Decomposition & The $F_{\text{tick}}$ Compute Advantage
+
+#### 1. Audit of the $F_{\text{tick}}$ All-Slot Update (Unfair $O(C)$ Advantage)
+In Claude's instrument specification:
+`F_tick(h, g) on every request, for all resident slots`
+- **The Defect:** In a practical cache, basic eviction policies (LRU, LFU, FIFO, SIEVE, S3-FIFO) operate in strict **$O(1)$ time per request** (updating 1 pointer or 1 bit on a hit; popping a queue head on a miss).
+- Evaluating an MLP $F_{\text{tick}}(h_i, g)$ across all $C$ resident slots on every request incurs:
+  $$C \times \text{FLOPs}(F_{\text{tick}}) \approx 32 \times 300 \approx 9,600 \text{ FLOPs per request}$$
+- More critically than FLOPs, updating all slots simultaneously grants the instrument **continuous background aging, continuous exponential decay, and synchronized time-elapsed state across all resident items**. This is an unfair structural luxury unavailable to classical $O(1)$ policies.
+- **Mandatory Protocol Requirement:**
+  Any valid candidate policy must be **lazy and event-driven**: slot state is updated *only* when accessed (Hit) or when inspected during an eviction sweep (like CLOCK/SIEVE hands). Elapsed time must be represented via timestamps ($\Delta t = t - t_{\text{last}}$), or the model must be matched against full $O(C)$ baseline rankers.
+
+#### 2. The Complete Decomposition & Baseline Suite
+To prove an extracted rule is a genuine architecture (and not an ordinary decomposition), it must be benchmarked against the full spectrum of prior art under identical resource bounds:
+
+| Family | Key Baselines | Native Mechanism | State Overhead | Compute per Request |
+|---|---|---|---|---|
+| **Compact Classical / Queuing** | LRU, LFU, 2Q, ARC, CAR, SIEVE, S3-FIFO | Multi-queue partitioning, ghost FIFO, adaptive sizing, 1-bit visited flags | 1–4 bits/slot + queue pointers + optional ghost keys | $O(1)$ amortized (1–3 pointer swaps or bit checks) |
+| **Statistical / Histogram Value Estimation** | EVA, LHD, 3L-Cache | Age-indexed hit probability histograms, utility density ranking | 8–16 bits/slot (age/class) + global histogram table | $O(1)$ lookup on access; periodic histogram updates |
+| **Online Expert Mixing / Meta-Control** | LeCaR, CACHEUS, H-MC, Adaptive Selectors | Regret-matching reinforcement learning or multi-armed bandits over a library of base policies | Base policies' state + shadow cache + weight vector | $O(1)$ request work + $O(K)$ weight update on miss |
+| **Learned Feature / Value Rankers** | LRB, HALP, Parcae, Glider | Gradient boosted trees (GBM) or linear models ranking candidates by predicted reuse distance | Feature history per slot + global model weights | $O(C)$ inference at eviction (or sampled $k \approx 32$) |
+| **Automated Compact Program Search** | PolicySmith, CacheCraft, CacheQuery | Grammars of compact conditional updates over integer registers synthesized via RL/search | 2–8 bits/slot (1–2 registers) | $O(1)$ conditional integer updates on hit/miss |
+
+#### 3. Strict Resource-Matching Envelope
+Any extracted T1 rule must satisfy:
+- **Local State Memory:** $\le 8$ bits (1 byte) per resident slot (equivalent to two 4-bit counters, or one int8/float16).
+- **Global State Memory:** $\le 64$ bits (8 bytes) of global state.
+- **Ghost Metadata:** If a ghost FIFO is used (Variant B), ghost entries cannot exceed $C$ keys.
+- **Time Complexity:** Strict $O(1)$ amortized time per request.
+
+---
+
+### 10.5 Forensic Transfer Audit: T-KV Limitations & Proposed Lexicon Alternative
+
+Claude proposed transferring the extracted cache rule zero-shot to KV-slot retention in a small attention model (T-KV), with the event mapping:
+$$\text{hit} = \text{attention} \ge \tau, \quad \text{tick} = \text{step}, \quad \text{miss} = \text{arrival when full}$$
+
+#### 1. Why T-KV is Fundamentally Flawed
+- **Arbitrary Discretization of Softmax:** Attention weights $\alpha_{i, j} \in [0, 1]$ are continuous probability distributions constrained by $\sum_j \alpha_{i, j} = 1$. The magnitude of individual weights naturally scales inversely with active context length ($1/N$). Applying a hard threshold $\tau$ creates artificial volatility where a token toggles between "hit" and "miss" simply due to context dilation.
+- **$\tau$ Calibration Leaks Task-Specific Tuning:** Claude specifies: *"Only $\tau$ is calibrated, on validation."* In threshold-crossing dynamics, sweeping $\tau$ directly controls the sparsity of the active set, effective decay rates, and memory horizon. Calibrating $\tau$ violates zero-shot transfer by providing a hidden backchannel for task-specific optimization.
+- **Direct Subsumption by Established KV Eviction Baselines:** KV eviction is already colonized:
+  - **StreamingLLM:** Initial sink tokens + rolling FIFO window (pure FIFO + prefix).
+  - **H2O (Heavy Hitter Oracle):** Cumulative attention score $\sum_t \alpha_{t, i}$ (pure LFU on attention).
+  - **TOVA:** Evicts token with lowest attention in the most recent step (greedy attention argmin).
+  Any extracted cache rule transferred via attention thresholding will merely emulate H2O (if frequency-biased) or StreamingLLM (if recency-biased).
+
+#### 2. Proposed Superior Alternative: Bounded Lexicon / Dynamic Dictionary Eviction
+To test genuine zero-shot transfer without hyperparameter leakage, we propose **Bounded Lexicon Retention** (e.g. dynamic LZW dictionary, symbol table, or DNS/ARP cache eviction with bounded capacity $B$):
+- **Exact Discrete Events (Zero Tuning, No $\tau$):**
+  - **Hit:** Exact string/key match queried from the dictionary ($\text{Hit} \in \{0, 1\}$, 100% unambiguous binary event).
+  - **Miss:** Query for an unindexed or evicted string.
+  - **Tick:** Sequence step increment.
+  - **Evict:** Select key to purge when dictionary reaches capacity $B$.
+- **Why Lexicon Retention is Clean:**
+  1. Complete absence of continuous threshold calibration ($\tau$ is eliminated; zero tuning parameters).
+  2. Natural real-world workload with bursty re-references, working-set drift, and scan patterns (e.g. text/code token streams).
+  3. Clean classical baselines: LRU-LZW, LFU-dictionary, FIFO-dictionary, and adaptive compression baselines.
+  4. Genuinely zero-shot: The extracted plain-code rule is plugged directly into the dictionary deletion handler without adjusting a single constant.
+
+---
+
+### 10.6 Literature Forensic: GRUMA Prior-Art Verification
+
+Codex flagged GRUMA (*"Gated Recurrent Unit and Multi-head Attention based cache replacement"*) as an unverified prior-art risk. We retrieved and audited the original conference publication from the proceedings of the *4th International Conference on Cyber Security, Artificial Intelligence and the Digital Economy (CSAIDE 2025)*, Kuala Lumpur, March 2025.
+
+#### Detailed Forensic Evaluation Against Target Criteria
+1. **Per-Object Recurrent State:** **NO.** GRUMA maintains a global sequence model over the stream of memory addresses and Program Counters (PCs). It does **NOT** maintain localized recurrent state vectors ($h_i \in \mathbb{R}^d$) attached to resident cache slots.
+2. **Online Event-Driven Recurrent Updates:** **NO.** GRUMA performs standard sliding-window neural sequence inference on PC/address tokens, not event-driven transitions on resident slot registers ($F_{\text{hit}}, F_{\text{tick}}$).
+3. **Mixed / Nonstationary Synthetic Reuse Benchmark:** **NO.** Evaluated on static offline memory traces from six SPEC CPU2006 benchmarks (`bzip2`, `mcf`, `gcc`, etc.). Does not benchmark against synthetic hidden-semi-Markov nonstationary streams.
+4. **Interpretable Extraction:** **NO.** GRUMA is an uncompressed deep neural network (GRU + Multi-Head Attention). It does not extract symbolic expressions, decision trees, FSMs, or plain code.
+5. **Causal Validation:** **NO.** Evaluated strictly by comparing cache hit rates against LRU and TBCR. Contains no counterfactual state clamping, latent state patching, or causal ablation experiments.
+
+**Forensic Classification:** **VERIFIED (Negative on all five criteria).** GRUMA belongs to the family of deep offline sequence predictors (alongside Glider, Hawkeye, and NeuroCaches) and does **NOT** anticipate or overlap with the OMD T1 discovery instrument.
+
+---
+
+### 10.7 Minimum Decisive Pilot Specification (Planted Controls First, $\le 1.0$ CPU-h)
+
+Before committing any compute to discovering an unknown policy on mixed-regime streams, the project must first prove that the OMD pipeline can reliably identify and extract **known mechanisms**.
+
+#### Pilot Structure: Three-Phase Planted Control Battery
+- **Cache Configuration:** Capacity $C = 16$ slots; item population $N = 256$; episode length $10,000$ requests.
+- **Seeds:** Exactly 3 seeds ($s \in \{101, 102, 103\}$).
+- **Instrument Size:** Tiny 2-layer MLPs, width 16, $h_i \in \mathbb{R}^2, g \in \mathbb{R}^1$, $\approx 250$ parameters.
+
+```mermaid
+graph TD
+    A[Phase A: Blinded Planted Controls] -->|Decision Agreement >= 99.5%| B[Phase B: Causal State Interventions]
+    A -->|Fails Recovery| Stop1[HALT: Instrument Non-Identifiable]
+    B -->|100% Causal Consistency| C[Phase C: Plain-Code Closed-Loop Transplant]
+    B -->|Causal Contradiction| Stop2[HALT: Extraction Causally Unsound]
+    C -->|Closed-Loop Agreement >= 98.0%| D[OMD-1 Discovery Authorization]
+    C -->|Closed-Loop Thrashing| Stop3[HALT: Plain-Code Dynamic Drift]
+```
+
+#### Phase A — Blinded Planted Controls
+Construct four ground-truth target transition systems:
+1. *Planted LRU:* Age counter updated on tick/hit; evict max age.
+2. *Planted LFU:* Frequency counter incremented on hit; evict min frequency.
+3. *Planted SIEVE:* 1-bit visited flag set on hit; cyclic hand pointer on miss reset flag.
+4. *Planted 2Q-Resident:* Probational vs. protected partition tracking.
+
+Generate trajectories from these controllers and blind the extractor (the extractor receives state-action logs without knowing which policy generated them).
+- **Pass/Fail Criteria:**
+  - Extractor must identify the true topological dimension of the visited manifold ($\text{dim} = 1$ for LRU, LFU, and SIEVE).
+  - Extracted rule must achieve $\ge 99.5\%$ decision agreement with the planted ground truth.
+
+#### Phase B — Causal State Interventions
+On the extracted rule vs. the controller:
+- *State Patching:* Swap $h_a \leftrightarrow h_b$; eviction choice must swap with $100.0\%$ consistency across 500 test states.
+- *Counterfactual Hit:* Invert a Miss to a Hit on slot $k$; eviction priority rank of slot $k$ must decrease monotonically ($100.0\%$ sign consistency).
+
+#### Phase C — Plain-Code Closed-Loop Transplant
+Transcribe the extracted rule into standard Python/C plain code. Execute in full closed-loop across 3 held-out test traces of length $20,000$ requests.
+- **Pass/Fail Criteria:**
+  - Closed-loop decision agreement $\ge 98.0\%$.
+  - Total hit-rate gap between plain code and controller $\le 0.5\%$ relative.
+
+#### Stop Rules & Compute Budget
+- **Immediate Stop:** If Phase A, Phase B, or Phase C fails on *any* planted control, **STOP IMMEDIATELY**. The OMD instrument is mathematically invalid.
+- **Estimated Compute:** Simulating $C=16$ on $10^4$ requests takes $\approx 0.15$ s; quotient clustering / extraction takes $\approx 30$ s. Total runtime for all 4 controls across 3 seeds is **$\le 0.25$ CPU-hours**. Including a minimal imitation training step for one mixed regime requires **$\le 1.0$ CPU-hour total**.
+- This is **8x to 14x cheaper** than Claude's 8–14 hour estimate.
+
+---
+
+### 10.8 Required Final Recommendation
+
+Following the completion of the OMD-0 identifiability, extraction, resource-matching, transfer, and prior-art audit, the required choice is:
+
+$$\mathbf{RETAIN\ ONLY\ FOR\ MINIMAL\ IDENTIFIABILITY\ PILOT}$$
+
+#### Explicit Justification
+1. **Why Not REJECT T1 TARGET:** Codex's hostile prior-art audit established that no compact policy completely settles the exact $C=16-32$ unlabelled mixed-regime switching benchmark. T1 remains an unclosed problem, and dismissing it without testing extraction would discard a viable target.
+2. **Why Not PROCEED TO OMD-1 SEARCH-DESIGN REVIEW:** Launching an OMD-1 search-design review (or freezing OMD-1) is dangerously premature. As proven in Section 10.2, continuous neural latent coordinates are non-identifiable, the $F_{\text{tick}}$ update grants an unfair $O(C)$ advantage, and the extraction pipeline has never been validated on ground truth.
+3. **Why RETAIN ONLY FOR MINIMAL IDENTIFIABILITY PILOT:** This is the only scientifically disciplined decision. It freezes no search protocol, spends no compute on unknown discovery, and authorizes only a minimal $\le 1.0$ CPU-hour planted-control test (Phases A–C). If the instrument cannot rediscover LRU and SIEVE from its own states, OMD dies cleanly at near-zero cost.
+
+---
+
 # Exact handoff
 
 Start at **Exact next action** in the resume block. Do not reopen Candidates P1–P72, IC1–IC18, or LD1–LD13.
 
-**Exact next action:** Await owner/coordinator authorization following the verified completion of AMS v8 Stages 0–2 + confirmation funnel (0/42 eligible, 0 promotions, Stage 3 not run). If a subsequent search iteration (v9) is proposed, assess whether novel expressivity requires grammar expansion (e.g. dynamic state typing or structural graph rewrites) rather than further optimizer perturbations on the SGD backbone. Do NOT run an independent search or Stage 3.
+**Exact next action:** Await owner authorization of the minimal OMD-0 planted-control pilot protocol (Phases A–C: blinded rediscovery of planted LRU/LFU/SIEVE/2Q controls, causal patching, plain-code transplant, $\le 1.0$ CPU-hour cap). Do NOT freeze OMD-1, do NOT train on mixed discovery regimes, and do NOT run benchmarks until the extraction pipeline passes the planted controls.
 
 
 
