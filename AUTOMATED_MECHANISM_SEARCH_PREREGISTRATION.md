@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN v8 — STAGES 0–3 AUTHORIZED BY OWNER**
+**ACTIVE: OMD-PILOT-1 FROZEN — MINIMAL IDENTIFIABILITY PILOT AUTHORIZED; MIXED-REGIME OMD-1 NOT AUTHORIZED**
 
 Date: 2026-09-28
 
@@ -13,6 +13,216 @@ This document is the owner-level cross-lane synthesis of:
 - Cursor/Gemini Automated Search Benchmark Suite — Tasks A–F, matched baselines, ablations, metrics, effect thresholds, behavioral signatures, compute envelope.
 
 Owner authorization to execute Stages 0–3 was given in chat on 2026-09-28.
+
+## OMD-PILOT-1 amendment — minimal planted-control identifiability pilot
+
+AMS v8 is complete historical evidence. The AMS/grammar-expansion line is closed.
+
+OMD-0 then screened 18 target families. T1 RET (capacity-bounded retention under hidden nonstationary reuse) was the only target family to survive Claude's screen and Codex's hostile prior-art audit. Cursor/Gemini's final OMD-0 validity audit did **not** authorize a mixed-regime discovery search. It recommended retaining T1 only for a minimal planted-control identifiability pilot because:
+
+- raw continuous latent coordinates are non-identifiable up to slot permutations and invertible state reparameterizations;
+- the identifiable object is the quotient transition system / abstract policy automaton, not Euclidean coordinates;
+- the original all-slot `F_tick` update created an unfair O(C) background-compute advantage;
+- the extraction pipeline has not yet demonstrated that it can recover known ground-truth cache policies;
+- the proposed T-KV transfer has threshold-calibration leakage and is not part of this pilot.
+
+This amendment freezes **OMD-PILOT-1 only**. It does not authorize OMD-1 mixed-regime discovery, novelty claims, a larger search, GPU use, or the use of the remaining CPU budget beyond this pilot.
+
+### Purpose
+
+Validate the OMD extraction method on planted, known cache policies before any attempt to discover an unknown retention rule.
+
+The pilot answers only:
+
+> Can a tiny learned recurrent cache controller be trained to imitate a known policy, and can a blinded extraction pipeline recover a causally sufficient quotient transition rule that reproduces that controller in plain code?
+
+A pass is methodological evidence only. It is **not** evidence for a new cache algorithm, architecture, or computational primitive.
+
+### Fixed planted controls
+
+Exactly four controls:
+
+1. **LRU** — eviction by least-recent access, deterministic oldest-first tie breaking.
+2. **LFU** — eviction by minimum resident hit count with LRU tie breaking.
+3. **SIEVE-like resident control** — one resident visited bit plus a persistent hand; hit sets visited; scan clears visited entries before eviction in the standard SIEVE-style cycle.
+4. **2Q-resident control** — two resident tiers only (no ghost history): new entries enter the probationary tier; first resident hit promotes to the protected tier; eviction prefers the oldest probationary entry, otherwise the oldest protected entry.
+
+The fourth control is deliberately a bounded resident-only 2Q-style automaton so the pilot does not require ghost state that is absent from the frozen instrument.
+
+### Fixed cache / stream contract
+
+- cache capacity: `C = 16`;
+- item universe: `N = 256`;
+- uniform item sizes;
+- deterministic tie breaking frozen in each planted control;
+- no semantic item IDs are supplied to the learned controller beyond the identity of the resident slot receiving a hit event;
+- no regime label, policy label, or planted-control name is supplied to the extractor;
+- training/control-excitation streams may contain a fixed mixture of uniform requests, Zipf requests, working-set segments, scans, loops and bursts solely to exercise transitions; these are **not** the future T1 mixed-regime discovery benchmark.
+
+Random seeds:
+- training seeds: `101, 102, 103`;
+- held-out evaluation seeds: `201, 202, 203`.
+
+Per training seed:
+- 10,000 requests per planted control.
+
+Per held-out seed:
+- 20,000 requests per planted control for the final closed-loop transplant test.
+
+### Frozen discovery instrument
+
+For each planted control train a separate tiny controller with shared slot-equivariant weights:
+
+- local resident state: `h_i in R^2`, float32;
+- global state: `g in R^1`, float32;
+- shared event networks: at most two hidden layers, width 16;
+- total trainable parameters: target approximately 250 and hard cap 600;
+- victim score is shared across slots and eviction is deterministic argmin with frozen tie breaking;
+- no slot-specific parameters;
+- no item-ID embedding;
+- no policy/regime input.
+
+**No all-slot per-request recurrent tick is allowed.**
+
+State evolution must be lazy/event-driven:
+- insert updates only the inserted slot and permitted global state;
+- hit updates only the hit slot and permitted global state;
+- elapsed time may be supplied as `delta_t = t - t_last` when a slot is accessed or scored;
+- eviction may score the resident set, but inactive slots are not recurrently mutated on every request.
+
+This removes the O(C) background-state-update advantage identified by Cursor/Gemini. Any O(C) scoring work performed on a miss must be recorded separately.
+
+### Training rule
+
+The pilot uses **supervised imitation only**. RL is not authorized in OMD-PILOT-1.
+
+- teacher: the planted control's deterministic eviction decision;
+- loss: cross-entropy over victim logits/scores on eviction events plus any minimal auxiliary loss strictly required to stabilize recurrent-state training;
+- optimizer: Adam, fixed learning rate `1e-3`;
+- truncated BPTT window: 256 events;
+- no learning-rate sweep;
+- no architecture sweep;
+- no seed-dependent tuning;
+- maximum 20 passes over each 10,000-request training sequence;
+- early stopping may use training-side imitation loss only; held-out seeds 201–203 must not tune the model.
+
+If a planted control cannot be imitated under this fixed budget, that control fails the pilot; do not tune the protocol around it.
+
+### Semantic equivalence target
+
+Do **not** align or interpret raw coordinates across seeds.
+
+The target of extraction is the **quotient transition system / abstract policy automaton**: state classes and event transitions considered equivalent up to:
+- slot permutation;
+- invertible latent-state reparameterization;
+- redundant unused dimensions;
+- strictly monotone score transforms that preserve eviction order.
+
+Two mechanisms count as the same only when the extracted plain-code rules preserve the relevant quotient transitions and induced eviction ordering under interventions and held-out rollouts.
+
+### Blinding rule
+
+The extractor receives controller trajectories containing only:
+- event type;
+- anonymized slot index as needed for hit/insert events;
+- controller local/global state values;
+- victim scores/orderings and chosen victim;
+- timestamps / lazy `delta_t` values.
+
+The extractor is not told which of the four planted controls generated a trajectory until after it has emitted its candidate transition description and plain-code implementation.
+
+### Phase A — imitation and blinded extraction gate
+
+For every one of the four planted controls:
+
+1. the trained neural controller must achieve at least **99.5% victim-decision agreement** with its teacher on held-out seeds 201–203 before extraction is attempted;
+2. the blinded extractor must emit an explicit compact transition description and plain-code implementation;
+3. evaluation is against the **policy-specific quotient semantics**, not a universal claim that every control has a one-dimensional manifold.
+
+Fail any control -> **STOP OMD-PILOT-1**. No mixed-regime run is authorized.
+
+### Phase B — causal intervention gate
+
+For every extracted control, on sampled reachable states:
+
+- slot permutation equivariance must hold exactly after corresponding permutation of outputs;
+- swapping two resident local states while holding the rest fixed must swap their local score contribution / relative ordering whenever the planted policy semantics predict that swap;
+- hit-vs-no-hit counterfactuals must match the neural controller's next quotient state and eviction ordering on at least **99.0%** of sampled interventions;
+- initialization, reset, tie-breaking and insertion transitions must match exactly;
+- targeted transition edits predicted to change the next quotient state must cause the predicted change significantly more often than matched random perturbations.
+
+No universal monotonic-hit or global-state-necessity claim is required when the planted control itself does not have that property.
+
+Fail any control -> **STOP OMD-PILOT-1**.
+
+### Phase C — autonomous plain-code transplant gate
+
+For every planted control, replace the trained neural controller completely with the extracted plain-code rule and run autonomous closed-loop evaluation on held-out seeds 201–203 for 20,000 requests each.
+
+Required for every control:
+- overall victim-decision agreement with the neural controller: **>= 98.0%**;
+- agreement on stationary subsegments: **>= 99.0%**;
+- relative hit-rate difference vs the neural controller: **<= 0.5%**;
+- the extracted controller must reproduce **>= 95%** of the neural controller's gap to the corresponding teacher where a nonzero gap exists;
+- one-hit scan and long-loop edge cases must not show qualitative failure or persistent thrashing absent from the teacher/neural controller.
+
+Fail any control -> **STOP**. Do not proceed to mixed-regime discovery.
+
+### Pilot success condition
+
+OMD-PILOT-1 passes only if **all four controls pass Phases A, B and C on all required seeds**.
+
+A pass authorizes only an owner review for a future OMD-1 mixed-regime search design. It does not automatically authorize that search.
+
+### Transfer
+
+No transfer task is run in OMD-PILOT-1.
+
+For any later OMD-1 protocol, the preferred independent transfer target is **bounded lexicon / dictionary-entry retention** with natural discrete hit/miss events. The previous T-KV thresholded-attention transfer is rejected for this line unless separately redesigned.
+
+### Outputs
+
+Write machine-readable outputs under:
+
+`experiments/omd_t1/pilot_controls/`
+
+At minimum preserve:
+- frozen config;
+- git commit at run start;
+- seeds;
+- training/held-out teacher and neural decisions;
+- extracted transition description in machine-readable form;
+- plain-code transplant outputs;
+- intervention records;
+- CPU-time ledger;
+- per-control pass/fail reasons.
+
+Update the executing lane's research notebook and the shared CPU ledger. Do not create additional narrative Markdown files unless needed for an actual unresolved handoff.
+
+### Compute and safety envelope
+
+- CPU only;
+- **hard cap: 1.0 cumulative CPU-hour for the entire OMD-PILOT-1**, including training, extraction and validation;
+- current shared project ledger before this pilot: approximately **5.12737 CPU-hours**;
+- project-wide total after this pilot must remain below approximately **6.12737 CPU-hours**;
+- no GPU;
+- no mixed-regime T1 discovery;
+- no real-trace benchmark;
+- no hyperparameter search;
+- no larger model;
+- no automatic continuation after a failed gate.
+
+### Authorization
+
+**OMD-PILOT-1 is authorized.**
+
+The following remain **NOT AUTHORIZED**:
+- OMD-1 mixed-regime discovery;
+- any novelty claim;
+- any GPU use;
+- any compute above the 1.0 CPU-hour pilot cap;
+- any protocol retuning after results are visible.
+
 
 ## Version 2 amendment — pre-search validity repair
 
@@ -1406,16 +1616,23 @@ Requires a separate owner decision.
 
 # 18. Authorization state
 
-As of this commit:
+AMS v8 is complete historical evidence. Its Stage 0–3 authorization is no longer an instruction to run new AMS work.
 
-- protocol design: COMPLETE;
-- GitHub consolidation: COMPLETE;
-- Stage 0: **AUTHORIZED**;
-- Stage 1: **AUTHORIZED**;
-- Stage 2: **AUTHORIZED**;
-- Stage 3: **AUTHORIZED**;
-- GPU confirmation: **NOT AUTHORIZED**.
+The sole active execution authorization in this document is now:
 
-Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
+- **OMD-PILOT-1 planted-control identifiability pilot: AUTHORIZED**;
+- CPU-only;
+- 1.0 cumulative CPU-hour hard cap for this pilot;
+- all four planted controls must pass Phases A–C;
+- stop immediately on any mandatory gate failure.
 
-The v8 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
+Still **NOT AUTHORIZED**:
+
+- OMD-1 mixed-regime discovery;
+- any new AMS/v9 search;
+- GPU use;
+- protocol retuning after pilot results are visible;
+- larger follow-up compute;
+- architecture or primitive novelty claims from the pilot.
+
+The project-wide 30 CPU-hour ceiling remains an outer hard cap, but OMD-PILOT-1 may use at most 1.0 CPU-hour regardless of remaining headroom.
