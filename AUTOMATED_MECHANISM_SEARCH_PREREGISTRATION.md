@@ -2,7 +2,7 @@
 
 ## Status
 
-**ACTIVE: OMD-PILOT-1 FROZEN — MINIMAL IDENTIFIABILITY PILOT AUTHORIZED; MIXED-REGIME OMD-1 NOT AUTHORIZED**
+**COMPLETE: OMD-PILOT-1 FAILED AT PHASE A; MIXED-REGIME OMD-1 NOT AUTHORIZED**
 
 Date: 2026-09-28
 
@@ -212,9 +212,52 @@ Update the executing lane's research notebook and the shared CPU ledger. Do not 
 - no larger model;
 - no automatic continuation after a failed gate.
 
+### Pilot outcome
+
+Official OMD-PILOT-1 ran from clean implementation commit `b8071c293a6a8c9058ee7b2cf9c1ceed7053f2f7` and **FAILED at Phase A**.
+
+Frozen imitation gate:
+- every (controller, held-out seed) pair required victim-decision agreement >= 99.5%.
+
+Observed held-out agreement ranges:
+- LRU: 0.95918–0.98991;
+- LFU: 0.91790–0.99857;
+- SIEVE-like: 0.85190–0.93823;
+- 2Q-resident: 0.83871–0.95744.
+
+Only 3/36 controller/held-out-seed pairs passed the gate. Therefore:
+- blinded extraction did not run;
+- the judge did not run;
+- Phase B did not run;
+- Phase C did not run;
+- no mixed-regime OMD discovery ran;
+- no retuning or rescue run was permitted.
+
+Post-hoc diagnostics on saved outputs only showed a systematic failure mode: the controller often learned the correct coarse state class (count/tier) but not the correct oldest-first ordering within that class. LRU remained underfit at the frozen update budget; SIEVE-like and 2Q-resident failed heavily in repeated-hit burst segments. This post-hoc analysis is diagnostic only and does not change the official FAIL.
+
+Compute:
+- OMD-PILOT-1 total: about 0.06892 CPU-hours;
+- project cumulative after pilot: about 5.19629 CPU-hours;
+- no GPU.
+
+### Owner decision after failure
+
+**Close the current T1 OMD path under this instrument/training design.**
+
+Do not rescue the failed pilot by:
+- increasing passes;
+- changing the recurrent state dimensionality;
+- adding policy-specific recency/rank inputs;
+- changing the loss to target known tie-break semantics;
+- changing hit dynamics to match SIEVE/2Q behavior;
+- relaxing Phase-A thresholds;
+- rerunning new seeds.
+
+Those changes would be a materially new methodology and would tune the discovery instrument toward the known planted policies after seeing the failure. Any future OMD attempt must begin from a separately justified, newly preregistered methodological design rather than a rescue of OMD-PILOT-1.
+
 ### Authorization
 
-**OMD-PILOT-1 is authorized.**
+**OMD-PILOT-1 is complete and no longer authorized for rerun.**
 
 The following remain **NOT AUTHORIZED**:
 - OMD-1 mixed-regime discovery;
@@ -1616,23 +1659,20 @@ Requires a separate owner decision.
 
 # 18. Authorization state
 
-AMS v8 is complete historical evidence. Its Stage 0–3 authorization is no longer an instruction to run new AMS work.
+AMS v8 is complete historical evidence.
 
-The sole active execution authorization in this document is now:
+OMD-PILOT-1 is also complete historical evidence and **FAILED at Phase A**.
 
-- **OMD-PILOT-1 planted-control identifiability pilot: AUTHORIZED**;
-- CPU-only;
-- 1.0 cumulative CPU-hour hard cap for this pilot;
-- all four planted controls must pass Phases A–C;
-- stop immediately on any mandatory gate failure.
+There is currently **no active execution authorization**.
 
-Still **NOT AUTHORIZED**:
-
+The following are **NOT AUTHORIZED**:
+- rerunning or rescuing OMD-PILOT-1;
 - OMD-1 mixed-regime discovery;
 - any new AMS/v9 search;
+- any new training or benchmark;
 - GPU use;
-- protocol retuning after pilot results are visible;
 - larger follow-up compute;
-- architecture or primitive novelty claims from the pilot.
+- protocol retuning based on the failed pilot;
+- architecture or primitive novelty claims from OMD-PILOT-1.
 
-The project-wide 30 CPU-hour ceiling remains an outer hard cap, but OMD-PILOT-1 may use at most 1.0 CPU-hour regardless of remaining headroom.
+Project cumulative compute is approximately **5.19629 CPU-hours**. The 30 CPU-hour outer ceiling remains recorded, but no further compute may be spent without a new owner-level preregistration and authorization.
