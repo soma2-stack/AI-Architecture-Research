@@ -9,7 +9,39 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 14
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 15
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v4** (owner amendment `478f590`, Stage-1 calibration only; the v3 Stage-0 PASS carries forward);
+  - `SHARED_RESEARCH_MAP.md` §12;
+  - this notebook.
+
+  The branch was fast-forwarded to `origin/main` `100e104` (v3 results merged via PR #9).
+- **Current stage:** **official v4 Stage 1 FAILED on one mandatory gate: `V1_B_REP`** (joint-training representability oracle).
+  - Best oracle: SGD at lr 0.1, 1,000 joint 16 + 16 updates → held-out relative error reduction 0.914 on Task 1 and 0.904 on Task 2, against 0.95 required. SGDM and AdamW are lower.
+  - All other v4 mandatory gates pass:
+    - M2-v4 fit reduction 0.988–0.989;
+    - M3 (100% forgetting);
+    - M4;
+    - M5 (from the v3 Stage 0);
+    - M6;
+    - M7-v4 (generic half-lives 14–19 < 64);
+    - V3-F;
+    - V-D.
+  - Post-hoc diagnostic (not gating): the MLP does represent both mappings (clipped SGD reaches 0.967 / 0.960 at 4,000 updates, and 0.950 / 0.945 at 2,000). The frozen 1,000-update budget is the limiter.
+  - **Stage 2 did not legally begin; Stage 3 did not run.**
+  - Full record: Part AH; `experiments/automated_mechanism_search/STAGE1_V4_REPORT.md`; `runs/stage1_v4/`.
+- **Strongest surviving candidate(s):** none (0 programs searched).
+- **Search counts:** rediscoveries n/a; negatives n/a; promoted IDs none.
+- **CPU:** 0.310 CPU-h of the 30 CPU-h cap; no GPU.
+- **Exact next action:**
+  - wait for an owner v5 decision on the oracle budget, threshold or clipping (options in `STAGE1_V4_REPORT.md`);
+  - then rerun `scripts/stage1_v4.py`, changed only in the amended items.
+
+  Stage-2 / Stage-3 decisions (D-S2-v4, D-S3-v4) are already committed (`0fb4be1`). Do not start Stage 2 under v4.
+
+# Resume Pointer as of session 14 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged);
@@ -4306,6 +4338,69 @@ Seeds 100–104; learning-rate grid {1e-3, 1e-2, 1e-1}; no early stopping. Full 
 1. Positive controls written as generic templates, such as AE's R12 "fast weights" applied to every layer, need a substrate check at design time. A template that is fine for hidden tanh layers can be unstable on a linear output layer.
 2. Absolute thresholds inherited from a task description (MSE < 1e-3) should be checked against the fixed model and budget before freezing, or expressed relative to the task's own scale.
 3. The conflict strength that makes Task B a hard interference benchmark also defeats the pre-declared retention controls. A benchmark needs a positive control that visibly succeeds, otherwise candidate wins cannot be interpreted.
+
+---
+
+# Part AH — AMS under Preregistration v4: official Stage 1 (session 15, 2026-09-28)
+
+**Status: v4 Stage 1 FAILED on the mandatory `V1_B_REP` oracle. Stage 2 not started.**
+
+## AH.1 What changed (owner v4 amendment `478f590`, calibration only)
+
+- **M2** becomes relative: `FitReduction_B = 1 − L1_pre/L1_init ≥ 0.95`, seed-mean, for each generic.
+- **V1-B-REP** is new: a joint-training representability oracle.
+  - 1,000 updates, each with 16 + 16 fresh Task-1 / Task-2 examples.
+  - Learning rate selected by the final-50-update training MSE.
+  - Both held-out relative error reductions must be ≥ 0.95.
+  - Validity only; never a candidate baseline.
+- **Demoted to recorded diagnostics:** V1-B (GPM / R17 / R18 / R13) and V2-C\* (R12 / R13 / R15).
+- **M7** gains a requirement: some generic has a censored R1 half-life < 64.
+
+Implementation:
+- Only v4 markers, the v4 run configuration (`config/run_config_v4.json`), the oracle runner, the v4 Stage-1 script and the affected tests changed. The suite is now 125 tests.
+- Operational choices were committed before the run (`0fb4be1`):
+  - D-V4: the oracle runs with each official generic optimizer through the clipped pipeline and passes if **any** meets both thresholds;
+  - D-S2-v4;
+  - D-S3-v4: Stage-3 thresholds, gates and label mapping, fixed before any candidate.
+
+## AH.2 Results
+
+**Verified.** Seeds 100–104; manifest git `0fb4be1`, clean.
+
+| Gate | Outcome |
+|---|---|
+| M2-v4 | PASS (0.988 / 0.989 / 0.989) |
+| M3 | PASS (100 / 100 / 100 pp forgetting) |
+| M4 | PASS (OOD ≈ 0.16, SGG ≈ 83) |
+| M5 | PASS (carried) |
+| M6 | PASS |
+| M7-v4 | PASS (half-lives 14.0 / 18.8 / 17.6) |
+| V3-F | PASS (1.00) |
+| V-D | PASS (natgrad 90 / 109 steps vs SGD / SGDM ∞) |
+| **V1-B-REP** | **FAIL**: SGD 0.914 / 0.904; SGDM 0.883 / 0.867; AdamW 0.884 / 0.859. Every seed is < 0.95. |
+
+- **Stop reason:** `STAGE-1 MANDATORY GATE FAILURE: V1_B_REP`.
+- **Stage 2 did not legally begin.** Stage 3 did not run.
+- Rediscovery and negative counts: n/a (0 programs).
+
+**Post-hoc diagnostic (not gating).**
+- Unclipped AdamW at 1,000 updates: 0.949 / 0.945.
+- Clipped SGD at 2,000 updates: 0.950 / 0.945.
+- Clipped SGD at 4,000 updates: 0.967 / 0.960.
+
+**Interpretation.**
+- The substrate can represent both Task-B mappings; the frozen 1,000-update oracle budget is too short.
+- The joint target requires the shared-block response to flip sign depending on which private block is active, which is harder than either task alone.
+
+## AH.3 Compute
+
+- v4 Stage 1: 72.8 CPU-s; diagnostic: 5.9 CPU-s.
+- **Cumulative: 0.310 CPU-h of 30.**
+- No GPU.
+
+## AH.4 Lesson
+
+A representability oracle is itself a learning run with a budget. Before an oracle's threshold is frozen, its budget should be checked, or the requirement should be phrased as an existence proof (e.g. "some budget ≤ N").
 
 ---
 
