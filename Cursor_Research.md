@@ -10,7 +10,7 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 
 # Resume block
 
-**Current search lens:** Learning Dynamics Boundary (Investigating architectural mechanisms that cause architectures with similar expressivity to learn fundamentally differently).
+**Current search lens:** Automated Search Benchmark Suite: Separating Genuine Learning Dynamics from Optimizer Tricks.
 
 **Number of candidate primitives/architectures evaluated:** 
 - 72 primitive/substrate candidates (P1–P72: all 72 killed under calibrated novelty audit; 0 survivors).
@@ -21,10 +21,11 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 **Current stage:** 
 1. Reclassification audit of P1–P72 completed (58 Existing Architecture, 11 Pipeline Only, 2 Existing Mechanism, 1 Impossible/Non-Identifiable).
 2. Interface Information-Loss Boundary completed (IC1–IC18 evaluated; 15 Existing Architecture, 3 Pipeline Only; Formulation of Representation-Communication Duality).
-3. Learning Dynamics Taxonomy completed across 14 core properties (Credit path length, Credit locality, Optimization conditioning, Gradient interference, Representation collapse, Fast vs slow state, Adaptation speed, Catastrophic interference, Dynamic depth, Train vs test evolution, Parameter specialization, Plasticity/stability, Delayed feedback, Dynamic execution structure).
-4. Candidate Batch LD1–LD13 generated with formal specifications, predictive claims against matched baselines, and 15-question architectural evaluations against 16 disallowed families. Result: 11 Existing Architecture, 2 Existing Optimizer/Pipeline, 0 survivors.
-5. Deep Meta-Analysis conducted: Formulated the *Continuous Parameter-Drift Theorem* demonstrating that within fixed-dimensional parameter manifolds, all credit transport mechanisms (adjoint/Jacobian, local energy/inversion, subspace/null-space projection) have already been discovered and published (1986–2024).
-6. Deeper boundary analyzed: The Structural Commitment & Constructive Dynamics Boundary; reduced to classical constructive algorithms (Cascade-Correlation, Growing Neural Gas, ART, DreamCoder).
+3. Learning Dynamics Taxonomy completed across 14 core properties.
+4. Candidate Batch LD1–LD13 generated and killed (11 Existing Architecture, 2 Existing Optimizer/Pipeline).
+5. Continuous Parameter-Drift Theorem and Constructive Dynamics Boundary formalized (all continuous parameter-drift methods colonized 1986–2024; constructive commitment reduces to classical learners).
+6. **Automated Search Benchmark Suite Designed:** Formulated a rigorous, CPU-friendly microbenchmark suite (Tasks A–F) with 4 matched baselines, 7 mandatory ablations, exact dynamic metrics, statistical promotion thresholds, behavioral signature matrix, compute envelope, and preregistration template to isolate genuine learning-dynamics mechanisms from optimizer tricks and known architectures.
+7. Recommended Pilot Triad specified (Tasks B, D, F). No experiment execution initiated.
 
 **Strongest surviving candidates:** None.
 
@@ -32,26 +33,13 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 - P1–P72: All 72 killed (see Candidate Ledger for full calibrated classifications).
 - IC1–IC18: All 18 killed (15 `KILLED — EXISTING ARCHITECTURE`, 3 `KILLED — PIPELINE ONLY`).
 - LD1–LD13: All 13 killed (11 `KILLED — EXISTING ARCHITECTURE`, 2 `KILLED — EXISTING ARCHITECTURE / OPTIMIZER`).
-  - LD1 (OCMP): Killed by K-FAC (Martens 2015) / LayerNorm.
-  - LD2 (CBDI): Killed by Target Propagation (Bengio 2014) / Synthetic Gradients / PINNs.
-  - LD3 (SSPP): Killed by Orthogonal Weights Modification (OWM; Zeng 2019) / GPM.
-  - LD4 (EECCL): Killed by Equilibrium Propagation (Scellier & Bengio 2017).
-  - LD5 (AETCRM): Killed by Co-RNN (Rusch & Mishra 2021) / Unitary RNNs / S4.
-  - LD6 (SNRR): Killed by Barlow Twins (Zbontar 2021) / VICReg.
-  - LD7 (CMPR): Killed by Continual Backprop / Re-Init (Dohare et al., *Nature* 2024).
-  - LD8 (PIGS): Killed by Neural Rough Differential Equations (Kidger et al. 2020).
-  - LD9 (FIAS): Killed by Forward-Forward Algorithm (Hinton 2022) / RevNet.
-  - LD10 (DHMD): Killed by Lookahead Optimizer (Zhang 2019) / Fast Weights.
-  - LD11 (FPAEG): Killed by Deep Equilibrium Models (DEQs; Bai et al. 2019).
-  - LD12 (TBOG): Killed by Spectral Graph Partitioning / Eigenoptions (Machado 2017).
-  - LD13 (PERT): Killed by Hierarchical Predictive Coding (Rao & Ballard 1999) / DNIs.
 
 **Core Architectural Finding:**
-Within continuous parameter optimization, every viable credit assignment, conditioning, and memory mechanism is occupied by existing architectures. Moving to discrete structural commitment rediscovers classical constructive algorithms. There is no uncolonized architectural mechanism in learning dynamics.
+Within continuous parameter optimization, every viable credit assignment, conditioning, and memory mechanism is occupied by existing architectures. Moving to discrete structural commitment rediscovers classical constructive algorithms. Any future candidate must survive the preregistered microbenchmark suite and pass all 7 mandatory ablations against matched baselines to prove native dynamic separation.
 
 **Unresolved prior-art questions:** None across P1–P72, IC1–IC18, and LD1–LD13.
 
-**Exact next action:** Await owner instructions or cross-lane synthesis regarding whether to conclude the architectural search, synthesize a unified closure report across all lanes, or formulate an alternative, formally bounded search methodology. Do NOT generate LD14, IC19, or P73 until authorized.
+**Exact next action:** Await owner review of the benchmark suite design and authorization before executing the recommended pilot triad (Tasks B, D, F) or initiating automated search. Do NOT generate new architecture batches (no LD14, IC19, P73) or run benchmark compute until authorized.
 
 
 
@@ -8051,11 +8039,415 @@ In accordance with `AGENTS.md`, no compute is spent on killed candidates. For an
 
 ---
 
+# Automated Search Benchmark Suite: Separating Learning Dynamics from Optimizer Tricks
+
+## 1. Guiding Principles & Theoretical Motivation
+
+### The Need for a Dynamic Benchmark Suite
+In the search for genuine architectural discovery, evaluating candidates on static end-of-training benchmark accuracy (e.g. classification error on MNIST, CIFAR, or GLUE) is fundamentally uninformative:
+1. **The Universal Approximation Blindspot:** Two architectures with completely different internal computational mechanisms can achieve identical asymptotic training and test accuracy given sufficient parameter capacity and compute.
+2. **Optimizer Confounding:** Apparent performance differences are frequently artifacts of optimizer hyperparameters (learning rate schedule, momentum coefficient, weight decay, gradient clipping, adaptive preconditioning) rather than native architectural properties.
+3. **Loss-Function Confounding:** Adding an auxiliary penalty term (e.g. contrastive loss, orthogonality penalty, entropy regularization) can simulate architectural properties without altering the computational primitive.
+
+### Objective
+This benchmark suite is designed to serve as an automated, CPU-friendly falsification engine for proposed learning-dynamics mechanisms. It evaluates **trajectories of learning**, **credit transport**, **interference resistance**, **conditioning**, **timescale separation**, and **structural commitment**.
+
+A candidate cannot pass this suite by tuning learning rates or scaling parameters. It must demonstrate a **qualitative behavioral signature** that separates it from standard optimizers and known baseline architectures under matched budgets and rigorous ablations.
+
+---
+
+## 2. Part 1: Microbenchmark Suite Specification (Tasks A–F)
+
+Each benchmark is a minimal, CPU-friendly synthetic procedural generator where the exact mathematical ground truth is known, eliminating dataset noise.
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                 MICROBENCHMARK SUITE (TASKS A - F)                                |
++-----------------------+-----------------------+-------------------------+-------------------------+
+| Benchmark             | Target Phenomenon     | Generator Math          | Failure Mode in Baselines|
++-----------------------+-----------------------+-------------------------+-------------------------+
+| Task A: Long Credit   | Credit Path Length    | Delayed Bit Memorization| Exp. vanishing gradients|
+| Task B: Interference  | Gradient Interference | Anti-Aligned Subspaces  | Catastrophic forgetting |
+| Task C: Fast Adapt    | Adaptation Speed      | Swapped Sinusoids (k=5) | Sample inefficiency     |
+| Task D: Conditioning  | Hessian Conditioning  | Anisotropic Ravines     | Pathological oscillation|
+| Task E: Fast/Slow     | Timescale Separation  | Ephemeral Key-Value Bind| Distractor overwriting  |
+| Task F: Structural    | Discrete Commitment   | 3-Bit Parity vs Spurious| Spurious linear fitting |
++-----------------------+-----------------------+-------------------------+-------------------------+
+```
+
+### Task A: Long-Range Credit Transport (Synthetic Delayed Bit-Memorization)
+* **Mathematical Specification:**
+  - Input stream: Sequence $X = (x_1, x_2, \dots, x_T)$ where $x_t \in \mathbb{R}^d$ ($d=16$).
+  - Sequence horizon: $T \in \{100, 250, 500, 1000\}$.
+  - Trigger token: At step $t_1 \in [1, 10]$, a random binary vector $s \in \{-1, +1\}^k$ ($k=4$) is encoded into $x_{t_1}$ with an explicit trigger flag bit $x_{t_1, 0} = 1.0$.
+  - Distractor tokens: For all $t \notin \{t_1, T\}$, $x_t \sim \mathcal{N}(0, I_d)$ with $x_{t, 0} = 0.0$.
+  - Query token: At step $T$, a query marker $x_{T, 1} = 1.0$ is presented.
+  - Target output: At step $T$, output $y_T = s$. Loss is mean squared error $\mathcal{L} = \frac{1}{k} \| \hat{y}_T - s \|_2^2$.
+* **Why Continuous Baselines Fail:**
+  - In standard feedforward unrollings or vanilla RNNs, the credit transport chain rule $\frac{\partial \mathcal{L}}{\partial h_{t_1}} = \frac{\partial \mathcal{L}}{\partial h_T} \prod_{t=t_1+1}^T \frac{\partial h_t}{\partial h_{t-1}}$ suffers from exponential decay when spectral radius $\rho(W) < 1$ or explosion when $\rho(W) > 1$.
+  - For $T \ge 250$, the gradient norm $\| \nabla_\theta \mathcal{L} \|$ drops below floating-point machine precision ($\sim 10^{-7}$), resulting in zero learning progress.
+* **Quantifiable Dynamic Signatures:**
+  - Learning curve slope vs. horizon $T$.
+  - Backward pass FLOP cost as a function of $T$.
+  - Gradient norm ratio $\frac{\| \nabla_{h_{t_1}} \mathcal{L} \|}{\| \nabla_{h_T} \mathcal{L} \|}$.
+
+---
+
+### Task B: Catastrophic Interference & Orthogonal Subspace Retention
+* **Mathematical Specification:**
+  - Dimensionality: Ambient feature space $\mathbb{R}^D$ ($D=32$).
+  - Subspace Partitioning: Two orthogonal subspaces $\mathcal{S}_1, \mathcal{S}_2 \subset \mathbb{R}^D$ where $\dim(\mathcal{S}_1) = \dim(\mathcal{S}_2) = 16$ and $\mathcal{S}_1 \perp \mathcal{S}_2$.
+  - Task 1: $y^{(1)} = W_1 x$, where $x \in \mathcal{S}_1$, $W_1 \in \mathbb{R}^{4 \times 16}$.
+  - Task 2: $y^{(2)} = W_2 x$, where $x \in \mathcal{S}_2$, $W_2 \in \mathbb{R}^{4 \times 16}$.
+  - Conflicting Shared Projection: Both tasks share a single dense intermediate projection $h = \sigma(W_{\text{shared}} x)$. The target mapping is constructed such that the empirical gradients are maximally conflicting: $\cos(\nabla_{W} \mathcal{L}_1, \nabla_{W} \mathcal{L}_2) \approx -1.0$.
+  - Training Protocol: Train on Task 1 for $N_1 = 500$ steps (achieving MSE $< 10^{-3}$). Then train on Task 2 for $N_2 = 500$ steps without Task 1 data.
+* **Why Continuous Baselines Fail:**
+  - Standard gradient descent updates $\Delta W_{\text{shared}} = -\eta \nabla_{W} \mathcal{L}_2$ project directly into the subspace spanning Task 1, overwriting Task 1 parameters within 10–20 gradient steps (100% forgetting).
+* **Quantifiable Dynamic Signatures:**
+  - Retained Task 1 Accuracy/Loss during Task 2 training.
+  - Acquisition speed of Task 2.
+  - Recovery steps required to restore Task 1 after Task 2 completes.
+
+---
+
+### Task C: Fast Distribution Adaptation & Zero-Shot Recovery
+* **Mathematical Specification:**
+  - Data Stream: Non-stationary regression stream.
+  - Base Distribution $\mathcal{D}_0$: $y = \sin(\omega_0 x + \phi_0)$, with $\omega_0 = 1.0, \phi_0 = 0.0$.
+  - Shifted Distribution $\mathcal{D}_k$: Abruptly at step $t^*$, the phase and frequency shift: $\omega_k \sim \mathcal{U}(0.5, 2.0)$, $\phi_k \sim \mathcal{U}(0, \pi)$.
+  - Support Budget: The model receives exactly $M=5$ support examples from $\mathcal{D}_k$.
+  - Query Evaluation: Immediate evaluation on $N_{\text{query}} = 50$ held-out examples from $\mathcal{D}_k$.
+  - Stability Evaluation: Immediately following $\mathcal{D}_k$ evaluation, evaluate performance on $\mathcal{D}_0$ without retraining to measure whether base capabilities survived rapid adaptation.
+* **Why Continuous Baselines Fail:**
+  - Standard gradient descent requires hundreds of gradient updates over large batches to adapt; given only 5 examples, standard models either underfit (zero adaptation) or violently overfit the 5 points while destroying $\mathcal{D}_0$ accuracy.
+* **Quantifiable Dynamic Signatures:**
+  - Adaptation Half-Life $t_{1/2}^{\text{adapt}}$ (number of examples/steps to halve test error on $\mathcal{D}_k$).
+  - Post-adaptation retention on $\mathcal{D}_0$ (Stability Ratio).
+
+---
+
+### Task D: Optimization Conditioning & Pathological Ravines
+* **Mathematical Specification:**
+  - Quadratic Ravine: Objective $\mathcal{L}(\theta) = \frac{1}{2} \theta^T H \theta$, where $\theta \in \mathbb{R}^d$ ($d=32$).
+  - Controlled Hessian: $H = Q \Lambda Q^T$, where $Q$ is a random orthogonal rotation matrix and $\Lambda = \text{diag}(\lambda_1, \dots, \lambda_d)$.
+  - Condition Number Control: $\lambda_1 = 1.0, \lambda_d = \kappa$. We evaluate across four condition regimes: $\kappa \in \{10^2, 10^4, 10^6, 10^8\}$.
+  - Deep Non-Linear Variant: A 10-layer linear MLP $\hat{y} = W_{10} W_9 \dots W_1 x$ where weight matrices are initialized with exponentially decaying singular values $\sigma_i(W_l) = 10^{-i}$, creating ill-conditioned layer-wise Hessian blocks.
+* **Why Continuous Baselines Fail:**
+  - First-order gradient descent without second-order preconditioning has convergence rate bounded by $\left(\frac{\kappa - 1}{\kappa + 1}\right)^2$. For $\kappa = 10^6$, progress along the minimum curvature eigenvector requires $> 10^6$ steps, while steps along the maximum curvature oscillate and diverge unless learning rate is suppressed to $\eta < 2/\lambda_{\max}$.
+* **Quantifiable Dynamic Signatures:**
+  - Steps-to-Threshold $S_\tau$ to achieve $\mathcal{L} \le 10^{-4}$ as a function of $\kappa$.
+  - Maximum stable learning rate $\eta_{\max}$.
+  - Pathological oscillation variance $\text{Var}(\nabla \mathcal{L})$.
+
+---
+
+### Task E: Fast / Slow State & Multi-Timescale Binding
+* **Mathematical Specification:**
+  - Dual Memory Structure:
+    1. *Slow Grammar (Permanent):* A 5-state Markov transition system $S_a \to S_b \to S_c$ with fixed transition probabilities invariant across all episodes.
+    2. *Fast Bindings (Ephemeral):* At episode start $t=0$, 3 arbitrary symbol bindings are revealed: $\{X_1 \mapsto \text{Symbol}_A, X_2 \mapsto \text{Symbol}_B, X_3 \mapsto \text{Symbol}_C\}$.
+  - Interleaved Distractors: The model executes $L_{\text{distractor}} \in \{10, 50, 200\}$ steps of an unrelated classification task (processing random noise tokens).
+  - Delayed Query: At step $t = L_{\text{distractor}} + 1$, the model is queried with an abstract grammar question using the temporary bindings (e.g. "Given $X_1$, what is the valid successor under Rule 2?").
+* **Why Continuous Baselines Fail:**
+  - Standard networks maintain only static weights (which cannot bind $X_1$ on the fly) or transient hidden activations (which are completely overwritten and dissipated by the 50 distractor steps). Standard RNNs fail to preserve episodic key-value associations through unconstrained distractor dynamics.
+* **Quantifiable Dynamic Signatures:**
+  - Fast binding recall accuracy vs. distractor length $L_{\text{distractor}}$.
+  - Degradation rate of slow grammar accuracy.
+  - Cross-timescale interference score.
+
+---
+
+### Task F: Discrete Structural Commitment vs. Continuous Spurious Memorization
+* **Mathematical Specification:**
+  - Feature Dimension: Binary strings $x \in \{0, 1\}^D$ ($D=20$).
+  - Ground Truth Structural Invariant: The target label is the strict discrete parity of 3 latent indices: $y = x_1 \oplus x_2 \oplus x_3 \in \{0, 1\}$.
+  - Spurious Distractor Feature: In the training set ($N_{\text{train}} = 100$), a linear distractor feature $x_4$ is artificially correlated with the label: $P(x_4 = y) = 0.90$. The true parity relationship also holds with $100\%$ consistency.
+  - Out-of-Distribution (OOD) Evaluation Set ($N_{\text{test}} = 1000$): The spurious correlation is inverted: $P(x_4 = y) = 0.10$, while the discrete 3-parity rule $y = x_1 \oplus x_2 \oplus x_3$ remains $100\%$ valid.
+* **Why Continuous Baselines Fail:**
+  - Continuous gradient descent follows the path of least resistance in parameter space: fitting the single linear feature $x_4$ achieves $90\%$ accuracy immediately with near-zero gradient norm. Finding the non-linear discrete parity requires coordinating a 3-way XOR hyperplane configuration.
+  - Standard MLPs and Transformers converge to $100\%$ training accuracy by memorizing $x_4$ + residuals, achieving $< 20\%$ accuracy on the OOD test set (catastrophic structural generalization failure).
+* **Quantifiable Dynamic Signatures:**
+  - Training accuracy vs. OOD test accuracy.
+  - Structural Generalization Gap $SGG = \text{Acc}_{\text{train}} - \text{Acc}_{\text{OOD}}$.
+  - Sample complexity required to identify the sparse 3-bit support.
+
+---
+
+## 3. Part 2: Matched Baselines & Rigorous Controls
+
+To prevent false claims of architectural discovery, every candidate evaluated on Tasks A–F must compete against four strictly matched controls:
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                  FOUR MANDATORY CONTROL BASELINES                                 |
++-------------------+-----------------------------------+-------------------------------------------+
+| Baseline          | Mathematical Specification        | Purpose & Control Role                    |
++-------------------+-----------------------------------+-------------------------------------------+
+| Control 1: SGD    | $\theta_{t+1} = \theta_t - \eta g_t$| Raw first-order gradient baseline         |
+| Control 2: SGDM   | Polyak momentum ($\beta=0.9$)     | Controls for momentum acceleration tricks  |
+| Control 3: AdamW  | Adaptive diagonal preconditioning | Controls for coordinate scaling & decay   |
+| Control 4: SOTA   | Target-matched architecture       | Controls for published specialized models |
++-------------------+-----------------------------------+-------------------------------------------+
+```
+
+### Control 4: Target-Property-Matched Known Architecture / Rule
+For each specific microbenchmark, Control 4 is instantiated with the strongest known mechanism for that property:
+* **Task A (Credit Horizon):** Linear Transformer with KV-caching or LSTM with constant error carousel.
+* **Task B (Interference):** Gradient Projection Memory (GPM; Saha et al. 2021) / Orthogonal Weights Modification (OWM).
+* **Task C (Fast Adaptation):** Model-Agnostic Meta-Learning (MAML; Finn et al. 2017) or Fast Weights Programmer.
+* **Task D (Conditioning):** Pre-LayerNorm MLP with AdamW or K-FAC second-order natural gradient approximation.
+* **Task E (Fast/Slow State):** Fast Weights with decay (Ba et al. 2016) or Transformer with persistent prefix tokens.
+* **Task F (Structural Commitment):** Cascade-Correlation Learning Architecture (Fahlman 1990) or Inductive Decision Tree (CART).
+
+### Capacity & Normalization Rules
+1. **Parameter Matching:** All models must have trainable parameter counts matched within $\pm 5\%$. If candidate has auxiliary state parameters, baseline width/depth is adjusted to match total parameter count.
+2. **Persistent State Memory Footprint:** Any persistent matrices (e.g. covariance accumulators, metric tensors, fast weight matrices) must be counted in the model's runtime memory budget ($M_{\text{state}}$ in bytes).
+3. **FLOP Normalization:** Comparisons are plotted against **Cumulative FLOPs**, not raw step count. If candidate executes $2\times$ more operations per step (e.g. inner loops, relaxation phases), baseline is granted $2\times$ more gradient steps.
+4. **Initialization Parity:** All architectures share identical pseudo-random seed schedules and standardized initialization distributions (He/Xavier normal).
+
+---
+
+## 4. Part 3: Required Ablation Matrix (The 7-Ablation Protocol)
+
+Every candidate claiming a learning-dynamics breakthrough must be subjected to the **Seven Mandatory Ablations**:
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                      THE 7-ABLATION PROTOCOL                                      |
++----+--------------------------------+-------------------------------------------------------------+
+| #  | Ablation Name                  | Protocol & Expected Failure Mode                           |
++----+--------------------------------+-------------------------------------------------------------+
+| A1 | Mechanism Removed              | Sever coupling/update rule; revert to standard backprop.   |
+| A2 | Persistent State Zeroed        | Zero auxiliary memory/tensors between episodes/tasks.      |
+| A3 | Persistent State Randomized    | Inject Gaussian noise into auxiliary state tensors.        |
+| A4 | Update Timing Shifted          | Alter synchronous/asynchronous or token/batch timing.      |
+| A5 | Optimizer Swapped              | Evaluate candidate under SGD, SGDM, and AdamW.             |
+| A6 | State/FLOP-Matched Control     | Grant baseline identical memory buffers or extra compute.   |
+| A7 | Parameter-Matched Control      | Expand baseline width/depth to match total capacity.       |
++----+--------------------------------+-------------------------------------------------------------+
+```
+
+### Benchmark-to-Ablation Mapping Matrix
+
+| Benchmark | Applicable Ablations | Decisive Falsification Signal |
+|---|---|---|
+| **Task A (Credit)** | A1, A2, A5, A6, A7 | If removing mechanism (A1) does not collapse long-range credit, property was trivial. If swapping optimizer (A5) erases gain, property was an optimizer artifact. |
+| **Task B (Interference)** | A1, A2, A3, A5, A6, A7 | If zeroing state (A2) doesn't cause forgetting, state wasn't preserving knowledge. If randomizing state (A3) doesn't destroy Task 1, protection was spurious. |
+| **Task C (Adaptation)** | A1, A2, A4, A5, A6 | If shifting update timing (A4) doesn't degrade few-shot adaptation, dynamics are not timescale-dependent. |
+| **Task D (Conditioning)** | A1, A4, A5, A6, A7 | If swapping optimizer (A5) to AdamW matches candidate on ill-conditioned ravines, candidate is just an optimizer reimplementation. |
+| **Task E (Fast/Slow)** | A1, A2, A3, A4, A6 | If zeroing fast state (A2) preserves binding under distractors, binding was stored in slow weights (leakage). |
+| **Task F (Structural)** | A1, A2, A5, A6, A7 | If expanding baseline capacity (A7) matches OOD generalization, candidate has no structural commitment advantage. |
+
+---
+
+## 5. Part 4: Dynamic Metrics & Exact Mathematical Formulas
+
+Dynamic properties cannot be summarized by a single scalar accuracy score. We specify ten exact mathematical metrics:
+
+### 1. Area Under Learning Curve (AULC)
+Normalized integral of performance over the training horizon $T_{\max}$:
+$$\text{AULC} = \frac{1}{T_{\max}} \sum_{t=1}^{T_{\max}} \text{Acc}(t) \in [0, 1]$$
+
+### 2. Steps-to-Threshold ($S_\tau$)
+The minimal iteration count required to reach a pre-specified loss threshold $\tau$:
+$$S_\tau = \min \{ t \in \mathbb{N} \mid \mathcal{L}(t) \le \tau \}, \quad S_\tau = \infty \text{ if } \forall t, \mathcal{L}(t) > \tau$$
+
+### 3. Forgetting Percentage ($F$)
+The relative loss of performance on Task 1 after training on Task 2:
+$$F = \frac{\max_{t \le T_1} \text{Acc}_1(t) - \text{Acc}_1(T_1 + T_2)}{\max_{t \le T_1} \text{Acc}_1(t)} \times 100\%$$
+
+### 4. Backward Transfer ($BWT$) & Forward Transfer ($FWT$)
+$$BWT = \text{Acc}_1(T_1 + T_2) - \text{Acc}_1(T_1)$$
+$$FWT = \text{Acc}_2(0) - \text{Acc}_2^{\text{random}}(0)$$
+
+### 5. Adaptation Half-Life ($t_{1/2}^{\text{adapt}}$)
+The number of adaptation steps or examples required to close $50\%$ of the initial error gap on a new distribution:
+$$t_{1/2}^{\text{adapt}} = \min \left\{ t \mid \mathcal{L}_{\text{new}}(t) \le \mathcal{L}_{\text{new}}(0) - \frac{1}{2}\left(\mathcal{L}_{\text{new}}(0) - \tau_{\text{target}}\right) \right\}$$
+
+### 6. Retention Half-Life ($t_{1/2}^{\text{ret}}$)
+The duration (in steps of interfering task training) before performance on the original task drops to half its peak:
+$$t_{1/2}^{\text{ret}} = \min \left\{ t \mid \text{Acc}_1(T_1 + t) \le \frac{1}{2} \text{Acc}_1(T_1) \right\}$$
+
+### 7. Compute Efficiency ($\text{Eff}_{\text{FLOP}}$)
+Accuracy improvement per unit of computational work:
+$$\text{Eff}_{\text{FLOP}} = \frac{\Delta \text{Acc}}{\text{GFLOPs}_{\text{cumulative}}}$$
+
+### 8. Improvement per Parameter Update ($\text{Eff}_{\text{update}}$)
+Rate of error reduction per weight modification step:
+$$\text{Eff}_{\text{update}} = \frac{\mathcal{L}(0) - \mathcal{L}(K)}{K}$$
+
+### 9. Stability Variance ($\sigma_{\text{eval}}^2$)
+Variance of evaluation loss across sliding evaluation windows $W$ under stationary conditions:
+$$\sigma_{\text{eval}}^2 = \frac{1}{W} \sum_{w=1}^W \left( \mathcal{L}_w - \overline{\mathcal{L}} \right)^2$$
+
+### 10. Structural Generalization Gap ($SGG$)
+The discrepancy between in-distribution training fit and out-of-distribution structural generalization:
+$$SGG = \text{Acc}_{\text{train}} - \text{Acc}_{\text{OOD}}$$
+
+---
+
+## 6. Part 5: Promotion Thresholds & Statistical Screening Criteria
+
+To eliminate noise, lucky seeds, and trivial hyperparameter tweaks, a candidate must meet strict quantitative promotion thresholds to advance:
+
+### Quantitative Minimum Effect Sizes
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                  MINIMUM PROMOTION THRESHOLDS                                     |
++-------------------+-----------------------+-------------------------------------------------------+
+| Benchmark         | Primary Metric        | Required Minimum Effect vs. Matched Baseline          |
++-------------------+-----------------------+-------------------------------------------------------+
+| Task A (Credit)   | Steps / Horizon       | Solves $T=1000$ ($Acc \ge 90\%$) where baseline $<10\%$|
+| Task B (Interfer.)| Forgetting ($F$)      | $\ge 40$ percentage point drop in $F$; $Ret \ge 80\%$ |
+| Task C (Adapt.)   | Adapt Half-Life       | $\ge 50\%$ reduction in $t_{1/2}^{\text{adapt}}$      |
+| Task D (Condition)| Steps-to-Threshold    | $\ge 3\times$ reduction in $S_\tau$ across $\kappa\ge 10^4$ |
+| Task E (Fast/Slow)| Binding under noise   | $\ge 85\%$ recall at $L=100$ where baseline $<35\%$   |
+| Task F (Structure)| Structural Gap ($SGG$)| $SGG \le 15\%$ at $100\%$ train fit (baseline $\ge 75\%$)|
++-------------------+-----------------------+-------------------------------------------------------+
+```
+
+### Three-Tier Screening Protocol
+* **Tier 1: Fast Pilot Screen (CPU, $\le 30$ seconds):**
+  - Run candidate on target benchmark across 3 random seeds.
+  - Compute primary metric relative to Control 3 (AdamW).
+  - *Gate:* If mean improvement is $< 2.0$ standard deviations ($< 2\sigma$) above baseline, **REJECT IMMEDIATELY**.
+* **Tier 2: Ablation & Invariance Screen (CPU, $\le 5$ minutes):**
+  - Run candidate across 5 random seeds.
+  - Execute all applicable ablations from the 7-Ablation Matrix.
+  - *Gate:*
+    1. If mechanism ablation (A1) does not cause statistically significant degradation ($p < 0.01$, Welch's t-test), **REJECT (Spurious Novelty)**.
+    2. If swapping optimizer (A5) to AdamW produces identical performance on baseline architecture, **REJECT (Optimizer Trick)**.
+    3. If parameter-matched baseline (A7) matches candidate performance within $5\%$, **REJECT (Capacity Artifact)**.
+* **Tier 3: Cross-Benchmark Battery (CPU, $\le 20$ minutes):**
+  - Evaluate surviving candidate across all remaining benchmarks in Tasks A–F.
+  - Check for catastrophic regressions on non-target benchmarks (e.g. candidate solves Task B interference but completely breaks Task D conditioning).
+
+---
+
+## 7. Part 6: Behavioral Signature Matrix (The Novelty vs. Rediscovery Filter)
+
+Known learning mechanisms exhibit distinct fingerprints across Tasks A–F. If a candidate's behavioral profile across the 6 microbenchmarks matches an existing row in this matrix, it is classified as a **rediscovery of that mechanism**:
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                     BEHAVIORAL SIGNATURE MATRIX                                   |
++------------------------+--------+--------+--------+--------+--------+--------+--------------------+
+| Architecture / Rule    | Task A | Task B | Task C | Task D | Task E | Task F | Decisive Signature |
+|                        | Credit | Interf | Adapt  | Condit | F/S    | Struct |                    |
++------------------------+--------+--------+--------+--------+--------+--------+--------------------+
+| 1. Vanilla SGD         | FAIL   | FAIL   | FAIL   | FAIL   | FAIL   | FAIL   | Uniform weakness   |
+| 2. SGD + Momentum      | FAIL   | FAIL   | POOR   | MOD    | FAIL   | FAIL   | Ravine oscillation |
+| 3. AdamW               | FAIL   | FAIL   | MOD    | EXCEL  | FAIL   | FAIL   | Diagonal Fisher    |
+| 4. K-FAC / Nat. Grad   | FAIL   | FAIL   | MOD    | EXCEL+ | FAIL   | FAIL   | Curvature invariant|
+| 5. LayerNorm / Norm    | POOR   | FAIL   | MOD    | EXCEL  | FAIL   | FAIL   | Scale invariant    |
+| 6. ResNet / Skips      | EXCEL  | FAIL   | POOR   | MOD    | FAIL   | FAIL   | Depth shortcut     |
+| 7. LSTM / Gated RNN    | EXCEL  | FAIL   | POOR   | MOD    | POOR   | FAIL   | Gated state carousel|
+| 8. Fast Weights / Hebb | POOR   | POOR   | EXCEL  | POOR   | EXCEL  | FAIL   | Ephemeral binding  |
+| 9. Null-Space (OWM/GPM)| FAIL   | EXCEL+ | POOR   | POOR   | POOR   | FAIL   | Zero forgetting    |
+| 10. MAML / Meta-SGD    | POOR   | FAIL   | EXCEL+ | MOD    | POOR   | FAIL   | Fast initialization|
+| 11. DEQ / Implicit Eq. | EXCEL  | FAIL   | POOR   | MOD    | FAIL   | FAIL   | Infinite depth O(1)|
+| 12. Discrete Synthesis | FAIL   | EXCEL  | POOR   | N/A    | EXCEL  | EXCEL+ | Zero structural gap|
++------------------------+--------+--------+--------+--------+--------+--------+--------------------+
+```
+
+### The Rule of Rediscovery
+> **The Signature Equivalence Rule:**  
+> If candidate $X$ achieves `EXCEL` on Task B while remaining `FAIL` on Tasks A, D, and F, and its mechanism relies on matrix projection, it is functionally equivalent to **Null-Space Projection (OWM/GPM)**.  
+> If candidate $X$ achieves `EXCEL` on Task D but fails on Tasks B and F, and its advantage is erased by AdamW on the baseline, it is an **Optimizer Preconditioning Trick**.  
+> To survive, a candidate must either:
+> 1. Exhibit an unprecedented signature across columns (e.g. simultaneous `EXCEL` on Task B and Task D without capacity saturation), OR
+> 2. Pass all 7 ablations showing an invariant that none of the 12 known families possess.
+
+---
+
+## 8. Part 7: Compute Envelope & Automated Search Protocol
+
+To ensure rapid, autonomous iteration without consuming heavy GPU resources, the automated search is constrained to a strict CPU envelope:
+
+### Envelope Specifications
+* **Hardware Target:** Single modern CPU core (x86_64), no GPU required.
+* **Model Size:**
+  - Hidden dimensions: $d \in [16, 64]$.
+  - Total parameter count: $P \in [10^3, 5 \times 10^4]$ parameters.
+* **Sequence & Batch Bounds:**
+  - Sequence lengths: $T \in [50, 1000]$ tokens.
+  - Batch sizes: $B \in [8, 32]$.
+  - Training steps: $N_{\text{steps}} \in [100, 1000]$ steps.
+* **Time & Memory Limits:**
+  - Per-seed run time: $\le 30$ seconds.
+  - Per-candidate total evaluation (Tier 1 + Tier 2): $\le 5$ minutes.
+  - Memory footprint ceiling: $\le 512$ MB RAM.
+* **Automatic Rejection & Kill Triggers:**
+  - **NaN / Inf Trigger:** If loss or gradient norm becomes NaN or Inf at any step $\to$ Immediate Kill (`NUMERICAL_INSTABILITY`).
+  - **Divergence Trigger:** If loss exceeds $10\times$ initial loss $\to$ Immediate Kill (`DIVERGENCE`).
+  - **Timeout Trigger:** If execution exceeds 120 seconds on a single seed $\to$ Immediate Kill (`TIMEOUT`).
+  - **Memory Leak Trigger:** If process RAM exceeds 512 MB $\to$ Immediate Kill (`OUT_OF_BOUNDS`).
+
+---
+
+## 9. Part 8: Recommended Pilot Triad
+
+For the initial real execution of this automated suite, running all six benchmarks simultaneously is unnecessary. We recommend the **Minimal Core Triad** (Tasks B, D, and F):
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                    THE RECOMMENDED PILOT TRIAD                                    |
++-------------------+-----------------------+-------------------------------------------------------+
+| Benchmark         | Target Phenomenon     | Decisive Analytical Role                              |
++-------------------+-----------------------+-------------------------------------------------------+
+| 1. Task B         | Interference & Memory | Decisively separates parameter superposition from     |
+|                   |                       | subspace isolation and continual retention.           |
++-------------------+-----------------------+-------------------------------------------------------+
+| 2. Task D         | Conditioning & Hessian| Decisively separates true coordinate-free curvature   |
+|                   |                       | propagation from diagonal optimizer tricks (AdamW).   |
++-------------------+-----------------------+-------------------------------------------------------+
+| 3. Task F         | Structural Commitment | Decisively separates continuous spurious correlation  |
+|                   |                       | fitting from genuine discrete invariant induction.    |
++-------------------+-----------------------+-------------------------------------------------------+
+```
+
+### Why this Triad is Sufficient for First Validation
+1. **Task B** catches every claim of "continual learning without forgetting".
+2. **Task D** catches every claim of "faster optimization / improved gradient flow".
+3. **Task F** catches every claim of "discovering true discrete structure / reasoning primitives".
+
+Any proposed learning-dynamics mechanism that fails all three of these tasks has no claim to novelty.
+
+---
+
+## 10. Part 9: Preregistration Schema
+
+Before running any compute on a proposed candidate, the following machine-readable preregistration block must be filled:
+
+```yaml
+preregistration:
+  candidate_id: "LDXX"
+  candidate_name: "Exact Descriptive Name"
+  formal_mechanism: "STATE + MECHANISM + UPDATE RULE + NON-PRESERVED PROPERTY"
+  target_benchmark: "Task [A|B|C|D|E|F]"
+  primary_metric: "AULC | S_tau | F | t_half | SGG"
+  predicted_effect_size: "Quantitative delta vs. Matched Baseline"
+  matched_baseline_specification:
+    control_architecture: "Exact architecture name"
+    parameter_count: 0
+    state_footprint_bytes: 0
+  hypothesized_ablation_failures:
+    A1_mechanism_removed: "Expected metric drop"
+    A2_state_zeroed: "Expected metric drop"
+    A5_optimizer_swapped: "Expected persistence under AdamW"
+  closest_known_mechanism: "Closest row in Behavioral Signature Table"
+  kill_criteria: "Exact quantitative condition that falsifies the claim"
+```
+
+---
+
 # Exact handoff
 
-Start at **Exact next action** in the resume block. Do not reopen Candidates P1–P72, IC1–IC18, or LD1–LD13. There is no surviving candidate across 103 audited proposals.
+Start at **Exact next action** in the resume block. Do not reopen Candidates P1–P72, IC1–IC18, or LD1–LD13.
 
-**Exact next action:** Await owner instructions or cross-lane synthesis regarding whether to conclude the architectural search, synthesize a unified impossibility/closure report across all lanes, or formulate an alternative, formally bounded search methodology. Do NOT generate LD14, IC19, or P73 until authorized.
+**Exact next action:** Await owner review of the benchmark suite design and authorization before executing the recommended pilot triad (Tasks B, D, F) or initiating automated search. Do NOT generate new architecture batches (no LD14, IC19, P73) or run benchmark compute until authorized.
+
 
 
 
