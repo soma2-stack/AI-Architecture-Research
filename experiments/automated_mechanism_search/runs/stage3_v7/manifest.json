@@ -1,0 +1,61 @@
+{
+ "stage": "stage3_v7",
+ "utc": "2026-09-28T15:35:54Z",
+ "git_commit": "365b2647562ede712a16aa8cf2a28144e608a915",
+ "git_dirty": true,
+ "packages": {
+  "python": "3.11.15",
+  "numpy": "2.4.6",
+  "scipy": "1.17.1",
+  "pytest": "9.1.1"
+ },
+ "machine": {
+  "platform": "Linux-6.18.44-fc-v42-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "nproc": 4,
+  "mem_total_mb": 16095
+ },
+ "gpu_used": false,
+ "cuda_visible_devices": "",
+ "config_sha256": "1df8d0cb5799b7c8f8e14c287544e00c886a645ba99b98bdd95f8d0f1961eb20",
+ "grammar_version": "AE.1/v2-impl-1",
+ "collision_library_version": "AE.2.4+AR-141/v2-impl-1",
+ "probe_blob_sha": "d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1",
+ "benchmark_generator_hashes_seed100": {
+  "B": "19ff688edb4cb85b6b536fff452ebd58540d612ccf634e7787a8831236ad38cb",
+  "Cstar": "789f34ab8630b385ab07da7517749830619cf5f599cc8c00132f6a4840e893ad",
+  "F": "8638b96986a4f3a6ee930d50e685a1b7bf88f7564b02a5ad2354c689639edfaa",
+  "D": "b70e754f60708e4d57d7ebb4388adbdcb9421461a509468f8cefc4ba363cc7b9",
+  "E": "6230d8fe2d07d0abe6609f31579ddb87aad2c34d576cc79e50c01bd9457a5f8b",
+  "A": "5036cd2f9942eccd60dedf89de2f105f606bc4489fcd6f09c95e107d23ddafa3",
+  "T0": "f4bca9ad02c53807d53aa1f6a10f1503b9ac52012a3e4b6b3677e6576d1a7728"
+ },
+ "git_at_start": {
+  "commit": "365b2647562ede712a16aa8cf2a28144e608a915",
+  "dirty_excluding_runs": false
+ },
+ "stage2_run": "stage2_v7",
+ "seeds": [
+  10000,
+  10001,
+  10002,
+  10003,
+  10004,
+  10005,
+  10006,
+  10007,
+  10008,
+  10009
+ ],
+ "labels": {
+  "P02743": "NEGATIVE",
+  "P04957": "NEGATIVE",
+  "P05100": "NEGATIVE",
+  "P05115": "NEGATIVE",
+  "P04064": "NEGATIVE",
+  "P03951": "NEGATIVE",
+  "P03376": "NEGATIVE",
+  "P01024": "NEGATIVE"
+ },
+ "cpu_seconds": 167.56544165899993
+}

@@ -17,23 +17,27 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
   - `SHARED_RESEARCH_MAP.md`;
   - this notebook.
 
-  `origin/main` `c31c97f` (the v7 amendment, the Codex v6 audit and its artifacts) was merged in. The only conflict was `runs/cpu_ledger.json`, where `main` was a strict superset. All v5, v6, Codex and Cursor work is preserved.
+  `origin/main` `c31c97f` was merged in. The only conflict was `runs/cpu_ledger.json`, where `main` was a strict superset. All v5, v6, Codex and Cursor work is preserved.
 - **Carried forward:** the v3 Stage-0 PASS and the v5 Stage-1 PASS (not rerun); the v5 Stage-2 negative; the v6 static-validation failure (no v6 search).
-- **Current stage:** v7 Stage 2 is complete, and Stage 3 runs on its 8 promotions. See Part AL and `experiments/automated_mechanism_search/STAGE2_V7_REPORT.md`.
-  - Implementation `27f2e81`:
-    - `ams/v7gen.py`: C1 and C3 as in v6; C2 = SGD + 0.1 × topk/where-routed residual, selector depth 0–1;
-    - the `where` 0.0 branch is spelled `(sub 1.0 1.0)`, because 0.0 is not a legal constant, and canonicalizes to exactly `where(sel, 1, 0)` (D-V7-2);
-    - the golden snapshot is unchanged, and the suite passes (194 tests).
-  - Static validation (seed 70707): **PASS**. 1,000/1,000 emitted proposals, 0 invalid; C1 320, C2 350, C3 330 (p = 0.50); every intended class is recognized by the unchanged fingerprint.
-  - Official Stage 2 (seed 2026092806, clean `1334cca`):
-    - stop reason `G_MAX` (20 generations); 5,544 generated; 2,230 T0; **1,200 Tier-1**; archive **35/56**;
-    - **8 promoted, all on C\***;
-    - 3 defects (interpreter broadcasting errors in offspring, below the stop threshold);
-    - 7,679 CPU-s.
-  - Stage 3: `scripts/stage3.py stage2_v7 stage3_v7` (the runner was committed as `94e23bb` before the promotion list was final).
-- **Strongest surviving candidate(s):** decided by Stage 3 (see Part AL). The maximum label this lane may assign is POSSIBLE ARCHITECTURE CANDIDATE — CROSS-LANE AUDIT REQUIRED.
-- **CPU:** about 2.8 CPU-h of 30 before Stage 3; no GPU.
-- **Exact next action:** see Part AL once Stage 3 is recorded.
+- **Current stage: the v7 run is COMPLETE through Stage 3.**
+  - **Implementation** (`27f2e81`): C1 and C3 as in v6; C2 = SGD + 0.1 × topk/where-routed residual. The `where` 0.0 branch is spelled `(sub 1.0 1.0)`, because 0.0 is not a legal constant, and canonicalizes to exactly `where(sel, 1, 0)` (D-V7-2). The golden snapshot is unchanged; the suite passes (194 tests).
+  - **Static validation** (seed 70707): **PASS**. 1,000/1,000 emitted proposals, 0 invalid, every intended class recognized.
+  - **Official Stage 2** (seed 2026092806, clean `1334cca`):
+    - stop reason `G_MAX`; 5,544 generated; 2,230 T0; **1,200 Tier-1**; archive **35/56**;
+    - **8 promoted, all on C\*, all mutation offspring**;
+    - 3 defects (below the stop threshold);
+    - no constructor C2 proposal reached T0 (all were duplicates or inert).
+  - **Official Stage 3** (fresh seeds 10000–10009, clean `365b264`, runner `94e23bb`): **all 8 NEGATIVE**. Gate 3 failed for every candidate (threshold, Holm and bootstrap). On the fresh seeds SGD's half-life is 21.8; the best candidate reached 12.4 against the required ≤ 10.9, and 5/10 return checks against the required 8/10.
+  - Classification (owner rule): a **negative result for the v7 detector-aligned SGD-anchored search design**, not evidence that no mechanism exists.
+  - Full record: Part AL; `experiments/automated_mechanism_search/STAGE2_V7_REPORT.md`.
+- **Strongest surviving candidate(s):** none. 0 INTERESTING, 0 POSSIBLE ARCHITECTURE CANDIDATE.
+- **Open observations, recorded and not acted on:**
+  1. The frozen K(P) turns gated dW terms into `dW = 0`, which makes gates 4a/4b trivial for gated programs.
+  2. 3 interpreter broadcasting defects occurred in offspring during Tier-1 F.
+  3. The frozen v5 `m_gate` `where` mutation always yields a `bad_const` offspring.
+  4. Tier-1 C\* selection on 3 seeds with the censored half-life is noisy enough that MAP-Elites selected on noise.
+- **CPU:** 2.838 CPU-h of the shared 30 CPU-h cap; no GPU; no Stage 4.
+- **Exact next action:** none authorized. Any further AMS search needs a new owner protocol decision. Codex and Cursor/Gemini may audit `runs/stage2_v7/` and `runs/stage3_v7/` independently.
 
 # Resume Pointer as of session 18 (historical; superseded by the block above)
 
@@ -4688,6 +4692,59 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AL — AMS v7: detector-aligned constructor, official Stage 2 and Stage 3 (session 19, 2026-09-28)
+
+**Status:** complete. Stage 2 promoted 8 candidates, and **all 8 are NEGATIVE in Stage 3**. Full report: `experiments/automated_mechanism_search/STAGE2_V7_REPORT.md`.
+
+## AL.1 Reconciliation (verified)
+
+- Merged `origin/main` `c31c97f`: the v7 amendment `8249d2f`, the owner record `2bbb7dc`, the Codex v6 audit `0b726b0` and `4abb62c`, and the audit artifacts.
+- The ledger conflict was resolved by taking `main`'s version, a strict superset of mine.
+- `AGENTS.md`: 0-line diff. The Codex and Cursor notebooks and `experiments/ams_audit/` were not read.
+
+## AL.2 v7 implementation and validation (verified)
+
+- **Constructor.** `ams/v7gen.py` subclasses the v6 constructor. C1 and C3 are unchanged (a test checks identity with v6). C2:
+  - selector: depth 0–1, reading z, h or dphi;
+  - route: `topk(sel, k∈{1,4,8})` or `where(sel, 1, 0)`, chosen uniformly;
+  - updates: `dW = SGD + 0.1·rowscale(SGD, route)`, `db = SGD_b + 0.1·(SGD_b ⊙ route)`.
+- **Zero constant (D-V7-2).** 0.0 is not a legal generated constant, so the zero branch is written `(sub 1.0 1.0)`, which canonicalizes to exactly the specified program.
+- **Frozen quirk (observation).** The v5 `m_gate` mutation's `where` variant uses a literal 0.0 and always yields an invalid offspring.
+- **Static validation** (seed 70707): PASS on every check.
+- **Stage-3 runner** (`ams/stage3.py`; decisions D-S3-IMPL). It was committed while Stage 2 was still running and smoke-tested only on non-official seeds 900–901.
+
+## AL.3 Official Stage 2 (verified)
+
+- Seed 2026092806, clean `1334cca`. Stop reason `G_MAX`, with the Tier-1 budget exactly used (1,200).
+- Generated 5,544; T0 2,230 (1,030 failed); archive 35/56; Tier-1 q ≥ 0.15: 41; **8 promoted, all C\***.
+- **By source:**
+  - constructor C1: 113 reached Tier 1, none with q > 0;
+  - constructor C2: none reached T0 (duplicates or inert);
+  - constructor C3: 87 reached Tier 1, 1 with q ≥ 0.15;
+  - offspring: 997 reached Tier 1, 40 with q ≥ 0.15. All promotions are offspring.
+- **Promoted motifs:** noise-driven forward gain; unit reinitialization on normalized dphi, close to continual backprop (R21 similarity up to 0.95); and `W_eff = W + W_ep0` weight doubling.
+- 3 defects were recorded and not repaired.
+
+## AL.4 Official Stage 3 (verified)
+
+- Fresh seeds 10000–10009, clean `365b264`; 139 jobs, 0 errors; 167.6 CPU-s.
+- **Controls:** SGD half-life 21.8 is the best generic. R12 and R13 are unstable; R15 is stable (128).
+- **Result: every candidate fails gate 3.**
+  - Threshold: none reaches half-life ≤ 10.9 with return-OK ≥ 8/10 (best P04957: 12.4 and 5/10).
+  - Holm over 8 pairs: none significant (best p = 0.008 > 0.05/8).
+  - **Label: 8 × NEGATIVE.** Tier 3 was not required.
+
+## AL.5 Interpretation (not a verdict)
+
+- **Selection on noise.** The C\* gains came from selecting on 3 Tier-1 seeds with a coarse, censored half-life metric; SGD itself moves from 12.0 to 21.8 between seed sets.
+- **Constructor proposals.** The C2 proposals were too close to SGD to be distinct.
+- **K(P) limitation (frozen decomposition).** K(P) cannot strip a gate whose stripped form is not a family template. It then zeroes dW, so gates 4a/4b would have passed trivially for gated candidates. This is irrelevant here, because gate 3 failed first, but it matters for any future design.
+- **Result class.** Per the owner's rule, this is a negative for the v7 search design. The AGENTS.md candidate tally is unchanged: 0 supported new architectures or primitives.
+
+## AL.6 Compute
+
+Static validation 6.5 CPU-s; Stage 2 7,678.6 CPU-s; Stage 3 167.6 CPU-s. The ledger stands at **2.838 CPU-h of 30**. No GPU.
 
 # Part AK — AMS v6 SGD-anchored constructor: implementation, static validation, STOP (session 18, 2026-09-28)
 

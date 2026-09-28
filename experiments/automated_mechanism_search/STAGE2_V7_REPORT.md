@@ -84,6 +84,69 @@ Interpretation (not a verdict):
   - **effective-weight doubling** (`W + W_ep0`).
 - These are 3-seed Tier-1 estimates. Stage 3 decides on 10 fresh seeds.
 
-## 4. Stage 3
+### Where the promotions came from (`runs/stage2_v7/summary_by_class.json`)
 
-_Pending — filled in from `runs/stage3_v7/results.json`._
+| Source | Proposals | Reached Tier 1 | Tier-1 q ≥ 0.15 |
+|---|---|---|---|
+| constructor C1 | 169 | 113 | 0 (max q −0.002) |
+| constructor C2 | 155 | **0**: 79 behavioural duplicates, 67 syntactic duplicates, 9 REDISCOVERY_inert | 0 |
+| constructor C3 | 157 | 87 | 1 (P00065, q 0.33; later displaced from its cell) |
+| mutation / crossover offspring | 5,063 | 997 | 40 |
+
+All 8 promotions are offspring. None of the 155 v7 C2 proposals was distinct enough to reach T0: the 10% routed residual is behaviourally too close to SGD, or to earlier proposals, on the probes.
+
+## 4. Stage 3 (`runs/stage3_v7/`)
+
+- **Run:** `python3 scripts/stage3.py stage2_v7 stage3_v7`, from clean commit `365b264`.
+- **Runner:** frozen D-S3 / D-S3-v4 rules; the runner was committed as `94e23bb` before the promotion list was final.
+- **Seeds:** fresh seeds 10000–10009, used for the first time. Every condition selects its own learning rate.
+- **Jobs:** 139 (123 in phase 1, 16 resource-matched in phase 2), 0 errors. Each job ran 30 runs (10 seeds × 3 learning rates) of 448 updates.
+- **Compute:** 167.6 CPU-s.
+
+**Fresh-seed generics on C\*** (censored median half-life): SGD **21.8** (the best generic, G); AdamW 22.6; SGDM 29.2. On the Tier-1 seeds SGD scored 12.0, so the fresh-seed variance is large.
+
+**Known controls:** R12 and R13 are unstable on these seeds, so R15 (128) is the strongest stable control.
+
+| Candidate | m_P | Return OK | Threshold (≤ 10.9 and ≥ 8/10) | Wilcoxon p | Holm (8 pairs) | Bootstrap 95% CI of G − P | **Label** |
+|---|---|---|---|---|---|---|---|
+| P02743 | 18.0 | 5/10 | fail | 0.406 | no | [−4.0, 14.6] | **NEGATIVE** |
+| P04957 | 12.4 | 5/10 | fail | 0.070 | no | [1.6, 17.8] | **NEGATIVE** |
+| P05100 | 23.0 | 8/10 | fail | 0.766 | no | [−6.2, 3.6] | **NEGATIVE** |
+| P05115 | 17.0 | 3/10 | fail | 0.008 | no (0.008 > 0.05/8) | [2.0, 8.0] | **NEGATIVE** |
+| P04064 | 17.0 | 3/10 | fail | 0.008 | no | [2.0, 8.0] | **NEGATIVE** |
+| P03951 | 23.8 | 7/10 | fail | 0.812 | no | [−6.6, 2.6] | **NEGATIVE** |
+| P03376 | 26.4 | 3/10 | fail | 0.921 | no | [−13.6, 7.4] | **NEGATIVE** |
+| P01024 | 22.6 | 6/10 | fail | 0.125 | no | [−13.0, 7.0] | **NEGATIVE** |
+
+All eight pass gate 1 (stable) and gate 2 (R0 MSE at step 256 ≤ 0.25). **All eight fail gate 3** — the preregistered threshold, Holm-corrected Wilcoxon and bootstrap requirement — and so are labelled **NEGATIVE: no preregistered matched advantage on fresh data.**
+- P05115 and P04064 behave identically on C\*. Their gates differ only through the error leaf `e`, which is zero in hidden layers.
+- The closest candidate, P04957, has seed-mean half-life 12.4 against the required ≤ 10.9, and only 5/10 seeds pass the return check against the required 8.
+
+**Diagnostic conditions** (recorded in `results.json`; they do not affect the labels, which gate 3 already decides):
+- **Resource-matched G is much worse than SGD.** A6 (compute-matched SGD, k = 2 or 3 updates per batch) has half-life 61.6 or censored; A7 (capacity-matched SGD, hidden 33–47) is 24.0–27.2.
+- **A4** (`update_every` flipped to 8) is unstable for 7 of 8 candidates and censored (128) for P03376.
+- **A5a / A5b** (P through SGDM / AdamW) are mostly worse than P.
+- **K(P) limitation (frozen decomposition, observation only).** For every candidate whose dW term is gated, the frozen K(P) drops the whole gated term instead of stripping the gate, because the stripped form does not match a family template. K(P) then has `dW = 0`, cannot learn (half-life 128), and makes gates 4a/4b pass trivially. Only P02743, whose dW is plain SGD, has a meaningful K(P); it equals SGD (21.8).
+- Tier 3 is not required: no candidate carries the maximum label.
+
+## 5. Outcome
+
+- **v7 is the first AMS design to seed the archive.** It filled 35/56 cells with 1,200 Tier-1 evaluations and 8 promotions.
+- **No promoted candidate survived Stage 3. Final labels: 8 × NEGATIVE.** 0 INTERESTING, 0 REDISCOVERY, 0 POSSIBLE ARCHITECTURE CANDIDATE.
+- By the owner's classification, this is a **negative result for the v7 detector-aligned SGD-anchored search design** at the matched-validation stage. The C\* half-life gains selected on 3 Tier-1 seeds did not replicate on 10 fresh seeds.
+- It is not evidence that no novel mechanism exists in the grammar.
+
+Interpretation (not a verdict):
+- **Selection on noise.** Tier-1 C\* scores rest on 3 seeds, and the censored half-life is a coarse, high-variance metric (per-seed values of 4–128). MAP-Elites selected on that noise: 40 of the 41 q ≥ 0.15 records are offspring that mainly add noise injection, reinitialization or `W + W_ep0` weight doubling.
+- **Constructor proposals.** The v7 C2 proposals never became distinct candidates, and C1 never reached q > 0. The constructor mainly served to seed the archive; mutation produced everything that was promoted.
+
+## 6. Compute
+
+| Item | CPU |
+|---|---|
+| v7 static validation (plus one scratch dry run) | 6.5 CPU-s |
+| Official Stage 2 | 7,678.6 CPU-s |
+| Official Stage 3 | 167.6 CPU-s |
+| **Shared ledger total** | **2.838 CPU-h of 30** |
+
+No GPU. No Stage 4.
