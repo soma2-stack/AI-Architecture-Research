@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN v3 — STAGES 0–3 AUTHORIZED BY OWNER**
+**FROZEN DESIGN v4 — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -51,7 +51,38 @@ v3 makes the smallest protocol change needed:
 
 All other v2 rules and the implementation decisions committed before the v2 gate remain frozen unless explicitly superseded below.
 
-**Version 3 is now the sole active protocol.** Official Stage 0 must rerun under v3. Stages 0–3 remain authorized; Stage 1 may begin only if the v3 Stage-0 gates pass. No further material protocol changes are authorized after official Stage 1 begins unless another explicit owner amendment is recorded.
+Version 3 governed the first official Stage-1 calibration.
+
+## Version 4 amendment — Stage-1 calibration repair before search
+
+Official v3 Stage 0 passed. Official v3 Stage 1 then stopped before any candidate search because three calibration gates failed:
+- M2-B used an absolute Task-1 fit target of `L1_pre < 1e-3`, while all three generic baselines learned Task 1 by about 99% relative error reduction but plateaued near 0.016;
+- V1-B required a particular existing continual-learning control to show a strong retention signature, but none of the frozen controls did so on this severe conflict construction;
+- V2-C* required a fast/slow reference to beat SGD, but the frozen R12/R13 all-layer fast-weight templates diverged on the linear output layer and R15 was slower than SGD.
+
+No Stage-2 candidate was generated or evaluated and Stage 3 did not run. The owner therefore authorized this in-place calibration amendment. Git history preserves v1-v3.
+
+v4 **does not change**:
+- the candidate grammar;
+- Tasks B, C*, F generators or schedules;
+- Stage-2 search budgets;
+- candidate promotion thresholds;
+- state/parameter/FLOP matching;
+- ablations;
+- rediscovery gates;
+- CPU/GPU limits.
+
+v4 changes only the pre-search calibration logic:
+1. replace M2-B's unrealistic absolute fit threshold with a scale-free relative-learning requirement;
+2. replace V1-B's requirement that a named continual-learning method must win with a joint-training representability oracle proving the fixed substrate can represent both Task-B mappings at once;
+3. keep GPM/R17/R18/R13 as recorded Task-B known-family controls, but their failure to improve is no longer itself a stop condition;
+4. demote V2-C*'s R12/R13/R15 positive-control win to a recorded diagnostic because the frozen all-layer fast-weight references are not stable positive controls on this substrate;
+5. strengthen the generic C* sanity gate so at least one ordinary baseline must actually adapt within a 64-step R1 segment;
+6. retain V3-F and V-D as mandatory positive-control signatures.
+
+The official v3 Stage-0 PASS remains valid because v4 changes no Stage-0 rule or implementation. Stage 0 does not need to be rerun. Official Stage 1 must rerun under v4 before Stage 2 may begin.
+
+**Version 4 is now the sole active protocol.** Stages 0-3 remain authorized. No further material protocol changes are authorized after v4 Stage 1 passes and Stage 2 begins unless another explicit owner amendment is recorded.
 
 ---
 
@@ -367,18 +398,30 @@ The v3 Stage-0 gate passes iff:
 
 There is no additional magnitude threshold. The Stage-0 gate establishes directional conflict only; actual harmful interference is tested empirically in Stage 1.
 
-#### Stage-1 Task-B validity gates (ratified from the pre-result implementation decisions)
+#### Stage-1 Task-B validity gates (v4)
 
 Using the frozen equal learning-rate grid and no early stopping:
 
-- **B fit:** for each of SGD, SGDM and AdamW at its selected learning rate, the seed-mean held-out `L1_pre` must be **< 1e-3**.
-- **B interference:** for each of SGD, SGDM and AdamW:
+- **B fit (M2-v4):** for each of SGD, SGDM and AdamW at its selected learning rate, define
+  `FitReduction_B = 1 - L1_pre / max(L1_init, 1e-8)`.
+  The seed-mean `FitReduction_B` must be **>= 0.95**. This gate asks whether Task 1 was substantially learned; it no longer demands an arbitrary absolute MSE scale.
+- **B interference (M3, unchanged):** for each of SGD, SGDM and AdamW:
   - seed-mean `Forgetting_B >= 10` percentage points; and
   - `L1_post > L1_pre` on every calibration seed.
+- **B representability oracle (V1-B-REP):** the same two-hidden-layer MLP must be able to represent both frozen Task-B mappings when replay/interleaving is allowed:
+  - same calibration seeds and Glorot initialization;
+  - same LR grid `{1e-3, 1e-2, 1e-1}`;
+  - exactly 1,000 updates;
+  - batch size 32 with exactly 16 Task-1 and 16 Task-2 fresh examples in every update;
+  - no early stopping;
+  - LR selected by the mean of Task-1 and Task-2 training MSE over the last 50 updates;
+  - on held-out sets, both Task-1 and Task-2 must achieve seed-mean relative error reduction **>= 0.95** against their own initialization MSE.
 
-Known-family signature checks and all other Stage-1 validity gates remain as committed before the v2 Stage-0 result.
+The representability oracle is a benchmark-validity control only. It is not an eligible baseline for candidate promotion because it receives replay from both tasks.
 
-If the v3 Stage-0 directional-conflict gate or any Stage-1 Task-B gate fails, Task B is invalid and the run stops for owner review.
+GPM, R17, R18 and R13 remain recorded known-family Task-B controls and remain eligible as relevant matched controls when stable, but their failure to reduce forgetting is **not** a Stage-1 stop condition under v4.
+
+If the v3 Stage-0 directional-conflict gate, M2-v4, M3, or V1-B-REP fails, Task B is invalid and the run stops for owner review.
 
 #### Metric
 
@@ -437,6 +480,15 @@ Promotion threshold:
 - median R1 adaptation half-life across the two R1 entries is at least **50% lower** than the best generic optimizer baseline;
 - after return to R0, R0 evaluation MSE after 64 steps must be no greater than `max(1.10 * MSE_R0_pre_shift, MSE_R0_pre_shift + 0.01)`;
 - advantage must survive state/FLOP matching and optimizer swap.
+
+#### Stage-1 C* calibration rule (v4)
+
+The generic C* sanity gate is mandatory:
+- the best generic baseline must learn R0 to seed-mean `MSE_R0(256) < 0.25`;
+- seed-mean R1 entry MSE must exceed `tau_C = 0.05` at both entries;
+- at least one of SGD/SGDM/AdamW must have a **finite seed-mean censored R1 adaptation half-life < 64 updates**, demonstrating measurable adaptation within an R1 segment.
+
+R12 fast weights, R13 fast/slow and R15 three-factor remain recorded known-family diagnostics. Their failure to beat SGD does **not** stop Stage 1 under v4. Unstable controls remain recorded as unstable and may not be used as a matched denominator.
 
 ### Search Task F — Structural commitment (v2 fixed budget)
 
@@ -547,12 +599,18 @@ No method receives early stopping in Tasks B, C* or F.
 
 Any pre-v2 local calibration run that used unequal fixed learning rates or early stopping is **diagnostic only** and cannot satisfy Stage 1.
 
-Target-property controls follow Cursor/Gemini's suite, including appropriate families such as:
+Target-property controls follow Cursor/Gemini's suite where they are stable and compatible with the substrate, including appropriate families such as:
 
-- GPM/OWM for interference;
-- MAML/fast-weight-style controls for adaptation;
+- GPM/OWM-style controls for interference;
+- stable fast/slow or three-factor controls for adaptation;
 - K-FAC or strong normalization/adaptive-optimizer controls for conditioning diagnostics;
 - constructive/discrete learners for structural commitment where matched comparison is meaningful.
+
+For Task B Stage-3 matching, use the strongest stable relevant control among GPM/R17/R18/R13 in addition to the generic baselines.
+
+For Task C* Stage-3 matching, use the strongest stable relevant control among R12/R13/R15. A control that is unstable on the frozen task is recorded but is not used as the comparison denominator.
+
+The joint-training Task-B representability oracle is validity-only and is never a candidate baseline because it receives replay unavailable to candidates.
 
 ---
 
@@ -754,8 +812,8 @@ No automated system may label its own output a new architecture.
 
 Stop the search immediately if:
 
-- benchmark validity controls fail;
-- known-family controls do not show their expected behavioral signatures;
+- a **mandatory v4 benchmark/calibration validity control** fails;
+- mandatory positive-control signatures V3-F or V-D fail;
 - Task F does not create the preregistered baseline structural-generalization failure;
 - implementation/canonicalization tests are unreliable;
 - the 30 CPU-hour cap is reached;
@@ -804,17 +862,31 @@ Because v3 supersedes the failed v2 Task-B Stage-0 gate, official Stage 0 must b
 
 ## Stage 1 — calibration
 
-Run established mechanisms and ordinary baselines **from the v3-active implementation**.
+Run established mechanisms and ordinary baselines **under v4**.
 
-Earlier pre-v2 calibration replays are not official evidence. No official Stage-1 calibration was run under v2.
+The v3 Stage-1 run is preserved as calibration evidence but does not authorize Stage 2 because its then-mandatory gates failed.
 
 Purpose:
 - validate tasks;
-- validate behavioral signatures;
+- validate mandatory v4 benchmark controls;
+- record known-family behavioral signatures;
 - validate effect metrics;
 - validate equivalence detector.
 
-Abort if controls do not behave as preregistered.
+Mandatory v4 gates include:
+- M2-v4 Task-B relative fit;
+- M3 Task-B interference;
+- V1-B-REP joint-training representability oracle;
+- Task-F generic failure;
+- C* generic sanity including finite adaptation within a segment;
+- detector/implementation validity;
+- generic-control stability;
+- V3-F;
+- V-D.
+
+R12/R13/R15 C* positive-control wins and GPM/R17/R18/R13 Task-B retention wins are recorded diagnostics, not mandatory v4 stop gates.
+
+Abort if any mandatory v4 control fails.
 
 ## Stage 2 — automated search
 Run the frozen MAP-Elites search within the candidate and compute budgets.
@@ -843,4 +915,4 @@ As of this commit:
 
 Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
 
-The v3 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
+The v4 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
