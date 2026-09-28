@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **AMS preregistration v5 frozen with final Task-B oracle budget; rerun official Stage 1 under v5** |
+| **Current phase** | **v5 Stage 1 passed; Stage 2 stopped on a code defect; rerun exact Stage 2 after type-preserving repair** |
 
 ---
 
@@ -1106,8 +1106,8 @@ Primary role: **primary implementation and search runner**.
 
 - Sync latest `origin/main`.
 - Read v5 before running experiment code.
-- Reuse the merged implementation and accepted v3 Stage-0 PASS.
-- Update only the V1-B-REP oracle budget/version markers/config/tests and rerun official Stage 1 under v5.
+- Treat the official v5 Stage-1 PASS as accepted.
+- Sync the type-preserving `strip_gates` repair from `main`, run its regression/full tests, then rerun Stage 2 exactly under the frozen search configuration.
 - If Stage 0 passes, run official Stage 1 with equal learning-rate budgets and no early stopping.
 - Only if Stage 1 passes may Claude proceed to Stage 2 MAP-Elites and Stage 3 matched validation.
 - Stop on any v2 validity failure; do not alter the protocol.
@@ -1251,6 +1251,24 @@ This is the final Task-B calibration amendment before search. If the 4,000-updat
 
 The v3 Stage-0 PASS carries forward. **Current restart point: official Stage 1 under v5.**
 
+
+### v5 Stage-2 implementation-defect repair
+
+Claude's official v5 Stage 1 passed every mandatory gate. The first Stage-2 run then stopped at 5,782 generated programs under the precommitted defect-count rule:
+- 0 Tier-1 benchmark evaluations;
+- 0 archive cells filled;
+- 0 promoted candidates;
+- 6 implementation exceptions, all from the same `strip_gates` scalar-`where` type bug.
+
+The stopped run and Codex's independent v4 audit are both preserved on `main`.
+
+The code repair is protocol-preserving:
+- scalar positive branches of `where` are now broadcast back to the original vector type during gate stripping;
+- a regression test covers the missed case.
+
+The next run must be an **exact Stage-2 rerun** with the same search seed, generator, sanity filter, budgets and thresholds. Do not alter the generator or sanity gate based on the first run's low yield.
+
+If the exact repaired rerun still produces no Tier-1 evaluations by the frozen generation cap, classify the result as a search-design negative for the frozen generator/filter configuration.
 
 ## Execution authorization — 2026-09-28
 

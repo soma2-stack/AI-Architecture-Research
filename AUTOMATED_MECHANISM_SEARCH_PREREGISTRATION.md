@@ -120,6 +120,31 @@ The accepted v3 Stage-0 PASS remains valid because v5 changes no Stage-0 rule. O
 
 **Version 5 is now the sole active protocol.** Stages 0-3 remain authorized. If v5 Stage 1 passes, Stage 2 may begin immediately under the already-frozen search rules.
 
+## v5 implementation repair record — Stage-2 `strip_gates` defect
+
+Official v5 Stage 1 passed every mandatory gate. Stage 2 then began under the frozen search protocol and stopped at 5,782 generated programs because the precommitted implementation-defect counter exceeded five.
+
+All six exceptions shared one implementation root cause in the non-family residual decomposition: neutralizing a legal `where` gate by returning its positive branch directly could replace a vector-typed subtree with a scalar branch, producing an ill-typed residual tree.
+
+This is an implementation defect, not a protocol parameter or candidate result. No program reached Tier-1 benchmark evaluation and no candidate was promoted before the stop.
+
+The repair is frozen as:
+- when the positive `where` branch already has the gate's output type, return it unchanged;
+- when the positive branch is scalar, preserve the gate's vector output type by broadcasting it as `add(0@T, scalar_branch)`;
+- add a regression test proving scalar-branch gate stripping preserves the original type.
+
+A Stage-2 rerun is permitted under the existing Stage-2 authorization **only** with:
+- search seed `20260928`;
+- the same generator;
+- the same sanity filter;
+- the same 6,000 generated / 3,000 sanity / 1,200 Tier-1 / 20 promoted caps;
+- the same candidate thresholds, baselines and accounting rules;
+- a fresh output directory/manifest so the stopped run remains intact.
+
+Do **not** seed from known-family mutants, relax T0, enlarge the generation budget, change mutation probabilities, or otherwise tune the search based on the first run's zero-yield observation.
+
+If the repaired exact rerun again reaches 6,000 generated programs with zero Tier-1 evaluations, record that as a **search-design negative for this frozen generator/filter configuration**, not as evidence that no mechanism exists in the grammar.
+
 ---
 
 # 1. Research question
