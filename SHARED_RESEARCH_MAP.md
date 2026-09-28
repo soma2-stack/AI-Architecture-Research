@@ -8,22 +8,47 @@
 
 ## 1. Mission
 
-The project is searching for a **genuinely new computational primitive / AI architecture mechanism**, not a renamed or recombined version of existing machinery.
+The project is searching for either:
 
-A candidate does **not** count as new merely because it is:
-- a new loss;
-- a prompt or agent loop;
-- RAG or tool use;
-- a neural front-end attached to a classical algorithm;
-- a new combination of memory + search + planner + solver;
-- a known algorithm made differentiable;
-- a known symbolic system wrapped around a neural model;
-- a new benchmark result;
-- a useful system-level integration.
+1. a **genuinely new computational primitive**, or
+2. a **genuinely new AI architecture** whose important property is not preserved when reduced to an ordinary pipeline of known components.
 
-A serious candidate must name an operation, state representation, write rule, learning rule, scheduling rule, inference rule, or training/inference relationship that cannot be cleanly reduced to known neural or classical machinery.
+The old standard was too strict because it could reject any computable architecture merely because a universal machine, interpreter, solver, or program synthesis system could simulate it.
 
-**Current global result: 0 surviving new architecture candidates.**
+That is no longer a valid architecture-level kill.
+
+### Three levels
+
+**New primitive**
+- genuinely new operation/state/transition semantics;
+- strongest novelty claim;
+- clean same-operation reduction to known machinery kills this claim.
+
+**New architecture**
+- may use known primitives;
+- must have a native organization whose important property is lost under ordinary decomposition;
+- qualifying properties can include a hard guarantee, asymptotic/worst-case separation, meaningful resource/scaling law, new learning/adaptation capability, new information/credit-flow structure, new memory/update semantics, or a strong reproducible matched empirical advantage.
+
+**New system / pipeline**
+- useful arrangement of existing components;
+- ordinary decomposition preserves the claimed capability;
+- not counted as a new architecture.
+
+### Critical rule
+
+> **General implementability is not architectural equivalence.**
+
+Do not kill an architecture merely because a Turing machine can simulate it, an interpreter can express it, or its low-level operations are known.
+
+Instead ask:
+
+> **Can an existing architecture or ordinary decomposition reproduce the candidate's important state transitions, guarantees, learning behavior, information flow, and computational/resource advantages?**
+
+If yes, kill the architecture claim.
+
+If no, it may survive as an architecture candidate.
+
+**Current global result: 0 supported new architectures or primitives.**
 
 ---
 
@@ -454,6 +479,48 @@ The old queued topological-soliton/skyrmion direction is not automatically the n
 
 ---
 
+# 4.5 Latest irreducibility/calibration round
+
+## Claude session 7
+
+Claude generated 21 additional irreducible-operation candidates and found 0 survivors under the old filter.
+
+More importantly, Claude identified a calibration problem:
+
+- once universal interpretation, synthesis, Bayesian inference, and ordinary computation are granted, almost any specified computable mechanism can be described as implementable by known machinery;
+- under that interpretation, historically important architectures such as attention, residual connections, diffusion, backpropagation, and CDCL-style mechanisms could be rejected merely because their parts are simulable;
+- therefore computability/decomposability alone is too strong an architecture-level novelty test.
+
+## Cursor/Gemini Batches 3–4
+
+Cursor/Gemini expanded from P1–P40 to **P1–P72**.
+
+- P41–P56 explored inter-machine/topological/geometry/physical boundaries.
+- P57–P72 explored non-representational / continuous-substrate mechanisms.
+- All 32 additional candidates were reduced under the old primitive-level filter.
+- Total explicit primitive candidates: **72**.
+- Total primitive survivors: **0**.
+
+This produced the useful observation that digital implementations of physical/dynamical proposals often reduce to numerical algorithms, while physical realizations often reduce to known analog/neuromorphic hardware.
+
+Under the calibrated standard, that observation still kills many **primitive** claims, but it does not automatically kill every possible **architecture** claim.
+
+## Codex through AR-137
+
+Codex extended the archaeology/collision database through AR-137 and closed additional directions including:
+
+- specification induction;
+- query-based policy learning;
+- translation validation;
+- dynamic software updating;
+- reflective interpreters;
+- learned executable rules;
+- evaluator invention.
+
+No candidate survived that pass and no experiments were run.
+
+---
+
 # 5. Cross-lane conclusions
 
 The three independent lanes repeatedly converge on the following.
@@ -470,23 +537,17 @@ Therefore:
 
 > “Neural networks are bad at exact discrete X” does not imply a new architecture. Usually the answer is an existing discrete machine.
 
-## B. Combining neural + classical machinery is not enough
+## B. Combining neural + classical machinery is not automatically an architecture
 
-A neural front end plus:
-- RAM;
-- CSP;
-- SAT/SMT;
-- theorem proving;
-- search;
-- a planner;
-- a stack;
-- TMS;
-- a database;
-- a compiler;
-- program synthesis;
-- causal discovery;
+A neural front end plus RAM, search, planning, SAT/SMT, theorem proving, TMS, databases, compilers, program synthesis, or causal discovery is usually only a pipeline.
 
-may be useful, but it is a **pipeline/system**, not a new primitive.
+However, the calibrated question is now:
+
+> Does the **native coupling itself** create a property that disappears when the components are replaced by the ordinary decomposition?
+
+If no, classify it as a system/pipeline.
+
+If yes, it may survive as an architecture candidate even though the low-level operations are known.
 
 ## C. Dynamic structure is heavily occupied
 
@@ -607,86 +668,112 @@ For future novelty searches, assume the hypothetical system is already allowed t
 - graph algorithms;
 - established physical / dynamical / neuromorphic substrates.
 
-A candidate that becomes unnecessary after granting these machines is not the primitive we are looking for.
+A candidate that becomes unnecessary after granting these machines is not a **new primitive**. For an architecture claim, continue to the substitutability test: determine whether the ordinary combination preserves the proposed architecture's important property.
 
 ---
 
 # 7. New search question
 
-Stop asking:
+Do not return to:
 
 > “What can a Transformer not do?”
 
-Instead ask:
+And do not use the impossible standard:
 
-> **“If a system already has every major known neural and classical machine above, what useful computational operation is still missing?”**
+> “Can no known computer simulate this?”
 
-The candidate must survive that stronger starting assumption.
+Instead ask two separate questions:
 
-This shifts the project from:
-- neural limitation hunting;
-- classical-machine rediscovery;
-- field-by-field archaeology;
+### Primitive question
 
-toward:
+> **Does this candidate perform an operation that no existing primitive already performs?**
 
-**irreducible operation discovery.**
+### Architecture question
+
+> **If its low-level operations are known, does their native organization create an important property that the ordinary decomposition fails to preserve?**
+
+This preserves the strict primitive search without making architectural novelty impossible by definition.
 
 ---
 
 # 8. Candidate format from now on
 
-Every proposed candidate should be expressible as:
+Every proposed candidate should still be expressible as:
 
 `STATE + OPERATION + WRITE/TRANSITION RULE + GUARANTEE`
 
-and answer:
+Then classify it separately at two levels.
 
-1. What exact state exists?
-2. What exact operation is performed?
-3. What information is read?
-4. What is written or changed?
-5. What triggers the operation?
-6. What invariant or new capability results?
-7. Why can neural approximation not already do it?
-8. Why can an existing classical machine not already do it?
-9. Why is it not just search?
-10. Why is it not a memory/database?
-11. Why is it not a solver/interpreter?
-12. Why is it not a pipeline of known machines?
-13. What is the closest historical prior art?
-14. What is the closest modern prior art?
-15. What observation would kill it immediately?
+## Primitive screen
 
-If any known machine cleanly performs the same operation, kill the candidate.
+1. What exact operation is performed?
+2. What state is read and written?
+3. What known primitive comes closest?
+4. Does that primitive perform the same important transition?
+5. If yes, kill the primitive claim.
+
+## Architecture screen
+
+6. What is the closest existing architecture?
+7. What is the ordinary decomposition/pipeline?
+8. What important property is claimed to arise from the native organization?
+9. Does decomposition preserve that property?
+10. Does removing/replacing the mechanism remove the property?
+11. Is there a hard guarantee, complexity/resource difference, learning capability, information-flow difference, or robust empirical advantage?
+12. Is there direct historical or modern prior art for substantially the same architecture?
+13. What would falsify the architecture claim?
+14. What is the smallest decisive proof, ablation, or matched experiment?
+
+### Classification
+
+Use one of:
+
+- `KILLED — EXISTING MECHANISM`
+- `KILLED — EXISTING ARCHITECTURE`
+- `KILLED — PIPELINE ONLY`
+- `KILLED — IMPOSSIBLE / NON-IDENTIFIABLE`
+- `SURVIVES AS ARCHITECTURE CANDIDATE`
+- `SURVIVES AS PRIMITIVE CANDIDATE`
+
+A reduction to known low-level operations is enough to kill the **primitive** label, but not automatically the **architecture** label.
 
 ---
 
 # 9. Research order
 
-For every new idea:
+For every new or re-audited idea:
 
 ### Stage 1 — Define
-Specify the operation precisely.
+Specify the mechanism and claimed property precisely.
 
-### Stage 2 — Reduction attack
-Try to express it using the known-machine library.
+### Stage 2 — Primitive reduction
+Try to express the operation using the known-machine library.
 
-### Stage 3 — Prior art
-Search old AI, CS, math, control, PL, databases, logic, cognitive systems, and modern ML.
+If successful, kill only the **primitive** claim.
 
-### Stage 4 — Conceptual falsification
-Check whether it is:
-- impossible;
-- non-identifiable;
-- merely a different representation;
-- merely a search problem;
-- merely a system integration.
+### Stage 3 — Architecture substitutability
+Construct the strongest ordinary decomposition.
 
-### Stage 5 — Experiment only if needed
-Run the smallest experiment only when literature/reduction cannot answer the question.
+Ask whether it preserves:
+- state transitions;
+- guarantees;
+- learning/adaptation behavior;
+- information/credit flow;
+- relevant scaling/resource behavior;
+- measured capability.
 
-Do not run a benchmark simply because one can be run.
+If it does, kill the architecture claim too.
+
+### Stage 4 — Prior art
+Search for direct architecture-level as well as primitive-level prior art.
+
+### Stage 5 — Conceptual falsification
+Check impossibility, non-identifiability, hidden search, pipeline-only novelty, or benchmark artifacts.
+
+### Stage 6 — Evidence only if needed
+Use the smallest proof, ablation, scaling analysis, or matched experiment that can resolve the remaining uncertainty.
+
+Do not run a benchmark merely because one can be run.
 
 ---
 
@@ -722,62 +809,74 @@ Unless genuinely new contradictory evidence appears, do not restart:
 
 ---
 
+## Calibration note on old kills
+
+The old do-not-reopen list remains valid **for the claims actually disproved by direct prior art, impossibility, or true equivalence**.
+
+However, the owner has authorized a one-time calibration audit of strong historical kills that may have been rejected **only because they were decomposable/simulable**.
+
+Reopening for calibration does not erase the negative result. It asks a narrower question:
+
+> Was the primitive claim dead, while an architecture-level claim was prematurely killed?
+
+---
+
 # 11. Current scoreboard
 
 | Area | Result |
 |---|---|
-| Claude idea search | No surviving primitive |
-| CSL | Useful combination, not new |
+| Claude earlier idea search | No surviving primitive |
+| CSL | Useful combination; primitive novelty killed |
 | Experiment-first E1–E8 | Known machinery solves tested failures |
 | Hypothesis-family discovery | Reduces to search / known learning / identification limits |
-| Pretrained structural rebinding Z.4 | Failure reproduced; exact search solves it; not novel |
-| Codex candidate ledger / archaeology | No broad survivor |
-| Old-architecture revival search | Mostly structural limits, not merely old hardware |
+| Pretrained structural rebinding Z.4 | Failure reproduced; exact search solves it |
+| Claude irreducibility I01–I21 | 0/21 primitive survivors; exposed filter-calibration problem |
+| Codex candidate ledger / archaeology through AR-137 | No survivor under prior standard; collision database expanded |
 | Predictive Delta Ledger | Killed as pipeline |
 | Baobab / Moose seam | Occupied neighboring machinery |
-| Cursor/Gemini Chains A–IW | 102+ mechanisms, no survivor |
-| Boundary synthesis | Useful map |
-| Primitive Batch P1–P20 | 0 survivors |
-| Primitive Batch P21–P40 | 0 survivors |
+| Cursor/Gemini P1–P40 | 0/40 primitive survivors |
+| Cursor/Gemini P41–P56 | 0/16 primitive survivors |
+| Cursor/Gemini P57–P72 | 0/16 primitive survivors |
+| Cursor/Gemini total | 0/72 primitive survivors |
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
-| Claude session 7: irreducible-operation batch I01–I21 | 0/21 survive; no-go map + filter calibration recorded |
-| **Genuinely new architecture found** | **0** |
+| **Supported new architecture found** | **0** |
+| **New computational primitive found** | **0** |
+| **Current phase** | **Novelty-filter calibration + re-audit of strongest kills** |
 
 ---
 
 # 12. What each agent should do next
 
+The immediate phase is **calibration**, not another giant candidate batch.
+
 ## Claude
-Primary role: **invent and formalize irreducible candidate operations**.
+Primary role: **mechanism formalizer + architecture re-auditor**.
 
-Do not begin with a benchmark.
-Do not begin with another ordinary AI failure.
-Start from the known-machine library and ask what operation is still absent even after all of it is granted.
-
-Only experiment after a candidate survives reduction + prior art.
+- Re-screen the strongest previously killed Claude candidates under the calibrated distinction between primitive and architecture.
+- Focus especially on ideas killed mainly by “decomposable into known machinery,” not those killed by direct prior art.
+- For any recovered architecture candidate, state exactly what property decomposition fails to preserve.
+- Do not run heavy experiments yet.
 
 ## Codex
-Primary role: **novelty assassin / computational archaeology**.
+Primary role: **novelty assassin + historical calibration**.
 
-For each candidate:
-- find the closest same-operation predecessor;
-- search obscure historical systems as well as 2025–2026 work;
-- distinguish “same goal” from “same computation”;
-- kill pipelines aggressively.
-
-Also look for old mechanisms that truly depended on missing hardware, but do not promote them unless the computational operation itself remains unoccupied.
+- Stress-test the new standard on known historical innovations such as attention, residual connections, backpropagation, diffusion, and CDCL-style mechanisms.
+- Verify that the new filter would not reject them merely for general simulability.
+- Re-audit any recovered candidates for direct architectural prior art.
+- Continue acting as the GitHub sync bridge for Codex/Cursor files.
 
 ## Cursor / Gemini
-Primary role: **boundary synthesis and primitive invention**.
+Primary role: **reclassification of the 72-candidate negative database**.
 
-Do not return to endless:
-`field → summarize → reduce → next field`.
+- Do not generate P73 yet.
+- Reclassify the strongest P1–P72 kills into:
+  - direct existing mechanism/architecture;
+  - pipeline-only;
+  - impossibility/non-identifiability;
+  - primitive killed but architecture question still open.
+- Only promote a small number of genuinely reopened architecture candidates.
 
-Use the existing negative database to derive new candidate operations specifically where known computational classes fail to compose into a single primitive.
-
-Generate diverse primitives, then attack them.
-
-Do not automatically continue the queued topological-soliton direction unless it follows from a concrete irreducibility argument.
+After this calibration pass, cross-lane synthesis should decide whether to resume invention, formal proof work, or minimal experiments.
 
 ---
 
@@ -797,14 +896,15 @@ Never modify `AGENTS.md` unless the owner explicitly asks for that change.
 
 # 14. Bottom line
 
-The project has not found a new architecture yet.
+The project has not found a supported new architecture or primitive yet.
 
-What it *has* built is a large negative map showing that many apparent AI limitations reduce to already-known computational machinery.
+The large negative database is still valuable, but the old filter conflated:
 
-The next phase should not ask for another clever combination.
+- **computability / decomposability**, and
+- **architectural equivalence**.
 
-It should ask:
+The calibrated project now keeps the primitive standard strict while allowing a separate architecture-level question:
 
-> **What operation remains missing after we give the system every known classical and neural tool we have already rediscovered?**
+> **Does the proposed native organization create an important property that the best ordinary decomposition does not preserve?**
 
-That is now the discovery target.
+The immediate next phase is to re-audit the strongest old kills under that distinction before generating another large batch.
