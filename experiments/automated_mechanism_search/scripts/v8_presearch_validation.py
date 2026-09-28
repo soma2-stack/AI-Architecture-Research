@@ -34,7 +34,7 @@ OUT = os.path.join(HERE, "runs", "v8_presearch_validation")
 
 
 def pytest(args):
-    r = subprocess.run([sys.executable, "-m", "pytest", "-p", "no:cacheprovider", "-q", *args], cwd=HERE,
+    r = subprocess.run([sys.executable, "-m", "pytest", "-p", "no:cacheprovider", *args], cwd=HERE,
                        capture_output=True, text=True)
     lines = [l for l in r.stdout.splitlines() if re.search(r"\d+ (passed|failed|error)", l)]
     tail = lines[-1] if lines else ""
