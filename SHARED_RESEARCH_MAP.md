@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Design preregistered low-compute empirical mechanism search; experiments await owner authorization** |
+| **Current phase** | **Preregistration frozen; Stage 0–3 execution awaits explicit owner authorization** |
 
 ---
 
@@ -1133,6 +1133,26 @@ Primary role: **evaluation designer + adversarial benchmark construction**.
 Once all three protocol designs are available, cross-lane synthesis should produce one executable preregistration for owner approval.
 
 ---
+
+
+## Frozen preregistration
+
+The three protocol-design lanes have now been synthesized into:
+
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md`
+
+Key decisions:
+- Claude Part AE supplies the mechanism grammar and MAP-Elites search;
+- Codex AR-141 supplies the collision library, equivalence screen, novelty gate and anti-cheating controls;
+- Cursor/Gemini supplies the benchmark suite, matched baselines, ablations and metrics;
+- primary search tasks: interference/retention, recurring-regime adaptation, and structural commitment;
+- conditioning is used primarily as an optimizer-confound diagnostic;
+- long-credit and fast/slow-state tasks are reserved for finalist validation;
+- maximum 6,000 generated programs, 3,000 sanity-checked, 1,200 benchmarked, 20 validated;
+- CPU-only, expected 6–8 CPU-hours, hard cap 30 CPU-hours;
+- no experiment stage is authorized yet.
+
+The preregistration is now the execution authority for the first pilot unless a later owner instruction explicitly revises it.
 
 # 13. Shared operating rule
 
