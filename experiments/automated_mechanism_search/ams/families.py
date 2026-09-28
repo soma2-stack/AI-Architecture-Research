@@ -249,33 +249,33 @@ class FamilyLibrary:
         info = {"dropped_terms": [], "stripped_gates": [], "inert_registers": [], "dropped_slots": []}
 
         def keep_terms(e: Optional[Node], tmpl: set, slot: str, zero_t: str) -> Optional[Node]:
+            """Term analysis on the cvec-expanded form; kept terms stay in their original
+            (unexpanded) form so CREDIT-phase register semantics are preserved."""
             if e is None:
                 return None
-            kept: List[Node] = []
+            repl_map = {}
+            n_kept = 0
             for t in terms(e, rt):
-                sig = abstract_sexpr(t)
+                sig = abstract_sexpr(expand(p, t))
                 if sig in tmpl:
-                    kept.append(t)
+                    n_kept += 1
                     continue
                 st = strip_gates(t, rt)
-                if st != t and abstract_sexpr(st) in tmpl:
-                    kept.append(st)
+                if st != t and abstract_sexpr(expand(p, st)) in tmpl:
+                    repl_map[t] = st
+                    n_kept += 1
                     info["stripped_gates"].append(slot)
                     continue
                 info["dropped_terms"].append((slot, sig))
-            if not kept:
+                tt = type_of(t, rt)
+                repl_map[t] = const(0.0) if tt == S else tconst(0.0, tt)
+            if n_kept == 0:
                 return None
-            # rebuild with original signs: recompute by replacing dropped terms with zero
-            out = e
-            for t in terms(e, rt):
-                if not any(t == k for k in kept):
-                    st = strip_gates(t, rt)
-                    repl = st if any(st == k for k in kept) else (const(0.0) if type_of(t, rt) == S else tconst(0.0, type_of(t, rt)))
-                    out = subst(out, lambda x, t=t, repl=repl: repl if x == t else None)
+            out = subst(e, lambda x: repl_map.get(x))
             return simplify(out, rt)
 
-        dW = keep_terms(expand(p, p.dW), self.t_dW, "dW", M)
-        db = keep_terms(expand(p, p.db), self.t_db, "db", O)
+        dW = keep_terms(p.dW, self.t_dW, "dW", M)
+        db = keep_terms(p.db, self.t_db, "db", O)
         w_eff = keep_terms(p.w_eff, self.t_weff, "w_eff", M)
         gain = p.gain if (p.gain is not None and abstract_sexpr(p.gain) in self.t_gain) else None
         if p.gain is not None and gain is None:

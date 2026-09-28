@@ -1,0 +1,21 @@
+{
+ "cap_cpu_hours": 30.0,
+ "entries": [
+  {
+   "stage": "stage0",
+   "cpu_seconds": 17.571,
+   "wall_seconds": 14.731,
+   "note": "Stage-0 gate script (tests, gate, self-check, profile)",
+   "utc": "2026-09-28T04:30:47Z"
+  },
+  {
+   "stage": "stage0_dev_unmeasured",
+   "cpu_seconds": 900.0,
+   "wall_seconds": 0.0,
+   "note": "UPPER-BOUND ESTIMATE, not measured: interactive development/unit-test runs, the first Task-B gate computation (0.2 CPU-s) and the post-hoc gate sensitivity diagnostic in this session, outside the ledgered Stage-0 script",
+   "utc": "2026-09-28T04:31:09Z"
+  }
+ ],
+ "total_cpu_seconds": 917.571,
+ "total_cpu_hours": 0.25488
+}

@@ -259,16 +259,36 @@ def _rewrite(n: Node, rt: Dict[str, str]) -> Optional[Node]:
     return None
 
 
-def _sort_key(n: Node) -> str:
-    return sexpr(n)
+def _reg_signatures(p: Program) -> Dict[str, str]:
+    """Name-free content signature of each register (type, lifetime, init, decay, abstract
+    update), iterated so that registers are distinguished by what they read."""
+    sig = {r.name: f"{r.type}|{r.lifetime}|{r.init}|{r.decay}" for r in p.regs}
+    upd = {r.name: u for r, u in zip(p.regs, p.reg_updates)}
+    for _ in range(3):
+        new = {}
+        for r in p.regs:
+            new[r.name] = sig[r.name] + "|" + _keyed(upd[r.name], sig)
+        sig = new
+    return sig
 
 
-def _sort_commutative(n: Node, rt: Dict[str, str]) -> Optional[Node]:
+def _keyed(n: Node, sig: Dict[str, str]) -> str:
+    if n.op == "reg":
+        return "{" + sig.get(n.attr, "?") + "}"
+    if not n.args:
+        return sexpr(n)
+    inner = " ".join(_keyed(c, sig) for c in n.args)
+    return f"({n.op}{'' if n.attr is None else ':' + str(n.attr)} {inner})"
+
+
+def _sort_commutative(n: Node, rt: Dict[str, str], sig: Dict[str, str]) -> Optional[Node]:
     if n.op in COMMUTATIVE and len(n.args) == 2:
         x, y = n.args
         tx, ty = type_of(x, rt), type_of(y, rt)
-        if tx == ty and _sort_key(y) < _sort_key(x):
-            return Node(n.op, (y, x), n.attr)
+        if tx == ty:
+            kx, ky = _keyed(x, sig), _keyed(y, sig)
+            if (ky, sexpr(y)) < (kx, sexpr(x)):
+                return Node(n.op, (y, x), n.attr)
     return None
 
 
@@ -302,7 +322,8 @@ def simplify_program(p: Program) -> Program:
 
 def sort_program(p: Program) -> Program:
     rt = p.reg_types()
-    s = lambda e: None if e is None else subst(e, lambda x: _sort_commutative(x, rt))
+    sig = _reg_signatures(p)
+    s = lambda e: None if e is None else subst(e, lambda x: _sort_commutative(x, rt, sig))
     return replace(
         p, w_eff=s(p.w_eff), gain=s(p.gain), cvec=s(p.cvec),
         reg_updates=tuple(s(u) for u in p.reg_updates), dW=s(p.dW), db=s(p.db),
