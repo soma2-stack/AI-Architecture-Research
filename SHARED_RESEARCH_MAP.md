@@ -1087,264 +1087,65 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **v7 frozen: detector-aligned C2 repair, then official anchored Stage 2** |
+| **Current phase** | **v7 complete: 8 Stage-2 promotions, 8/8 NEGATIVE in fresh-seed Stage 3; next step is v8 design to reduce selection noise before any new search** |
 
 ---
 
 # 12. What each agent should do next
 
-The active execution authority is:
+AMS v7 is complete and merged to `main`.
 
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v7**
+Final v7 outcome:
+- static validation PASS;
+- Stage 2: 5,544 generated, 2,230 T0, 1,200 Tier-1, 35/56 archive cells, 8 promoted;
+- all 8 promotions were on C*;
+- Stage 3 used fresh seeds 10000–10009;
+- all 8 failed Gate 3 and are **NEGATIVE**;
+- 0 INTERESTING;
+- 0 REDISCOVERY;
+- 0 POSSIBLE ARCHITECTURE CANDIDATE;
+- shared official ledger: about 2.838 CPU-hours of the 30-hour cap;
+- no GPU, no Stage 4.
 
-Stages 0–3 remain owner-authorized, CPU-only, with the 30 CPU-hour hard cap.
+Independent Codex and Cursor audits reproduced the Stage-2 counts, q values, fresh-seed metrics, Holm correction, bootstrap intervals and final 8/8 NEGATIVE labels.
 
-The accepted v3 Stage-0 PASS and v5 Stage-1 PASS carry forward.
-
-The repaired v5 Stage-2 rerun is complete and is a search-design negative for the old uniform random typed generator:
-- 6,000 generated;
-- 382 T0 sanity evaluations;
-- 0 T0 passes;
-- 0 Tier-1;
-- 0/56 archive cells;
-- 0 promoted;
-- 0 defects.
-
-It is not evidence that no novel mechanism exists.
+The main methodological finding is that the 3-seed C* censored half-life objective was too noisy for MAP-Elites selection. Stage 2 selected apparent gains that did not replicate on 10 fresh seeds. Future search should not reuse that exact selection metric/funnel unchanged.
 
 ## Claude
-Primary role: **v7 implementation and search runner**.
+Primary role remains implementation/search runner.
 
-- Sync latest `origin/main`.
-- Read v7 before changing Stage-2 code.
-- Preserve all v5 Stage-2 runs.
-- Preserve the v6 C1/C3 constructor and replace only C2 with the frozen v7 detector-aligned discrete-routing residual.
-- Run the required v7 static 1,000-proposal structural validation (seed `70707`) without T0/benchmark evaluation.
-- Verify reference/disguise collision golden snapshots remain unchanged.
-- Commit and push the v6 implementation before official search.
-- Run official v7 Stage 2 from the still-unused seed `2026092806`.
-- If promoted candidates appear, continue directly to the already-frozen Stage 3.
-- Do not relax T0, change benchmarks, increase budgets, alter promotion thresholds or use GPU.
+For now:
+- do not run another search;
+- do not start Stage 4;
+- preserve v7 artifacts;
+- wait for the owner-level v8 preregistration.
 
 ## Codex
-Primary role: **independent v7 generator / rediscovery / novelty auditor**.
+Primary role remains rediscovery / novelty auditor.
 
-- Sync latest v7 `main`.
-- Audit the v7 constructor statically:
-  - exact SGD backbone;
-  - C1/C2/C3 construction;
-  - no task-result-dependent generation;
-  - unchanged collision filters;
-  - unchanged search/promotion thresholds.
-- It may reproduce the 1,000-proposal **static** structural validation with a different non-official seed.
-- Do not run an independent full Stage-2 search.
-- Once Claude publishes v6 outputs, audit machine-readable counts, collision classifications and any Tier-1/promoted candidates.
-- Run targeted candidate replays only when needed.
+For now:
+- no independent search;
+- v7 candidate audit is complete;
+- wait for a future promoted set before new prior-art/rediscovery work.
 
 ## Cursor / Gemini
-Primary role: **independent search-design and metric auditor**.
-
-- Sync latest v7 `main`.
-- Verify the v7 detector-aligned anchored constructor preserves the intended learning backbone without leaking benchmark information into generation.
-- Check accounting, descriptor balance and C1/C2/C3 proposal counts.
-- Do not run the full Stage-2 search.
-- Once Claude publishes results, independently recompute Tier-1 and Stage-3 metrics for promoted candidates.
-
-No lane may use GPU, Stage 4, expand the 30 CPU-hour cap, or alter v6 thresholds without a new owner amendment.
-
----
-
-## Frozen preregistration
-
-The three protocol-design lanes have now been synthesized into:
-
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md`
-
-Key decisions:
-- Claude Part AE supplies the mechanism grammar and MAP-Elites search;
-- Codex AR-141 supplies the collision library, equivalence screen, novelty gate and anti-cheating controls;
-- Cursor/Gemini supplies the benchmark suite, matched baselines, ablations and metrics;
-- primary search tasks: interference/retention, recurring-regime adaptation, and structural commitment;
-- conditioning is used primarily as an optimizer-confound diagnostic;
-- long-credit and fast/slow-state tasks are reserved for finalist validation;
-- maximum 6,000 generated programs, 3,000 sanity-checked, 1,200 benchmarked, 20 validated;
-- CPU-only, expected 6–8 CPU-hours, hard cap 30 CPU-hours;
-- owner authorized Stages 0–3 on 2026-09-28; CPU-only and the 30 CPU-hour hard cap remain binding; GPU/larger follow-up still requires separate authorization.
-
-The preregistration is now **version 2** and remains the execution authority for the first pilot.
-
-### Pre-search v2 validity repair
-
-Before official Stage 1 or any candidate search, two blocking defects were found:
-- v1 Task B required both orthogonal task subspaces and approximately anti-aligned first-layer gradients, which is mathematically inconsistent for the stated construction;
-- v1 referenced 16 behavioral probes but did not serialize the probe corpus or fully define its sampler.
-
-The owner authorized an in-place amendment rather than adding another MD file.
-
-v2 changes:
-- Task B now uses an overlapping shared/private construction with an explicit empirical gradient-conflict validity gate;
-- the 16 behavioral probes are frozen at `experiments/automated_mechanism_search/config/behavioral_probes_v2.json`;
-- C*, D, E and F now have fixed schedules/budgets sufficient for reproducible implementation;
-- Task D is explicitly baseline-only because it is not compatible with the candidate-program substrate;
-- official baselines/candidates receive the same frozen learning-rate search budget;
-- pre-v2 calibration drafts/replays are diagnostic only.
-
-No Stage-2 search results existed when v2 was frozen. Official Stage 0 must restart under v2.
-
-
-### v3 Task-B Stage-0 gate repair
-
-Claude completed the first official v2 Stage-0 implementation and stopped correctly before Stage 1 because the v2 Task-B gradient-conflict magnitude gate failed.
-
-Evidence merged to `main`:
-- 114/114 Stage-0 tests passed;
-- frozen behavioral-probe corpus verified;
-- known-family/disguise rediscovery recall: 100%;
-- Task-B paired first-layer gradients were directionally conflicting on all 512 pairs;
-- v2's `mean cosine <= -0.50 on every seed` rule passed only 3/8 seeds (pooled approximately -0.459);
-- no Stage-1 calibration, candidate search or Stage-3 validation ran;
-- cumulative project CPU use recorded by Claude: approximately 0.265 CPU-hours.
-
-The owner-approved in-place v3 amendment keeps the v2 Task-B construction and freezes the already predeclared Glorot-normal initialization. It replaces the magnitude gate with a directional-consistency gate:
-- each of the eight predeclared seed means must be negative;
-- at least 90% of all 512 paired gradient cosines must be negative.
-
-The post-hoc LeCun result was **not** adopted.
-
-v3 also ratifies the pre-result Task-B Stage-1 fit/interference checks and the deterministic `W_ep0` probe derivation.
-
-PR #8 merged Claude's Stage-0 implementation and stop report to `main`. The active execution authority is now preregistration **v3**.
-
-
-
-### v4 Stage-1 calibration repair
-
-Claude's official v3 run is merged to `main` via PR #9.
-
-v3 outcome:
-- Stage 0 PASS;
-- 118/118 tests;
-- Task-B directional gate: 512/512 paired gradients negative;
-- Stage 1 stopped before search on `M2_B_fit`, `V1_B`, and `V2_Cstar`;
-- Task F, Task D, Task-B interference, C* sanity, detector validity and generic-control stability passed;
-- no Stage-2 candidate was generated;
-- cumulative project CPU use: about 0.288 CPU-hours; no GPU.
-
-The owner-approved v4 amendment changes calibration only:
-- M2-B becomes a scale-free requirement: each generic baseline must reduce Task-1 held-out error by at least 95% relative to initialization;
-- a new Task-B joint-training representability oracle must show the fixed MLP can fit both mappings when replay is allowed;
-- GPM/R17/R18/R13 retention performance is recorded but no longer a mandatory Stage-1 pass condition;
-- R12/R13/R15 C* positive-control performance is recorded but no longer a mandatory Stage-1 pass condition;
-- C* generic sanity now additionally requires at least one ordinary baseline to adapt within a 64-step R1 segment;
-- V3-F and V-D remain mandatory positive-control signatures.
-
-Candidate generators, search budgets, promotion thresholds, ablations and novelty gates are unchanged.
-
-The v3 Stage-0 PASS carries forward because v4 changes no Stage-0 rule. **Current restart point: official Stage 1 under v4.**
-
-
-
-### v5 final Task-B representability-oracle budget repair
-
-Claude's official v4 Stage-1 run is merged to `main` via PR #10.
-
-v4 outcome:
-- every mandatory gate passed except `V1_B_REP`;
-- the 1,000-update joint-training oracle reached about 0.914 / 0.904 relative error reduction with clipped SGD, below the frozen 0.95 / 0.95 threshold;
-- Stage 2 and Stage 3 did not run;
-- no candidate was generated;
-- cumulative project CPU use: about 0.310 CPU-hours; no GPU.
-
-A post-failure diagnostic showed that the same clipped SGD oracle reached approximately:
-- 0.950 / 0.945 at 2,000 updates;
-- 0.967 / 0.960 at 4,000 updates.
-
-Because the oracle is a representability check rather than a speed benchmark, the owner authorized one final pre-search repair:
-- keep the 0.95 / 0.95 threshold;
-- keep clipping;
-- keep Glorot initialization;
-- keep the same LR grid and optimizer set;
-- increase the oracle to exactly **4,000 updates**.
-
-No candidate/search threshold changed.
-
-This is the final Task-B calibration amendment before search. If the 4,000-update oracle still fails, do not tune it again before Stage 2.
-
-The v3 Stage-0 PASS carries forward. **Current restart point: official Stage 1 under v5.**
-
-
-### v5 Stage-2 implementation-defect repair
-
-Claude's official v5 Stage 1 passed every mandatory gate. The first Stage-2 run then stopped at 5,782 generated programs under the precommitted defect-count rule:
-- 0 Tier-1 benchmark evaluations;
-- 0 archive cells filled;
-- 0 promoted candidates;
-- 6 implementation exceptions, all from the same `strip_gates` scalar-`where` type bug.
-
-The stopped run and Codex's independent v4 audit are both preserved on `main`.
-
-The code repair is protocol-preserving:
-- scalar positive branches of `where` are now broadcast back to the original vector type during gate stripping;
-- a regression test covers the missed case.
-
-The next run must be an **exact Stage-2 rerun** with the same search seed, generator, sanity filter, budgets and thresholds. Do not alter the generator or sanity gate based on the first run's low yield.
-
-If the exact repaired rerun still produces no Tier-1 evaluations by the frozen generation cap, classify the result as a search-design negative for the frozen generator/filter configuration.
-
-### v6 anchored-generator amendment
-
-The exact repaired v5 Stage-2 rerun completed at the frozen 6,000-program limit with no implementation defects but also no T0 passes, Tier-1 evaluations, archive cells or promotions.
-
-The owner classifies this as a search-design negative for the v5 uniform random typed generator and authorizes v6 to replace only the **initial Stage-2 proposal generator**.
-
-v6 initial candidates preserve the exact R1 SGD learning backbone and add exactly one primary architecture coupling class (C1, C2 or C3). The unchanged rediscovery filter removes known/inert variants, T0 remains unchanged, and all Tier-1/Stage-3 criteria remain unchanged.
-
-Search seed: `2026092806`.
-
-Budgets remain 6,000 generated / 3,000 sanity / 1,200 Tier-1 / 20 promoted, CPU-only, 30 CPU-hours.
-
-The v3 Stage-0 and v5 Stage-1 PASS results carry forward. Current restart point: **implement and run Stage 2 under v6**.
-
-### v7 C2 detector-alignment amendment
-
-The required v6 static validation failed before any official v6 search began. No v6 candidate was trained or task-evaluated, and search seed `2026092806` remains unused.
-
-The blocker was specific to C2:
-- the v6 soft gate was usually not recognized by the unchanged Level-C C2 fingerprint;
-- depth-2 selectors could exceed `MAX_DEPTH=5`.
-
-v7 leaves the fingerprint unchanged and changes only the C2 initial constructor:
-- selector depth 0–1;
-- activity-dependent discrete `topk` or `where` routing;
-- exact SGD backbone plus a 10% routed residual;
-- grammar-compatible operand ordering;
-- explicit proposal-counting semantics.
-
-A new 1,000-proposal static validation at seed `70707` must pass before official Stage 2.
-
-Official search seed remains `2026092806`. All T0, Tier-1, MAP-Elites, promotion, Stage-3 and compute rules remain unchanged.
-
-Current restart point: **sync Claude to v7, repair C2 only, rerun static validation, then run official Stage 2 if it passes.**
-
-## Execution authorization — 2026-09-28
-
-The owner explicitly authorized execution of the frozen preregistered pilot.
-
-Authorized:
-- Stage 0 — compiler and validity tests;
-- Stage 1 — calibration;
-- Stage 2 — automated MAP-Elites search;
-- Stage 3 — matched validation of at most 20 promoted mechanisms.
-
-Still prohibited without separate authorization:
-- GPU execution;
-- Stage 4 / larger-scale confirmation;
-- increasing the 30 CPU-hour hard cap;
-- materially changing benchmarks, thresholds, grammar, search budget, or promotion rules after results are visible.
-
-If a Stage 0/1 validity control fails, stop and report the failure. Do not silently repair or retune the preregistration.
-
-**Current restart point:** implement the frozen v6 initial generator, run its static validation, then execute official Stage 2 under v6.
+Primary role remains benchmark/search-design auditor.
+
+For now:
+- v7 metric audit is complete;
+- do not run more candidates;
+- retain the v7 finding that 3-seed censored half-life selection is high variance and vulnerable to winner's-curse selection.
+
+## Owner / coordinator next action
+Design v8 before any further compute.
+
+The v8 design should specifically address the v7 failure mode while preserving strict novelty gates:
+- replace or supplement point-threshold C* half-life with an integral adaptation metric such as AULC / cumulative post-shift loss;
+- add a validation funnel so archive replacement/promotion is not decided solely by 3 noisy seeds;
+- keep benchmark leakage protections and fresh final seeds;
+- preserve CPU discipline and avoid duplicating full searches across lanes.
+
+No agent should execute v8 until the new protocol is explicitly frozen.
 
 ---
 
