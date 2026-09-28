@@ -1074,7 +1074,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Claude calibration re-audit (13 strongest old kills) | 0 reopened as architecture candidates; Q06 parked (property lost, importance unshown); filter passes historical controls |
 | Claude native-coupling lens NC01–NC13 | 0/13 survive; all signal families occupied; Interface Transparency proposition; only CDCL among controls is an inter-module coupling |
 | Claude learning-dynamics lens LD1–LD12 | 0/12 survive; reparameterizations optimizer-restorable; channels K1–K8 all occupied |
-| Codex candidate ledger / archaeology through AR-140 | Learning-dynamics collision library completed; no survivor |
+| Codex through AR-142 | Learning-dynamics collision library complete; v1 AMS validity failure identified before official Stage 1/search |
 | Predictive Delta Ledger | Killed as pipeline |
 | Baobab / Moose seam | Occupied neighboring machinery |
 | Cursor/Gemini P1–P40 | 0/40 primitive survivors |
@@ -1093,47 +1093,45 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 
 # 12. What each agent should do next
 
-The concept-only learning-dynamics search is now saturated enough that another unbounded candidate batch is not the next step.
+The design phase is complete. The active execution authority is:
 
-The shared next phase is:
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v2**
 
-> **Design a preregistered, low-compute empirical mechanism search with automatic rediscovery rejection.**
+Stages 0–3 remain owner-authorized, CPU-only, with the 30 CPU-hour hard cap.
 
-Experiments are **not yet authorized to run**.
+The v1 Stage-0/1 work does **not** count as official evidence. All lanes must restart from v2.
 
 ## Claude
-Primary role: **experiment-protocol designer + mechanism grammar formalizer**.
+Primary role: **primary implementation and search runner**.
 
-- Define a compact search grammar over the remaining learning-dynamics channels.
-- Exclude mechanisms already represented in the collision library.
-- Specify a CPU-first pilot with strict compute limits.
-- Define matched baselines, ablations, success thresholds, and stopping rules.
-- Design a rediscovery fingerprint so known mechanisms are rejected automatically or flagged for manual review.
-- Do not run the experiment until the owner explicitly authorizes it.
+- Sync latest `origin/main`.
+- Read v2 before writing/running experiment code.
+- Implement the frozen grammar, compiler, canonicalizer, probe verifier, fingerprinting and benchmark generators.
+- Run official Stage 0 from scratch under v2.
+- If Stage 0 passes, run official Stage 1 with equal learning-rate budgets and no early stopping.
+- Only if Stage 1 passes may Claude proceed to Stage 2 MAP-Elites and Stage 3 matched validation.
+- Stop on any v2 validity failure; do not alter the protocol.
 
 ## Codex
-Primary role: **rediscovery filter + prior-art gate designer**.
+Primary role: **rediscovery / equivalence / novelty auditor**.
 
-- Convert the collision library into machine-checkable families/features where possible.
-- Define how a generated update rule is compared against optimizer-only, loss-only, and known architecture explanations.
-- Define the post-search novelty audit required before any candidate can be called an architecture candidate.
-- Audit the proposed benchmark so it does not reward trivial optimizer tricks or capacity changes.
-- No heavy experiments.
+- Restart collision-filter calibration against the checked-in v2 probe corpus.
+- Treat pre-v2 calibration as diagnostic only.
+- Audit official Stage-1 outputs and later Stage-2/3 artifacts rather than duplicating the full search.
+- Perform targeted replay and fresh prior-art review for promoted candidates.
+- Preserve unrelated local work and continue cautious GitHub sync.
 
 ## Cursor / Gemini
-Primary role: **evaluation designer + adversarial benchmark construction**.
+Primary role: **benchmark-validity and independent results auditor**.
 
-- Propose small tasks that isolate learning-dynamics properties rather than raw capability.
-- Define metrics for sample efficiency, interference/forgetting, adaptation speed, conditioning, and compute-to-loss.
-- Ensure equal parameter/state/compute budgets where practical.
-- Specify mechanism-removal and optimizer-swap ablations.
-- Try to construct benchmarks where known families occupy distinct signatures, making rediscovery easier to identify.
-- Do not run the search yet.
+- Restart benchmark validation against v2, especially the new Task-B construction and fixed C*/D/E/F schedules.
+- Earlier v1 Task-F calibration is informative but not official v2 evidence.
+- Do not duplicate the full MAP-Elites search.
+- Once Claude publishes outputs, independently recompute metrics and ablations for promoted candidates.
 
-Once all three protocol designs are available, cross-lane synthesis should produce one executable preregistration for owner approval.
+No lane may use GPU, Stage 4, or expand the 30 CPU-hour cap without separate owner authorization.
 
 ---
-
 
 ## Frozen preregistration
 
