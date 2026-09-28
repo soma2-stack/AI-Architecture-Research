@@ -116,15 +116,29 @@ def test_config_immutable(tmp_path):
         manifest.write_or_verify_config(p)
 
 
-def test_v3_config_markers():
+def test_v4_config_markers():
     from ams import PROTOCOL_VERSION
-    assert PROTOCOL_VERSION == "AMS-prereg-v3"
+    assert PROTOCOL_VERSION == "AMS-prereg-v4"
     c = manifest.RUN_CONFIG
-    assert c["protocol"] == "AMS-prereg-v3" and c["substrate"]["init"] == "glorot_normal"
-    g = c["taskB_stage0_gate_v3"]
+    assert c["protocol"] == "AMS-prereg-v4" and c["substrate"]["init"] == "glorot_normal"
+    g = c["taskB_stage0_gate_v3"]                                           # v3 Stage-0 gate carries forward
     assert g["seed_mean_cos_lt"] == 0.0 and g["frac_pairs_negative_min"] == 0.90 and g["pairs_per_seed"] == 64
-    assert "taskB_gate_mean_cos" not in c["thresholds"]                  # v2 magnitude gate superseded
-    assert manifest.CONFIG.endswith("run_config_v3.json")
+    assert "taskB_gate_mean_cos" not in c["thresholds"]
+    s1 = c["stage1_v4"]
+    assert s1["M2_v4_fit_reduction_min"] == 0.95 and s1["V1_B_REP"]["rel_err_reduction_min"] == 0.95
+    assert s1["V1_B_REP"]["updates"] == 1000 and s1["V1_B_REP"]["batch"] == [16, 16]
+    assert set(s1["diagnostic_only"]) == {"V1_B", "V2_Cstar"} and "V1_B_REP" in s1["mandatory"]
+    assert manifest.CONFIG.endswith("run_config_v4.json")
+    # search budgets and promotion thresholds unchanged by v4
+    assert c["budget"]["generated"] == 6000 and c["budget"]["tier1"] == 1200 and c["budget"]["promoted"] == 20
+    assert c["thresholds"]["B_forgetting_pp"] == 40 and c["thresholds"]["C_hl_reduction"] == 0.5
+
+
+def test_v3_config_record_unchanged():
+    import hashlib
+    d = json.load(open(manifest.CONFIG_V3))
+    assert d["config"]["protocol"] == "AMS-prereg-v3"
+    assert hashlib.sha256(json.dumps(d["config"], sort_keys=True).encode()).hexdigest() == d["sha256"]
 
 
 def test_v2_config_record_unchanged():

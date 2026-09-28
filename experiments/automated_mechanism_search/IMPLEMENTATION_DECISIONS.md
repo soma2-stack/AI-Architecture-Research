@@ -482,3 +482,96 @@ Committed **before** the v3 Stage-0 gate was computed and **before** any Stage-1
   - Each worker returns its own process-CPU delta. Parent plus worker CPU is appended to the ledger after every 25 Tier-1 evaluations.
   - The cap check (30 CPU-h cumulative) runs before every Tier-1 evaluation.
 - **D-T1-8. Search RNG.** `random.Random(20260928)` drives generation, mutation and parent choice. The search log is `runs/stage2/records.jsonl` (every generated program, including invalid ones and negatives).
+
+---
+
+# v4 amendment: operational decisions (session 15)
+
+Committed **before** the official v4 Stage-1 run and before any Stage-2 candidate was generated. Visible at this point: the published v3 Stage-0 PASS and the v3 Stage-1 results (M2, V1-B and V2-C\* failed; all other gates passed). Nothing here changes a v4 threshold, schedule, budget or rule.
+
+## D-V4 — Stage-1 v4 logic (owner amendment `478f590`)
+
+- **D-V4-1. M2-v4.** For each of SGD, SGDM and AdamW at its selected learning rate:
+  - `FitReduction_B = 1 − L1_pre / max(L1_init, 1e-8)`, computed per seed;
+  - the gate passes iff the seed-mean is ≥ 0.95 for all three methods.
+
+  M3 is unchanged.
+- **D-V4-2. V1-B-REP joint-training representability oracle** (validity-only; never a candidate baseline).
+  - Setup: seeds 100–104; Glorot initialization; exactly 1,000 updates.
+  - Batches: each update draws 16 fresh Task-1 then 16 fresh Task-2 examples from the seed's Task-B training stream (stream 1; order `c, p` per task, Task 1 first). There are no episode boundaries and no early stopping.
+  - Learning rate: chosen from {1e-3, 1e-2, 1e-1} to minimize the seed-mean of (mean Task-1 training MSE + mean Task-2 training MSE) over the final 50 updates, computed on the 16-example halves.
+  - Evaluation: both frozen held-out sets (256 each) at step 0 and step 1,000. `RelRed_k = 1 − MSE_k(1000) / MSE_k(0)`.
+  - **Optimizer (clarification; v4 does not name one).** The oracle is an existence proof of representability, so it runs with each official generic optimizer: SGD, SGDM and AdamW, through the clipped official pipeline. Each selects its own learning rate by the rule above.
+  - **V1-B-REP passes iff at least one of the three optimizers has seed-mean `RelRed_1 ≥ 0.95` and seed-mean `RelRed_2 ≥ 0.95` at its selected learning rate.** All three are recorded.
+- **D-V4-3. M7-v4.**
+  - D-S1-5 is unchanged.
+  - In addition, at least one of SGD, SGDM or AdamW must have a seed-mean censored median R1 half-life < 64 at its selected learning rate. Because censoring maps ∞ to 128, this also requires the value to be finite.
+- **D-V4-4. Diagnostics.** V1-B (GPM, R17, R18, R13) and V2-C\* (R12, R13, R15) are computed exactly as in v3 and recorded as diagnostics.
+- **D-V4-5. Mandatory v4 gates.**
+  - M2-v4, M3, V1-B-REP, M4, M5, M6, M7-v4, V3-F and V-D.
+  - M5 is read from the accepted v3 Stage-0 PASS (`runs/stage0_v3/`), which carries forward under v4.
+- **D-V4-6. Files.**
+  - Run configuration: `config/run_config_v4.json`.
+  - Output: `runs/stage1_v4/`.
+  - The v3 files (`runs/stage1/`, `config/run_config_v3.json`) are preserved unchanged.
+
+## D-S2-v4 — Stage-2 execution details (unchanged rules; operational)
+
+- **D-S2v4-1. Probe compilation.** Probe-evaluator compilation is cached per program. This is performance only; the numbers are identical.
+- **D-S2v4-2. Implementation-defect stop.** An uncaught Python exception inside candidate evaluation is an implementation defect. More than 5 such exceptions stop the search ("repeated numerical instability indicates a grammar/compiler defect"). Numerically unstable candidates are ordinary NEGATIVE (unstable) outcomes and are counted, not stopped on.
+- **D-S2v4-3. Leakage.**
+  - Every seed used in Stage 2 is asserted to be < 10000.
+  - Stage-3 seeds (10000–10009) and Tier-3 seeds (20000–20009) are never generated during Stage 2.
+- **D-S2v4-4. Records.** The full search state is written to `runs/stage2/`:
+  - `records.jsonl`: every program, with its raw form, canonical form, label, fingerprint, descriptor, β hash, family and Tier-1 metrics;
+  - `archive.json`;
+  - `counts.json`;
+  - `promotions.json`;
+  - `baselines_tier1.json`;
+  - `manifest.json`.
+
+## D-S3-v4 — Stage-3 decision details (fixed before any Stage-2 result)
+
+For each promoted candidate on its promoted task t, the conditions of D-S3-2 are run on seeds 10000–10009 (10 seeds), each selecting its learning rate by D-LR-1.
+
+- **Metric orientation (lower is better).**
+  - B: Forgetting_B.
+  - C\*: censored median R1 half-life.
+  - F: OOD error.
+- **Promotion thresholds** (v2 §6.1, against the best generic G at its selected learning rate, both on the same seeds).
+
+  | Task | Requirement |
+  |---|---|
+  | B | `F_G − F_P ≥ 40` pp; seed-mean Retention_P ≥ 80; `T2_P ≤ 1.25 · T2_G` |
+  | C\* | `hl_P ≤ 0.5 · hl_G`; the return check holds in ≥ 8/10 seeds |
+  | F | seed-mean train accuracy ≥ 0.98; SGG_P ≤ 15 pp; `err_P ≤ err_G − 0.10` ("material OOD improvement" ≡ ≥ 10 pp absolute OOD gain) |
+
+- **Gates.**
+  - **Gate 1 — stable.** No unstable seed at the selected learning rate.
+  - **Gate 2 — learns above trivial.**
+    - B: Task-2 final MSE ≤ 0.5 × the Task-2 held-out target variance.
+    - C\*: `MSE_R0(256)` ≤ 0.25.
+    - F: train accuracy ≥ 0.80.
+  - **Gate 3 — threshold and statistics.** The task threshold holds, **and** the one-sided paired Wilcoxon test (per-seed metric of G minus P, 10 seeds) is significant after Holm correction over all promoted (candidate, task) pairs (α = 0.05), **and** the bootstrap 95% CI (10,000 resamples) of the per-seed difference excludes 0.
+    - Robustness add-on: each evolved constant (register decays, `c` constants, `k`, θ) is perturbed to its neighbouring set values one at a time. At least 70% of perturbations must retain ≥ 50% of the effect `Δ = m_G − m_P`.
+  - **Gate 4 — ablations.**
+    - (a) Under K(P) the effect drops by ≥ 50%: `Δ_K ≤ 0.5·Δ`.
+    - (b) P beats K(P) by at least half the task threshold. The threshold τ is 40 pp for B, `0.5·hl_G` for C\* and 0.10 for F.
+    - (c) Under A1 (coupling cut) the effect drops by ≥ 50%.
+    - Cursor A1 check: Welch p < 0.01 that A1 is worse than P.
+  - **Gate 5 — optimizer swap.** Under A5b (P∘AdamW), `Δ_{A5b vs AdamW} ≥ 0.5·Δ_{P vs AdamW}`. A5a (SGDM) is recorded.
+  - **Gate 6 — resource matching.** P beats A6 (compute-matched) and A7 (capacity-matched) by at least the task threshold τ. P's FLOPs ≤ 3 × SGD's. Cursor A7 check: reject if A7's metric is within 5% of P's.
+  - **Known-control comparison (v4 §7).**
+    - B: strongest stable of {GPM, R17, R18, R13}.
+    - C\*: strongest stable of {R12, R13, R15}.
+    - The gate requires seed-mean better than that control plus one-sided Wilcoxon p < 0.05 (uncorrected).
+    - If no stable control exists, it is recorded as N/A.
+    - F has no stable learned known control. Discrete synthesis is a non-matched reference and is recorded.
+  - **A2 / A3 / A4.** Recorded. When P has persistent registers, the top label additionally requires the effect to drop ≥ 50% under A2 or A3.
+- **Labels.**
+  - Gate 1 or 2 fails → **NEGATIVE** (unstable / no learning).
+  - Gate 3 fails → **NEGATIVE** (no preregistered matched advantage on fresh data).
+  - Gate 4(a) or 4(b) fails → **REDISCOVERY** (the effect is carried by known-family components).
+  - Otherwise, if any of gate 4(c), the Cursor A1 check, gate 5, gate 6, the Cursor A7 check, the known-control comparison, the robustness add-on or the A2/A3 requirement fails → **INTERESTING EMPIRICAL MECHANISM — NOVELTY AUDIT REQUIRED**.
+  - All pass → **POSSIBLE ARCHITECTURE CANDIDATE — CROSS-LANE AUDIT REQUIRED** (maximum label).
+- **Tier 3.** Reserved Tasks A and E, and a locked confirmation on seeds 20000–20009, run only for candidates with the maximum label.

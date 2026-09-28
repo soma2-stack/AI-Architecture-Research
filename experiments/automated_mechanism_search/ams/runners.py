@@ -93,6 +93,54 @@ def run_B(make_learner: Callable[[], Learner], seeds: Sequence[int], lrs=LR_GRID
 
 
 # ---------------------------------------------------------------------------
+# Task-B joint-training representability oracle (v4 V1-B-REP; validity only)
+# ---------------------------------------------------------------------------
+
+ORACLE_UPDATES = 1000
+
+
+def run_B_joint(make_learner: Callable[[], Learner], seeds: Sequence[int], lrs=LR_GRID,
+                time_limit: Optional[float] = None, updates: int = ORACLE_UPDATES) -> Dict:
+    """Every update: 16 fresh Task-1 + 16 fresh Task-2 examples (D-V4-2).  Never a candidate
+    baseline (it receives replay unavailable to candidates)."""
+    runs = _runs(seeds, lrs)
+    tasks = {s: TaskB(s) for s in seeds}
+    net = Net(TaskB.d_in, TaskB.d_out, [s for s, _ in runs])
+    tl = TIME_PER_SEED * len(seeds) * 2 if time_limit is None else time_limit
+    tr = Trainer(net, make_learner(), [lr for _, lr in runs], kind="reg", time_limit=tl)
+    tr.set_episodes(None)
+    tr.episode_start()
+    X1 = np.stack([tasks[s].X1_eval for s, _ in runs]); Y1 = np.stack([tasks[s].Y1_eval for s, _ in runs])
+    X2 = np.stack([tasks[s].X2_eval for s, _ in runs]); Y2 = np.stack([tasks[s].Y2_eval for s, _ in runs])
+    L1_0, L2_0 = _mse_eval(tr, X1, Y1), _mse_eval(tr, X2, Y2)
+    tr1 = np.zeros((updates, len(runs))); tr2 = np.zeros((updates, len(runs)))
+    try:
+        for t in range(updates):
+            batches = {}
+            for s in seeds:
+                a, ya = tasks[s]._sample(1, 16, tasks[s].train_rng)
+                b, yb = tasks[s]._sample(2, 16, tasks[s].train_rng)
+                batches[s] = (np.concatenate([a, b]), np.concatenate([ya, yb]))
+            X, Y = _stack(batches, runs)
+            _, _, e = tr.step(X, Y)
+            e = e.astype(np.float64)
+            tr1[t] = np.mean(e[:, :16] ** 2, axis=(1, 2))
+            tr2[t] = np.mean(e[:, 16:] ** 2, axis=(1, 2))
+    except (Timeout, OutOfMemory) as ex:
+        return _fail_record(runs, type(ex).__name__.upper())
+    L1_T, L2_T = _mse_eval(tr, X1, Y1), _mse_eval(tr, X2, Y2)
+    per = []
+    for r in range(len(runs)):
+        per.append({"L1_init": float(L1_0[r]), "L2_init": float(L2_0[r]), "L1_final": float(L1_T[r]),
+                    "L2_final": float(L2_T[r]),
+                    "rel_red_T1": float(1 - L1_T[r] / max(L1_0[r], 1e-8)),
+                    "rel_red_T2": float(1 - L2_T[r] / max(L2_0[r], 1e-8)),
+                    "train_select": float(tr1[-50:, r].mean() + tr2[-50:, r].mean())})
+    return {"task": "Bjoint", "runs": runs, "unstable": (~tr.alive).tolist(), "reason": tr.reason,
+            "per_run": per, "updates_applied": tr.updates_applied}
+
+
+# ---------------------------------------------------------------------------
 # Task C*
 # ---------------------------------------------------------------------------
 
@@ -325,8 +373,16 @@ def summarize(task: str, sel: Dict) -> Dict:
     if sel["all_unstable"]:
         return {"stable": False}
     ps = sel["per_seed"]
+    if task == "Bjoint":
+        return {"stable": True, "lr": sel["lr"],
+                "rel_red_T1": float(np.mean([p["rel_red_T1"] for p in ps])),
+                "rel_red_T2": float(np.mean([p["rel_red_T2"] for p in ps])),
+                "rel_red_T1_seeds": [p["rel_red_T1"] for p in ps],
+                "rel_red_T2_seeds": [p["rel_red_T2"] for p in ps]}
     if task == "B":
         return {"stable": True, "lr": sel["lr"],
+                "fit_reduction": float(np.mean([1 - p["L1_pre"] / max(p["L1_init"], 1e-8) for p in ps])),
+                "fit_reduction_seeds": [1 - p["L1_pre"] / max(p["L1_init"], 1e-8) for p in ps],
                 "forgetting": float(np.mean([p["forgetting"] for p in ps])),
                 "retention": float(np.mean([p["retention"] for p in ps])),
                 "T2_final_mse": float(np.mean([p["T2_final_mse"] for p in ps])),
@@ -354,7 +410,7 @@ def summarize(task: str, sel: Dict) -> Dict:
     raise ValueError(task)
 
 
-RUNNERS = {"B": run_B, "Cstar": run_C, "F": run_F}
+RUNNERS = {"B": run_B, "Cstar": run_C, "F": run_F, "Bjoint": run_B_joint}
 
 
 def first_layer_grad(net: Net, X: np.ndarray, Y: np.ndarray) -> np.ndarray:

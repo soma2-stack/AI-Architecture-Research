@@ -15,7 +15,8 @@ from . import COLLISION_LIBRARY_VERSION, GRAMMAR_VERSION, PROBE_BLOB_SHA, PROTOC
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_V2 = os.path.join(HERE, "config", "run_config.json")        # historical v2 record (unchanged)
-CONFIG = os.path.join(HERE, "config", "run_config_v3.json")
+CONFIG_V3 = os.path.join(HERE, "config", "run_config_v3.json")     # v3 record (Stage-0 PASS, v3 Stage 1)
+CONFIG = os.path.join(HERE, "config", "run_config_v4.json")
 
 RUN_CONFIG = {
     "protocol": PROTOCOL_VERSION,
@@ -34,6 +35,12 @@ RUN_CONFIG = {
     "taskB_stage0_gate_v3": {"seeds": [100, 101, 102, 103, 104, 1000, 1001, 1002], "pairs_per_seed": 64,
                              "gradient": "first-layer weight matrix, batch-mean 0.5||e||^2",
                              "init": "glorot_normal", "seed_mean_cos_lt": 0.0, "frac_pairs_negative_min": 0.90},
+    "stage1_v4": {"mandatory": ["M2_v4_B_fit", "M3_B_interference", "V1_B_REP", "M4_F_failure", "M5_detector",
+                                "M6_controls_run", "M7_v4_Cstar_sanity", "V3_F", "V_D"],
+                  "M2_v4_fit_reduction_min": 0.95, "V1_B_REP": {"updates": 1000, "batch": [16, 16],
+                  "rel_err_reduction_min": 0.95, "optimizers": ["SGD", "SGDM", "AdamW"], "rule": "any optimizer"},
+                  "M7_v4_generic_hl_censored_max_exclusive": 64,
+                  "diagnostic_only": ["V1_B", "V2_Cstar"]},
     "thresholds": {"dup_cos": 0.999, "family_cos": 0.99,
                    "B_forgetting_pp": 40, "B_retention": 80, "B_T2_mse_ratio": 1.25,
                    "C_hl_reduction": 0.5, "C_tau": 0.05, "F_train": 0.98, "F_sgg_pp": 15,
