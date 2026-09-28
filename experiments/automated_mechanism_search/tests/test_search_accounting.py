@@ -116,22 +116,38 @@ def test_config_immutable(tmp_path):
         manifest.write_or_verify_config(p)
 
 
-def test_v4_config_markers():
+def test_v5_config_markers():
     from ams import PROTOCOL_VERSION
-    assert PROTOCOL_VERSION == "AMS-prereg-v4"
+    from ams.runners import ORACLE_UPDATES, V5_ORACLE_UPDATES
+    assert PROTOCOL_VERSION == "AMS-prereg-v5"
     c = manifest.RUN_CONFIG
-    assert c["protocol"] == "AMS-prereg-v4" and c["substrate"]["init"] == "glorot_normal"
+    assert c["protocol"] == "AMS-prereg-v5" and c["substrate"]["init"] == "glorot_normal"
     g = c["taskB_stage0_gate_v3"]                                           # v3 Stage-0 gate carries forward
     assert g["seed_mean_cos_lt"] == 0.0 and g["frac_pairs_negative_min"] == 0.90 and g["pairs_per_seed"] == 64
-    assert "taskB_gate_mean_cos" not in c["thresholds"]
-    s1 = c["stage1_v4"]
+    s1 = c["stage1_v5"]
     assert s1["M2_v4_fit_reduction_min"] == 0.95 and s1["V1_B_REP"]["rel_err_reduction_min"] == 0.95
-    assert s1["V1_B_REP"]["updates"] == 1000 and s1["V1_B_REP"]["batch"] == [16, 16]
+    assert s1["V1_B_REP"]["updates"] == 4000 and s1["V1_B_REP"]["batch"] == [16, 16] and s1["V1_B_REP"]["final"]
+    assert s1["V1_B_REP"]["optimizers"] == ["SGD", "SGDM", "AdamW"]
     assert set(s1["diagnostic_only"]) == {"V1_B", "V2_Cstar"} and "V1_B_REP" in s1["mandatory"]
-    assert manifest.CONFIG.endswith("run_config_v4.json")
-    # search budgets and promotion thresholds unchanged by v4
+    assert V5_ORACLE_UPDATES == 4000 and ORACLE_UPDATES == 1000             # v4 script behaviour preserved
+    assert manifest.CONFIG.endswith("run_config_v5.json")
+    assert c["lr_grid"] == [1e-3, 1e-2, 1e-1] and c["seeds"]["stage1"] == [100, 101, 102, 103, 104]
     assert c["budget"]["generated"] == 6000 and c["budget"]["tier1"] == 1200 and c["budget"]["promoted"] == 20
     assert c["thresholds"]["B_forgetting_pp"] == 40 and c["thresholds"]["C_hl_reduction"] == 0.5
+
+
+def test_stage1_v5_script_uses_4000_updates():
+    import os
+    src = open(os.path.join(os.path.dirname(manifest.CONFIG), "..", "scripts", "stage1_v5.py")).read()
+    assert '{"kwargs": {"updates": V5_ORACLE_UPDATES}} if t == "Bjoint"' in src
+    assert 'OUT = os.path.join(HERE, "runs", "stage1_v5")' in src
+
+
+def test_v4_config_record_unchanged():
+    import hashlib
+    d = json.load(open(manifest.CONFIG_V4))
+    assert d["config"]["protocol"] == "AMS-prereg-v4" and d["config"]["stage1_v4"]["V1_B_REP"]["updates"] == 1000
+    assert hashlib.sha256(json.dumps(d["config"], sort_keys=True).encode()).hexdigest() == d["sha256"]
 
 
 def test_v3_config_record_unchanged():
