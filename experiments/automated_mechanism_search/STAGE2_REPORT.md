@@ -106,3 +106,65 @@ Options only; none was applied.
   - enlarge the generation budget.
 
   Any of these is a material protocol change requiring a new amendment.
+
+---
+
+## 6. Implementation repair 1 and the official repaired rerun (owner-authorized; v5 protocol unchanged)
+
+### Repair
+
+- In `families.strip_gates`, `where(x, y, w)` now returns `y` only when `y` already has the `where` expression's type. Otherwise it returns the type-preserving broadcast `add(0@T, y)`.
+- Source: owner-account commit `1932379`, adopted unchanged. No other implementation change.
+
+### Regression evidence (`tests/test_repair1.py`; full suite 150/150 passing)
+
+- Each of the six recorded defects (P01515, P01523, P02385, P04354, P05662, P05782) reproduces its recorded typing error under the pre-repair rule. Under the fix it decomposes, and every stripped term keeps its original type.
+- Scalar-branch fixtures pass for O and I vectors, including inside `outer`. Same-type branches are unchanged. A matrix-typed `where` is illegal in the frozen grammar, so there is no matrix case.
+- Golden snapshot from the **pre-repair** code (`9dd8a5e`), covering all 155 reference and disguise programs: canonical form, struct and abstract hash, fingerprint, β hash, K(P), K(P) info and family match. **All 155 are identical after the repair.**
+- The owner's committed test called `serialize()` on an expression node and raised. Only the test was corrected, to use `sexpr()`.
+
+**Frozen before the rerun.** Commit `000f237` was pushed before launch; the run manifest records git at start `000f237`, clean.
+
+### Rerun
+
+`scripts/stage2.py stage2_repair1`, output in `runs/stage2_repair1/`. The first stopped run in `runs/stage2/` is preserved unchanged.
+
+| Setting | Value |
+|---|---|
+| Search seed | 20260928 |
+| Generator, budgets, T0 filter, Tier-1 baselines, effects, q, archive, stop rules | identical to the first run |
+| Tier-1 baselines | identical to the first run |
+
+### Trace reproduction (`runs/stage2_repair1/comparison_to_stage2.json`)
+
+- The raw-program sequence is **identical** over all 5,782 programs of the first run; there is no divergence.
+- The only label changes are the six former `defect` programs, which now screen normally and are all `sanity_fail`.
+- There are 0 canonical-form changes elsewhere.
+
+### Final counts (6,000 generated)
+
+| Label | Count |
+|---|---|
+| invalid | 2,053 |
+| duplicate, behavioural | 50 |
+| duplicate, syntactic | 0 |
+| probe non-finite | 0 |
+| pure rule (no C1/C2/C3; optimizer/local-rule rediscovery log) | 2,981 |
+| no learning signal | 534 |
+| REDISCOVERY | 0 |
+| REDISCOVERY_inert | 0 |
+| **reached the sanity filter** | **382** |
+| sanity fail (NEGATIVE) | 382 |
+| **reached Tier 1** | **0** |
+| defects | **0** |
+
+- Rediscovery rate over screened programs: 76.5%.
+- Negatives: 382 (100% of sanity-evaluated).
+- Best sanity result: 0.596 × trivial loss (the threshold is ≤ 0.5 ×); median 0.762 ×.
+- Archive: **0/56**. Promoted: **none**. **Stage 3 was not reached.**
+
+**Exact completion reason:** `N_GEN_MAX` — the frozen 6,000-program generation budget was exhausted during the random-initialization phase, before any program reached Tier 1.
+
+**Conclusion (per the owner instruction; no redesign).** The frozen v5 generator and T0 sanity-filter combination failed to seed MAP-Elites within budget. This is a search-design negative, not evidence about the existence or absence of a new mechanism.
+
+**Compute.** The rerun used 572.6 CPU-s (parent-self plus workers). The shared ledger, including Codex's independent v4 verification, stands at **0.654 CPU-h of 30**. No GPU.

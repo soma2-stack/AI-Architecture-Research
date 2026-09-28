@@ -1,0 +1,42 @@
+{
+ "run_a": "stage2",
+ "run_b": "stage2_repair1",
+ "n_a": 5782,
+ "n_b": 6000,
+ "compared_prefix": 5782,
+ "raw_sequence_identical_over_prefix": true,
+ "first_raw_divergence_index": null,
+ "label_changes_before_divergence": [
+  {
+   "pid": "P01515",
+   "before": "defect",
+   "after": "sanity_fail"
+  },
+  {
+   "pid": "P01523",
+   "before": "defect",
+   "after": "sanity_fail"
+  },
+  {
+   "pid": "P02385",
+   "before": "defect",
+   "after": "sanity_fail"
+  },
+  {
+   "pid": "P04354",
+   "before": "defect",
+   "after": "sanity_fail"
+  },
+  {
+   "pid": "P05662",
+   "before": "defect",
+   "after": "sanity_fail"
+  },
+  {
+   "pid": "P05782",
+   "before": "defect",
+   "after": "sanity_fail"
+  }
+ ],
+ "canonical_changes_excluding_former_defects": 0
+}

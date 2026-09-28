@@ -591,3 +591,20 @@ Committed before the official v5 Stage-1 run.
   - The v3 and v4 files are preserved.
 - **D-V5-3. Finality.** The 2,000- and 4,000-update results in the v4 diagnostic are **not** used as the v5 result. If the v5 oracle fails, the run stops. No further oracle change is made.
 - **D-V5-4. Carried forward.** Stage-2 and Stage-3 rules are unchanged: D-T1, D-S2-v4 and D-S3-v4, as committed in `0fb4be1`.
+
+---
+
+# Stage-2 implementation repair 1 (session 17; owner-authorized; v5 protocol unchanged)
+
+- **D-R1-1. The single repair.** `families.strip_gates` neutralizes `where(x, y, w)` by returning `y` when `y` already has the type of the `where` expression. Otherwise it returns the type-preserving broadcast `add(0@T, y)`, where T is the `where` expression's type. This happens only for a scalar positive branch, which the grammar permits.
+  - The owner-account commit `1932379` provides this change on `main`. It is adopted unchanged.
+  - Nothing else in gate stripping, K(P), canonicalization, probes, fingerprints, the generator or evaluation changed.
+- **D-R1-2. Regression evidence** (`tests/test_repair1.py`; the suite is 150 tests, all passing):
+  - Each of the six recorded defects (P01515, P01523, P02385, P04354, P05662, P05782) raises its recorded typing error under the pre-repair rule, and decomposes without error under the repaired rule. Every stripped expression keeps its original type.
+  - Direct scalar-branch fixtures cover O and I vectors, including inside `outer(…)`.
+  - Same-type branches behave as before.
+  - A matrix-typed `where` is illegal in the frozen grammar, so no matrix case exists.
+  - Golden snapshot: `tests/fixtures/reference_golden_pre_repair.json` was computed with the pre-repair code (`9dd8a5e`) for all 31 references × 5 variants. It records canonical form, struct and abstract hashes, fingerprint, β hash, K(P), K(P) info and family match. All 155 entries are identical after the repair.
+  - The committed owner test (`test_strip_gates_preserves_type_for_scalar_where_branch`) called `serialize()` on an expression node, which raised. Only the test was changed, to use `sexpr()`.
+- **D-R1-3. Rerun.** `scripts/stage2.py stage2_repair1` writes to `runs/stage2_repair1/` and refuses to overwrite an existing run. It uses the same seed (20260928), generator, budgets, filters, baselines rule, effects, q, archive and stop conditions. The first stopped run in `runs/stage2/` is preserved unchanged.
+- **D-R1-4. Expected trace relation.** During random initialization, the search RNG is consumed only by program generation; screening, T0 and probes use their own streams. The raw-program sequence should therefore be identical to the first run's for all 5,782 programs, and only the labels of the six formerly defective programs can differ. Divergence would begin after the initialization phase, if Tier-1 evaluations fill the archive.

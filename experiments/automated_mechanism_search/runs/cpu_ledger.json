@@ -84,8 +84,22 @@
    "wall_seconds": 11.799,
    "note": "Independent official v4 Stage-1 calibration on Windows; parent process CPU 0.812s plus worker-reported CPU 30.000s; Windows spawn compatibility wrapper; CPU only, no GPU",
    "utc": "2026-09-28T05:40:24Z"
+  },
+  {
+   "stage": "stage2_repair1",
+   "cpu_seconds": 4.429,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 Tier-1 baselines",
+   "utc": "2026-09-28T05:57:18Z"
+  },
+  {
+   "stage": "stage2_repair1",
+   "cpu_seconds": 568.186,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 final",
+   "utc": "2026-09-28T06:00:08Z"
   }
  ],
- "total_cpu_seconds": 1781.187,
- "total_cpu_hours": 0.49477
+ "total_cpu_seconds": 2353.802,
+ "total_cpu_hours": 0.65383
 }
