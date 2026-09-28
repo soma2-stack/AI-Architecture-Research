@@ -16,7 +16,8 @@ from . import COLLISION_LIBRARY_VERSION, GRAMMAR_VERSION, PROBE_BLOB_SHA, PROTOC
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_V2 = os.path.join(HERE, "config", "run_config.json")        # historical v2 record (unchanged)
 CONFIG_V3 = os.path.join(HERE, "config", "run_config_v3.json")     # v3 record (Stage-0 PASS, v3 Stage 1)
-CONFIG = os.path.join(HERE, "config", "run_config_v4.json")
+CONFIG_V4 = os.path.join(HERE, "config", "run_config_v4.json")     # v4 record (v4 Stage 1)
+CONFIG = os.path.join(HERE, "config", "run_config_v5.json")
 
 RUN_CONFIG = {
     "protocol": PROTOCOL_VERSION,
@@ -35,9 +36,9 @@ RUN_CONFIG = {
     "taskB_stage0_gate_v3": {"seeds": [100, 101, 102, 103, 104, 1000, 1001, 1002], "pairs_per_seed": 64,
                              "gradient": "first-layer weight matrix, batch-mean 0.5||e||^2",
                              "init": "glorot_normal", "seed_mean_cos_lt": 0.0, "frac_pairs_negative_min": 0.90},
-    "stage1_v4": {"mandatory": ["M2_v4_B_fit", "M3_B_interference", "V1_B_REP", "M4_F_failure", "M5_detector",
+    "stage1_v5": {"mandatory": ["M2_v4_B_fit", "M3_B_interference", "V1_B_REP", "M4_F_failure", "M5_detector",
                                 "M6_controls_run", "M7_v4_Cstar_sanity", "V3_F", "V_D"],
-                  "M2_v4_fit_reduction_min": 0.95, "V1_B_REP": {"updates": 1000, "batch": [16, 16],
+                  "M2_v4_fit_reduction_min": 0.95, "V1_B_REP": {"updates": 4000, "batch": [16, 16], "final": True,
                   "rel_err_reduction_min": 0.95, "optimizers": ["SGD", "SGDM", "AdamW"], "rule": "any optimizer"},
                   "M7_v4_generic_hl_censored_max_exclusive": 64,
                   "diagnostic_only": ["V1_B", "V2_Cstar"]},

@@ -19,6 +19,12 @@ class CPUCapExceeded(Exception):
     pass
 
 
+def self_cpu_seconds() -> float:
+    """CPU of this process only (workers are accounted by their own returned deltas)."""
+    s = resource.getrusage(resource.RUSAGE_SELF)
+    return s.ru_utime + s.ru_stime
+
+
 def process_cpu_seconds() -> float:
     s = resource.getrusage(resource.RUSAGE_SELF)
     c = resource.getrusage(resource.RUSAGE_CHILDREN)

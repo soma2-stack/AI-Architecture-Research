@@ -575,3 +575,19 @@ For each promoted candidate on its promoted task t, the conditions of D-S3-2 are
   - Otherwise, if any of gate 4(c), the Cursor A1 check, gate 5, gate 6, the Cursor A7 check, the known-control comparison, the robustness add-on or the A2/A3 requirement fails → **INTERESTING EMPIRICAL MECHANISM — NOVELTY AUDIT REQUIRED**.
   - All pass → **POSSIBLE ARCHITECTURE CANDIDATE — CROSS-LANE AUDIT REQUIRED** (maximum label).
 - **Tier 3.** Reserved Tasks A and E, and a locked confirmation on seeds 20000–20009, run only for candidates with the maximum label.
+
+---
+
+# v5 amendment (session 16)
+
+Committed before the official v5 Stage-1 run.
+
+- **D-V5-1.** V1-B-REP uses exactly **4,000** joint-training updates (`runners.V5_ORACLE_UPDATES`). This value is passed explicitly by `scripts/stage1_v5.py`.
+  - Unchanged from D-V4-2: the ≥ 0.95 / 0.95 thresholds, the SGD / SGDM / AdamW "any optimizer" rule, clipping, Glorot initialization, the learning-rate grid, seeds 100–104, the 16 + 16 batches, and training-side selection over the final 50 updates.
+  - `runners.ORACLE_UPDATES` stays 1,000, so `scripts/stage1_v4.py` still reproduces the v4 evidence.
+- **D-V5-2. Files.**
+  - Output: `runs/stage1_v5/`.
+  - Configuration: `config/run_config_v5.json`.
+  - The v3 and v4 files are preserved.
+- **D-V5-3. Finality.** The 2,000- and 4,000-update results in the v4 diagnostic are **not** used as the v5 result. If the v5 oracle fails, the run stops. No further oracle change is made.
+- **D-V5-4. Carried forward.** Stage-2 and Stage-3 rules are unchanged: D-T1, D-S2-v4 and D-S3-v4, as committed in `0fb4be1`.

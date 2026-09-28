@@ -96,7 +96,8 @@ def run_B(make_learner: Callable[[], Learner], seeds: Sequence[int], lrs=LR_GRID
 # Task-B joint-training representability oracle (v4 V1-B-REP; validity only)
 # ---------------------------------------------------------------------------
 
-ORACLE_UPDATES = 1000
+ORACLE_UPDATES = 1000        # v4 oracle budget (default; used by scripts/stage1_v4.py)
+V5_ORACLE_UPDATES = 4000     # v5 frozen oracle budget (passed explicitly by scripts/stage1_v5.py)
 
 
 def run_B_joint(make_learner: Callable[[], Learner], seeds: Sequence[int], lrs=LR_GRID,

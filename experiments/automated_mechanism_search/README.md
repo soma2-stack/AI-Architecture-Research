@@ -1,10 +1,10 @@
-# Automated mechanism search (AMS) — preregistration v4 implementation
+# Automated mechanism search (AMS) — preregistration v5 implementation
 
-Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v4; v2 package, v3 Task-B gate, v4 Stage-1 calibration).
+Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v5; v2 package, v3 Task-B gate, v4/v5 Stage-1 calibration).
 
 Open choices are fixed in `IMPLEMENTATION_DECISIONS.md`, committed before any gate or run.
 
-**Status:** v2 Stage 0 failed (`STAGE0_REPORT.md`). v3 Stage 0 passed (`runs/stage0_v3/`); v3 Stage 1 failed M2, V1-B and V2-C* (`STAGE1_REPORT.md`). v4 Stage 1 failed only the V1-B-REP oracle (`STAGE1_V4_REPORT.md`). Stages 2–3 have not run.
+**Status:** v3 Stage 0 PASS (`runs/stage0_v3/`); v5 Stage 1 PASS (`runs/stage1_v5/`); Stage 2 began and stopped on the frozen implementation-defect rule with 0 Tier-1 evaluations (`STAGE2_REPORT.md`, `runs/stage2/`). Stage 3 not reached. Earlier stops: `STAGE0_REPORT.md` (v2), `STAGE1_REPORT.md` (v3), `STAGE1_V4_REPORT.md` (v4).
 
 ## Layout
 
