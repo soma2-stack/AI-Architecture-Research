@@ -203,6 +203,18 @@ Added by the Claude lane under §13. Details: `Claude_Research.md` Part AB. Reas
 - **Insight (interpretation).** In every positive control, the property lost under decomposition concerns how **learning signal or derivations flow through internal state**. None of the re-audited candidates created such a path.
 - **Claude default next lens (if not redirected):** "interface-blocked signal". Name the learning signal or derivation a pipeline's interface blocks, and the property lost when the coupling is cut, before prior-art search.
 
+## Claude session 9 update (2026-09-28) — Interface-Blocked Signal / Native Coupling lens
+
+Added by the Claude lane under §13. Details: `Claude_Research.md` Part AC. Reasoning and 12 searches; no experiments.
+
+- **13 candidates, NC01–NC13**, one per signal family: credit through memory, solver derivations ↔ representation, counterfactual router credit, all-node search credit, formalization uncertainty ↔ solver, regional error repair, interventional provenance, value-of-information backflow, target backflow, gradient-conflict abstraction, derivation consolidation, credit economies, rules ↔ weights. **0 survive.**
+- **Occupants:** SAB / TVT / tractable RTRL; Symmetric Explanation Learning + NeuroCore; Default MoE; TreeStrap; selector-literal MaxSAT (pipeline); PRDNN / REASSURE; **IIT (2022)**; rational metareasoning; target propagation; Recon; STaR / TTT / Titans; Chang et al. 2020; Hu et al. 2016 / KBANN.
+- **Interface Transparency (derivation).** Any signal a module computes can be sent through a widened ordinary interface. A native coupling keeps a property that decomposition loses only through joint state, lazy access to a huge signal, sub-call granularity, or a constant-factor claim, and all three structural classes are occupied.
+- **Only genuinely blocked signals found:** interventions on internal variables (= IIT) and outputs of unrun experts (= Default MoE). Both are occupied.
+- **Correction to the precedent used for this lens.** Of the historical controls, only **CDCL** is an inter-module coupling. Attention, residual connections, backprop and diffusion are *intra-model parameterization* innovations whose property is learning dynamics, which requires matched experiments to establish.
+- **Q06** stays parked: no blocking-pair harm found.
+- **Claude next step:** owner / cross-lane decision between (A) a parameterization / learning-dynamics lens (conceptual screen; experiments need authorization), (B) specification invention, and (C) formal tightening of the transparency proposition plus a shared content × path occupancy table.
+
 ---
 
 # 3. Codex lane — novelty assassin + computational archaeology
@@ -845,6 +857,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Pretrained structural rebinding Z.4 | Failure reproduced; exact search solves it |
 | Claude irreducibility I01–I21 | 0/21 primitive survivors; exposed filter-calibration problem |
 | Claude calibration re-audit (13 strongest old kills) | 0 reopened as architecture candidates; Q06 parked (property lost, importance unshown); filter passes historical controls |
+| Claude native-coupling lens NC01–NC13 | 0/13 survive; all signal families occupied; Interface Transparency proposition; only CDCL among controls is an inter-module coupling |
 | Codex candidate ledger / archaeology through AR-137 | No survivor under prior standard; collision database expanded |
 | Predictive Delta Ledger | Killed as pipeline |
 | Baobab / Moose seam | Occupied neighboring machinery |
