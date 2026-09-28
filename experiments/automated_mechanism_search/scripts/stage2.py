@@ -1,7 +1,11 @@
-"""Official Stage 2 (prereg v5): frozen MAP-Elites search (AE.3.4; D-S2-*, D-T1-*, D-S2-v4).
+"""Official Stage 2: frozen MAP-Elites search (AE.3.4; D-S2-*, D-T1-*, D-S2-v4).
 
 Budgets: 6,000 generated / 3,000 sanity-evaluated / 1,200 Tier-1 / 20 promoted; CPU only; the
-shared 30 CPU-h cap is checked before every Tier-1 evaluation.  Writes runs/stage2/*."""
+shared 30 CPU-h cap is checked before every Tier-1 evaluation.  Writes runs/<RUN_NAME>/*.
+
+Run names: stage2, stage2_repair1 (prereg v5, uniform random constructor, seed 20260928);
+stage2_v6 (prereg v6, SGD-anchored constructor, seed 2026092806; refuses to start unless the
+v6 static validation in runs/v6_static_validation/ passed)."""
 import json
 import math
 import multiprocessing as mp
@@ -25,7 +29,9 @@ from ams.runners import run_T0  # noqa: E402
 RUN_NAME = sys.argv[1] if len(sys.argv) > 1 else "stage2"      # official repaired rerun: stage2_repair1
 OUT = os.path.join(HERE, "runs", RUN_NAME)
 assert not os.path.exists(os.path.join(OUT, "manifest.json")), f"{OUT} already holds a run; refusing to overwrite"
-SEARCH_SEED = 20260928
+V6 = RUN_NAME.startswith("stage2_v6")
+INIT = "v6" if V6 else "v5"
+SEARCH_SEED = 2026092806 if V6 else 20260928
 SANITY_SEED = 500
 CHECKPOINT_EVERY = 25
 
@@ -43,6 +49,12 @@ def _json(o):
 
 
 def main():
+    if V6:
+        assert manifest.RUN_CONFIG["stage2_v6"]["search_seed"] == SEARCH_SEED
+        sv = os.path.join(HERE, "runs", "v6_static_validation", "validation.json")
+        if not (os.path.exists(sv) and json.load(open(sv))["pass"]):
+            print("v6 static validation missing or failed; the official v6 Stage 2 is not allowed.")
+            return 4
     os.makedirs(OUT, exist_ok=True)
     git_at_start = {"commit": manifest._git("rev-parse", "HEAD"),
                     "dirty_excluding_runs": bool(manifest._git("status", "--porcelain", "--", ".", ":!runs"))}
@@ -109,7 +121,7 @@ def main():
             pass
 
         try:
-            outcome = search.map_elites(pipe, random.Random(SEARCH_SEED), progress)
+            outcome = search.map_elites(pipe, random.Random(SEARCH_SEED), progress, init=INIT)
         except accounting.CPUCapExceeded as e:
             outcome = {"stop": f"CPU_CAP: {e}", "generations": []}
         log.close()
@@ -148,7 +160,13 @@ def main():
                     "struct_hash": r.struct_hash, "tier1": r.tier1, "K": r.detail.get("K"),
                     "K_info": r.detail.get("K_info"), "cos_P_KP": r.detail.get("cos_P_KP")} for r in promo],
                   f, indent=1, default=_json)
+    if pipe.construction:
+        import gzip as _gz
+        with _gz.open(os.path.join(OUT, "construction.jsonl.gz"), "wt", 9) as f:
+            for pid, meta in pipe.construction.items():
+                f.write(json.dumps({"pid": pid, **meta}, default=_json) + "\n")
     man = manifest.build_manifest(RUN_NAME, {"git_at_start": git_at_start, "search_seed": SEARCH_SEED,
+                                             "initial_constructor": INIT,
                                              "tier1_seeds": tier1.TIER1_SEEDS, "sanity_seed": SANITY_SEED,
                                              "stop": outcome["stop"], "counts": c,
                                              "cpu_seconds": total_cpu(), "n_promoted": len(promo)})

@@ -17,7 +17,8 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_V2 = os.path.join(HERE, "config", "run_config.json")        # historical v2 record (unchanged)
 CONFIG_V3 = os.path.join(HERE, "config", "run_config_v3.json")     # v3 record (Stage-0 PASS, v3 Stage 1)
 CONFIG_V4 = os.path.join(HERE, "config", "run_config_v4.json")     # v4 record (v4 Stage 1)
-CONFIG = os.path.join(HERE, "config", "run_config_v5.json")
+CONFIG_V5 = os.path.join(HERE, "config", "run_config_v5.json")     # v5 record (v5 Stage 1, v5 Stage 2 runs)
+CONFIG = os.path.join(HERE, "config", "run_config_v6.json")
 
 RUN_CONFIG = {
     "protocol": PROTOCOL_VERSION,
@@ -42,6 +43,14 @@ RUN_CONFIG = {
                   "rel_err_reduction_min": 0.95, "optimizers": ["SGD", "SGDM", "AdamW"], "rule": "any optimizer"},
                   "M7_v4_generic_hl_censored_max_exclusive": 64,
                   "diagnostic_only": ["V1_B", "V2_Cstar"]},
+    "stage2_v6": {"initial_constructor": "SGD-anchored architecture residuals (prereg v6)",
+                  "backbone": {"dW": "(neg (outer d_bp a))", "db": "(neg d_bp)", "update_every": 1},
+                  "classes": ["C1", "C2", "C3"], "class_choice": "uniform",
+                  "decays": [0.5, 0.9, 0.99], "expr_depths": [1, 2],
+                  "activity_C1": ["a", "dphi", "h", "z"], "activity_C2_C3": ["dphi", "h", "z"],
+                  "C1_reg_types": ["O", "M"], "C3_kinds": ["freeze", "reinit"], "C3_thetas": [0.0, 0.1, 0.5],
+                  "max_construction_attempts": 10, "search_seed": 2026092806,
+                  "static_validation": {"seed": 60606, "n_proposals": 1000}},
     "thresholds": {"dup_cos": 0.999, "family_cos": 0.99,
                    "B_forgetting_pp": 40, "B_retention": 80, "B_T2_mse_ratio": 1.25,
                    "C_hl_reduction": 0.5, "C_tau": 0.05, "F_train": 0.98, "F_sgg_pp": 15,

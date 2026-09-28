@@ -608,3 +608,37 @@ Committed before the official v5 Stage-1 run.
   - The committed owner test (`test_strip_gates_preserves_type_for_scalar_where_branch`) called `serialize()` on an expression node, which raised. Only the test was changed, to use `sexpr()`.
 - **D-R1-3. Rerun.** `scripts/stage2.py stage2_repair1` writes to `runs/stage2_repair1/` and refuses to overwrite an existing run. It uses the same seed (20260928), generator, budgets, filters, baselines rule, effects, q, archive and stop conditions. The first stopped run in `runs/stage2/` is preserved unchanged.
 - **D-R1-4. Expected trace relation.** During random initialization, the search RNG is consumed only by program generation; screening, T0 and probes use their own streams. The raw-program sequence should therefore be identical to the first run's for all 5,782 programs, and only the labels of the six formerly defective programs can differ. Divergence would begin after the initialization phase, if Tier-1 evaluations fill the archive.
+
+---
+
+# v6 amendment — SGD-anchored Stage-2 initial constructor (session 18)
+
+Committed before the v6 static validation and before any v6 search. Prereg v6 changes only the Stage-2 initial constructor; the grammar, canonicalizer, probes, fingerprint, family library, collision pipeline, T0, Tier-1, q, archive, mutation / crossover, budgets, promotion and Stage-3 rules are unchanged. `GRAMMAR_VERSION` and `COLLISION_LIBRARY_VERSION` are unchanged.
+
+- **D-V6-1. Code.**
+  - `ams/v6gen.py` holds `AnchoredGen`, a subclass of the v5 `Gen`. It adds the constructor and inherits mutation and crossover unchanged. The v5 `Gen.program` is untouched, and a test reproduces the first 300 raw programs of `runs/stage2_repair1/`.
+  - `search.map_elites(..., init="v6")` uses the anchored constructor for the initial phase and whenever the archive is empty. `init="v5"` (the default) is the old path, unchanged.
+  - `scripts/stage2.py stage2_v6` uses seed 2026092806. It refuses to start unless `runs/v6_static_validation/validation.json` has `pass: true`.
+  - Configuration: `config/run_config_v6.json`. It is the v5 configuration plus a `stage2_v6` section, with `protocol` set to `AMS-prereg-v6`. The v5 record is preserved, and a test checks that nothing else differs.
+- **D-V6-2. Operand order.** The frozen grammar admits binary operands (T,T) or (T,S) only, so the literal `add(1.0, X)` with a vector X is ill-typed. It is written `(add X 1.0)`. `add` is commutative, so the function is identical.
+  - C1-O `gain` = `(add (mul (tanh r1) 0.1) 1.0)`.
+  - C1-M `w_eff` = `(mul (tanh r1) 0.1)`.
+  - C2 `g` = `(add (mul (tanh sel) 0.1) 1.0)`, with `dW = (rowscale (neg (outer d_bp a)) g)` and `db = (mul (neg d_bp) g)`.
+  - C3 mask = `(tanh r1)`.
+- **D-V6-3. "Depth 1–2".** The existing grow method (`Gen.expr`) is called with a depth argument drawn uniformly from {1, 2}, with `has_cvec = False`, since v6 proposals have no `cvec`. The realized depth is 1 or 2.
+  - C1 and C3 register updates are drawn in the STATE phase and may read `r1`.
+  - The C2 selector is drawn in the PARAM phase, with no registers.
+- **D-V6-4. Activity leaf and retries.**
+  - "Must contain an activity leaf" is implemented as a conditional draw: the expression is redrawn until it reads a required leaf ({a, z, h, dphi} for C1; {z, h, dphi} for C2 and C3). These redraws are not proposals and do not count as generated. Prereg v6 counts only attempts that are "invalid because of a grammar/node-limit issue". The number of redraws is logged per proposal.
+  - A proposal slot draws the coupling class once. It then makes up to 10 construction attempts with that class, so the class choice stays uniform over slots. Each attempt that fails the typechecker or the node / depth / register limits is logged as `invalid` and counts toward the 6,000 generated. After 10 invalid attempts the slot is skipped, mirroring AE.3.5 offspring retries (`MAX_RETRY` = 10 attempts).
+- **D-V6-5. RNG draw order** (fixed for reproducibility). Per slot: class. Per attempt:
+  - C1: register type, decay, then the update expression;
+  - C2: the selector;
+  - C3: decay, update expression, kind, then θ.
+
+  The same RNG object then drives the unchanged mutation and crossover.
+- **D-V6-6. Static validation** (`scripts/v6_static_validation.py`, seed 60606, 1,000 slots).
+  - Structural only: no T0, probe run, B / C\* / F, or `FamilyLibrary`.
+  - The pass criteria are listed in the script's docstring and were fixed before the run.
+  - Coupling presence is judged by the unchanged frozen fingerprint on the raw proposal. The frozen C2 detector (Part AE: a `topk` / `where` gate on activity, applied to ΔW) is the definition the collision pipeline and descriptors use.
+  - Noted during implementation, before the official validation: the v6 C2 soft gate `1 + 0.1·tanh(selector)` contains no `topk` / `where`, so the frozen detector sees it only when the drawn selector happens to contain an activity-reading `topk` / `where`. A C2 depth-2 selector gives `dW` depth 6, over the frozen `MAX_DEPTH` of 5. Tests `test_frozen_fingerprint_does_not_detect_v6_c2_soft_gate` and `test_only_c2_depth2_selectors_are_invalid_and_they_exceed_frozen_depth` document both.
