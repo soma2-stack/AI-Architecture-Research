@@ -9,17 +9,18 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 ### Codex resume/status — 2026-09-27
 
 - **Lane and lens:** Novelty assassin / computational archaeology. Separate primitive, architecture, and pipeline claims. For learning-dynamics claims, match the exact update/state behavior and the claimed adaptation, credit, conditioning, interference, or resource property; simulability alone is not an architecture kill.
-- **Stage:** AR-140 is the literature-only collision map for single-model learning dynamics. It covers credit transport/locality, depth and conditioning, recurrence/equilibrium, fast/slow state and test-time learning, meta-learned updates, continual-learning interference, routing/specialization, and objective/schedule-only changes. AR-139 closed the generic native-coupling lens.
-- **Strongest surviving candidates:** None. Multi-timescale/plastic state, online test-time updates, learned update rules, local credit rules, gradient-subspace adaptation, and sparse expert specialization all have direct architecture or mechanism-level occupants in the checked literature. No candidate with a precisely specified residual transition survives this pass.
-- **Closed in this continuation:** The broad claim that a model's learning behavior is new merely because it shortens credit paths, preserves gradients, changes optimizer geometry, separates fast and slow state, reduces interference, adapts at inference, changes effective depth, or dynamically routes parameters. These are established design axes. This does not close a future, specifically defined update rule whose learning/adaptation or resource property survives comparison with those occupants.
-- **Unresolved operation-level questions:** No current candidate specifies an update/state transition that differs materially from the closest listed mechanisms. Recent unifying work (MIRAS; Test-Time Regression) organizes many sequence-memory layers by memory/update design choices; it does not establish that all have identical resource laws or eliminate the need for matched comparisons.
-- **Exact next action:** For the next concrete candidate, record its train-time/test-time state, exact update equation and trigger, target property, and whether its novelty is architecture, optimizer, objective, or schedule. Compare against same-backbone BP/AdamW or the strongest relevant TTT/fast-weight/local-learning baseline at matched state, data, parameter, update, and compute budgets. Do not run the comparison until this operation-level screen leaves a material unresolved property.
+- **Stage:** AR-141 specifies a machine-oriented rediscovery filter and novelty gate for a preregistered automated mechanism search. It follows AR-140's literature-only collision map for single-model learning dynamics. The gate is a protocol design, not an authorization to run a search.
+- **Strongest surviving candidates:** None. No candidate update program has been evaluated or promoted. All named optimizer, plasticity, credit-assignment, adaptation, and architecture families in AR-141 are collision controls, not candidate mechanisms.
+- **Closed in this continuation:** Treating unusual source code, a benchmark win, finite-trace novelty, or a new combination of familiar state variables as evidence of a new mechanism. These are search outputs that must pass semantic, behavioral, structural, matched-control, and literature gates.
+- **Unresolved operation-level questions:** The eventual candidate grammar and typed runtime contract have not been frozen; exact program equivalence is undecidable in the general case, and finite behavioral fingerprints are only screening evidence. The bounded protocol in AR-141 states how to handle these limits without treating them as proof of novelty.
+- **Exact next action:** Freeze the candidate IR, fingerprint schema, collision templates, diagnostic traces, matched-control budget, and locked confirmation split from AR-141 before any search. No experiment, benchmark, or search run is authorized in this continuation.
 - **Resource constraint:** Literature, primary-source checks, and formal reasoning only. No experiments, benchmarks, GPU work, CPU-heavy jobs, or background jobs were run.
 
 - **Rolling state correction (2026-09-27; supersedes the older snapshot below):** candidate ledger now runs C001–C038, and no broad model class has survived yet. Recent additions: AR-112 robustness result (operator-matched gains under mild noise, loss under misspecification), AR-113 KBANN prior-art audit, AR-114 QPT/QSIM archaeology, AR-115 saturation theorem proving, AR-116 Warren Abstract Machine, AR-117 Graphplan, AR-118 set-valued reachability, AR-119 Cellular Potts, AR-120 oscillator Ising machines, and C029's Incrementally-Computable Neural Network prior-art update. This continuation adds AR-121 for HTN planning, HY-106 for learned HTN method-selection collisions, and AR-122 for active inference; these are established planning/inference frameworks, not new broad model classes. It also adds an FCM source correction: nonlinear edges and delays predate KA-FCM, with Fuzzy Relational Maps recorded as a narrow bipartite variant. HY-100 now separates predictive-basis test selection from physical sensing; HY-103–HY-107 record oscillator-learning, Rete/neural-Datalog, heteroclinic-learning, HTN, and deep-active-inference collisions. A JTMS/ATMS addendum sharpens the truth-maintenance prior-art comparison. The latest pass adds AR-123/HY-108 closing generic reversible structural edits, AR-124/HY-109 closing persistent entity identity plus learned slots, AR-125/HY-110 closing runtime symbol/operator growth, and AR-126/HY-111 closing generic frame/script knowledge plus neural grounding. This continuation adds AR-127/HY-112 for KL-ONE classification and learned ontology construction; AR-128 for DL concept revision; AR-129/HY-113 for incremental TBox/ABox maintenance and conservative extension; AR-130/HY-114 for proof-carrying updates; AR-131 for learned specification generation; AR-132 for policy learning via membership/equivalence queries; AR-133 for per-update translation validation; AR-134 for live code/state replacement through dynamic software updating; AR-135 for reflective interpretation and executable code as data; AR-136 for automatic revision/creation of executable rules and programs; and AR-137 for evaluators/objectives inferred from feedback or generated internally. Each has direct same-operation prior art or reduces to known tools and explicit oracle/specification/update-point assumptions. No broad or hybrid architecture candidate survives. Continue literature and formal reduction only under the owner's no-experiment rule; only `Codex_Research.md` was changed.
 - **Calibration rolling update (2026-09-27):** AR-138 tests the owner-updated primitive/architecture/pipeline standard against attention, residual connections, backpropagation, diffusion, and CDCL, and re-audits C003, C007, C014, C017, C020, and HY-80. CDCL and Strassen serve as positive controls; no current Codex architecture candidate survives. No experiment ran.
 - **Native-coupling update (2026-09-27):** AR-139 checks gradient, recurrence/equilibrium, prediction-error, message, solver, memory-write, routing, workspace, conflict/lemma, belief/action, reward/credit, and test-time-learning feedback against direct architecture prior art and property-preserving interfaces. All named archetypes are occupied or lack a specified material property; none survives. CDCL remains the calibration control: removing learned-clause writeback changes later search, while restoring the clause-database feedback path reproduces CDCL itself. No experiment ran.
 - **Single-model learning-dynamics update (2026-09-27):** AR-140 builds a property-organized collision map across gradient transport, residual/highway/attention pathways, normalization and conditioning, recurrence/equilibrium/continuous time, fast-weight and test-time learning, meta-optimizers/MAML, continual-learning interference, local/neuromodulated rules, and MoE routing. Direct prior art now includes 2025 Nested Learning/HOPE, Titans/ATLAS/MIRAS, gradient-subspace lifelong TTA, and the 2026 Test-Time Regression synthesis plus AGMP. No generic candidate survives; no experiments or compute-heavy jobs ran.
+- **Automated-search novelty-gate update (2026-09-27):** AR-141 specifies typed state/update fingerprints for the requested optimizer, local-plasticity, credit, memory, adaptation, implicit-dynamics, routing, and structural-growth families; sound syntax normalization; exogenous trace comparison; structural matching; a manual prior-art gate; compute/data/selection controls; and a strict promotion tree. AutoML-Zero's rediscovery of backprop/gradient descent and its finite behavior hash are treated as calibration examples, not a sufficient novelty filter. No candidate was searched, no experiment or benchmark was run, and no compute-heavy job was started.
 - Read `00_PRIOR_RESEARCH.md`, `01_MISSION.md`, `02_RESEARCH_METHOD.md`, `03_IDEA_CRITERIA.md`, and `04_RESEARCH_STATE.md` before starting.
 - Treat the prior research as a map of explored ideas, not as authoritative literature review.
 - Do not read or use `Claude_Research.md`.
@@ -4541,3 +4542,367 @@ These controls pass the calibrated test: architecture can change learning/comput
 **Resources.** Literature and source checking only. No experiments, benchmarks, CPU-heavy jobs, GPU work, or background jobs ran.
 
 **Exact next action.** When a concrete single-model learning-dynamics candidate is available, first write its state, update equation, trigger, and measurable property; classify whether the change is architecture, optimizer, loss, or schedule; then choose the nearest comparator from this collision library. Reject the broad claim if the matched comparator preserves the state transition and claimed learning/resource behavior. Only after that screen leaves a specific residual property should a minimal falsifier be designed.
+
+## AR-141 — Rediscovery filter and novelty gate for automated mechanism search
+
+**Date:** 2026-09-27
+
+**Status:** protocol design only. No candidate search, experiment, benchmark, training run, or compute-heavy job was executed or authorized.
+**Question:** How can a small generated learning/update program be rejected as a rediscovery when its source syntax is unusual, while avoiding the false conclusion that every architecture is equivalent to any machine that can simulate it?
+
+### 1. Audit object and threat model
+
+The search unit is a complete, typed, state-transition program, not a name or a single equation. Normalize each candidate into an event graph with these entry points where present:
+
+1. setup(input_metadata) → initial state
+2. forward(input, state) → prediction, activations, read trace
+3. objective(prediction, target, state) → scalar/vector losses
+4. update(state, gradients, activations, inputs, targets, feedback, rng) → new state
+5. adapt_or_infer(input, state) → prediction, new state
+6. structural_event(state, evidence) → changed topology/state
+
+Represent one transition as:
+
+    (x_t, y_t, theta_t, z_t, h_t, G_t, A_t, E_t, R_t) → (prediction_t, loss_t, theta_(t+1), z_(t+1), h_(t+1), topology_(t+1))
+
+Here theta is ordinary model parameters, z is optimizer/update state, h is persistent activation or memory state, G is gradient/error/target information, A is activation/input information, E is external memory or feedback, and R is explicit randomness. The representation must say which values are unavailable at each phase; otherwise a candidate can silently use labels, future gradients, held-out examples, or a hidden extra forward pass.
+
+The first machine-readable artifact is a **fingerprint**, not a novelty verdict. Keep absent, present, and unknown distinct. Unknown is never treated as absent. The fingerprint describes source-level structure, dynamic behavior, and resource use; it does not require or infer a theoretical proof.
+
+### 2. Machine-oriented collision library
+
+The signatures below are practical recognizers. A match means “known-family collision or mandatory manual review,” not that every implementation in the family is identical. Variants that change epsilon placement, bias correction, reset scope, feedback learning, stochasticity, tensor shape, or update ordering must keep those fields in their fingerprint.
+
+| Family | Recognizable observable signature |
+|---|---|
+| SGD | No persistent optimizer state; inject current gradient into parameters: theta' = theta - eta * g. |
+| Momentum | Persistent velocity; linear decay plus current gradient injection: v' = beta*v + g, theta' = theta - eta*v' (or its explicitly recorded sign/scale variant). |
+| Nesterov | Momentum state plus gradient evaluated at a lookahead parameter/state, or the algebraically equivalent corrected momentum update; record lookahead and the point at which the gradient is sampled. |
+| RMSProp | Per-coordinate exponential second-moment state s' = rho*s + (1-rho)*g^2; divide current gradient by sqrt(s')+eps (record centering and epsilon placement). |
+| Adam family | First and second moment state, exponential updates, bias correction, coordinatewise division by square-root second moment plus epsilon. Mark AMSGrad/max-state, decoupled weight decay (AdamW), rectification, clipping, and epsilon convention separately. |
+| Adagrad | Monotone accumulated coordinatewise squared-gradient state S' = S+g^2; scale by 1/(sqrt(S)+eps). |
+| Natural gradient | Gradient transformed by inverse/regularized Fisher or an equivalent local information metric; record metric estimator, damping, and solve. |
+| K-FAC | Layerwise Kronecker-factored activation and output-gradient covariance state; inverse/root factors precondition the parameter gradient; record factor update cadence and approximation. |
+| Shampoo | Per-tensor-axis accumulated gradient Gram matrices and inverse matrix roots; precondition by applying the per-axis root factors. |
+| Mirror descent | Update in dual coordinates under a mirror map/Bregman geometry, e.g. grad(psi(theta')) = grad(psi(theta))-eta*g; record map and domain. |
+| Exponentiated gradient | Positive/multiplicative update w' proportional to w*exp(-eta*g) with normalization or simplex projection; a recognizable mirror-descent specialization. |
+| Proximal update | Gradient step followed by prox_(eta R) or an equivalent joint proximal operator; record regularizer and exact prox. |
+| Projected gradient | Gradient step followed by projection Pi_C onto a stated feasible set; record projection metric, frequency, and whether it is exact or approximate. |
+| PCGrad | Multiple task gradients; detect pairwise negative inner products and remove the conflicting component by projection before aggregation. |
+| OWM | Store activation covariance/subspace information and project subsequent updates into the complement of prior activations to limit interference. |
+| GPM | Retain gradient/representation subspaces (often bases extracted from activations); project new task updates away from protected bases. |
+| EWC | Store parameter importance (usually Fisher-diagonal) and reference parameters; penalize quadratic displacement from the reference during later-task learning. |
+| Eligibility traces | Persistent decayed local derivative/feature trace e_t = lambda*e_(t-1)+local_signal_t; later scalar TD/reward/error multiplies that trace to update parameters. Record trace horizon and modulator source. |
+| Hebbian / Oja | Correlation-driven local update such as Delta w ~ y*x; Oja adds a norm-stabilizing term such as -y^2*w. No global loss gradient is required. |
+| STDP-like | Synaptic update is a function of pre/post spike timing difference, typically signed exponentials on the two sides of zero; record event windows, traces, and reset behavior. |
+| Three-/four-factor plasticity | Local eligibility or pre/post factors are multiplied by a global reward/error/neuromodulator; a fourth factor adds another local/context/modulatory variable. Record exact factor provenance, delay, and scope. |
+| Reverse-mode AD / backpropagation | Reverse traversal of the forward computation graph applies vector-Jacobian products to propagate a scalar/vector loss cotangent to parameters and activations; shared intermediate cotangents accumulate at fan-out. Record tape/checkpointing, graph truncation, and whether the update is exact or approximate. |
+| Feedback alignment | Backward hidden credit uses fixed random feedback matrices rather than the forward weights' transpose; forward weights still learn from that approximate credit. |
+| Direct feedback alignment | Output error is projected directly to each hidden layer by fixed random feedback matrices; bypasses layer-by-layer transposed Jacobian transport. |
+| Target propagation | Construct layerwise targets through learned approximate inverse maps or target-difference rules; update activations/weights toward those targets rather than ordinary end-to-end backprop alone. |
+| Synthetic gradients | A learned module predicts a cut-point gradient/error from local state; the upstream block updates without waiting for the true downstream gradient. Mark prediction target, training signal, and interface location. |
+| Predictive coding | Maintain latent neuronal states and prediction-error units; iterative local inference reduces mismatch between each state and top-down/bottom-up predictions, with local weight updates. |
+| Equilibrium propagation | Settle an energy network in a free phase and a target-nudged phase; parameter update is a difference of phase statistics/correlations, often scaled by the nudge strength. |
+| Forward-Forward | Layer-local goodness scores are increased for positive data and decreased for negative data; local forward-only objectives replace a global backpropagated loss signal. |
+| Fast weights | Separate slow parameters from rapidly updated sequence/task-local matrix/vector state; write to fast state from recent activations and read it content-addressably in later forward steps. |
+| Differentiable plasticity | Learn slow base weights plus plasticity coefficients; an eligibility/Hebbian trace changes effective weights online, and outer gradients train the plasticity rule. |
+| Meta-learning | Outer state/parameters are optimized across tasks so that an inner learner adapts; fingerprint task boundary, inner update, outer objective, and whether gradients pass through adaptation. |
+| Learned optimizer | A learned recurrent or coordinatewise rule reads gradients/parameters/history, stores hidden optimizer state, and emits parameter updates; the optimizer itself is trained across optimizees/tasks. |
+| MAML-like adaptation | Shared initialization is updated on support data by one or more gradient steps; outer loss differentiates through the inner adaptation to improve query performance. |
+| Test-time training (TTT) | At inference/test time, update model or auxiliary parameters using an unlabeled/self-supervised objective on test inputs; record reset/stream scope and whether predictions occur before/after update. |
+| Test-time memory | Write test-time keys/values or latent records into persistent state and retrieve them to condition subsequent predictions; record addressing, write policy, reset boundary, and label access. |
+| DEQ / implicit learning | Define hidden state as a fixed point z*=f_theta(z*,x); solve by iteration/root finding and differentiate through an implicit Jacobian solve rather than an explicitly stored layer stack. |
+| Neural ODE / adjoint | Evolve continuous hidden state by dz/dt=f_theta(z,t); numerical integration controls the forward path and an adjoint/continuous sensitivity equation computes gradients. |
+| Residual / highway paths | Add identity bypass y=x+F(x) or a learned gated carry/transform mixture; expose the direct state and gradient path and its gate. |
+| Recurrence / gating | Persistent hidden state is fed from one time/depth step to the next; gates control write, retain, expose, or reset of that state (e.g. GRU/LSTM-style). |
+| Attention | Compute content-dependent query-key scores, normalize them, and use them to mix value states; record token/state scope, causal mask, head structure, and whether weights are learned or data-routed. |
+| Mixture-of-experts routing | Router scores inputs/tokens and dispatches top-k or dense traffic to expert-specific parameters; record capacity, overflow/drop behavior, balancing auxiliary losses, and whether routing gradients are hard or soft. |
+| Structural growth / freezing | Runtime event adds/removes/duplicates/freezes parameter blocks, rules, units, experts, or edges on a criterion; record trigger, object birth/death, inheritance, and later plasticity. |
+| Cascade-Correlation | Train candidate hidden units to correlate with residual error, add the best unit to the network, then freeze installed weights while training the output layer. |
+| ART | Compare input/category match to a vigilance threshold; resonance updates a category, mismatch triggers reset/search and possibly a new category. |
+| Continual-backprop / reinitialization | Track age/utility/activation or contribution; periodically select low-utility units/weights for reinitialization while preserving or restoring useful function. Record utility statistic, schedule, and state reset. |
+
+#### Collision rule encoding
+
+Each row can be compiled into a template predicate over the fingerprint. A predicate should return one of match, near_match, no_match, or unknown, plus the fields that caused the result. Example:
+
+~~~yaml
+family: momentum
+requires:
+  state:
+    - {role: optimizer_velocity, lifetime: across_updates}
+  update:
+    - {reads: [optimizer_velocity, current_gradient]}
+    - {writes: [optimizer_velocity, parameters]}
+  operators:
+    - linear_decay
+    - gradient_injection
+  order:
+    - velocity_update_before_parameter_update
+allows:
+  parameterized_fields: [beta, learning_rate, gradient_scale, sign_convention]
+review_if:
+  - state_is_reset_per_example
+  - velocity_is_nonlinear_or_input_conditioned
+~~~
+
+The library must record family variants, not only a single canonical textbook equation. A candidate can match multiple families (e.g. Adam plus weight decay); a composite match is still a rediscovery unless the combination creates a separately stated material architectural property.
+
+### 3. Layered equivalence screen
+
+The levels below are ordered by cost. Passing a level does not prove novelty. A positive match can reject or route the candidate; a failure to match only means “continue.”
+
+#### Level A — sound syntactic canonicalization
+
+Parse the generated program into typed SSA/event-graph IR. Before hashing or matching:
+
+- alpha-rename temporaries and state slots by first-use/role, independent of source names;
+- constant-fold exact constants and remove identities, dead assignments, dead state, unreachable branches, and unused outputs;
+- inline trivial aliases and canonicalize update equations into explicit old-state/current-input/new-state form;
+- canonicalize exact commutative/associative expressions only under a declared mathematical domain where the rewrite is sound;
+- normalize scalar products and expose parameterized scales (e.g. eta * (2*g) as an effective scale) while retaining a witness mapping to the original parameters;
+- identify duplicated state registers with identical initialization, reads, and writes;
+- canonicalize equivalent tensor reshapes/indexing only when they preserve axis and broadcast semantics;
+- record dependency edges from every write to every read, including time index and phase.
+
+Do **not** silently reorder floating-point additions, stochastic operations, clipping, norm, projection, quantization, or stateful calls. Do not cancel or absorb an epsilon across a square root, denominator, clipping threshold, regularizer, or weight decay. Do not assume a rescaling is equivalent when it changes a constraint set, stability region, precision behavior, or resource count. If exact symbolic equivalence cannot be established under the candidate IR semantics, keep both forms and mark the rewrite as heuristic.
+
+The output is a canonical IR hash plus a list of applied rewrites/proofs. Exact A-level identity with a library template is a direct collision. A-level non-identity is not evidence of novelty.
+
+#### Level B — behavioral trajectory fingerprints
+
+Run only as part of a future authorized search. This section defines the protocol; **it was not run**.
+
+Drive each candidate and library reference with identical, exogenous signal tapes so that the update rule is tested without task-performance confounds. At minimum use:
+
+- zero, impulse, constant, sign-reversed, alternating, sparse, and coordinate-basis gradients;
+- isotropic, diagonal ill-conditioned, rotated ill-conditioned, correlated, and heavy-tailed gradient sequences;
+- piecewise stationary and regime-switching gradient sequences;
+- activation/input tapes independent of gradients, then tapes with controlled correlation;
+- delayed scalar feedback / reward against stored local eligibility signals;
+- reset, continuation, and repeated-task traces to expose state persistence and interference;
+- parameter-scale, gradient-scale, coordinate-permutation, and orthogonal-rotation transforms.
+
+Compare complete trajectories, not only final predictions or loss: parameters, every persistent state register, update norms/angles, forward outputs, read/write traces, and topology at every step. For a proposed state reparameterization, require an explicit state map and check that it commutes with initialization, every tested transition, outputs, reset, and resource accounting.
+
+For deterministic programs use paired fixed traces and declared tolerances: exact equality for discrete states/topology; floating comparison with preregistered absolute/relative tolerances for numeric state; also report max normalized trajectory deviation so a single large state mismatch is not averaged away. For stochastic programs, first couple identical random tapes; then compare output/state distributions over preregistered tapes, not just means. A match on finite probes is a probable collision, not a proof; a mismatch is a witness that these implementations differ on that trace, not proof that the rule is novel.
+
+AutoML-Zero already used a fast functional-equivalence fingerprint: it recorded predictions after 10 training and 10 validation steps on fixed examples, truncated/hashed the trace, and reused scores to remove duplicates. That is a useful throughput filter but is too weak for this gate because it can miss hidden-state differences that affect later transitions and can collide after truncation. Preserve the distinction explicitly. [AutoML-Zero, §3.2](https://proceedings.mlr.press/v119/real20a/real20a.pdf)
+
+#### Level C — structural and resource fingerprint comparison
+
+Compare candidate to each behavioral match along the following axes; do not collapse these to “same function”:
+
+- state-slot count, shape, dtype/precision, bytes, initialization, lifetime, reset boundary, and sharing scope;
+- which signal each update reads: global gradient, local gradient, activation, input, target, synthetic gradient, reward/modulator, previous state, or external-memory read;
+- gradient path and Jacobian dependence, including whether forward-weight transposes are required, fixed, learned, approximated, or bypassed;
+- state update schedule, trigger, ordering, delayed writes, number of inner/outer/test-time transitions, and whether state changes before prediction;
+- normalization, bias correction, clipping, projection/prox, constraint solving, fixed-point/root solving, and numerical tolerances;
+- memory address generation, read/write timing, capacity, eviction, and persistence across examples/tasks;
+- fast/slow parameter split, learned update policy, meta-gradient route, and train/inference asymmetry;
+- parameter/topology birth, deletion, freezing, unfreezing, cloning, and reset semantics;
+- forward/backward/optimizer/solver FLOPs, passes, peak activation/state memory, latency, and communication scope.
+
+A same-state-transition match with equivalent resource behavior is an architecture collision. A difference in source code, module labels, or storage layout alone is a parameterization/implementation difference. A real structural difference proceeds only if it is the source of a precisely claimed, material property.
+
+#### Level D — mandatory manual prior-art search
+
+Only candidates that remain unresolved after A–C reach literature review. The reviewer must:
+
+1. State the candidate as STATE + OPERATION + WRITE/TRANSITION RULE + GUARANTEE, including phase, trigger, and information available at that phase.
+2. Search the exact equation/algorithm name and synonyms for every distinctive state variable, operator, signal path, and update ordering; search both modern terminology and historical vocabulary.
+3. Search the relevant machine families from early cybernetics/symbolic AI, optimization, control, PL/AD, continual learning, neural plasticity, meta-learning, online learning, and hardware/physical computing.
+4. Read the nearest primary paper(s), not only abstracts or review taxonomy; inspect appendices and code when needed to resolve an equation or state semantic.
+5. Include direct architecture prior art as well as optimizer/loss/schedule reductions; compare state, transition, learning signal, guarantee, information flow, and resource scaling in a side-by-side table.
+6. Search current proceedings and preprints through the search cutoff, including 2025–2026 material; record exact query, index, date, and screened result. Absence from a search result is not proof of absence.
+7. Record at least one strongest contrary source and why it does or does not implement the candidate's exact transition/property.
+8. Have a second reviewer independently check the closest-collision claim before promotion. The second reviewer need not inspect other lane notebooks; cross-lane notebook access remains governed separately.
+
+### 4. Machine-readable fingerprint schema
+
+Use a versioned JSON/YAML record. The following is a valid YAML instance template. For Boolean and numeric fields, null means unknown/unmeasured; false and zero are distinct observed values. Enum fields use the literal string unknown. A fingerprint is descriptive, not a score of novelty.
+
+~~~yaml
+schema: ai-new.learning-mechanism-fingerprint/v1
+candidate_id: generated-id
+ir_hash: null
+semantics:
+  numeric_domain: unknown
+  stochastic: null
+  phases: [setup, forward, objective, update, adapt, structural_event]
+parameters:
+  trainable_count: null
+  effective_inference_count: null
+  birth_death_or_freeze: null
+  groups: []
+state:
+  slots: []
+signals:
+  global_gradient: null
+  local_gradient: null
+  gradient_source: unknown
+  activation_dependent_update: null
+  input_dependent_update: null
+  target_or_label_dependency: {present: null, phase: unknown, delay: null, scope: unknown}
+  reward_or_modulator_dependency: {present: null, source: unknown, delay: null, scope: unknown}
+  feedback_matrix: unknown
+  transpose_required: null
+operations:
+  momentum_state: null
+  first_moment_state: null
+  second_moment_state: null
+  preconditioner: unknown
+  projection: {present: null, set_or_subspace: unknown, metric: unknown, frequency: null}
+  proximal: {present: null, regularizer: unknown}
+  normalization: {present: null, kind: unknown, axes: [], epsilon: null}
+  clipping: {present: null, norm: unknown, threshold: null, order: unknown}
+  fixed_point_or_root_solve: {present: null, solver: unknown, tolerance: null, iterations: null}
+  eligibility_state: {present: null, decay: null, local_factors: [], modulator: unknown}
+  plasticity_factors: []
+  memory: {present: null, addressing: unknown, read: unknown, write: unknown, capacity: null, eviction: unknown, reset_scope: unknown}
+  fast_weights: null
+  slow_weights: null
+  recurrence_or_gating: {present: null, state: unknown, gates: [], reset: unknown}
+  attention_or_content_routing: {present: null, scope: unknown, top_k_or_dense: unknown}
+  moe_routing: {present: null, router: unknown, experts: null, capacity: null, overflow: unknown}
+  test_time_update: {present: null, objective: unknown, updates_before_prediction: null, reset_scope: unknown}
+  meta_learned_update: {present: null, outer_objective: unknown, task_boundary: unknown, differentiated_through_inner: null}
+  learned_optimizer: {present: null, reads: [], hidden_state: null, training_tasks: null}
+  parameter_birth: null
+  parameter_freeze: null
+  parameter_reinitialize: null
+  train_inference_asymmetry: {present: null, kind: unknown}
+  stochastic_depth_or_update: {present: null, source: unknown}
+objective:
+  losses: []
+  schedule: {kind: unknown, triggers: [], steps: null}
+resources:
+  forward_passes_per_update: null
+  backward_passes_per_update: null
+  extra_solver_or_inner_steps: null
+  update_flops: null
+  peak_persistent_state_bytes: null
+  peak_activation_bytes: null
+  test_time_compute: null
+guarantees_claimed: []
+evidence:
+  canonical_matches: []
+  trace_matches: []
+  structural_matches: []
+  literature_collisions: []
+  unresolved_fields: []
+~~~
+
+Arrays are empty only when inspected and found to have no members; set them to null or add the corresponding field to unresolved_fields when they were not inspected. Keep lists, counts, tensor shapes, scopes, and sources explicit. Store input traces, random tapes, semantic version, and comparison tolerances beside the trace hash so a match is reproducible.
+
+### 5. Anti-cheating and matched-comparison controls
+
+The candidate and strongest known-family baselines receive the same preregistered tuning/search budget. A “matched” comparison is a panel of controls, not a single artificial equality constraint that can erase a real mechanism:
+
+| Confound | Required control/report |
+|---|---|
+| Larger effective learning rate or update magnitude | Equal hyperparameter-tuning budget; report update norms/angles and loss per update; add a scalar-rate or update-norm-matched baseline. If only scale/rate tuning reproduces the gain, classify as optimizer tuning. |
+| More parameters or dynamic capacity | Match trainable and active parameter counts over time; count generated/born parameters and inference-active parameters; separately report parameter/state frontier rather than hiding growth. |
+| More persistent/fast/optimizer state | Match bytes and reset scope; include optimizer and external-memory state in total persistent state. Report any gain per byte and adaptation lifetime. |
+| More FLOPs, examples, or training steps | Match total forward, backward, solver, adaptation, and evaluation updates; match examples/tokens and label exposure; report both compute-matched and step-matched outcomes. |
+| Extra forward passes or hidden lookahead | Instrument execution; count all candidate-side prediction, target, auxiliary, probe, and lookahead passes; give baselines the same pass budget or charge the cost. |
+| Gradient clipping or normalization | Match clipping thresholds, normalization layers/axes/epsilon, gradient normalization and update order; add candidate-without-clip/norm and baseline-with-same-clip/norm controls. |
+| Lucky initialization or seeds | Pair runs by seed and initialization where applicable; use multiple preregistered seeds; report all seeds and uncertainty, not the best seed. |
+| Extra training time or favorable schedule | Match wall/step/update budgets and provide same-backbone tuned schedules; log early stopping and total examples processed. |
+| Data leakage / label timing | Sandbox the program; expose only declared tensors at each phase; separate train, tuning, confirmation, and final holdout data; prohibit reading task IDs, file paths, global variables, future batches, or labels before their allowed event. |
+| Adaptive stopping or checkpoint selection | Predeclare stopping/checkpoint rule and use equal validation access; charge every validation query; freeze the selected candidate before confirmation. |
+| Implicit ensemble, EMA, weight averaging, or multiple states | Identify every prediction component and checkpoint/state mixture; compare against explicit SWA/EMA/ensemble baselines with the same compute and storage. |
+| Unbounded candidate search / validation reuse | Fix population/search/evaluation budget and disclose all candidates, seeds, failed runs, and evaluator queries; keep a locked confirmation set for one final evaluation. If repeatedly querying a shared holdout, use a statistically valid reusable-holdout method or fresh holdouts. |
+
+Where exact capacity/compute equality is impossible, report a Pareto frontier over parameters, persistent bytes, total FLOPs, examples, and latency. Do not use “similar model size” as the only matching rule. An alleged architecture advantage must survive the nearest known architecture and optimizer/loss/schedule controls, not merely a weak baseline such as untuned SGD or Adam.
+
+### 6. Search validity and small diagnostic suite
+
+Separate **mechanism identification** from **task utility**.
+
+**Mechanism identification** uses Level-B exogenous traces and Level-C fingerprints. This is the appropriate tiny test of “what update does this program implement?” It does not require a large capability benchmark and must include positive-control implementations of the library families, with syntax-renamed, algebraically rearranged, and state-slot-renamed variants. The gate should report family-level recall and false-collision cases on these controls before it is trusted.
+
+**Task utility**, if later authorized, uses small targeted environments only to ask whether the already-identified mechanism has a predeclared property. A compact diagnostic panel could include: a convex rotated ill-conditioned quadratic (preconditioning); conflicting multiobjective gradients (PCGrad-like projection); a delayed-credit sequence (eligibility/feedback); a recurring regime-shift stream (fast-state adaptation and retention); and a task with held-out input distributions (input-dependent update/routing). These are test fixtures, not a novelty benchmark. A candidate that wins one toy task is not architecture evidence.
+
+Use a two-level evaluation split:
+
+- **Search tasks/seeds:** available to the search system and its evaluator, but not to the literature reviewer as evidence of generalization.
+- **Locked confirmation tasks/seeds:** drawn from the same preregistered task families but with fresh generator seeds and held-out parameter regimes; expose them once after candidate source, fingerprint, metric, and matched controls are frozen.
+- **External/task-family check:** if an effect is claimed as broadly useful, test a distinct family or real workload; do not infer broad capability from the toy panel.
+
+The evaluator itself is part of the threat model. Run candidates in a deterministic sandbox with explicit inputs, state, RNG, and time/operation limits. Deny file/network/process access and undeclared global state. Check that the candidate returns finite values and that no read occurs before its declared availability. Record the exact evaluator, generator seed, and objective version.
+
+### 7. Automated-discovery failure modes and calibration
+
+1. **Rediscovery in an unfamiliar encoding.** AutoML-Zero's generic operation search rediscovered two-layer networks trained by backpropagation/gradient descent; its evolved candidates also surfaced familiar modern ingredients such as normalized gradients, weight averaging, bilinear interactions, and dropout-like behavior. The source-level collision is precisely why code novelty is not mechanism novelty. [Real et al., AutoML-Zero (ICML 2020)](https://proceedings.mlr.press/v119/real20a)
+2. **Finite fingerprint mistaken for equivalence proof.** AutoML-Zero's fixed 10-train/10-validation prediction hash was an efficient population duplicate filter, not a proof over internal state trajectories. Our gate extends the observable object to the full state/write trace and keeps the finite-probe limitation explicit. [AutoML-Zero PDF, §3.2](https://proceedings.mlr.press/v119/real20a/real20a.pdf)
+3. **One-task memorization / evaluator leakage.** AutoML-Zero reports a single-search-task case that evolved the teacher prediction function and hard-coded its weights. This is a direct control for task-specific memorization: task diversity, held-out task families, limits on persistent constants/state, and locked confirmation are mandatory. [AutoML-Zero PDF, §4.1](https://proceedings.mlr.press/v119/real20a/real20a.pdf)
+4. **Search grammar creates the apparent discovery.** A vocabulary of primitives, allowed state, update phase, and interface determines what can emerge. Report the full grammar and run known-family positive controls; do not describe “from scratch” as absence of inductive bias.
+5. **Validation becomes training through adaptive selection.** Thousands of candidates repeatedly queried against a validation set can overfit it even when each individual evaluation is a legitimate holdout estimate. Use a locked final split and fixed query budget; standard holdout reuse is not safe under adaptive candidate generation. [Dwork et al., Generalization in Adaptive Data Analysis and Holdout Reuse](https://arxiv.org/abs/1506.02629)
+6. **Best-of-many and researcher selection bias.** FunSearch states that stochasticity led it to run several experiments for some problems and report the best result; its method also uses a scoring evaluator, a program database, and sometimes a known greedy skeleton. These choices can be appropriate for discovery, but the final claim must disclose the search budget, seed selection, skeleton, evaluator, and confirmation procedure. Its verified combinatorial constructions/heuristics are not evidence that an unrelated learning mechanism is novel. [Romera-Paredes et al., FunSearch (Nature 2024)](https://www.nature.com/articles/s41586-023-06924-6)
+7. **Objective gaming / benchmark exploit.** Candidate code can exploit a proxy metric, data ordering, finite generator, or evaluator artifact without implementing the intended property. Audit high-scoring candidates on adversarial traces, enforce causal data access, compare intermediate transitions, and preserve a distinct confirmation evaluator.
+8. **Overtuning the search/evaluation budget.** Hyperparameter and algorithm searches can tune to noisy validation estimates; recent work studies overtuning in HPO directly. This motivates equal tuning budgets and a confirmation set unavailable during search. [Schneider et al., Overtuning in Hyperparameter Optimization (2025)](https://arxiv.org/abs/2506.19540)
+9. **A real algorithmic discovery is not automatically a new architecture.** AlphaTensor and AlphaEvolve show that structured search can find new, correct algorithms or improve resource-specific algorithms, while FunSearch can produce new verifiable mathematical constructions. This is evidence that automated search can discover genuine results, not a waiver of the separate architecture/prior-art test. [AlphaTensor (Nature 2022)](https://doi.org/10.1038/s41586-022-05172-4); [AlphaEvolve (2025)](https://arxiv.org/abs/2506.13131)
+
+**Interpretation:** Automated discovery is not inherently a rediscovery machine; it can find valid new algorithms. The gate should therefore neither promote a high score as novelty nor reject a candidate because its parts are computable. It must ask what exact state transition is new, what established family is closest, and whether the alleged learning/resource property survives matched substitution.
+
+### 8. Novelty decision tree and allowed classifications
+
+Apply this order. Stop at the first decisive rejection, but preserve any useful empirical result as an algorithmic observation.
+
+1. **Can the candidate be parsed and audited?** If not, reject it as unverifiable; no novelty classification.
+2. **Does Level A match a library rule or canonical equation?** If yes, classify it as a rediscovered optimizer, learning rule, or architecture according to the matched object. A combined match must be described as a system/pipeline unless its native organization adds a separately stated material architectural property.
+3. **Do Levels B+C show the same transition/state organization or a commuting state reparameterization?** If yes, reject the corresponding primitive/architecture claim as an existing mechanism/architecture. A finite behavioral match alone is a collision flag requiring review, not an equivalence theorem.
+4. **Is the only difference a parameterization, initialization, loss, optimizer, hyperparameter, schedule, clipping/normalization choice, or added capacity/state?** Classify it as a new parameterization, loss-only, optimizer-only, schedule-only, or capacity/state scaling. It may be an interesting empirical rule, but it is not promoted as a new architecture unless a distinct native state/update organization and non-preserved property remain.
+5. **Does a matched known baseline recover the measured property?** If yes, kill that property as optimizer-restorable, loss-restorable, schedule-restorable, or pipeline-preserved. If it wins only because of more compute, data, state, parameters, lookahead, or ensemble averaging, label it benchmark exploit or unmatched comparison and reject the novelty claim.
+6. **Does ablation/replacement of the claimed organization remove the property under matched budgets?** If no, label KILLED — NO MATERIAL ARCHITECTURAL PROPERTY. If yes, the property has a causal mechanism-removal witness; this still does not establish novelty.
+7. **Does the property repeat on preregistered seeds and locked task families with uncertainty/effect thresholds fixed in advance?** If no, label interesting empirical rule / unconfirmed result, not a candidate.
+8. **Does fresh Level-D review find direct historical or modern prior art?** If yes, label it a rediscovered architecture or the more precise existing-family classification. If no source is found but the search is incomplete, leave it unresolved; absence is not a pass.
+9. **Only after all preceding gates:** use possible architecture candidate when the organization is new and the material property is not preserved by the strongest ordinary decomposition; use possible primitive candidate only when the same-operation/state-transition search also leaves an uncovered operation. The word “candidate” is mandatory; it is not a breakthrough claim.
+
+Minimum pass conditions before an architecture label: not explained by known optimizer/loss/schedule; explicit novel state/update organization; removal loses the effect; strongest matched baseline fails to recover it at matched resources; fresh historical and current literature search finds no substantially same architecture; repeated confirmation over seeds/tasks. A single benchmark win is never sufficient.
+
+### 9. Compact implementation procedure
+
+~~~text
+audit(candidate):
+  sandbox_check(candidate)
+  ir = parse_to_typed_event_graph(candidate)
+  if ir is invalid or undeclared reads exist:
+      return UNVERIFIABLE_OR_LEAKING
+
+  canonical = sound_canonicalize(ir)
+  fp = extract_fingerprint(canonical, runtime_counters, state_lifetimes)
+  A = match_canonical_templates(canonical, collision_library)
+  B = compare_paired_traces(candidate, known_controls, diagnostic_tapes)
+  C = compare_state_signal_order_and_resource(fp, known_controls)
+
+  if A contains exact known-family match:
+      return REDISCOVERED_FAMILY, evidence=(A, fp)
+  if B and C strongly match a family:
+      return LIKELY_COLLISION_REQUIRES_LITERATURE_REVIEW, evidence=(B, C, fp)
+  if candidate differs only by objective/optimizer/schedule/parameterization/capacity:
+      return NON_ARCHITECTURE_RESULT, subtype=classify_difference(...)
+
+  property = freeze_claim_and_metric(candidate)
+  controls = select_strongest_architecture_optimizer_loss_schedule_controls(fp)
+  if matched_control_recovers(property) or mechanism_removal_preserves(property):
+      return ARCHITECTURE_CLAIM_KILLED
+  if not replicated_on_locked_tasks_and_seeds(property):
+      return EMPIRICAL_RULE_UNCONFIRMED
+  literature = run_documented_primary_source_search(candidate, fp, property)
+  if literature.has_direct_collision:
+      return REDISCOVERED_ARCHITECTURE
+  if literature.incomplete or any_required_field_unknown:
+      return UNRESOLVED
+  return POSSIBLE_ARCHITECTURE_CANDIDATE
+~~~
+
+The implementation should emit the canonical IR, fingerprint, probe trace IDs, collision-template hits, full compute/data counters, baseline specification, literature-query log, and final decision reason. Do not return a scalar “novelty score”: a weighted score lets a strong benchmark result compensate for a direct prior-art collision, which is not acceptable.
+
+### 10. Disposition and next action
+
+- **Novelty gate:** specified sufficiently to implement at the schema/template/probe level; still requires a frozen candidate grammar and exact runtime data-access contract before any run.
+- **Candidate status:** none. This work designs a classifier and evidence gate; it does not claim a new optimizer, architecture, or primitive.
+- **Experiments:** none run. Search, benchmark, training, and CPU/GPU work remain unauthorized.
+- **Next action:** convert the schema and family table into versioned machine-readable templates; create known-family positive controls and blinded syntax aliases; freeze diagnostic traces, resource budgets, confirmation tasks, metrics, and holdout policy in a preregistration. Obtain explicit owner authorization before executing the search.
