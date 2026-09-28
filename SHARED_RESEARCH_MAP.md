@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **AMS preregistration v3 frozen after Task-B Stage-0 gate repair; rerun Stage 0 under v3** |
+| **Current phase** | **AMS preregistration v4 frozen after Stage-1 calibration repair; rerun official Stage 1 under v4** |
 
 ---
 
@@ -1095,19 +1095,19 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 
 The design phase is complete. The active execution authority is:
 
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v3**
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v4**
 
 Stages 0–3 remain owner-authorized, CPU-only, with the 30 CPU-hour hard cap.
 
-v1 is invalid. v2 produced a valid implementation but failed its Task-B Stage-0 gate before Stage 1. All lanes must now use v3; Claude should rerun Stage 0, not rebuild the whole package.
+v1 is invalid. v2 produced the implementation but failed its Task-B Stage-0 gate. v3 Stage 0 passed and Stage 1 exposed three calibration-gate defects before any search. All lanes must now use v4. Claude should reuse the merged implementation and rerun official Stage 1, not rebuild Stage 0.
 
 ## Claude
 Primary role: **primary implementation and search runner**.
 
 - Sync latest `origin/main`.
-- Read v3 before running experiment code.
-- Reuse the merged Stage-0 implementation unless v3 requires a targeted change.
-- Update only the superseded Task-B gate/config/version markers and rerun official Stage 0 under v3.
+- Read v4 before running experiment code.
+- Reuse the merged implementation and accepted v3 Stage-0 PASS.
+- Update only v4 Stage-1 calibration logic/config/version markers and rerun official Stage 1 under v4.
 - If Stage 0 passes, run official Stage 1 with equal learning-rate budgets and no early stopping.
 - Only if Stage 1 passes may Claude proceed to Stage 2 MAP-Elites and Stage 3 matched validation.
 - Stop on any v2 validity failure; do not alter the protocol.
@@ -1115,7 +1115,7 @@ Primary role: **primary implementation and search runner**.
 ## Codex
 Primary role: **rediscovery / equivalence / novelty auditor**.
 
-- Use the checked-in probe corpus and v3 protocol; the v2 collision-filter implementation remains valid unless a targeted v3 change affects it.
+- Use the checked-in probe corpus and v4 protocol; the collision-filter implementation remains valid because v4 changes calibration only.
 - Treat pre-v2 calibration as diagnostic only.
 - Audit official Stage-1 outputs and later Stage-2/3 artifacts rather than duplicating the full search.
 - Perform targeted replay and fresh prior-art review for promoted candidates.
@@ -1124,7 +1124,7 @@ Primary role: **rediscovery / equivalence / novelty auditor**.
 ## Cursor / Gemini
 Primary role: **benchmark-validity and independent results auditor**.
 
-- Validate the v3 Task-B directional-conflict gate; the v2 C*/D/E/F implementations remain the frozen schedules unless v3 explicitly changes them.
+- Treat the v3 Stage-0 PASS as accepted. Audit the v4 Stage-1 calibration logic and later search outputs; C*/D/E/F generators remain unchanged.
 - Earlier v1 Task-F calibration is informative but not official v2 evidence.
 - Do not duplicate the full MAP-Elites search.
 - Once Claude publishes outputs, independently recompute metrics and ablations for promoted candidates.
@@ -1193,6 +1193,33 @@ The post-hoc LeCun result was **not** adopted.
 v3 also ratifies the pre-result Task-B Stage-1 fit/interference checks and the deterministic `W_ep0` probe derivation.
 
 PR #8 merged Claude's Stage-0 implementation and stop report to `main`. The active execution authority is now preregistration **v3**.
+
+
+
+### v4 Stage-1 calibration repair
+
+Claude's official v3 run is merged to `main` via PR #9.
+
+v3 outcome:
+- Stage 0 PASS;
+- 118/118 tests;
+- Task-B directional gate: 512/512 paired gradients negative;
+- Stage 1 stopped before search on `M2_B_fit`, `V1_B`, and `V2_Cstar`;
+- Task F, Task D, Task-B interference, C* sanity, detector validity and generic-control stability passed;
+- no Stage-2 candidate was generated;
+- cumulative project CPU use: about 0.288 CPU-hours; no GPU.
+
+The owner-approved v4 amendment changes calibration only:
+- M2-B becomes a scale-free requirement: each generic baseline must reduce Task-1 held-out error by at least 95% relative to initialization;
+- a new Task-B joint-training representability oracle must show the fixed MLP can fit both mappings when replay is allowed;
+- GPM/R17/R18/R13 retention performance is recorded but no longer a mandatory Stage-1 pass condition;
+- R12/R13/R15 C* positive-control performance is recorded but no longer a mandatory Stage-1 pass condition;
+- C* generic sanity now additionally requires at least one ordinary baseline to adapt within a 64-step R1 segment;
+- V3-F and V-D remain mandatory positive-control signatures.
+
+Candidate generators, search budgets, promotion thresholds, ablations and novelty gates are unchanged.
+
+The v3 Stage-0 PASS carries forward because v4 changes no Stage-0 rule. **Current restart point: official Stage 1 under v4.**
 
 
 ## Execution authorization — 2026-09-28
