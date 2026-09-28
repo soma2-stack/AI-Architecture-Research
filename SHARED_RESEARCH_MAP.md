@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Preregistration frozen; Stage 0–3 execution awaits explicit owner authorization** |
+| **Current phase** | **Preregistered CPU pilot authorized: execute Stages 0–3 under frozen protocol** |
 
 ---
 
@@ -1150,9 +1150,29 @@ Key decisions:
 - long-credit and fast/slow-state tasks are reserved for finalist validation;
 - maximum 6,000 generated programs, 3,000 sanity-checked, 1,200 benchmarked, 20 validated;
 - CPU-only, expected 6–8 CPU-hours, hard cap 30 CPU-hours;
-- no experiment stage is authorized yet.
+- owner authorized Stages 0–3 on 2026-09-28; CPU-only and the 30 CPU-hour hard cap remain binding; GPU/larger follow-up still requires separate authorization.
 
 The preregistration is now the execution authority for the first pilot unless a later owner instruction explicitly revises it.
+
+## Execution authorization — 2026-09-28
+
+The owner explicitly authorized execution of the frozen preregistered pilot.
+
+Authorized:
+- Stage 0 — compiler and validity tests;
+- Stage 1 — calibration;
+- Stage 2 — automated MAP-Elites search;
+- Stage 3 — matched validation of at most 20 promoted mechanisms.
+
+Still prohibited without separate authorization:
+- GPU execution;
+- Stage 4 / larger-scale confirmation;
+- increasing the 30 CPU-hour hard cap;
+- materially changing benchmarks, thresholds, grammar, search budget, or promotion rules after results are visible.
+
+If a Stage 0/1 validity control fails, stop and report the failure. Do not silently repair or retune the preregistration.
+
+---
 
 # 13. Shared operating rule
 
