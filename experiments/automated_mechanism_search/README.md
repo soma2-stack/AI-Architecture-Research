@@ -4,7 +4,7 @@ Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v5; v2 package,
 
 Open choices are fixed in `IMPLEMENTATION_DECISIONS.md`, committed before any gate or run.
 
-**Status:** v3 Stage 0 PASS (`runs/stage0_v3/`); v5 Stage 1 PASS (`runs/stage1_v5/`); Stage 2 began and stopped on the frozen implementation-defect rule with 0 Tier-1 evaluations (`STAGE2_REPORT.md`, `runs/stage2/`). Stage 3 not reached. Earlier stops: `STAGE0_REPORT.md` (v2), `STAGE1_REPORT.md` (v3), `STAGE1_V4_REPORT.md` (v4).
+**Status:** v3 Stage 0 PASS (`runs/stage0_v3/`); v5 Stage 1 PASS (`runs/stage1_v5/`). Stage 2 first run stopped on the implementation-defect rule (`runs/stage2/`); after repair 1, the official rerun (`runs/stage2_repair1/`) completed at `N_GEN_MAX` with 0 Tier-1 evaluations and 0 promoted (`STAGE2_REPORT.md` §6). Stage 3 not reached. Earlier stops: `STAGE0_REPORT.md` (v2), `STAGE1_REPORT.md` (v3), `STAGE1_V4_REPORT.md` (v4).
 
 ## Layout
 

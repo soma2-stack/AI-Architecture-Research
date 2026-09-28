@@ -9,7 +9,51 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 16
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 17
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v5** (unchanged; this session was an implementation repair only);
+  - `SHARED_RESEARCH_MAP.md`;
+  - this notebook.
+
+  The branch was fast-forwarded to `origin/main` `bce4872`. That brought in Codex's independent v4 Stage-1 verification (`runs/stage1_v4_codex/`), its shared-ledger entry, and the owner-account `strip_gates` fix and test. All of it was preserved.
+- **Current stage:** **the official repaired Stage-2 rerun is COMPLETE.**
+  - Completion reason: `N_GEN_MAX` (6,000 generated) during random initialization.
+  - 382 programs reached the sanity filter, and all 382 failed T0.
+  - **0 reached Tier 1.** Archive **0/56**. **0 promoted.** **Stage 3 not reached.** 0 defects.
+  - Frozen v5 outcome: the generator and T0 sanity filter **failed to seed MAP-Elites within budget**. No redesign was made.
+  - Full record: Part AJ; `experiments/automated_mechanism_search/STAGE2_REPORT.md` §6; `runs/stage2_repair1/`.
+- **Repair 1:**
+  - The owner-authorized type-preserving `strip_gates` fix (`1932379`) was adopted unchanged.
+  - Regression tests (`tests/test_repair1.py`; suite 150/150) cover:
+    - reproduction of all six defects under the old rule;
+    - the fixed decompositions, with types preserved;
+    - scalar-branch O and I fixtures;
+    - the matrix case, which the grammar makes illegal;
+    - a golden snapshot of 155 reference and disguise collision outputs from the pre-repair code, identical after the fix.
+  - Frozen and pushed at `000f237` before the rerun (manifest clean).
+- **Trace:** the raw-program sequence is identical to the first run over all 5,782 programs. The only label changes are the six former defects, now `sanity_fail`.
+- **Strongest surviving candidate(s):** none. No program reached Tier 1.
+- **Counts (rerun):**
+  - invalid 2,053;
+  - behavioural duplicates 50;
+  - pure rule 2,981;
+  - no signal 534;
+  - REDISCOVERY 0, inert 0;
+  - sanity NEGATIVE 382;
+  - Tier 1: 0.
+
+  Rediscovery rate over screened programs: 76.5%. Negatives: 382. Promoted IDs: none.
+- **CPU:** 0.654 CPU-h of the shared 30 CPU-h cap; no GPU.
+- **Exact next action:** an owner decision on the search design. The frozen v5 search cannot seed its archive, so any further search would need a new protocol version. Examples:
+  - seeding from coupling-bearing mutants of references;
+  - a different sanity criterion;
+  - a larger budget.
+
+  Nothing is authorized to run.
+
+# Resume Pointer as of session 16 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged);
@@ -4525,6 +4569,70 @@ Rediscovery rate over screened programs: 76.6%, all pure-rule logs. All records 
 
 1. A quality-diversity search seeded by uniform random programs needs its seeding yield measured at design time. Here the yield was 0/5,782 through the sanity filter. Seeding from coupling-bearing mutants of known references, as AutoML-Zero and Cartesian GP typically do, would likely avoid this, but it is a protocol change.
 2. The Stage-0 tests exercised K(P) only on reference programs. Property-based tests over random valid programs, asserting that `decompose` never raises, would have caught the `where`/scalar-branch defect before Stage 2.
+
+---
+
+# Part AJ — AMS Stage-2 implementation repair 1 and official repaired rerun (session 17, 2026-09-28)
+
+**Status:** the repaired Stage 2 completed at `N_GEN_MAX` with 0 Tier-1 evaluations and 0 promoted. Stage 3 not reached. v5 protocol unchanged.
+
+## AJ.1 Git reconciliation
+
+- Fast-forwarded to `origin/main` `bce4872`. My branch had no commits missing from `main`; all were merged in `4fb42cd`.
+- Integrated and preserved:
+  - Codex's independent v4 Stage-1 verification (`runs/stage1_v4_codex/`, `Codex_Research.md` changes; not read beyond the file list);
+  - Codex's shared-ledger entry;
+  - the owner-account fix `1932379` and test `bce4872`.
+- `AGENTS.md` is unchanged. No reset, clean or force-push.
+
+## AJ.2 Repair and regression evidence
+
+**Repair.** `strip_gates` neutralizes `where(x, y, w)` to `y` when the types match, and to `add(0@T, y)` for a scalar positive branch. This preserves the `where` expression's type.
+
+**Verified evidence** (`tests/test_repair1.py`; suite 150/150):
+- With the pre-repair rule, all six recorded defects raise their recorded typing error. With the fix, all six decompose and every stripped term keeps its type.
+- Scalar-branch O and I fixtures pass, including inside `outer`. Same-type branches are unchanged. A matrix `where` is illegal in the grammar.
+- A golden snapshot from the pre-repair code covers all 155 reference and disguise programs (canonical form, hashes, fingerprints, β hash, K(P), family match). It is **identical** after the fix.
+- The owner test called `serialize()` on a node. It was corrected to use `sexpr()` (test only).
+
+Frozen and pushed at `000f237` before the rerun.
+
+## AJ.3 Official repaired rerun (`runs/stage2_repair1/`; seed 20260928; manifest git `000f237`, clean)
+
+**Verified results.**
+- The raw-program sequence is identical to the first run over all 5,782 programs. The only label changes are the six former defects, which moved `defect → sanity_fail`. There were 0 other canonical changes.
+- **Final counts (6,000 generated):**
+
+  | Label | Count |
+  |---|---|
+  | invalid | 2,053 |
+  | behavioural duplicates | 50 |
+  | pure rule | 2,981 |
+  | no signal | 534 |
+  | REDISCOVERY | 0 |
+  | REDISCOVERY_inert | 0 |
+  | reached sanity | 382 |
+  | failed sanity | 382 |
+  | reached Tier 1 | 0 |
+  | defects | 0 |
+
+  Best sanity result: 0.596 × trivial loss (the threshold is ≤ 0.5 ×).
+- Archive 0/56. Promotions: none. Stage 3: not reached.
+- **Completion reason:** `N_GEN_MAX`, with the frozen budget exhausted during initialization.
+- Rediscovery rate over screened programs: 76.5%. Negatives: 382.
+- CPU: 572.6 CPU-s. **Cumulative 0.654 CPU-h of 30.** No GPU.
+
+## AJ.4 Interpretation (not a verdict)
+
+- Under the frozen v5 protocol, the random typed generator and the T0 sanity filter **failed to seed MAP-Elites within the 6,000-program budget**.
+- The repair removed the only implementation defect. It did not change the qualitative outcome, because the defective programs were themselves non-learners.
+- The AMS pilot, as preregistered, has therefore produced:
+  - no candidate;
+  - no rediscovery beyond pure-rule logs;
+  - no evidence about new mechanisms.
+
+  Its informative output is the calibration record (Stages 0–1) and a precisely characterized search-seeding failure.
+- Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
 
