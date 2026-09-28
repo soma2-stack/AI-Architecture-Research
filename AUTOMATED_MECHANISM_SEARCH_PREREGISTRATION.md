@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN — STAGES 0–3 AUTHORIZED BY OWNER**
+**FROZEN DESIGN v2 — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -12,7 +12,27 @@ This document is the owner-level cross-lane synthesis of:
 - Codex AR-141 — collision library, fingerprint/equivalence screening, anti-cheating controls, novelty decision tree, prior-art gate;
 - Cursor/Gemini Automated Search Benchmark Suite — Tasks A–F, matched baselines, ablations, metrics, effect thresholds, behavioral signatures, compute envelope.
 
-Owner authorization to execute Stages 0–3 was given in chat on 2026-09-28. The frozen protocol remains binding; no material protocol changes are authorized.
+Owner authorization to execute Stages 0–3 was given in chat on 2026-09-28.
+
+## Version 2 amendment — pre-search validity repair
+
+Version 1 was found invalid **before Stage 1 official calibration and before any candidate search** for two independent reasons:
+
+1. Task B simultaneously required orthogonal task subspaces and approximately anti-aligned first-layer gradients. Those requirements are mathematically incompatible for the stated construction.
+2. The 16 behavioral probe tuples were referenced but never serialized, and the random seed alone did not fully specify a reproducible corpus.
+
+Additional underspecified items were also frozen here before search:
+- Task C* regime timing and adaptation target;
+- Task D's role relative to the fixed candidate substrate;
+- Task E episode/query protocol;
+- Task F training/update budget and stopping behavior;
+- equal learning-rate tuning budget for official controls/candidates.
+
+The owner approved an in-place amendment rather than creating another preregistration document. Git history preserves v1.
+
+**No Stage-2 candidate results existed when this amendment was made.** Earlier local calibration drafts/replays are diagnostic only and are not official preregistration evidence.
+
+Version 2 is now the sole active protocol. Stages 0–3 remain authorized under v2; Stage 0 must restart against this amended specification. No further material protocol changes are authorized after official Stage 1 begins unless another explicit owner amendment is recorded.
 
 ---
 
@@ -132,14 +152,44 @@ Algebraically equivalent programs are deduplicated.
 
 ## Level B — behavioral equivalence
 
-Use fixed preregistered probe tuples.
+Use the **serialized v2 behavioral probe corpus**:
 
-Compare one-step forward/update behavior and state changes after scale normalization.
+`experiments/automated_mechanism_search/config/behavioral_probes_v2.json`
+
+Git blob SHA at freeze time:
+
+`d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1`
+
+The serialized JSON is authoritative. Regeneration is only a verification aid.
+
+The corpus contains exactly 16 probes with fixed dimensions:
+- input-like vector dimension `I = 8`;
+- output-like vector dimension `O = 6`;
+- matrix dimension `M = 6 x 8`;
+- four register-bank slots per probe, each containing frozen I/O/M values.
+
+The corpus also freezes synthetic read-only credit/error leaves, loss scalars, noise leaves, episode clock, parameters, bias and input values.
+
+The deterministic regeneration procedure is stored inside the JSON and uses:
+- unsigned 32-bit `xorshift32`;
+- seed `20260928`;
+- exact field order recorded in the file;
+- integer modulo mapping to signed decimal values;
+- rounding to 8 decimal places.
+
+Implementations must first verify the checked-in corpus exists and matches the expected Git blob before running behavioral deduplication.
+
+For each candidate:
+1. execute the canonical one-step behavioral probe evaluator on all 16 frozen tuples;
+2. collect forward output, normalized parameter update, normalized bias update and normalized register-state changes;
+3. concatenate them in probe order;
+4. use Claude Part AE's frozen normalization/similarity rule for duplicate detection.
+
+A seed by itself is **not** accepted as the behavioral corpus.
 
 Near-identical update trajectories are treated as rediscoveries even when source expressions differ.
 
-Claude Part AE's probe seed, normalization and similarity thresholds are authoritative.
-
+## Level C — structural fingerprint
 ## Level C — structural fingerprint
 
 Use the merged fingerprint schema:
@@ -221,79 +271,213 @@ This avoids overfitting the grammar to a broad aggregate benchmark score.
 
 ## 6.1 Primary search triad
 
-### Search Task B — Interference / retention
+### Search Task B — Interference / retention (v2 construction)
 
-Use Cursor Task B.
+The v1 orthogonal-subspace construction is retired because it made the requested first-layer gradient conflict impossible.
 
-Target:
-- sequential conflicting learning;
-- catastrophic interference;
-- persistent protection of earlier knowledge.
+Use this frozen overlapping-subspace construction instead.
+
+#### Input decomposition
+
+Ambient dimension: `D = 32`.
+
+Partition coordinates into:
+- shared block `C = {0..7}` (8 dimensions);
+- Task-1 private block `P1 = {8..19}` (12 dimensions);
+- Task-2 private block `P2 = {20..31}` (12 dimensions).
+
+For each paired sample:
+- draw `c ~ N(0, I_8)`;
+- draw `p1 ~ N(0, I_12)`;
+- draw `p2 ~ N(0, I_12)`;
+- Task 1 input: `x1 = [c, p1, 0]`;
+- Task 2 input: `x2 = [c, 0, p2]`.
+
+The nonzero private block implicitly identifies the task, so the two mappings are jointly representable; the task does not require contradictory labels for an identical complete input.
+
+#### Targets
+
+For each benchmark seed, deterministically generate fixed matrices:
+- `A_c in R^(4x8)`;
+- `A_1 in R^(4x12)`;
+- `A_2 in R^(4x12)`;
+
+from `numpy.random.Generator(numpy.random.PCG64(seed))`, standard normal, then row-normalize each matrix.
+
+Targets:
+- `y1 = A_c c + 0.10 A_1 p1`;
+- `y2 = -A_c c + 0.10 A_2 p2`.
+
+The shared component therefore pushes the two tasks in opposing directions while the private blocks keep the joint mapping identifiable.
+
+#### Training protocol
+
+- batch size: 32;
+- Task 1: exactly 500 parameter-update steps;
+- Task 2: exactly 500 parameter-update steps;
+- no Task-1 training examples are replayed during Task 2;
+- held-out Task-1 and Task-2 evaluation sets: 256 samples each, generated from separate deterministic streams;
+- evaluate every 25 update steps;
+- no early stopping.
+
+#### Stage-1 validity gates
+
+At the frozen model initialization, before training:
+- form 64 paired Task-1/Task-2 mini-batches from the same shared `c` draws;
+- compute first-layer gradient vectors under the same generic MLP;
+- mean cosine similarity must be **<= -0.50**.
+
+After official baseline calibration:
+- each generic baseline must fit Task 1 to its preregistered training threshold;
+- Task-2 training must produce measurable Task-1 degradation rather than zero interaction.
+
+If either condition fails, Task B is invalid and the run stops for owner review.
+
+#### Metric
+
+Let:
+- `L1_init` = held-out Task-1 MSE before Task-1 training;
+- `L1_pre` = held-out Task-1 MSE immediately before Task-2 training;
+- `L1_post` = held-out Task-1 MSE after Task-2 training.
+
+Define clipped retention:
+
+`Retention_B = 100 * clip(1 - (L1_post - L1_pre) / max(L1_init - L1_pre, 1e-8), 0, 1)`.
+
+Define forgetting:
+
+`Forgetting_B = 100 - Retention_B`.
 
 Promotion threshold:
 - at least **40 percentage points less forgetting** than the best generic optimizer baseline;
-- Task-1 retention at least **80%**;
-- Task-2 acquisition must remain competitive rather than solving retention by refusing to learn.
+- `Retention_B >= 80%`;
+- Task-2 final MSE must be no worse than **1.25x** the best generic baseline's Task-2 final MSE, preventing "retention by refusing to learn."
 
-### Search Task C* — Recurring-regime adaptation
+### Search Task C* — Recurring-regime adaptation (v2 frozen schedule)
 
-Use Cursor Task C as the base generator, modified to include Claude's stronger requirement:
+Use scalar regression with no explicit regime/boundary input.
 
-- regimes may recur;
-- no explicit boundary signal is supplied to the candidate.
+Input:
+- `x ~ Uniform[-pi, pi]`.
 
-Target:
-- rapid adaptation;
-- retention/recovery;
-- fast/slow learning-state behavior.
+Regimes:
+- `R0: y = sin(x)`;
+- for each benchmark seed draw once:
+  - `omega1 ~ Uniform[1.4, 1.8]`;
+  - `phi1 ~ Uniform[pi/3, 2pi/3]`;
+- `R1: y = sin(omega1*x + phi1)`.
+
+Frozen online schedule:
+- R0a: 256 update steps;
+- R1a: 64 update steps;
+- R0b: 64 update steps;
+- R1b: 64 update steps.
+
+No task ID, regime ID, boundary bit, reset signal or segment counter is exposed to the candidate.
+
+Evaluation:
+- fixed 128-point grid on `[-pi, pi]` for each regime;
+- evaluate both R0 and R1 every 4 update steps;
+- no early stopping.
+
+Adaptation target:
+- `tau_C = 0.05` MSE.
+
+For each entry into R1, adaptation half-life is the first update index at which R1 evaluation MSE reaches the midpoint between its MSE at regime entry and `tau_C`.
+If the target side of that midpoint is never reached within the 64-step segment, adaptation half-life is `+infinity`.
 
 Promotion threshold:
-- at least **50% lower adaptation half-life** than the best generic optimizer baseline;
-- no more than **5 percentage points** degradation when returning to the original regime;
-- advantage must survive state/FLOP matching.
+- median R1 adaptation half-life across the two R1 entries is at least **50% lower** than the best generic optimizer baseline;
+- after return to R0, R0 evaluation MSE after 64 steps must be no greater than `max(1.10 * MSE_R0_pre_shift, MSE_R0_pre_shift + 0.01)`;
+- advantage must survive state/FLOP matching and optimizer swap.
 
-### Search Task F — Structural commitment
+### Search Task F — Structural commitment (v2 fixed budget)
 
-Use Cursor Task F.
+Generator remains:
+- binary input dimension `D = 20`;
+- true rule `y = x0 XOR x1 XOR x2`;
+- `N_train = 100`;
+- train shortcut correlation `P(x3 = y) = 0.90`;
+- `N_OOD = 1000`;
+- OOD shortcut correlation `P(x3 = y) = 0.10`;
+- true parity remains 100% valid in both sets.
 
-Target:
-- correct discrete invariant induction despite a strong spurious shortcut.
+Training protocol:
+- mini-batch size: 32;
+- exactly **500 parameter-update steps**;
+- sampling with replacement from the 100-example training set;
+- evaluate full train and OOD sets every 25 update steps;
+- **no early stopping**;
+- final promotion metrics use step 500, not the best checkpoint.
 
-Validity requirement before search:
-- the generic MLP + SGD/SGDM/AdamW controls must demonstrate the intended structural-generalization failure on the frozen task generator.
-- If they do not, Task F is invalid and the search pauses for owner review rather than changing the task post hoc.
+Validity requirement before Stage 2:
+- official generic MLP + SGD/SGDM/AdamW controls must each achieve at least 98% train accuracy by step 500;
+- their OOD accuracy must be <= 25%;
+- their structural generalization gap must be >= 75 percentage points.
+
+If those frozen validity gates do not hold, Task F is invalid and the run stops for owner review. Do not alter correlations, dataset size, model capacity or update count after seeing results.
 
 Promotion threshold:
-- training accuracy at least **98%**;
-- structural generalization gap **<= 15 percentage points**;
-- material improvement over the strongest generic matched baseline on fresh OOD instances.
+- final train accuracy >= **98%**;
+- final structural generalization gap **<= 15 percentage points**;
+- final OOD accuracy materially exceeds the strongest generic matched baseline on fresh OOD instances.
 
-## 6.2 Diagnostic Task D — optimizer-confound detector
+## 6.2 Diagnostic Task D — optimizer-confound detector (baseline-only in v2)
 
-Cursor Task D is **not a primary search objective**.
+Task D is **not** a candidate-program benchmark because the frozen candidate grammar targets the two-hidden-layer MLP substrate, while the direct quadratic ravine has no compatible forward/credit interface.
 
-It is used to identify optimizer/preconditioning rediscoveries.
+Freeze Task D as a baseline/diagnostic only:
 
-If a candidate's strongest advantage is conditioning and:
+- dimension: 32;
+- `H = Q Lambda Q^T`;
+- `Q` from deterministic QR decomposition under the benchmark seed;
+- condition numbers `kappa in {1e2, 1e4, 1e6}`;
+- exactly 1,000 optimizer update steps;
+- no early stopping.
 
-- the advantage disappears against AdamW/K-FAC-like controls;
-- or disappears under optimizer swap;
-- or is explained by an effective preconditioner,
+Use SGD, SGDM, AdamW and K-FAC/natural-gradient-like controls where implementable.
 
-classify it as optimizer/preconditioner rediscovery, not a new architecture.
+Task D may identify optimizer/preconditioner-like behavioral signatures, but **cannot directly promote or reject a candidate program**.
+
+If a candidate's apparent advantage elsewhere is fully explained by an effective preconditioner and disappears under optimizer controls, classify it as optimizer/preconditioner rediscovery.
 
 ## 6.3 Reserved validation Tasks A and E
 
 Tasks A and E are not used to select MAP-Elites.
 
-They are reserved for finalists to test transfer of the discovered learning dynamic:
+### Task A — long-range credit
 
-- A: long-range credit;
-- E: fast/slow state and distractor-resistant binding.
+Keep the existing frozen delayed-bit generator and horizon set. It is reserved for finalist characterization only.
 
-A finalist does not need to win every reserved task. The purpose is to identify its behavioral scope and detect hidden equivalence to known families.
+### Task E — fast/slow state and distractor-resistant binding (v2 frozen protocol)
+
+Slow rule:
+- five latent states `0..4`;
+- fixed successor function `g(s) = (s + 1) mod 5`.
+
+Each episode:
+1. sample a deterministic random permutation mapping five episode symbols to the five latent states;
+2. present all five symbol/state binding examples once;
+3. present `L` unrelated distractor examples;
+4. query one episode symbol;
+5. target is the episode symbol bound to the successor latent state `g(s)`.
+
+Distractor lengths:
+- `L in {10, 50, 200}`.
+
+Evaluation:
+- 128 independent episodes per seed;
+- balanced query states;
+- report query accuracy separately for each distractor length;
+- also report slow-rule accuracy on canonical latent-state successor queries.
+
+Finalists are characterized on Task E only after Tier-2 promotion. Task E does not decide MAP-Elites selection.
+
+A finalist does not need to win Tasks A or E. They are used to establish behavioral scope and detect hidden equivalence to known families.
 
 ---
+
+# 7. Mandatory baselines---
 
 # 7. Mandatory baselines
 
@@ -304,6 +488,18 @@ Every evaluated candidate is compared with:
 3. AdamW;
 4. target-property-specific known method.
 
+## 7.1 Equal hyperparameter budget
+
+Official Stage-1 controls and candidate comparisons use the same learning-rate search budget:
+
+`eta in {1e-3, 1e-2, 1e-1}`.
+
+For each method, choose the learning rate only from training-side calibration metrics defined for that task. OOD/confirmation results may not choose hyperparameters.
+
+No method receives early stopping in Tasks B, C* or F.
+
+Any pre-v2 local calibration run that used unequal fixed learning rates or early stopping is **diagnostic only** and cannot satisfy Stage 1.
+
 Target-property controls follow Cursor/Gemini's suite, including appropriate families such as:
 
 - GPM/OWM for interference;
@@ -312,6 +508,8 @@ Target-property controls follow Cursor/Gemini's suite, including appropriate fam
 - constructive/discrete learners for structural commitment where matched comparison is meaningful.
 
 ---
+
+# 8. Matching and anti-cheating rules---
 
 # 8. Matching and anti-cheating rules
 
@@ -547,10 +745,21 @@ If any required answer is no, do not call it an architecture candidate.
 # 17. Execution stages
 
 ## Stage 0 — compiler and validity tests
+
 Implement only the grammar, canonicalizer, fingerprinting, known-family unit cases and benchmark generators.
 
+Stage 0 must additionally verify:
+- the checked-in behavioral probe corpus exists and matches blob `d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1`;
+- the Task-B overlapping-subspace construction satisfies the frozen gradient-conflict gate;
+- Tasks C*, D, E and F match the v2 fixed schedules exactly.
+
+Because v1 was invalidated before official Stage 1, all official Stage-0 evidence must be regenerated under v2.
+
 ## Stage 1 — calibration
-Run established mechanisms and ordinary baselines.
+
+Run established mechanisms and ordinary baselines **from the v2 implementation**.
+
+Earlier pre-v2 calibration replays are not official evidence.
 
 Purpose:
 - validate tasks;
@@ -587,4 +796,4 @@ As of this commit:
 
 Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
 
-The frozen protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
+The v2 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
