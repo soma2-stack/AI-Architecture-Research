@@ -35,3 +35,29 @@ def test_run_D_and_T0():
     assert len(r["runs"]) == 3
     t0 = runners.run_T0(make("SGD"), seed=7)
     assert "pass" in t0
+
+
+def test_joint_oracle_runs_and_batches_are_16_plus_16(monkeypatch):
+    seen = []
+    orig = TaskB._sample
+
+    def spy(self, task, n, rng):
+        seen.append((task, n))
+        return orig(self, task, n, rng)
+
+    monkeypatch.setattr(TaskB, "_sample", spy)
+    before = len(seen)
+    r = runners.run_B_joint(make("SGD"), [7], updates=5)
+    calls = seen[before:]
+    train_calls = [c for c in calls if c[1] == 16]
+    assert train_calls == [(1, 16), (2, 16)] * 5
+    sel = runners.select_lr(r, [7])
+    s = runners.summarize("Bjoint", sel)
+    assert "rel_red_T1" in s and "rel_red_T2" in s
+
+
+def test_fit_reduction_summary(short):
+    r = run_job({"task": "B", "learner": "SGD", "seeds": [7]})
+    s = runners.summarize("B", runners.select_lr(r, [7]))
+    p = runners.select_lr(r, [7])["per_seed"][0]
+    assert abs(s["fit_reduction"] - (1 - p["L1_pre"] / p["L1_init"])) < 1e-12

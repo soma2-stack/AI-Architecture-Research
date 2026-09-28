@@ -1,0 +1,31 @@
+{
+ "status": "POST-HOC DIAGNOSTIC ONLY - computed after V1-B-REP failed; cannot pass the gate; no protocol change",
+ "results": {
+  "SGD_noclip@1000": {
+   "lr": 0.1,
+   "rel_red_T1": 0.9224696221633092,
+   "rel_red_T2": 0.9144377455702088
+  },
+  "SGDM_noclip@1000": {
+   "lr": 0.01,
+   "rel_red_T1": 0.920311288158483,
+   "rel_red_T2": 0.9080347811010723
+  },
+  "AdamW_noclip@1000": {
+   "lr": 0.01,
+   "rel_red_T1": 0.9490866718830393,
+   "rel_red_T2": 0.9448173407931335
+  },
+  "SGD_clipped_lr0.1@2000": {
+   "lr": 0.1,
+   "rel_red_T1": 0.9503320072197112,
+   "rel_red_T2": 0.9454690875439692
+  },
+  "SGD_clipped_lr0.1@4000": {
+   "lr": 0.1,
+   "rel_red_T1": 0.9669491409405365,
+   "rel_red_T2": 0.9601598118652397
+  }
+ },
+ "cpu_s": 5.9421414850000005
+}

@@ -1,0 +1,85 @@
+{
+ "stage": "stage1_v4",
+ "utc": "2026-09-28T05:21:13Z",
+ "git_commit": "0fb4be1f7b15ea5806363401b3ae966b7453ee40",
+ "git_dirty": true,
+ "packages": {
+  "python": "3.11.15",
+  "numpy": "2.4.6",
+  "scipy": "1.17.1",
+  "pytest": "9.1.1"
+ },
+ "machine": {
+  "platform": "Linux-6.18.44-fc-v42-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "nproc": 4,
+  "mem_total_mb": 16095
+ },
+ "gpu_used": false,
+ "cuda_visible_devices": "",
+ "config_sha256": "37398394dc0b4273c8cbd00f0df8f0ebf772cbc355046a09db4de9e0d31e9db3",
+ "grammar_version": "AE.1/v2-impl-1",
+ "collision_library_version": "AE.2.4+AR-141/v2-impl-1",
+ "probe_blob_sha": "d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1",
+ "benchmark_generator_hashes_seed100": {
+  "B": "19ff688edb4cb85b6b536fff452ebd58540d612ccf634e7787a8831236ad38cb",
+  "Cstar": "789f34ab8630b385ab07da7517749830619cf5f599cc8c00132f6a4840e893ad",
+  "F": "8638b96986a4f3a6ee930d50e685a1b7bf88f7564b02a5ad2354c689639edfaa",
+  "D": "b70e754f60708e4d57d7ebb4388adbdcb9421461a509468f8cefc4ba363cc7b9",
+  "E": "6230d8fe2d07d0abe6609f31579ddb87aad2c34d576cc79e50c01bd9457a5f8b",
+  "A": "5036cd2f9942eccd60dedf89de2f105f606bc4489fcd6f09c95e107d23ddafa3",
+  "T0": "f4bca9ad02c53807d53aa1f6a10f1503b9ac52012a3e4b6b3677e6576d1a7728"
+ },
+ "stage0_carried_forward": "runs/stage0_v3 (v3 PASS, accepted under v4)",
+ "git_at_start": {
+  "commit": "0fb4be1f7b15ea5806363401b3ae966b7453ee40",
+  "dirty_excluding_runs": true
+ },
+ "seeds": [
+  100,
+  101,
+  102,
+  103,
+  104
+ ],
+ "lr_grid": [
+  0.001,
+  0.01,
+  0.1
+ ],
+ "jobs": [
+  "B:SGD",
+  "B:SGDM",
+  "B:AdamW",
+  "B:GPM",
+  "B:R17_EWC_SI",
+  "B:R18_kWTA_sparse_update",
+  "B:R13_fast_slow",
+  "B:SGD_noclip",
+  "B:SGDM_noclip",
+  "B:AdamW_noclip",
+  "Cstar:SGD",
+  "Cstar:SGDM",
+  "Cstar:AdamW",
+  "Cstar:R12_fast_weights",
+  "Cstar:R13_fast_slow",
+  "Cstar:R15_three_factor",
+  "Cstar:SGD_noclip",
+  "Cstar:SGDM_noclip",
+  "Cstar:AdamW_noclip",
+  "F:SGD",
+  "F:SGDM",
+  "F:AdamW",
+  "F:SGD_noclip",
+  "F:SGDM_noclip",
+  "F:AdamW_noclip",
+  "Bjoint:SGD",
+  "Bjoint:SGDM",
+  "Bjoint:AdamW"
+ ],
+ "cpu_seconds": 72.78,
+ "stage1_pass": false,
+ "failed_gates": [
+  "V1_B_REP"
+ ]
+}
