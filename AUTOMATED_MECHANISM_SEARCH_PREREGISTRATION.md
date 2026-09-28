@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN — NOT AUTHORIZED TO EXECUTE**
+**FROZEN DESIGN — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -12,7 +12,7 @@ This document is the owner-level cross-lane synthesis of:
 - Codex AR-141 — collision library, fingerprint/equivalence screening, anti-cheating controls, novelty decision tree, prior-art gate;
 - Cursor/Gemini Automated Search Benchmark Suite — Tasks A–F, matched baselines, ablations, metrics, effect thresholds, behavioral signatures, compute envelope.
 
-No experiment is authorized by this file. Execution requires a later explicit owner instruction.
+Owner authorization to execute Stages 0–3 was given in chat on 2026-09-28. The frozen protocol remains binding; no material protocol changes are authorized.
 
 ---
 
@@ -579,10 +579,12 @@ As of this commit:
 
 - protocol design: COMPLETE;
 - GitHub consolidation: COMPLETE;
-- Stage 0: **NOT AUTHORIZED**;
-- Stage 1: **NOT AUTHORIZED**;
-- Stage 2: **NOT AUTHORIZED**;
-- Stage 3: **NOT AUTHORIZED**;
+- Stage 0: **AUTHORIZED**;
+- Stage 1: **AUTHORIZED**;
+- Stage 2: **AUTHORIZED**;
+- Stage 3: **AUTHORIZED**;
 - GPU confirmation: **NOT AUTHORIZED**.
 
-Execution begins only after an explicit owner instruction authorizing the preregistered pilot.
+Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
+
+The frozen protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
