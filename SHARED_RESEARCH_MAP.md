@@ -1087,65 +1087,80 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **v7 complete: 8 Stage-2 promotions, 8/8 NEGATIVE in fresh-seed Stage 3; next step is v8 design to reduce selection noise before any new search** |
+| **Current phase** | **v8 frozen: robust C* AULC metric + 8-seed Stage-2 confirmation funnel; implement/validate, then run official v8 search** |
 
 ---
 
 # 12. What each agent should do next
 
-AMS v7 is complete and merged to `main`.
+The active execution authority is:
 
-Final v7 outcome:
-- static validation PASS;
-- Stage 2: 5,544 generated, 2,230 T0, 1,200 Tier-1, 35/56 archive cells, 8 promoted;
-- all 8 promotions were on C*;
-- Stage 3 used fresh seeds 10000–10009;
-- all 8 failed Gate 3 and are **NEGATIVE**;
-- 0 INTERESTING;
-- 0 REDISCOVERY;
-- 0 POSSIBLE ARCHITECTURE CANDIDATE;
-- shared official ledger: about 2.838 CPU-hours of the 30-hour cap;
-- no GPU, no Stage 4.
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v8**
 
-Independent Codex and Cursor audits reproduced the Stage-2 counts, q values, fresh-seed metrics, Holm correction, bootstrap intervals and final 8/8 NEGATIVE labels.
+v7 is complete and remains final historical evidence:
+- Stage 2 promoted 8 C* candidates;
+- fresh-seed Stage 3 labelled all 8 NEGATIVE;
+- independent Codex and Cursor/Gemini audits reproduced the result.
 
-The main methodological finding is that the 3-seed C* censored half-life objective was too noisy for MAP-Elites selection. Stage 2 selected apparent gains that did not replicate on 10 fresh seeds. Future search should not reuse that exact selection metric/funnel unchanged.
+v8 addresses the observed v7 selection-noise failure without widening the grammar or weakening novelty requirements.
+
+Key v8 changes:
+- Task C* selection metric becomes normalized adaptation AULC rather than threshold-crossing half-life;
+- half-life remains diagnostic only;
+- fast search uses new seeds 5000–5002;
+- every occupied archive elite receives an 8-seed best-task confirmation on seeds 6000–6007 before promotion;
+- promotion uses confirmation q, not the 3-seed fast q;
+- final Stage-3 seeds are locked to 30000–30009;
+- Stage-3 C* still requires a strong 50% improvement, 8/10 return checks, Holm-significant paired improvement and positive bootstrap CI;
+- the broken zero-update K(P) novelty ablation is replaced for Gate 4 by exact nearest-family substitution KF(P), while old K(P) is retained as a diagnostic;
+- the invalid where-gate mutation zero spelling and exact generation-cap boundary are repaired before search.
+
+Budgets remain:
+- 6,000 generated;
+- 3,000 T0;
+- 1,200 fast Tier-1;
+- at most 56 Stage-2 confirmations;
+- 20 promotions max;
+- CPU only;
+- cumulative 30 CPU-hour hard cap;
+- no GPU;
+- no Stage 4.
+
+Official v8 search RNG seed: `2026092808`.
 
 ## Claude
-Primary role remains implementation/search runner.
+Primary role: **v8 implementation and search runner**.
 
-For now:
-- do not run another search;
-- do not start Stage 4;
-- preserve v7 artifacts;
-- wait for the owner-level v8 preregistration.
+Next:
+- sync latest `origin/main`;
+- read v8 and this map;
+- implement only the frozen v8 changes;
+- preserve all v7 artifacts;
+- run the required pre-search implementation validation;
+- commit/push the implementation before official candidate training;
+- if validation passes, run official v8 Stage 2;
+- run the 8-seed confirmation funnel after Stage 2;
+- if candidates promote, continue directly into v8 Stage 3 on locked seeds 30000–30009;
+- stop on any mandatory implementation/protocol failure rather than retuning.
 
 ## Codex
-Primary role remains rediscovery / novelty auditor.
+Primary role: **rediscovery / novelty auditor**.
 
 For now:
-- no independent search;
-- v7 candidate audit is complete;
-- wait for a future promoted set before new prior-art/rediscovery work.
+- do not run the full search;
+- wait for Claude's v8 implementation commit;
+- audit the AULC formula, seed separation, confirmation logic, KF(P) substitution, cap-boundary repair and unchanged collision library;
+- after Claude publishes candidates, audit exact raw artifacts and novelty/rediscovery only for confirmed promotions.
 
 ## Cursor / Gemini
-Primary role remains benchmark/search-design auditor.
+Primary role: **benchmark / metric auditor**.
 
 For now:
-- v7 metric audit is complete;
-- do not run more candidates;
-- retain the v7 finding that 3-seed censored half-life selection is high variance and vulnerable to winner's-curse selection.
+- do not duplicate Stage 2;
+- after Claude's implementation appears, independently verify the C* AULC calculation and confirmation-selection logic from code/tests;
+- after v8 results appear, recompute fast vs confirmation metrics and fresh Stage-3 metrics for promoted candidates.
 
-## Owner / coordinator next action
-Design v8 before any further compute.
-
-The v8 design should specifically address the v7 failure mode while preserving strict novelty gates:
-- replace or supplement point-threshold C* half-life with an integral adaptation metric such as AULC / cumulative post-shift loss;
-- add a validation funnel so archive replacement/promotion is not decided solely by 3 noisy seeds;
-- keep benchmark leakage protections and fresh final seeds;
-- preserve CPU discipline and avoid duplicating full searches across lanes.
-
-No agent should execute v8 until the new protocol is explicitly frozen.
+No lane may use GPU, Stage 4, expand the 30 CPU-hour cap, or silently alter v8.
 
 ---
 
