@@ -1087,88 +1087,57 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **v8 complete and independently verified; no v9 search yet — run a no-compute grammar-gap audit before deciding whether to expand the search space** |
+| **Current phase** | **post-v8 grammar-gap audit complete: 7/8 candidates killed, GG2 weakly unresolved; run a targeted no-compute GG2 closure pass before involving auditors or authorizing v9** |
 
 ---
 
 # 12. What each agent should do next
 
-AMS v8 is complete, merged and independently verified by both audit lanes.
+AMS v8 is complete and independently verified. The first post-v8 grammar-gap audit is also complete and merged.
 
-Verified v8 result:
-- 4,413 generated;
-- 1,961 T0;
-- 1,200 fast Tier-1 attempts (1,198 scored + 2 defects);
-- 42/56 archive cells;
-- 42/42 archive elites confirmed on seeds 6000–6007;
-- 0/42 confirmation-eligible;
-- 0 promotions;
-- Stage 3 not run;
-- locked Stage-3 seeds 30000–30009 untouched;
-- shared ledger 5.12737 CPU-hours of 30;
-- no GPU.
+Claude screened eight concrete operations that the current AMS grammar cannot express:
+- GG1, GG3, GG4, GG5, GG6, GG7 and GG8 reduce to established mechanisms or known decompositions;
+- **GG2 remains weakly unresolved**.
 
-P03974's confirmation AULC advantage is real (8/8 paired wins) but it fails the frozen R0 return requirement 5/8 vs 6/8. It is a stability/plasticity trade-off, not a survivor.
+GG2, Task B:
+- detect a persistently conflicting gradient component;
+- move that component into a newly created small context-gated low-rank term instead of overwriting the shared weight;
+- key the term from input-statistics change, without stored data, explicit task ID or externally trained router;
+- leave the non-conflicting component updating the shared weight.
 
-## Owner decision
-
-Do **not** launch v9 as another SGD-backbone perturbation search.
-
-v7 showed the old selection metric was noisy.
-v8 repaired that issue and the stronger confirmation funnel rejected every archive elite.
-The current evidence says another run over the same grammar/backbone is unlikely to add much.
-
-Before any new compute, run a **grammar-gap audit**:
-
-> What architecture-level state transition or learning operation would be useful for the observed failures but cannot be expressed by the current AMS grammar, and is not already an established architecture or classical mechanism?
-
-The purpose is to decide whether v9 needs a genuinely broader substrate rather than another parameter/search tweak.
-
-No new search is authorized during this audit.
+Closest known families so far include continual-learning adapters/LoRA, task-free routers, gradient projection/routing, Active Dendrites/XdG, OWM/GPM/PCGrad and contextual-inference systems. No exact same transition rule has yet been established, but the current evidence is not enough to call GG2 a candidate.
 
 ## Claude
-Primary role: candidate grammar-expansion designer.
+Next action: **targeted GG2 closure pass only**.
 
-Without coding or training:
-- identify concrete operations the current grammar cannot express;
-- tie each operation to one of the observed failure modes:
-  - Task B: retain old knowledge while still learning Task 2;
-  - Task C*: adapt rapidly without losing return stability;
-  - Task F: escape shortcut reliance while retaining train fit;
-- propose at most 8 precise additions;
-- write each as STATE + OPERATION + WRITE/TRANSITION RULE + CLAIMED PROPERTY;
-- compare each against the project's known-family list before calling it promising;
-- prefer changes to state topology, state lifetime, or structural transition semantics over optimizer coefficient tweaks;
-- do not propose generic MoE, fast weights, replay, EWC/GPM, test-time training, ordinary dynamic-depth, generic module growth, or external memory unless there is a clearly non-equivalent operation.
+No code, training, search or GPU.
 
-No code. No search. No GPU.
+Claude should:
+- formalize GG2 precisely enough that another researcher could implement it without interpretation;
+- separate the claimed operation from ordinary adapter + router decompositions;
+- search specifically for prior art that performs the same transition:
+  - identify conflict;
+  - preserve the non-conflicting shared update;
+  - create/allocate new parameter state for the conflicting component;
+  - gate/retrieve that state from inferred input context;
+  - do so without replay, task ID or manually supplied routing masks;
+- search older continual-learning, adaptive filtering/control, mixture/adaptive-expert, conditional computation, dynamic-parameter, low-rank adaptation and neural routing literature, not only recent LLM papers;
+- explicitly test whether GG2 is merely a composition of known pieces whose claimed property is preserved by ordinary decomposition;
+- produce one of:
+  - KILLED — EXISTING MECHANISM/ARCHITECTURE;
+  - KILLED — PIPELINE/COMPOSITION ONLY;
+  - SURVIVES AS A PRECISE ARCHITECTURE CANDIDATE FOR HOSTILE AUDIT.
+
+If it survives, freeze its exact semantics and identify the single smallest distinguishing property. Do not design v9 yet.
 
 ## Codex
-Primary role: hostile reduction / prior-art screen.
-
-After Claude's grammar-gap proposals exist:
-- try to reduce each proposal to an existing architecture, optimizer, continual-learning method, memory system, graph rewrite system, classical algorithm, or composition of known tools;
-- distinguish primitive novelty from architecture novelty;
-- kill anything whose claimed property survives ordinary decomposition;
-- identify at most 3 proposals whose exact transition semantics remain genuinely unresolved.
-
-No experiment.
+Wait until Claude finishes the targeted GG2 closure pass. Then perform hostile reduction only if GG2 still survives.
 
 ## Cursor / Gemini
-Primary role: falsifiability / benchmark-design screen.
-
-After the proposal set exists:
-- determine whether each surviving operation has a measurable property that the current grammar cannot realize;
-- propose the smallest matched experiment that would distinguish it from the strongest known decomposition;
-- reject proposals whose only evidence would be a generic benchmark win;
-- check that any future v9 test can stay within the remaining CPU budget.
-
-No full search.
+Wait until Claude finishes the targeted GG2 closure pass. If GG2 still survives Codex reduction, design the smallest matched falsification experiment.
 
 ## Owner / coordinator
-Synthesize the grammar-gap audit.
-Only if at least one operation survives all three lanes should v9 be frozen and implemented.
-If none survives, close the current AMS grammar-expansion path rather than spending the remaining budget on another blind search.
+Do not authorize v9 compute unless GG2 survives the targeted Claude closure pass, Codex hostile reduction and Cursor/Gemini falsifiability review.
 
 ---
 
