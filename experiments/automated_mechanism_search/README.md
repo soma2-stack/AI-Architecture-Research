@@ -1,6 +1,6 @@
-# Automated mechanism search (AMS) — preregistration v2 implementation
+# Automated mechanism search (AMS) — preregistration v3 implementation
 
-Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v2).
+Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v3; v2 package reused with the v3 Task-B gate).
 
 Open choices are fixed in `IMPLEMENTATION_DECISIONS.md`, committed before any gate or run.
 
