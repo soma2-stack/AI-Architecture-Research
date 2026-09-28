@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Negative-space audit complete: no defensible architectural blind spot found; no active search, compute, or experiment** |
+| **Current phase** | **GAS-0 synthesis design complete; Codex implementation/validation + dev pilot next; official Phase 2 matrix not authorized** |
 
 ---
 
@@ -1141,7 +1141,15 @@ A future architecture search should reopen only when there is a **specific named
 
 ## Coordinator next step
 
-The next phase must use a genuinely different discovery basis rather than another broad literature survey or a small variation of AMS/OMD. Design that phase first, with no compute, and only then assign a bounded lane if it has a clear falsifiable novelty target.
+GAS-0 is now the active non-novelty synthesis lane.
+
+Claude designed **Verified Project State (VPS)**: a typed persistent project ledger (S), a harness-enforced regression gate (V), and verification-gated coupling (K). The key experiment compares baseline, S-only, V-only, S+V uncoupled, and S+V coupled on a small long-horizon game-development benchmark.
+
+Next: Codex may implement the harness/benchmark, validate it, freeze the model/config, and run the **dev-project pilot only** (C0-C4 × 1 seed, ≤3 GPU-hours). Then stop and report.
+
+The official 105-episode primary matrix remains unauthorized until the owner explicitly says **GAS-0 Phase 2**.
+
+Novelty is not claimed or required. Any later novelty review would require replicated positive synergy plus evidence that the coupled organization preserves a property the uncoupled decomposition does not.
 
 ---
 
