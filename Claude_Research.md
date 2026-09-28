@@ -9,7 +9,31 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 21
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 22
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v8** (unchanged; no v9);
+  - `SHARED_RESEARCH_MAP.md` (§12: targeted GG2 closure pass);
+  - `HANDOFF_Claude_grammar_gap_audit.md`;
+  - this notebook.
+
+  Merged `origin/main` `a69f022`.
+- **Current lens:** post-v8 grammar-gap audit, GG2 closure pass. No code, training, search or GPU.
+- **Current stage: the grammar-gap audit is CLOSED; all 8 candidates are killed.**
+  - GG1 and GG3–GG8: killed in Part AN.
+  - **GG2: KILLED — PIPELINE / COMPOSITION ONLY** (Part AO).
+    - TRGP (ICLR 2022) already learns new small state inside the conflicting old-task subspace while the shared weights update orthogonally; it lacks only a task-free key.
+    - Gradient-free input-statistics routing supplies that key (Latent-LoRA 2026; RFWR/LWPR; RAN 1991; eTS; fuzzy ARTMAP).
+    - The ordinary composition "GPM/TRGP projector + conflict-triggered low-rank term in the protected subspace + gradient-free input-density gate" preserves every GG2 property.
+    - The transition principle is fuzzy ARTMAP match tracking (1992) and RAN allocation (1991).
+- **Strongest surviving candidate(s):** none. **0 supported architectures, 0 primitives.**
+- **Killed / closed:** AMS v5–v8 search designs (negatives); all 8 grammar-gap candidates. **Recommendation: close the current AMS grammar-expansion path.**
+- **Unresolved prior-art questions:** none for GG2.
+- **CPU:** 5.13 CPU-h of 30 (unchanged); no GPU.
+- **Exact next action:** owner / coordinator decision. The recommendation is to close the AMS grammar-expansion path, with no v9 and no Codex or Cursor GG2 work needed. If the owner wants the lane to continue, it needs a new lens that the audit did not cover; default is to stand by for owner direction.
+
+# Resume Pointer as of session 21 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
@@ -4755,6 +4779,110 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AO — GG2 closure pass (session 22, 2026-09-28; reasoning and 15 targeted prior-art searches; no code, no compute)
+
+**Verdict: KILLED — PIPELINE / COMPOSITION ONLY.**
+- No single published mechanism found implements all six pieces of the GG2 conjunction in a distributed shared-weight network.
+- But the conjunction splits exactly into two published mechanisms:
+  - **TRGP** (Lin et al., ICLR 2022) supplies pieces 1–4 with a task key;
+  - a **gradient-free input-statistics router** (Latent-LoRA 2026; RFWR/LWPR 1998–2005; RAN 1991; eTS 2004; fuzzy ARTMAP 1992) supplies pieces 4–6.
+- Their ordinary composition preserves every property GG2 claims (AO.3).
+- The underlying transition principle — *conflict with consolidated knowledge → allocate new input-keyed state instead of overwriting, while non-conflicting learning continues* — is also fuzzy ARTMAP's match-tracking rule (1992) and the resource-allocating network's rule (1991).
+- GG2 dies at both the primitive and the architecture level.
+- **Recommendation: close the current AMS grammar-expansion path**, with no v9 and the remaining ~24.9 CPU-h unspent.
+
+## AO.1 GG2 as specified, and the six-piece conjunction
+
+GG2, for Task B: when a component of the current update persistently conflicts with consolidated shared knowledge:
+1. identify the conflicting component;
+2. do not discard it;
+3. re-home it into newly allocated small low-rank state;
+4. make that state context-conditional;
+5. infer the context key from input or statistical change;
+6. apply the state only when the matching context is active,
+
+while the non-conflicting component keeps updating the shared weights. There is no replay, stored example, task ID, manual routing mask, or externally trained router.
+
+The conjunction checked below:
+
+| Piece | Meaning |
+|---|---|
+| P1 | Conflict detection against consolidated knowledge |
+| P2 | Preserve the non-conflicting shared update |
+| P3 | Allocate new parameter state for the conflicting component |
+| P4 | Context-condition that state |
+| P5 | Infer the context from the input stream |
+| P6 | No replay, task ID, manual routing, or externally trained router |
+
+## AO.2 Close prior art, piece by piece
+
+✔ = implements; ◐ = partial or differently triggered; ✘ = does not.
+
+| Mechanism | P1 | P2 | P3 | P4 | P5 | P6 | What it lacks relative to GG2 |
+|---|---|---|---|---|---|---|---|
+| **TRGP** (Lin, Yang, Fan, Zhang, ICLR 2022) | ✔ (norm of the new gradient's projection onto old-task input subspaces selects a layer-wise "trust region") | ✔ (model updated orthogonally to old subspaces) | ✔ (layer-wise **scaling matrix**: new small state that re-uses the frozen weights **inside the old / conflicting subspace**) | ✔ (per task) | ✘ | ✘ (task ID) | Only the task-free key. Its scaling matrix *is* the re-homing of in-subspace learning. |
+| **API** (Liang & Li, CVPR 2023) | ✔ (plasticity lost to gradient projection is measured) | ✔ | ✔ (network dimensions expanded when plasticity is insufficient) | ◐ (task-incremental) | ✘ | ✘ | Task-free keying |
+| **Recon** (Shi et al., ICLR 2023) | ✔ (per-layer gradient-conflict scores) | ✔ (low-conflict layers stay shared) | ✔ (high-conflict layers become task-specific copies) | ✔ (per task) | ✘ | ✘ (task labels; multi-task) | Task-free keying; the continual setting |
+| GPM / OWM / OGD (2019–2021) | ✔ (old input subspace) | ✔ | ✘ (conflicting component **discarded**) | ✘ | ✘ | ◐ | Re-homing |
+| PCGrad (2020); GEM / A-GEM | ✔ | ✔ | ✘ | ✘ | ✘ | ✘ (task labels / replay) | Re-homing; P6 |
+| DEN (Yoon et al. 2018) | ◐ (unit drift) | ✔ (selective retraining) | ✔ (split / duplicate / expand) | ✔ (per task) | ✘ | ✘ | Task-free keying |
+| InfLoRA (Liang & Li, CVPR 2024) | ✔ (old-gradient subspace) | ◐ (frozen backbone) | ✔ (per-task low-rank branch, but placed **orthogonal** to the conflicting subspace, the opposite of GG2) | ✘ (merged) | ✘ | ◐ | P4–P6; the opposite placement |
+| Online-LoRA (Wei et al., WACV 2025) | ✘ (loss plateau) | ✘ (frozen base) | ✔ (new LoRA) | ✘ (old LoRAs merged into the backbone) | ◐ (shift detected from loss dynamics) | ◐ (task-free) | P1, P2, P4 |
+| SEMA (Wang et al., CVPR 2025) | ✘ (novelty via representation descriptors) | ✘ (frozen pre-trained model) | ✔ (adapter added on demand; sub-linear growth) | ✔ | ✔ | ◐ (rehearsal-free, but the router is learned) | P1, P2 |
+| **Latent-LoRA** (arXiv 2607.23837, 2026) | ✘ | ✘ (frozen trunk) | ✔ (per-task low-rank adapter) | ✔ | ✔ (**gradient-free probabilistic routing** on frozen embeddings) | ✔ (replay-free, **no trainable router**) | P1, P2 |
+| LMC (Ostapenko et al., NeurIPS 2021) | ✘ (local relevance / novelty) | ◐ | ✔ (new module) | ✔ (local structural relevance) | ✔ | ✔ / ◐ (task-agnostic) | P1 |
+| Expert Gate (Aljundi et al. 2017); HNET + entropy task inference (von Oswald et al. 2020) | ✘ | ✘ / ◐ | ✔ (expert / task embedding) | ✔ | ✔ (autoencoder reconstruction / entropy) | ◐ (training boundaries) | P1, P2 |
+| XdG (2018); Active Dendrites (2022) | ✘ | ◐ | ◐ | ✔ | ✘ (context supplied) | ✘ | P1, P3, P5 |
+| Gradient routing (Cloud et al. 2024) | ✘ | ◐ | ◐ | ✔ | ✘ | ✘ (user-supplied masks) | P1, P5, P6 |
+| COIN (2021); CN-DPM (2020) | ◐ (prediction-error / likelihood novelty) | ◐ | ✔ (new memory / expert) | ✔ | ✔ | ◐ (CN-DPM trains new experts from a short-term buffer) | Gradient-component re-homing in a shared trunk |
+| **RAN** (Platt 1991) | ◐ (large error ∧ input novelty) | ✔ (LMS update of existing parameters otherwise) | ✔ (new RBF unit = an **input-gated rank-1 output term**) | ✔ (RBF locality) | ✔ | ✔ | Trigger is error/novelty, not gradient anti-alignment |
+| **RFWR / LWPR** (Schaal & Atkeson 1998; Vijayakumar 2005) | ◐ (no receptive field active / error) | ✔ (existing local models keep updating) | ✔ (new local linear model; low-rank projections in LWPR) | ✔ (receptive field) | ✔ | ✔ | Same; explicitly designed against negative interference |
+| eTS (Angelov & Filev 2004) | ◐ (data potential / novelty) | ✔ (RLS consequent updates) | ✔ (new rule / local model) | ✔ (antecedent membership) | ✔ | ✔ | Same |
+| **Fuzzy ARTMAP** (Carpenter, Grossberg et al. 1992) | ✔ (**predictive mismatch with a consolidated category**; match tracking) | ✔ (resonant categories keep learning) | ✔ (new category instead of overwriting) | ✔ (category chosen by input match) | ✔ | ✔ | Prototype architecture rather than a distributed trunk + additive low-rank residual |
+| Multiple models, switching and tuning (Narendra & Balakrishnan 1992–97) | ◐ (performance) | ◐ | ✔ | ✔ (switching) | ◐ (keyed on performance, not input) | ✔ | Input keying |
+| PSP (Cheung 2019); SupSup (2020) | ✘ | ✘ | ◐ | ✔ | ◐ / ✘ | ◐ | P1–P3 |
+
+**Finding:** no single entry has ✔ on all six in a distributed shared-weight network. TRGP / API / Recon cover **P1–P3**, including the specific GG2 move of learning new small state *inside* the conflicting subspace (TRGP). Latent-LoRA / RFWR / LWPR / RAN / eTS / ARTMAP cover **P4–P6** with gradient-free input-keyed gating.
+
+## AO.3 Strongest ordinary decomposition, and whether it preserves every GG2 property
+
+**Composition C:**
+- a shared trunk;
+- a GPM / TRGP conflict detector-projector per layer (consolidated input subspace U; conflict = persistent norm of the update's projection onto U, TRGP's trust-region statistic);
+- the shared update applied as ΔW(I − UUᵀ);
+- on a persistent conflict, allocation of a TRGP-style scaling or low-rank term acting inside U, trained by the loss;
+- that term gated by a gradient-free density model of the post-change input statistics (Latent-LoRA / LWPR receptive field / RAN centre), fixed at allocation.
+
+| GG2 claimed property | Preserved by C? | Why |
+|---|---|---|
+| T1 retention | **Yes** | The shared weights never move in U. On T1 inputs the gate is off, so the new term is inactive; this is GPM's guarantee. |
+| T2 learns the sign-flipped map | **Yes** | The new term lives in U (the c-directions) and is active on T2 inputs, so it can realise −A_c. Its loss gradient is exactly the in-U learning signal that GPM would discard: re-homing emerges from "projected trunk + unconstrained gated term". |
+| Non-conflicting learning continues on shared weights | **Yes** | The ΔW(I − UUᵀ) update |
+| No replay, stored examples, task ID, manual mask or trained router | **Yes** | GPM memory stores subspace bases, not examples. The router is a gradient-free statistical model (Latent-LoRA, LWPR, RAN). |
+| Capacity only where and when the conflict arises | **Yes** | Allocation is triggered by the conflict statistic (TRGP / API / Recon triggers), with rank set by the conflicting subspace's dimension (TRGP / InfLoRA / API size it this way) |
+| "The conflicting component itself is written into the new state" | **Yes, up to parameterisation** | Writing Δ_∥ directly into u vᵀ, versus training the gated term by its own gradient, differs only in the update parameterisation: an optimizer-level detail, not an architectural property |
+
+**No GG2 property is lost under the ordinary decomposition.** So the architecture claim dies as pipeline / composition only (AGENTS.md "System / pipeline": components can be separated, replaced by their ordinary versions, and the property is substantially preserved). The primitive claim also dies: projection, low-rank terms, statistical gating and event-triggered allocation are all known operations, and the combined transition is ARTMAP / RAN's conflict-allocates-instead-of-overwrites rule in a distributed parameterisation.
+
+## AO.4 What exactly kills GG2
+
+1. **TRGP (ICLR 2022)** already performs GG2's distinctive move: learning new small state inside the protected / conflicting subspace while the shared weights update orthogonally. Its only gap is the task key.
+2. **Task-free, gradient-free input-statistics routing of per-context low-rank or local state** closes that gap. It is established from 1991 to 2026: RAN, RFWR / LWPR, eTS, fuzzy ARTMAP, Latent-LoRA.
+3. The ordinary composition of 1 and 2 preserves every claimed GG2 property (AO.3).
+4. The transition semantics — conflict with consolidated knowledge allocates new input-keyed state rather than overwriting — is fuzzy ARTMAP's match tracking (1992) and RAN's allocation rule (1991).
+
+## AO.5 Recommendation (interpretation)
+
+- **Close the current AMS grammar-expansion path.**
+  - All 8 grammar-gap candidates are now killed (GG1, GG3–GG8 in Part AN; GG2 here).
+  - The grammar's gaps g1–g8 are real, but every operation found to fill them for the observed B / C\* / F failures recreates known continual-learning, adaptive-control, model-bank or discrete-search machinery.
+- No v9. No Codex hostile reduction or Cursor/Gemini experiment is needed for GG2: it did not survive the closure pass.
+- The remaining ~24.9 CPU-h stay unspent.
+- The project tally is unchanged: **0 supported new architectures, 0 new primitives.**
+
+**Searches (15):** Recon; RAN; RFWR; API (two); Online-LoRA; SEMA; LMC; TRGP; eTS; Expert Gate; HNET task inference; fuzzy ARTMAP; task-free LoRA with conflict routing (which found Latent-LoRA); InfLoRA.
+
 
 # Part AN — Post-v8 grammar-gap audit (session 21, 2026-09-28; reasoning and 11 prior-art searches; no code, no compute)
 
