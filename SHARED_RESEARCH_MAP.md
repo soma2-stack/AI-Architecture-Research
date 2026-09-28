@@ -245,6 +245,31 @@ Added by the Claude lane under §13. Details: `Claude_Research.md` Part AD. Reas
   - (B) consolidate the negative map;
   - (C) a new owner lens.
 
+
+## Claude session 11 update (2026-09-28) — preregistered mechanism-search protocol (design only)
+
+Added by the Claude lane under §13. Details: `Claude_Research.md` Part AE. **Nothing executed.**
+
+- **Grammar.** Typed (S / I / O / M), compiling to `STATE → FORWARD (W_eff, gain) → CREDIT → STATE UPDATE (mix) → PARAM UPDATE (+ ≤ 1 structural op)`.
+  - ≤ 4 registers with lifetimes EXAMPLE / EPISODE / RUN; ≤ 40 nodes; one program shared across layers of a width-32 tanh MLP.
+  - Excluded by construction: skips, attention, inner loops / fixed points, I×I or O×O matrices, BPTT through registers, meta outer loop.
+  - **At least one architecture-level coupling is required** (state→forward, activity-routed credit, or structural). Otherwise the program is a pure update rule (an optimizer / local-rule family) and is not evaluated.
+- **Rediscovery filter.** Canonicalization plus a behavioural hash on 16 fixed probes; a 26-feature fingerprint; a reference library R1–R24 of known families (syntactic plus behavioural matching); **residual attribution**, meaning the effect must survive removing the non-family residual and must beat the program's own known components.
+- **Search.** MAP-Elites over 56 structural cells.
+  - Budget: ≤ 6,000 generated, 3,000 Stage-1, 1,200 Stage-2, 20 Stage-3 candidates.
+  - Quality = best-task effect vs the best matched control, minus cost penalties.
+- **Eight promotion gates** on fresh seeds and fresh task instances: stability; above-trivial learning; effect ≥ preregistered τ with Wilcoxon + Holm + bootstrap; ablation (residual, coupling, known components); optimizer swap; capacity- and compute-matched controls; fingerprint; fresh prior art.
+- **Tasks (Gemini to finalize).**
+  - T1: interference across sequential teachers.
+  - T2: re-adaptation to recurring regimes with no boundary signal.
+  - T3: symbol rebinding (the project's E2 / Z.4 failure).
+  - Validity checks V1–V4 must pass with known families before any search.
+- **Compute.** CPU only; expected ≈ 6–8 CPU-h; hard cap 30 CPU-h; Stages 0–3. Stage 4 only with separate approval.
+- **Needed before execution:**
+  - Codex: complete / verify the reference library and disguised variants, and define the gate-8 prior-art procedure;
+  - Gemini: finalize tasks, metrics and matched-budget accounting;
+  - owner: authorization.
+
 ---
 
 # 3. Codex lane — novelty assassin + computational archaeology
