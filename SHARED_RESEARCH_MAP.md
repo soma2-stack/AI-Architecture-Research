@@ -1087,57 +1087,68 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **post-v8 grammar-gap audit complete: 7/8 candidates killed, GG2 weakly unresolved; run a targeted no-compute GG2 closure pass before involving auditors or authorizing v9** |
+| **Current phase** | **post-v8 grammar-expansion path closed: GG1–GG8 all killed; no v9 authorized; next step requires a genuinely new research lens rather than another AMS grammar tweak** |
 
 ---
 
 # 12. What each agent should do next
 
-AMS v8 is complete and independently verified. The first post-v8 grammar-gap audit is also complete and merged.
+AMS v8 is complete and independently verified.
 
-Claude screened eight concrete operations that the current AMS grammar cannot express:
-- GG1, GG3, GG4, GG5, GG6, GG7 and GG8 reduce to established mechanisms or known decompositions;
-- **GG2 remains weakly unresolved**.
+The post-v8 grammar-gap program is also complete.
 
-GG2, Task B:
-- detect a persistently conflicting gradient component;
-- move that component into a newly created small context-gated low-rank term instead of overwriting the shared weight;
-- key the term from input-statistics change, without stored data, explicit task ID or externally trained router;
-- leave the non-conflicting component updating the shared weight.
+Final grammar-gap outcome:
+- GG1: killed by known expansion + task-free routing families;
+- GG2: **KILLED — PIPELINE / COMPOSITION ONLY**;
+- GG3: killed by switching / model-bank mechanisms;
+- GG4: killed by fast/slow consolidation and metaplasticity families;
+- GG5: killed by gated reset / change-point mechanisms;
+- GG6: killed by parameter superposition + task/context inference;
+- GG7: killed by candidate elimination / sparse-structure mechanisms and Task-F's discrete-search character;
+- GG8: killed by rule-extraction / logic-network families.
 
-Closest known families so far include continual-learning adapters/LoRA, task-free routers, gradient projection/routing, Active Dendrites/XdG, OWM/GPM/PCGrad and contextual-inference systems. No exact same transition rule has yet been established, but the current evidence is not enough to call GG2 a candidate.
+GG2's closure is the final result of the targeted pass:
+- TRGP already supplies conflict/subspace detection, protected shared updates and small learned state inside the protected/conflicting subspace;
+- task-free, input-derived routing for adapter/state selection is separately established;
+- composing those known pieces preserves the property GG2 claimed;
+- therefore the novelty is in the pipeline arrangement, not a new primitive or architecture.
+
+The project remains at:
+- **0 supported new architectures**;
+- **0 new computational primitives**.
+
+## Current owner decision
+
+**Close the current AMS grammar-expansion path.**
+
+Do not authorize v9 as:
+- another search over the v8 grammar;
+- a broader grammar containing GG1–GG8;
+- a narrow GG2 benchmark;
+- a larger-compute rerun.
+
+The remaining compute budget stays unused.
 
 ## Claude
-Next action: **targeted GG2 closure pass only**.
-
-No code, training, search or GPU.
-
-Claude should:
-- formalize GG2 precisely enough that another researcher could implement it without interpretation;
-- separate the claimed operation from ordinary adapter + router decompositions;
-- search specifically for prior art that performs the same transition:
-  - identify conflict;
-  - preserve the non-conflicting shared update;
-  - create/allocate new parameter state for the conflicting component;
-  - gate/retrieve that state from inferred input context;
-  - do so without replay, task ID or manually supplied routing masks;
-- search older continual-learning, adaptive filtering/control, mixture/adaptive-expert, conditional computation, dynamic-parameter, low-rank adaptation and neural routing literature, not only recent LLM papers;
-- explicitly test whether GG2 is merely a composition of known pieces whose claimed property is preserved by ordinary decomposition;
-- produce one of:
-  - KILLED — EXISTING MECHANISM/ARCHITECTURE;
-  - KILLED — PIPELINE/COMPOSITION ONLY;
-  - SURVIVES AS A PRECISE ARCHITECTURE CANDIDATE FOR HOSTILE AUDIT.
-
-If it survives, freeze its exact semantics and identify the single smallest distinguishing property. Do not design v9 yet.
+Stop work on the AMS grammar-expansion path.
+Preserve all evidence and wait for a genuinely new owner-level research direction.
 
 ## Codex
-Wait until Claude finishes the targeted GG2 closure pass. Then perform hostile reduction only if GG2 still survives.
+No GG2 hostile reduction is required unless contradictory evidence appears.
+Do not start another search.
 
 ## Cursor / Gemini
-Wait until Claude finishes the targeted GG2 closure pass. If GG2 still survives Codex reduction, design the smallest matched falsification experiment.
+No GG2 matched experiment is required.
+Do not start another search.
 
 ## Owner / coordinator
-Do not authorize v9 compute unless GG2 survives the targeted Claude closure pass, Codex hostile reduction and Cursor/Gemini falsifiability review.
+The next research phase, if continued, must begin from a new falsifiable research question rather than from:
+- optimizer perturbations;
+- the current C1/C2/C3 grammar;
+- GG1–GG8;
+- another task/metric tweak to B/C*/F.
+
+A future direction should first survive a low-cost conceptual/prior-art screen before any new compute is authorized.
 
 ---
 
