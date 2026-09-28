@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN v5 — STAGES 0–3 AUTHORIZED BY OWNER**
+**FROZEN DESIGN v6 — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -118,7 +118,7 @@ The v4 diagnostic result at 4,000 updates motivated the budget choice and is pre
 
 The accepted v3 Stage-0 PASS remains valid because v5 changes no Stage-0 rule. Official Stage 1 must rerun under v5 before Stage 2 may begin.
 
-**Version 5 is now the sole active protocol.** Stages 0-3 remain authorized. If v5 Stage 1 passes, Stage 2 may begin immediately under the already-frozen search rules.
+Version 5 governed the completed calibration and the first two Stage-2 attempts.
 
 ## v5 implementation repair record — Stage-2 `strip_gates` defect
 
@@ -144,6 +144,128 @@ A Stage-2 rerun is permitted under the existing Stage-2 authorization **only** w
 Do **not** seed from known-family mutants, relax T0, enlarge the generation budget, change mutation probabilities, or otherwise tune the search based on the first run's zero-yield observation.
 
 If the repaired exact rerun again reaches 6,000 generated programs with zero Tier-1 evaluations, record that as a **search-design negative for this frozen generator/filter configuration**, not as evidence that no mechanism exists in the grammar.
+
+## Version 6 amendment — learnability-anchored Stage-2 generator
+
+The repaired v5 Stage-2 rerun completed the full 6,000-program budget with:
+- 0 implementation defects;
+- 382 programs reaching the unchanged T0 sanity filter;
+- 0/382 passing T0;
+- 0 Tier-1 benchmark evaluations;
+- 0/56 archive cells occupied;
+- 0 promoted candidates.
+
+The raw-program trace matched the first run through program 5,782 except for the six repaired defect labels, and the additional programs 5,783–6,000 were also rejected before Tier 1.
+
+This is a **search-design negative for the v5 uniform random typed generator**, not a negative result about the grammar or the existence of a novel mechanism.
+
+The owner authorizes v6 to change **only the Stage-2 initial candidate generator**. Benchmark tasks, T0, Tier-1 metrics, MAP-Elites quality, promotion thresholds, novelty screens, compute limits and Stage-3 rules remain unchanged.
+
+### v6 initial generator: SGD-anchored architecture residuals
+
+The first-stage candidate constructor is replaced by a learnability-anchored constructor.
+
+Every initial proposal starts from the exact R1 SGD parameter-update backbone:
+
+- `dW_base = neg(outer(d_bp, a))`
+- `db_base = neg(d_bp)`
+- `update_every = 1`
+
+The constructor then adds exactly **one primary architecture-level coupling class**, chosen uniformly from C1, C2 and C3.
+
+#### C1 — state -> forward
+
+- Create exactly one persistent register of type O or M, chosen uniformly.
+- Lifetime: RUN.
+- Init: 0.
+- Decay chosen uniformly from `{0.5, 0.9, 0.99}`.
+- Its update expression is drawn from the existing typed grammar at depth 1–2 and must contain at least one activity leaf from `{a, z, h, dphi}`.
+- If the register type is M:
+  - `w_eff = mul(tanh(reg), 0.1)`.
+- If the register type is O:
+  - `gain = add(1.0, mul(tanh(reg), 0.1))`.
+- Parameter updates remain exactly the SGD backbone.
+
+#### C2 — activity-routed credit/update
+
+- No persistent register is required.
+- Draw an O-typed selector expression from the existing PARAM-phase grammar at depth 1–2.
+- The selector must contain at least one activity leaf from `{z, h, dphi}`.
+- Define:
+  - `g = add(1.0, mul(tanh(selector), 0.1))`
+  - `dW = rowscale(dW_base, g)`
+  - `db = mul(db_base, g)`
+- No other parameter-update modification is added in the initial constructor.
+
+#### C3 — data-dependent structural operation
+
+- Create exactly one O-typed persistent register.
+- Lifetime: RUN.
+- Init: 0.
+- Decay chosen uniformly from `{0.5, 0.9, 0.99}`.
+- Its update expression is drawn from the existing typed grammar at depth 1–2 and must contain at least one activity leaf from `{z, h, dphi}`.
+- Parameter updates remain exactly the SGD backbone.
+- Structural kind is chosen uniformly from `{freeze, reinit}`.
+- Structural mask is `tanh(reg)`.
+- Threshold is chosen uniformly from the existing frozen `{0.0, 0.1, 0.5}` set.
+
+### Constructor invariants
+
+Every v6 initial proposal must, by construction:
+- be type-valid;
+- satisfy the existing node/depth/register limits;
+- contain a real backprop learning signal;
+- contain at least one of C1/C2/C3;
+- preserve the exact SGD backbone as specified above;
+- remain subject to the unchanged syntactic, behavioral and structural rediscovery filters.
+
+If an internal construction attempt is invalid because of a grammar/node-limit issue, it is retried at most 10 times and **every attempted proposal counts toward the 6,000 generated-program cap**.
+
+The constructor must not inspect T0, B, C* or F outcomes while generating a program.
+
+### Search evolution after initialization
+
+The existing MAP-Elites logic is retained:
+- initialization continues until 200 Tier-1 evaluations exist or a frozen budget/stop condition fires;
+- after the archive is seeded, use the existing v5 mutation probabilities, crossover probability, archive semantics, patience rule and generation limits unchanged;
+- offspring are not required to preserve the SGD backbone; the normal collision, T0 and Tier-1 filters decide whether they survive.
+
+If the archive is empty, new proposals come from the v6 anchored constructor rather than the v5 uniform random constructor.
+
+### v6 search seed and budgets
+
+Use search RNG seed:
+
+`2026092806`
+
+Budgets remain:
+- max 6,000 generated;
+- max 3,000 T0 sanity evaluations;
+- max 1,200 Tier-1 benchmark evaluations;
+- max 20 promoted candidates;
+- CPU only;
+- 30 cumulative CPU-hour hard cap;
+- no Stage 4;
+- no GPU.
+
+### v6 implementation validity before search
+
+Before the official v6 Stage-2 run:
+- add unit tests for all three constructor classes;
+- statically generate 1,000 proposals from a separate non-official test seed;
+- verify type validity, node/depth/register limits, learning-signal presence, coupling-class presence and exact SGD-backbone invariants;
+- do **not** evaluate those 1,000 proposals on T0 or any benchmark task;
+- verify the existing reference/disguise collision golden snapshot remains unchanged.
+
+The accepted v3 Stage-0 PASS and v5 Stage-1 PASS carry forward because v6 changes neither the grammar semantics nor any benchmark/calibration rule.
+
+### Interpretation
+
+A v6 positive result is still only an empirical mechanism candidate and must pass the unchanged Stage-3 ablations, resource matching, rediscovery screening and fresh prior-art review.
+
+A v6 zero-yield or no-promotion result is a negative result for this **SGD-anchored architecture-residual search design**, not proof that no novel mechanism exists.
+
+**Version 6 is now the sole active protocol.** Stages 0–3 remain authorized. Claude is the primary v6 search runner; Codex and Cursor/Gemini are independent implementation/result auditors and must not duplicate the full search.
 
 ---
 
@@ -976,4 +1098,4 @@ As of this commit:
 
 Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
 
-The v5 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
+The v6 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
