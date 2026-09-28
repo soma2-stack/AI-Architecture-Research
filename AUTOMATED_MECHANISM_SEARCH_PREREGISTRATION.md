@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN v2 — STAGES 0–3 AUTHORIZED BY OWNER**
+**FROZEN DESIGN v3 — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -32,7 +32,26 @@ The owner approved an in-place amendment rather than creating another preregistr
 
 **No Stage-2 candidate results existed when this amendment was made.** Earlier local calibration drafts/replays are diagnostic only and are not official preregistration evidence.
 
-Version 2 is now the sole active protocol. Stages 0–3 remain authorized under v2; Stage 0 must restart against this amended specification. No further material protocol changes are authorized after official Stage 1 begins unless another explicit owner amendment is recorded.
+Version 2 was the active protocol for the first official Stage-0 implementation.
+
+## Version 3 amendment — Task-B Stage-0 gate repair
+
+Official v2 Stage 0 completed before any Stage-1 calibration or candidate search. The implementation passed 114/114 tests, verified the frozen behavioral-probe corpus, and achieved 100% rediscovery recall on the reference/disguise self-checks. It stopped correctly because the v2 Task-B gradient-conflict gate failed.
+
+The v2 Task-B construction itself is retained. Across the eight predeclared calibration/search seeds, all 512 paired first-layer gradient cosines were negative, but the v2 magnitude rule (`mean cosine <= -0.50` for every seed) passed only 3/8 seeds. The pooled mean was approximately -0.459. The result also depended materially on an initialization choice that v2 had not frozen.
+
+Because no Stage-1 training and no Stage-2/3 candidate result existed, the owner authorized this pre-search in-place repair. Git history preserves v1 and v2.
+
+v3 makes the smallest protocol change needed:
+- retain the v2 Task-B data construction, targets, schedules, metrics and promotion thresholds;
+- freeze the model initialization to the already predeclared **Glorot-normal** initialization used by the official v2 Stage-0 implementation; do not switch to an initialization that looked better in the post-hoc sensitivity analysis;
+- replace the arbitrary magnitude gate with a directional-consistency gate that tests the intended property: systematic negative cross-task first-layer gradient conflict;
+- ratify the already predeclared Stage-1 Task-B fit/interference gates;
+- ratify the deterministic `W_ep0` behavioral-probe derivation already committed before any candidate search.
+
+All other v2 rules and the implementation decisions committed before the v2 gate remain frozen unless explicitly superseded below.
+
+**Version 3 is now the sole active protocol.** Official Stage 0 must rerun under v3. Stages 0–3 remain authorized; Stage 1 may begin only if the v3 Stage-0 gates pass. No further material protocol changes are authorized after official Stage 1 begins unless another explicit owner amendment is recorded.
 
 ---
 
@@ -162,6 +181,10 @@ Git blob SHA at freeze time:
 
 The serialized JSON is authoritative. Regeneration is only a verification aid.
 
+For the probe-only `W_ep0` leaf, which is not serialized in the corpus, v3 ratifies the deterministic pre-search implementation rule:
+- for probe `k`, use the serialized `W` matrix from probe `(k + 1) mod 16`.
+- this derivation is part of the frozen probe evaluator and may not be changed after Stage 1 begins.
+
 The corpus contains exactly 16 probes with fixed dimensions:
 - input-like vector dimension `I = 8`;
 - output-like vector dimension `O = 6`;
@@ -271,7 +294,7 @@ This avoids overfitting the grammar to a broad aggregate benchmark score.
 
 ## 6.1 Primary search triad
 
-### Search Task B — Interference / retention (v2 construction)
+### Search Task B — Interference / retention (v3 gate; v2 construction retained)
 
 The v1 orthogonal-subspace construction is retired because it made the requested first-layer gradient conflict impossible.
 
@@ -320,18 +343,42 @@ The shared component therefore pushes the two tasks in opposing directions while
 - evaluate every 25 update steps;
 - no early stopping.
 
-#### Stage-1 validity gates
+#### Stage-0 gradient-conflict validity gate (v3)
 
-At the frozen model initialization, before training:
+Initialization is frozen to the official Stage-0 implementation choice:
+- Glorot-normal weights with `std = sqrt(2 / (fan_in + fan_out))`;
+- zero biases;
+- tanh hidden activations.
+
+Do **not** substitute LeCun, He or another initialization based on the v2 post-hoc diagnostic.
+
+Use exactly the predeclared seed set:
+- Stage-1 calibration seeds `100..104`;
+- Stage-2 Tier-1 seeds `1000..1002`.
+
+For each seed:
 - form 64 paired Task-1/Task-2 mini-batches from the same shared `c` draws;
-- compute first-layer gradient vectors under the same generic MLP;
-- mean cosine similarity must be **<= -0.50**.
+- compute the gradient of the batch-mean `0.5 * ||e||^2` loss with respect to the **first-layer weight matrix only**;
+- compute the cosine between paired Task-1 and Task-2 gradients.
 
-After official baseline calibration:
-- each generic baseline must fit Task 1 to its preregistered training threshold;
-- Task-2 training must produce measurable Task-1 degradation rather than zero interaction.
+The v3 Stage-0 gate passes iff:
+1. the mean cosine is **< 0 for every one of the 8 seeds**; and
+2. at least **90% of all 512 paired gradient cosines are < 0**.
 
-If either condition fails, Task B is invalid and the run stops for owner review.
+There is no additional magnitude threshold. The Stage-0 gate establishes directional conflict only; actual harmful interference is tested empirically in Stage 1.
+
+#### Stage-1 Task-B validity gates (ratified from the pre-result implementation decisions)
+
+Using the frozen equal learning-rate grid and no early stopping:
+
+- **B fit:** for each of SGD, SGDM and AdamW at its selected learning rate, the seed-mean held-out `L1_pre` must be **< 1e-3**.
+- **B interference:** for each of SGD, SGDM and AdamW:
+  - seed-mean `Forgetting_B >= 10` percentage points; and
+  - `L1_post > L1_pre` on every calibration seed.
+
+Known-family signature checks and all other Stage-1 validity gates remain as committed before the v2 Stage-0 result.
+
+If the v3 Stage-0 directional-conflict gate or any Stage-1 Task-B gate fails, Task B is invalid and the run stops for owner review.
 
 #### Metric
 
@@ -753,13 +800,13 @@ Stage 0 must additionally verify:
 - the Task-B overlapping-subspace construction satisfies the frozen gradient-conflict gate;
 - Tasks C*, D, E and F match the v2 fixed schedules exactly.
 
-Because v1 was invalidated before official Stage 1, all official Stage-0 evidence must be regenerated under v2.
+Because v3 supersedes the failed v2 Task-B Stage-0 gate, official Stage 0 must be rerun under v3. The v2 114-test result remains valid implementation evidence, but the v3 gate result must be newly recorded before Stage 1.
 
 ## Stage 1 — calibration
 
-Run established mechanisms and ordinary baselines **from the v2 implementation**.
+Run established mechanisms and ordinary baselines **from the v3-active implementation**.
 
-Earlier pre-v2 calibration replays are not official evidence.
+Earlier pre-v2 calibration replays are not official evidence. No official Stage-1 calibration was run under v2.
 
 Purpose:
 - validate tasks;
@@ -796,4 +843,4 @@ As of this commit:
 
 Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
 
-The v2 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
+The v3 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
