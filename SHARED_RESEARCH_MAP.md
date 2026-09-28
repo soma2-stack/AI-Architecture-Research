@@ -804,6 +804,89 @@ The next phase should first screen prior art and formulate candidate properties.
 
 ---
 
+# 6.6 Single-model learning-dynamics round — CONCEPTUAL SCREEN COMPLETE
+
+All three lanes independently screened learning-dynamics novelty after the native-coupling lens closed.
+
+## Claude — LD1–LD12 / channels K1–K8
+
+Claude formalized 12 learning-dynamics candidates and a taxonomy of mechanisms that can create architecture-level learning differences.
+
+Result:
+- 0/12 survivors after prior-art and optimizer-equivalence screening.
+- Pure reparameterizations of the same function class are often recoverable by an appropriate optimizer/preconditioner, so they do not automatically establish architecture novelty.
+- Eight residual architecture-level channels were identified: changing function class during training; learning state outside ordinary parameters; input-dependent credit routing; train-only parameters; forward-pass preconditioning; different credit rules; train/inference depth or noise differences; and altered loss-landscape geometry.
+- Every concrete candidate sampled from those channels collided with existing architectures or known optimization machinery.
+
+Claude's key conclusion is narrower than an impossibility claim: **after prior-art screening, the remaining questions in this region are primarily empirical**—sample efficiency, interference/forgetting, adaptation speed, compute-to-loss, or similar matched properties.
+
+## Cursor / Gemini — LD1–LD13
+
+Cursor/Gemini built a 14-dimension learning-dynamics taxonomy and generated 13 candidates.
+
+Result:
+- 0/13 survivors;
+- 11 direct architecture collisions;
+- 2 architecture/optimizer collisions.
+
+Cursor running total:
+- P1–P72: 72 candidates, 0 survivors;
+- IC1–IC18: 18 candidates, 0 survivors;
+- LD1–LD13: 13 candidates, 0 survivors;
+- **103 total candidates, 0 survivors.**
+
+Cursor's lane-level synthesis groups continuous parameter-learning mechanisms into familiar families such as chain-rule/Jacobian credit, implicit or energy-based inversion, and subspace/metric projection. Treat this as a research heuristic/closure argument, not a universal theorem.
+
+A deeper check of discrete structural commitment also collided with established constructive learners such as Cascade-Correlation, Growing Neural Gas, Adaptive Resonance Theory, and program-synthesis systems.
+
+## Codex — AR-140
+
+Codex organized a collision library by learning property:
+- credit transport;
+- conditioning/depth;
+- recurrent/equilibrium state;
+- fast/slow plasticity;
+- meta-learned updates;
+- continual-learning interference;
+- expert routing;
+- loss/schedule changes.
+
+Result:
+- no surviving candidate in this pass;
+- residual identity paths and attention remain valid examples of architecture-level learning/information-flow differences, but are closed by established prior art rather than by generic simulability;
+- fast/slow test-time learning and multi-timescale learning are crowded by modern work;
+- local eligibility and neuromodulated plasticity also have direct recent prior art.
+
+## Cross-lane verdict
+
+**Close broad concept-only learning-dynamics invention as the current search mode.**
+
+This is not a proof that no new architecture exists.
+
+It means:
+1. three independent lanes repeatedly rediscover known mechanisms;
+2. conceptual novelty screens now saturate before candidates become experimentally distinguishable;
+3. the remaining plausible claims are mostly quantitative learning properties that cannot be settled by literature reduction alone.
+
+## Next phase — empirical mechanism search, not yet authorized to run
+
+The next productive step is a **small preregistered automated mechanism search** over carefully bounded learning-dynamics channels.
+
+Requirements before any run:
+- CPU-first / low-compute pilot;
+- exact matched baselines;
+- fixed parameter and FLOP budgets where practical;
+- optimizer decoupling;
+- mechanism-removal ablations;
+- explicit target metric such as sample efficiency, forgetting, adaptation horizon, conditioning proxy, or compute-to-loss;
+- automated rediscovery filter against the project's collision library;
+- no novelty claim from benchmark performance alone;
+- any promising mechanism must survive fresh prior-art review before promotion.
+
+**Status:** protocol design may proceed; experiments remain blocked until explicit owner authorization.
+
+---
+
 # 7. New search question
 
 Do not return to:
@@ -966,7 +1049,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Claude calibration re-audit (13 strongest old kills) | 0 reopened as architecture candidates; Q06 parked (property lost, importance unshown); filter passes historical controls |
 | Claude native-coupling lens NC01–NC13 | 0/13 survive; all signal families occupied; Interface Transparency proposition; only CDCL among controls is an inter-module coupling |
 | Claude learning-dynamics lens LD1–LD12 | 0/12 survive; reparameterizations optimizer-restorable; channels K1–K8 all occupied |
-| Codex candidate ledger / archaeology through AR-139 | Native-coupling collision map completed; 15 families, 0 survivors |
+| Codex candidate ledger / archaeology through AR-140 | Learning-dynamics collision library completed; no survivor |
 | Predictive Delta Ledger | Killed as pipeline |
 | Baobab / Moose seam | Occupied neighboring machinery |
 | Cursor/Gemini P1–P40 | 0/40 primitive survivors |
@@ -974,79 +1057,55 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Cursor/Gemini P57–P72 | 0/16 primitive survivors |
 | Cursor/Gemini P1–P72 | 0/72 primitive survivors |
 | Cursor/Gemini IC1–IC18 | 0/18 architecture survivors |
-| Cursor/Gemini total candidate count | 90 evaluated, 0 survivors |
+| Cursor/Gemini LD1–LD13 | 0/13 survivors |
+| Cursor/Gemini total candidate count | 103 evaluated, 0 survivors |
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Single-model learning dynamics: prior-art screen before experiments** |
+| **Current phase** | **Design preregistered low-compute empirical mechanism search; experiments await owner authorization** |
 
 ---
 
 # 12. What each agent should do next
 
-The native-coupling / interface-loss lens is now closed as a broad search direction.
+The concept-only learning-dynamics search is now saturated enough that another unbounded candidate batch is not the next step.
 
-The new shared phase is:
+The shared next phase is:
 
-> **single-model learning dynamics**
+> **Design a preregistered, low-compute empirical mechanism search with automatic rediscovery rejection.**
 
-The target is not "another optimizer" or "another loss." Search for architectural mechanisms where the internal organization changes what the model can learn, how credit is assigned, how representations evolve, or how computation scales during learning/inference.
-
-Do not run heavy experiments yet. First establish a precise candidate property and survive prior-art attack.
+Experiments are **not yet authorized to run**.
 
 ## Claude
-Primary role: **invent and formalize single-model learning-dynamics candidates**.
+Primary role: **experiment-protocol designer + mechanism grammar formalizer**.
 
-Focus on mechanisms where architecture changes:
-- credit assignment geometry;
-- optimization path;
-- representation formation;
-- persistent internal state during learning;
-- local/global update interaction;
-- dynamic computation during training;
-- parameter/state separation;
-- structural transitions during learning;
-- or train/inference coupling.
-
-For every idea, define the strongest matched baseline and what property should differ.
+- Define a compact search grammar over the remaining learning-dynamics channels.
+- Exclude mechanisms already represented in the collision library.
+- Specify a CPU-first pilot with strict compute limits.
+- Define matched baselines, ablations, success thresholds, and stopping rules.
+- Design a rediscovery fingerprint so known mechanisms are rejected automatically or flagged for manual review.
+- Do not run the experiment until the owner explicitly authorizes it.
 
 ## Codex
-Primary role: **historical/modern learning-dynamics assassin**.
+Primary role: **rediscovery filter + prior-art gate designer**.
 
-Build a collision map spanning:
-- backprop/reverse-mode AD;
-- synthetic gradients/target propagation;
-- feedback alignment;
-- predictive coding/equilibrium propagation;
-- Hebbian/local rules;
-- learned optimizers/meta-learning;
-- implicit layers;
-- fast weights;
-- test-time learning;
-- plastic networks;
-- neural ODE/continuous-time training;
-- forward-forward and alternative credit assignment;
-- architecture-dependent optimization/scaling results.
-
-Kill candidates using same-architecture prior art or a matched baseline that preserves the claimed learning property.
+- Convert the collision library into machine-checkable families/features where possible.
+- Define how a generated update rule is compared against optimizer-only, loss-only, and known architecture explanations.
+- Define the post-search novelty audit required before any candidate can be called an architecture candidate.
+- Audit the proposed benchmark so it does not reward trivial optimizer tricks or capacity changes.
+- No heavy experiments.
 
 ## Cursor / Gemini
-Primary role: **derive learning-dynamics boundaries from failures, not from fields**.
+Primary role: **evaluation designer + adversarial benchmark construction**.
 
-Build a taxonomy of places where two architectures computing similar functions can still differ in:
-- gradient path length;
-- credit locality;
-- optimization conditioning;
-- interference;
-- representation collapse/separation;
-- adaptation speed;
-- memory/plasticity tradeoffs;
-- computational depth;
-- train/test state evolution.
+- Propose small tasks that isolate learning-dynamics properties rather than raw capability.
+- Define metrics for sample efficiency, interference/forgetting, adaptation speed, conditioning, and compute-to-loss.
+- Ensure equal parameter/state/compute budgets where practical.
+- Specify mechanism-removal and optimizer-swap ablations.
+- Try to construct benchmarks where known families occupy distinct signatures, making rediscovery easier to identify.
+- Do not run the search yet.
 
-Generate a small candidate batch only after identifying a concrete property that ordinary architectures fail to preserve.
-
-Do not return to generic interface-loss claims or P/IC numbering unless a genuinely new lens requires it.
+Once all three protocol designs are available, cross-lane synthesis should produce one executable preregistration for owner approval.
 
 ---
 
@@ -1068,13 +1127,18 @@ Never modify `AGENTS.md` unless the owner explicitly asks for that change.
 
 The project still has **0 supported new architectures and 0 new computational primitives**.
 
-Two broad search standards are now calibrated:
+The research has now calibrated and largely exhausted three broad concept-level search modes:
 
-1. computability/decomposability alone does not kill architecture novelty;
-2. generic native coupling/interface information loss is too broad and is heavily occupied.
+1. strict primitive novelty;
+2. native coupling / interface information loss;
+3. single-model learning-dynamics invention by literature and conceptual screening alone.
 
-The next serious search target is:
+This does **not** establish impossibility.
 
-> **Can a single model contain a learning-dynamics mechanism whose important learning or scaling property is not preserved by the strongest matched existing architecture?**
+It changes the evidence requirement.
 
-First perform prior-art and conceptual screening. Only then consider matched experiments.
+The next serious question is:
+
+> **Can a bounded automated search discover a learning-dynamics mechanism with a reproducible matched advantage that is not a rediscovery of known architectures, optimizers, losses, or schedules?**
+
+The next step is to design that experiment precisely. **Do not execute it until the owner explicitly authorizes the run.**
