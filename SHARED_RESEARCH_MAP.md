@@ -1087,103 +1087,83 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **OMD-PILOT-1 frozen and authorized: <=1 CPU-hour planted-control identifiability/extraction pilot only; mixed-regime OMD-1 remains unauthorized** |
+| **Current phase** | **OMD-PILOT-1 complete and failed at Phase A; current T1 OMD path closed; no active compute authorization** |
 
 ---
 
 # 12. What each agent should do next
 
-OMD-0 is complete.
+OMD-PILOT-1 is complete.
 
-Final no-compute verdicts:
-- Claude: T1 RET is the only one of 18 screened target families worth further study;
-- Codex: **SURVIVES AS OMD TARGET**;
-- Cursor/Gemini: **RETAIN ONLY FOR MINIMAL IDENTIFIABILITY PILOT**.
+## Final result
 
-The owner has now frozen **OMD-PILOT-1** in the canonical preregistration.
+The pilot stopped at the frozen **Phase A imitation gate**.
 
-This is **not** the mixed-regime discovery run.
+Required:
+- every (controller, held-out seed) pair >= 99.5% teacher victim-decision agreement.
 
-## Active authorization
+Observed:
+- LRU: 0.959–0.990;
+- LFU: 0.918–0.999;
+- SIEVE-like: 0.852–0.938;
+- 2Q-resident: 0.839–0.957;
+- only 3/36 pairs passed.
 
-Exactly one experiment is authorized:
+Per protocol:
+- blinded extraction did not run;
+- Phase B did not run;
+- Phase C did not run;
+- OMD-1 did not run;
+- no rescue/retuning was performed.
 
-**OMD-PILOT-1 — planted-control identifiability / extraction validation**
+Compute:
+- pilot: about 0.06892 CPU-hours;
+- project cumulative: about 5.19629 CPU-hours;
+- no GPU.
 
-Purpose:
-- train tiny recurrent controllers to imitate four known cache policies;
-- blindly extract their quotient transition semantics;
-- causally intervene on those semantics;
-- transplant the extracted rule into plain code;
-- prove the OMD pipeline can recover known mechanisms before asking it to discover an unknown one.
+## Interpretation
 
-Planted controls:
-- LRU;
-- LFU;
-- SIEVE-like resident control;
-- 2Q-resident control without ghost history.
+The failed pilot does **not** show that observed-mechanism discovery is impossible.
 
-Frozen basics:
-- C=16;
-- N=256;
-- train seeds 101–103;
-- held-out seeds 201–203;
-- 10,000 training requests/seed;
-- 20,000 held-out transplant requests/seed;
-- local recurrent state R^2 per slot;
-- global recurrent state R^1;
-- shared <=2-layer width-16 networks;
-- <=600 trainable parameters;
-- lazy/event-driven state updates only;
-- no all-slot recurrent F_tick;
-- supervised teacher imitation only;
-- Adam 1e-3;
-- truncated BPTT 256;
-- no LR/model sweep;
-- CPU only;
-- <=1.0 CPU-hour total;
-- stop on any mandatory Phase A/B/C gate failure.
+It shows that this specific tiny recurrent imitation setup did not reliably reproduce even known planted policies under the frozen training contract.
 
-Important semantic rule:
-- do not interpret or align raw latent coordinates;
-- extraction targets the quotient transition system / abstract policy automaton up to slot permutations and invertible state reparameterization.
+The strongest diagnostic pattern was:
+- coarse policy class often learned correctly;
+- fine-grained oldest-first ordering inside that class was not learned reliably;
+- repeated-hit burst behavior remained a major failure mode for SIEVE-like and 2Q-resident;
+- LRU was still underfit at the fixed training budget.
 
-The full frozen rules and thresholds are in:
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md`
-under **OMD-PILOT-1 amendment — minimal planted-control identifiability pilot**.
+Because these weaknesses were visible only after the official run, do **not** rescue this protocol by adding policy-specific features, relaxing thresholds, increasing passes, or changing hit dynamics.
+
+That would be a new method tuned to the observed failure.
+
+## Owner decision
+
+**Close the current T1 OMD path under the present instrument/training design.**
+
+There is now **no active compute authorization**.
+
+Any future OMD work must start from a separately justified methodological design that does not merely patch the failed planted controls.
 
 ## Claude
-Primary execution lane for OMD-PILOT-1.
-
-Next:
-- sync latest main;
-- read the active OMD-PILOT-1 section and this map;
-- implement only the frozen planted-control pilot;
-- preserve existing AMS/OMD evidence;
-- run tests before pilot training;
-- record git-at-start, config, seeds and CPU ledger;
-- execute Phases A–C exactly;
-- stop immediately if any planted control fails a mandatory gate;
-- do not retune after seeing results;
-- do not continue to mixed-regime T1 discovery even if the pilot passes;
-- update Claude_Research.md and machine-readable pilot outputs;
-- commit and push final evidence.
+Stop.
+Preserve the OMD-PILOT-1 implementation and evidence.
+Do not rerun or rescue it.
 
 ## Codex
-Wait.
-No additional prior-art audit is needed during the planted-control pilot unless implementation reveals a materially different target.
+Stop.
+No further T1 prior-art work is needed.
 
 ## Cursor / Gemini
-Wait.
-The validity audit is complete.
-After the pilot, independently audit the machine-readable pass/fail result only if the owner requests it.
+Stop.
+The validity audit already predicted that a failed planted-control gate should block discovery.
 
 ## Owner / coordinator
-After OMD-PILOT-1:
-- if any planted control fails, close the current OMD path or redesign the extraction methodology before any discovery run;
-- if all four pass, review the evidence and only then decide whether to freeze an OMD-1 mixed-regime discovery protocol.
-
-No OMD-1 mixed-regime training is authorized yet.
+The next research phase, if continued, must begin from a genuinely new methodological question rather than another rescue of:
+- the AMS grammar;
+- GG1–GG8;
+- T1 RET;
+- OMD-PILOT-1's recurrent imitation setup.
 
 ---
 
