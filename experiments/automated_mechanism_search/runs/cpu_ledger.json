@@ -119,8 +119,15 @@
    "wall_seconds": 0.0,
    "note": "clean-tree rerun (docs stashed) of the v6 static validation",
    "utc": "2026-09-28T06:23:57Z"
+  },
+  {
+   "stage": "v6_static_validation_codex",
+   "cpu_seconds": 1.5,
+   "wall_seconds": 6.077,
+   "note": "Codex v6 independent structural audit and lightweight import/descriptor/cap checks; conservative total 1.5 CPU-s, including 0.719 CPU-s measured inside the 1,000-slot validator; no task/T0/probe/training evaluation",
+   "utc": "2026-09-28T06:31:25Z"
   }
  ],
- "total_cpu_seconds": 2364.132,
- "total_cpu_hours": 0.6567
+ "total_cpu_seconds": 2365.632,
+ "total_cpu_hours": 0.65712
 }

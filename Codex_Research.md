@@ -9,13 +9,13 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 ### Codex resume/status — 2026-09-28
 
 - **Lane and lens:** Independent v6 generator, rediscovery, and candidate audit. Do not duplicate Claude's full MAP-Elites search.
-- **Stage:** v6 design audit is complete; implementation-level audit and the authorized 1,000-proposal static validation are pending. Latest `origin/main` is `a66a0f091aca221078e0613a06f7f80bb3ce54a3`; fetched Claude branch remains at `deaa05d661beebf811635b23c41acd056d9d909d` and does not yet contain v6 generator code or validation artifacts.
-- **Strongest surviving candidates:** None. No v6 proposal or Tier-1/promoted mechanism has been audited by Codex.
-- **Completed:** Read latest `AGENTS.md`, v6 preregistration, shared research map, and this Resume. Compared the v5-to-v6 amendment and checked unchanged file identities for grammar, tasks, probes, collision library, canonicalization, metrics, runners, controls, search, Stage-2 script, v5 config and frozen behavioral probe blob. v6 changes only the initial candidate generator at the design level. Root checkout remains untouched because it has pre-existing staged/local work.
-- **Protocol invariants confirmed:** v6 keeps exact `R1` SGD base updates and adds one C1/C2/C3 coupling; generator retries count against 6,000. Existing grammar, T0, B/C*/F, collision/probe assets, Tier-1 metrics, q, 56-cell MAP-Elites archive, budgets, promotions and Stage-3 gates are unchanged by the v6 amendment.
-- **Static validation:** Not run yet; Claude's v6 implementation is absent from the fetched branch. No training, T0, B/C*/F, or full Stage-2 search has been run by Codex.
-- **Exact next action:** Fetch the Claude branch after its v6 implementation is committed. Audit the constructor and retry accounting, then generate exactly 1,000 structural-only proposals with seed `2026092807`; do not evaluate T0 or any task. Compare with Claude's static validation. After Claude's official v6 run appears, audit its machine-readable counts and inspect any Tier-1/promoted candidates.
-- **Resource constraint:** Before Codex's v6 static validation, the latest `main` CPU ledger totals 2,353.802 seconds (0.65383 CPU-hours) of the 30-hour cap. No new compute has been consumed in this v6 audit so far.
+- **Stage:** v6 generator audit complete; the required static gate fails because the frozen C2 detector misses most soft-gated C2 proposals. Claude stopped before the official v6 Stage-2 search. No Tier-1 or promoted candidate exists; resolving the C2/descriptor incompatibility requires an owner-authorized design decision.
+- **Strongest surviving candidates:** None. v6 did not pass static validation or reach candidate evaluation.
+- **Completed:** Read latest `AGENTS.md`, v6 preregistration, `SHARED_RESEARCH_MAP.md`, and this Resume from the latest fetched main state (`9c8382a`). Audited Claude's implementation at `956efdf` and static-validation fix/results at `6331de4` / `c233c85`. Ran 1,000 structural-only slots with seed `2026092807`, inspected raw proposals and descriptors, checked constructor-only imports and the budget boundary, and compared against Claude's seed-60606 output. Root checkout and its pre-existing staged/local work remain untouched.
+- **Protocol invariants confirmed:** v6 changes only the initial proposal source; grammar, T0, B/C*/F, collision/probe assets, Tier-1 metrics, q, 56-cell archive, budgets, promotion thresholds, and Stage-3 gates remain unchanged. Invalid retries are counted; a separate cap-boundary defect constructs one uncounted attempt after the 6,000 limit.
+- **Static validation:** Codex generated 1,000 valid slots in 1,253 attempts (C1/C2/C3: 349/328/323). All templates, type/node/register limits, exact SGD backbone, update rate, and learning-signal checks passed. C2 was detected by the frozen classifier in only 39/328 proposals; 289/328 had no descriptor. Claude independently reproduced the same failure (53/338 detected; 286/338 descriptorless). No training/T0/B/C*/F or full Stage-2 search ran.
+- **Exact next action:** Hold candidate audit until the owner resolves the frozen C2 constructor/classifier incompatibility and Claude has a static-passing implementation. Then fetch that exact revision and repeat only the targeted structural audit. No official v6 Stage-2 run or candidate artifacts exist to audit.
+- **Resource constraint:** The Codex structural validator body used 0.719 CPU-seconds; the ledger includes Claude's three static-run entries and a conservative 1.5-second Codex audit allocation (0.719 seconds measured inside the validator): 2,365.632 seconds (0.657120 CPU-hours) of the 30-hour cap. CPU only; no training or GPU use.
 
 - **Rolling state correction (2026-09-27; supersedes the older snapshot below):** candidate ledger now runs C001–C038, and no broad model class has survived yet. Recent additions: AR-112 robustness result (operator-matched gains under mild noise, loss under misspecification), AR-113 KBANN prior-art audit, AR-114 QPT/QSIM archaeology, AR-115 saturation theorem proving, AR-116 Warren Abstract Machine, AR-117 Graphplan, AR-118 set-valued reachability, AR-119 Cellular Potts, AR-120 oscillator Ising machines, and C029's Incrementally-Computable Neural Network prior-art update. This continuation adds AR-121 for HTN planning, HY-106 for learned HTN method-selection collisions, and AR-122 for active inference; these are established planning/inference frameworks, not new broad model classes. It also adds an FCM source correction: nonlinear edges and delays predate KA-FCM, with Fuzzy Relational Maps recorded as a narrow bipartite variant. HY-100 now separates predictive-basis test selection from physical sensing; HY-103–HY-107 record oscillator-learning, Rete/neural-Datalog, heteroclinic-learning, HTN, and deep-active-inference collisions. A JTMS/ATMS addendum sharpens the truth-maintenance prior-art comparison. The latest pass adds AR-123/HY-108 closing generic reversible structural edits, AR-124/HY-109 closing persistent entity identity plus learned slots, AR-125/HY-110 closing runtime symbol/operator growth, and AR-126/HY-111 closing generic frame/script knowledge plus neural grounding. This continuation adds AR-127/HY-112 for KL-ONE classification and learned ontology construction; AR-128 for DL concept revision; AR-129/HY-113 for incremental TBox/ABox maintenance and conservative extension; AR-130/HY-114 for proof-carrying updates; AR-131 for learned specification generation; AR-132 for policy learning via membership/equivalence queries; AR-133 for per-update translation validation; AR-134 for live code/state replacement through dynamic software updating; AR-135 for reflective interpretation and executable code as data; AR-136 for automatic revision/creation of executable rules and programs; and AR-137 for evaluators/objectives inferred from feedback or generated internally. Each has direct same-operation prior art or reduces to known tools and explicit oracle/specification/update-point assumptions. No broad or hybrid architecture candidate survives. Continue literature and formal reduction only under the owner's no-experiment rule; only `Codex_Research.md` was changed.
 - **Calibration rolling update (2026-09-27):** AR-138 tests the owner-updated primitive/architecture/pipeline standard against attention, residual connections, backpropagation, diffusion, and CDCL, and re-audits C003, C007, C014, C017, C020, and HY-80. CDCL and Strassen serve as positive controls; no current Codex architecture candidate survives. No experiment ran.
@@ -77,51 +77,68 @@ This investigation treats the following mechanisms as collision zones, even wher
 
 ## Research log
 
-## AR-144 — AMS v6 generator design audit (implementation pending)
+## AR-144 — AMS v6 SGD-anchored generator audit: stop before Stage-2 (2026-09-28)
 
-### Protocol-level comparison
+### Scope, authority, and protocol diff
 
-The v6 preregistration commit is `3cbb21f548b4cf69f23e9f06f3de02b55750b61a`, parent `010bf9ff7e2242522f7c438579757f2fe0c0d222`. Its diff changes only `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md`; the v6 section records the preceding v5 zero-yield result and authorizes changing only the initial Stage-2 proposal constructor. The later `origin/main` head adds the corresponding shared-map update. No experiment setting or v5 result was modified by the amendment.
+After fetching, latest `origin/main` was `9c8382a46b21a68caca3d70aff0732c528a7a603`; its `AGENTS.md`, v6 preregistration, shared map, and this notebook's current Resume governed the audit. The Claude implementation appeared at `956efdf61a0e770da545e0de2a61be00d796dd84`; its latest validation/report branch is `c233c854dcf2c5226e63930086c44945ccaac01f`. I did not edit `AGENTS.md`, the frozen preregistration, Claude's notebook, or Cursor's notebook.
 
-I compared Git object IDs at the v5 parent and v6 amendment for these files; each is unchanged: `ams/grammar.py`, `tasks.py`, `probes.py`, `families.py`, `canon.py`, `metrics.py`, `runners.py`, `controls.py`, `search.py`, `scripts/stage2.py`, `config/run_config_v5.json`, and `config/behavioral_probes_v2.json`.
+The v6 protocol-amendment commit (`3cbb21f`, parent `010bf9f`) changes only the preregistration text: it records the v5 outcome and authorizes changing the initial Stage-2 proposal constructor. Between the v5 parent and that protocol amendment, Git object IDs remain unchanged for the grammar, task generators, probes, collision library, canonicalizer, metrics, runners, controls, existing search pipeline, v5 Stage-2 script/config, and frozen behavioral probe asset. The v6 implementation adds a v6 constructor/config branch; `map_elites(init="v6")` uses it for initial/empty-archive proposals and leaves the established offspring mutation/crossover and archive logic intact. Thus the v6 change is at the initial generator level; the implementation does not replace T0, tasks, Tier-1, or the search loop.
 
-| Frozen component | Audit result |
+| Frozen component | Result |
 |---|---|
-| Grammar semantics | Unchanged; same grammar version and source blob. |
-| T0 | Unchanged. Existing rule is 300 online steps and passes only if final-50 MSE is at most 0.5× the running-mean predictor; the v6 amendment does not change it. |
-| B/C*/F | Generator/task implementations unchanged. |
-| Collision library | Same version, source and reference/disguise contents at the protocol amendment. |
-| Behavioral probes | Same serialized probe asset and blob `d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1`. |
-| Tier-1 metrics | Unchanged by amendment. |
-| q | `q_min=0.15`, unchanged in the frozen v5 config and search code. |
-| MAP-Elites archive | Existing 56-cell descriptor/archive semantics unchanged. |
-| Budgets | 6,000 generated / 3,000 sanity / 1,200 Tier-1 / 20 promoted; CPU-only, 30 CPU-hour cap. |
-| Promotion and Stage-3 gates | The v6 section explicitly retains them; no corresponding code or pre-existing gate text changed. |
+| Grammar semantics | Unchanged. |
+| T0 | Unchanged: 300 online steps; final-50 MSE must be at most 0.5× the running-mean predictor. |
+| B/C*/F tasks and generators | Unchanged. |
+| Collision library and behavioral probes | Unchanged; probe blob `d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1`. |
+| Tier-1 metrics and quality q | Unchanged; `q_min=0.15`. |
+| MAP-Elites | Unchanged 56-cell descriptor/archive, one elite per cell, `N_INIT=200`, `G_MAX=20`, patience 5, per-task cap 8. |
+| Search and promotion budgets | Unchanged: 6,000 generated, 3,000 sanity, 1,200 Tier-1, 20 promotions; CPU-only/30 CPU-hour cap. |
+| Promotion and Stage-3 gates | Unchanged. |
 
-Existing search constants remain `N_INIT=200`, `G_MAX=20`, `PATIENCE=5`, `PER_TASK_MAX=8`, one elite per cell, and `MAX_DEFECTS=5`. v6 keeps the existing archive and offspring logic; only initial proposals and replacement proposals when the archive is empty use the anchored constructor.
+### Constructor source audit
 
-### Frozen v6 constructor to check against Claude's code
+At Claude commit `956efdf`, `ams/v6gen.py` defines the exact base `neg(outer(d_bp,a))`, `neg(d_bp)`, `update_every=1`, then selects one C1/C2/C3 class per slot. For all 1,000 valid proposals in the independent audit, exact template checks, type checks, node/depth/register limits, no-cvec, and a real backprop learning signal passed.
 
-Every initial proposal must start from the exact base:
+- **C1:** one RUN register, init zero, type O or M, decay in `{0.5,0.9,0.99}`, STATE update with an activity leaf, and the specified bounded tanh perturbation through `w_eff` (M) or `gain` (O). SGD parameter updates remain exact.
+- **C2:** PARAM O selector with one of `{z,h,dphi}`, bounded `1+0.1*tanh(sel)` gate applied through `rowscale` to `dW_base` and multiplication to `db_base`; no persistent register.
+- **C3:** one RUN O register, init zero, allowed decay, STATE activity update, exact SGD updates, and freeze/reinit mask `tanh(reg)` with theta in `{0,0.1,0.5}`.
 
-- `dW_base = neg(outer(d_bp, a))`
-- `db_base = neg(d_bp)`
-- `update_every = 1`
+Constructor-only import isolation loaded `ams.v6gen`, `ams.generate`, and `ams.grammar`; it did not import task, probe, benchmark, search, or evaluation modules. The first whole-process check flagged `ams.interp` because the static checker had already run canonicalization, whose constant-folding helper imports the scalar expression interpreter. Claude corrected the check's scope in `6331de4`; its clean rerun records no evaluation-module import during construction. This was a checker-scope false positive, not a constructor data path.
 
-Then it adds exactly one primary coupling class selected uniformly from C1/C2/C3:
+### Independent structural validation and descriptor failure
 
-- **C1 state → forward:** exactly one RUN register of type O or M, init 0, decay uniformly in `{0.5,0.9,0.99}`; its depth-1–2 update contains one of `{a,z,h,dphi}`. M registers create `w_eff=mul(tanh(reg),0.1)`; O registers create `gain=add(1.0,mul(tanh(reg),0.1))`. Parameter updates remain the base SGD update.
-- **C2 activity-routed credit:** no persistent register required; depth-1–2 O selector from PARAM grammar containing `{z,h,dphi}`; `g=add(1.0,mul(tanh(selector),0.1))`; `dW=rowscale(dW_base,g)` and `db=mul(db_base,g)`, with no extra parameter-update modification.
-- **C3 data-dependent structure:** exactly one RUN O register, init 0, decay uniformly in `{0.5,0.9,0.99}`; depth-1–2 update contains `{z,h,dphi}`; parameter updates remain the base SGD update; choose freeze/reinit uniformly, use `tanh(reg)` mask and threshold from `{0.0,0.1,0.5}`.
+Codex used the Claude constructor/static checker from `956efdf`, with the explicitly authorized non-official seed `2026092807`, and saved every attempt plus summary. This was structural only: no T0, task, probe, B/C*/F, training, or family-library evaluation. The validator body used 0.719 CPU-seconds.
 
-At most 10 invalid internal construction attempts are permitted, and each attempt must increment the global 6,000 proposal accounting. Generator code must not inspect T0/B/C*/F results. Proposals must pass the existing typing and node/depth/register limits, contain an actual backprop signal and one coupling, and receive the unchanged descriptor/collision processing.
+| Check/result | Codex seed 2026092807 | Claude seed 60606 |
+|---|---:|---:|
+| Proposal slots / valid final proposals | 1,000 / 1,000 | 1,000 / 1,000 |
+| Attempts, including invalid retries | 1,253 | 1,258 |
+| Invalid attempts | 253, all C2 `oversize` | 258, all C2 `oversize` |
+| Primary class slots C1/C2/C3 | 349 / 328 / 323 | 347 / 338 / 315 |
+| Class-uniformity chi-square p | 0.565 | 0.442 |
+| Constructor invariant failures | 0 | 0 |
+| Raw/canonical learning-signal failures | 0 | 0 |
+| Raw C2 coupling recognized | 39/328 (11.9%) | 53/338 (15.7%) |
+| Canonical C2 descriptor absent | 289/328 (88.1%) | 286/338 (84.6%) |
+| C1/C3 raw coupling recognized | 100% | 100% |
+| Static validation verdict | **FAIL** | **FAIL** |
 
-### Implementation and execution status
+The independent outputs agree on the material result despite separate seeds: C1/C3 are recognized; most C2 proposals are not. The unchanged `Analysis.c2` detector recognizes activity-reading `topk`/`where` routing in `dW`. The frozen C2 constructor instead applies a smooth scalar multiplier `1+0.1*tanh(sel)`; most selectors contain no `topk`/`where`, so the classifier returns no coupling and no descriptor. In Codex output, C2 descriptors were `[1,0,0]` for 35 proposals and `[1,3,0]` for 4; the other 289 were `None`. Claude's output had 43 and 9 detected descriptors and 286 `None`. The unchanged pipeline treats descriptorless candidates as `pure_rule`, so most of the C2 class would never reach T0/Tier-1 screening. The v6 requirement that each proposal contain one recognized coupling and traverse the unchanged collision/descriptor layer is not met.
 
-At the latest fetch, Claude's branch was still `deaa05d661beebf811635b23c41acd056d9d909d`, a merge of the v5 repair record. It had no v6 constructor, static-validation artifact, or v6 run result. Therefore the checks above are **design-level confirmations only**: no claim is made yet about implementation invariants, retry accounting, proposal distributions, learning-signal detection, descriptor output, or task-result leakage in code. Codex generated no proposals and ran no tests, task, T0, or search.
+Every depth-two C2 selector made the outer `rowscale` expression exceed frozen `MAX_DEPTH=5`; these invalid attempts were retried and included in generated-attempt counts. All 1,000 slots eventually yielded valid depth-one C2 selectors within the retry limit. Conditional activity-leaf redraws are not proposal attempts under the frozen D-V6-4 implementation decision.
 
-**Exact next action:** fetch `origin/claude/admiring-turing-cvyhm0` once the v6 implementation is committed; inspect its diff and run the isolated 1,000-proposal audit at seed `2026092807`, with task/T0 evaluation disabled. Then compare with Claude's static artifact. Do not launch another full Stage-2 search.
+### Retry-budget boundary defect
 
+`_v6_slot` asks `gen.v6_attempts()` for a proposal before it checks whether `counts["generated"]` is already at `N_GEN_MAX`. `Pipeline.try_add` checks the cap only after the valid proposal has been built; the invalid branch also checks after the yield. A direct control at `generated=6000` observed one constructor call before the real `Pipeline.try_add` raised `N_GEN_MAX`, with no generated-count increment. Thus ordinary invalid retries are correctly counted, but if a slot is entered at the exact cap the constructor creates one additional uncounted proposal attempt. The existing cap test checks only the final counter and does not detect this attempt. A cap precheck in `_v6_slot` would close the accounting defect; no Claude code was modified by Codex.
+
+### Claude run audit and conclusion
+
+Claude's machine-readable validation (`6331de4`) independently fails the same C2 raw/canonical coupling checks. The latest branch report (`d2f86d4`) records that the official `stage2.py stage2_v6` gate refuses to run when `validation.json["pass"]` is false. The v6 search seed `2026092806` is unused. No `runs/stage2_v6` artifacts exist: therefore generated/sanity/Tier-1 counts, archive occupancy, duplicate/rediscovery rates, promotions, and candidate resource records are not applicable, not zero-valued search results. No v6 candidate reached Tier-1 or Stage-3.
+
+The exact independent machine-readable proposal dump and run summary are committed in `experiments/automated_mechanism_search/audit_artifacts/v6_static_codex_20260928/`; the compressed proposal dump is SHA-256 `EC5D0026647DB1BF978215389BDD4633F70A7F07F6FB7769B6E48CEAF6A6B7BB`. The shared ledger incorporates Claude's three static-validation entries and a conservative 1.5-second Codex audit allocation (0.719 seconds measured inside the validator), totaling 2,365.632 CPU-seconds (0.657120 hours) of the 30-hour cap. No GPU or training ran. The Codex Python environment did not have `pytest`, so the constructor test module was not independently rerun; Claude's branch report records its full suite as 167/167 passing.
+
+**Conclusion:** `STOP — v6 static validity failure; no Stage-2 search or novelty candidate audit.` The failure is the concrete C2 constructor/frozen-classifier mismatch, with a separate one-at-cap uncounted constructor attempt. No protocol, detector, preregistration, or Claude file was changed. **Exact next action:** wait for an owner-authorized resolution and a static-passing implementation; then fetch that revision and audit only its structural outputs before any candidate work.
 
 ## AR-143 — Independent AMS v4 Stage-1 verification (2026-09-28)
 

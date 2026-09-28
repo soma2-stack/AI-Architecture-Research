@@ -1,0 +1,183 @@
+{
+ "attempts_total": 1253,
+ "canon_coupling_removed_by_canonicalization": 2,
+ "checks": {
+  "1_constructor_invariants": true,
+  "2_every_slot_valid_within_10": true,
+  "3a_raw_learning_signal": true,
+  "3b_raw_intended_coupling": false,
+  "4a_canon_learning_signal": true,
+  "4b_canon_coupling_loss_only_by_canonicalization": false,
+  "5_uniform_class_choice": true,
+  "6_no_evaluation_modules_imported": false
+ },
+ "codex_interpreted_result": {
+  "checks": {
+   "6000_attempt_cap_accounting": false,
+   "canonical_coupling_and_descriptor": false,
+   "constructor_invariants": true,
+   "constructor_only_import_isolation": true,
+   "every_slot_valid_within_10": true,
+   "raw_intended_coupling": false,
+   "raw_learning_signal": true,
+   "uniform_class_choice": true
+  },
+  "pass": false,
+  "reason": "C2 proposals mostly have no coupling descriptor under the frozen classifier; at the cap, _v6_slot also constructs one uncounted candidate before Pipeline.try_add raises",
+  "whole_process_interpreter_import_is_checker_scope_false_positive": true
+ },
+ "codex_measurements": {
+  "auditor": "Codex independent seed override; Claude constructor and structural validator; no training/evaluation",
+  "cpu_seconds": 0.71875,
+  "wall_seconds": 6.077
+ },
+ "evaluation_modules_imported": [
+  "ams.interp"
+ ],
+ "git_at_start": {
+  "commit": "956efdf61a0e770da545e0de2a61be00d796dd84",
+  "dirty_excluding_runs": false
+ },
+ "invariant_failures": {
+  "backbone_exact": 0,
+  "backprop_signal_in_dW": 0,
+  "class_template_exact": 0,
+  "no_cvec": 0,
+  "register_limits": 0,
+  "type_valid": 0,
+  "update_every_1": 0,
+  "within_node_depth_limits": 0
+ },
+ "n_slots": 1000,
+ "no_task_evaluation": "no T0, probe, B, C* or F run; no FamilyLibrary; structural checks only",
+ "pass": false,
+ "per_class": {
+  "C1": {
+   "attempts": 349,
+   "canon_intended_coupling_detected": 348,
+   "canon_learning_signal": 349,
+   "canon_no_coupling_at_all": 1,
+   "conditional_redraws": 689,
+   "drawn_expr_depth_attempts": {
+    "1": 158,
+    "2": 191
+   },
+   "drawn_expr_depth_valid": {
+    "1": 158,
+    "2": 191
+   },
+   "invalid_attempts": {},
+   "raw_intended_coupling_detected": 349,
+   "raw_learning_signal": 349,
+   "slots": 349,
+   "valid": 349
+  },
+  "C2": {
+   "attempts": 581,
+   "canon_intended_coupling_detected": 39,
+   "canon_learning_signal": 328,
+   "canon_no_coupling_at_all": 289,
+   "conditional_redraws": 901,
+   "drawn_expr_depth_attempts": {
+    "1": 328,
+    "2": 253
+   },
+   "drawn_expr_depth_valid": {
+    "1": 328
+   },
+   "invalid_attempts": {
+    "oversize": 253
+   },
+   "raw_intended_coupling_detected": 39,
+   "raw_learning_signal": 328,
+   "slots": 328,
+   "valid": 328
+  },
+  "C3": {
+   "attempts": 323,
+   "canon_intended_coupling_detected": 322,
+   "canon_learning_signal": 323,
+   "canon_no_coupling_at_all": 1,
+   "conditional_redraws": 531,
+   "drawn_expr_depth_attempts": {
+    "1": 180,
+    "2": 143
+   },
+   "drawn_expr_depth_valid": {
+    "1": 180,
+    "2": 143
+   },
+   "invalid_attempts": {},
+   "raw_intended_coupling_detected": 323,
+   "raw_learning_signal": 323,
+   "slots": 323,
+   "valid": 323
+  }
+ },
+ "post_run_budget_boundary_check": {
+  "constructor_calls_before_budget_exception": 1,
+  "exception": "N_GEN_MAX",
+  "generated_count_after": 6000,
+  "interpretation": "_v6_slot constructs one valid proposal before Pipeline.try_add enforces the cap; the attempt is not counted",
+  "scope": "static control only; no task or T0 evaluation",
+  "starting_generated_count": 6000
+ },
+ "post_run_independent_import_check": {
+  "forbidden_modules": [],
+  "interpretation": "ams.interp in the original whole-process check came from canonicalization constant folding, not constructor imports",
+  "loaded_ams_modules": [
+   "ams.generate",
+   "ams.grammar",
+   "ams.v6gen"
+  ],
+  "scope": "fresh Python process importing only ams.v6gen and its dependencies"
+ },
+ "protocol": "AMS-prereg-v6",
+ "raw_intended_coupling_missing": 289,
+ "seed": 2026092807,
+ "sub_choices": {
+  "C1_decay": {
+   "0.5": 98,
+   "0.9": 139,
+   "0.99": 112
+  },
+  "C1_reg_type": {
+   "M": 170,
+   "O": 179
+  },
+  "C3_decay": {
+   "0.5": 119,
+   "0.9": 96,
+   "0.99": 108
+  },
+  "C3_kind": {
+   "freeze": 155,
+   "reinit": 168
+  },
+  "C3_theta": {
+   "0.0": 108,
+   "0.1": 98,
+   "0.5": 117
+  }
+ },
+ "uniformity": {
+  "p_C1_decay": 0.02390842539211672,
+  "p_C1_reg_type": 0.6299771902177932,
+  "p_C3_decay": 0.29255512539370504,
+  "p_C3_kind": 0.469471423320432,
+  "p_C3_theta": 0.4321384361914148,
+  "p_slots": 0.5649601959293262,
+  "p_valid": 0.5649601959293262,
+  "slots": [
+   349,
+   328,
+   323
+  ],
+  "valid": [
+   349,
+   328,
+   323
+  ]
+ },
+ "valid_proposals": 1000
+}

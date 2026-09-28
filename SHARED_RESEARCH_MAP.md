@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **v6 frozen: SGD-anchored architecture-residual Stage 2 after v5 uniform-generator zero-yield result** |
+| **Current phase** | **v7 frozen: detector-aligned C2 repair, then official anchored Stage 2** |
 
 ---
 
@@ -1095,7 +1095,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 
 The active execution authority is:
 
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v6**
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v7**
 
 Stages 0–3 remain owner-authorized, CPU-only, with the 30 CPU-hour hard cap.
 
@@ -1113,24 +1113,24 @@ The repaired v5 Stage-2 rerun is complete and is a search-design negative for th
 It is not evidence that no novel mechanism exists.
 
 ## Claude
-Primary role: **v6 implementation and search runner**.
+Primary role: **v7 implementation and search runner**.
 
 - Sync latest `origin/main`.
-- Read v6 before changing Stage-2 code.
+- Read v7 before changing Stage-2 code.
 - Preserve all v5 Stage-2 runs.
-- Implement only the frozen v6 SGD-anchored initial candidate constructor.
-- Run the required static 1,000-proposal structural validation without T0/benchmark evaluation.
+- Preserve the v6 C1/C3 constructor and replace only C2 with the frozen v7 detector-aligned discrete-routing residual.
+- Run the required v7 static 1,000-proposal structural validation (seed `70707`) without T0/benchmark evaluation.
 - Verify reference/disguise collision golden snapshots remain unchanged.
 - Commit and push the v6 implementation before official search.
-- Run official v6 Stage 2 from seed `2026092806`.
+- Run official v7 Stage 2 from the still-unused seed `2026092806`.
 - If promoted candidates appear, continue directly to the already-frozen Stage 3.
 - Do not relax T0, change benchmarks, increase budgets, alter promotion thresholds or use GPU.
 
 ## Codex
-Primary role: **independent generator / rediscovery / novelty auditor**.
+Primary role: **independent v7 generator / rediscovery / novelty auditor**.
 
-- Sync latest v6 `main`.
-- Audit the v6 constructor statically:
+- Sync latest v7 `main`.
+- Audit the v7 constructor statically:
   - exact SGD backbone;
   - C1/C2/C3 construction;
   - no task-result-dependent generation;
@@ -1144,8 +1144,8 @@ Primary role: **independent generator / rediscovery / novelty auditor**.
 ## Cursor / Gemini
 Primary role: **independent search-design and metric auditor**.
 
-- Sync latest v6 `main`.
-- Verify the anchored constructor preserves the intended learning backbone without leaking benchmark information into generation.
+- Sync latest v7 `main`.
+- Verify the v7 detector-aligned anchored constructor preserves the intended learning backbone without leaking benchmark information into generation.
 - Check accounting, descriptor balance and C1/C2/C3 proposal counts.
 - Do not run the full Stage-2 search.
 - Once Claude publishes results, independently recompute Tier-1 and Stage-3 metrics for promoted candidates.
@@ -1304,6 +1304,27 @@ Search seed: `2026092806`.
 Budgets remain 6,000 generated / 3,000 sanity / 1,200 Tier-1 / 20 promoted, CPU-only, 30 CPU-hours.
 
 The v3 Stage-0 and v5 Stage-1 PASS results carry forward. Current restart point: **implement and run Stage 2 under v6**.
+
+### v7 C2 detector-alignment amendment
+
+The required v6 static validation failed before any official v6 search began. No v6 candidate was trained or task-evaluated, and search seed `2026092806` remains unused.
+
+The blocker was specific to C2:
+- the v6 soft gate was usually not recognized by the unchanged Level-C C2 fingerprint;
+- depth-2 selectors could exceed `MAX_DEPTH=5`.
+
+v7 leaves the fingerprint unchanged and changes only the C2 initial constructor:
+- selector depth 0–1;
+- activity-dependent discrete `topk` or `where` routing;
+- exact SGD backbone plus a 10% routed residual;
+- grammar-compatible operand ordering;
+- explicit proposal-counting semantics.
+
+A new 1,000-proposal static validation at seed `70707` must pass before official Stage 2.
+
+Official search seed remains `2026092806`. All T0, Tier-1, MAP-Elites, promotion, Stage-3 and compute rules remain unchanged.
+
+Current restart point: **sync Claude to v7, repair C2 only, rerun static validation, then run official Stage 2 if it passes.**
 
 ## Execution authorization — 2026-09-28
 
