@@ -1087,68 +1087,112 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **post-v8 grammar-expansion path closed: GG1–GG8 all killed; no v9 authorized; next step requires a genuinely new research lens rather than another AMS grammar tweak** |
+| **Current phase** | **OMD-0 design: observed-mechanism discovery from tiny trained recurrent systems; no training/search authorized until a target task family passes prior-art and falsifiability review** |
 
 ---
 
 # 12. What each agent should do next
 
-AMS v8 is complete and independently verified.
+The AMS / grammar-expansion line is closed.
 
-The post-v8 grammar-gap program is also complete.
+The next research lens is **Observed Mechanism Discovery (OMD)**.
 
-Final grammar-gap outcome:
-- GG1: killed by known expansion + task-free routing families;
-- GG2: **KILLED — PIPELINE / COMPOSITION ONLY**;
-- GG3: killed by switching / model-bank mechanisms;
-- GG4: killed by fast/slow consolidation and metaplasticity families;
-- GG5: killed by gated reset / change-point mechanisms;
-- GG6: killed by parameter superposition + task/context inference;
-- GG7: killed by candidate elimination / sparse-structure mechanisms and Task-F's discrete-search character;
-- GG8: killed by rule-extraction / logic-network families.
+## Why this is a different lens
 
-GG2's closure is the final result of the targeted pass:
-- TRGP already supplies conflict/subspace detection, protected shared updates and small learned state inside the protected/conflicting subspace;
-- task-free, input-derived routing for adapter/state selection is separately established;
-- composing those known pieces preserves the property GG2 claimed;
-- therefore the novelty is in the pipeline arrangement, not a new primitive or architecture.
+Previous rounds generated candidate operations from:
+- human conceptual recall;
+- a fixed typed program grammar;
+- mutations/crossover over that grammar.
 
-The project remains at:
-- **0 supported new architectures**;
-- **0 new computational primitives**.
+That search can only discover mechanisms representable in the proposed vocabulary.
 
-## Current owner decision
+OMD reverses the direction:
 
-**Close the current AMS grammar-expansion path.**
+1. train a deliberately tiny but flexible recurrent system on a carefully chosen behavior;
+2. treat the trained network as an **instrument**, not the proposed architecture;
+3. identify the smallest causally sufficient internal state-transition mechanism;
+4. fit/distill that mechanism into explicit equations or a tiny executable state machine;
+5. compare the distilled mechanism against the known-machine library;
+6. only if the distilled transition is reproducible, useful and non-substitutable does it become an architecture/primitive candidate.
 
-Do not authorize v9 as:
-- another search over the v8 grammar;
-- a broader grammar containing GG1–GG8;
-- a narrow GG2 benchmark;
-- a larger-compute rerun.
+This is not a claim that tiny RNNs, circuit discovery, symbolic regression or dynamical-systems analysis are themselves new. They are discovery tools.
 
-The remaining compute budget stays unused.
+## OMD-0 — design only
+
+**No training or search is authorized yet.**
+
+The immediate question is:
+
+> Is there a small, controlled task family outside B/C*/F on which a tiny recurrent learner could plausibly discover a compact internal algorithm that is not already forced by the task definition or trivially reducible to a known algorithm?
+
+A valid OMD target must satisfy all of the following:
+- outside the B/C*/F continual-learning / shortcut-learning benchmarks;
+- no explicit task ID or answer-revealing side channel;
+- low enough dimensionality that internal dynamics can be inspected exactly or nearly exactly;
+- a strong library of known algorithmic baselines exists;
+- the target behavior admits more than one plausible strategy;
+- success is not equivalent to ordinary memorization, replay, search, attention, external memory, or optimizer tuning;
+- the learned mechanism can be causally intervened on;
+- a distilled rule could be transplanted into a separate minimal model;
+- a second held-out task family can test whether the mechanism is more general than one benchmark.
+
+### Required OMD evidence before any architecture claim
+
+A candidate distilled from a trained system must pass:
+
+1. **Behavioral advantage:** reproducible matched advantage over the strongest known baseline family on the eliciting task.
+2. **Low-dimensional extraction:** an explicit small state-transition description explains the relevant behavior.
+3. **Causal sufficiency:** transplanting / replaying the extracted mechanism reproduces the behavior.
+4. **Causal necessity:** targeted ablation destroys the claimed property.
+5. **Cross-seed recurrence:** materially equivalent dynamics emerge across independently trained networks.
+6. **Known-machine reduction:** primitive and architecture substitutability tests against the existing collision library and new prior art.
+7. **Transfer:** the distilled mechanism retains the claimed property on a separately designed task family not used for discovery.
+
+A strange-looking hidden state or a benchmark win is not enough.
 
 ## Claude
-Stop work on the AMS grammar-expansion path.
-Preserve all evidence and wait for a genuinely new owner-level research direction.
+Primary role for OMD-0: **target-task and discovery-design researcher**.
+
+Do not code or train yet.
+
+Produce at most **3 candidate OMD target families**.
+
+For each:
+- define the capability and smallest synthetic task family;
+- explain why the answer is not hard-coded by the benchmark;
+- list strongest known algorithms/architectures that already solve or approximate it;
+- state what behavior would indicate the trained tiny recurrent system found something outside those baselines;
+- specify the smallest recurrent substrate that remains interpretable;
+- specify the extraction method: phase portrait, dynamical regression, causal patching/ablation, symbolic regression, or another concrete method;
+- specify how the extracted transition would be transplanted and falsified;
+- specify an entirely separate transfer task;
+- kill the target immediately if known prior art already spans all plausible solution strategies.
+
+Favor tasks where the unknown object is the **internal transition algorithm**, not merely a better representation or larger memory.
+
+Do not reuse B, C*, F, GG1–GG8, CSL, truth-maintenance, external-memory, generic architecture-search, or optimizer-learning directions.
+
+Return a ranked set of at most 3 target families, but do not authorize or run them.
 
 ## Codex
-No GG2 hostile reduction is required unless contradictory evidence appears.
-Do not start another search.
+Wait for Claude's OMD-0 target packet.
+
+Then perform hostile prior-art / known-machine reduction only on the surviving target families. Do not train models.
 
 ## Cursor / Gemini
-No GG2 matched experiment is required.
-Do not start another search.
+Wait for Claude's OMD-0 target packet and Codex reductions.
+
+Then audit identifiability and extraction validity:
+- can the proposed internal algorithm actually be distinguished from known alternatives from the planned interventions?
+- could symbolic/dynamical regression manufacture a misleading story?
+- is the transfer test independent?
+- is the CPU budget credible?
+
+No training yet.
 
 ## Owner / coordinator
-The next research phase, if continued, must begin from a new falsifiable research question rather than from:
-- optimizer perturbations;
-- the current C1/C2/C3 grammar;
-- GG1–GG8;
-- another task/metric tweak to B/C*/F.
-
-A future direction should first survive a low-cost conceptual/prior-art screen before any new compute is authorized.
+After all three lanes finish OMD-0, select at most one target family.
+Only then freeze an OMD-1 experimental protocol and authorize compute.
 
 ---
 
@@ -1182,6 +1226,6 @@ It changes the evidence requirement.
 
 The next serious question is:
 
-> **Can a bounded automated search discover a learning-dynamics mechanism with a reproducible matched advantage that is not a rediscovery of known architectures, optimizers, losses, or schedules?**
+> **Can we discover an unnamed computational mechanism by first observing the low-dimensional dynamics learned by a tiny recurrent system, then causally extracting and transplanting that mechanism before testing it against known machines?**
 
-The next step is to design that experiment precisely. **Do not execute it until the owner explicitly authorizes the run.**
+The current phase is OMD-0 design only. **Do not train or execute OMD experiments until the owner freezes an OMD-1 protocol.**
