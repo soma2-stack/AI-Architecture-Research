@@ -9,7 +9,44 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 19
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 20
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v8** (sole active protocol; unchanged by me);
+  - `SHARED_RESEARCH_MAP.md` (§12 v8 roles);
+  - this notebook.
+
+  Fast-forwarded to `origin/main` `f08878d`: the v8 amendment and the Codex / Cursor v7 audits, which reproduced the v7 result. All v5–v7 evidence and auditor work is preserved.
+- **Carried forward:** the v3 Stage-0 and v5 Stage-1 PASSes (not rerun); v7 as final evidence (8 promotions, all NEGATIVE; not rerun).
+- **Current stage: v8 is COMPLETE. The confirmation funnel promoted nothing, so Stage 3 was not run.**
+  - **Implementation** `46947c4` (D-V8-1…9):
+    - C\* normalized adaptation AULC (half-life diagnostic only);
+    - fast seeds 5000–5002;
+    - confirmation funnel on 6000–6007 with q_confirm promotion;
+    - Stage-3 v8 profile: locked 30000–30009, AULC Gate 3, KF(P) Gate 4, old K(P) diagnostic;
+    - runner seed lock;
+    - gate-mutation zero spelled `(sub 1.0 1.0)`;
+    - exact N_GEN_MAX boundary.
+
+    v5–v7 paths are unchanged, and the collision layer has no diff.
+  - **Pre-search validation:** PASS (clean `5606002`). Suite 213, golden unchanged, v7 constructor reproduced exactly, regressions, AULC tests and v7 generic-curve replay, seed lock.
+  - **Official Stage 2** (seed 2026092808, clean `297369e`): stop reason `G_MAX`; 4,413 generated; 1,961 T0; 1,200 fast Tier-1; **42/56 cells**; 2 defects (the same F broadcasting error as v7, below the threshold).
+  - **Confirmation** (clean `8c5af23`): **0 of 42 eligible**; max q_confirm 0.063.
+    - The best fast elite, P03974 (q_fast 0.342, `W_eff = W + W_ep0`), wins 8/8 on AULC but fails the frozen R0 return constraint (5/8), so q_confirm = −0.051.
+  - **Stage 3: not run.** Seeds 30000–30009 untouched.
+  - Classification (owner rule): a **negative result for the v8 robust-metric anchored search design**.
+  - Full record: Part AM; `experiments/automated_mechanism_search/STAGE2_V8_REPORT.md`.
+- **Strongest surviving candidate(s):** none. 0 supported architectures or primitives.
+- **Open observations, not acted on:**
+  1. The constructor's C2 never reaches T0 (v7 and v8).
+  2. The recurring F broadcasting defect in offspring (v7: 3, v8: 2).
+  3. The frozen fast best-task tie-break sends zero-effect elites to B.
+  4. P03974's gain comes with R0-return loss (plasticity/stability trade-off).
+- **CPU:** 5.13 CPU-h of the shared 30 CPU-h cap; no GPU; no Stage 4.
+- **Exact next action:** none authorized. Any further AMS search needs a new owner protocol decision. Codex and Cursor/Gemini may audit `runs/stage2_v8/`, `runs/stage2_v8_confirm/` and the v8 code (roles in the shared map §12).
+
+# Resume Pointer as of session 19 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
@@ -4692,6 +4729,50 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AM — AMS v8: robust C* AULC, confirmation funnel, official Stage 2 (session 20, 2026-09-28)
+
+**Status:** complete. The confirmation funnel found 0 of 42 eligible, so there were no promotions and Stage 3 was not run. Report: `experiments/automated_mechanism_search/STAGE2_V8_REPORT.md`.
+
+## AM.1 Reconciliation (verified)
+
+- Fast-forwarded to `origin/main` `f08878d`: the v8 amendment `1d5c851`, the execution plan `f08878d`, and the v7 audits `8fb29af` and `d5c1e41`.
+- `AGENTS.md`: 0-line diff. The Codex and Cursor notebooks and the `experiments/ams_audit/` code were not read.
+
+## AM.2 Implementation (verified; D-V8-1…9)
+
+- All v8 changes are opt-in: parameters on `tier1` and `stage3`, the `V8Gen` subclass, `init="v8"`, the `stage3.configure("v8")` profile. The recorded v5–v7 behaviour is unchanged.
+- **C\* AULC:** implemented exactly as in the prereg and recorded per run with the half-life.
+- **Confirmation** (`ams/confirm.py`): implemented exactly as frozen. For C\*, the 6/8 return rule is the task constraint on the 8 seeds.
+- **KF(P):** the canonical reference of the Stage-2 nearest family, re-verified at Stage 3.
+- **Repairs:**
+  - gate-mutation zero: `where_zero` hook, default historical;
+  - exact cap: checked before any construction, with a regression test on counted constructions.
+
+## AM.3 Pre-search validation (verified)
+
+- PASS at clean `5606002` on all 8 checks.
+- Two earlier runs failed only because my validation script misparsed pytest's output; every pytest return code was 0. Both outputs are kept, and the fixes are committed before the passing run.
+- Offline replay of v7 generic C\* curves: AULC is finite and deterministic, ranging 0.29–1.63. No candidate data was read.
+
+## AM.4 Official Stage 2 and confirmation (verified)
+
+- **Stage 2:** stop reason `G_MAX`; 4,413 generated; 1,961 T0; 1,200 fast Tier-1; 42/56 cells; 7,745 CPU-s.
+  - Fast baselines: C\* SGD AULC 0.416.
+  - The constructor's C2 again never reached T0. All 7 fast q ≥ 0.15 records are offspring.
+- **Confirmation** (seeds 6000–6007): 42 elites, frozen best tasks B 29 / F 8 / C\* 5; 0 eligible; max q_confirm 0.063; 421 CPU-s.
+  - The four C\* elites with fast q 0.20–0.34 all fail.
+  - P03974 (`W_eff = W + W_ep0`; its `freeze` never triggers) has the largest uncapped confirmation effect, 0.467 with 8/8 wins, but only 5/8 R0-return checks, below the frozen 6/8. Its effect is capped at 0.
+
+## AM.5 Interpretation (not a verdict)
+
+- **v8 did what it was designed to do.** v7's selection-on-noise failure mode was intercepted before Stage 3: the fast C\* gains did not survive 8 fresh seeds under unchanged constraints.
+- **The one robust effect is not a clean improvement.** P03974 re-adapts faster within R1 but returns worse to R0. Under the frozen criteria that is a plasticity/stability trade-off, not an advantage. Adding back the initial weights is related to known shrink-and-perturb / reset-to-init continual-learning ideas; no prior-art review was needed, since it was not promoted.
+- **Result class.** Per the owner's rule, this is a negative for the v8 search design. The AGENTS.md tally is unchanged: 0 supported new architectures or primitives.
+
+## AM.6 Compute
+
+Pre-search 74 CPU-s; Stage 2 7,745 CPU-s; confirmation 421 CPU-s. The ledger stands at **5.13 CPU-h of 30**. No GPU.
 
 # Part AL — AMS v7: detector-aligned constructor, official Stage 2 and Stage 3 (session 19, 2026-09-28)
 
