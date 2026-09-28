@@ -1,0 +1,144 @@
+{
+ "stage": 0,
+ "protocol": "v3",
+ "pass": true,
+ "stop_reason": null,
+ "checks": {
+  "probe_corpus": {
+   "pass": true,
+   "blob": "d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1",
+   "regeneration_aid": {
+    "W": {
+     "n": 768,
+     "scale": 0.35,
+     "exact": true
+    },
+    "b": {
+     "n": 96,
+     "scale": 0.15,
+     "exact": true
+    },
+    "a": {
+     "n": 128,
+     "scale": 0.75,
+     "exact": true
+    },
+    "d_bp": {
+     "n": 96,
+     "scale": 0.3,
+     "exact": true
+    },
+    "d_fa": {
+     "n": 96,
+     "scale": 0.3,
+     "exact": true
+    },
+    "e": {
+     "n": 96,
+     "scale": 0.3,
+     "exact": true
+    },
+    "L": {
+     "n": 16,
+     "scale": -1.1986765,
+     "exact": false
+    },
+    "dL": {
+     "n": 16,
+     "scale": -0.525703,
+     "exact": false
+    },
+    "Lbar": {
+     "n": 16,
+     "scale": -0.518738,
+     "exact": false
+    },
+    "xi_I": {
+     "n": 128,
+     "scale": 0.01,
+     "exact": true
+    },
+    "xi_O": {
+     "n": 96,
+     "scale": 0.01,
+     "exact": true
+    },
+    "tep": {
+     "n": 16,
+     "scale": 0.9964345,
+     "exact": false
+    },
+    "reg_I": {
+     "n": 512,
+     "scale": 0.25,
+     "exact": true
+    },
+    "reg_O": {
+     "n": 384,
+     "scale": 0.25,
+     "exact": true
+    },
+    "reg_M": {
+     "n": 3072,
+     "scale": 0.1,
+     "exact": true
+    }
+   }
+  },
+  "run_config": {
+   "pass": true,
+   "sha256": "e6775d40bd6fcbe88ae9808939f68f6a26c1fb7041acc9ee1ead9fd03c379641"
+  },
+  "test_suite": {
+   "pass": true,
+   "summary": "============================= 118 passed in 6.01s =============================="
+  },
+  "taskB_gradient_conflict_gate_v3": {
+   "pass": true,
+   "rule": "all seed means < 0; frac(cos < 0) >= 0.90",
+   "per_seed_mean_cos": {
+    "100": -0.5009,
+    "101": -0.477,
+    "102": -0.4639,
+    "103": -0.432,
+    "104": -0.5106,
+    "1000": -0.5094,
+    "1001": -0.4255,
+    "1002": -0.3511
+   },
+   "per_seed_n_negative": {
+    "100": 64,
+    "101": 64,
+    "102": 64,
+    "103": 64,
+    "104": 64,
+    "1000": 64,
+    "1001": 64,
+    "1002": 64
+   },
+   "cond1_all_seed_means_negative": true,
+   "frac_negative": 1.0,
+   "n_cosines": 512,
+   "pooled_mean_cos": -0.4588
+  },
+  "detector_recall": {
+   "pass": true,
+   "misses": 0,
+   "attribution_differs": 3,
+   "reference_collisions": 7
+  },
+  "profiling": {
+   "pass": true,
+   "ms_per_step_batch32_9runs": 4.124,
+   "ms_per_step_online_9runs": 0.669,
+   "est_tier1_cpu_s_per_candidate": 7.46,
+   "est_tier1_cpu_h_for_1200": 2.49,
+   "AE_stage0_exit_criterion_cpu_s": 20.0,
+   "within_AE_estimate": true
+  }
+ },
+ "stage1_allowed": true,
+ "cpu_seconds": 17.26,
+ "wall_seconds": 14.66,
+ "cumulative_cpu_hours": 0.26938
+}

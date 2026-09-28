@@ -1,0 +1,127 @@
+{
+ "config": {
+  "budget": {
+   "G_MAX": 20,
+   "N_INIT": 200,
+   "generated": 6000,
+   "offspring": 50,
+   "p_crossover": 0.2,
+   "patience": 5,
+   "per_cell": 1,
+   "per_task": 8,
+   "promoted": 20,
+   "q_min": 0.15,
+   "sanity": 3000,
+   "tier1": 1200
+  },
+  "collision_library_version": "AE.2.4+AR-141/v2-impl-1",
+  "compute": {
+   "cpu_cap_hours": 30.0,
+   "cpu_only": true,
+   "mem_mb": 512,
+   "timeout_s_per_seed": 120
+  },
+  "grammar_limits": {
+   "max_M_regs": 2,
+   "max_depth": 5,
+   "max_nodes": 40,
+   "max_regs": 4,
+   "max_struct": 1
+  },
+  "grammar_version": "AE.1/v2-impl-1",
+  "lr_grid": [
+   0.001,
+   0.01,
+   0.1
+  ],
+  "probe_corpus": {
+   "git_blob_sha": "d5a8e0d1d91d1d1caf5ff3cbb84f9a4c76e730c1",
+   "path": "config/behavioral_probes_v2.json"
+  },
+  "protocol": "AMS-prereg-v3",
+  "seeds": {
+   "sanity": [
+    500
+   ],
+   "stage1": [
+    100,
+    101,
+    102,
+    103,
+    104
+   ],
+   "stage3": [
+    10000,
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009
+   ],
+   "tier1": [
+    1000,
+    1001,
+    1002
+   ],
+   "tier3": [
+    20000,
+    20001,
+    20002,
+    20003,
+    20004,
+    20005,
+    20006,
+    20007,
+    20008,
+    20009
+   ]
+  },
+  "substrate": {
+   "activation": "tanh",
+   "dtype": "float32",
+   "hidden": [
+    32,
+    32
+   ],
+   "init": "glorot_normal",
+   "program_shared_across_layers": true
+  },
+  "taskB_stage0_gate_v3": {
+   "frac_pairs_negative_min": 0.9,
+   "gradient": "first-layer weight matrix, batch-mean 0.5||e||^2",
+   "init": "glorot_normal",
+   "pairs_per_seed": 64,
+   "seed_mean_cos_lt": 0.0,
+   "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    1000,
+    1001,
+    1002
+   ]
+  },
+  "thresholds": {
+   "B_T2_mse_ratio": 1.25,
+   "B_fit_mse": 0.001,
+   "B_forgetting_pp": 40,
+   "B_retention": 80,
+   "C_hl_reduction": 0.5,
+   "C_tau": 0.05,
+   "F_gate_ood_max": 0.25,
+   "F_gate_sgg_min": 75,
+   "F_gate_train": 0.98,
+   "F_sgg_pp": 15,
+   "F_train": 0.98,
+   "dup_cos": 0.999,
+   "family_cos": 0.99
+  }
+ },
+ "sha256": "e6775d40bd6fcbe88ae9808939f68f6a26c1fb7041acc9ee1ead9fd03c379641"
+}
