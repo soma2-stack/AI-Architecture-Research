@@ -697,6 +697,83 @@ A candidate that becomes unnecessary after granting these machines is not a **ne
 
 ---
 
+# 6.5 Native-coupling / interface-loss round — CLOSED
+
+All three lanes independently tested the idea that architectural novelty might arise because ordinary module interfaces discard an important internal signal.
+
+## Claude — NC01–NC13
+
+Claude generated 13 native-coupling candidates across credit assignment, solver feedback, internal interventions, routing, memory, metareasoning, verification, and rules-to-weights coupling.
+
+Result:
+- 11 direct architecture collisions;
+- 1 pipeline-only candidate;
+- 1 candidate with no material architectural property;
+- 0 survivors.
+
+Claude's strongest synthesis:
+
+> Any signal a module can compute can usually be exported through a sufficiently rich ordinary interface. Native coupling is only genuinely special when the information exists as joint state, would be prohibitively expensive to serialize, or must cross mid-computation rather than at call boundaries.
+
+Those three cases are already heavily occupied by equilibrium/energy models, predictive coding, intervention training, autodiff/implicit differentiation, attention, recurrence, CDCL, constraint propagation, and related architectures.
+
+## Cursor / Gemini — IC01–IC18
+
+Cursor/Gemini audited 8 canonical interfaces and then generated 18 interface-loss candidates.
+
+Result:
+- 15 killed by existing architecture;
+- 3 killed as pipeline only;
+- 0 survivors.
+
+Running Cursor total:
+- P1–P72: 72 candidates, 0 survivors;
+- IC1–IC18: 18 candidates, 0 survivors;
+- total: **90 candidates, 0 survivors**.
+
+Its useful synthesis was a representation/communication duality:
+- if the allegedly lost signal is finitely representable, a richer interface can usually transmit it;
+- if it requires continuous native coupling, modern architecture literature already occupies many such cases.
+
+## Codex — AR-139
+
+Codex built a signal-level collision map across 15 concrete native-coupling families.
+
+Result:
+- 13 have direct architecture prior art;
+- 2 have ordinary interfaces that preserve the claimed signal;
+- the unspecified "native coupling" umbrella has no precise material property to test;
+- 0 survivors.
+
+CDCL remains a useful calibration control because learned clauses alter later search. Merely computing the same final SAT function is not enough to establish architecture equivalence.
+
+## Cross-lane verdict
+
+**Close native coupling / generic interface information loss as a broad search lens.**
+
+Do not reopen it generically.
+
+A future candidate may still involve tight coupling, but it must start from a **specific learning or computational property**, not from the claim that "interfaces lose information."
+
+The broad failure mode is now understood:
+1. the signal can be serialized → richer interface/pipeline preserves it;
+2. the signal requires native continuous/joint coupling → existing architecture families usually already implement it;
+3. no precise property is lost → there is no architecture claim.
+
+## Next phase
+
+The strongest remaining direction is **single-model learning dynamics**.
+
+Why:
+- attention, residual connections, backpropagation, diffusion-style processes, and related historical controls are not best understood merely as inter-module communication;
+- their architectural significance comes from how computation and learning behave **inside one model/process**;
+- this cannot be resolved by the interface-loss argument alone;
+- architecture-level novelty here may require matched ablations, scaling analysis, or formal learning-dynamics arguments.
+
+The next phase should first screen prior art and formulate candidate properties. Heavy experiments remain deferred until a candidate survives that screen.
+
+---
+
 # 7. New search question
 
 Do not return to:
@@ -858,52 +935,87 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Claude irreducibility I01–I21 | 0/21 primitive survivors; exposed filter-calibration problem |
 | Claude calibration re-audit (13 strongest old kills) | 0 reopened as architecture candidates; Q06 parked (property lost, importance unshown); filter passes historical controls |
 | Claude native-coupling lens NC01–NC13 | 0/13 survive; all signal families occupied; Interface Transparency proposition; only CDCL among controls is an inter-module coupling |
-| Codex candidate ledger / archaeology through AR-137 | No survivor under prior standard; collision database expanded |
+| Codex candidate ledger / archaeology through AR-139 | Native-coupling collision map completed; 15 families, 0 survivors |
 | Predictive Delta Ledger | Killed as pipeline |
 | Baobab / Moose seam | Occupied neighboring machinery |
 | Cursor/Gemini P1–P40 | 0/40 primitive survivors |
 | Cursor/Gemini P41–P56 | 0/16 primitive survivors |
 | Cursor/Gemini P57–P72 | 0/16 primitive survivors |
-| Cursor/Gemini total | 0/72 primitive survivors |
+| Cursor/Gemini P1–P72 | 0/72 primitive survivors |
+| Cursor/Gemini IC1–IC18 | 0/18 architecture survivors |
+| Cursor/Gemini total candidate count | 90 evaluated, 0 survivors |
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Novelty-filter calibration + re-audit of strongest kills** |
+| **Current phase** | **Single-model learning dynamics: prior-art screen before experiments** |
 
 ---
 
 # 12. What each agent should do next
 
-The immediate phase is **calibration**, not another giant candidate batch.
+The native-coupling / interface-loss lens is now closed as a broad search direction.
+
+The new shared phase is:
+
+> **single-model learning dynamics**
+
+The target is not "another optimizer" or "another loss." Search for architectural mechanisms where the internal organization changes what the model can learn, how credit is assigned, how representations evolve, or how computation scales during learning/inference.
+
+Do not run heavy experiments yet. First establish a precise candidate property and survive prior-art attack.
 
 ## Claude
-Primary role: **mechanism formalizer + architecture re-auditor**.
+Primary role: **invent and formalize single-model learning-dynamics candidates**.
 
-- Re-screen the strongest previously killed Claude candidates under the calibrated distinction between primitive and architecture.
-- Focus especially on ideas killed mainly by “decomposable into known machinery,” not those killed by direct prior art.
-- For any recovered architecture candidate, state exactly what property decomposition fails to preserve.
-- Do not run heavy experiments yet.
+Focus on mechanisms where architecture changes:
+- credit assignment geometry;
+- optimization path;
+- representation formation;
+- persistent internal state during learning;
+- local/global update interaction;
+- dynamic computation during training;
+- parameter/state separation;
+- structural transitions during learning;
+- or train/inference coupling.
+
+For every idea, define the strongest matched baseline and what property should differ.
 
 ## Codex
-Primary role: **novelty assassin + historical calibration**.
+Primary role: **historical/modern learning-dynamics assassin**.
 
-- Stress-test the new standard on known historical innovations such as attention, residual connections, backpropagation, diffusion, and CDCL-style mechanisms.
-- Verify that the new filter would not reject them merely for general simulability.
-- Re-audit any recovered candidates for direct architectural prior art.
-- Continue acting as the GitHub sync bridge for Codex/Cursor files.
+Build a collision map spanning:
+- backprop/reverse-mode AD;
+- synthetic gradients/target propagation;
+- feedback alignment;
+- predictive coding/equilibrium propagation;
+- Hebbian/local rules;
+- learned optimizers/meta-learning;
+- implicit layers;
+- fast weights;
+- test-time learning;
+- plastic networks;
+- neural ODE/continuous-time training;
+- forward-forward and alternative credit assignment;
+- architecture-dependent optimization/scaling results.
+
+Kill candidates using same-architecture prior art or a matched baseline that preserves the claimed learning property.
 
 ## Cursor / Gemini
-Primary role: **reclassification of the 72-candidate negative database**.
+Primary role: **derive learning-dynamics boundaries from failures, not from fields**.
 
-- Do not generate P73 yet.
-- Reclassify the strongest P1–P72 kills into:
-  - direct existing mechanism/architecture;
-  - pipeline-only;
-  - impossibility/non-identifiability;
-  - primitive killed but architecture question still open.
-- Only promote a small number of genuinely reopened architecture candidates.
+Build a taxonomy of places where two architectures computing similar functions can still differ in:
+- gradient path length;
+- credit locality;
+- optimization conditioning;
+- interference;
+- representation collapse/separation;
+- adaptation speed;
+- memory/plasticity tradeoffs;
+- computational depth;
+- train/test state evolution.
 
-After this calibration pass, cross-lane synthesis should decide whether to resume invention, formal proof work, or minimal experiments.
+Generate a small candidate batch only after identifying a concrete property that ordinary architectures fail to preserve.
+
+Do not return to generic interface-loss claims or P/IC numbering unless a genuinely new lens requires it.
 
 ---
 
@@ -923,15 +1035,15 @@ Never modify `AGENTS.md` unless the owner explicitly asks for that change.
 
 # 14. Bottom line
 
-The project has not found a supported new architecture or primitive yet.
+The project still has **0 supported new architectures and 0 new computational primitives**.
 
-The large negative database is still valuable, but the old filter conflated:
+Two broad search standards are now calibrated:
 
-- **computability / decomposability**, and
-- **architectural equivalence**.
+1. computability/decomposability alone does not kill architecture novelty;
+2. generic native coupling/interface information loss is too broad and is heavily occupied.
 
-The calibrated project now keeps the primitive standard strict while allowing a separate architecture-level question:
+The next serious search target is:
 
-> **Does the proposed native organization create an important property that the best ordinary decomposition does not preserve?**
+> **Can a single model contain a learning-dynamics mechanism whose important learning or scaling property is not preserved by the strongest matched existing architecture?**
 
-The immediate next phase is to re-audit the strongest old kills under that distinction before generating another large batch.
+First perform prior-art and conceptual screening. Only then consider matched experiments.
