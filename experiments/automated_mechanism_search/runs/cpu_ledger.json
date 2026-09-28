@@ -56,8 +56,36 @@
    "wall_seconds": 5.942,
    "note": "post-hoc V1-B-REP oracle diagnostic (unclipped; longer budget); not gating",
    "utc": "2026-09-28T05:21:46Z"
+  },
+  {
+   "stage": "stage1_v5",
+   "cpu_seconds": 88.104,
+   "wall_seconds": 16.182,
+   "note": "official v5 Stage-1 calibration (parent 44.6s + workers 43.5s)",
+   "utc": "2026-09-28T05:39:01Z"
+  },
+  {
+   "stage": "stage2",
+   "cpu_seconds": 4.927,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 Tier-1 baselines",
+   "utc": "2026-09-28T05:43:09Z"
+  },
+  {
+   "stage": "stage2",
+   "cpu_seconds": 542.312,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 final",
+   "utc": "2026-09-28T05:45:52Z"
+  },
+  {
+   "stage": "stage1_v4_codex_independent",
+   "cpu_seconds": 30.812,
+   "wall_seconds": 11.799,
+   "note": "Independent official v4 Stage-1 calibration on Windows; parent process CPU 0.812s plus worker-reported CPU 30.000s; Windows spawn compatibility wrapper; CPU only, no GPU",
+   "utc": "2026-09-28T05:40:24Z"
   }
  ],
- "total_cpu_seconds": 1115.032,
- "total_cpu_hours": 0.30973
+ "total_cpu_seconds": 1781.187,
+ "total_cpu_hours": 0.49477
 }

@@ -8,14 +8,14 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ### Codex resume/status — 2026-09-28
 
-- **Lane and lens:** Novelty-gate / rediscovery audit for the frozen mechanism search. Distinguish exact state-transition equivalence from same-task or same-goal similarity; do not call an implementation equivalent merely because a general machine can simulate it.
-- **Stage:** AR-142 audits the authorized Stages 0–3 and records a preregistration validity failure before search. The frozen behavioral-equivalence probe corpus is referenced as stored but is absent from the frozen repository bundle, and no sampler specification allows exact reconstruction from the seed alone.
-- **Strongest surviving candidates:** None. No Stage-2 archive or promoted Stage-3 program artifacts exist on the fetched remote branches. No candidate is eligible for an allowed novelty classification.
-- **Completed:** Fetched `origin/main` at `c543f85315326c0e49ee7f02e590bfc18e4d5910`; read its `AGENTS.md`, frozen preregistration, shared map and this notebook's prior Resume. Read only the bounded Part AE grammar/probe/freeze passages needed to check the frozen contract. Ran six existing local benchmark-generator/metric unit tests (pass; 1.891 process CPU seconds); these do not test the novelty filter.
-- **Validity failure:** Part AE AE.2.2 and AE.5.10 say the exact 16 probe tuples are stored with the freeze, but neither `origin/main` nor the Claude design branch has the tuples, a separate probe asset, or distributions/RNG procedure for sampling them. Reconstructing probes would change the frozen behavioral gate. Do not run Stage 1–3 or substitute a new corpus.
-- **Other audit findings:** The untracked local `experiments/ams_audit` files contain generator tests and a calibration draft, not the canonicalizer, fingerprint extractor, reference-template matcher, or search outputs. Its Task-F draft uses adaptive early stopping and one fixed, unequal learning-rate setting across optimizers without an equal tuning-budget record; treat it as an unaudited local draft, not official calibration evidence.
-- **Exact next action:** Obtain the already-frozen 16-tuple asset and its deterministic serialization/sampler from the experiment owner/runner, without changing the design. Then rerun Stage 0's collision positive controls and anti-cheating checks; Stage 1 may proceed only after they pass. If the tuples were never frozen, the owner must authorize a versioned preregistration amendment before any continuation.
-- **Resource constraint:** CPU-only. The six generator/metric tests used 1.891 process CPU seconds. No training, baseline calibration, candidate search, GPU, Stage 2, or Stage 3 work was run. Project-wide CPU usage is not visible in the checked-out artifacts, so no remaining-cap estimate is asserted.
+- **Lane and lens:** Novelty-gate / rediscovery audit, now independently verifying Stage-1 calibration gates and auditing later candidate artifacts. Compare same state transitions and metrics; do not infer equivalence from general computability.
+- **Stage:** The requested independent AMS v4 Stage-1 run completed and failed only `V1_B_REP`. No MAP-Elites search or Stage 2/3 work was run. The latest fetched `origin/main` is `0985bfe2a60621b73531679d4ab4bc84c7ced862`, which freezes v5. Claude branch commit `bd0fdaf9f9288242addf0e14ea2d56ee01c1af9c` records official v5 Stage-1 PASS. Its latest commit `9dd8a5e409e6c61551179eb3610a80fc84ec09d9` reports that Stage 2 stopped under the frozen implementation-defect rule with 0 Tier-1 and 0 promoted candidates; the artifacts were not audited in this v4-failure task. The independent v4 run is historical evidence, not a v5 result.
+- **Strongest surviving candidates:** None. No Stage-2 archive or promoted Stage-3 mechanism was audited.
+- **Completed:** Audited the v4 implementation at code commit `1ca7fc2f520ce7a177d9dff7653fddbab6537821`, reproduced the complete v4 Stage-1 script independently on CPU, preserved the raw outputs and Windows compatibility wrapper under `runs/stage1_v4_codex/`, and compared machine-readable results with Claude's official v4 outputs. The config hash, seeds, LR grid, and B/C*/F generator fingerprints matched. `AGENTS.md` was not changed; neither the frozen protocol nor other lane notebooks were edited.
+- **Independent result:** M2-v4, M3, F failure, C* sanity, detector carry-forward, generic stability, V3-F, and V-D passed. V1-B-REP failed: best generic SGD reached 0.913854 on Task 1 and 0.904263 on Task 2, below 0.95/0.95. Claude's official v4 run failed the same sole gate. Cross-platform differences remain in joint-training values and unstable diagnostic traces; no metric bug or seed/config mismatch was found, and genuine nondeterminism is not established.
+- **Protocol update:** The latest remote preregistration is v5, which changes the representability oracle to 4,000 updates and prohibits further calibration amendments before Stage 2. This independent run used the then-requested v4 1,000-update oracle exactly; it does not validate v5. No v5 run was part of this task.
+- **Exact next action:** No more experiment work under this failed-v4 verification. The current v5 Claude branch has a Stage-2 stop report (0 Tier-1, 0 promoted); if a later task reopens the audit, inspect those existing machine-readable stop artifacts without rerunning the search.
+- **Resource constraint:** Independent run used 30.812 CPU seconds and no GPU. The latest shared ledger, including Claude's v5 Stage-1 run and this independent v4 run, totals 1,781.187 CPU seconds (0.49477 hours) of the 30-hour cap. No additional heavy compute was run.
 
 - **Rolling state correction (2026-09-27; supersedes the older snapshot below):** candidate ledger now runs C001–C038, and no broad model class has survived yet. Recent additions: AR-112 robustness result (operator-matched gains under mild noise, loss under misspecification), AR-113 KBANN prior-art audit, AR-114 QPT/QSIM archaeology, AR-115 saturation theorem proving, AR-116 Warren Abstract Machine, AR-117 Graphplan, AR-118 set-valued reachability, AR-119 Cellular Potts, AR-120 oscillator Ising machines, and C029's Incrementally-Computable Neural Network prior-art update. This continuation adds AR-121 for HTN planning, HY-106 for learned HTN method-selection collisions, and AR-122 for active inference; these are established planning/inference frameworks, not new broad model classes. It also adds an FCM source correction: nonlinear edges and delays predate KA-FCM, with Fuzzy Relational Maps recorded as a narrow bipartite variant. HY-100 now separates predictive-basis test selection from physical sensing; HY-103–HY-107 record oscillator-learning, Rete/neural-Datalog, heteroclinic-learning, HTN, and deep-active-inference collisions. A JTMS/ATMS addendum sharpens the truth-maintenance prior-art comparison. The latest pass adds AR-123/HY-108 closing generic reversible structural edits, AR-124/HY-109 closing persistent entity identity plus learned slots, AR-125/HY-110 closing runtime symbol/operator growth, and AR-126/HY-111 closing generic frame/script knowledge plus neural grounding. This continuation adds AR-127/HY-112 for KL-ONE classification and learned ontology construction; AR-128 for DL concept revision; AR-129/HY-113 for incremental TBox/ABox maintenance and conservative extension; AR-130/HY-114 for proof-carrying updates; AR-131 for learned specification generation; AR-132 for policy learning via membership/equivalence queries; AR-133 for per-update translation validation; AR-134 for live code/state replacement through dynamic software updating; AR-135 for reflective interpretation and executable code as data; AR-136 for automatic revision/creation of executable rules and programs; and AR-137 for evaluators/objectives inferred from feedback or generated internally. Each has direct same-operation prior art or reduces to known tools and explicit oracle/specification/update-point assumptions. No broad or hybrid architecture candidate survives. Continue literature and formal reduction only under the owner's no-experiment rule; only `Codex_Research.md` was changed.
 - **Calibration rolling update (2026-09-27):** AR-138 tests the owner-updated primitive/architecture/pipeline standard against attention, residual connections, backpropagation, diffusion, and CDCL, and re-audits C003, C007, C014, C017, C020, and HY-80. CDCL and Strassen serve as positive controls; no current Codex architecture candidate survives. No experiment ran.
@@ -76,6 +76,66 @@ This investigation treats the following mechanisms as collision zones, even wher
 - heterogeneous local representations and gluing maps.
 
 ## Research log
+
+## AR-143 — Independent AMS v4 Stage-1 verification (2026-09-28)
+
+### Scope and provenance
+
+This was the owner-requested independent v4 calibration, not an independent MAP-Elites search. The audited implementation was the Claude v4 code at commit `1ca7fc2f520ce7a177d9dff7653fddbab6537821`; the run manifest records that commit and the exact v4 config hash `37398394dc0b4273c8cbd00f0df8f0ebf772cbc355046a09db4de9e0d31e9db3`. The source tree was clean at run start excluding generated run files. The official script SHA-256 is `bb8c7c1430d76d403d0aacd9f260750aa6ea6c0cf97a5863d574647e13a6e111`; the Windows compatibility wrapper SHA-256 is `da7df0d0a5c549c40cca8c32123ad3e1c35d756286082105ccebc259b3d19650`.
+
+The PC was Windows 10, CPython 3.11.9, NumPy 2.4.6 and SciPy 1.17.1. Because Unix `resource`, `fork`, and `os.nice` are unavailable, the preserved wrapper maps only process setup to Windows `spawn`, disables CUDA, no-ops unavailable priority setting, and accounts parent CPU plus worker-reported CPU. It does not change model, initialization, seeds, data, learning rates, task schedules, stopping rules, metrics, or gates. The independent result is saved at `experiments/automated_mechanism_search/runs/stage1_v4_codex/`; pytest was not installed, so no pytest suite was run. The official v4 Stage-1 script itself completed all scheduled controls and wrote its full machine-readable outputs.
+
+### Implementation audit
+
+| Requested check | Audit result |
+|---|---|
+| M2-v4 Task-B fit | Correct relative metric `1 - L1_pre / max(L1_init, 1e-8)` and seed-mean threshold `>=0.95` for SGD/SGDM/AdamW. All initial losses were 1.416339, so the denominator guard is inactive. |
+| M3 interference | Correctly requires mean forgetting `>=10 pp` and `L1_post > L1_pre` on every calibration seed. |
+| V1-B-REP | Exactly 1,000 updates, batch 16+16 fresh examples per update, same two-hidden-layer MLP/Glorot initialization, seeds 100–104 and LR grid `{1e-3,1e-2,1e-1}`; no early stopping; LR selection is training-side only. |
+| C* generic sanity | R0 fit, two nontrivial R1 entries, and at least one finite censored generic adaptation half-life `<64` are checked. |
+| Task F generic failure | Fixed 500-step check implements train `>=.98`, OOD `<=.25`, SGG `>=75 pp`. |
+| V3-F | Discrete XOR synthesis is a separate required positive-control signature. |
+| V-D | Natural-gradient conditioning diagnostic is mandatory and retained. |
+| Detector validity | v3 Stage-0 PASS is carried forward as v4 specifies; its accepted detector self-check has 118 tests and zero reference-family misses. |
+| Generic-control stability | B, C*, and F generic controls are checked. The implementation also includes Bjoint in the stability map, a stricter extra check than v4 specifies; all Bjoint controls were stable, so it did not alter this run's verdict. |
+| Stage-2 thresholds | v4 leaves candidate grammar, search budget, matching, promotion thresholds and CPU/GPU limits unchanged. The checked v4 config retains `q_min=0.15`, 6,000 generated programs, 1,200 Tier-1 programs and 20 promoted programs; no candidate threshold was weakened. |
+
+The implementation audit found no weakened Stage-2 candidate threshold. The extra Bjoint stability check is a minor protocol/code asymmetry, not an outcome-determinative gate change in this run.
+
+### Independent v4 gate results
+
+| Gate | Independent value | Verdict |
+|---|---|---|
+| M2-v4 B fit | SGD 0.987899; SGDM 0.988522; AdamW 0.988937 relative reduction | PASS |
+| M3 B interference | Forgetting 100 pp for each generic optimizer; post-task loss exceeded pre-task loss for every seed | PASS |
+| V1-B-REP | Best optimizer SGD: Task 1 0.913854, Task 2 0.904263; SGDM 0.877655/0.854825; AdamW 0.890357/0.865969 | **FAIL** |
+| F generic failure | Train accuracy 1.000 for all; OOD SGD 0.1618, SGDM 0.1650, AdamW 0.1678; SGG 83.82/83.50/83.22 pp | PASS |
+| Detector | Accepted Stage-0 v3 PASS; no misses in reference-family self-check | PASS |
+| Generic stability | B/C*/F stable for SGD/SGDM/AdamW; additional Bjoint check also all true | PASS |
+| C* sanity | R0 MSE 0.0305515; R1 entry MSE 1.000600 and 0.899198; generic censored half-life SGD 14.0, SGDM 18.8, AdamW 17.6 | PASS |
+| V3-F | Exact XOR support `[0,1,2]`, OOD accuracy 1.0 on all five seeds | PASS |
+| V-D | Natural-gradient `S_tau` 89.8 at κ=10^4 and 108.6 at κ=10^6; SGD/SGDM did not reach threshold in the diagnostic horizon | PASS |
+
+V1-B-REP is the sole failed mandatory v4 gate. Each optimizer's seed-mean reduction falls below 0.95 on both held-out mappings; no optimizer satisfies the required conjunction. This is a v4 calibration validity failure, not a candidate result. The run stopped before Stage 2; no Stage 2/3/4 work or GPU work occurred.
+
+### Claude cross-check and discrepancy classification
+
+Claude's official v4 result also has `pass=false` with `failed_gates=["V1_B_REP"]`; all gate booleans match the independent run.
+
+- **Matching within numerical tolerance:** M2 reductions differ by less than `4e-9`; M3 and the V3-F signatures match; C* summary values differ only at small floating-point scale. The broad Task-F signatures and all pass/fail labels match.
+- **Implementation difference:** Windows/spawn and Linux/fork runtimes produce larger V1-B-REP differences for SGDM and AdamW (Claude 0.882647/0.867179 and 0.883894/0.859321 versus independent 0.877655/0.854825 and 0.890357/0.865969). Both remain materially below 0.95. The D task's byte-level generated-data hash differs (`e5bae048…` independent; `b70e754f…` Claude) despite matching config and seed; Task D uses QR-based floating-point construction, making this fingerprint sensitive to platform linear-algebra backends. The natural-gradient signature is unchanged. The run comparison also found 22,034 of 52,851 common raw numeric values differing by more than `1e-12`, concentrated in unstable R13/R12 diagnostics; five `return_ok` booleans differed in those diagnostic traces. Their instability is expected and they are not mandatory-gate denominators.
+- **Seed/config mismatch:** None identified. Both manifests use seeds 100–104, the same LR grid, config hash, probe hash, and B/C*/F generator fingerprints. The D fingerprint mismatch is attributed to floating-point implementation sensitivity, not a different seed or declared configuration.
+- **Metric bug:** None found in the inspected v4 gates or independent summaries.
+- **Genuine nondeterminism:** Not established. Platform/backend sensitivity is the supported explanation, but the differing trajectories were not separately isolated to a specific BLAS kernel.
+
+Machine-readable Claude comparison is preserved in `runs/stage1_v4_codex/comparison_to_claude.json`; raw independent trajectories and the complete independent gate result remain in `raw_runs.json` and `stage1_result.json`. The local manifest records `gpu_used=false` and empty `CUDA_VISIBLE_DEVICES`.
+
+### Current protocol boundary
+
+The latest fetched `origin/main` (`0985bfe2a60621b73531679d4ab4bc84c7ced862`) freezes v5: V1-B-REP uses exactly 4,000 updates and no further oracle-budget amendment is permitted before Stage 2. Claude's branch then published official v5 Stage-1 PASS at `bd0fdaf9f9288242addf0e14ea2d56ee01c1af9c`: SGD reached 0.966949/0.960160, SGDM 0.958313/0.951624, and AdamW 0.969877/0.963788 for Task 1/Task 2 relative reduction; all mandatory v5 gates pass. The latest Claude branch commit `9dd8a5e409e6c61551179eb3610a80fc84ec09d9` reports that v5 Stage 2 halted under the frozen implementation-defect rule with 0 Tier-1 and 0 promoted candidates. This AR-143 result strictly records the requested v4 1,000-update run; it neither validates nor invalidates v5. Codex did not run v5 or audit the Stage-2 artifacts because the v4 failure branch of this task required stopping before Stage 2. The current next step is to preserve this stop and await a separate audit task rather than rerun the search.
+
+The shared CPU ledger records this independent run as 30.812 CPU seconds (0.00856 hours); including Claude's v5 Stage-1 run, cumulative use is 1,781.187 CPU seconds (0.49477 hours) against the 30-hour cap.
+
 
 ### Latest continuation index (2026-09-27)
 
