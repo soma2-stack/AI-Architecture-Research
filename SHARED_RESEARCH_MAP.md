@@ -1087,178 +1087,47 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Attention-sink/massive-activation anomaly reviewed and closed; Transformer self-repair is the next no-compute literature audit** |
+| **Current phase** | **Anomaly-first phase complete: all 3 literature survivors closed; 0 anomaly survivors; no active compute or experiment** |
 
 ---
 
 # 12. What each agent should do next
 
-Anomaly-first literature mining is complete.
+The anomaly-first literature phase is complete.
 
-Perplexity screened 11 anomaly families:
-- 8 killed;
-- 3 survived as unresolved empirical anomalies.
+Perplexity initially returned three unresolved empirical anomalies. Codex then performed independent no-compute reviews of all three:
 
-## Surviving anomalies
+- coupled attention sinks + massive residual-stream activations — closed as ordinary known dynamics;
+- Transformer Hydra / self-repair — closed as ordinary known dynamics;
+- continual plasticity collapse — closed as ordinary known dynamics.
 
-1. **Coupled attention sinks + massive residual-stream activations** — strongest survivor.
-2. **Transformer Hydra / self-repair under intervention**.
-3. **Continual loss of plasticity**.
+**Result: 0 anomaly survivors.**
 
-No architecture or primitive claim exists.
+The final plasticity review found a real loss-of-current-task learnability phenomenon, but the evidence is accounted for by ordinary nonstationary optimization through parameter state, optimizer state, activation responsiveness, feature diversity, and task-aligned tangent/curvature geometry. A compact universal predictor of future learnability remains open, but that is currently an optimization-science question rather than evidence of a new architecture.
 
-No compute is authorized.
+## Current project state
 
-## Strongest survivor: coupled attention sinks + massive activations
+- Supported new architectures: **0**
+- New computational primitives: **0**
+- Anomaly-first survivors: **0**
+- Active compute authorization: **none**
+- Active experiment: **none**
 
-Observed literature-level facts:
-- massive residual activations and attention sinks recur across multiple Transformer families;
-- the two phenomena are coupled in ordinary pretrained models but can be partially separated by architectural or backward-path interventions;
-- several serious explanations remain in competition:
-  - implicit bias storage;
-  - softmax no-op pressure;
-  - forward variance amplification / causal-mask structure;
-  - gradient-sink / backward-regulation;
-  - normalization-mediated rescaling;
-- existing ordinary components explain many pieces but do not yet provide one predictive account of:
-  - which token is selected;
-  - which residual direction is selected;
-  - which layer becomes the onset layer;
-  - whether forward variance or backward gradient concentration initiates the loop;
-  - why some interventions remove massive activations while preserving sinks and others remove both.
+Do not start another broad anomaly survey, another property-pair survey, or a rescue experiment on any of the three closed anomalies.
 
-The narrow unresolved question is:
+## Agent status
 
-> **What training-time causal loop selects a token, residual direction and onset layer, then couples forward attention routing to normalization-mediated backward gain control?**
+**Perplexity:** wait.
 
-This is an anomaly target only. It is not evidence for a new architecture.
+**Codex:** wait after AR-150; preserve the literature closures.
 
-## Immediate independent sanity check
+**Cursor / Gemini:** wait.
 
-The following core papers exist and support the fact that multiple incompatible mechanistic accounts are active:
-- *Massive Activations in Large Language Models* (2024): large input-invariant residual activations, implicit-bias interpretation, associated attention concentration;
-- *Attention Sinks Induce Gradient Sinks* (2026): backward-path account; sink concentration induces gradient concentration and massive activations act as RMSNorm-mediated regulators; V-scale preserves sinks while suppressing massive activations;
-- *The Structural Origin of Attention Sink* (2026): forward structural account based on causal-mask/value-aggregation variance disparity, FFN super-neuron amplification and dimension disparity; interventions can move sinks to targeted positions.
+**Claude:** wait.
 
-This is enough to justify a hostile audit, not an experiment.
+## Coordinator next step
 
-## Codex
-
-Next action: **no-compute literature audit of Transformer self-repair / the Hydra effect.**
-
-Read:
-- AGENTS.md
-- SHARED_RESEARCH_MAP.md
-- your latest Resume in Codex_Research.md
-
-Do not read full Claude_Research.md or Cursor_Research.md unless specifically needed.
-
-Do not code, train, benchmark, or use GPU.
-
-Audit whether the coupled sink/massive-activation anomaly really contains an unresolved mechanism after accounting for all current explanations.
-
-You must attack the target in five ways:
-
-### 1. Explanation-completeness audit
-
-Build the strongest possible ordinary explanation from:
-- softmax probability-simplex / no-op pressure;
-- causal-mask positional variance asymmetry;
-- residual persistence;
-- RMSNorm Jacobian scaling;
-- FFN outlier / super-neuron amplification;
-- implicit additive key/value bias storage;
-- ordinary forward/backward feedback during gradient descent.
-
-Ask whether their combination already predicts all claimed observations without a missing mechanism.
-
-### 2. Direct prior-art audit
-
-Search especially for 2024–2026 papers on:
-- attention sinks;
-- massive activations;
-- massive emergence layers;
-- super neurons;
-- compression valleys;
-- gradient sinks;
-- head-wise normalization;
-- gated attention;
-- sigmoid / non-normalized attention;
-- explicit key/value bias slots;
-- backward-only gradient interventions;
-- token-position relocation of sinks;
-- initialization/training-time onset prediction.
-
-Do not rely on titles or secondary summaries if primary papers are accessible.
-
-### 3. Causal-contradiction audit
-
-Check whether the apparent conflict is actually a conflict.
-
-In particular:
-- Can forward variance disparity cause sink formation while sink-induced gradient concentration independently cause massive activations?
-- Are the forward and backward papers simply explaining different stages of one ordinary feedback loop?
-- Does this combined loop already explain the partial separability results?
-- Is the unresolved part merely “which effect happens first” rather than a missing architectural principle?
-
-If an ordinary coupled feedback account is already sufficient, kill the anomaly for this project even if details remain open academically.
-
-### 4. Novelty relevance
-
-Even if some details remain unexplained, ask whether resolving them could plausibly reveal:
-- a new state-transition organization;
-- a new credit-flow organization;
-- a new architecture-level coupling;
-
-rather than merely:
-- a training pathology;
-- a scaling/stability phenomenon;
-- a normalization artifact;
-- a descriptive mechanistic detail of ordinary Transformers.
-
-If the unresolved residual has no credible architecture-discovery value, kill it.
-
-### 5. Minimal discriminator validity
-
-Audit the proposed crossed intervention:
-- forward-only variance equalization;
-- backward-only sink-gradient attenuation;
-- explicit no-op/bias capacity.
-
-Determine whether those three factors are truly independently manipulable without changing the forward function class, optimization scale, or effective capacity.
-
-If not, specify the smallest cleaner discriminator.
-
-## Required verdict
-
-Choose exactly one:
-
-- **KILLED — ORDINARY KNOWN DYNAMICS**
-- **KILLED — EXPLANATION ALREADY SUFFICIENT**
-- **KILLED — NOT ARCHITECTURE-DISCOVERY RELEVANT**
-- **SURVIVES — HOSTILE AUDIT PASSED**
-
-If killed, state whether Hydra/self-repair should be audited next or whether the entire anomaly-first lens should stop.
-
-If it survives, do NOT design or run an experiment yet. State the exact remaining unresolved mechanism question and the minimum no-compute protocol issue that Cursor/Gemini should audit next.
-
-Update Codex_Research.md and its Resume.
-Commit and push.
-
-## Cursor / Gemini
-Wait.
-
-## Claude
-Wait.
-
-## Perplexity
-Wait. Deep anomaly mining is complete.
-
-## Owner / coordinator
-After Codex:
-- if strongest anomaly is killed and Codex recommends Hydra next, audit Hydra before any compute;
-- if strongest anomaly survives, send it to Cursor/Gemini for discriminator/identifiability validity;
-- do not authorize training yet.
+The next phase must use a genuinely different discovery basis rather than another broad literature survey or a small variation of AMS/OMD. Design that phase first, with no compute, and only then assign a bounded lane if it has a clear falsifiable novelty target.
 
 ---
 
@@ -1280,18 +1149,19 @@ Never modify `AGENTS.md` unless the owner explicitly asks for that change.
 
 The project still has **0 supported new architectures and 0 new computational primitives**.
 
-The research has now calibrated and largely exhausted three broad concept-level search modes:
+The following search modes have now been tested and closed without a supported architecture result:
 
-1. strict primitive novelty;
-2. native coupling / interface information loss;
-3. single-model learning-dynamics invention by literature and conceptual screening alone.
+1. concept-first invention and reduction;
+2. native-coupling / interface analysis;
+3. learning-dynamics concept search;
+4. bounded automated mechanism search;
+5. grammar-gap expansion;
+6. observed-mechanism discovery on the T1 retention target;
+7. property-first separation search;
+8. anomaly-first literature mining followed by hostile review.
 
-This does **not** establish impossibility.
+This does **not** establish that no new architecture exists.
 
-It changes the evidence requirement.
+It does establish that the next phase should not be another nearby variation of these searches.
 
-The next serious question is:
-
-> **Can we discover an unnamed computational mechanism by first observing the low-dimensional dynamics learned by a tiny recurrent system, then causally extracting and transplanting that mechanism before testing it against known machines?**
-
-The current phase is OMD-0 design only. **Do not train or execute OMD experiments until the owner freezes an OMD-1 protocol.**
+There is currently **no active experiment and no compute authorization**.
