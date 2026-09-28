@@ -9,7 +9,64 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 17
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 19
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v7** (sole active protocol; unchanged by me);
+  - `SHARED_RESEARCH_MAP.md`;
+  - this notebook.
+
+  `origin/main` `c31c97f` was merged in. The only conflict was `runs/cpu_ledger.json`, where `main` was a strict superset. All v5, v6, Codex and Cursor work is preserved.
+- **Carried forward:** the v3 Stage-0 PASS and the v5 Stage-1 PASS (not rerun); the v5 Stage-2 negative; the v6 static-validation failure (no v6 search).
+- **Current stage: the v7 run is COMPLETE through Stage 3.**
+  - **Implementation** (`27f2e81`): C1 and C3 as in v6; C2 = SGD + 0.1 × topk/where-routed residual. The `where` 0.0 branch is spelled `(sub 1.0 1.0)`, because 0.0 is not a legal constant, and canonicalizes to exactly `where(sel, 1, 0)` (D-V7-2). The golden snapshot is unchanged; the suite passes (194 tests).
+  - **Static validation** (seed 70707): **PASS**. 1,000/1,000 emitted proposals, 0 invalid, every intended class recognized.
+  - **Official Stage 2** (seed 2026092806, clean `1334cca`):
+    - stop reason `G_MAX`; 5,544 generated; 2,230 T0; **1,200 Tier-1**; archive **35/56**;
+    - **8 promoted, all on C\*, all mutation offspring**;
+    - 3 defects (below the stop threshold);
+    - no constructor C2 proposal reached T0 (all were duplicates or inert).
+  - **Official Stage 3** (fresh seeds 10000–10009, clean `365b264`, runner `94e23bb`): **all 8 NEGATIVE**. Gate 3 failed for every candidate (threshold, Holm and bootstrap). On the fresh seeds SGD's half-life is 21.8; the best candidate reached 12.4 against the required ≤ 10.9, and 5/10 return checks against the required 8/10.
+  - Classification (owner rule): a **negative result for the v7 detector-aligned SGD-anchored search design**, not evidence that no mechanism exists.
+  - Full record: Part AL; `experiments/automated_mechanism_search/STAGE2_V7_REPORT.md`.
+- **Strongest surviving candidate(s):** none. 0 INTERESTING, 0 POSSIBLE ARCHITECTURE CANDIDATE.
+- **Open observations, recorded and not acted on:**
+  1. The frozen K(P) turns gated dW terms into `dW = 0`, which makes gates 4a/4b trivial for gated programs.
+  2. 3 interpreter broadcasting defects occurred in offspring during Tier-1 F.
+  3. The frozen v5 `m_gate` `where` mutation always yields a `bad_const` offspring.
+  4. Tier-1 C\* selection on 3 seeds with the censored half-life is noisy enough that MAP-Elites selected on noise.
+- **CPU:** 2.838 CPU-h of the shared 30 CPU-h cap; no GPU; no Stage 4.
+- **Exact next action:** none authorized. Any further AMS search needs a new owner protocol decision. Codex and Cursor/Gemini may audit `runs/stage2_v7/` and `runs/stage3_v7/` independently.
+
+# Resume Pointer as of session 18 (historical; superseded by the block above)
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v6** (sole active protocol; unchanged by me);
+  - `SHARED_RESEARCH_MAP.md`;
+  - this notebook.
+
+  The branch was fast-forwarded to `origin/main` `a66a0f0` (the v6 amendment and the map update). All v5 evidence and Codex / Cursor work are preserved.
+- **Carried forward:** the v3 Stage-0 PASS and the v5 Stage-1 PASS. Neither was rerun. The repaired v5 Stage 2 (`runs/stage2_repair1/`: 6,000 generated, 0 Tier-1, 0/56 cells, 0 promoted) is final historical evidence, a search-design negative for the v5 uniform random generator.
+- **Current stage: v6 Stage 2 is BLOCKED before the official search.** The v6 static validation failed, so the official search was not started. Seed 2026092806 is unused, and no v6 proposal was trained or evaluated.
+  - The v6 SGD-anchored constructor is implemented and pushed at `956efdf` (`ams/v6gen.py`, `search.map_elites(init="v6")`, `scripts/stage2.py stage2_v6`, `config/run_config_v6.json`). Suite 167/167; the golden collision snapshot is unchanged.
+  - Static validation (`runs/v6_static_validation/`, seed 60606, 1,000 slots, structural only) passes every constructor invariant: backbone, templates, limits, learning signal, uniform class choice (p = 0.44), and no evaluation module imported.
+  - **It FAILS coupling presence for C2.** The v6 soft gate `1 + 0.1·tanh(selector)` has no `topk` / `where`, so the frozen C2 detector (fingerprint, pipeline coupling check, descriptors) sees it in only 53 of 338 C2 proposals.
+    - 286 of 338 (28.6% of all proposals) would be logged `pure_rule` and never screened.
+    - Fixing this requires changing either v6 or the frozen fingerprint, and both are forbidden.
+  - Secondary: a depth-2 C2 selector exceeds the frozen `MAX_DEPTH` of 5. The frozen retry rule handles this: 258 counted invalid attempts per 1,000 slots.
+  - Full record: Part AK; `experiments/automated_mechanism_search/STAGE2_V6_REPORT.md`.
+- **Strongest surviving candidate(s):** none.
+- **CPU:** 0.657 CPU-h of the shared 30 CPU-h cap; no GPU.
+- **Exact next action:** an owner decision on v6 C2. The options are listed in `STAGE2_V6_REPORT.md` §4:
+  - a `topk` / `where` C2 gate within depth 5;
+  - a widened frozen C2 detector;
+  - searching C1 / C3 only.
+
+  After that decision, rerun `scripts/v6_static_validation.py`. If it passes, run `python3 scripts/stage2.py stage2_v6` and follow the committed Stage-2 and Stage-3 rules. Nothing else is authorized.
+
+# Resume Pointer as of session 17 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; verified);
@@ -4635,6 +4692,115 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AL — AMS v7: detector-aligned constructor, official Stage 2 and Stage 3 (session 19, 2026-09-28)
+
+**Status:** complete. Stage 2 promoted 8 candidates, and **all 8 are NEGATIVE in Stage 3**. Full report: `experiments/automated_mechanism_search/STAGE2_V7_REPORT.md`.
+
+## AL.1 Reconciliation (verified)
+
+- Merged `origin/main` `c31c97f`: the v7 amendment `8249d2f`, the owner record `2bbb7dc`, the Codex v6 audit `0b726b0` and `4abb62c`, and the audit artifacts.
+- The ledger conflict was resolved by taking `main`'s version, a strict superset of mine.
+- `AGENTS.md`: 0-line diff. The Codex and Cursor notebooks and `experiments/ams_audit/` were not read.
+
+## AL.2 v7 implementation and validation (verified)
+
+- **Constructor.** `ams/v7gen.py` subclasses the v6 constructor. C1 and C3 are unchanged (a test checks identity with v6). C2:
+  - selector: depth 0–1, reading z, h or dphi;
+  - route: `topk(sel, k∈{1,4,8})` or `where(sel, 1, 0)`, chosen uniformly;
+  - updates: `dW = SGD + 0.1·rowscale(SGD, route)`, `db = SGD_b + 0.1·(SGD_b ⊙ route)`.
+- **Zero constant (D-V7-2).** 0.0 is not a legal generated constant, so the zero branch is written `(sub 1.0 1.0)`, which canonicalizes to exactly the specified program.
+- **Frozen quirk (observation).** The v5 `m_gate` mutation's `where` variant uses a literal 0.0 and always yields an invalid offspring.
+- **Static validation** (seed 70707): PASS on every check.
+- **Stage-3 runner** (`ams/stage3.py`; decisions D-S3-IMPL). It was committed while Stage 2 was still running and smoke-tested only on non-official seeds 900–901.
+
+## AL.3 Official Stage 2 (verified)
+
+- Seed 2026092806, clean `1334cca`. Stop reason `G_MAX`, with the Tier-1 budget exactly used (1,200).
+- Generated 5,544; T0 2,230 (1,030 failed); archive 35/56; Tier-1 q ≥ 0.15: 41; **8 promoted, all C\***.
+- **By source:**
+  - constructor C1: 113 reached Tier 1, none with q > 0;
+  - constructor C2: none reached T0 (duplicates or inert);
+  - constructor C3: 87 reached Tier 1, 1 with q ≥ 0.15;
+  - offspring: 997 reached Tier 1, 40 with q ≥ 0.15. All promotions are offspring.
+- **Promoted motifs:** noise-driven forward gain; unit reinitialization on normalized dphi, close to continual backprop (R21 similarity up to 0.95); and `W_eff = W + W_ep0` weight doubling.
+- 3 defects were recorded and not repaired.
+
+## AL.4 Official Stage 3 (verified)
+
+- Fresh seeds 10000–10009, clean `365b264`; 139 jobs, 0 errors; 167.6 CPU-s.
+- **Controls:** SGD half-life 21.8 is the best generic. R12 and R13 are unstable; R15 is stable (128).
+- **Result: every candidate fails gate 3.**
+  - Threshold: none reaches half-life ≤ 10.9 with return-OK ≥ 8/10 (best P04957: 12.4 and 5/10).
+  - Holm over 8 pairs: none significant (best p = 0.008 > 0.05/8).
+  - **Label: 8 × NEGATIVE.** Tier 3 was not required.
+
+## AL.5 Interpretation (not a verdict)
+
+- **Selection on noise.** The C\* gains came from selecting on 3 Tier-1 seeds with a coarse, censored half-life metric; SGD itself moves from 12.0 to 21.8 between seed sets.
+- **Constructor proposals.** The C2 proposals were too close to SGD to be distinct.
+- **K(P) limitation (frozen decomposition).** K(P) cannot strip a gate whose stripped form is not a family template. It then zeroes dW, so gates 4a/4b would have passed trivially for gated candidates. This is irrelevant here, because gate 3 failed first, but it matters for any future design.
+- **Result class.** Per the owner's rule, this is a negative for the v7 search design. The AGENTS.md candidate tally is unchanged: 0 supported new architectures or primitives.
+
+## AL.6 Compute
+
+Static validation 6.5 CPU-s; Stage 2 7,678.6 CPU-s; Stage 3 167.6 CPU-s. The ledger stands at **2.838 CPU-h of 30**. No GPU.
+
+# Part AK — AMS v6 SGD-anchored constructor: implementation, static validation, STOP (session 18, 2026-09-28)
+
+**Status:** the v6 constructor is implemented and tested. The mandatory v6 static validation **failed on C2 coupling presence**, so the official v6 Stage 2 was not started. v6 was not modified. Report: `experiments/automated_mechanism_search/STAGE2_V6_REPORT.md`.
+
+## AK.1 Reconciliation
+
+- `git fetch origin`, then a fast-forward to `origin/main` `a66a0f0`. That brought in:
+  - `3cbb21f`: the prereg v6 amendment;
+  - `a66a0f0`: the shared-map v6 record;
+  - `010bf9f`: the merge of my session-17 work.
+- `AGENTS.md`: 0-line diff; its last change is still `a03ce6e`.
+- Read `AGENTS.md`, the v6 prereg section, the `SHARED_RESEARCH_MAP.md` AMS entries, and my Resume block. I did not read the Codex or Cursor notebooks.
+
+## AK.2 Implementation (verified)
+
+Commit `956efdf`, pushed before the validation run.
+
+- The constructor follows v6 verbatim. Implementation decisions D-V6-1…7 (`IMPLEMENTATION_DECISIONS.md`):
+  - `add(1.0, X)` is written `(add X 1.0)`, since the grammar requires (T,T) or (T,S) operands. The function is identical.
+  - Depth 1–2 means the grow depth argument is drawn from {1, 2}.
+  - The activity-leaf requirement is a conditional draw; redraws are logged, not counted.
+  - The class is held fixed for at most 10 attempts per slot. Invalid attempts are counted as generated and logged.
+  - The RNG draw order is fixed.
+- The v5 random constructor is unchanged; a test reproduces 300 programs of the repaired v5 trace.
+- The collision layer is unchanged: grammar and collision-library versions are the same, and the golden 155-entry snapshot is identical.
+- `stage2_v6` refuses to start (exit 4) unless the static validation passes.
+
+## AK.3 Static validation (verified)
+
+Seed 60606, 1,000 slots, structural only: no T0, probe, B / C\* / F or FamilyLibrary.
+
+- 1,258 attempts gave 1,000 valid proposals. Every constructor invariant holds on all 1,000.
+- Class choice: C1 347, C2 338, C3 315 (χ² p = 0.44). Sub-choice p-values range from 0.12 to 0.69.
+- Learning signal (frozen fingerprint): 1,000 / 1,000, raw and canonical.
+- **Intended coupling (frozen fingerprint): C1 347/347, C3 315/315, C2 53/338.**
+  - After canonicalization, 286 C2 proposals have no coupling at all. The unchanged pipeline would label them `pure_rule`.
+  - Canonicalization also removes 2 C3 couplings and 1 C2 coupling that depend vacuously on data, e.g. `(sub h h)`. That is the unchanged filter deciding.
+- C2 selectors of depth 2 give `dW` depth 6, over the frozen maximum of 5. All 258 invalid attempts are of this kind, and realized C2 selectors are always depth 1.
+- Check-6 scope: the first run (clean `956efdf`) flagged `ams.interp`, loaded by the unchanged canonicalizer during the checks. The check was rescoped to the construction phase (`6331de4`), and the recorded `validation.json` was rerun from that clean commit. The first output is preserved, and the proposals are identical.
+
+## AK.4 Why this is a stop, not a fix (interpretation)
+
+- The frozen implementation of C2 (Part AE; fingerprint `Analysis.c2`) requires an activity-selected `topk` / `where` gate on ΔW. The pipeline's coupling check and the MAP-Elites descriptor both rest on it.
+- v6's C2 is a soft `tanh` gain, so the v6 invariants "contain C1/C2/C3" and "pass the unchanged rediscovery filters" cannot both hold for C2.
+- The owner's instruction limits fixes to implementation bugs and forbids changing v6, the collision filters and the descriptors. Every available fix is a protocol change, so the owner must decide. Running anyway would spend the official seed on a design in which one of three classes is almost entirely filtered as `pure_rule` before screening.
+
+## AK.5 Open questions for the owner (hypotheses, not claims)
+
+- Which C2 remedy to use (report §4).
+- Whether D-V6-4, which does not count activity-leaf redraws, is acceptable. If redraws were counted: 3.3 generated units per proposal instead of 1.26.
+- **Untested risk (speculation):** the 0.1-scaled couplings may often be judged behaviourally inert by the unchanged K(P) / probe filter (`REDISCOVERY_inert`, cos ≥ 0.99). I did not check this, because the static validation excluded probe runs.
+
+## AK.6 Compute
+
+Static validation: 10.3 CPU-s over four structural runs. Ledger: 0.657 CPU-h of 30. No GPU.
 
 # Part K — Research Proposal: Certified Structural Learning (CSL)
 

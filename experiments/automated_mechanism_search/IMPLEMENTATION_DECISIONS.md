@@ -608,3 +608,107 @@ Committed before the official v5 Stage-1 run.
   - The committed owner test (`test_strip_gates_preserves_type_for_scalar_where_branch`) called `serialize()` on an expression node, which raised. Only the test was changed, to use `sexpr()`.
 - **D-R1-3. Rerun.** `scripts/stage2.py stage2_repair1` writes to `runs/stage2_repair1/` and refuses to overwrite an existing run. It uses the same seed (20260928), generator, budgets, filters, baselines rule, effects, q, archive and stop conditions. The first stopped run in `runs/stage2/` is preserved unchanged.
 - **D-R1-4. Expected trace relation.** During random initialization, the search RNG is consumed only by program generation; screening, T0 and probes use their own streams. The raw-program sequence should therefore be identical to the first run's for all 5,782 programs, and only the labels of the six formerly defective programs can differ. Divergence would begin after the initialization phase, if Tier-1 evaluations fill the archive.
+
+---
+
+# v6 amendment — SGD-anchored Stage-2 initial constructor (session 18)
+
+Committed before the v6 static validation and before any v6 search. Prereg v6 changes only the Stage-2 initial constructor; the grammar, canonicalizer, probes, fingerprint, family library, collision pipeline, T0, Tier-1, q, archive, mutation / crossover, budgets, promotion and Stage-3 rules are unchanged. `GRAMMAR_VERSION` and `COLLISION_LIBRARY_VERSION` are unchanged.
+
+- **D-V6-1. Code.**
+  - `ams/v6gen.py` holds `AnchoredGen`, a subclass of the v5 `Gen`. It adds the constructor and inherits mutation and crossover unchanged. The v5 `Gen.program` is untouched, and a test reproduces the first 300 raw programs of `runs/stage2_repair1/`.
+  - `search.map_elites(..., init="v6")` uses the anchored constructor for the initial phase and whenever the archive is empty. `init="v5"` (the default) is the old path, unchanged.
+  - `scripts/stage2.py stage2_v6` uses seed 2026092806. It refuses to start unless `runs/v6_static_validation/validation.json` has `pass: true`.
+  - Configuration: `config/run_config_v6.json`. It is the v5 configuration plus a `stage2_v6` section, with `protocol` set to `AMS-prereg-v6`. The v5 record is preserved, and a test checks that nothing else differs.
+- **D-V6-2. Operand order.** The frozen grammar admits binary operands (T,T) or (T,S) only, so the literal `add(1.0, X)` with a vector X is ill-typed. It is written `(add X 1.0)`. `add` is commutative, so the function is identical.
+  - C1-O `gain` = `(add (mul (tanh r1) 0.1) 1.0)`.
+  - C1-M `w_eff` = `(mul (tanh r1) 0.1)`.
+  - C2 `g` = `(add (mul (tanh sel) 0.1) 1.0)`, with `dW = (rowscale (neg (outer d_bp a)) g)` and `db = (mul (neg d_bp) g)`.
+  - C3 mask = `(tanh r1)`.
+- **D-V6-3. "Depth 1–2".** The existing grow method (`Gen.expr`) is called with a depth argument drawn uniformly from {1, 2}, with `has_cvec = False`, since v6 proposals have no `cvec`. The realized depth is 1 or 2.
+  - C1 and C3 register updates are drawn in the STATE phase and may read `r1`.
+  - The C2 selector is drawn in the PARAM phase, with no registers.
+- **D-V6-4. Activity leaf and retries.**
+  - "Must contain an activity leaf" is implemented as a conditional draw: the expression is redrawn until it reads a required leaf ({a, z, h, dphi} for C1; {z, h, dphi} for C2 and C3). These redraws are not proposals and do not count as generated. Prereg v6 counts only attempts that are "invalid because of a grammar/node-limit issue". The number of redraws is logged per proposal.
+  - A proposal slot draws the coupling class once. It then makes up to 10 construction attempts with that class, so the class choice stays uniform over slots. Each attempt that fails the typechecker or the node / depth / register limits is logged as `invalid` and counts toward the 6,000 generated. After 10 invalid attempts the slot is skipped, mirroring AE.3.5 offspring retries (`MAX_RETRY` = 10 attempts).
+- **D-V6-5. RNG draw order** (fixed for reproducibility). Per slot: class. Per attempt:
+  - C1: register type, decay, then the update expression;
+  - C2: the selector;
+  - C3: decay, update expression, kind, then θ.
+
+  The same RNG object then drives the unchanged mutation and crossover.
+- **D-V6-6. Static validation** (`scripts/v6_static_validation.py`, seed 60606, 1,000 slots).
+  - Structural only: no T0, probe run, B / C\* / F, or `FamilyLibrary`.
+  - The pass criteria are listed in the script's docstring and were fixed before the run.
+  - Coupling presence is judged by the unchanged frozen fingerprint on the raw proposal. The frozen C2 detector (Part AE: a `topk` / `where` gate on activity, applied to ΔW) is the definition the collision pipeline and descriptors use.
+  - Noted during implementation, before the official validation: the v6 C2 soft gate `1 + 0.1·tanh(selector)` contains no `topk` / `where`, so the frozen detector sees it only when the drawn selector happens to contain an activity-reading `topk` / `where`. A C2 depth-2 selector gives `dW` depth 6, over the frozen `MAX_DEPTH` of 5. Tests `test_frozen_fingerprint_does_not_detect_v6_c2_soft_gate` and `test_only_c2_depth2_selectors_are_invalid_and_they_exceed_frozen_depth` document both.
+- **D-V6-7. Validation outcome and check-6 scope** (recorded after the validation run).
+  - The first validation run measured check 6 over the whole process. It flagged only `ams.interp`, which the unchanged canonicalizer imports for constant folding while the structural checks run; the constructor does not import it. That output is kept as `runs/v6_static_validation/validation_initial_check6_whole_process.json`.
+  - Check 6 now measures `sys.modules` right after the 1,000 slots are constructed and before any check (commit `6331de4`). The recorded `validation.json` was rerun from that clean commit. Its proposals are byte-identical to the first run's, and only check 6 changed.
+  - Overall result: **FAIL**, on the C2 coupling-presence checks only. See `STAGE2_V6_REPORT.md`. The official v6 search was not started, and neither v6 nor the frozen fingerprint was modified.
+
+---
+
+# v7 amendment — detector-aligned C2 (session 19)
+
+Committed before the v7 static validation and before any v7 search. Prereg v7 changes only the C2 initial constructor and states the constructor-accounting rule. The fingerprint, collision library, canonicalizer, probes, pipeline, T0, Tier-1, q, archive, v5 mutation and crossover, budgets, promotion and Stage-3 rules are unchanged. `ams/fingerprint.py`, `ams/families.py`, `ams/canon.py`, `ams/probes.py`, `ams/grammar.py` and `ams/generate.py` have no diff against `956efdf`. The golden 155-entry snapshot is unchanged.
+
+- **D-V7-1. Code.**
+  - `ams/v7gen.py` defines `DetectorAlignedGen`, a subclass of the v6 `AnchoredGen`. Only C2 is overridden.
+    - C1 and C3 are the v6 code. A test checks that they produce programs identical to v6 from the same RNG state.
+    - The slot, retry and accounting logic (`search._v6_slot`), mutation and crossover are inherited unchanged.
+  - `search.map_elites(init="v7")` enables the v7 constructor.
+  - `scripts/stage2.py stage2_v7` uses seed 2026092806 and is gated on `runs/v7_static_validation/validation.json` passing. `stage2_v6` stays gated and now also refuses because v6 is no longer the active protocol.
+  - Configuration: `config/run_config_v7.json`, which is the v6 configuration plus a `stage2_v7` section (tested). The v6 record is preserved.
+  - The metadata key `v6_class` remains the class key for both anchored constructors, and `constructor` is `"v7"`.
+- **D-V7-2. The `where` route's 0.0 branch.** The frozen constant set is {−1, −0.5, 0.1, 0.5, 1, 2}, so a literal `0.0` in a generated program fails the typecheck (`bad_const`).
+  - The branch is spelled `(sub 1.0 1.0)`, a legal S-typed expression equal to 0.
+  - The unchanged canonicalizer folds it to 0. The canonical program — the one the pipeline hashes, fingerprints, probes and evaluates — is therefore exactly the specified `where(selector, 1, 0)`. `test_where_route_zero_spelling_canonicalizes_to_where_1_0` checks struct-hash identity on 150 cases.
+  - Like the operand ordering v7 allows, this is a grammar-compatible spelling of the same computation. It costs 2 AST nodes; the maximum C2 total is 38 of 40 nodes, and the depth is at most 5.
+  - Observation, left unchanged because mutation is frozen: the v5 `m_gate` mutation's `where` variant uses a literal `0.0` and therefore always yields a `bad_const` invalid offspring (583 of 583 in a check). Such offspring are retried and count as generated, as before.
+- **D-V7-3. Selector "depth 0–1".**
+  - The grow-method depth argument is drawn uniformly from {0, 1} in the PARAM phase, with no registers and no cvec.
+  - The selector is redrawn until it reads z, h or dphi.
+  - Then the route kind is drawn uniformly from {topk, where}, and k uniformly from {1, 4, 8} for topk.
+  - RNG draw order per C2 attempt: selector, route kind, k.
+- **D-V7-4. Accounting** (v7 statement, unchanged from D-V6-4).
+  - Activity-leaf redraws are conditional sampling: they are not counted, but are logged per proposal.
+  - An instantiated program that fails the grammar, type, node, depth or register checks counts as one generated program and is logged as `invalid`.
+  - A request gets at most 10 attempts with its class held fixed, and is skipped after 10 invalid attempts.
+  - The same rule applies to C1, C2 and C3. Under v7 every class is valid by construction, so no invalid attempt is expected.
+- **D-V7-5. Static validation** (`scripts/v7_static_validation.py`, seed 70707).
+  - Requested proposals are constructed until exactly 1,000 are emitted. The checks are structural only.
+  - The pass criteria are listed in the script's docstring.
+  - Coupling recognition is required on every emitted proposal. On the canonical form, a class may be lost only where the drawn expression simplifies to one that reads no required leaf (a vacuous dependence such as `(sub h h)`, which the unchanged filter will log as `pure_rule`).
+  - The script was dry-run once with the non-official seed 71717, writing only to a scratch directory, to check that it runs. It passed.
+
+## D-S3-IMPL — Stage-3 runner (session 19; committed while the official v7 Stage 2 was still running, before its promotion list was final)
+
+`ams/stage3.py` and `scripts/stage3.py <stage2_run> <stage3_run>` implement D-S3-1…4 and D-S3-v4 without changing any rule. Where the frozen text leaves a detail open:
+
+- **Seeds and learning rates.** Every condition runs on seeds 10000–10009 over the frozen learning-rate grid and selects its rate with `runners.select_lr` (D-LR-1). The per-seed metric is the Tier-1 one: B forgetting; C\* censored median half-life; F OOD error.
+- **G.** G is the best stable generic (SGD / SGDM / AdamW) by seed-mean metric on the Stage-3 seeds.
+- **A1.** C1 sets `w_eff` / `gain` to none. C2 replaces every routing gate that `Analysis._routing_gates` finds in dW with a typed constant 1. C3 sets STRUCT to none. The result is canonicalized.
+- **A2 / A3.** Only non-EXAMPLE registers are affected, and only when P has one. The reset happens before that step's update:
+  - events: B at t = 500; C\* at the regime entries 256, 320 and 384; F at t = 100, 200, 300 and 400;
+  - A3 noise is drawn per run, layer and register, with the standard deviation of the register's current values, from an RNG keyed by (run seed, 7331, t, layer).
+- **A5a / A5b.** P's update Δ is treated as g = −Δ and fed through heavy-ball SGDM (β 0.9) or AdamW moments (0.9 / 0.999 / 1e-8, wd 0.01), with the generic controls' constants. A test checks that R1_SGD fed this way reproduces the generic SGDM / AdamW trajectory.
+- **A6.** k = ⌈FLOPs_P / FLOPs_G⌉, with `learner_flops_per_example` on the task's network.
+- **A7.** The smallest hidden width at which G's network has params ≥ P's params + P's persistent state floats, both on the task's network.
+- **Unstable or failed conditions** count as infinitely bad (lower is better):
+  - an unstable K(P), A1, A6 or A7 therefore counts as the effect dropping, or as P beating it;
+  - an unstable A5b fails gate 5;
+  - a known control must be stable to be used.
+- **Robustness add-on.**
+  - Perturbed: register decays (DECAYS), expression constants in the constant set, topk k (TOPK_KS) and STRUCT θ, each moved to each neighbouring value of its frozen set, one at a time.
+  - Constants in the canonical program count as evolved, including constructor-template constants, since mutation can change them. Folded constants outside the set are skipped.
+  - With no perturbable constant, the add-on is N/A and passes.
+- **Statistics.**
+  - Wilcoxon: one-sided paired signed-rank test on G − P, zeros dropped; an all-zero difference gives p = 1.
+  - Holm: applied over all promoted (candidate, task) pairs at α = 0.05.
+  - Bootstrap: percentile 95% CI of the mean per-seed difference, 10,000 resamples, RNG seed 12345.
+- **Gate 2 on B** compares with the seed-mean variance of the Task-2 held-out targets.
+- **Cursor A1** is a Welch one-sided test that A1 > P, passing at p < 0.01; an unstable A1 gives p = 0. **Cursor A7** rejects if |m_A7 − m_P| ≤ 0.05·|m_P|.
+- **Known control:** the strongest stable control. It passes if P's seed mean is better and the one-sided Wilcoxon test (control − P) gives p < 0.05, uncorrected.
+- **Tier 3** (Tasks A and E, seeds 20000–20009) is only listed for candidates with the maximum label; it is not implemented yet.
+- **Smoke test:** only non-official seeds 900–901 were used. The Stage-3 seeds had not been run before the official Stage 3.

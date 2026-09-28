@@ -81,6 +81,7 @@ class Pipeline:
         self.rediscovery_by_family: Dict[str, int] = {}
         self.archive: Dict[Tuple[int, int, int], Record] = {}
         self.records: List[Record] = []
+        self.construction: Dict[str, dict] = {}       # v6: pid -> constructor metadata (logging only)
 
     def _emit(self, rec: Record):
         self.records.append(rec)
@@ -198,14 +199,49 @@ class Pipeline:
         return rec
 
 
-def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[str], None]] = None) -> Dict:
-    """AE.3.4 loop.  Returns stop reason and per-generation stats."""
-    gen = Gen(rng)
+def _v6_slot(pipe: Pipeline, gen) -> None:
+    """One anchored proposal slot (prereg v6 / v7; D-V6-4, D-V7-4; used by both constructors).  Invalid attempts are logged and count
+    as generated, exactly like invalid offspring retries (AE.3.5); after MAX_RETRY invalid
+    attempts the slot is skipped."""
+    for cand, meta, code in gen.v6_attempts():
+        if code is None:
+            pipe.try_add(cand)
+            pipe.construction[f"P{pipe.counts['generated']:05d}"] = meta
+            return
+        if pipe.counts["generated"] >= N_GEN_MAX:
+            raise BudgetExhausted("N_GEN_MAX")
+        pipe.counts["generated"] += 1
+        pipe.counts["invalid"] += 1
+        pid = f"P{pipe.counts['generated']:05d}"
+        pipe.construction[pid] = meta
+        pipe._emit(Record(pid, program_to_dict(cand), "invalid", detail={"code": code, "v6": meta}))
+
+
+def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[str], None]] = None,
+               init: str = "v5") -> Dict:
+    """AE.3.4 loop.  Returns stop reason and per-generation stats.
+
+    init="v5": initial / empty-archive proposals from the v5 uniform random constructor.
+    init="v6": from the v6 SGD-anchored constructor; init="v7": from the v7 constructor (v6 C1 / C3,
+    detector-aligned C2); everything else is unchanged."""
+    if init == "v5":
+        gen = Gen(rng)
+        propose = lambda: pipe.try_add(gen.program())
+    elif init == "v6":
+        from .v6gen import AnchoredGen
+        gen = AnchoredGen(rng)
+        propose = lambda: _v6_slot(pipe, gen)
+    elif init == "v7":
+        from .v7gen import DetectorAlignedGen
+        gen = DetectorAlignedGen(rng)
+        propose = lambda: _v6_slot(pipe, gen)
+    else:
+        raise ValueError(init)
     stats = []
     progress = progress or (lambda s: None)
     try:
         while pipe.counts["tier1_evaluated"] < N_INIT:
-            pipe.try_add(gen.program())
+            propose()
         progress(f"init done: {pipe.counts}")
         stale = 0
         for g in range(1, G_MAX + 1):
@@ -214,7 +250,7 @@ def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[
             target = pipe.counts["tier1_evaluated"] + OFFSPRING
             while pipe.counts["tier1_evaluated"] < target:
                 if not pipe.archive:
-                    pipe.try_add(gen.program())
+                    propose()
                     continue
                 elites = list(pipe.archive.values())
                 A = rng.choice(elites)

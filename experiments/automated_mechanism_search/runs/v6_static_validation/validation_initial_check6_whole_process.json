@@ -1,0 +1,145 @@
+{
+ "attempts_total": 1258,
+ "canon_coupling_removed_by_canonicalization": 3,
+ "checks": {
+  "1_constructor_invariants": true,
+  "2_every_slot_valid_within_10": true,
+  "3a_raw_learning_signal": true,
+  "3b_raw_intended_coupling": false,
+  "4a_canon_learning_signal": true,
+  "4b_canon_coupling_loss_only_by_canonicalization": false,
+  "5_uniform_class_choice": true,
+  "6_no_evaluation_modules_imported": false
+ },
+ "evaluation_modules_imported": [
+  "ams.interp"
+ ],
+ "git_at_start": {
+  "commit": "956efdf61a0e770da545e0de2a61be00d796dd84",
+  "dirty_excluding_runs": false
+ },
+ "invariant_failures": {
+  "backbone_exact": 0,
+  "backprop_signal_in_dW": 0,
+  "class_template_exact": 0,
+  "no_cvec": 0,
+  "register_limits": 0,
+  "type_valid": 0,
+  "update_every_1": 0,
+  "within_node_depth_limits": 0
+ },
+ "n_slots": 1000,
+ "no_task_evaluation": "no T0, probe, B, C* or F run; no FamilyLibrary; structural checks only",
+ "pass": false,
+ "per_class": {
+  "C1": {
+   "attempts": 347,
+   "canon_intended_coupling_detected": 347,
+   "canon_learning_signal": 347,
+   "canon_no_coupling_at_all": 0,
+   "conditional_redraws": 647,
+   "drawn_expr_depth_attempts": {
+    "1": 169,
+    "2": 178
+   },
+   "drawn_expr_depth_valid": {
+    "1": 169,
+    "2": 178
+   },
+   "invalid_attempts": {},
+   "raw_intended_coupling_detected": 347,
+   "raw_learning_signal": 347,
+   "slots": 347,
+   "valid": 347
+  },
+  "C2": {
+   "attempts": 596,
+   "canon_intended_coupling_detected": 52,
+   "canon_learning_signal": 338,
+   "canon_no_coupling_at_all": 286,
+   "conditional_redraws": 873,
+   "drawn_expr_depth_attempts": {
+    "1": 338,
+    "2": 258
+   },
+   "drawn_expr_depth_valid": {
+    "1": 338
+   },
+   "invalid_attempts": {
+    "oversize": 258
+   },
+   "raw_intended_coupling_detected": 53,
+   "raw_learning_signal": 338,
+   "slots": 338,
+   "valid": 338
+  },
+  "C3": {
+   "attempts": 315,
+   "canon_intended_coupling_detected": 313,
+   "canon_learning_signal": 315,
+   "canon_no_coupling_at_all": 2,
+   "conditional_redraws": 498,
+   "drawn_expr_depth_attempts": {
+    "1": 179,
+    "2": 136
+   },
+   "drawn_expr_depth_valid": {
+    "1": 179,
+    "2": 136
+   },
+   "invalid_attempts": {},
+   "raw_intended_coupling_detected": 315,
+   "raw_learning_signal": 315,
+   "slots": 315,
+   "valid": 315
+  }
+ },
+ "protocol": "AMS-prereg-v6",
+ "raw_intended_coupling_missing": 285,
+ "seed": 60606,
+ "sub_choices": {
+  "C1_decay": {
+   "0.5": 124,
+   "0.9": 107,
+   "0.99": 116
+  },
+  "C1_reg_type": {
+   "M": 188,
+   "O": 159
+  },
+  "C3_decay": {
+   "0.5": 110,
+   "0.9": 107,
+   "0.99": 98
+  },
+  "C3_kind": {
+   "freeze": 151,
+   "reinit": 164
+  },
+  "C3_theta": {
+   "0.0": 101,
+   "0.1": 98,
+   "0.5": 116
+  }
+ },
+ "uniformity": {
+  "p_C1_decay": 0.5350686457267223,
+  "p_C1_reg_type": 0.11951760468916447,
+  "p_C3_decay": 0.6897482718033083,
+  "p_C3_kind": 0.4638835648590298,
+  "p_C3_theta": 0.41241948270015805,
+  "p_slots": 0.4417549333953924,
+  "p_valid": 0.4417549333953924,
+  "slots": [
+   347,
+   338,
+   315
+  ],
+  "valid": [
+   347,
+   338,
+   315
+  ]
+ },
+ "valid_proposals": 1000
+}

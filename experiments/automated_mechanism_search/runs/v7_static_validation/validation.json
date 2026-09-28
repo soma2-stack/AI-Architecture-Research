@@ -1,0 +1,152 @@
+{
+ "checks": {
+  "1_emitted_1000_type_valid_within_limits": true,
+  "2_constructor_invariants_backbone_templates": true,
+  "3a_raw_learning_signal": true,
+  "3b_raw_intended_class_recognized": true,
+  "4a_canon_learning_signal": true,
+  "4b_canon_class_loss_only_vacuous": true,
+  "5_uniform_primary_class": true,
+  "6_invalid_attempts_recorded_separately": true,
+  "7_no_evaluation_modules_imported_during_construction": true
+ },
+ "emitted": 1000,
+ "evaluation_modules_imported_during_construction": [],
+ "git_at_start": {
+  "commit": "27f2e81f81be5583a505eaae035bc93d4c1b88ba",
+  "dirty_excluding_runs": false
+ },
+ "instantiated_attempts": 1000,
+ "invalid_attempts": [],
+ "invariant_failures": {
+  "backbone_exact": 0,
+  "backprop_signal_in_dW": 0,
+  "class_template_exact": 0,
+  "missing_check": 0,
+  "no_cvec": 0,
+  "register_limits": 0,
+  "residual_scale_0.1": 0,
+  "type_valid": 0,
+  "update_every_1": 0,
+  "within_node_depth_limits": 0
+ },
+ "n_emitted_target": 1000,
+ "no_task_evaluation": "no T0, probe, B, C* or F run; no FamilyLibrary; structural checks only",
+ "pass": true,
+ "per_class": {
+  "C1": {
+   "attempts": 320,
+   "canon_intended_detected": 319,
+   "canon_learning_signal": 320,
+   "canon_loss_non_vacuous": 0,
+   "canon_loss_vacuous": 1,
+   "conditional_redraws_not_counted": 685,
+   "drawn_expr_depth": {
+    "1": 143,
+    "2": 177
+   },
+   "emitted": 320,
+   "invalid_attempts": {},
+   "raw_intended_detected": 320,
+   "raw_learning_signal": 320,
+   "requested": 320
+  },
+  "C2": {
+   "attempts": 350,
+   "canon_intended_detected": 350,
+   "canon_learning_signal": 350,
+   "canon_loss_non_vacuous": 0,
+   "canon_loss_vacuous": 0,
+   "conditional_redraws_not_counted": 537,
+   "drawn_expr_depth": {
+    "0": 181,
+    "1": 169
+   },
+   "emitted": 350,
+   "invalid_attempts": {},
+   "raw_intended_detected": 350,
+   "raw_learning_signal": 350,
+   "requested": 350
+  },
+  "C3": {
+   "attempts": 330,
+   "canon_intended_detected": 330,
+   "canon_learning_signal": 330,
+   "canon_loss_non_vacuous": 0,
+   "canon_loss_vacuous": 0,
+   "conditional_redraws_not_counted": 599,
+   "drawn_expr_depth": {
+    "1": 185,
+    "2": 145
+   },
+   "emitted": 330,
+   "invalid_attempts": {},
+   "raw_intended_detected": 330,
+   "raw_learning_signal": 330,
+   "requested": 330
+  }
+ },
+ "protocol": "AMS-prereg-v7",
+ "requested_proposals": 1000,
+ "seed": 70707,
+ "skipped_requests": 0,
+ "sub_choices": {
+  "C1_decay": {
+   "0.5": 109,
+   "0.9": 110,
+   "0.99": 101
+  },
+  "C1_reg_type": {
+   "M": 148,
+   "O": 172
+  },
+  "C2_route": {
+   "topk": 172,
+   "where": 178
+  },
+  "C2_selector_depth": {
+   "0": 181,
+   "1": 169
+  },
+  "C2_topk_k": {
+   "1": 56,
+   "4": 62,
+   "8": 54
+  },
+  "C3_decay": {
+   "0.5": 96,
+   "0.9": 119,
+   "0.99": 115
+  },
+  "C3_kind": {
+   "freeze": 165,
+   "reinit": 165
+  },
+  "C3_theta": {
+   "0.0": 117,
+   "0.1": 98,
+   "0.5": 115
+  }
+ },
+ "uniformity": {
+  "emitted": [
+   320,
+   350,
+   330
+  ],
+  "p_C1_decay": 0.7960247505224359,
+  "p_C1_reg_type": 0.17971249487899593,
+  "p_C2_route": 0.7484275231355629,
+  "p_C2_selector_depth": 0.5212453081148145,
+  "p_C2_topk_k": 0.7390973893525953,
+  "p_C3_decay": 0.2534148847395554,
+  "p_C3_kind": 1.0,
+  "p_C3_theta": 0.37123904752777664,
+  "p_requested": 0.4965853037914094,
+  "requested": [
+   320,
+   350,
+   330
+  ]
+ }
+}
