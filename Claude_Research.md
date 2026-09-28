@@ -9,7 +9,43 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 24
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 25
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; last touched `a03ce6e`);
+  - `SHARED_RESEARCH_MAP.md`: all eight search modes closed; 0 architectures, 0 primitives, 0 anomaly survivors; no active experiment;
+  - the owner's GAS-0 instruction (in chat);
+  - `HANDOFF_Claude_GAS0_design.md`;
+  - this notebook.
+
+  Merged `origin/main` `425398c`.
+- **Current lens: GAS-0 — Gamedev Architecture Synthesis** (Part AR).
+  - It is empirical synthesis of *known* mechanisms for long-horizon game development on small local models.
+  - Novelty is not an acceptance criterion, and no closed novelty claim is reopened.
+- **Current stage: GAS-0 design COMPLETE** (design and research only; no code, no training, no compute).
+  - 9 failure modes mapped with evidence; 12 mechanisms screened; 3 candidates:
+    - A — VPS: Verified Project State;
+    - B — ISV: Impact-Scoped Verification;
+    - C — LCSM: Learned Compressed Session Memory.
+  - **GAS-0 Candidate A = VPS:**
+    - a typed project ledger (S);
+    - a harness-enforced cumulative regression gate with last-green rollback (V);
+    - a coupling K: verified-only status transitions, programmatic failure records, an edit-scoped ledger view, UNPROTECTED-requirement surfacing;
+    - on one frozen 7–9B 4-bit LLM (RTX 3060).
+  - Benchmark: GAS-Bench v0 — 5 game + 2 generic projects × 8 stages, hidden retention probes; primary metric RPS.
+  - Cells: C0 baseline, C1 S, C2 V, C3 S+V uncoupled, C4 S+V coupled; × 7 projects × 3 seeds. The verdict classes are pre-declared (AR.7).
+- **Strongest surviving item:** none as an architecture (0 supported architectures, 0 primitives). GAS-0 A is an *experimental synthesis target*, not a candidate architecture.
+- **Killed / closed:** all earlier lines (AMS, GG, OMD-0 families, OMD-PILOT-1: FAIL at Phase A). GAS-0 B/C are kept as alternatives, not killed.
+- **Unresolved:**
+  - whether a 7–9B local model sits inside the C0 calibration window [0.2, 0.8];
+  - closest prior art (CodeSpec; Claude Code memory + hooks; MERIT) — only the measured interaction is under study.
+- **CPU/GPU:** nothing used this session. Shared ledger 5.19629 CPU-h. GAS-0 primary matrix estimate ≈ 15–25 GPU-h (cap 30), plus a dev pilot ≤ 3 GPU-h.
+- **Exact next action: owner.**
+  - Hand the ready-to-paste prompt in `HANDOFF_Claude_GAS0_design.md` §13 to Codex. Codex builds, validates, freezes and pilots, then stops.
+  - The official matrix needs the owner's "GAS-0 Phase 2" authorization.
+  - Claude implements and trains nothing.
+
+# Resume Pointer as of session 24 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; last touched `a03ce6e`);
@@ -4855,6 +4891,171 @@ Frozen and pushed at `000f237` before the rerun.
 
   Its informative output is the calibration record (Stages 0–1) and a precisely characterized search-seeding failure.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
+
+---
+
+# Part AR — GAS-0: Gamedev Architecture Synthesis design (session 25, 2026-09-28; research and design only; no code, no training, no compute)
+
+**Objective change (owner):**
+- The question is now *which combination and native organisation of known mechanisms gives the strongest small AI system for long-horizon game development*, not invention of a new architecture.
+- Novelty is not an acceptance criterion.
+- Closed novelty claims are not reopened.
+
+**Full design and Codex packet:** `HANDOFF_Claude_GAS0_design.md` (self-contained; sections 1–13 including the Codex prompt).
+
+This part records the decisions and the evidence trail. About 25 web searches this session; sources are listed in the handoff. References marked † are recalled and were not re-verified.
+
+## AR.1 Failure map (summary)
+
+| ID | Failure | Evidence |
+|---|---|---|
+| F1 | Requirement/decision forgetting and stale behaviour | EvoCode-Bench: the aggregate pass rate falls below half of round 1 by round 5; spec-tracking and stale-behaviour failures. MemoryCode; DreamBench-SWE; context rot |
+| F2 | Regressions | EvoCode-Bench (strong agents eventually break core functionality); GameXpert-Bench (weak at preserving functionality across changes); SWE-bench P2P |
+| F3 | Mislocalisation | trajectory studies: localisation is the main bottleneck |
+| F4 | Context pollution | context rot; the harness-design study; Anthropic context engineering |
+| F5 | Unverified success claims | MAST task-verification failures; GameXpert-Bench runtime verification |
+| F6 | Repeated mistakes | MAST step repetition 15.7%; failed trajectories 12.6–82.5% longer; "Honest Lying" confabulated reflections (RRR 0.64) |
+| F7 | Lost unfinished work, poor decomposition | the harness study: planning helps weaker models |
+| F8 | Integration breaks | CodePlan; CodeSpec |
+| F9 | Erosion | SlopCodeBench: erosion in 77% of trajectories |
+
+## AR.2 Mechanism dispositions
+
+**Selected:**
+- M1: typed persistent project ledger (factor **S**);
+- M2: harness-enforced cumulative regression gate with last-green rollback (factor **V**);
+- M3: verification-gated programmatic ledger writes, the S–V coupling **K**. Evidence:
+  - "Honest Lying": programmatic failure extraction in place of self-diagnosis cuts RRR from 0.64 to 0.10;
+  - Xiong et al.: error propagation through experience-following; selective addition gives +10%;
+  - MERIT: verified-correction memory beats stateless repair on Qwen2.5-7B;
+  - ReasoningBank: bidirectional memory × test-time-scaling synergy.
+
+**Held constant** in every cell: M4 rule-based elision, which the harness-design study found the most efficient; M6 a plan step.
+
+**Candidates B/C only:**
+- M5 structural code map plus change-impact analysis;
+- M8 learned history compression.
+
+**Deferred:** M9 hybrid SSM/linear-attention backbones. There is evidence: the NVIDIA 8B Mamba2-Hybrid beats an 8B Transformer, and Qwen3-Coder-Next is a hybrid used for agentic coding. But GAS-0 fixes the backbone.
+
+**Rejected:**
+- MoE / routing (no failure mapping);
+- LLM self-critic (self-correction without external feedback is unreliable†);
+- test-time weight updates;
+- confidence tracking.
+
+## AR.3 Three candidates
+
+| Candidate | Components | Failures | Cost | Major failure mode |
+|---|---|---|---|---|
+| **A — VPS: Verified Project State** | ledger S + regression gate V + coupling K (gate events are the only route to VERIFIED/REGRESSED; programmatic failure records; edit-scope ledger view; UNPROTECTED requirements surfaced) | F1, F2, F5, F6 (F7) | training-free; 0 extra calls; ≤ 1,536 ledger tokens inside the same 16k budget; test CPU | a small model misuses the ledger, or the view crowds out history (negative interaction) |
+| B — ISV: Impact-Scoped Verification | AST/import/call/event-bus map + change-impact test selection + gate | F3, F8, F4, F2 | low (coverage ≈ 2× test time) | dynamic dispatch in game code (ECS, event buses) leaves impact sets incomplete; small projects make targeting pointless |
+| C — LCSM: Learned Compressed Session Memory | LoRA compressor → 48 recurrent soft memory tokens + BM25 retrieval | F1, F4 | high (trajectory generation + QLoRA, ≤ 4B on 12 GB) | opaque, lossy memory; tiny data; hard fairness (the baseline needs equal fine-tuning) |
+
+**Closest existing systems to A** (no novelty claimed):
+- Claude Code memory, todo list and test hooks;
+- aider auto-test plus git;
+- Agentless regression validation;
+- **CodeSpec** (executable specifications, long-horizon feature development);
+- MERIT and ReasoningBank;
+- ledger-memory plugins;
+- MemGPT†.
+
+What is new here is only the *controlled factorial measurement* of S × V, with a coupling control, on small local models.
+
+## AR.4 Selection: GAS-0 Candidate A = VPS
+
+**Why A:**
+- It targets the documented late-stage killers (F1, F2).
+- There is independent evidence for each half of the coupling.
+- It has the cleanest factorial plus an "ordinary decomposition" control (C3), which is the project's architecture/pipeline question made executable.
+- It is training-free on an RTX 3060, and the fairest (the same frozen model and budgets).
+
+**Why not B/C first:**
+- B's premise is weak for dynamic game code at small scale.
+- C is the most expensive and has the weakest fairness story.
+
+## AR.5 Mechanism of the predicted synergy
+
+| Configuration | What goes wrong / right |
+|---|---|
+| **S alone** | self-reported statuses drift (confabulation plus experience-following) |
+| **V alone** | gate lessons are ephemeral text: elided or truncated, then re-made in later stages; text-only requirements are never protected |
+| **S + V coupled** | statuses are ground truth; failure records persist keyed to requirements and symbols; UNPROTECTED requirements prompt the agent to write tests the gate then enforces (memory → verification) |
+
+**Predicted signature** (C4 vs max(C1, C2)):
+- the gain concentrated in S5–S8;
+- higher retention on text-only probes;
+- fewer repeated failures.
+
+## AR.6 Benchmark (GAS-Bench v0) and cells
+
+**Projects and stages:**
+- 7 evaluation projects: roguelike, platformer, tower defence, deck-builder, ECS shooter, plus generic task manager and expression interpreter (28.6% generic);
+- plus a dev project and a calibration project;
+- Python, headless, deterministic;
+- 8 stages: inspect, add mechanic, add interacting mechanic, injected bug, modify earlier feature (supersession), global constraint, runtime-crash diagnosis plus a deferred item recalled *without restating it*, cross-system integration.
+
+**Tests and metrics:**
+- visible tests (≈ 50%) plus hidden tests with retention probes;
+- text-only designer decisions have no visible tests;
+- **Primary metric RPS** = mean over stages of the cumulative hidden pass rate;
+- secondary: stage completion, regressions, requirement retention, unnecessary edits, recovery, repeated failures, full cost accounting.
+
+**Cells:**
+
+| Cell | Configuration |
+|---|---|
+| C0 | baseline |
+| C1 | S |
+| C2 | V |
+| C3 | S+V uncoupled (the ordinary decomposition) |
+| C4 | S+V coupled |
+
+- Each cell: 7 projects × 3 seeds.
+- Secondary cells K1–K4 (coupling sub-ablations), C0+ (compute-matched) and R2 (second, smaller model) run only if triggered.
+
+**Resource matching** (identical in every cell):
+- frozen weights and engine;
+- a 16,384-token context *including* the ledger view;
+- ≤ 30 calls per stage, ≤ 1,024 tokens per call, T = 0.2, seeds 1–3;
+- ≤ 40 test runs per stage;
+- 0 training tokens;
+- C0+ is required if C4 exceeds C0's usage by 10%.
+
+## AR.7 Pre-declared verdicts
+
+- **Definitions:** I = Δ_SV − Δ_S − Δ_V on RPS, with a 90% cluster bootstrap over projects.
+- **Verdicts:**
+
+  | Verdict | Condition |
+  |---|---|
+  | POSITIVE SYNERGY | I ≥ max(5 pp, 0.25(\|Δ_S\| + \|Δ_V\|)) with CI > 0, and Δ_SV > max(Δ_S, Δ_V) |
+  | ADDITIVE | Δ_SV > max with CI > 0, but I below the threshold |
+  | NO SYNERGY | Δ_SV not above max(Δ_S, Δ_V), and I not significantly negative |
+  | NEGATIVE INTERACTION | I ≤ −5 pp with CI < 0 |
+
+- **Coupling test:** COUPLING MATTERS if C4 − C3 ≥ 5 pp with CI > 0; otherwise CO-PRESENCE SUFFICES (pipeline).
+- **Validity gate:** C0 stage completion in [0.2, 0.8], otherwise INCONCLUSIVE.
+- **Novelty-review flag:** only if COUPLING MATTERS and POSITIVE SYNERGY both replicate with a second model and a second benchmark variant. Not claimed now.
+
+## AR.8 Compute estimate (for Codex's later run; nothing run now)
+
+**Primary matrix:**
+- 105 episodes; ≈ 12.6k calls; ≈ 4.4M completion tokens and ≈ 34M uncached prompt tokens;
+- on an RTX 3060 with a 7–9B Q4 model: **≈ 15–25 GPU-hours**, with a hard cap of 30;
+- plus ≈ 10–20 CPU-hours of test execution, concurrent;
+- the dev pilot is ≤ 3 GPU-hours.
+
+**Staging:** Codex stops after the dev pilot. The official matrix needs the owner's "GAS-0 Phase 2" authorization.
+
+## AR.9 Biggest risks
+
+1. Floor or ceiling at the 7–9B scale (mitigated by the calibration gate).
+2. Ledger tool-format errors in small models.
+3. Negative interaction through context crowding.
+4. An underpowered interaction estimate (7 projects): only large synergy is detectable, and INCONCLUSIVE is allowed.
+5. Scaffold-specific results; replication is needed.
 
 ---
 
