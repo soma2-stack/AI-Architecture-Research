@@ -10,7 +10,9 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 
 # Resume block
 
-**Current search lens:** Automated Mechanism Search (AMS) Stages 0–3 Independent Benchmark Validity & Results Audit Lane.
+**Current search lens:** Negative-space audit of the ten closed search modes. No new architecture is being proposed. No experiment is authorized.
+
+**Audit verdict (2026-09-28):** The ten modes jointly cover the architecture-organization dimensions they can express. No region meets the audit’s survival tests. False-negative pressure in the novelty filter is real and already partly corrected; it does not identify an unsearched organization.
 
 **Number of candidate primitives/architectures evaluated:** 
 - 72 primitive/substrate candidates (P1–P72: all 72 killed under calibrated novelty audit; 0 survivors).
@@ -19,6 +21,7 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 - Total evaluated to date: **103 candidates**. Total survivors: **0**.
 
 **Current stage:** 
+0. Negative-space search-space audit completed. Coverage map, filter risks, and the zero-region verdict are in the section **Negative-space search-space audit**. Prior stage record follows.
 1. Reclassification audit of P1–P72 completed (58 Existing Architecture, 11 Pipeline Only, 2 Existing Mechanism, 1 Impossible/Non-Identifiable).
 2. Interface Information-Loss Boundary completed (IC1–IC18 evaluated; 15 Existing Architecture, 3 Pipeline Only; Formulation of Representation-Communication Duality).
 3. Learning Dynamics Taxonomy completed across 14 core properties.
@@ -111,14 +114,139 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 - LD1–LD13: All 13 killed (11 `KILLED — EXISTING ARCHITECTURE`, 2 `KILLED — EXISTING ARCHITECTURE / OPTIMIZER`).
 
 **Core Architectural Finding:**
-Following the completion of the continuous optimization search series (AMS v5–v8: all yielding negative results due to classical basin saturation and stability/plasticity trade-offs such as P03974's $W_{\text{eff}} = W + W_{\text{ep0}}$), the project pivoted to the Origin Mechanism Discovery (OMD) paradigm. In OMD-0, 18 target families were screened, leaving only T1 RET (capacity-bounded retention under nonstationary reuse). Cursor's independent audit establishes that continuous neural latent coordinates are non-identifiable, but the mechanism's quotient transition automaton is identifiable under bisimulation. The all-slot $F_{\text{tick}}$ update grants an unfair $O(C)$ compute advantage requiring lazy-clock event-driven discretization, and T-KV transfer suffers from $\tau$-calibration leakage. T1 is retained strictly for a minimal planted-control pilot ($\le 1.0$ CPU-h) to validate extraction before any mixed-regime search or OMD-1 freeze.
+Following the completion of the continuous optimization search series (AMS v5–v8: all yielding negative results due to classical basin saturation and stability/plasticity trade-offs such as P03974's $W_{\text{eff}} = W + W_{\text{ep0}}$), the project pivoted to the Origin Mechanism Discovery (OMD) paradigm. In OMD-0, 18 target families were screened, leaving only T1 RET (capacity-bounded retention under nonstationary reuse). Cursor's independent audit establishes that continuous neural latent coordinates are non-identifiable, but the mechanism's quotient transition automaton is identifiable under bisimulation. The all-slot $F_{\text{tick}}$ update grants an unfair $O(C)$ compute advantage requiring lazy-clock event-driven discretization, and T-KV transfer suffers from $\tau$-calibration leakage. T1 was retained strictly for a minimal planted-control pilot ($\le 1.0$ CPU-h) to validate extraction before any mixed-regime search or OMD-1 freeze. That pilot later failed its imitation gate. The 2026-09-28 negative-space audit is the current result: no unsearched organization survives.
 
-**Unresolved prior-art questions:** None across P1–P72, IC1–IC18, and LD1–LD13. GRUMA verified from proceedings as an external sequence model (not a per-slot recurrent cache mechanism).
+**Unresolved prior-art questions:** None that name an unsearched organization. Early classical-machine kills were not each re-run under the later substitutability convention. Q06 remains parked because a lost matching invariant has no shown importance. Neither item is an unsearched region.
 
-**Exact next action:** Await owner authorization of the minimal OMD-0 planted-control pilot protocol (Phases A–C: blinded rediscovery of planted LRU/LFU/SIEVE/2Q controls, causal patching, plain-code transplant, $\le 1.0$ CPU-hour cap). Do NOT freeze OMD-1, do NOT train on mixed discovery regimes, and do NOT run benchmarks until the extraction pipeline passes the planted controls.
+**Exact next action:** Do not open another generation lens, grammar, anomaly family, theorem screen, or OMD instrument. A later search needs a named property that an ordinary decomposition fails to preserve, and that property has to sit outside the closed modes in the negative-space audit. No compute. The OMD planted-control pilot already failed its imitation gate; this audit does not redesign it.
 
 
 
+
+---
+
+# Negative-space search-space audit
+
+**Status:** completed 2026-09-28. Literature and notebook evidence only. No new candidate. No experiment. No literature survey beyond the closed-mode record.
+
+**Question.** Which architectural organizations could the methods already used have discovered, and which could they have missed for structural reasons?
+
+**Evidence used.** `AGENTS.md` (the primitive / architecture / pipeline rule). `SHARED_RESEARCH_MAP.md` (lanes, AMS grammar, do-not-reopen list, anomaly phase, OMD plan). This notebook’s resume and the AMS / OMD audit sections. Bounded excerpts only: Claude resume and Parts AA, AB, AE, AP, AQ; Codex resume through AR-150; `HANDOFF_Claude_grammar_gap_audit.md`.
+
+**Labels.** Statements below are **verified** when they restate a recorded protocol, grammar, or verdict, and **interpretation** when they judge coverage.
+
+## 1. Design dimensions
+
+The dimensions below are the ones a method would have to be able to vary before it could discover an organization of that kind.
+
+| Dimension | What a real variant would change |
+|---|---|
+| Persistent state organization | What is stored, at what lifetime, and whether slots can be created |
+| State-transition algebra | Map, relation, constraint solution, rewrite rule, or discrete transition |
+| Communication topology | Who can read whose state |
+| Routing topology | How an input selects a path |
+| Representation structure | Tensor, symbol, graph, distribution, quotient |
+| Execution semantics | What a step means |
+| Synchrony | One clock, or local clocks and events |
+| Update timing | When a write is allowed to happen |
+| Credit-flow topology | Which internal quantities receive a learning signal |
+| Local vs global information | What a part may use |
+| Parameter / state separation | What is slow, what is fast, what is ephemeral |
+| Train-time vs inference-time coupling | Whether the update rule is present at test time |
+| Variable structure | Whether the machine’s parts change |
+| Conditional computation | Whether work can be skipped |
+| Memory semantics | Address, content, append, retract, isolate |
+| Precision / discretization | Whether the state is exact, quantized, or hybrid |
+| Topology over time | Whether the graph of the step changes |
+| Interaction order | Whether the order of updates is part of the mechanism |
+| Compositional hierarchy | Whether scope and sub-machines are native |
+| Success criterion | Loss, worst-case separation, invariant, or extracted policy |
+
+The last row is added because several modes froze the criterion even when they varied the machine.
+
+## 2. Coverage map
+
+**Verified constraints, then interpretation.**
+
+| Mode | Dimensions it could vary | Dimensions it froze | What its grammar or evaluator could not express |
+|---|---|---|---|
+| 1. Concept-first invention | All of the rows, in prose. Early Claude batches and this notebook’s failure chains named memory, credit, scope, growth, identity, and synchrony-adjacent ideas (spikes, continuous time). | The human menu of named AI mechanisms. | Nothing formal. **Interpretation:** it misses organizations the inventor does not already have a name for. Part AA records that conclusion as library closure for primitive claims. |
+| 2. Primitive reduction / known-machine collision | The same menu, plus Codex archaeology through Petri nets, oscillators, amorphous computing, membrane systems, neuromorphic substrates, and reflective interpreters. | A candidate had to be proposed first. Collision cannot invent. | A resource frontier that was never stated as the claimed property. Many kills correctly name a preserving machine. |
+| 3. Native coupling / interface loss | Credit, solver derivations, routing, memory writes, and other cross-module signals (NC01–NC13, IC1–IC18, AR-139). | The picture of a system as modules with interfaces. | Intra-model parameterization. The record says attention, residual connections, backprop, and diffusion are not inter-module couplings. Those moved to mode 4. |
+| 4. Learning-dynamics concept search | The eight channels K1–K8: function class during training, non-parameter state, data-routed credit, hidden overparameterization, data-dependent preconditioning, credit rule, train/test asymmetry, landscape geometry. | A single model whose alternatives are reparameterizations or published occupants of those channels. | A transition algebra that is not a parameterization of a network. Constructive commitment was checked and reduced to Cascade-Correlation, ART, Growing Neural Gas, and program synthesis. |
+| 5. Bounded AMS | Tiny persistent registers; a gain or weight perturbation; activity-routed credit; one structural freeze/reinit. MAP-Elites over 56 cells of that grammar. Tasks B, C*, F. | Clocked layer execution; one program on every layer of a width-32 tanh MLP; scalar loss; SGD parameter step; dense tensors; static graph; at most four registers; decays from a fixed set; perturbations of size 0.1; no skips, attention, inner loops, fixed points, BPTT through registers, or meta outer loop. | The eight grammar gaps g1–g8: event-triggered lifetimes, indexed multi-slot memory, copy/restore/fork/merge, topology change, on-demand higher-order terms, per-layer heterogeneity, discrete hypothesis objects, replay. Also any organization larger than a small modulation of that MLP. |
+| 6. Grammar-gap expansion | Exactly g1–g8, as eight named candidates GG1–GG8. | The three AMS task failures as the only target properties. | Organizations that do not help B, C*, or F. All eight candidates were killed as existing machines or pipelines. GG2’s ordinary decomposition preserves every listed property. |
+| 7. Observed-mechanism discovery | Policies representable as a per-slot 2-D state, one global scalar, and shared event maps, on capacity-bounded retention. | The cache task, the slot layout, and imitation as the training contract. Seventeen other target families were killed as occupied compact designs. | Anything whose state is not that small continuous slot machine. The planted-control pilot failed the imitation gate on LRU, LFU, SIEVE, and 2Q (Claude Part AQ: 3/36 held-out pairs passed; all four controls failed). **Interpretation:** the instrument could not represent the known discrete policies it was required to rediscover, so it could not reveal a new one. |
+| 8. Property-first separation search | Properties a human selects, then a demand that decomposition lose the property. Calibration controls: path length, identity gradient, credit cost, noise-schedule coupling, learned clauses. Q06 (no blocking pairs) was parked. | The selected property list. | An organization whose property is not one of those pairs. Importance was an extra gate: Q06 loses a hard property under decomposition and still was not reopened, because no importance was shown. |
+| 9. Anomaly-first mining | Mechanisms already visible inside trained Transformers: sinks and massive activations, Hydra self-repair, continual plasticity collapse (AR-148–AR-150). | The Transformer compute graph and published anomalies. | An organization nobody has trained and published. All three anomalies were closed as ordinary parameter, optimizer, and residual-stream dynamics. |
+| 10. Theorem-first constructive separation | Loopholes in named no-go theorems: proof-system non-automatability, Littlestone stability, Pitman–Koopman–Darmois / additive deletion, Lin–Kelly tracking (NG-1–NG-9). | Those theorems’ statements. | A separation that is not a worst-case gap in concept invention, discrete commitment, or exact deletion. The recorded loopholes are occupied by library learning, replicability, and known sufficient statistics. |
+
+**Interpretation of the union.** Modes 1–2 and the Codex collision library are wide and shallow: they can name almost any classical organization and then kill it. Modes 3–6 are narrow and mechanical: they can generate or reject only organizations inside a module interface, a K1–K8 channel, or the AMS grammar. Modes 7–10 can see only a cache automaton, a prechosen property, a published Transformer anomaly, or a loophole in three aspirations. An organization is unsearched only if it falls outside all ten of those nets at once.
+
+## 3. False-negative risks in the filter
+
+The written rule, after calibration, is the one in `AGENTS.md`: known low-level operations do not by themselves kill an architecture claim; the ordinary decomposition has to preserve the claimed property. “Ordinary decomposition” in the calibration note means known components at their ordinary interfaces, trained in their ordinary way.
+
+**Where practice followed the rule. Verified.**
+
+- AB.1 accepts attention, residual connections, the origin of reverse-mode credit, diffusion, and CDCL as architectures, and rejects RAG, tool use, and LLM-to-SAT as pipelines. Simulability is not the reason.
+- The P-batch reclassification asks, candidate by candidate, whether the ordinary decomposition preserves the property. Several kills record that the classical machine preserves the invariant more tightly than the proposed continuous encoding.
+- GG2 is killed because a stated decomposition preserves every claimed property, not because the pieces are computable.
+- CDCL is used as the control that “same SAT function” is not architectural equivalence.
+
+**Where the filter was too strong, and what remains. Interpretation.**
+
+- Before calibration, the session-7 table would have rejected CDCL despite a proven separation, and would have rejected attention, residuals, backprop, and diffusion. That pressure was real. The recalibration and AB.1 corrected it for those controls. AB.3 re-audited 13 of the strongest older kills; none reopened. Two were existing architectures; the rest were pipelines whose property survived decomposition.
+- Q06 is the clearest leftover: decomposition loses “no blocking pairs,” and the candidate stays parked because importance was not shown. That is an importance gate, not a decomposability kill. It is one parked router, not an unsearched region.
+- AMS can false-negative a mechanism whose benefit is a large reorganization. The grammar only allows a 0.1 modulation, and promotion requires the effect to beat the program’s own known pieces on B, C*, or F. A CDCL-sized coupling cannot be written there. Those couplings were the subject of modes 3, 4, and 6, which collided with prior art. The AMS miss is therefore a grammar miss, and the grammar miss was then searched.
+- Early “use the classical machine” lines in this notebook were not each rewritten under the later convention. The ones inspected name a machine that performs the same transition and preserves the stated property. A full re-audit could still find a chain that stopped at primitive equivalence and skipped a resource frontier. That is a process residue. It is not, by itself, a located organization.
+- Killing a claim because a more expensive simulator exists would violate the rule. The checked post-calibration kills do the opposite when the resource is the property: backprop passes against finite differences because of the credit-cost law; OMD’s all-slot tick was charged because it spent O(C) work the O(1) policies do not spend. Matched-resource rejection is the rule working.
+
+**Interpretation.** The live false-negative risk is concentrated in two places: the importance gate (Q06), and the un-rerun bulk of pre-calibration chains. Neither supplies a region that modes 3–10 left unexpressed.
+
+## 4. Were the hidden assumptions actually frozen?
+
+| Assumption | Frozen in which modes | Varied elsewhere |
+|---|---|---|
+| Clocked layer execution | AMS, learning-dynamics channels as sampled, anomaly audits | Continuous time and event systems appear in collision results and in this notebook’s ODE and spike reductions |
+| Tensor in, tensor out | AMS, OMD instrument, anomaly audits | Symbolic machines are the collision library’s default killers |
+| Static parameter arrays | AMS, except one structural op | Growth, NAS, and constructive learners were searched and closed |
+| Fixed update equations | AMS grammar | Grammar-gap named the missing ops and killed them |
+| Global synchrony | AMS, OMD’s learner | Petri nets, oscillators, neuromorphic event systems in the collision record |
+| Parameters separate from activations | AMS, with a few registers as the allowed exception | Fast weights, TTT, Titans, HOPE occupy K2 |
+| Fixed graph per step | AMS (g4) | Dynamic graphs and architecture search are on the do-not-reopen list |
+| Scalar loss and a standard optimizer | AMS tasks; learning-dynamics screen | Theorem mode uses worst-case separations instead, and those loopholes are occupied |
+| Dense numerical state | AMS, OMD, anomalies | Exact symbolic state is granted in the known-machine library |
+| Predefined slots and width | AMS (32×32, ≤4 registers); OMD (C slots, 2-D) | Variable structure was mode 6’s g3–g5 and was killed |
+
+**Interpretation.** These assumptions were frozen inside the automated and anomaly instruments. They were not frozen across the project. The concept, collision, and grammar-gap modes treated each of them as a known machine or as a killed candidate.
+
+## 5. Hostile check of apparent gaps
+
+Each row is an apparent miss. All are killed.
+
+| Apparent gap | Why it fails the survival tests |
+|---|---|
+| Event-driven or asynchronous organization | Occupied by Petri nets, neuromorphic event systems, and spiking reductions. A simulator that includes the event queue preserves the transitions. Criterion C: this is conditional/event computation already on record. |
+| Indexed multi-slot or content-addressed memory | g2, and the do-not-reopen list for NTM/DNC and external memory. |
+| Discrete hypothesis objects | g7. Exact search already solves the measured rebinding failure. Do-not-reopen: ordinary discrete search. |
+| Runtime growth, fork, merge | GG1 and the do-not-reopen list for generic module birth/death and architecture search. |
+| Data-dependent state lifetime | GG5 reduces to a forget gate, a change-point reset, or ART. |
+| Per-object cache automaton | OMD’s target. The primitive claim was recorded as dead on sight (a priority queue). The pilot failed before any new rule could be extracted. |
+| A ninth learning-dynamics channel | K1–K8 were the non-equivalent channels after optimizer restoration. Sampled candidates died as published architectures. A nameless ninth channel is not falsifiable (fails E). |
+| Quantitative edges inside residual, attention, fast-weight, or routing families | Those are known mechanisms (fails C). AMS already measured a bounded slice and promoted nothing. Settling a matched edge would be an experiment, which this audit does not recommend. |
+| Q06-style matching invariant | Considered, parked, and not a region beyond one router. Reopening it needs an importance argument the audit does not have. |
+| New specifications | Part AA’s conclusion about what could still pass the primitive filter. A missing specification is not an organization of state, credit, or transition. It fails the request for an architectural region. |
+
+## 6. Verdict
+
+**Surviving unexplored regions: none.**
+
+**Strongest surviving region: none.**
+
+**What would have killed a region, had one remained.** A known machine at ordinary interfaces that preserves the stated transitions, credit flow, and resource law; or a failure of falsifiability; or membership in recurrence, memory, search, depth, mixture-of-experts, dynamic growth, or test-time learning.
+
+**Next method.** Do not start an eleventh generation mode. The ten modes fail in known ways: prior art, preserved properties, pipelines, hidden search, resource substitution, impossibility, optimization artifacts, non-identifiability, and known architectures sitting on the proposed gap. Another grammar, another anomaly list, or another tiny recurrent instrument repeats one of those modes. The only search that is not a repeat is one that starts from a property the ordinary decomposition loses, stated precisely enough to falsify, and placed outside the grammars, channels, theorems, anomalies, and cache instrument already closed. No such property is in hand.
 
 ---
 
@@ -9631,9 +9759,9 @@ $$\mathbf{RETAIN\ ONLY\ FOR\ MINIMAL\ IDENTIFIABILITY\ PILOT}$$
 
 # Exact handoff
 
-Start at **Exact next action** in the resume block. Do not reopen Candidates P1–P72, IC1–IC18, or LD1–LD13.
+Start at **Exact next action** in the resume block. Do not reopen Candidates P1–P72, IC1–IC18, or LD1–LD13. The negative-space audit found no surviving unexplored region.
 
-**Exact next action:** Await owner authorization of the minimal OMD-0 planted-control pilot protocol (Phases A–C: blinded rediscovery of planted LRU/LFU/SIEVE/2Q controls, causal patching, plain-code transplant, $\le 1.0$ CPU-hour cap). Do NOT freeze OMD-1, do NOT train on mixed discovery regimes, and do NOT run benchmarks until the extraction pipeline passes the planted controls.
+**Exact next action:** Do not open another generation lens, grammar, anomaly family, theorem screen, or OMD instrument. A later search needs a named property that an ordinary decomposition fails to preserve, and that property has to sit outside the closed modes in the negative-space audit. No compute. The OMD planted-control pilot already failed its imitation gate; this audit does not redesign it.
 
 
 
