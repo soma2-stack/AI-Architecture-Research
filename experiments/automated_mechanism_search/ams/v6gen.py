@@ -101,11 +101,15 @@ class AnchoredGen(Gen):
         self.redraws += meta["redraws"]
         return p, meta
 
-    def v6_attempts(self) -> Iterator[Tuple[Program, Dict, Optional[str]]]:
+    def v6_attempts(self, cap_check=None) -> Iterator[Tuple[Program, Dict, Optional[str]]]:
         """One proposal slot: pick the class once, then up to MAX_RETRY attempts.  Yields
-        (program, meta, invalid_code_or_None) lazily and stops after the first valid attempt."""
+        (program, meta, invalid_code_or_None) lazily and stops after the first valid attempt.
+        cap_check (prereg v8): called before each attempt is constructed; if it returns True the
+        slot stops without constructing another candidate (the caller raises BudgetExhausted)."""
         cls = self.v6_class()
         for a in range(1, MAX_RETRY + 1):
+            if cap_check is not None and cap_check():
+                return
             p, meta = self.v6_attempt(cls)
             meta["attempt"] = a
             code = valid(p)

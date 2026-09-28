@@ -19,7 +19,8 @@ CONFIG_V3 = os.path.join(HERE, "config", "run_config_v3.json")     # v3 record (
 CONFIG_V4 = os.path.join(HERE, "config", "run_config_v4.json")     # v4 record (v4 Stage 1)
 CONFIG_V5 = os.path.join(HERE, "config", "run_config_v5.json")     # v5 record (v5 Stage 1, v5 Stage 2 runs)
 CONFIG_V6 = os.path.join(HERE, "config", "run_config_v6.json")     # v6 record (v6 static validation only)
-CONFIG = os.path.join(HERE, "config", "run_config_v7.json")
+CONFIG_V7 = os.path.join(HERE, "config", "run_config_v7.json")     # v7 record (v7 Stage 2 / Stage 3)
+CONFIG = os.path.join(HERE, "config", "run_config_v8.json")
 
 RUN_CONFIG = {
     "protocol": PROTOCOL_VERSION,
@@ -62,6 +63,21 @@ RUN_CONFIG = {
                                 "<= 10 attempts per requested proposal, class fixed",
                   "max_construction_attempts": 10, "search_seed": 2026092806,
                   "static_validation": {"seed": 70707, "n_emitted": 1000}},
+    "stage2_v8": {"generator": "v7 detector-aligned anchored constructor; gate-mutation zero spelled (sub 1.0 1.0); "
+                               "N_GEN_MAX checked before any candidate is constructed",
+                  "search_seed": 2026092808, "fast_tier1_seeds": [5000, 5001, 5002],
+                  "confirm_seeds": [6000, 6001, 6002, 6003, 6004, 6005, 6006, 6007],
+                  "stage3_seeds": list(range(30000, 30010)),
+                  "cstar_metric": {"name": "normalized adaptation AULC", "ks": list(range(4, 65, 4)), "tau": 0.05,
+                                   "denominator_floor": 1e-8, "seed_metric": "0.5*(A_first_R1 + A_second_R1)",
+                                   "half_life": "diagnostic only"},
+                  "cstar_effect": "(m_G - m_P) / max(m_G, 1e-8)",
+                  "confirmation": {"q_min": 0.15, "adamw_min_improvement_sd": 2.0, "min_paired_wins": 6,
+                                   "min_return_ok_Cstar": 6, "max_candidates": 56, "per_task_max": 8,
+                                   "promoted_max": 20, "order": "descending q_confirm"},
+                  "stage3": {"Cstar_threshold": "m_P <= 0.5 * m_G (AULC)", "Cstar_min_return_ok": 8,
+                             "gate4_reference": "KF(P): exact canonical nearest known-family reference; K(P) diagnostic"},
+                  "max_construction_attempts": 10},
     "thresholds": {"dup_cos": 0.999, "family_cos": 0.99,
                    "B_forgetting_pp": 40, "B_retention": 80, "B_T2_mse_ratio": 1.25,
                    "C_hl_reduction": 0.5, "C_tau": 0.05, "F_train": 0.98, "F_sgg_pp": 15,

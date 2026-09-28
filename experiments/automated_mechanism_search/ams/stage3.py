@@ -2,9 +2,9 @@
 Stage-2 result, implemented here without change of rule).
 
 For each promoted candidate P on its promoted task t: every condition runs on the fresh seeds
-10000-10009 over the frozen learning-rate grid and selects its learning rate by the training-side
+(v7: 10000-10009; prereg v8: the locked 30000-30009, see `configure`) over the frozen learning-rate grid and selects its learning rate by the training-side
 rule D-LR-1 (`runners.select_lr`).  Conditions:
-    P, K(P) (residual removed), A1 (coupling cut), A2 / A3 (persistent registers zeroed / replaced
+    P, K(P) (residual removed), KF(P) (v8: exact nearest known-family reference), A1 (coupling cut), A2 / A3 (persistent registers zeroed / replaced
     by equal-std Gaussian noise at the B switch, every C* regime entry, every 100 steps in F),
     A4 (update_every flipped), A5a / A5b (P's update fed through SGDM / AdamW moments), A6 (best
     generic, k = ceil(FLOPs_P / FLOPs_G) updates per batch), A7 (best generic, hidden width widened
@@ -33,12 +33,32 @@ from .substrate import DT, Learner, Net, ProgramLearner, learner_flops_per_examp
 from .tasks import TaskB, TaskCstar, TaskF
 from .tier1 import mean_metric, seed_metrics
 
-STAGE3_SEEDS = list(range(10000, 10010))
+STAGE3_SEEDS = list(range(10000, 10010))       # v7; prereg v8 uses the locked 30000-30009 (configure)
+CM = "hl"                                       # C* metric: v7 censored half-life; v8 normalized AULC
+GATE4_REF = "K"                                 # Gate 4a/4b reference: v7 K(P); v8 KF(P) (exact nearest family)
 KNOWN_CONTROLS = {"B": ("GPM", "R17_EWC_SI", "R18_kWTA_sparse_update", "R13_fast_slow"),
                   "Cstar": ("R12_fast_weights", "R13_fast_slow", "R15_three_factor"), "F": ()}
 TASK_DIMS = {"B": (TaskB.d_in, TaskB.d_out), "Cstar": (1, 1), "F": (20, 2)}
 N_BOOT = 10000
 ALPHA = 0.05
+
+
+def configure(version: str) -> None:
+    """Select the frozen Stage-3 profile.  'v7': seeds 10000-10009, C* half-life, Gate 4 on K(P).
+    'v8': locked seeds 30000-30009, C* normalized AULC, Gate 4 on KF(P) (K(P) kept as a diagnostic)."""
+    global STAGE3_SEEDS, CM, GATE4_REF
+    if version == "v7":
+        STAGE3_SEEDS, CM, GATE4_REF = list(range(10000, 10010)), "hl", "K"
+    elif version == "v8":
+        STAGE3_SEEDS, CM, GATE4_REF = list(range(30000, 30010)), "aulc", "KF"
+    else:
+        raise ValueError(version)
+
+
+def nearest_family_program(name: str) -> Program:
+    """KF(P) (prereg v8): the exact canonical reference program of the nearest known family."""
+    from .families import REFERENCES
+    return canon(REFERENCES[name])
 
 
 # ---------------------------------------------------------------------------
@@ -145,8 +165,12 @@ class ProgramThroughOptimizer(ProgramLearner):
 def event_steps(task: str) -> set:
     if task == "B":
         return {TaskB.n1}
-    if task == "Cstar":
-        return {t for _, t in TaskCstar(STAGE3_SEEDS[0]).entries if t > 0}
+    if task == "Cstar":                         # regime entries from the (seed-independent) schedule
+        ts, t = [], 0
+        for _, n in TaskCstar.schedule:
+            ts.append(t)
+            t += n
+        return {t for t in ts if t > 0}
     return set(range(100, TaskF.n_updates, 100))
 
 
@@ -243,8 +267,8 @@ def summary(task: str, res: Dict) -> Dict:
         return {"stable": False, "error": res["error"]}
     s = summarize(task, select_lr(res, STAGE3_SEEDS))
     if s["stable"]:
-        s["seed_metric"] = seed_metrics(task, s)
-        s["metric"] = mean_metric(task, s)
+        s["seed_metric"] = seed_metrics(task, s, CM)
+        s["metric"] = mean_metric(task, s, CM)
     return s
 
 
@@ -329,7 +353,8 @@ def pre_decide(task: str, S: Dict[str, Dict], has_persistent: bool, flops_ratio:
     rob = {k: mG - _m(v) for k, v in S.items() if k.startswith("rob:")}
     out["robustness"] = {k: {"delta": d, "retains_half": bool(d >= 0.5 * D)} for k, d in rob.items()}
     out["robustness_ok"] = (sum(v["retains_half"] for v in out["robustness"].values()) >= 0.7 * len(rob)) if rob else True
-    mK, mA1 = _m(S.get("K")), _m(S.get("A1"))
+    mK, mA1 = _m(S.get(GATE4_REF)), _m(S.get("A1"))
+    out["gate4_reference"] = GATE4_REF
     out["gate4a_K_drops_half"] = bool(mG - mK <= 0.5 * D)
     out["gate4b_P_beats_K_by_half_tau"] = bool(mK - mP >= T / 2)
     out["gate4c_A1_drops_half"] = bool(mG - mA1 <= 0.5 * D)
@@ -358,7 +383,11 @@ def pre_decide(task: str, S: Dict[str, Dict], has_persistent: bool, flops_ratio:
         out["A2_A3_drop_half"] = bool(mG - _m(S.get("A2")) <= 0.5 * D or mG - _m(S.get("A3")) <= 0.5 * D)
     else:
         out["A2_A3_drop_half"] = None
-    out["recorded"] = {k: _m(S.get(k)) for k in ("A2", "A3", "A4", "A5a", "A5b", "A6", "A7", "K", "A1")}
+    out["recorded"] = {k: _m(S.get(k)) for k in ("A2", "A3", "A4", "A5a", "A5b", "A6", "A7", "K", "KF", "A1")}
+    if S.get("P", {}).get("hl_censored_seeds") is not None:
+        out["diagnostic_half_life_P"] = float(np.mean(S["P"]["hl_censored_seeds"]))
+        if G and S[G].get("hl_censored_seeds") is not None:
+            out["diagnostic_half_life_G"] = float(np.mean(S[G]["hl_censored_seeds"]))
     return out
 
 

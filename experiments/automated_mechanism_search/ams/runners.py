@@ -16,8 +16,19 @@ from .tasks import TaskB, TaskCstar, TaskD, TaskF, TaskT0
 LR_GRID = (1e-3, 1e-2, 1e-1)
 TIME_PER_SEED = 120.0
 
+# prereg v8 Stage-3 seed lock: these seeds may be run only by the official Stage 3, which sets
+# AMS_STAGE3_UNLOCK=1 in its (forked) environment.
+LOCKED_STAGE3_SEEDS = frozenset(range(30000, 30010))
+
+
+class SeedLockError(RuntimeError):
+    pass
+
 
 def _runs(seeds: Sequence[int], lrs: Sequence[float]) -> List[Tuple[int, float]]:
+    import os
+    if LOCKED_STAGE3_SEEDS & {int(s) for s in seeds} and os.environ.get("AMS_STAGE3_UNLOCK") != "1":
+        raise SeedLockError(f"seeds {sorted(LOCKED_STAGE3_SEEDS & set(map(int, seeds)))} are locked for v8 Stage 3")
     return [(int(s), float(lr)) for s in seeds for lr in lrs]
 
 
@@ -184,6 +195,12 @@ def run_C(make_learner: Callable[[], Learner], seeds: Sequence[int], lrs=LR_GRID
     per = []
     for r in range(len(runs)):
         hls = [MX.half_life(ev, m1[:, r], e, TaskCstar.tau, seg_len=seg) for e in entries]
+        # v8 AULC needs MSE_R1(e + k) for k = 4..64: always present under the frozen schedule; a
+        # shortened test schedule records NaN instead (never used by any official stage)
+        if all((e + k) in ev for e in entries for k in MX.AULC_KS):
+            areas = [MX.adaptation_area(ev, m1[:, r], e, TaskCstar.tau) for e in entries]
+        else:
+            areas = [float("nan"), float("nan")]
         pre = float(m0[ev.index(entries[0]), r])      # R0 just before the first shift (step 256)
         after = float(m0[ev.index(entries[1]), r])    # R0 after 64 steps back in R0 (step 384)
         per.append({
@@ -191,6 +208,7 @@ def run_C(make_learner: Callable[[], Learner], seeds: Sequence[int], lrs=LR_GRID
             "median_hl_censored": MX.median_hl([MX.censor(h) for h in hls]),
             "R1_entry_mse": [float(m1[ev.index(e), r]) for e in entries],
             "R0_pre_shift": pre, "R0_after_return": after, "return_ok": MX.return_ok(pre, after),
+            "aulc_entries": areas, "aulc": float(0.5 * (areas[0] + areas[1])),
             "train_select": float(sq[:, r].mean()),
         })
     return {"task": "Cstar", "runs": runs, "eval_steps": ev, "R0": m0.T.tolist(), "R1": m1.T.tolist(),
@@ -400,7 +418,9 @@ def summarize(task: str, sel: Dict) -> Dict:
                 "return_ok_count": int(sum(p["return_ok"] for p in ps)),
                 "R0_pre_shift": float(np.mean([p["R0_pre_shift"] for p in ps])),
                 "R1_entry_mse_min": float(np.min([min(p["R1_entry_mse"]) for p in ps])),
-                "R1_entry_mse": [p["R1_entry_mse"] for p in ps]}
+                "R1_entry_mse": [p["R1_entry_mse"] for p in ps],
+                "aulc_mean": float(np.mean([p.get("aulc", float("nan")) for p in ps])),
+                "aulc_seeds": [p.get("aulc", float("nan")) for p in ps]}
     if task == "F":
         return {"stable": True, "lr": sel["lr"],
                 "train_acc": float(np.mean([p["train_acc"] for p in ps])),

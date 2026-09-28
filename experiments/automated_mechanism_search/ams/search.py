@@ -199,11 +199,16 @@ class Pipeline:
         return rec
 
 
-def _v6_slot(pipe: Pipeline, gen) -> None:
-    """One anchored proposal slot (prereg v6 / v7; D-V6-4, D-V7-4; used by both constructors).  Invalid attempts are logged and count
-    as generated, exactly like invalid offspring retries (AE.3.5); after MAX_RETRY invalid
-    attempts the slot is skipped."""
-    for cand, meta, code in gen.v6_attempts():
+def _v6_slot(pipe: Pipeline, gen, exact_cap: bool = False) -> None:
+    """One anchored proposal slot (prereg v6 / v7 / v8; D-V6-4, D-V7-4; used by all anchored
+    constructors).  Invalid attempts are logged and count as generated, exactly like invalid
+    offspring retries (AE.3.5); after MAX_RETRY invalid attempts the slot is skipped.
+    exact_cap (prereg v8 repair): N_GEN_MAX is checked before each attempt is constructed, so no
+    uncounted candidate is ever built once the cap has been reached."""
+    if exact_cap and pipe.counts["generated"] >= N_GEN_MAX:
+        raise BudgetExhausted("N_GEN_MAX")
+    for cand, meta, code in gen.v6_attempts(cap_check=(lambda: pipe.counts["generated"] >= N_GEN_MAX)
+                                             if exact_cap else None):
         if code is None:
             pipe.try_add(cand)
             pipe.construction[f"P{pipe.counts['generated']:05d}"] = meta
@@ -223,7 +228,10 @@ def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[
 
     init="v5": initial / empty-archive proposals from the v5 uniform random constructor.
     init="v6": from the v6 SGD-anchored constructor; init="v7": from the v7 constructor (v6 C1 / C3,
-    detector-aligned C2); everything else is unchanged."""
+    detector-aligned C2); init="v8": the v7 constructor with the v8 gate-mutation zero repair, and
+    N_GEN_MAX checked before any candidate (anchored or offspring) is constructed; everything else
+    is unchanged."""
+    exact_cap = init == "v8"
     if init == "v5":
         gen = Gen(rng)
         propose = lambda: pipe.try_add(gen.program())
@@ -235,6 +243,10 @@ def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[
         from .v7gen import DetectorAlignedGen
         gen = DetectorAlignedGen(rng)
         propose = lambda: _v6_slot(pipe, gen)
+    elif init == "v8":
+        from .v8gen import V8Gen
+        gen = V8Gen(rng)
+        propose = lambda: _v6_slot(pipe, gen, exact_cap=True)
     else:
         raise ValueError(init)
     stats = []
@@ -256,6 +268,8 @@ def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[
                 A = rng.choice(elites)
                 child = None
                 for _ in range(MAX_RETRY):
+                    if exact_cap and pipe.counts["generated"] >= N_GEN_MAX:
+                        raise BudgetExhausted("N_GEN_MAX")
                     if rng.random() < P_CROSS:
                         cand = gen.crossover(A.raw_program, rng.choice(elites).raw_program)
                     else:

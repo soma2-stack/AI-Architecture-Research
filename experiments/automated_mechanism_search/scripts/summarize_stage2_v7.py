@@ -7,11 +7,12 @@ import collections
 import gzip
 import json
 import os
+import sys
 
 import numpy as np
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RUN = os.path.join(HERE, "runs", "stage2_v7")
+RUN = os.path.join(HERE, "runs", sys.argv[1] if len(sys.argv) > 1 else "stage2_v7")
 
 
 def _load(name):
