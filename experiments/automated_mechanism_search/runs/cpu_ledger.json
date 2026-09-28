@@ -63,8 +63,22 @@
    "wall_seconds": 16.182,
    "note": "official v5 Stage-1 calibration (parent 44.6s + workers 43.5s)",
    "utc": "2026-09-28T05:39:01Z"
+  },
+  {
+   "stage": "stage2",
+   "cpu_seconds": 4.927,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 Tier-1 baselines",
+   "utc": "2026-09-28T05:43:09Z"
+  },
+  {
+   "stage": "stage2",
+   "cpu_seconds": 542.312,
+   "wall_seconds": 0.0,
+   "note": "Stage-2 final",
+   "utc": "2026-09-28T05:45:52Z"
   }
  ],
- "total_cpu_seconds": 1203.136,
- "total_cpu_hours": 0.3342
+ "total_cpu_seconds": 1750.375,
+ "total_cpu_hours": 0.48622
 }

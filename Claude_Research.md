@@ -9,7 +9,41 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 15
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 16
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v5** (owner amendment `3d87298`: the V1-B-REP oracle is set to exactly 4,000 updates, marked final; everything else unchanged);
+  - `SHARED_RESEARCH_MAP.md` §12;
+  - this notebook.
+
+  The branch was fast-forwarded to `origin/main` `0985bfe`.
+- **Current stage:**
+  - **Official v5 Stage 1 PASSED** (`runs/stage1_v5/`). V1-B-REP at 4,000 updates: SGD 0.967 / 0.960; SGDM 0.958 / 0.952; AdamW 0.970 / 0.964. All other mandatory gates also passed.
+  - **Stage 2 began legally and was stopped by a frozen stop condition:** `implementation defects > 5` (D-S2v4-2).
+    - 5,782 programs were generated. **0** passed the T0 sanity filter (364 evaluated), so there were **0 Tier-1 evaluations**, archive occupancy **0/56**, and **0 promoted**.
+    - **Stage 3 was not reached.**
+  - The defect is the same in all six cases: `families.strip_gates` swaps a `where` gate for a scalar-typed branch inside the K(P) decomposition, which crashes typing. Affected programs were recorded as `defect`, not evaluated. The fix is described but not applied.
+  - Full record: Part AI; `experiments/automated_mechanism_search/STAGE2_REPORT.md`; `runs/stage2/`.
+- **Strongest surviving candidate(s):** none. No program reached Tier-1.
+- **Search counts** (5,782 generated):
+  - invalid 1,966;
+  - behavioural duplicates 46;
+  - pure rule (optimizer/local-rule rediscovery log) 2,884;
+  - no signal 516;
+  - REDISCOVERY 0, inert 0;
+  - sanity NEGATIVE 364;
+  - defects 6.
+
+  Rediscovery rate over screened programs: 76.6%. Negatives: 364 (100% of sanity-evaluated). Promoted IDs: none.
+- **CPU:** 0.486 CPU-h of the 30 CPU-h cap; no GPU.
+- **Exact next action:** owner decision.
+  - (a) Authorize a Stage-2 rerun with the `strip_gates` fix.
+  - (b) Decide whether the seeding and generator design must change, since the frozen random generator plus T0 filter produced zero learners in 5,782 draws.
+
+  Do not rerun Stage 2 without authorization.
+
+# Resume Pointer as of session 15 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged);
@@ -4401,6 +4435,96 @@ Implementation:
 ## AH.4 Lesson
 
 A representability oracle is itself a learning run with a budget. Before an oracle's threshold is frozen, its budget should be checked, or the requirement should be phrased as an existence proof (e.g. "some budget ≤ N").
+
+---
+
+# Part AI — AMS under Preregistration v5: Stage 1 PASS, Stage 2 search, defect stop (session 16, 2026-09-28)
+
+**Status:**
+- v5 Stage 1 PASSED.
+- Stage 2 began and stopped on the frozen implementation-defect rule, with 0 Tier-1 evaluations.
+- Stage 3 was not reached.
+
+## AI.1 Stage 1 (v5)
+
+**Change.** The owner amendment sets the V1-B-REP oracle to exactly 4,000 joint updates and declares it final. The implementation change was targeted:
+- the v5 markers;
+- `V5_ORACLE_UPDATES = 4000`, passed explicitly by `scripts/stage1_v5.py`, so the v4 script keeps reproducing the v4 evidence;
+- `config/run_config_v5.json`;
+- the affected tests (127).
+
+It was committed and pushed as `bd50231` before the run.
+
+**Verified results.** Seeds 100–104.
+
+| Gate | Result |
+|---|---|
+| V1-B-REP | SGD 0.967 / 0.960 (lr 0.1); SGDM 0.958 / 0.952; AdamW 0.970 / 0.964. All pass. |
+| M2-v4 | 0.988–0.989 |
+| M3 | 100 pp |
+| M4 | OOD ≈ 0.16, SGG ≈ 83 |
+| M5, M6, M7-v4, V3-F, V-D | pass, with values identical to v4 |
+
+**Stage 1: PASS. Stage 2 was legally allowed.**
+
+**Erratum.** The v4 and v5 Stage-1 manifests show `dirty_excluding_runs: true`. The only cause is the run configuration file the script writes before capturing git state; the code was committed. My v4 text calling it "clean" was corrected.
+
+## AI.2 Stage 2 (official search)
+
+**Implementation.**
+- Tier-1 evaluator (`ams/tier1.py`, implementing the pre-committed D-S2-2/3 and D-T1 rules).
+- Stage-2 driver (`scripts/stage2.py`): git state captured first; CPU = parent-self + workers; the cap is checked before every Tier-1 evaluation.
+- Defect handling (D-S2v4-2).
+- Probe compile cache.
+- 130 tests.
+- Committed `be4b73f` (clean) before the run. Search RNG: `random.Random(20260928)`.
+
+**Tier-1 baselines** (seeds 1000–1002): SGD is the best generic on B (Forgetting 100), C\* (half-life 12.0) and F (OOD error 0.82).
+
+**Verified outcome.**
+- 5,782 programs were generated.
+- Every sanity-evaluated program failed T0 (0/364). The best reached 0.60 × trivial loss (the threshold is ≤ 0.5 ×); the median was 0.76 ×.
+- Tier-1 evaluations: 0. Archive: 0/56. Promotions: none.
+- **Stop:** `implementation defects > 5` (6 defects).
+
+| Category | Count |
+|---|---|
+| invalid | 1,966 (34.0%) |
+| pure rule (no C1–C3) | 2,884 (49.9%) |
+| no learning signal | 516 |
+| behavioural duplicates | 46 |
+| REDISCOVERY | 0 |
+| REDISCOVERY_inert | 0 |
+| sanity NEGATIVE | 364 |
+| defects | 6 |
+
+Rediscovery rate over screened programs: 76.6%, all pure-rule logs. All records are in `runs/stage2/records.jsonl.gz`.
+
+**Defect root cause** (all six identical):
+- In the K(P) decomposition, `strip_gates` neutralizes `where(x, y, w)` to `y`.
+- When `y` is a legal scalar (S) branch, the subtree changes type and re-simplification raises a typing error.
+- The failure is a crash, not a silent mislabel; affected programs were excluded, not evaluated.
+- Proposed fix (not applied): replace the gate with a type-preserving broadcast, `add(0@T, y)`.
+
+## AI.3 Interpretation (not a verdict)
+
+- The frozen random generator and the AE sanity filter produced **no learner in 5,782 draws**. Even without the defect stop, the 218 remaining generations make reaching Tier-1 very unlikely.
+- The filter is sound: SGD, k-WTA, continual-backprop and DFA references pass it. Random coupled update expressions almost never descend the loss, and fast-weight couplings diverge on the linear output layer (Stage 1).
+- **This run is not evidence about the existence of a new mechanism.** It shows that the frozen search design cannot seed its archive.
+- The honest reading is a **search-design NEGATIVE**: the generator is too weak for this grammar and filter. It is not a mechanism-level NEGATIVE of the form "no non-family mechanism in G".
+
+## AI.4 Compute
+
+- Stage 1 v5: 88 CPU-s.
+- Stage 2: 547 CPU-s.
+- **Cumulative: 0.486 CPU-h of 30.**
+- No GPU.
+- Earlier Stage-1 ledger entries double-count worker CPU, which is conservative.
+
+## AI.5 Lessons
+
+1. A quality-diversity search seeded by uniform random programs needs its seeding yield measured at design time. Here the yield was 0/5,782 through the sanity filter. Seeding from coupling-bearing mutants of known references, as AutoML-Zero and Cartesian GP typically do, would likely avoid this, but it is a protocol change.
+2. The Stage-0 tests exercised K(P) only on reference programs. Property-based tests over random valid programs, asserting that `decompose` never raises, would have caught the `where`/scalar-branch defect before Stage 2.
 
 ---
 
