@@ -1,6 +1,6 @@
-"""Official Stage 0 (prereg v2 sec. 17): implementation validity + v2 mandatory checks.
+"""Official Stage 0 (prereg v3 sec. 17): implementation validity + v3 mandatory checks.
 
-Writes runs/stage0/{stage0_result.json, manifest.json, pytest.txt, taskB_gate.json,
+Writes runs/stage0_v3/{stage0_result.json, manifest.json, pytest.txt, taskB_gate.json,
 collision_selfcheck.json, profile.json} and appends to runs/cpu_ledger.json.
 Stage 0 passes only if every check passes; otherwise the run stops before Stage 1.
 """
@@ -23,11 +23,11 @@ from ams.families import DISGUISES, REFERENCES, FamilyLibrary  # noqa: E402
 from ams.grammar import make_program, M, O  # noqa: E402
 from ams.probes import (CORPUS_PATH, ProbeCorpusError, cos, git_blob_sha, load_corpus,  # noqa: E402
                         regeneration_check)
-from ams.runners import taskB_gate  # noqa: E402
+from ams.runners import V3_SEEDS, taskB_gate_v3  # noqa: E402
 from ams.substrate import DT, Net, ProgramLearner, Trainer  # noqa: E402
 
-OUT = os.path.join(HERE, "runs", "stage0")
-GATE_SEEDS = [100, 101, 102, 103, 104, 1000, 1001, 1002]
+OUT = os.path.join(HERE, "runs", "stage0_v3")
+GATE_SEEDS = list(V3_SEEDS)
 
 
 def main():
@@ -56,17 +56,19 @@ def main():
     last = [l for l in r.stdout.strip().splitlines() if l.strip()][-1] if r.stdout.strip() else ""
     checks["test_suite"] = {"pass": r.returncode == 0, "summary": last}
 
-    # 4. v2 Task-B gradient-conflict gate (D-TASK-B-GATE)
-    gate = [taskB_gate(s) for s in GATE_SEEDS]
-    g_pass = all(g["pass"] for g in gate)
+    # 4. v3 Task-B directional gradient-conflict gate (prereg v3 sec. 6.1; D-V3-1)
+    gate = taskB_gate_v3(GATE_SEEDS)
+    g_pass = gate["pass"]
     with open(os.path.join(OUT, "taskB_gate.json"), "w") as f:
-        json.dump({"rule": "mean cosine over 64 paired first-layer weight gradients <= -0.50 for every seed",
-                   "seeds": GATE_SEEDS, "results": gate, "all_pass": g_pass}, f, indent=1)
-    checks["taskB_gradient_conflict_gate"] = {
-        "pass": g_pass, "threshold": -0.50,
-        "per_seed_mean_cos": {g["seed"]: round(g["mean_cos"], 4) for g in gate},
-        "seeds_passing": int(sum(g["pass"] for g in gate)), "n_seeds": len(gate),
-        "pooled_mean_cos": round(float(np.mean([g["mean_cos"] for g in gate])), 4)}
+        json.dump({"rule": "v3: every seed-level mean cosine < 0 AND >= 90% of all 512 paired "
+                           "first-layer weight-gradient cosines < 0 (no magnitude threshold)", **gate}, f, indent=1)
+    checks["taskB_gradient_conflict_gate_v3"] = {
+        "pass": g_pass, "rule": "all seed means < 0; frac(cos < 0) >= 0.90",
+        "per_seed_mean_cos": {g["seed"]: round(g["mean_cos"], 4) for g in gate["per_seed"]},
+        "per_seed_n_negative": {g["seed"]: g["n_negative"] for g in gate["per_seed"]},
+        "cond1_all_seed_means_negative": gate["cond1_all_seed_means_negative"],
+        "frac_negative": round(gate["cond2_frac_negative"], 4), "n_cosines": gate["n_cosines"],
+        "pooled_mean_cos": round(float(np.mean([g["mean_cos"] for g in gate["per_seed"]])), 4)}
 
     # 5. collision-library self-check (recall, reference collisions)
     lib = FamilyLibrary()
@@ -127,24 +129,24 @@ def main():
 
     # verdict
     passed = all(c["pass"] for c in checks.values())
-    stop = None if passed else "PREREGISTRATION VALIDITY FAILURE (v2): " + ", ".join(
+    stop = None if passed else "PREREGISTRATION VALIDITY FAILURE (v3): " + ", ".join(
         k for k, c in checks.items() if not c["pass"])
     cpu = accounting.process_cpu_seconds() - cpu0
     wall = time.time() - wall0
-    led = accounting.record("stage0", cpu, wall, "Stage-0 gate script (tests, gate, self-check, profile)")
-    result = {"stage": 0, "protocol": "v2", "pass": passed, "stop_reason": stop, "checks": checks,
+    led = accounting.record("stage0_v3", cpu, wall, "official v3 Stage-0 script (tests, v3 gate, self-check, profile)")
+    result = {"stage": 0, "protocol": "v3", "pass": passed, "stop_reason": stop, "checks": checks,
               "stage1_allowed": passed, "cpu_seconds": round(cpu, 2), "wall_seconds": round(wall, 2),
               "cumulative_cpu_hours": led["total_cpu_hours"]}
     with open(os.path.join(OUT, "stage0_result.json"), "w") as f:
         json.dump(result, f, indent=1, default=str)
-    man = manifest.build_manifest("stage0", {"git_at_start": git_at_start, "seeds": {"taskB_gate": GATE_SEEDS},
+    man = manifest.build_manifest("stage0_v3", {"git_at_start": git_at_start, "seeds": {"taskB_gate": GATE_SEEDS},
                                              "cpu_seconds": round(cpu, 2), "stage0_pass": passed,
                                              "stop_reason": stop})
     with open(os.path.join(OUT, "manifest.json"), "w") as f:
         json.dump(man, f, indent=1)
     print(json.dumps({"pass": passed, "stop_reason": stop,
                       "checks": {k: c["pass"] for k, c in checks.items()},
-                      "gate": checks["taskB_gradient_conflict_gate"], "profile": prof,
+                      "gate": checks["taskB_gradient_conflict_gate_v3"], "profile": prof,
                       "detector": checks["detector_recall"], "cpu_s": round(cpu, 1)}, indent=1))
     return 0 if passed else 2
 

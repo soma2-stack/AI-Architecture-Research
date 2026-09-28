@@ -371,7 +371,8 @@ def first_layer_grad(net: Net, X: np.ndarray, Y: np.ndarray) -> np.ndarray:
 
 
 def taskB_gate(seed: int) -> Dict:
-    """Stage-0 v2 Task-B gradient-conflict gate (D-TASK-B-GATE)."""
+    """Per-seed Task-B paired first-layer gradient cosines (64 pairs) at the frozen
+    Glorot-normal initialization.  The v3 decision is taken over all seeds by taskB_gate_v3."""
     task = TaskB(seed)
     net = Net(TaskB.d_in, TaskB.d_out, [seed])
     cs = []
@@ -380,5 +381,26 @@ def taskB_gate(seed: int) -> Dict:
         g2 = first_layer_grad(net, X2, Y2).ravel()
         cs.append(float(g1 @ g2 / (np.linalg.norm(g1) * np.linalg.norm(g2))))
     return {"seed": seed, "n_pairs": len(cs), "mean_cos": float(np.mean(cs)),
-            "min_cos": float(np.min(cs)), "max_cos": float(np.max(cs)), "cosines": cs,
-            "pass": bool(np.mean(cs) <= -0.50)}
+            "min_cos": float(np.min(cs)), "max_cos": float(np.max(cs)),
+            "n_negative": int(sum(c < 0 for c in cs)), "cosines": cs,
+            "seed_mean_negative": bool(np.mean(cs) < 0)}
+
+
+V3_SEEDS = (100, 101, 102, 103, 104, 1000, 1001, 1002)
+V3_FRAC_NEG = 0.90
+
+
+def taskB_gate_v3_decide(per_seed: Sequence[Dict]) -> Dict:
+    """prereg v3 sec. 6.1: pass iff every seed-level mean cosine < 0 and >= 90% of all
+    paired cosines < 0.  No magnitude threshold."""
+    allc = [c for g in per_seed for c in g["cosines"]]
+    frac = float(np.mean([c < 0 for c in allc])) if allc else 0.0
+    cond1 = all(g["mean_cos"] < 0 for g in per_seed)
+    cond2 = frac >= V3_FRAC_NEG
+    return {"cond1_all_seed_means_negative": cond1, "cond2_frac_negative": frac,
+            "cond2_pass": cond2, "n_cosines": len(allc), "pass": bool(cond1 and cond2)}
+
+
+def taskB_gate_v3(seeds: Sequence[int] = V3_SEEDS) -> Dict:
+    per = [taskB_gate(s) for s in seeds]
+    return {"seeds": list(seeds), "per_seed": per, **taskB_gate_v3_decide(per)}

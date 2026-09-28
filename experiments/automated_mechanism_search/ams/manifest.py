@@ -14,7 +14,8 @@ from typing import Dict
 from . import COLLISION_LIBRARY_VERSION, GRAMMAR_VERSION, PROBE_BLOB_SHA, PROTOCOL_VERSION
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG = os.path.join(HERE, "config", "run_config.json")
+CONFIG_V2 = os.path.join(HERE, "config", "run_config.json")        # historical v2 record (unchanged)
+CONFIG = os.path.join(HERE, "config", "run_config_v3.json")
 
 RUN_CONFIG = {
     "protocol": PROTOCOL_VERSION,
@@ -30,7 +31,10 @@ RUN_CONFIG = {
     "budget": {"generated": 6000, "sanity": 3000, "tier1": 1200, "promoted": 20, "N_INIT": 200,
                "offspring": 50, "G_MAX": 20, "patience": 5, "p_crossover": 0.2, "q_min": 0.15,
                "per_cell": 1, "per_task": 8},
-    "thresholds": {"dup_cos": 0.999, "family_cos": 0.99, "taskB_gate_mean_cos": -0.50,
+    "taskB_stage0_gate_v3": {"seeds": [100, 101, 102, 103, 104, 1000, 1001, 1002], "pairs_per_seed": 64,
+                             "gradient": "first-layer weight matrix, batch-mean 0.5||e||^2",
+                             "init": "glorot_normal", "seed_mean_cos_lt": 0.0, "frac_pairs_negative_min": 0.90},
+    "thresholds": {"dup_cos": 0.999, "family_cos": 0.99,
                    "B_forgetting_pp": 40, "B_retention": 80, "B_T2_mse_ratio": 1.25,
                    "C_hl_reduction": 0.5, "C_tau": 0.05, "F_train": 0.98, "F_sgg_pp": 15,
                    "F_gate_train": 0.98, "F_gate_ood_max": 0.25, "F_gate_sgg_min": 75, "B_fit_mse": 1e-3},
