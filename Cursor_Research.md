@@ -10,7 +10,7 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 
 # Resume block
 
-**Current search lens:** Automated Search Benchmark Suite: Separating Genuine Learning Dynamics from Optimizer Tricks.
+**Current search lens:** Automated Mechanism Search (AMS) Stages 0–3 Independent Benchmark Validity & Results Audit Lane.
 
 **Number of candidate primitives/architectures evaluated:** 
 - 72 primitive/substrate candidates (P1–P72: all 72 killed under calibrated novelty audit; 0 survivors).
@@ -24,8 +24,42 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 3. Learning Dynamics Taxonomy completed across 14 core properties.
 4. Candidate Batch LD1–LD13 generated and killed (11 Existing Architecture, 2 Existing Optimizer/Pipeline).
 5. Continuous Parameter-Drift Theorem and Constructive Dynamics Boundary formalized (all continuous parameter-drift methods colonized 1986–2024; constructive commitment reduces to classical learners).
-6. **Automated Search Benchmark Suite Designed:** Formulated a rigorous, CPU-friendly microbenchmark suite (Tasks A–F) with 4 matched baselines, 7 mandatory ablations, exact dynamic metrics, statistical promotion thresholds, behavioral signature matrix, compute envelope, and preregistration template to isolate genuine learning-dynamics mechanisms from optimizer tricks and known architectures.
-7. Recommended Pilot Triad specified (Tasks B, D, F). No experiment execution initiated.
+6. Automated Search Benchmark Suite Designed (Tasks A–F, matched baselines, 7 ablations, exact metrics, compute envelope).
+7. **Stage 0 Independent Benchmark Implementation & Validation:** Completed. Independent unit test suite (`test_generators.py`) passed (6/6 tests passing). Verified determinism under seeds, train/eval separation, no target leakage, strictly 1D input with no boundary signal in Task C*, exact 90% train / 10% OOD shortcut in Task F, and condition number control in Task D.
+8. **AMS v4 Specification & Implementation Independent Verification:** Completed.
+   - Task-B M2-v4 (`FitReduction_B = 1 - L1_pre / max(L1_init, 1e-8)`): Verified uses held-out Task-1 eval set, averages across calibration seeds, enforces $\ge 0.95$ threshold, and LR selection is strictly based on training-batch MSE without exposure to Task-2 or OOD evaluation sets.
+   - Task-B Joint Representability Oracle (`V1-B-REP`): Verified 1,000 updates, batch size 32 (16 T1 + 16 T2 fresh examples), identical MLP architecture (width 32, tanh, Glorot normal), no early stopping, LR selected by final-50-update training loss, separate held-out evaluations, non-gating for candidate promotion. Confirmed zero train/eval leakage and no task ID exposure beyond existing private coordinate blocks.
+   - C* Sanity (`M7-v4`): Verified $R_0\text{ MSE} < 0.25$, both $R_1$ entries $> 0.05$, and finite censored adaptation half-life $< 64$ updates.
+   - Benchmark Invariance: Confirmed that Tasks B, C*, F generators, Task D diagnostic, candidate grammar, Stage-2 budgets, candidate promotion thresholds, and Stage-3 ablations are strictly unchanged in v4.
+9. **Official AMS v4 Stage-1 Machine-Readable Audit & Recomputation:** Completed.
+   - Recomputed all 9 mandatory v4 gates against `runs/stage1_v4/stage1_result.json`:
+     - `M6_controls_run`: **PASS** (all generic baselines stable).
+     - `M2_v4_B_fit`: **PASS** (SGD: 0.988, SGDM: 0.989, AdamW: 0.989, all $\ge 0.95$).
+     - `M3_B_interference`: **PASS** (100% forgetting, $L1_{post} > L1_{pre}$ on every seed).
+     - `M4_F_failure`: **PASS** (Train 100%, OOD 16.2%–16.8%, $SGG \approx 83\%$).
+     - `M5_detector`: **PASS** (carried forward from v3 Stage 0).
+     - `M7_v4_Cstar_sanity`: **PASS** ($R_0\text{ pre-shift} = 0.031$, $R_1\text{ entries} = 1.00 / 0.90$, half-lives = 14.0, 18.8, 17.6, all $< 64$).
+     - `V3_F`: **PASS** (Discrete synthesis achieves 1.00 OOD accuracy).
+     - `V_D`: **PASS** (Natural gradient reaches $S_\tau = 90 / 109$ at $\kappa=10^4 / 10^6$; SGD/SGDM diverge).
+     - `V1_B_REP`: **FAIL** (SGD: 0.914/0.904, SGDM: 0.883/0.867, AdamW: 0.884/0.859; all $< 0.95$).
+   - **Root Cause Classification:** Optimization budget mismatch under mini-batch SGD with gradient clipping. The 2-layer MLP requires coordinating hidden units to learn non-linear sign gating on shared coordinates conditional on private coordinates. Diagnostic proves representation is achieved at 4,000 updates (0.967 / 0.960). It is NOT an implementation error, NOT a metric calculation bug, and NOT an architectural representability limit.
+10. **AMS v5 Calibration & Stage-2 Repaired Rerun Audit:** Completed.
+    - Verified v5 Stage 1 passed every mandatory gate at 4,000 updates (`V1-B-REP` reached 0.967/0.960 with SGD, 0.958/0.952 with SGDM, 0.970/0.964 with AdamW).
+    - Verified the implementation repair for the `strip_gates` scalar-`where` typing defect (`add(0@T, y)`).
+    - Audited the exact repaired rerun in `runs/stage2_repair1/`: 6,000 programs generated, 0 defects, 382 reached T0, 0 passed T0 (best 0.596x vs <= 0.5x threshold), 0 reached Tier 1, 0 promoted. Confirmed classification as a search-design negative for uniform random typed generation.
+11. **AMS v6 Specification & Search-Design Independent Verification:** Completed.
+    - Verified the active protocol is **AMS v6** (amendment in `3cbb21f` and `a66a0f0`).
+    - Verified exact R1 SGD parameter-update backbone is preserved in initial proposals (`dW_base = neg(outer(d_bp, a))`, `db_base = neg(d_bp)`, `update_every = 1`).
+    - Verified uniform 1/3 sampling across primary coupling classes C1 (state -> forward), C2 (activity-routed credit), and C3 (structural operation).
+    - Verified bounded 0.1 perturbations: C1 ($w_{\text{eff}} = 0.1 \tanh(\text{reg})$ or $\text{gain} = 1.0 + 0.1 \tanh(\text{reg})$), C2 ($g = 1.0 + 0.1 \tanh(\text{selector})$), C3 ($\text{mask} = \tanh(\text{reg})$, $\theta \in \{0.0, 0.1, 0.5\}$).
+    - Verified candidate generation is strictly static/structural: zero benchmark data (B, C*, F) or T0 results are queried during proposal creation.
+    - Confirmed T0 sanity filter, Tier-1 benchmark generators/metrics, $2\sigma$-over-AdamW rule, MAP-Elites quality, promotion criteria, and Stage-3 ablations remain 100% unchanged.
+    - Verified absence of accidental advantages: no hidden updates, no extra data, no extra forward/backward passes, no uncounted parameters, and identical $\{10^{-3}, 10^{-2}, 10^{-1}\}$ LR tuning grid.
+12. **Independent Structural Proposal Audit (1,000 Non-Evaluated Samples):** Completed.
+    - Verified 100% of proposals satisfy node limits ($\le 45$ nodes) and register limits (C1: 1 register of type M/O; C2: 0 registers; C3: 1 register of type O).
+    - Verified persistent-state accounting: 100% RUN lifetime, init "0", decay $\in \{0.5, 0.9, 0.99\}$.
+    - C1 and C3 proposals cleanly populate MAP-Elites niches $(0, 0, 0)$ [feature], $(0, 0, 1)$ [synapse], and $(2, 0, 0)$.
+    - **Critical Descriptor Collapse Discovery:** Flagged that `ams/fingerprint.py:Analysis.c2()` was implemented to check strictly for discrete routing gates (`topk` or `where`). C2 proposals constructed with smooth activity modulations ($g = 1.0 + 0.1 \tanh(\text{selector})$ via `rowscale`) lack discrete gates, causing `c2()` to evaluate to `False`, `couplings` to collapse to `()`, and `descriptor` to return `None`. In `search.py`, these are classified as `pure_rule` and rejected before T0. Only the ~16% of C2 proposals with explicit `where`/`topk` gates populate niches $(1, 0, 0)$ and $(1, 3, 0)$. Additionally, depth-2 selectors in C2 produce `dW` of depth 6, exceeding `MAX_DEPTH = 5`.
 
 **Strongest surviving candidates:** None.
 
@@ -35,11 +69,11 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 - LD1–LD13: All 13 killed (11 `KILLED — EXISTING ARCHITECTURE`, 2 `KILLED — EXISTING ARCHITECTURE / OPTIMIZER`).
 
 **Core Architectural Finding:**
-Within continuous parameter optimization, every viable credit assignment, conditioning, and memory mechanism is occupied by existing architectures. Moving to discrete structural commitment rediscovers classical constructive algorithms. Any future candidate must survive the preregistered microbenchmark suite and pass all 7 mandatory ablations against matched baselines to prove native dynamic separation.
+Within continuous parameter optimization, every viable credit assignment, conditioning, and memory mechanism is occupied by existing architectures. In AMS v5 Stage 2, uniform random program generation yielded 0 Tier-1 evaluations because unanchored expressions cannot discover gradient descent from scratch. AMS v6 anchors initial proposals on the exact SGD backbone with bounded 0.1 coupling perturbations. The audit verifies search-design validity while uncovering a critical descriptor-collapse vulnerability in C2 credit routing.
 
 **Unresolved prior-art questions:** None across P1–P72, IC1–IC18, and LD1–LD13.
 
-**Exact next action:** Await owner review of the benchmark suite design and authorization before executing the recommended pilot triad (Tasks B, D, F) or initiating automated search. Do NOT generate new architecture batches (no LD14, IC19, P73) or run benchmark compute until authorized.
+**Exact next action:** Monitor remote repository (`origin/main`) for Claude's official v6 Stage-2 search outputs (`runs/stage2_v6/`). When outputs arrive, independently recompute all summary statistics, verify any Tier-1 candidates against B, C*, F thresholds and the $2\sigma$-over-AdamW rule, and independently recompute fresh-seed metrics and 7-ablation outcomes for any promoted candidates. Do NOT run an independent MAP-Elites search or generate new candidate batches (no LD14, IC19, P73).
 
 
 
@@ -8442,11 +8476,429 @@ preregistration:
 
 ---
 
+---
+
+# Stages 0–3 Independent Benchmark Validity & Results Audit
+
+## 1. Audit Lane Mandate & Governance Compliance
+
+### Role Definition
+Under the owner's authorization of Stages 0–3 of the frozen preregistered experiment (`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md`), the Cursor/Gemini lane operates strictly as the **independent benchmark-validity and results-audit lane**:
+- **Search Runner Separation:** Claude is designated as the primary search runner executing the MAP-Elites search over the mechanism grammar. Cursor/Gemini does **not** duplicate the 6,000-program search.
+- **Compute Envelope Enforcement:** All audit and calibration executions are CPU-only, sharing the **30 cumulative CPU-hour hard cap**.
+- **No Protocol Modification:** The frozen preregistration is treated as binding authority. No benchmarks, thresholds, or generators are modified post hoc.
+
+---
+
+## 2. Stage 0: Independent Benchmark Implementation Audit & Unit Tests
+
+The frozen task generators and metric formulas were implemented in `experiments/ams_audit/generators.py` and `experiments/ams_audit/metrics.py`. Independent verification tests were authored and executed in `experiments/ams_audit/test_generators.py`.
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                 STAGE 0 GENERATOR AUDIT SUMMARY                                   |
++-------------------+-------------------------------+-----------------------+-----------------------+
+| Task              | Key Invariants Verified       | Test Coverage         | Audit Verdict         |
++-------------------+-------------------------------+-----------------------+-----------------------+
+| Task B            | Subspace orthogonality (S1|S2)| Determinism, leakage, | PASSED (Deterministic,|
+| (Interference)    | Isolated target projections   | gradient conflicts    | zero leakage)         |
++-------------------+-------------------------------+-----------------------+-----------------------+
+| Task C*           | Strictly 1D input [N, 1];     | Dimensionality,       | PASSED (No boundary   |
+| (Regime Adapt.)   | NO boundary flag/indicator    | continuous slices     | signal exposed)       |
++-------------------+-------------------------------+-----------------------+-----------------------+
+| Task F            | Exact 90% train shortcut;     | 100% true parity,     | PASSED (Exact 90/10   |
+| (Structural Gate) | Exact 10% OOD test shortcut   | exact shortcut ratio  | ratios verified)      |
++-------------------+-------------------------------+-----------------------+-----------------------+
+| Task D            | Exact condition number kappa; | Eigenvalue spectrum,  | PASSED (SPD matrix,   |
+| (Conditioning)    | Positive definite Hessian     | QR orthogonal basis   | kappa=10^2,10^4,10^6) |
++-------------------+-------------------------------+-----------------------+-----------------------+
+| Tasks A & E       | Sequence credit / delay;      | Sequence alignment,   | PASSED (Flags and     |
+| (Reserved)        | Ephemeral key-value binding   | distractor buffers    | bindings verified)    |
++-------------------+-------------------------------+-----------------------+-----------------------+
+```
+
+### Detailed Invariant Verifications
+1. **Deterministic Generation:** Every generator was tested across matching and non-matching random seeds. Identical seeds guarantee bitwise-identical tensors; distinct seeds guarantee non-overlapping samples.
+2. **Train/Eval Separation & No Target Leakage:**
+   - In Task B, Task 1 inputs have strictly zero values in dimensions $16 \dots 31$; Task 2 inputs have strictly zero values in dimensions $0 \dots 15$.
+   - In Task C*, the input stream consists solely of continuous scalars $x \in [-1, 1]$. No auxiliary metadata, indicator bits, or timestamp features are exposed to the model.
+   - In Task F, input $x \in \{0, 1\}^{20}$ contains only feature bits. The true target $y = x_0 \oplus x_1 \oplus x_2$ is strictly absent from the feature set.
+   - In Task F, empirical shortcut correlation $\sum (x_3 == y) / N$ is **exactly 0.9000** on the training set ($N=100$) and **exactly 0.1000** on the OOD test set ($N=1000$).
+3. **Unit Test Execution:** All 6 independent unit test suites in `experiments/ams_audit/test_generators.py` passed cleanly in $0.020$s.
+
+---
+
+## 3. Stage 1: Baseline Calibration Replay & Critical Gate Verdict
+
+Using the fixed mechanism substrate defined in Preregistration Section 2 (Two-hidden-layer MLP, hidden width 32, tanh activations, float32), an empirical baseline calibration was executed across Controls 1–3 (Vanilla SGD, SGD + Momentum $\beta=0.9$, and AdamW) in `experiments/ams_audit/calibrate_baselines.py`.
+
+```
+======================================================================
+AMS STAGE 1: INDEPENDENT BASELINE CALIBRATION REPLAY RESULTS
+======================================================================
+
+--- Task B: Catastrophic Interference ---
+- Control 1 (SGD):   T1 Initial Loss: 0.00743  -->  Post-T2 Loss: 0.12054  (16.2x degradation)
+- Control 2 (SGDM):  T1 Initial Loss: 0.00293  -->  Post-T2 Loss: 0.15842  (54.1x degradation)
+- Control 3 (AdamW): T1 Initial Loss: 0.00054  -->  Post-T2 Loss: 0.57243  (>1000x degradation)
+* Verdict: Catastrophic interference (>95% forgetting) decisively confirmed across all baselines.
+
+--- Task C*: Recurring-Regime Adaptation without Boundary Signal ---
+- Online streaming evaluated across Phase 0a -> Phase 1 -> Phase 0b.
+- Final Regime 0 Error: 0.01315 (recovers upon returning to Regime 0).
+- Final Regime 1 Error: 0.35398 (tracks adaptation to non-stationary distribution).
+* Verdict: Meaningful adaptation and recovery dynamics trackable without explicit boundary flags.
+
+--- Task F: CRITICAL GATE — Discrete Structural Generalization Failure ---
+- Control 1 (SGD):   Train Acc: 100.0%  |  OOD Test Acc: 17.9%  |  SGG: 82.1%  [PASSED]
+- Control 2 (SGDM):  Train Acc: 100.0%  |  OOD Test Acc: 19.0%  |  SGG: 81.0%  [PASSED]
+- Control 3 (AdamW): Train Acc: 100.0%  |  OOD Test Acc: 18.0%  |  SGG: 82.0%  [PASSED]
+* Preregistered Gate: Generic MLP baselines MUST fail structural generalization (Train >= 98%, OOD <= 25%, SGG >= 75%).
+* Result: ALL generic baselines exploit the 90% shortcut to achieve 100% train fit, then collapse to ~18% on OOD test.
+* CRITICAL GATE VERDICT: PASSED. Task F is verified valid. No post-hoc adjustments allowed or required.
+
+--- Task D: Optimization Conditioning Diagnostic ---
+- Quadratic Ravine Initial Loss: 22,447.38
+- First-order SGD and SGDM suffer severe curvature oscillations on ill-conditioned ravines (kappa=1e4).
+* Verdict: Successfully separates curvature-sensitive methods from ordinary first-order gradient descent.
+======================================================================
+```
+
+### Critical Gate Significance
+Preregistration Section 6.1 specifies:
+> *Validity requirement before search: the generic MLP + SGD/SGDM/AdamW controls must demonstrate the intended structural-generalization failure on the frozen task generator. If they do not, Task F is invalid and the search pauses for owner review rather than changing the task post hoc.*
+
+Because all three controls exhibited **100% training accuracy with $\approx 18\%$ OOD test accuracy ($SGG > 81\%$)**, the benchmark generator is empirically validated. The continuous parameter-drift optimizer's vulnerability to spurious linear shortcuts is verified.
+
+---
+
+## 4. Stage 2 & 3: Audit Framework for Ingesting Search Outputs
+
+The audit pipeline is established to inspect Claude's search outputs upon remote availability:
+
+```
++---------------------------------------------------------------------------------------------------+
+|                                   STAGE 2 & 3 AUDIT PROTOCOL                                      |
++-------------------+-----------------------------------+-------------------------------------------+
+| Audit Stage       | Automated Checks                  | Manual Verification Criteria              |
++-------------------+-----------------------------------+-------------------------------------------+
+| Stage 2: Output   | - Archive file integrity          | - Verify MAP-Elites niche diversity       |
+| Ingestion & Check | - Checksum verification           | - Detect niche flooding by single family  |
+|                   | - Budget limit enforcement        | - Inspect threshold-edge winners          |
++-------------------+-----------------------------------+-------------------------------------------+
+| Stage 3: Matched  | - Fresh random seeds (5 seeds)    | - Recompute AULC, S_tau, F, t_half, SGG   |
+| Validation Review | - Execute 7-Ablation Matrix       | - Non-family residual ablation test       |
+|                   | - Optimizer swap (SGD/SGDM/AdamW) | - Match against Behavioral Signature Table|
++-------------------+-----------------------------------+-------------------------------------------+
+```
+
+### Mandatory Recomputation Protocol
+For any candidate promoted by the search runner (maximum 20 candidates):
+1. **Fresh Seed Replay:** Re-run the compiled mechanism on 5 fresh pseudo-random seeds not used during search.
+2. **Seven Ablations:**
+   - $A_1$: Mechanism removed (sever coupling).
+   - $A_2$: Persistent state zeroed between episodes.
+   - $A_3$: Persistent state randomized with Gaussian noise.
+   - $A_4$: Update timing shifted.
+   - $A_5$: Optimizer swapped (SGD, SGDM, AdamW).
+   - $A_6$: State/FLOP-matched baseline control.
+   - $A_7$: Parameter-matched baseline control.
+3. **Non-Family Residual Ablation:** Strip away any part of the program that matches a known mechanism (e.g. momentum accumulator, diagonal preconditioning). The claimed advantage must reside strictly in the residual.
+4. **Behavioral Signature Screening:** Match the candidate's profile against the 12 known families in the Behavioral Signature Matrix. If a candidate matches an existing row (e.g. excels at Task B via null-space projection while failing A, D, and F), it is classified as `REDISCOVERY`.
+
+---
+
+## 5. Candidate Validation Ledger
+
+```
++---------------------------------------------------------------------------------------------------+
+|                              AMS STAGE 3 CANDIDATE VALIDATION LEDGER                              |
++-------+---------------+---------------+---------------+---------------+---------------+-----------+
+| ID    | Candidate Name| Target Task   | Effect Size   | 7-Ablation    | Behavioral    | Final     |
+|       | & Coupling    | & Metric      | vs. Baseline  | Status        | Signature     | Status    |
++-------+---------------+---------------+---------------+---------------+---------------+-----------+
+| (Stage 2 not started — experiment halted at Stage 1 pending owner review)                        |
++-------+---------------+---------------+---------------+---------------+---------------+-----------+
+```
+
+---
+
+## 6. Stage 1 (v4) Independent Audit, Verification & Recomputation Report
+
+### 6.1 Independent Verification of v4 Specification Changes
+
+An independent audit of the AMS preregistration v4 changes and the implementation in `experiments/automated_mechanism_search/` was conducted prior to recomputing results.
+
+#### 1. Task-B Relative Fit Gate (`M2-v4`)
+- **Mathematical Specification:**
+  $$\text{FitReduction\_B} = 1 - \frac{L1_{\text{pre}}}{\max(L1_{\text{init}}, 10^{-8})}$$
+- **Evaluation Data Independence:** Verified in `ams/runners.py` (lines 55–84). $L1_{\text{init}}$ and $L1_{\text{pre}}$ are evaluated strictly on held-out Task-1 evaluation data ($X1_{\text{eval}}, Y1_{\text{eval}}$) generated from an independent RNG stream (`rng_for(seed, 2)`).
+- **Seed Averaging:** Evaluated across the 5 calibration seeds (100–104) at each method's selected learning rate via `np.mean(...)`.
+- **Threshold:** Set to $\ge 0.95$ (scale-free relative error reduction).
+- **Learning Rate Selection Isolation:** Verified in `ams/runners.py` (lines 87 and 355–360). For Task B, the learning rate is selected solely from `train_select`, which is the sum of the final 50 steps of Task-1 and Task-2 *training batch losses* ($e_{\text{train}}^2$). No held-out Task-1, Task-2, or OOD evaluation data influence the selection of the learning rate.
+
+#### 2. Task-B Joint Representability Oracle (`V1-B-REP`)
+- **Protocol Configuration:**
+  - Exactly 1,000 updates.
+  - Batch size 32: exactly 16 fresh Task-1 + 16 fresh Task-2 examples per update (`tasks[s]._sample(1, 16, ...)` concatenated with `tasks[s]._sample(2, 16, ...)`).
+  - Identical MLP architecture: two hidden layers, hidden width 32, tanh activations, Glorot normal weight initialization.
+  - Frozen learning rate grid $\{10^{-3}, 10^{-2}, 10^{-1}\}$, no early stopping.
+  - LR selection: chosen strictly by the mean training MSE over the final 50 updates ($\text{tr1}[-50:] + \text{tr2}[-50:]$).
+  - Separate held-out evaluation: evaluated on independent $X1_{\text{eval}}, Y1_{\text{eval}}$ and $X2_{\text{eval}}, Y2_{\text{eval}}$.
+  - Pass condition: seed-mean $\text{rel\_red\_T1} \ge 0.95$ and $\text{rel\_red\_T2} \ge 0.95$ for at least one generic optimizer.
+- **Leakage & Exposure Checks:**
+  - *Train/Eval Leakage:* Zero leakage. Training examples are generated on the fly via `train_rng` (`stream=1`), while evaluation sets are fixed from independent streams (`stream=2` and `stream=3`).
+  - *Sampling Balance:* Exactly 16 examples per task per batch (50/50 balance).
+  - *Task Identity Exposure:* Input $X \in \mathbb{R}^{32}$ contains shared features $C$ (dims 0–7), Task-1 private features $P_1$ (dims 8–19), and Task-2 private features $P_2$ (dims 20–31). When Task 1 is sampled, $P_2 = 0$. When Task 2 is sampled, $P_1 = 0$. No task indicator bit, regime flag, or metadata is exposed.
+  - *Role Enforcement:* Marked strictly as `validity_only = True`. The oracle receives interleaved joint replay and is legally barred from serving as a candidate baseline.
+
+#### 3. Task-C* Sanity Gate (`M7-v4`)
+- **Sanity Invariants:**
+  - Best generic baseline learns Regime 0 to $R_0\text{ MSE}(256) < 0.25$.
+  - Regime 1 entry MSEs exceed $\tau_C = 0.05$ on both entries ($R_{1a}$ and $R_{1b}$).
+  - At least one generic baseline (SGD, SGDM, AdamW) achieves a finite censored adaptation half-life $< 64$ updates.
+- **Half-Life Calculation:** Verified in `ams/metrics.py` (lines 22–38). Target midpoint is defined as $0.5 \times (\text{MSE}_{\text{entry}} + \tau_C)$ with $\tau_C = 0.05$. Half-life is the first evaluation step within the 64-step segment where MSE drops to or below the midpoint; censored at 128 if never reached.
+
+#### 4. Existing Benchmark Invariance Confirmation
+- Confirmed that v4 made **zero changes** to:
+  - Task-B procedural data generator (`ams/tasks.py:TaskB`);
+  - Task-C* recurring-regime generator (`ams/tasks.py:TaskCstar`);
+  - Task-F structural generalization generator (`ams/tasks.py:TaskF`);
+  - Task-D optimization conditioning diagnostic (`ams/tasks.py:TaskD`);
+  - Evaluation metrics definitions (`ams/metrics.py`);
+  - Candidate grammar (`ams/grammar.py`);
+  - Candidate promotion thresholds and Stage-3 ablation matrix.
+
+---
+
+### 6.2 Independent Recomputation of Machine-Readable Results
+
+All official Stage-1 v4 machine-readable records (`runs/stage1_v4/stage1_result.json`) were independently loaded and recomputed using `experiments/ams_audit/audit_stage1_v4.py`.
+
+```
+===================================================================================================
+                   OFFICIAL AMS STAGE 1 (v4) RECOMPUTED GATE OUTCOMES
+===================================================================================================
+Gate ID             Gate Description                         Required Target         Measured Value       Verdict
+---------------------------------------------------------------------------------------------------
+M6_controls_run     Generic control numerical stability     Stable on B, C*, F, Bjoint  All 12 Stable     PASS
+M2_v4_B_fit         Task-B Relative Fit (Held-out T1)        FitReduction >= 0.95    SGD:   0.98790       PASS
+                                                                                     SGDM:  0.98852       PASS
+                                                                                     AdamW: 0.98894       PASS
+M3_B_interference   Task-B Catastrophic Interference         Forgetting >= 10.0 pp   SGD:   100.0 pp      PASS
+                                                             L1_post > L1_pre all s  SGDM:  100.0 pp      PASS
+                                                                                     AdamW: 100.0 pp      PASS
+M4_F_failure        Task-F Generic Structural Failure        Train Acc >= 0.98       SGD:   1.00 / 0.1618 PASS
+                                                             OOD Acc <= 0.25         SGDM:  1.00 / 0.1650 PASS
+                                                             SGG >= 75.0 pp          AdamW: 1.00 / 0.1682 PASS
+M5_detector         Equivalence Detector & Suite Recall     Pass Stage-0 checks     Carried from v3 PASS  PASS
+M7_v4_Cstar_sanity  C* Generic Regime Adaptation Sanity      R0 pre-shift < 0.25     R0 MSE: 0.03055      PASS
+                                                             Both R1 entries > 0.05  R1 MSE: [1.00, 0.90] PASS
+                                                             Any half-life < 64      SGD t_half: 14.0     PASS
+                                                                                     SGDM: 18.8, AdamW: 17.6
+V3_F                Positive Control: Discrete Synthesis     OOD Acc >= 0.95         OOD Acc = 1.000      PASS
+V_D                 Positive Control: Natural Gradient       S_tau <= min(SGD)/3     kappa=1e4: 89.8 (vs inf) PASS
+                                                                                     kappa=1e6: 108.6(vs inf) PASS
+---------------------------------------------------------------------------------------------------
+V1_B_REP            Task-B Joint Representability Oracle     T1 & T2 RelRed >= 0.95  SGD (0.1): 0.914/0.904  FAIL
+                                                                                     SGDM(0.1): 0.883/0.867  FAIL
+                                                                                     AdamW(0.1):0.884/0.859  FAIL
+===================================================================================================
+OVERALL STAGE-1 VERDICT: FAIL (Single failing gate: V1_B_REP). Search HALTED before Stage 2.
+===================================================================================================
+```
+
+#### Diagnostic Controls (Recorded Only, Non-Gating in v4)
+- **V1-B (Continual Learning References):** GPM 93.8% forgetting; R17 (EWC/SI) 100.0%; R18 (kWTA) 100.0%; R13 (Fast/Slow) unstable. All fail to prevent catastrophic interference.
+- **V2-C* (Fast-Weight References):** R12 and R13 unstable on output layer; R15 adaptation half-life 110.4 updates (slower than SGD's 14.0 updates).
+
+---
+
+### 6.3 Diagnostic Root-Cause Analysis of `V1_B_REP` Failure
+
+The sole failing gate in Stage 1 v4 is `V1_B_REP`. An analysis of the post-hoc diagnostic run (`runs/stage1_v4/V1_B_REP_oracle_DIAGNOSTIC.json`) establishes the precise cause of the failure:
+
+1. **Failure Classification:**
+   The failure is an **optimization budget mismatch**, NOT an architectural representability limit, NOT a software implementation defect, and NOT a metric calculation bug.
+
+2. **Mathematical Analysis of the Task:**
+   - In Task B, the output mappings are $Y_1 = c A_c^T + 0.10 p_1 A_1^T$ and $Y_2 = -c A_c^T + 0.10 p_2 A_2^T$.
+   - The shared feature vector $c \in \mathbb{R}^8$ is identical in distribution across both tasks.
+   - To jointly represent both tasks, the network must learn a conditional sign flip:
+     $$\hat{Y} \approx \text{sgn}(\text{activity in } P_1 \text{ vs } P_2) \cdot (c A_c^T)$$
+   - This requires a non-linear coordinate interaction in the hidden layer (effectively an XOR/multiplicative gating).
+   - In single-task training (e.g. Task 1 alone), the mapping is purely linear in $c$, which the MLP learns in $<250$ steps to $>0.988$ relative fit (`M2-v4` PASS).
+   - In joint training, stochastic gradient descent with batch size 32 (16 Task 1 + 16 Task 2) and gradient clipping requires coordinating hidden units across coordinate blocks.
+
+3. **Empirical Evidence:**
+   The post-hoc diagnostic shows the convergence trajectory:
+   - At 1,000 updates (frozen budget, clipped SGD): `rel_red_T1 = 0.914`, `rel_red_T2 = 0.904`.
+   - At 1,000 updates (unclipped AdamW): `rel_red_T1 = 0.949`, `rel_red_T2 = 0.945`.
+   - At 2,000 updates (clipped SGD): `rel_red_T1 = 0.950`, `rel_red_T2 = 0.945`.
+   - At 4,000 updates (clipped SGD): `rel_red_T1 = 0.967`, `rel_red_T2 = 0.960`.
+
+   Because the MLP reaches $>0.96$ relative error reduction on both tasks at 4,000 updates, the two-hidden-layer MLP **possesses the mathematical capacity to represent both tasks**. The frozen 1,000-update budget was simply calibrated too tight for first-order gradient descent to solve the non-linear gating problem from a cold random initialization.
+
+---
+
+### 6.4 Governance & Execution Compliance
+
+- **Stop Enforcement:** Under Preregistration §15 ("Abort if any mandatory v4 control fails"), Claude correctly triggered the stop condition upon `V1_B_REP` failure.
+- **Search Isolation:** Stage 2 candidate search was NOT started. Zero candidates were generated or evaluated.
+- **Compute Envelope:** Total compute logged across Stage 0 and Stage 1 is **0.310 CPU-hours** of the 30-hour hard cap. No GPU resources were utilized.
+- **Protocol Integrity:** No post-hoc modifications to thresholds, update counts, or data generators were applied.
+
+---
+
+## 7. AMS v6 Learnability-Anchored Generator Audit & Search-Design Verification
+
+### 7.1 Search-Design Validity: Resolving the v5 Failure Mode
+
+The AMS preregistration was amended to **version 6** (commits `3cbb21f` and `a66a0f0`) following the completed v5 Stage-2 rerun. An independent audit was conducted to verify that the v6 anchored generator resolves the specific v5 failure mode without weakening the experimental standard.
+
+#### The v5 Failure Mode
+In v5, Stage 2 completed 6,000 generated programs under the uniform random typed generator with zero Tier-1 evaluations:
+- 2,053 (34.2%) invalid (typing or size limits);
+- 2,981 (49.7%) pure update rules (no C1/C2/C3 architecture coupling);
+- 534 (8.9%) lacked a learning signal;
+- 50 (0.8%) behavioral duplicates;
+- 382 reached the T0 sanity filter, but **0/382 passed T0** (best loss ratio 0.596x vs. the $\le 0.5\times$ threshold).
+
+The root cause was search-design failure: unguided random composition of AST nodes rarely discovers a stable gradient descent operator from scratch. Random mathematical expressions applied to parameter updates almost invariably diverge or fail to descend loss on online streams.
+
+#### The v6 Solution
+AMS v6 replaces only the **initial proposal generator** in Stage 2. It introduces a **learnability-anchored constructor**:
+1. **SGD Backbone Anchor:** Every initial candidate starts from the exact R1 SGD learning rule:
+   $$\Delta W_{\text{base}} = -\nabla_{W} \mathcal{L} = -\text{outer}(d_{\text{bp}}, a), \quad \Delta b_{\text{base}} = -d_{\text{bp}}, \quad \text{update\_every} = 1$$
+   Because vanilla SGD learns the T0 task to an online MSE of $\approx 0.03$ (well below the $0.5\times$ threshold), every initial proposal is anchored in a region of the search space known to learn.
+2. **Coupling Perturbations:** The constructor adds exactly one primary architecture coupling class (C1, C2, or C3) as a bounded $0.1 \tanh(\cdot)$ perturbation:
+   - **C1 (state $\to$ forward):** Exactly one persistent register ($O$ or $M$, init 0, decay $\in \{0.5, 0.9, 0.99\}$). Modifies weights by $w_{\text{eff}} = 0.1 \tanh(\text{reg})$ or gain by $\text{gain} = 1.0 + 0.1 \tanh(\text{reg})$.
+   - **C2 (activity-routed credit):** Activity-dependent gain $g = 1.0 + 0.1 \tanh(\text{selector})$ scales updates via $\Delta W = \text{rowscale}(\Delta W_{\text{base}}, g)$ and $\Delta b = \text{mul}(\Delta b_{\text{base}}, g)$.
+   - **C3 (structural operation):** Exactly one $O$-typed persistent register controls data-dependent freezing or reinitialization via $\text{Struct}(\text{freeze/reinit}, \tanh(\text{reg}), \theta \in \{0.0, 0.1, 0.5\})$.
+3. **Experimental Rigor Maintained:**
+   - The T0 sanity filter is **strictly unchanged** ($\text{MSE} \le 0.5 \times \text{trivial}$).
+   - The Tier-1 benchmark generators (Task B, Task C*, Task F) and Task D are **strictly unchanged**.
+   - Tier-1 candidate promotion thresholds, $2\sigma$-over-AdamW requirement, $q$-statistic, and Stage-3 7-ablation matrix are **strictly unchanged**.
+   - Offspring generated via MAP-Elites mutation and crossover are **not** required to preserve the SGD backbone; the unchanged T0, Tier-1, and rediscovery filters decide survival.
+
+---
+
+### 7.2 Verification of Invariants & Audit for Accidental Advantages
+
+A systematic audit verified the following properties of the v6 specification:
+
+| Invariant / Check | Specification Requirement | Verification Finding | Status |
+|---|---|---|---|
+| **SGD Backbone** | Exact R1 SGD parameter updates | $\Delta W = -\text{outer}(d_{\text{bp}}, a)$, $\Delta b = -d_{\text{bp}}$, $\text{update\_every} = 1$ verified | **VERIFIED** |
+| **Coupling Sampling** | Uniform over $\{C_1, C_2, C_3\}$ | Sampled with equal probability $p = 1/3$ each | **VERIFIED** |
+| **Perturbation Bounds** | Bounded at $0.1 \tanh(\cdot)$ | Strict $0.1$ scaling prevents divergent initial dynamics | **VERIFIED** |
+| **Data Independence** | Zero benchmark data during generation | Generator is purely structural; no queries to B, C*, F, or T0 | **VERIFIED** |
+| **Hidden Updates** | Exactly 1 update per step | $\text{update\_every} = 1$; no inner sub-stepping | **VERIFIED** |
+| **Data Access** | Identical mini-batch streams | Uses exact same batch size 32 and streaming protocol | **VERIFIED** |
+| **Forward/Backward Passes**| Standard computation graph | Only accesses standard activations $a, z, h, d\phi$ and backprop signals $d_{\text{bp}}$ | **VERIFIED** |
+| **Trainable Parameters** | Zero extra parameters | All registers are persistent states with fixed update rules, not weights | **VERIFIED** |
+| **Persistent State** | Fully declared and accounted | Declared in `Program.regs`; tracked in descriptor ("feature" vs. "synapse") | **VERIFIED** |
+| **Tuning Budget** | Equal hyperparameter budget | Grid $\{10^{-3}, 10^{-2}, 10^{-1}\}$ identical across all baselines and candidates | **VERIFIED** |
+
+---
+
+### 7.3 Independent Structural Proposal Audit (1,000 Samples)
+
+An independent structural generator (`experiments/ams_audit/v6_generator.py`) was executed to sample $N = 1,000$ initial proposals from test seed `2026092899` without task evaluation.
+
+#### Quantitative Audit Metrics
+- **Sample Distribution:** $C_1 = 341$ (34.1%), $C_2 = 314$ (31.4%), $C_3 = 345$ (34.5%). Exactly uniform.
+- **Node & Depth Compliance:** 1,000 / 1,000 (100.0%) proposals satisfy the total program node limit ($\le 45$ nodes).
+- **Register Declaration Compliance:** 1,000 / 1,000 (100.0%) proposals satisfy register count and lifetime constraints (C1: 1 register of type M/O, RUN lifetime, init "0"; C2: 0 registers; C3: 1 register of type O, RUN lifetime, init "0").
+- **Type Validity Rate:** 865 / 1,000 (86.5%) overall type-valid:
+  - $C_1$: 339 / 341 (99.4%) valid.
+  - $C_3$: 342 / 345 (99.1%) valid.
+  - $C_2$: 184 / 314 (58.6%) valid.
+
+---
+
+### 7.4 Critical Audit Finding: C2 Descriptor Collapse & Depth-Limit Vulnerability
+
+The structural audit uncovered a critical discrepancy between the v6 preregistration text and the Level-C fingerprinting implementation in `ams/fingerprint.py`:
+
+#### 1. The C2 Coupling Detection Mismatch
+- **Preregistration v6 C2 Definition:**
+  $$\Delta W = \text{rowscale}(\Delta W_{\text{base}}, g), \quad g = 1.0 + 0.1 \tanh(\text{selector})$$
+  where `selector` is an $O$-typed expression reading activity $\{z, h, d\phi\}$.
+- **Existing Fingerprint Implementation (`ams/fingerprint.py:Analysis.c2()`):**
+  ```python
+  def _routing_gates(self, e: Optional[Node]) -> List[Node]:
+      out = []
+      def go(x):
+          if x.op in ("topk", "where") and (reads(x.args[0]) & ACTIVITY_LEAVES):
+              out.append(x)
+          for c in x.args: go(c)
+      go(e)
+      return out
+
+  def c2(self) -> bool:
+      return bool(self._routing_gates(self.dW))
+  ```
+- **Consequence:**
+  `c2()` checks **strictly** for discrete routing gates (`topk` or `where`).
+  When `selector` is a continuous expression (e.g. `tanh(h)`, `matvec(W, a)`, `abs(z)`), `_routing_gates` finds NO `where` or `topk` node.
+  Consequently:
+  - `c2()` returns `False`.
+  - `couplings` collapses to empty `frozenset()`.
+  - `descriptor` returns `None`.
+  - In `ams/search.py` line 135:
+    ```python
+    if not fp["couplings"]:
+        self.counts["pure_rule"] += 1
+        return None
+    ```
+    The program is classified as `pure_rule` (optimizer rediscovery) and **immediately rejected before T0 evaluation**!
+- **Empirical Measurement:**
+  In the 1,000-sample audit:
+  - Out of 184 type-valid $C_2$ proposals, **154 suffered complete descriptor collapse** (`couplings = ()`, `descriptor = None`).
+  - Only 30 proposals happened to select `where` or `topk` and were recognized as $C_2$.
+  - This represents an **83.7% systematic loss of C2 candidates** under the unamended fingerprint detector!
+
+#### 2. The C2 Depth Limit Constraint
+- In `ams/grammar.py`, `MAX_DEPTH = 5`.
+- In C2, $\Delta W = \text{rowscale}(\Delta W_{\text{base}}, g)$ has structural depth:
+  $$\text{depth}(\Delta W) = 1 + \max(\text{depth}(\Delta W_{\text{base}}), \text{depth}(g)) = 1 + \max(2, 1 + 1 + 1 + \text{depth}(\text{selector})) = 4 + \text{depth}(\text{selector})$$
+- If `depth(selector) == 2`:
+  $$\text{depth}(\Delta W) = 4 + 2 = 6 > 5 = \text{MAX\_DEPTH}$$
+  This triggers `GrammarError("oversize", "slot dW depth 6")`, causing 125 of 314 $C_2$ generation attempts to fail typing.
+- **Resolution Required for C2:**
+  To be valid and recognized, $C_2$ proposals must restrict selectors to `depth == 1` and either:
+  (a) ensure the selector includes `where` or `topk`; or
+  (b) update `fingerprint.Analysis.c2()` to recognize continuous activity-dependent parameter scaling via `rowscale`.
+
+---
+
+### 7.5 Status & Protocol for Ingesting Claude's Stage-2 Outputs
+
+The audit pipeline is primed to ingest Claude's machine-readable Stage-2 search outputs from `runs/stage2_v6/`:
+
+1. **Archive Recomputation:**
+   Verify cell occupancy across the 56 niches (`7 coupling subsets x 4 credit classes x 2 state footprints`). Check for expected C1/C3 occupancy vs. C2 thinning due to the routing-gate filter.
+2. **Tier-1 Metric Verification:**
+   For all programs evaluated on Tier 1 (Task B, Task C*, Task F), recompute:
+   - Task B: $\text{Retention\_B} \ge 80\%$, $\Delta \text{Forgetting} \ge 40$ pp, $T2\text{ final MSE} \le 1.25\times$.
+   - Task C*: $t_{\text{half}} \le 0.5 \times \text{SGD}$, recovery error within bounds.
+   - Task F: Train $\ge 98\%$, OOD $\ge 95\%$.
+   - Statistical Gate: $2\sigma$ margin over AdamW baseline.
+   - Quality Statistic: $q = \min(B, C^*, F) > 0$.
+3. **Stage-3 Matched Validation Replay:**
+   For any promoted candidates ($\le 20$), recompute fresh-seed metrics and execute the 7-ablation matrix.
+
+---
+
 # Exact handoff
 
 Start at **Exact next action** in the resume block. Do not reopen Candidates P1–P72, IC1–IC18, or LD1–LD13.
 
-**Exact next action:** Await owner review of the benchmark suite design and authorization before executing the recommended pilot triad (Tasks B, D, F) or initiating automated search. Do NOT generate new architecture batches (no LD14, IC19, P73) or run benchmark compute until authorized.
+**Exact next action:** Monitor remote repository (`origin/main`) for Claude's official v6 Stage-2 search outputs (`runs/stage2_v6/`). When outputs arrive, independently recompute all summary statistics, verify any Tier-1 candidates against B, C*, F thresholds and the $2\sigma$-over-AdamW rule, and independently recompute fresh-seed metrics and 7-ablation outcomes for any promoted candidates. Do NOT run an independent MAP-Elites search or generate new candidate batches (no LD14, IC19, P73).
+
+
+
 
 
 
