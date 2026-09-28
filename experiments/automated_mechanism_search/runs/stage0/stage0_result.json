@@ -91,7 +91,7 @@
   },
   "test_suite": {
    "pass": true,
-   "summary": "..........................................                               [100%]"
+   "summary": "============================= 114 passed in 5.81s =============================="
   },
   "taskB_gradient_conflict_gate": {
    "pass": false,
@@ -118,16 +118,16 @@
   },
   "profiling": {
    "pass": true,
-   "ms_per_step_batch32_9runs": 4.015,
-   "ms_per_step_online_9runs": 0.606,
-   "est_tier1_cpu_s_per_candidate": 7.24,
-   "est_tier1_cpu_h_for_1200": 2.41,
+   "ms_per_step_batch32_9runs": 4.028,
+   "ms_per_step_online_9runs": 0.685,
+   "est_tier1_cpu_s_per_candidate": 7.3,
+   "est_tier1_cpu_h_for_1200": 2.43,
    "AE_stage0_exit_criterion_cpu_s": 20.0,
    "within_AE_estimate": true
   }
  },
  "stage1_allowed": false,
- "cpu_seconds": 17.57,
- "wall_seconds": 14.73,
- "cumulative_cpu_hours": 0.00488
+ "cpu_seconds": 16.93,
+ "wall_seconds": 14.25,
+ "cumulative_cpu_hours": 0.25958
 }

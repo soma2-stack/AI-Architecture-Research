@@ -116,7 +116,7 @@ These are not stop conditions.
 |---|---|
 | Ledgered Stage-0 script | 17.6 CPU-s |
 | Interactive development and testing in this session | ≤ 0.25 CPU-h (upper-bound estimate, not measured) |
-| **Cumulative ledger** | **0.255 CPU-h of the 30 CPU-h cap** |
+| **Cumulative ledger** | **0.265 CPU-h of the 30 CPU-h cap** (three Stage-0 script runs of ~17–18 CPU-s each, plus the development estimate) |
 
 No GPU was used (`CUDA_VISIBLE_DEVICES=""`).
 

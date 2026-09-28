@@ -32,7 +32,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 - **Search outcome counts:** rediscoveries 0 / 0; negatives 0 / 0; promoted IDs none. No Stage-2 search took place.
 - **Killed / closed:** unchanged from sessions 7–11 (Parts AA–AD).
 - **CPU:**
-  - 0.255 CPU-h of the 30 CPU-h cap (17.6 CPU-s ledgered Stage-0 script, plus an upper-bound estimate of 0.25 CPU-h for interactive development);
+  - 0.265 CPU-h of the 30 CPU-h cap (three ledgered Stage-0 script runs of ~17–18 CPU-s each, plus an upper-bound estimate of 0.25 CPU-h for interactive development);
   - no GPU.
 - **Unresolved questions for the owner:**
   - (a) Task-B amendment. Options (a)–(d) are listed in `STAGE0_REPORT.md` §6 (restate the aggregation or threshold; fix the initialization, where LeCun gives 7/8 seeds; enlarge the shared block; drop B). A post-hoc diagnostic, which cannot pass the gate, shows the result depends on the initialization scale.
@@ -4195,7 +4195,7 @@ Machine-readable results are in `runs/stage0/`.
 ## AF.4 Compute
 
 - Ledger (`runs/cpu_ledger.json`): 17.6 CPU-s for the official Stage-0 script, plus an upper-bound estimate of ≤ 0.25 CPU-h for interactive development in this session.
-- **Cumulative: 0.255 CPU-h of 30.**
+- **Cumulative: 0.265 CPU-h of 30** (three identical-verdict Stage-0 script runs: on the pre-commit tree, on clean commit `9ae42d8`, and on `bd6e282` for the final manifest).
 - No GPU.
 
 ## AF.5 Lessons

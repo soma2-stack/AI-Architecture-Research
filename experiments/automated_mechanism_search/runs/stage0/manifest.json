@@ -1,7 +1,7 @@
 {
  "stage": "stage0",
- "utc": "2026-09-28T04:30:48Z",
- "git_commit": "ee088234eee103099b926d8024ed2d862f7cc863",
+ "utc": "2026-09-28T04:34:23Z",
+ "git_commit": "bd6e2824c2cb40ee4a226b09d30daacbdc8bc190",
  "git_dirty": true,
  "packages": {
   "python": "3.11.15",
@@ -30,6 +30,10 @@
   "A": "5036cd2f9942eccd60dedf89de2f105f606bc4489fcd6f09c95e107d23ddafa3",
   "T0": "f4bca9ad02c53807d53aa1f6a10f1503b9ac52012a3e4b6b3677e6576d1a7728"
  },
+ "git_at_start": {
+  "commit": "bd6e2824c2cb40ee4a226b09d30daacbdc8bc190",
+  "dirty_excluding_runs": false
+ },
  "seeds": {
   "taskB_gate": [
    100,
@@ -42,7 +46,7 @@
    1002
   ]
  },
- "cpu_seconds": 17.57,
+ "cpu_seconds": 16.93,
  "stage0_pass": false,
  "stop_reason": "PREREGISTRATION VALIDITY FAILURE (v2): taskB_gradient_conflict_gate"
 }
