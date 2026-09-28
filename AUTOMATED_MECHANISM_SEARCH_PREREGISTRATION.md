@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN v6 — STAGES 0–3 AUTHORIZED BY OWNER**
+**FROZEN DESIGN v7 — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -265,7 +265,104 @@ A v6 positive result is still only an empirical mechanism candidate and must pas
 
 A v6 zero-yield or no-promotion result is a negative result for this **SGD-anchored architecture-residual search design**, not proof that no novel mechanism exists.
 
-**Version 6 is now the sole active protocol.** Stages 0–3 remain authorized. Claude is the primary v6 search runner; Codex and Cursor/Gemini are independent implementation/result auditors and must not duplicate the full search.
+Version 6 governed the first anchored-generator implementation and static validation only.
+
+## Version 7 amendment — C2 detector-aligned anchored generator
+
+No official v6 Stage-2 search ran. Search seed `2026092806` remains unused. No v6 proposal was trained, T0-screened, behaviorally probed for search, Tier-1 evaluated, or run on Tasks B/C*/F.
+
+The required v6 static validation failed for one design-contract reason:
+- C1 and C3 were recognized by the unchanged Level-C coupling fingerprint;
+- most v6 C2 soft gates were not, because the frozen C2 detector identifies activity-dependent discrete routing through `topk` or `where`;
+- depth-2 C2 selectors could also push `dW` beyond the frozen `MAX_DEPTH=5`.
+
+The owner therefore authorizes a pre-search v7 repair that changes **only the C2 initial-constructor definition and clarifies constructor accounting**. The Level-C fingerprint/collision layer remains unchanged.
+
+All accepted v3 Stage-0 and v5 Stage-1 results carry forward. All v6 C1 and C3 rules carry forward unchanged except for grammar-compatible operand ordering of scalar broadcasts.
+
+### v7 C2 — detector-aligned bounded activity routing
+
+C2 initial proposals use no persistent register.
+
+Start from the same exact R1 SGD backbone:
+- `dW_base = neg(outer(d_bp, a))`
+- `db_base = neg(d_bp)`
+- `update_every = 1`
+
+Draw an O-typed selector from the existing PARAM-phase grammar with **selector depth 0–1**. It must read at least one activity leaf from `{z, h, dphi}`.
+
+Choose the discrete routing gate uniformly:
+- `topk(selector, k)`, with `k` uniform over the existing `{1,4,8}`; or
+- `where(selector, 1.0, 0.0)`, using the grammar's legal scalar-broadcast branches.
+
+Call the resulting O-typed mask `route`.
+
+The parameter updates are the exact SGD backbone plus a bounded 10% routed residual:
+- `dW = add(dW_base, mul(rowscale(dW_base, route), 0.1))`
+- `db = add(db_base, mul(mul(db_base, route), 0.1))`
+
+Use grammar-compatible operand ordering: for vector/matrix × scalar and vector/matrix + scalar operations, the vector/matrix operand comes first. Reordering a mathematically commutative scalar broadcast for typing does not change the intended computation.
+
+This construction is required to:
+- remain within `MAX_DEPTH=5`;
+- be recognized as C2 by the unchanged `Analysis.c2()`;
+- preserve the SGD descent backbone additively;
+- remain subject to the unchanged known-family/composite/inert rediscovery filters.
+
+No continuous soft gate is used for v7 C2.
+
+### Constructor accounting clarification
+
+The required-activity predicate is part of conditional subexpression sampling:
+- a subexpression draw that does not contain the required activity leaf is discarded internally and **does not** count as a generated program because no full candidate `Program` has been instantiated.
+
+Once a full candidate `Program` is instantiated:
+- if it fails grammar/type/node/depth/register validation, that full proposal **does count** toward the 6,000 generated-program cap;
+- retry at most 10 full-candidate construction attempts for one requested proposal.
+
+This clarification applies equally to C1, C2 and C3.
+
+### v7 static validation before official search
+
+Before official Stage 2:
+- update the v6 implementation only as needed for the v7 C2 rule/accounting clarification;
+- run the full test suite;
+- preserve the unchanged 155-reference/disguise collision golden snapshot;
+- statically generate 1,000 proposals using non-official structural-validation seed `70707`;
+- do not train them and do not run T0, B, C* or F;
+- require all 1,000 emitted proposals to be type-valid and within node/depth/register limits;
+- require learning-signal presence and exact SGD-backbone invariants;
+- require every emitted C1/C2/C3 proposal to be recognized by the unchanged coupling fingerprint as containing its intended primary class;
+- record class counts and full invalid-attempt accounting;
+- verify no task/evaluation result is consulted by the constructor.
+
+If this static validation fails, stop before official Stage 2.
+
+### Official v7 Stage 2
+
+Retain the still-unused official search seed:
+
+`2026092806`
+
+All other v6/v5 search rules remain frozen:
+- max 6,000 generated;
+- max 3,000 T0 sanity evaluations;
+- max 1,200 Tier-1 evaluations;
+- max 20 promotions;
+- unchanged T0 and threshold;
+- unchanged B/C*/F tasks;
+- unchanged behavioral probes and collision library;
+- unchanged MAP-Elites descriptors/archive logic;
+- unchanged v5 mutation/crossover probabilities after archive seeding;
+- unchanged Tier-1 effects, q, 2-sigma rule and promotion thresholds;
+- unchanged Stage-3 validation/ablation rules;
+- CPU only, 30 cumulative CPU-hours, no GPU, no Stage 4.
+
+Do not pre-test or tune v7 based on behavioral-inertness rates. The official collision pipeline is responsible for rejecting behaviorally inert candidates during Stage 2.
+
+A v7 no-yield/no-promotion result is a negative result for this detector-aligned SGD-anchored search design, not proof that no novel mechanism exists.
+
+**Version 7 is now the sole active protocol.** Stages 0–3 remain authorized. Claude is the primary search runner; Codex and Cursor/Gemini remain independent auditors and must not duplicate the full search.
 
 ---
 
