@@ -1,0 +1,67 @@
+{
+ "protocol": "OMD-PILOT-1",
+ "verdict": "FAIL \u2014 STOPPED AT PHASE A (imitation gate)",
+ "gate_failed": "Phase A: >= 99.5% held-out teacher-forced victim agreement for every (controller, held-out seed)",
+ "controls_failed": [
+  "LFU",
+  "LRU",
+  "SIEVE",
+  "TWOQ"
+ ],
+ "pairs_passing": 3,
+ "pairs_total": 36,
+ "held_out_agreement_range_by_control": {
+  "LRU": [
+   0.95918,
+   0.98991
+  ],
+  "LFU": [
+   0.9179,
+   0.99857
+  ],
+  "SIEVE": [
+   0.8519,
+   0.93823
+  ],
+  "TWOQ": [
+   0.83871,
+   0.95744
+  ]
+ },
+ "not_run": [
+  "blinded extraction",
+  "judge",
+  "Phase B",
+  "Phase C"
+ ],
+ "git_at_start_official": {
+  "commit": "b8071c293a6a8c9058ee7b2cf9c1ceed7053f2f7",
+  "code_dirty": false,
+  "utc": "2026-09-28T21:31:05Z"
+ },
+ "posthoc_non_gating": [
+  "results/phaseA/posthoc_error_breakdown.json",
+  "results/phaseA/posthoc_error_dt_state.json"
+ ],
+ "posthoc_summary": "At held-out errors the network's choice has the same planted local state as the teacher victim (LRU/LFU/TWOQ 100%, SIEVE 84-98%) but is newer (LFU/TWOQ median dt 1-40 vs teacher 7-61): the class order is learned but the within-class oldest-first recency tie-break is not. LFU/TWOQ learned the shortcut 'evict the newest insertion', which is correct whenever only one count-0/probationary item is resident. LRU training agreement was still rising at pass 20 (CE 1.7). TWOQ/SIEVE fail 72-97% of burst-segment evictions. No neural choice at an error had dt beyond the training range, so dt extrapolation is not the cause.",
+ "cpu": {
+  "pilot_total_hours": 0.06892,
+  "by_stage_seconds": {
+   "dev_smoke": 10.9,
+   "dev_tests": 31.0,
+   "dev_debug": 15.8,
+   "dev_phaseA_train": 15.5,
+   "dev_phaseA_blind": 2.0,
+   "dev_phaseA_extract": 5.4,
+   "dev_phaseA_judge": 0.9,
+   "dev_phaseB": 0.1,
+   "phaseA_train": 153.1,
+   "posthoc_phaseA": 9.0,
+   "posthoc_phaseA_dt": 4.5
+  },
+  "pilot_cap_hours": 1.0,
+  "project_total_hours_after": 5.19629,
+  "gpu": false
+ },
+ "authorization_note": "No retuning, no rescue, no OMD-1. Methodological pilot only; no novelty claim."
+}

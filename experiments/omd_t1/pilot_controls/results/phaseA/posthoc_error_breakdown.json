@@ -1,0 +1,1476 @@
+{
+ "note": "POST-HOC, NON-GATING; descriptive only",
+ "by_controller": {
+  "LRU_s101": {
+   "h201": {
+    "errors": 374,
+    "evictions": 13077,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 75,
+      "evictions": 511,
+      "rate": 0.1468
+     },
+     "loop": {
+      "errors": 10,
+      "evictions": 3519,
+      "rate": 0.0028
+     },
+     "scan": {
+      "errors": 3,
+      "evictions": 383,
+      "rate": 0.0078
+     },
+     "uniform": {
+      "errors": 14,
+      "evictions": 3669,
+      "rate": 0.0038
+     },
+     "working_set": {
+      "errors": 121,
+      "evictions": 1413,
+      "rate": 0.0856
+     },
+     "zipf": {
+      "errors": 151,
+      "evictions": 3582,
+      "rate": 0.0422
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 374
+    }
+   },
+   "h202": {
+    "errors": 527,
+    "evictions": 12911,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 29,
+      "evictions": 295,
+      "rate": 0.0983
+     },
+     "loop": {
+      "errors": 10,
+      "evictions": 2956,
+      "rate": 0.0034
+     },
+     "scan": {
+      "errors": 15,
+      "evictions": 316,
+      "rate": 0.0475
+     },
+     "uniform": {
+      "errors": 10,
+      "evictions": 1665,
+      "rate": 0.006
+     },
+     "working_set": {
+      "errors": 34,
+      "evictions": 390,
+      "rate": 0.0872
+     },
+     "zipf": {
+      "errors": 429,
+      "evictions": 7289,
+      "rate": 0.0589
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 527
+    }
+   },
+   "h203": {
+    "errors": 359,
+    "evictions": 12078,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 60,
+      "evictions": 458,
+      "rate": 0.131
+     },
+     "loop": {
+      "errors": 11,
+      "evictions": 3681,
+      "rate": 0.003
+     },
+     "scan": {
+      "errors": 15,
+      "evictions": 997,
+      "rate": 0.015
+     },
+     "uniform": {
+      "errors": 10,
+      "evictions": 2669,
+      "rate": 0.0037
+     },
+     "working_set": {
+      "errors": 99,
+      "evictions": 1242,
+      "rate": 0.0797
+     },
+     "zipf": {
+      "errors": 164,
+      "evictions": 3031,
+      "rate": 0.0541
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 359
+    }
+   }
+  },
+  "LRU_s102": {
+   "h201": {
+    "errors": 462,
+    "evictions": 13077,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 73,
+      "evictions": 511,
+      "rate": 0.1429
+     },
+     "loop": {
+      "errors": 12,
+      "evictions": 3519,
+      "rate": 0.0034
+     },
+     "scan": {
+      "errors": 4,
+      "evictions": 383,
+      "rate": 0.0104
+     },
+     "uniform": {
+      "errors": 17,
+      "evictions": 3669,
+      "rate": 0.0046
+     },
+     "working_set": {
+      "errors": 178,
+      "evictions": 1413,
+      "rate": 0.126
+     },
+     "zipf": {
+      "errors": 178,
+      "evictions": 3582,
+      "rate": 0.0497
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 462
+    }
+   },
+   "h202": {
+    "errors": 523,
+    "evictions": 12911,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 37,
+      "evictions": 295,
+      "rate": 0.1254
+     },
+     "loop": {
+      "errors": 11,
+      "evictions": 2956,
+      "rate": 0.0037
+     },
+     "scan": {
+      "errors": 15,
+      "evictions": 316,
+      "rate": 0.0475
+     },
+     "uniform": {
+      "errors": 12,
+      "evictions": 1665,
+      "rate": 0.0072
+     },
+     "working_set": {
+      "errors": 45,
+      "evictions": 390,
+      "rate": 0.1154
+     },
+     "zipf": {
+      "errors": 403,
+      "evictions": 7289,
+      "rate": 0.0553
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 523
+    }
+   },
+   "h203": {
+    "errors": 439,
+    "evictions": 12078,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 65,
+      "evictions": 458,
+      "rate": 0.1419
+     },
+     "loop": {
+      "errors": 9,
+      "evictions": 3681,
+      "rate": 0.0024
+     },
+     "scan": {
+      "errors": 18,
+      "evictions": 997,
+      "rate": 0.0181
+     },
+     "uniform": {
+      "errors": 12,
+      "evictions": 2669,
+      "rate": 0.0045
+     },
+     "working_set": {
+      "errors": 128,
+      "evictions": 1242,
+      "rate": 0.1031
+     },
+     "zipf": {
+      "errors": 207,
+      "evictions": 3031,
+      "rate": 0.0683
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 439
+    }
+   }
+  },
+  "LRU_s103": {
+   "h201": {
+    "errors": 132,
+    "evictions": 13077,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 14,
+      "evictions": 511,
+      "rate": 0.0274
+     },
+     "loop": {
+      "errors": 8,
+      "evictions": 3519,
+      "rate": 0.0023
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 383,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 9,
+      "evictions": 3669,
+      "rate": 0.0025
+     },
+     "working_set": {
+      "errors": 46,
+      "evictions": 1413,
+      "rate": 0.0326
+     },
+     "zipf": {
+      "errors": 55,
+      "evictions": 3582,
+      "rate": 0.0154
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 132
+    }
+   },
+   "h202": {
+    "errors": 150,
+    "evictions": 12911,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 5,
+      "evictions": 295,
+      "rate": 0.0169
+     },
+     "loop": {
+      "errors": 5,
+      "evictions": 2956,
+      "rate": 0.0017
+     },
+     "scan": {
+      "errors": 9,
+      "evictions": 316,
+      "rate": 0.0285
+     },
+     "uniform": {
+      "errors": 4,
+      "evictions": 1665,
+      "rate": 0.0024
+     },
+     "working_set": {
+      "errors": 16,
+      "evictions": 390,
+      "rate": 0.041
+     },
+     "zipf": {
+      "errors": 111,
+      "evictions": 7289,
+      "rate": 0.0152
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 150
+    }
+   },
+   "h203": {
+    "errors": 141,
+    "evictions": 12078,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 20,
+      "evictions": 458,
+      "rate": 0.0437
+     },
+     "loop": {
+      "errors": 4,
+      "evictions": 3681,
+      "rate": 0.0011
+     },
+     "scan": {
+      "errors": 8,
+      "evictions": 997,
+      "rate": 0.008
+     },
+     "uniform": {
+      "errors": 5,
+      "evictions": 2669,
+      "rate": 0.0019
+     },
+     "working_set": {
+      "errors": 49,
+      "evictions": 1242,
+      "rate": 0.0395
+     },
+     "zipf": {
+      "errors": 55,
+      "evictions": 3031,
+      "rate": 0.0181
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 141
+    }
+   }
+  },
+  "LFU_s101": {
+   "h201": {
+    "errors": 24,
+    "evictions": 16791,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 24,
+      "evictions": 523,
+      "rate": 0.0459
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 3198,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 367,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 0,
+      "evictions": 3682,
+      "rate": 0.0
+     },
+     "working_set": {
+      "errors": 0,
+      "evictions": 3911,
+      "rate": 0.0
+     },
+     "zipf": {
+      "errors": 0,
+      "evictions": 5110,
+      "rate": 0.0
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "1": 7,
+     "2": 1,
+     "3": 2,
+     "4": 14
+    }
+   },
+   "h202": {
+    "errors": 198,
+    "evictions": 17240,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 14,
+      "evictions": 296,
+      "rate": 0.0473
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 2833,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 301,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 0,
+      "evictions": 1657,
+      "rate": 0.0
+     },
+     "working_set": {
+      "errors": 0,
+      "evictions": 1638,
+      "rate": 0.0
+     },
+     "zipf": {
+      "errors": 184,
+      "evictions": 10515,
+      "rate": 0.0175
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 182,
+     "1": 1,
+     "2": 1,
+     "4": 14
+    }
+   },
+   "h203": {
+    "errors": 1390,
+    "evictions": 16955,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 25,
+      "evictions": 465,
+      "rate": 0.0538
+     },
+     "loop": {
+      "errors": 640,
+      "evictions": 3480,
+      "rate": 0.1839
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 936,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 725,
+      "evictions": 2656,
+      "rate": 0.273
+     },
+     "working_set": {
+      "errors": 0,
+      "evictions": 4966,
+      "rate": 0.0
+     },
+     "zipf": {
+      "errors": 0,
+      "evictions": 4452,
+      "rate": 0.0
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1366,
+     "2": 5,
+     "3": 6,
+     "4": 13
+    }
+   }
+  },
+  "LFU_s102": {
+   "h201": {
+    "errors": 31,
+    "evictions": 16791,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 30,
+      "evictions": 523,
+      "rate": 0.0574
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 3198,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 367,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 0,
+      "evictions": 3682,
+      "rate": 0.0
+     },
+     "working_set": {
+      "errors": 1,
+      "evictions": 3911,
+      "rate": 0.0003
+     },
+     "zipf": {
+      "errors": 0,
+      "evictions": 5110,
+      "rate": 0.0
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "1": 7,
+     "2": 3,
+     "3": 6,
+     "4": 15
+    }
+   },
+   "h202": {
+    "errors": 200,
+    "evictions": 17240,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 16,
+      "evictions": 296,
+      "rate": 0.0541
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 2833,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 301,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 0,
+      "evictions": 1657,
+      "rate": 0.0
+     },
+     "working_set": {
+      "errors": 0,
+      "evictions": 1638,
+      "rate": 0.0
+     },
+     "zipf": {
+      "errors": 184,
+      "evictions": 10515,
+      "rate": 0.0175
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 182,
+     "1": 1,
+     "2": 1,
+     "4": 16
+    }
+   },
+   "h203": {
+    "errors": 1390,
+    "evictions": 16955,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 28,
+      "evictions": 465,
+      "rate": 0.0602
+     },
+     "loop": {
+      "errors": 637,
+      "evictions": 3480,
+      "rate": 0.183
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 936,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 725,
+      "evictions": 2656,
+      "rate": 0.273
+     },
+     "working_set": {
+      "errors": 0,
+      "evictions": 4966,
+      "rate": 0.0
+     },
+     "zipf": {
+      "errors": 0,
+      "evictions": 4452,
+      "rate": 0.0
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1363,
+     "1": 1,
+     "2": 5,
+     "3": 7,
+     "4": 14
+    }
+   }
+  },
+  "LFU_s103": {
+   "h201": {
+    "errors": 30,
+    "evictions": 16791,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 29,
+      "evictions": 523,
+      "rate": 0.0554
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 3198,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 367,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 0,
+      "evictions": 3682,
+      "rate": 0.0
+     },
+     "working_set": {
+      "errors": 1,
+      "evictions": 3911,
+      "rate": 0.0003
+     },
+     "zipf": {
+      "errors": 0,
+      "evictions": 5110,
+      "rate": 0.0
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "1": 7,
+     "2": 2,
+     "3": 6,
+     "4": 15
+    }
+   },
+   "h202": {
+    "errors": 162,
+    "evictions": 17240,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 16,
+      "evictions": 296,
+      "rate": 0.0541
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 2833,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 301,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 0,
+      "evictions": 1657,
+      "rate": 0.0
+     },
+     "working_set": {
+      "errors": 0,
+      "evictions": 1638,
+      "rate": 0.0
+     },
+     "zipf": {
+      "errors": 146,
+      "evictions": 10515,
+      "rate": 0.0139
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 144,
+     "1": 1,
+     "2": 1,
+     "4": 16
+    }
+   },
+   "h203": {
+    "errors": 1392,
+    "evictions": 16955,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 27,
+      "evictions": 465,
+      "rate": 0.0581
+     },
+     "loop": {
+      "errors": 640,
+      "evictions": 3480,
+      "rate": 0.1839
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 936,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 725,
+      "evictions": 2656,
+      "rate": 0.273
+     },
+     "working_set": {
+      "errors": 0,
+      "evictions": 4966,
+      "rate": 0.0
+     },
+     "zipf": {
+      "errors": 0,
+      "evictions": 4452,
+      "rate": 0.0
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1366,
+     "2": 5,
+     "3": 7,
+     "4": 14
+    }
+   }
+  },
+  "SIEVE_s101": {
+   "h201": {
+    "errors": 1748,
+    "evictions": 12508,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 365,
+      "evictions": 508,
+      "rate": 0.7185
+     },
+     "loop": {
+      "errors": 67,
+      "evictions": 3324,
+      "rate": 0.0202
+     },
+     "scan": {
+      "errors": 54,
+      "evictions": 376,
+      "rate": 0.1436
+     },
+     "uniform": {
+      "errors": 139,
+      "evictions": 3664,
+      "rate": 0.0379
+     },
+     "working_set": {
+      "errors": 476,
+      "evictions": 1342,
+      "rate": 0.3547
+     },
+     "zipf": {
+      "errors": 647,
+      "evictions": 3294,
+      "rate": 0.1964
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1735,
+     "1": 13
+    }
+   },
+   "h202": {
+    "errors": 1803,
+    "evictions": 12174,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 221,
+      "evictions": 297,
+      "rate": 0.7441
+     },
+     "loop": {
+      "errors": 17,
+      "evictions": 2820,
+      "rate": 0.006
+     },
+     "scan": {
+      "errors": 3,
+      "evictions": 307,
+      "rate": 0.0098
+     },
+     "uniform": {
+      "errors": 89,
+      "evictions": 1681,
+      "rate": 0.0529
+     },
+     "working_set": {
+      "errors": 134,
+      "evictions": 373,
+      "rate": 0.3592
+     },
+     "zipf": {
+      "errors": 1339,
+      "evictions": 6696,
+      "rate": 0.2
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1797,
+     "1": 6
+    }
+   },
+   "h203": {
+    "errors": 1414,
+    "evictions": 11785,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 359,
+      "evictions": 457,
+      "rate": 0.7856
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 3543,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 31,
+      "evictions": 964,
+      "rate": 0.0322
+     },
+     "uniform": {
+      "errors": 61,
+      "evictions": 2660,
+      "rate": 0.0229
+     },
+     "working_set": {
+      "errors": 433,
+      "evictions": 1300,
+      "rate": 0.3331
+     },
+     "zipf": {
+      "errors": 530,
+      "evictions": 2861,
+      "rate": 0.1852
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1400,
+     "1": 14
+    }
+   }
+  },
+  "SIEVE_s102": {
+   "h201": {
+    "errors": 921,
+    "evictions": 12508,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 353,
+      "evictions": 508,
+      "rate": 0.6949
+     },
+     "loop": {
+      "errors": 22,
+      "evictions": 3324,
+      "rate": 0.0066
+     },
+     "scan": {
+      "errors": 21,
+      "evictions": 376,
+      "rate": 0.0559
+     },
+     "uniform": {
+      "errors": 52,
+      "evictions": 3664,
+      "rate": 0.0142
+     },
+     "working_set": {
+      "errors": 291,
+      "evictions": 1342,
+      "rate": 0.2168
+     },
+     "zipf": {
+      "errors": 182,
+      "evictions": 3294,
+      "rate": 0.0553
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 911,
+     "1": 10
+    }
+   },
+   "h202": {
+    "errors": 752,
+    "evictions": 12174,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 219,
+      "evictions": 297,
+      "rate": 0.7374
+     },
+     "loop": {
+      "errors": 3,
+      "evictions": 2820,
+      "rate": 0.0011
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 307,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 38,
+      "evictions": 1681,
+      "rate": 0.0226
+     },
+     "working_set": {
+      "errors": 90,
+      "evictions": 373,
+      "rate": 0.2413
+     },
+     "zipf": {
+      "errors": 402,
+      "evictions": 6696,
+      "rate": 0.06
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 745,
+     "1": 7
+    }
+   },
+   "h203": {
+    "errors": 840,
+    "evictions": 11785,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 341,
+      "evictions": 457,
+      "rate": 0.7462
+     },
+     "loop": {
+      "errors": 2,
+      "evictions": 3543,
+      "rate": 0.0006
+     },
+     "scan": {
+      "errors": 9,
+      "evictions": 964,
+      "rate": 0.0093
+     },
+     "uniform": {
+      "errors": 16,
+      "evictions": 2660,
+      "rate": 0.006
+     },
+     "working_set": {
+      "errors": 286,
+      "evictions": 1300,
+      "rate": 0.22
+     },
+     "zipf": {
+      "errors": 186,
+      "evictions": 2861,
+      "rate": 0.065
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 829,
+     "1": 11
+    }
+   }
+  },
+  "SIEVE_s103": {
+   "h201": {
+    "errors": 949,
+    "evictions": 12508,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 355,
+      "evictions": 508,
+      "rate": 0.6988
+     },
+     "loop": {
+      "errors": 22,
+      "evictions": 3324,
+      "rate": 0.0066
+     },
+     "scan": {
+      "errors": 21,
+      "evictions": 376,
+      "rate": 0.0559
+     },
+     "uniform": {
+      "errors": 56,
+      "evictions": 3664,
+      "rate": 0.0153
+     },
+     "working_set": {
+      "errors": 298,
+      "evictions": 1342,
+      "rate": 0.2221
+     },
+     "zipf": {
+      "errors": 197,
+      "evictions": 3294,
+      "rate": 0.0598
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 937,
+     "1": 12
+    }
+   },
+   "h202": {
+    "errors": 797,
+    "evictions": 12174,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 215,
+      "evictions": 297,
+      "rate": 0.7239
+     },
+     "loop": {
+      "errors": 3,
+      "evictions": 2820,
+      "rate": 0.0011
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 307,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 41,
+      "evictions": 1681,
+      "rate": 0.0244
+     },
+     "working_set": {
+      "errors": 97,
+      "evictions": 373,
+      "rate": 0.2601
+     },
+     "zipf": {
+      "errors": 441,
+      "evictions": 6696,
+      "rate": 0.0659
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 790,
+     "1": 7
+    }
+   },
+   "h203": {
+    "errors": 837,
+    "evictions": 11785,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 348,
+      "evictions": 457,
+      "rate": 0.7615
+     },
+     "loop": {
+      "errors": 1,
+      "evictions": 3543,
+      "rate": 0.0003
+     },
+     "scan": {
+      "errors": 9,
+      "evictions": 964,
+      "rate": 0.0093
+     },
+     "uniform": {
+      "errors": 17,
+      "evictions": 2660,
+      "rate": 0.0064
+     },
+     "working_set": {
+      "errors": 275,
+      "evictions": 1300,
+      "rate": 0.2115
+     },
+     "zipf": {
+      "errors": 187,
+      "evictions": 2861,
+      "rate": 0.0654
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 822,
+     "1": 15
+    }
+   }
+  },
+  "TWOQ_s101": {
+   "h201": {
+    "errors": 571,
+    "evictions": 13416,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 393,
+      "evictions": 512,
+      "rate": 0.7676
+     },
+     "loop": {
+      "errors": 1,
+      "evictions": 3256,
+      "rate": 0.0003
+     },
+     "scan": {
+      "errors": 1,
+      "evictions": 365,
+      "rate": 0.0027
+     },
+     "uniform": {
+      "errors": 14,
+      "evictions": 3647,
+      "rate": 0.0038
+     },
+     "working_set": {
+      "errors": 101,
+      "evictions": 1852,
+      "rate": 0.0545
+     },
+     "zipf": {
+      "errors": 61,
+      "evictions": 3784,
+      "rate": 0.0161
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "1": 571
+    }
+   },
+   "h202": {
+    "errors": 609,
+    "evictions": 13390,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 238,
+      "evictions": 290,
+      "rate": 0.8207
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 2834,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 308,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 5,
+      "evictions": 1675,
+      "rate": 0.003
+     },
+     "working_set": {
+      "errors": 46,
+      "evictions": 601,
+      "rate": 0.0765
+     },
+     "zipf": {
+      "errors": 320,
+      "evictions": 7682,
+      "rate": 0.0417
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 182,
+     "1": 427
+    }
+   },
+   "h203": {
+    "errors": 1938,
+    "evictions": 12642,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 366,
+      "evictions": 456,
+      "rate": 0.8026
+     },
+     "loop": {
+      "errors": 640,
+      "evictions": 3496,
+      "rate": 0.1831
+     },
+     "scan": {
+      "errors": 1,
+      "evictions": 945,
+      "rate": 0.0011
+     },
+     "uniform": {
+      "errors": 732,
+      "evictions": 2661,
+      "rate": 0.2751
+     },
+     "working_set": {
+      "errors": 139,
+      "evictions": 1770,
+      "rate": 0.0785
+     },
+     "zipf": {
+      "errors": 60,
+      "evictions": 3314,
+      "rate": 0.0181
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1366,
+     "1": 572
+    }
+   }
+  },
+  "TWOQ_s102": {
+   "h201": {
+    "errors": 709,
+    "evictions": 13416,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 493,
+      "evictions": 512,
+      "rate": 0.9629
+     },
+     "loop": {
+      "errors": 1,
+      "evictions": 3256,
+      "rate": 0.0003
+     },
+     "scan": {
+      "errors": 1,
+      "evictions": 365,
+      "rate": 0.0027
+     },
+     "uniform": {
+      "errors": 15,
+      "evictions": 3647,
+      "rate": 0.0041
+     },
+     "working_set": {
+      "errors": 125,
+      "evictions": 1852,
+      "rate": 0.0675
+     },
+     "zipf": {
+      "errors": 74,
+      "evictions": 3784,
+      "rate": 0.0196
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "1": 709
+    }
+   },
+   "h202": {
+    "errors": 685,
+    "evictions": 13390,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 284,
+      "evictions": 290,
+      "rate": 0.9793
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 2834,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 308,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 6,
+      "evictions": 1675,
+      "rate": 0.0036
+     },
+     "working_set": {
+      "errors": 55,
+      "evictions": 601,
+      "rate": 0.0915
+     },
+     "zipf": {
+      "errors": 340,
+      "evictions": 7682,
+      "rate": 0.0443
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 182,
+     "1": 503
+    }
+   },
+   "h203": {
+    "errors": 2039,
+    "evictions": 12642,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 446,
+      "evictions": 456,
+      "rate": 0.9781
+     },
+     "loop": {
+      "errors": 641,
+      "evictions": 3496,
+      "rate": 0.1834
+     },
+     "scan": {
+      "errors": 1,
+      "evictions": 945,
+      "rate": 0.0011
+     },
+     "uniform": {
+      "errors": 733,
+      "evictions": 2661,
+      "rate": 0.2755
+     },
+     "working_set": {
+      "errors": 156,
+      "evictions": 1770,
+      "rate": 0.0881
+     },
+     "zipf": {
+      "errors": 62,
+      "evictions": 3314,
+      "rate": 0.0187
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1366,
+     "1": 673
+    }
+   }
+  },
+  "TWOQ_s103": {
+   "h201": {
+    "errors": 607,
+    "evictions": 13416,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 412,
+      "evictions": 512,
+      "rate": 0.8047
+     },
+     "loop": {
+      "errors": 1,
+      "evictions": 3256,
+      "rate": 0.0003
+     },
+     "scan": {
+      "errors": 1,
+      "evictions": 365,
+      "rate": 0.0027
+     },
+     "uniform": {
+      "errors": 14,
+      "evictions": 3647,
+      "rate": 0.0038
+     },
+     "working_set": {
+      "errors": 110,
+      "evictions": 1852,
+      "rate": 0.0594
+     },
+     "zipf": {
+      "errors": 69,
+      "evictions": 3784,
+      "rate": 0.0182
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "1": 607
+    }
+   },
+   "h202": {
+    "errors": 626,
+    "evictions": 13390,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 251,
+      "evictions": 290,
+      "rate": 0.8655
+     },
+     "loop": {
+      "errors": 0,
+      "evictions": 2834,
+      "rate": 0.0
+     },
+     "scan": {
+      "errors": 0,
+      "evictions": 308,
+      "rate": 0.0
+     },
+     "uniform": {
+      "errors": 5,
+      "evictions": 1675,
+      "rate": 0.003
+     },
+     "working_set": {
+      "errors": 46,
+      "evictions": 601,
+      "rate": 0.0765
+     },
+     "zipf": {
+      "errors": 324,
+      "evictions": 7682,
+      "rate": 0.0422
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 182,
+     "1": 444
+    }
+   },
+   "h203": {
+    "errors": 1573,
+    "evictions": 12642,
+    "error_rate_by_segment": {
+     "burst": {
+      "errors": 360,
+      "evictions": 456,
+      "rate": 0.7895
+     },
+     "loop": {
+      "errors": 351,
+      "evictions": 3496,
+      "rate": 0.1004
+     },
+     "scan": {
+      "errors": 1,
+      "evictions": 945,
+      "rate": 0.0011
+     },
+     "uniform": {
+      "errors": 658,
+      "evictions": 2661,
+      "rate": 0.2473
+     },
+     "working_set": {
+      "errors": 144,
+      "evictions": 1770,
+      "rate": 0.0814
+     },
+     "zipf": {
+      "errors": 59,
+      "evictions": 3314,
+      "rate": 0.0178
+     }
+    },
+    "teacher_victim_planted_state_at_errors": {
+     "0": 1001,
+     "1": 572
+    }
+   }
+  }
+ }
+}

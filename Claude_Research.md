@@ -9,7 +9,46 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 23
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 24
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; last touched `a03ce6e`);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` — OMD-PILOT-1 amendment (frozen by the owner; unchanged);
+  - `SHARED_RESEARCH_MAP.md` §12 (OMD-PILOT-1 authorized; Claude is the execution lane);
+  - this notebook.
+
+  Merged `origin/main` `7f4af88`.
+- **Current lens:** OMD, stage OMD-PILOT-1 (planted-control identifiability pilot). CPU only; 1.0 CPU-h pilot cap.
+- **Current stage: OMD-PILOT-1 FAILED at Phase A and has STOPPED** (Part AQ). Code: `experiments/omd_t1/pilot_controls/` (implementation commit `b8071c2`, pushed before training).
+  - Imitation gate (≥ 99.5% held-out teacher-forced agreement, every controller × held-out seed): **3/36 pairs passed; all four controls failed.**
+
+    | Control | Held-out agreement |
+    |---|---|
+    | LRU | 0.959–0.990 |
+    | LFU | 0.918–0.999 |
+    | SIEVE | 0.852–0.938 |
+    | 2Q-resident | 0.839–0.957 |
+
+  - Not run (per the stop rule): blinded extraction, judge, Phase B, Phase C. No retuning. OMD-1 not started.
+  - Post-hoc, non-gating diagnosis:
+    - errors pick the right planted class but a newer item;
+    - LFU/2Q learned "evict the newest insertion";
+    - LRU was still improving at pass 20;
+    - 2Q/SIEVE fail on burst segments;
+    - dt extrapolation is ruled out.
+- **Strongest surviving candidate(s):** none. 0 supported architectures, 0 primitives. The pilot was methodological only.
+- **Killed / closed:**
+  - AMS v5–v8; GG1–GG8; OMD-0 families 2–18;
+  - OMD-PILOT-1 under the frozen instrument and budget: FAIL at Phase A.
+- **Unresolved questions (owner's decision, not tested):**
+  - Would a redesigned instrument or training contract pass imitation? Options: more updates, a bounded or rank-normalized recency input, an all-resident ranking loss, idempotent flag updates.
+  - Can the family-L extractor recover a *trained* controller? So far it is validated only on synthetic oracle controllers.
+- **CPU:** pilot 0.069 CPU-h (cap 1.0); shared ledger 5.19629 CPU-h (limit ≈ 6.127; outer cap 30). No GPU.
+- **Exact next action: wait for the owner.**
+  - Per the map: close the current OMD path, or redesign the extraction/imitation methodology, before any discovery run.
+  - Claude runs nothing further without a new frozen protocol.
+
+# Resume Pointer as of session 23 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
@@ -4816,6 +4855,132 @@ Frozen and pushed at `000f237` before the rerun.
 
   Its informative output is the calibration record (Stages 0–1) and a precisely characterized search-seeding failure.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
+
+---
+
+# Part AQ — OMD-PILOT-1: planted-control identifiability pilot (session 24, 2026-09-28; CPU only)
+
+**Result: FAIL — STOPPED AT PHASE A (imitation gate).**
+- Protocol: the frozen OMD-PILOT-1 amendment in `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (owner commits `c0a89ff` / `7f4af88`), executed without redesign.
+- Phase A result: none of the four planted controls reached ≥ 99.5% held-out teacher-forced victim agreement. Only 3 of 36 (controller, held-out seed) pairs passed.
+- By the stop rule, **blinded extraction, the judge, Phase B and Phase C were not run.**
+- **Nothing was retuned and OMD-1 was not started.**
+- This is methodological evidence only: the frozen instrument and training budget do not reach the imitation precision the pipeline needs. It makes no claim about mechanisms.
+
+## AQ.1 Implementation (commit `b8071c2`, pushed before any official training)
+
+Code: `experiments/omd_t1/pilot_controls/` (`omdp/`, `scripts/run.py`, `tests/test_pilot.py`).
+
+**Streams:**
+- a fixed control-excitation mixture: uniform 0.15, Zipf(α=1) 0.25, working set (8/12/24 items) 0.20, one-hit scans 0.10, loops of 18–40 items 0.15, bursts (2–5 repeats) 0.15;
+- C = 16, N = 256.
+
+**Teachers**, exactly as frozen (tie-breaks in `omdp/config.py`):
+
+| Control | Rule |
+|---|---|
+| LRU | evict the oldest last access |
+| LFU | evict the minimum resident hit count; ties by LRU |
+| SIEVE | FIFO queue, visited bit and persistent hand |
+| resident-only 2Q | evict the oldest probationary entry, else the least recently accessed protected entry |
+
+**Instrument:**
+- local state h ∈ R², global state g ∈ R¹, float32;
+- four shared one-hidden-layer width-16 tanh networks (S, F_hit (residual), F_ins, F_g (residual)); **454 parameters** (cap 600; the ~250 target is not reachable with four width-16 networks);
+- dt features log1p(dt)/8 and dt/1024;
+- lazy contract: only the touched slot and g change on an event; O(C) scoring only at evictions; no all-slot tick;
+- deterministic argmin: min S, then larger dt, then lower index;
+- implemented in jitted CPU JAX. PyTorch was unavailable, so `jax[cpu]` was installed from PyPI.
+
+**Training:**
+- supervised imitation only: CE of softmax(−S) against the teacher victim, teacher-forced;
+- Adam at 1e-3, BPTT 256, 20 passes (800 updates), global gradient-norm clip 1.0;
+- checkpoint = minimum training-side CE;
+- one controller per (control, training seed), 12 in total.
+
+**Blinded extraction (family L, never run officially):**
+- written-state micro-clusters;
+- ordering constraints from the victim and the lowest-4 scores;
+- contradiction breaking;
+- a soft "rank rises along a hit" prior, used only where the data do not contradict it;
+- Moore refinement by hit successor;
+- validation ≥ 99.5% on the extraction data;
+- emits a JSON automaton, a text description and generated plain-code policy source.
+
+Also implemented but not run:
+- the unblinded judge (J1–J5);
+- Phase B tests B1–B5;
+- Phase C transplant with the literal gap-ratio reading.
+
+**Pre-declared readings of underspecified text** (all in `config.py` before the run):
+- the Phase A gate is applied per (controller, held-out seed);
+- all 12 controllers are trained as one batch before the gate;
+- Phase C gap = hits(teacher) − hits(X), with ratio ≥ 0.95 only when gap_neural ≠ 0;
+- the Phase C edge-case rule;
+- Phase B sampling and pair choices.
+
+**Tests:** 16 pass, covering:
+- the teachers' hand-checked sequences;
+- the lazy contract;
+- bitwise permutation equivariance;
+- jitted vs Python rollout equality;
+- oracle-controller extraction and judge: LRU → 1 class, 2Q → 2 classes, LFU → a saturating counter; a wrong planted label fails the judge;
+- oracle Phase B and C passing;
+- Phase B catching a controller whose score ignores its local state.
+
+**Extractor bug found and fixed by those tests, before any official data:** ranks of high-count states that never compete at an eviction were underdetermined. Longest-path layering placed them arbitrarily low, and a don't-care merge then fused count 23 into count 5. The soft hit-transition prior fixed it.
+
+## AQ.2 Official Phase A (git at start `b8071c2`, clean)
+
+| Control | Held-out agreement range (9 pairs) | Pairs ≥ 99.5% | Training agreement (selected pass) |
+|---|---|---|---|
+| LRU | 0.959–0.990 | 0/9 | 0.949–0.989, **still rising at pass 20** (CE ≈ 1.7) |
+| LFU | 0.918–0.999 | 3/9 (all on h201) | 0.981–0.999; seed 102 collapsed after pass 9 (the selected checkpoint is pass 9) |
+| SIEVE | 0.852–0.938 | 0/9 | 0.88–0.95 |
+| 2Q-resident | 0.839–0.957 | 0/9 | 0.92–0.975, flat for most passes |
+
+**Gate: FAIL for all four controls** (`results/phaseA/imitation_gate.json`). CPU: 153 CPU-s for training plus held-out evaluation.
+
+## AQ.3 Post-hoc, non-gating diagnosis (saved decisions only; no new training)
+
+Files: `results/phaseA/posthoc_error_breakdown.json` and `posthoc_error_dt_state.json`.
+
+**Verified:**
+- **Right class, wrong recency.** At held-out errors the network's choice has the *same planted local state* as the teacher's victim: 100% for LRU, LFU and 2Q; 84–98% for SIEVE. It is newer, though:
+  - LFU: median dt 1 vs the teacher's 7–36;
+  - 2Q: 1–40 vs 57–61;
+  - LRU: 18–22 vs 19–24.
+- **The failures are specific:**
+  - LFU and 2Q evict the newest insertion (dt = 1) in place of the oldest same-class item. That shortcut is correct whenever only one count-0 / probationary item is resident, which covers most training evictions.
+  - The LFU error rates are identical across the three training seeds (loops 0.067, uniform 0.091), so it is a systematic learned shortcut, not seed noise.
+- **Burst segments** (repeated hits) are the worst case for the idempotent-flag policies: 2Q is wrong on 79–97% of burst evictions and SIEVE on 72–75%.
+- **Not extrapolation.** No neural choice at an error had a dt beyond the training range, which falsifies my first hypothesis that the unbounded dt/1024 feature caused it.
+
+**Interpretation:**
+- Under the frozen budget (800 updates at lr 1e-3, teacher-forced CE on victims only), the instrument learns the *class* order but not the within-class oldest-first recency tie-break.
+- For flag policies, the residual hit update is not idempotent, so repeated hits drift the state.
+- SIEVE's queue-plus-hand semantics are additionally outside what the lazy R²/R¹ instrument learned. Had imitation passed, SIEVE would still have been outside extractor family L.
+
+**Not tested** (it would need a protocol change the owner has not authorized):
+- whether more updates, a bounded or rank-normalized recency feature, a loss that ranks every resident pair (not only the victim), or an idempotence-friendly hit update would pass;
+- whether the extraction pipeline itself works on a trained neural controller. It was validated only on synthetic oracle controllers.
+
+## AQ.4 Compute
+
+| Item | CPU |
+|---|---|
+| Pilot total (dev tests and dev dry runs on seeds ≥ 9000 included) | **0.069 CPU-h** of the 1.0 cap |
+| Official Phase A | 153 CPU-s |
+| Post-hoc diagnostics | 13.5 CPU-s |
+| Shared project ledger | 5.12737 → **5.19629 CPU-h** (limit ≈ 6.12737) |
+
+No GPU.
+
+## AQ.5 Status
+
+- OMD-PILOT-1 **FAILED at Phase A**.
+- Per the map: *"if any planted control fails, close the current OMD path or redesign the extraction methodology before any discovery run"*. That is the owner's decision.
+- Candidates: none. 0 supported architectures, 0 primitives.
 
 ---
 

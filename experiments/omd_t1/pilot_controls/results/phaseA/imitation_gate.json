@@ -1,0 +1,366 @@
+{
+ "git_at_start": {
+  "commit": "b8071c293a6a8c9058ee7b2cf9c1ceed7053f2f7",
+  "code_dirty": false,
+  "utc": "2026-09-28T21:31:05Z"
+ },
+ "pairs": {
+  "LRU_s101_h201": {
+   "agreement": 0.9714001682343045,
+   "n_evict": 13077,
+   "ce": 1.8027790784835815,
+   "pass": false,
+   "scoring_evaluations_O_C": 209232
+  },
+  "LRU_s101_h202": {
+   "agreement": 0.9591820927890946,
+   "n_evict": 12911,
+   "ce": 1.7976830005645752,
+   "pass": false,
+   "scoring_evaluations_O_C": 206576
+  },
+  "LRU_s101_h203": {
+   "agreement": 0.9702765358503064,
+   "n_evict": 12078,
+   "ce": 1.7991137504577637,
+   "pass": false,
+   "scoring_evaluations_O_C": 193248
+  },
+  "LRU_s102_h201": {
+   "agreement": 0.9646707960541409,
+   "n_evict": 13077,
+   "ce": 1.7482560873031616,
+   "pass": false,
+   "scoring_evaluations_O_C": 209232
+  },
+  "LRU_s102_h202": {
+   "agreement": 0.9594919061265588,
+   "n_evict": 12911,
+   "ce": 1.7321029901504517,
+   "pass": false,
+   "scoring_evaluations_O_C": 206576
+  },
+  "LRU_s102_h203": {
+   "agreement": 0.9636529226693161,
+   "n_evict": 12078,
+   "ce": 1.7437958717346191,
+   "pass": false,
+   "scoring_evaluations_O_C": 193248
+  },
+  "LRU_s103_h201": {
+   "agreement": 0.9899059417297545,
+   "n_evict": 13077,
+   "ce": 1.740560531616211,
+   "pass": false,
+   "scoring_evaluations_O_C": 209232
+  },
+  "LRU_s103_h202": {
+   "agreement": 0.9883819998450933,
+   "n_evict": 12911,
+   "ce": 1.7251876592636108,
+   "pass": false,
+   "scoring_evaluations_O_C": 206576
+  },
+  "LRU_s103_h203": {
+   "agreement": 0.9883258817685047,
+   "n_evict": 12078,
+   "ce": 1.7356218099594116,
+   "pass": false,
+   "scoring_evaluations_O_C": 193248
+  },
+  "LFU_s101_h201": {
+   "agreement": 0.998570662855101,
+   "n_evict": 16791,
+   "ce": 0.006784995552152395,
+   "pass": true,
+   "scoring_evaluations_O_C": 268656
+  },
+  "LFU_s101_h202": {
+   "agreement": 0.9885150812064966,
+   "n_evict": 17240,
+   "ce": 0.029100053012371063,
+   "pass": false,
+   "scoring_evaluations_O_C": 275840
+  },
+  "LFU_s101_h203": {
+   "agreement": 0.9180182836921262,
+   "n_evict": 16955,
+   "ce": 0.17413589358329773,
+   "pass": false,
+   "scoring_evaluations_O_C": 271280
+  },
+  "LFU_s102_h201": {
+   "agreement": 0.9981537728545054,
+   "n_evict": 16791,
+   "ce": 0.1141638234257698,
+   "pass": true,
+   "scoring_evaluations_O_C": 268656
+  },
+  "LFU_s102_h202": {
+   "agreement": 0.988399071925754,
+   "n_evict": 17240,
+   "ce": 0.06969756633043289,
+   "pass": false,
+   "scoring_evaluations_O_C": 275840
+  },
+  "LFU_s102_h203": {
+   "agreement": 0.9180182836921262,
+   "n_evict": 16955,
+   "ce": 0.24844644963741302,
+   "pass": false,
+   "scoring_evaluations_O_C": 271280
+  },
+  "LFU_s103_h201": {
+   "agreement": 0.9982133285688762,
+   "n_evict": 16791,
+   "ce": 0.015843098983168602,
+   "pass": true,
+   "scoring_evaluations_O_C": 268656
+  },
+  "LFU_s103_h202": {
+   "agreement": 0.9906032482598608,
+   "n_evict": 17240,
+   "ce": 0.025872135534882545,
+   "pass": false,
+   "scoring_evaluations_O_C": 275840
+  },
+  "LFU_s103_h203": {
+   "agreement": 0.9179003243880861,
+   "n_evict": 16955,
+   "ce": 0.17116199433803558,
+   "pass": false,
+   "scoring_evaluations_O_C": 271280
+  },
+  "SIEVE_s101_h201": {
+   "agreement": 0.8602494403581707,
+   "n_evict": 12508,
+   "ce": 1.3532166481018066,
+   "pass": false,
+   "scoring_evaluations_O_C": 200128
+  },
+  "SIEVE_s101_h202": {
+   "agreement": 0.8518974864465254,
+   "n_evict": 12174,
+   "ce": 1.2869733572006226,
+   "pass": false,
+   "scoring_evaluations_O_C": 194784
+  },
+  "SIEVE_s101_h203": {
+   "agreement": 0.8800169707254986,
+   "n_evict": 11785,
+   "ce": 1.2036634683609009,
+   "pass": false,
+   "scoring_evaluations_O_C": 188560
+  },
+  "SIEVE_s102_h201": {
+   "agreement": 0.9263671250399744,
+   "n_evict": 12508,
+   "ce": 1.4737426042556763,
+   "pass": false,
+   "scoring_evaluations_O_C": 200128
+  },
+  "SIEVE_s102_h202": {
+   "agreement": 0.9382290126499097,
+   "n_evict": 12174,
+   "ce": 1.406245470046997,
+   "pass": false,
+   "scoring_evaluations_O_C": 194784
+  },
+  "SIEVE_s102_h203": {
+   "agreement": 0.9287229529062367,
+   "n_evict": 11785,
+   "ce": 1.3002643585205078,
+   "pass": false,
+   "scoring_evaluations_O_C": 188560
+  },
+  "SIEVE_s103_h201": {
+   "agreement": 0.9241285577230572,
+   "n_evict": 12508,
+   "ce": 1.3396461009979248,
+   "pass": false,
+   "scoring_evaluations_O_C": 200128
+  },
+  "SIEVE_s103_h202": {
+   "agreement": 0.9345326104813537,
+   "n_evict": 12174,
+   "ce": 1.2733970880508423,
+   "pass": false,
+   "scoring_evaluations_O_C": 194784
+  },
+  "SIEVE_s103_h203": {
+   "agreement": 0.9289775137887145,
+   "n_evict": 11785,
+   "ce": 1.1840907335281372,
+   "pass": false,
+   "scoring_evaluations_O_C": 188560
+  },
+  "TWOQ_s101_h201": {
+   "agreement": 0.9574388789505068,
+   "n_evict": 13416,
+   "ce": 0.15087172389030457,
+   "pass": false,
+   "scoring_evaluations_O_C": 214656
+  },
+  "TWOQ_s101_h202": {
+   "agreement": 0.9545182972367439,
+   "n_evict": 13390,
+   "ce": 0.13069114089012146,
+   "pass": false,
+   "scoring_evaluations_O_C": 214240
+  },
+  "TWOQ_s101_h203": {
+   "agreement": 0.8467014712861889,
+   "n_evict": 12642,
+   "ce": 0.3412528336048126,
+   "pass": false,
+   "scoring_evaluations_O_C": 202272
+  },
+  "TWOQ_s102_h201": {
+   "agreement": 0.9471526535480024,
+   "n_evict": 13416,
+   "ce": 0.15191423892974854,
+   "pass": false,
+   "scoring_evaluations_O_C": 214656
+  },
+  "TWOQ_s102_h202": {
+   "agreement": 0.9488424197162061,
+   "n_evict": 13390,
+   "ce": 0.13082745671272278,
+   "pass": false,
+   "scoring_evaluations_O_C": 214240
+  },
+  "TWOQ_s102_h203": {
+   "agreement": 0.8387122290776776,
+   "n_evict": 12642,
+   "ce": 0.338693231344223,
+   "pass": false,
+   "scoring_evaluations_O_C": 202272
+  },
+  "TWOQ_s103_h201": {
+   "agreement": 0.9547555158020274,
+   "n_evict": 13416,
+   "ce": 0.15511099994182587,
+   "pass": false,
+   "scoring_evaluations_O_C": 214656
+  },
+  "TWOQ_s103_h202": {
+   "agreement": 0.9532486930545183,
+   "n_evict": 13390,
+   "ce": 0.13096775114536285,
+   "pass": false,
+   "scoring_evaluations_O_C": 214240
+  },
+  "TWOQ_s103_h203": {
+   "agreement": 0.8755734852080367,
+   "n_evict": 12642,
+   "ce": 0.6083490252494812,
+   "pass": false,
+   "scoring_evaluations_O_C": 202272
+  }
+ },
+ "controllers": {
+  "LRU_s101": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9672210560310027,
+   "n_params": 454
+  },
+  "LRU_s102": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9490592829250977,
+   "n_params": 454
+  },
+  "LRU_s103": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9888024883359253,
+   "n_params": 454
+  },
+  "LFU_s101": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9986372927549398,
+   "n_params": 454
+  },
+  "LFU_s102": {
+   "selected_pass": 9,
+   "train_agreement_selected": 0.9840133619661179,
+   "n_params": 454
+  },
+  "LFU_s103": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9813282911841172,
+   "n_params": 454
+  },
+  "SIEVE_s101": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.8814302580536347,
+   "n_params": 454
+  },
+  "SIEVE_s102": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9154370034052214,
+   "n_params": 454
+  },
+  "SIEVE_s103": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9481576008932844,
+   "n_params": 454
+  },
+  "TWOQ_s101": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9754848719937936,
+   "n_params": 454
+  },
+  "TWOQ_s102": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.921221322537112,
+   "n_params": 454
+  },
+  "TWOQ_s103": {
+   "selected_pass": 20,
+   "train_agreement_selected": 0.9500227859638463,
+   "n_params": 454
+  }
+ },
+ "pass": false,
+ "failed_pairs": [
+  "LRU_s101_h201",
+  "LRU_s101_h202",
+  "LRU_s101_h203",
+  "LRU_s102_h201",
+  "LRU_s102_h202",
+  "LRU_s102_h203",
+  "LRU_s103_h201",
+  "LRU_s103_h202",
+  "LRU_s103_h203",
+  "LFU_s101_h202",
+  "LFU_s101_h203",
+  "LFU_s102_h202",
+  "LFU_s102_h203",
+  "LFU_s103_h202",
+  "LFU_s103_h203",
+  "SIEVE_s101_h201",
+  "SIEVE_s101_h202",
+  "SIEVE_s101_h203",
+  "SIEVE_s102_h201",
+  "SIEVE_s102_h202",
+  "SIEVE_s102_h203",
+  "SIEVE_s103_h201",
+  "SIEVE_s103_h202",
+  "SIEVE_s103_h203",
+  "TWOQ_s101_h201",
+  "TWOQ_s101_h202",
+  "TWOQ_s101_h203",
+  "TWOQ_s102_h201",
+  "TWOQ_s102_h202",
+  "TWOQ_s102_h203",
+  "TWOQ_s103_h201",
+  "TWOQ_s103_h202",
+  "TWOQ_s103_h203"
+ ],
+ "failed_controls": [
+  "LFU",
+  "LRU",
+  "SIEVE",
+  "TWOQ"
+ ],
+ "cpu_seconds_this_step": 153.1
+}

@@ -1,0 +1,165 @@
+{
+ "protocol": "OMD-PILOT-1",
+ "C": 16,
+ "N": 256,
+ "controls": [
+  "LRU",
+  "LFU",
+  "SIEVE",
+  "TWOQ"
+ ],
+ "control_definitions": {
+  "LRU": "evict the resident with the oldest last access (insert or hit); ties impossible (one access per step)",
+  "LFU": "evict the minimum resident hit count (count=0 at insertion, +1 per hit); ties by the oldest last access",
+  "SIEVE": "FIFO insertion queue (new items at the head) with one visited bit per resident and a persistent hand. A hit sets visited. Eviction starts at the hand (the tail if the hand is null), clears visited entries while moving toward the head (wrapping to the tail), and evicts the first unvisited entry. The hand then moves to the evicted entry's newer neighbour (null if none)",
+  "TWOQ": "resident-only 2Q: insertion into the probationary tier; the first resident hit promotes to the protected tier. Evict the oldest probationary entry if any exists, otherwise the oldest protected entry. 'Oldest' is the oldest last access (2Q's Am is LRU; a probationary entry's last access is its insertion). No ghost history, no tier-size limit"
+ },
+ "train_seeds": [
+  101,
+  102,
+  103
+ ],
+ "heldout_seeds": [
+  201,
+  202,
+  203
+ ],
+ "train_len": 10000,
+ "heldout_len": 20000,
+ "stream": {
+  "note": "control-excitation mixture only; not the T1 mixed-regime discovery benchmark",
+  "mixture": {
+   "uniform": 0.15,
+   "zipf": 0.25,
+   "working_set": 0.2,
+   "scan": 0.1,
+   "loop": 0.15,
+   "burst": 0.15
+  },
+  "iid_len": [
+   200,
+   800
+  ],
+  "zipf_alpha": 1.0,
+  "working_set_sizes": [
+   8,
+   12,
+   24
+  ],
+  "working_set_p_hot": 0.9,
+  "scan_len": [
+   32,
+   128
+  ],
+  "loop_size": [
+   18,
+   40
+  ],
+  "loop_len": [
+   200,
+   600
+  ],
+  "burst_len": [
+   100,
+   300
+  ],
+  "burst_repeat": [
+   2,
+   5
+  ],
+  "stationary_segment_types": [
+   "uniform",
+   "zipf",
+   "working_set"
+  ]
+ },
+ "instrument": {
+  "h_dim": 2,
+  "g_dim": 1,
+  "dtype": "float32",
+  "networks": {
+   "S": "score: [h(2), g, phi(dt)(2)] -> 16 tanh -> 1",
+   "F_hit": "hit: [h(2), g, phi(dt)(2)] -> 16 tanh -> 2, residual (h + out)",
+   "F_ins": "insert: [g_after_global_update] -> 16 tanh -> 2",
+   "F_g": "global: [g, is_hit, is_evict, h_touched(2), phi(dt_touched)(2)] -> 16 tanh -> 1, residual (g + out); touched = hit slot or evicted victim; zeros on cold fills"
+  },
+  "hidden_layers": 1,
+  "width": 16,
+  "param_cap": 600,
+  "param_target": 250,
+  "phi_dt": [
+   "log1p(dt)/8",
+   "dt/1024"
+  ],
+  "dt_definition": "dt = t - t_last, where t_last is the step of the slot's last write (insert or hit); supplied lazily only when a slot is touched or scored",
+  "lazy_contract": "hit: only the hit slot and g change; miss: only the inserted slot and g change; eviction scores all residents (O(C) scoring recorded); no per-request tick of inactive slots",
+  "argmin_tie_break": "minimum score; exact ties -> larger dt; then lower slot index",
+  "init": "LeCun-normal weights, zero biases; residual/output layers of F_hit and F_g scaled by 0.1",
+  "g0": 0.0,
+  "param_target_note": "4 separate one-hidden-layer width-16 networks give 454 parameters: above the ~250 target, below the 600 hard cap"
+ },
+ "training": {
+  "method": "supervised teacher imitation only (no RL), teacher-forced along the teacher's cache trajectory",
+  "loss": "cross-entropy of softmax(-S over residents) against the teacher victim, on eviction events only; no auxiliary loss",
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "betas": [
+   0.9,
+   0.999
+  ],
+  "eps": 1e-08,
+  "bptt": 256,
+  "max_passes": 20,
+  "batch": "one 256-event window per update, state carried (detached) across windows",
+  "grad_clip_global_norm": 1.0,
+  "checkpoint_selection": "after each pass, full-sequence teacher-forced training CE; keep the minimum-CE pass (training-side only; held-out seeds never used)",
+  "one_controller_per": "(control, training seed): 4 x 3 = 12 controllers; seed sets the stream and the initialization"
+ },
+ "gates": {
+  "phaseA_imitation_min": 0.995,
+  "phaseA_interpretation": "teacher-forced victim-decision agreement on each held-out stream (201-203, 20,000 requests), required for every (controller, held-out seed) pair. All 12 controllers are trained and evaluated as one batch before the gate is applied; if any pair fails, extraction is not run",
+  "phaseB_counterfactual_min": 0.99,
+  "phaseB_significance_alpha": 0.01,
+  "phaseC_overall_agreement_min": 0.98,
+  "phaseC_stationary_agreement_min": 0.99,
+  "phaseC_rel_hit_diff_max": 0.005,
+  "phaseC_gap_reproduction_min": 0.95,
+  "phaseC_gap_interpretation": "literal prereg reading: gap_X = hits(teacher) - hits(X) on the autonomous closed-loop run; if gap_neural != 0, require gap_transplant / gap_neural >= 0.95; N/A if gap_neural == 0. A closure-style diagnostic against random eviction is recorded but does not gate",
+  "phaseC_agreement_interpretation": "the transplant runs autonomously; the neural controller shadows the transplant's trajectory and its decision is compared at each of the transplant's evictions. The reverse direction is recorded as a diagnostic",
+  "phaseC_edge_case_rule": "for every scan and loop segment, and the 256 requests after it: transplant hit rate >= min(teacher, neural) - 0.05"
+ },
+ "extraction": {
+  "family": "L: finite local classes with class ranks, recency tie-break and deterministic hit transitions; the global state is allowed but not modelled. Rules needing relational or pointer state (e.g. a queue with a hand) are outside family L and yield NO COMPACT RULE",
+  "data": "closed-loop rollouts of the controller on training streams 101-103 only",
+  "micro_cluster_resolution": 0.001,
+  "max_micro_clusters": 1500,
+  "micro_cluster_rule": "grid cells of resolution x robust range per dimension, 8-neighbour union; resolution doubled until <= max_micro_clusters (at most 0.1)",
+  "rank_prior": "hard ordering evidence first; then hit transitions add soft 'rank increases along a hit' edges only where no evidence contradicts them",
+  "ordering_pairs": "victim vs every other resident, plus all pairs among the 4 lowest-scored residents",
+  "acceptance_min_agreement": 0.995,
+  "max_classes": 512,
+  "blinding": "trajectories are written under random codenames; the extractor gets only the trajectory arrays; outputs are hashed before unblinding"
+ },
+ "judge": {
+  "J1": "correspondence: each extracted class with >= 20 resident observations is >= 99% pure in the planted abstract local state (LFU: the highest class may cover a count tail >= K)",
+  "J2": "hit transitions map to planted transitions under the correspondence",
+  "J3": "class ranks are consistent with the planted order; recency is oldest-first",
+  "J4": "the insert class maps to the planted insert state",
+  "J5": "the extracted plain-code rule, forced along the teacher's trajectories on training streams 101-103, agrees with the teacher >= 99.5%",
+  "SIEVE": "planted semantics include a global hand and insertion-order queue; a family-L extraction cannot match them"
+ },
+ "phaseB": {
+  "states_per_pair": 100,
+  "state_source": "the neural controller's autonomous rollout on each held-out stream; random eviction and hit events",
+  "B1": "slot-permutation equivariance of neural scores, next states and victims, and of the extracted rule: exact (bitwise for the neural outputs)",
+  "B2": "swap h of (victim, runner-up) and (victim, random other), dt fixed. Wherever the planted semantics predict an order flip, the neural order must flip (exact); no-flip consistency is recorded",
+  "B3": "hit vs no-hit at t on the victim and on a random other resident; compare neural vs extracted next class of the slot and the victim at t+1. >= 99.0%",
+  "B4": "insert classes of all insert events (exact); reset: 3 random restarts, the first 64 evictions of the autonomous neural run equal the extracted rule's shadow decisions (exact); tie-break: copy the victim's (h, dt) into another slot, both must choose the lower index (exact)",
+  "B5": "targeted edit makes a non-victim u the predicted victim (u takes the victim class representative and dt_v + 1) vs a matched random perturbation of equal norm; one-sided Fisher exact p < 0.01"
+ },
+ "cpu": {
+  "pilot_cap_hours": 1.0,
+  "project_ledger_before_hours": 5.12737,
+  "gpu": false
+ }
+}

@@ -1,0 +1,349 @@
+{
+ "note": "POST-HOC, NON-GATING; descriptive only",
+ "max_train_dt": {
+  "101": {
+   "LRU": 107.0,
+   "LFU": 3160.0,
+   "SIEVE": 850.0,
+   "TWOQ": 1234.0
+  },
+  "102": {
+   "LRU": 102.0,
+   "LFU": 3161.0,
+   "SIEVE": 888.0,
+   "TWOQ": 948.0
+  },
+  "103": {
+   "LRU": 160.0,
+   "LFU": 4096.0,
+   "SIEVE": 1244.0,
+   "TWOQ": 1813.0
+  }
+ },
+ "by_controller": {
+  "LRU_s101_h201": {
+   "errors": 374,
+   "neural_choice_dt_median": 21.0,
+   "neural_choice_dt_max": 61.0,
+   "teacher_victim_dt_median": 22.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s102_h201": {
+   "errors": 462,
+   "neural_choice_dt_median": 20.0,
+   "neural_choice_dt_max": 79.0,
+   "teacher_victim_dt_median": 22.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s103_h201": {
+   "errors": 132,
+   "neural_choice_dt_median": 20.0,
+   "neural_choice_dt_max": 58.0,
+   "teacher_victim_dt_median": 21.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s101_h202": {
+   "errors": 527,
+   "neural_choice_dt_median": 18.0,
+   "neural_choice_dt_max": 73.0,
+   "teacher_victim_dt_median": 20.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s102_h202": {
+   "errors": 523,
+   "neural_choice_dt_median": 19.0,
+   "neural_choice_dt_max": 73.0,
+   "teacher_victim_dt_median": 20.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s103_h202": {
+   "errors": 150,
+   "neural_choice_dt_median": 18.0,
+   "neural_choice_dt_max": 73.0,
+   "teacher_victim_dt_median": 19.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s101_h203": {
+   "errors": 359,
+   "neural_choice_dt_median": 21.0,
+   "neural_choice_dt_max": 111.0,
+   "teacher_victim_dt_median": 23.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s102_h203": {
+   "errors": 439,
+   "neural_choice_dt_median": 21.0,
+   "neural_choice_dt_max": 111.0,
+   "teacher_victim_dt_median": 22.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LRU_s103_h203": {
+   "errors": 141,
+   "neural_choice_dt_median": 22.0,
+   "neural_choice_dt_max": 111.0,
+   "teacher_victim_dt_median": 24.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s101_h201": {
+   "errors": 24,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 88.0,
+   "teacher_victim_dt_median": 32.5,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s102_h201": {
+   "errors": 31,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 38.0,
+   "teacher_victim_dt_median": 35.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s103_h201": {
+   "errors": 30,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 117.0,
+   "teacher_victim_dt_median": 36.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s101_h202": {
+   "errors": 198,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 7.0,
+   "teacher_victim_dt_median": 12.5,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s102_h202": {
+   "errors": 200,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 9.0,
+   "teacher_victim_dt_median": 12.5,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s103_h202": {
+   "errors": 162,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 7.0,
+   "teacher_victim_dt_median": 14.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s101_h203": {
+   "errors": 1390,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 134.0,
+   "teacher_victim_dt_median": 7.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "LFU_s102_h203": {
+   "errors": 1390,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 26.0,
+   "teacher_victim_dt_median": 7.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0007194244604316547,
+   "frac_neural_choice_state_eq_teacher_state": 0.9992805755395684
+  },
+  "LFU_s103_h203": {
+   "errors": 1392,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 26.0,
+   "teacher_victim_dt_median": 7.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "SIEVE_s101_h201": {
+   "errors": 1748,
+   "neural_choice_dt_median": 9.0,
+   "neural_choice_dt_max": 250.0,
+   "teacher_victim_dt_median": 21.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.039473684210526314,
+   "frac_neural_choice_state_eq_teacher_state": 0.9605263157894737
+  },
+  "SIEVE_s102_h201": {
+   "errors": 921,
+   "neural_choice_dt_median": 11.0,
+   "neural_choice_dt_max": 250.0,
+   "teacher_victim_dt_median": 54.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.09011943539630836,
+   "frac_neural_choice_state_eq_teacher_state": 0.9098805646036916
+  },
+  "SIEVE_s103_h201": {
+   "errors": 949,
+   "neural_choice_dt_median": 12.0,
+   "neural_choice_dt_max": 893.0,
+   "teacher_victim_dt_median": 54.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.07586933614330875,
+   "frac_neural_choice_state_eq_teacher_state": 0.9241306638566913
+  },
+  "SIEVE_s101_h202": {
+   "errors": 1803,
+   "neural_choice_dt_median": 9.0,
+   "neural_choice_dt_max": 555.0,
+   "teacher_victim_dt_median": 16.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.016638935108153077,
+   "frac_neural_choice_state_eq_teacher_state": 0.9833610648918469
+  },
+  "SIEVE_s102_h202": {
+   "errors": 752,
+   "neural_choice_dt_median": 10.0,
+   "neural_choice_dt_max": 236.0,
+   "teacher_victim_dt_median": 63.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0678191489361702,
+   "frac_neural_choice_state_eq_teacher_state": 0.9321808510638298
+  },
+  "SIEVE_s103_h202": {
+   "errors": 797,
+   "neural_choice_dt_median": 11.0,
+   "neural_choice_dt_max": 431.0,
+   "teacher_victim_dt_median": 59.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.04265997490589712,
+   "frac_neural_choice_state_eq_teacher_state": 0.9573400250941029
+  },
+  "SIEVE_s101_h203": {
+   "errors": 1414,
+   "neural_choice_dt_median": 11.0,
+   "neural_choice_dt_max": 2672.0,
+   "teacher_victim_dt_median": 40.0,
+   "frac_neural_choice_dt_gt_train_max": 0.009193776520509194,
+   "frac_neural_choice_state_gt_teacher_state": 0.07496463932107496,
+   "frac_neural_choice_state_eq_teacher_state": 0.925035360678925
+  },
+  "SIEVE_s102_h203": {
+   "errors": 840,
+   "neural_choice_dt_median": 17.0,
+   "neural_choice_dt_max": 2626.0,
+   "teacher_victim_dt_median": 55.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0011904761904761906,
+   "frac_neural_choice_state_gt_teacher_state": 0.1630952380952381,
+   "frac_neural_choice_state_eq_teacher_state": 0.8369047619047619
+  },
+  "SIEVE_s103_h203": {
+   "errors": 837,
+   "neural_choice_dt_median": 18.0,
+   "neural_choice_dt_max": 2672.0,
+   "teacher_victim_dt_median": 55.0,
+   "frac_neural_choice_dt_gt_train_max": 0.015531660692951015,
+   "frac_neural_choice_state_gt_teacher_state": 0.11708482676224612,
+   "frac_neural_choice_state_eq_teacher_state": 0.8829151732377539
+  },
+  "TWOQ_s101_h201": {
+   "errors": 571,
+   "neural_choice_dt_median": 40.0,
+   "neural_choice_dt_max": 1239.0,
+   "teacher_victim_dt_median": 60.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s102_h201": {
+   "errors": 709,
+   "neural_choice_dt_median": 4.0,
+   "neural_choice_dt_max": 275.0,
+   "teacher_victim_dt_median": 59.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s103_h201": {
+   "errors": 607,
+   "neural_choice_dt_median": 16.0,
+   "neural_choice_dt_max": 589.0,
+   "teacher_victim_dt_median": 61.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s101_h202": {
+   "errors": 609,
+   "neural_choice_dt_median": 25.0,
+   "neural_choice_dt_max": 2049.0,
+   "teacher_victim_dt_median": 57.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0016420361247947454,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s102_h202": {
+   "errors": 685,
+   "neural_choice_dt_median": 2.0,
+   "neural_choice_dt_max": 334.0,
+   "teacher_victim_dt_median": 58.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s103_h202": {
+   "errors": 626,
+   "neural_choice_dt_median": 5.0,
+   "neural_choice_dt_max": 2049.0,
+   "teacher_victim_dt_median": 57.0,
+   "frac_neural_choice_dt_gt_train_max": 0.001597444089456869,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s101_h203": {
+   "errors": 1938,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 1380.0,
+   "teacher_victim_dt_median": 14.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s102_h203": {
+   "errors": 2039,
+   "neural_choice_dt_median": 1.0,
+   "neural_choice_dt_max": 467.0,
+   "teacher_victim_dt_median": 16.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  },
+  "TWOQ_s103_h203": {
+   "errors": 1573,
+   "neural_choice_dt_median": 2.0,
+   "neural_choice_dt_max": 1091.0,
+   "teacher_victim_dt_median": 16.0,
+   "frac_neural_choice_dt_gt_train_max": 0.0,
+   "frac_neural_choice_state_gt_teacher_state": 0.0,
+   "frac_neural_choice_state_eq_teacher_state": 1.0
+  }
+ }
+}
