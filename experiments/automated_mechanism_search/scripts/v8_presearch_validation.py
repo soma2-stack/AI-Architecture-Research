@@ -36,10 +36,11 @@ OUT = os.path.join(HERE, "runs", "v8_presearch_validation")
 def pytest(args):
     r = subprocess.run([sys.executable, "-m", "pytest", "-p", "no:cacheprovider", "-q", *args], cwd=HERE,
                        capture_output=True, text=True)
-    tail = (r.stdout.strip().splitlines() or [""])[-1]
+    lines = [l for l in r.stdout.splitlines() if re.search(r"\d+ (passed|failed|error)", l)]
+    tail = lines[-1] if lines else ""
     m = re.search(r"(\d+) passed", tail)
     return {"returncode": r.returncode, "summary": tail, "passed": int(m.group(1)) if m else 0,
-            "failed": "failed" in tail or "error" in tail}
+            "failed": bool(re.search(r"\d+ (failed|error)", tail))}
 
 
 def main():
