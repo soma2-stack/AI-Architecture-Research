@@ -9,7 +9,46 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 22
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 23
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
+  - `SHARED_RESEARCH_MAP.md` §12: OMD-0 is design only; my role is target-task and discovery-design researcher;
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` v8 (unchanged and not edited; the AMS line is closed);
+  - `HANDOFF_Claude_OMD0_targets.md`;
+  - this notebook.
+
+  Merged `origin/main` `c7c0d46`.
+- **Current lens:** Observed Mechanism Discovery (OMD), stage OMD-0 (design only). No code, training, search or GPU.
+- **Current stage: the OMD-0 target screen is COMPLETE** (Part AP).
+  - 18 families screened.
+  - **1 survives: T1 RET — capacity-bounded retention under nonstationary reuse.**
+    - Instrument: per-slot 2-D recurrent state plus 1 global variable, with shared event-conditioned transitions; trained on MIN imitation and/or hit rate.
+    - Extraction: phase portraits, symbolic regression and FSM extraction.
+    - Tests: causal necessity/sufficiency and patching; a transplant as plain code; an independent transfer to KV-slot retention in a tiny attention model.
+    - Kill references: D1–D5 (oracle selection, expert mixing, feature ranker, program-search outputs, EVA/LHD), plus a selector kill.
+  - 17 killed: occupied compact designs or theory, exhaustive small-machine search, existing learned-strategy extraction, or excluded directions.
+  - No 2nd or 3rd target (the set was not padded).
+- **Strongest surviving item:** T1 is a *target family* (conceptual), recommended for OMD-1 and **not frozen**.
+  - **Candidates: none. 0 supported architectures, 0 primitives.**
+  - Expected primitive verdict on T1: dies on sight (a priority queue with event-updated keys).
+  - Honest prior (speculation): ≤ 10% chance of a surviving mechanism.
+- **Killed / closed:**
+  - earlier: AMS v5–v8; GG1–GG8;
+  - now: OMD-0 families 2–18 (Part AP.3). Nearest misses: the zero-delay sender–receiver protocol (Linder–Yüksel near-optimal finite-memory design) and congestion control (NUM = optimizer family).
+- **Unresolved prior-art questions (for Codex):**
+  - Has anyone trained a per-slot recurrent eviction instrument and extracted a transplanted rule (beyond RLR 2021 and the GA-evolved IPVs of 2013)?
+  - Do PolicySmith/CacheCraft outputs already contain cross-regime compact rules that pre-empt S1/S2?
+  - Is there a near-optimality result for O(1)-state online eviction under nonstationary / Markov-modulated reuse?
+  - The †-recalled references in Part AP need verification.
+- **CPU:** 5.13 CPU-h of 30 (unchanged); no GPU. T1 pilot estimate ≈ 8–14 CPU-h (not authorized).
+- **Exact next action:** wait.
+  - Codex: hostile reduction of T1 from the handoff.
+  - Cursor/Gemini: identifiability, extraction-validity and CPU audit.
+  - Owner: select ≤ 1 target and freeze OMD-1, resolving forks 1–6 in Part AP.5.
+  - Claude implements, trains and freezes nothing until the owner freezes OMD-1.
+
+# Resume Pointer as of session 22 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; verified, last touched in `a03ce6e`);
@@ -4777,6 +4816,396 @@ Frozen and pushed at `000f237` before the rerun.
 
   Its informative output is the calibration record (Stages 0–1) and a precisely characterized search-seeding failure.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
+
+---
+
+# Part AP — OMD-0: target-task and discovery-design screen (session 23, 2026-09-28; reasoning and about 25–30 targeted prior-art searches; no code, no training, no compute)
+
+**Result: 1 of 18 screened target families survives — T1 "capacity-bounded retention under nonstationary reuse" (RET).**
+- 17 families are killed as occupied, as belonging to an excluded direction, or both.
+- **No second or third target survived.** The ranked set is deliberately not padded.
+- T1 is recommended as the OMD-1 target but is **not frozen, not implemented and not trained**.
+- T1 is a **target family, not a candidate.** At best, OMD-1 on T1 could yield a POSSIBLE ARCHITECTURE CANDIDATE (a new retention/update semantics). I expect the primitive claim to die on sight (AP.4.10).
+- **Honest prior (speculation):** low yield. The most likely OMD-1 outcomes are:
+  - (a) rediscovery of known policies, which would validate the OMD pipeline;
+  - (b) a tuned hybrid that the strongest decomposition matches.
+
+  My subjective estimate is ≤ 10% that an extracted rule survives the full SHARED_RESEARCH_MAP §12 evidence list.
+
+## AP.1 Scope and inputs
+
+- **Read:**
+  - `AGENTS.md` (unchanged; last touched `a03ce6e`);
+  - `SHARED_RESEARCH_MAP.md` §10–§14: the do-not-reopen list, the scoreboard and the OMD plan (merged `origin/main` `c7c0d46`);
+  - the session-22 Resume.
+- **Excluded by the owner:**
+  - B, C\*, F;
+  - another continual-learning benchmark;
+  - shortcut-learning tweaks;
+  - GG1–GG8;
+  - CSL;
+  - truth maintenance;
+  - generic external memory;
+  - generic architecture search;
+  - learned optimizers / gradient-rule search;
+  - "old algorithm + neural network";
+  - tasks whose solution is forced by an obvious classical algorithm.
+- **Not read:** `Codex_Research.md`, `Cursor_Research.md`, `experiments/ams_audit/`.
+- **Methodology references (tools, not novelty claims):**
+  - tiny-RNN strategy discovery (Ji-An, Benna & Mattar, *Nature* 2025), and the caveat commentary "RNN dynamics may not purely reflect cognitive strategies" (bioRxiv 2025);
+  - DisRNN (Miller et al. 2023);
+  - CogFunSearch (2025);
+  - fixed-point analysis (Sussillo & Barak 2013)†;
+  - quantized-bottleneck FSM extraction from recurrent policies (Koul et al., ICLR 2019)†;
+  - SINDy / symbolic regression†;
+  - symbolic policy distillation (SPID);
+  - activation patching.
+
+† = recalled from background knowledge and not re-verified by search this session. The same mark is used below; Codex should verify these.
+
+## AP.2 Operational screening standard
+
+A family is **KILLED** if any of these holds:
+
+| Class | Condition |
+|---|---|
+| **K-a** | An optimal or provably near-optimal *compact* design is known for the regime, so the strategy space's performance frontier is spanned |
+| **K-b** | The relevant small-machine class has been exhaustively searched |
+| **K-c** | Prior art has already trained learned systems on the task and extracted or enumerated its strategies, and the known strategy families cover the plausible solutions |
+| **K-d** | The task reduces to an excluded direction: optimizer / learning rule, continual learning, external memory, adaptive depth, causal discovery, … |
+
+**Calibration** (AGENTS: "general implementability is not a novelty kill"):
+- Every well-posed stochastic task has a belief-MDP optimum. That is the analogue of Turing-simulability, **not** a kill.
+- A kill needs a known *compact* mechanism, or a constructive near-optimal design, at the relevant state size.
+
+A family **SURVIVES** only if it also meets every SHARED_RESEARCH_MAP §12 validity condition:
+- outside B/C\*/F;
+- no task-ID or answer-revealing side channel;
+- inspectable dynamics;
+- strong known baselines;
+- more than one plausible strategy;
+- not equivalent to memorization, replay, search, attention, external memory or optimizer tuning;
+- causally intervenable;
+- transplantable;
+- an independent transfer family exists.
+
+## AP.3 Screen — 18 families
+
+| # | Family | Verdict | Kill class and decisive prior art |
+|---|---|---|---|
+| 1 | **Capacity-bounded retention under nonstationary reuse (T1, RET)** | **SURVIVES** | AP.4 |
+| 2 | Quickest change detection / surprise reset with O(1) state | KILLED (K-a, K-c, K-d) | CUSUM (Page 1954)† and Shiryaev–Roberts†; adaptive CUSUM with an EWMA shift estimate (Sparks 2000); AEWMA (Capizzi–Masarotto); an RNN learning CUSUM increments (2022); RL design for quickest change detection (2024); Wilson–Nassar–Gold 2013† mixture-of-delta-rules (bounded-state change-point inference). Adjacent to GG5 |
+| 3 | Finite-memory hypothesis testing, estimation or prediction (including "when does a tiny system need internal randomness") | KILLED (K-a) | Hellman–Cover 1970 (optimal randomized finite-memory tests); Leighton–Rivest 1986†; Meron–Feder 2004 (finite-memory universal prediction; saturated counters); Berg–Ordentlich–Shayevitz 2021 (deterministic finite-memory bias estimation) and their survey |
+| 4 | Zero-delay low-rate sender–receiver protocol for nonstationary sources | KILLED (K-a). **Nearest miss** | Structure theorems: Witsenhausen 1979†, Walrand–Varaiya 1983†. Near-optimality of finite-memory codes, and an RL design with proven asymptotic optimality: Wood–Linder–Yüksel 2017; Ghomi–Linder–Yüksel 2021; Cregg–Alajaji–Yüksel, IEEE T-IT 2024. Compact families: ADM/CVSD (Jayant)†; ΔΣ, including learned ΔΣ (RCNet 2025); sign-of-innovation Kalman filter (2006)†. Learned low-latency codes (LEARN codes 2018). A tiny learned protocol can at best compress the belief filter |
+| 5 | Repeated-game strategy invention (IPD, RPS) | KILLED (K-c) | Harper, Knight et al. 2017: evolved and RL strategies against 170+ opponents in the Axelrod library; RoShamBo competitions† |
+| 6 | Multi-agent MAC / coordination protocol emergence | KILLED (K-c) | MARL-emergent wireless MAC protocols (arXiv 2108.07144); LLM4MAC (2025); multi-player bandits survey (JMLR 2024) |
+| 7 | Reversal-learning, bandit or rule-switch strategies | KILLED (K-c) | The OMD methodology papers themselves: Ji-An et al. 2025; DisRNN; CogFunSearch; meta-RL (Wang et al. 2018)† |
+| 8 | Per-entry tiny automata for binary sequence prediction (branch-predictor-like) | KILLED (K-b, K-a) | Nair 1995 exhaustively simulated all 4-state (2-bit) FSM predictors; the 2-bit counter is close to optimal everywhere. Theory as in family 3 |
+| 9 | Tiny-state congestion control, AQM or ABR rules | KILLED (K-d, K-c). **Second nearest miss** | NUM reverse-engineering (Kelly 1998†; Low 2003†): congestion control is distributed primal–dual optimization, i.e. the optimizer exclusion. Automated synthesis: Remy 2013†, Aurora 2019†, Abagnale 2022†. BOLA†: Lyapunov near-optimal ABR |
+| 10 | Scheduling with unknown job sizes | KILLED (K-a) | Gittins-index optimality for M/G/1†; SOAP (Scully et al. 2018)† analyses all age-based priority policies |
+| 11 | Streaming quantiles, sketches, approximate counting | KILLED (K-a, K-d) | Frugal streaming 2013; DUMIQE (SGD-like, i.e. optimizer); Meta-sketch 2023; optimal approximate counting (Nelson–Yu 2022)† |
+| 12 | Restless monitoring / age of information / sensor scheduling | KILLED (K-a) | Whittle index, with closed forms for Kalman sensor scheduling (Le Ny–Feron–Dahleh 2011)†; NeurWIN 2021† |
+| 13 | Fixed-size associative-memory update rule (SSM / linear-attention state) | KILLED (K-d, K-c) | The online-optimization view of recurrent memory, i.e. the learned-optimizer exclusion: DeltaNet, Longhorn, Titans, Miras, Gated DeltaNet (2021–2025)† |
+| 14 | Online prototype create / merge / delete under a budget | KILLED (K-c) | GNG-U (Fritzke 1997)†; ART; RAN; DenStream / CluStream micro-cluster budgets†. Adjacent to GG1 and GG3 |
+| 15 | Local-rule fault-tolerant memory / self-repair | KILLED (K-a, K-c) | Toom 1980†; Gács†; Taylor–Kuznetsov fault-tolerant memories†; neural cellular automata† |
+| 16 | Multi-target identity tracking with O(1) state | KILLED (K-a) | MHT / JPDA†; identity-management belief matrices (Shin–Guibas–Zhao 2003)†; Fourier inference over permutations (Huang–Guestrin–Guibas 2009)† |
+| 17 | Timing, beat or phase tracking | KILLED (K-a) | PLLs†; adaptive oscillators (Large–Kolen 1994)†; hazard-rate timing models† |
+| 18 | Online bin packing, online knapsack, secretary with tiny state | KILLED (K-c; also not a state-transition target) | RL rediscovers the classic online algorithms (Kong et al., ICLR 2019)†; FunSearch bin-packing heuristics (*Nature* 2024)† are stateless score functions |
+
+**Nearest misses** (recorded so the owner can see the boundary):
+- **Family 4** died because a structure theorem and a provably near-optimal finite-memory design procedure both already exist.
+- **Family 9** died because NUM turns congestion control into an optimizer family, and automated synthesis is mature.
+
+Neither is dead because it is "simulable".
+
+## AP.4 T1 — Capacity-bounded retention under nonstationary reuse (RET)
+
+### AP.4.1 Capability
+
+With C slots, O(1) state per slot and O(1) global state, decide online which resident item to discard at each overflow, so as to minimize misses. The reference streams switch between **unlabelled** reuse regimes: frequency-dominated, recency-dominated, scans, loops larger than C, correlated bursts and periodic reuse. The decisions must be robust across regimes without a regime label.
+
+### AP.4.2 Minimal task family (RET-synth)
+
+**Sizes:** universe N = 256–1024 items; capacity C = 16–32; uniform item size; streams of 10^4–10^5 requests.
+
+**Generators.** The stream follows a hidden semi-Markov switch among six components, each the known stress case of a library family:
+
+| Component | Stream | What it stresses |
+|---|---|---|
+| G1 | Zipf IRM with drifting popularity ranks | frequency; staleness |
+| G2 | working-set phases (hot set h < C or > C; abrupt switches) | recency; fast adaptation |
+| G3 | one-hit scans | quick demotion |
+| G4 | cyclic loops over L > C items | LRU's pathology (MIN keeps a fixed subset) |
+| G5 | correlated bursts: k references, then a long gap | the LRU-K / 2Q correlated-reference period |
+| G6 | periodic items with heterogeneous periods | reuse-interval predictability (LIRS / Mockingjay) |
+
+The episode parameters (mixture weights, dwell times, h, L, periods, Zipf exponent) are resampled every episode. Held out: parameter ranges and unseen component combinations.
+
+**Not hard-coded.**
+- Belady's MIN is offline (it needs the future) and serves only as a training target.
+- The input is only the event stream (hit on slot i, or miss).
+- Each component has a different library winner, so no single known policy is optimal on the mixture.
+- Several strategies are plausible:
+  - regime inference plus switching among known policies;
+  - per-item multi-timescale traces with a learned ranking;
+  - a probationary state machine (2Q / S3-FIFO / SIEVE-like);
+  - reuse-interval estimation (LIRS / Mockingjay-like);
+  - an unnamed coupling between per-slot and global state.
+
+**Not "memory" or external memory.**
+- Every policy, including every baseline, has exactly the same C slots.
+- The object is the transition rule that decides retention, not added capacity.
+- No replay, search or attention is used at decision time.
+
+### AP.4.3 Why known machinery is incomplete (classical and recent)
+
+**Library** (each item is a baseline or a kill reference):
+
+- **Classical:**
+  - MIN (Belady 1966); LRU, FIFO, LFU; CLOCK; WS (Denning 1968)†;
+  - A0, optimal under IRM (Aho–Denning–Ullman 1971)†;
+  - LRU-K (1993); 2Q (1994); LRFU (2001); LIRS (2002); ARC (2003); CAR (2004); CLOCK-Pro (2005); GDSF;
+  - competitive analysis (Sleator–Tarjan 1985; randomized marking, Fiat et al. 1991)†.
+- **Hardware and learned:**
+  - RRIP (2010);
+  - GA-evolved insertion/promotion vectors (Jiménez, MICRO 2013; < 1 bit per block);
+  - Hawkeye (2016);
+  - **EVA** (Beckmann–Sanchez, HPCA 2017; MDP-derived "economic value added");
+  - **LHD** (NSDI 2018; conditional hit density);
+  - LeCaR (2018) and CACHEUS (2021): regret-weighted expert mixing;
+  - learning-augmented caching (Lykouris–Vassilvitskii 2018)†;
+  - Glider (MICRO 2019; LSTM distilled to an ISVM);
+  - Parrot (ICML 2020; imitation of MIN);
+  - LRB (2020);
+  - **RLR** (HPCA 2021: an RL agent was analysed and a compact rule derived from it);
+  - Mockingjay (2022); HALP (2023); GL-Cache (2023);
+  - GRUMA (2025; GRU sequence model); 3L-Cache (FAST 2025); Cold-RL (2025);
+  - LearnedCache (2026; eBPF perceptron).
+- **New compact rules:** S3-FIFO (SOSP 2023); SIEVE (NSDI 2024); D-FR and AGE lazy promotion (PVLDB 19, 2025).
+- **Automated program discovery:**
+  - PolicySmith (HotNets 2025; LLM plus evolutionary search for *instance-optimal* heuristics per context);
+  - CacheCraft KV-eviction program evolution (arXiv 2608.14555);
+  - "Which eviction policy should an LLM cache use" (arXiv 2608.20280).
+- **KV-cache retention:**
+  - H2O; StreamingLLM; TOVA†; SnapKV†;
+  - KVP per-head RL rankers (ICML 2026);
+  - learned retention gates (arXiv 2512.03324, 2605.09649);
+  - KVpop (arXiv 2607.05061);
+  - DistillCache (2026).
+
+**Why it is still open:**
+
+| # | Status | Reason |
+|---|---|---|
+| 1 | verified | No optimality or near-optimality result is known for online eviction with O(1) per-slot state under nonstationary mixed reuse. A0 is optimal only under stationary IRM. EVA and LHD are MDP / conditional-probability derivations under stationary age/class models. Learning-augmented bounds are worst-case, with predictions |
+| 2 | verified | The compact-rule space keeps producing new **principles**: quick demotion (2023), lazy promotion / visited-bit sweeping (2024), delayed FIFO reinsertion and age-guided eviction (2025). The mechanism space is demonstrably not exhausted. This is the key contrast with families 3, 4, 8 and 10 |
+| 3 | verified | Learned approaches mostly produce black-box or feature rankers (LRB, Glider, GRUMA, LearnedCache, KVP, retention gates). None of those found reports a causally validated, transplanted per-slot transition mechanism. The closest methodological precedents searched narrow spaces: RLR (feature analysis of an RL agent) and GA-evolved IPVs (≤ 1 bit per block) |
+| 4 | interpretation | Automated program search is the strongest competitor. It targets instance-optimal code per workload, not a cross-regime mechanism with a causal account. Its published outputs must be part of the kill reference set (AP.4.10) |
+
+**Main caveats (they do not kill the target, but they lower its expected yield):**
+- the space is crowded;
+- LLM program search mines the same compact-rule space with strong priors;
+- a new eviction rule will most likely be classified as "a new heuristic in a known family" unless it shows transfer and a property that the strongest decomposition does not preserve.
+
+### AP.4.4 Tiny discovery substrate (an instrument, not a candidate)
+
+**State:** per-slot h_i ∈ R² (variant R³); global g ∈ R¹ (variant R²).
+
+**Shared-weight, event-conditioned transitions:**
+
+| Event | Update |
+|---|---|
+| hit on slot i | h_i ← F_hit(h_i, g) |
+| every request, for all resident slots | h_j ← F_tick(h_j, g) |
+| miss | score s_j = S(h_j, g); the victim is argmin_j s_j (a softmax over −s in training); the new item gets h ← F_ins(g) |
+| global, every event | g ← F_g(g, event, h_victim) |
+
+**Size:** each F is a tiny MLP with about 16 tanh hidden units; roughly 300–600 parameters in all.
+
+**Inputs exclude:** item IDs, addresses, PCs and sizes. There is no regime label.
+
+**Ghosts:**
+- Substrate A (base) keeps no state for non-resident items.
+- Variant B adds a G-entry FIFO ghost memory that restores the frozen h of a re-referenced item. It is needed to make ghost-based families (ARC, LIRS, S3-FIFO) reachable, and B is compared only against ghost-using baselines.
+
+**Why this substrate:**
+- two-dimensional per-slot states give complete phase portraits for each event type;
+- shared weights make the transition function the single object to extract;
+- total state is C·2 + 1, and each slot's rule has at most 3 state variables, within SHARED_RESEARCH_MAP's 1–8.
+
+**Training (for OMD-1; not now):**
+- (i) Parrot-style listwise imitation of MIN at each miss, with truncated BPTT through slot states;
+- (ii) REINFORCE fine-tuning on hit rate, to check that the imitation objective does not shape the mechanism;
+- 10 independent seeds.
+
+### AP.4.5 Observable signature (more specific than "better")
+
+All thresholds are suggestions for the owner's OMD-1 freeze.
+
+- **S1 — regime-uniform gap closure:**
+  - on every stationary component, the miss ratio is within ε of the best library policy for that component;
+  - on the switching mixture, it beats both the best single library policy **and** online expert mixing over the whole same-class library (LeCaR/CACHEUS generalized), by a pre-declared margin, e.g. ≥ 10% relative reduction of the MIN gap on ≥ 8/10 seeds.
+- **S2 — decision fingerprint outside the library:**
+  - on held-out mixtures, eviction-decision agreement with every library policy is < 80% while outperforming them;
+  - a gradient-boosted ranker fitted to the instrument's decisions, on the union of library features, either agrees < 90% or fails to reproduce S1 when run as a policy. The features are age, hit count, last inter-reference gap, time since insertion, LRU rank, CLOCK/visited bit, RRPV and the LHD age class.
+- **S3 — dynamical signature**, for example:
+  - per-slot state that is non-monotone in age (reactivation without a hit);
+  - fixed points of F_tick that bifurcate with g;
+  - hit transitions that do not factor into recency × frequency.
+
+  S3 alone is insufficient: "a strange hidden state is not enough".
+
+### AP.4.6 Extraction method
+
+- **E1:** event-conditioned phase portraits of F_hit, F_tick and F_ins over the h-plane at several g values: fixed points, nullclines, bifurcation in g.
+- **E2:** the empirical occupancy of the visited states restricts every fit to the visited domain, which blocks extrapolated stories.
+- **E3:** sparse symbolic regression (a SINDy-style term library plus a GP Pareto front) of each F and of S on the visited domain. Acceptance: held-out R² ≥ 0.99, and ≥ 95% decision agreement when the fit is substituted.
+- **E4:** finite-state extraction (quantized bottleneck, or k-means on visited states), then minimization. Compare the result with the library automata: CLOCK, 2-bit RRIP, SIEVE's visited bit, S3-FIFO small/main/ghost, and 2Q A1in/Am.
+- **E5:** regress each h coordinate on the library features, to name what it encodes.
+- **E6:** align the extracted rules across seeds up to an affine reparameterization of h and g, and cluster them. This is the recurrence criterion.
+
+### AP.4.7 Causal test
+
+**Necessity.**
+- Clamp g to its mean. Prediction: the S1 advantage on regime switches vanishes, while stationary-component performance is kept.
+- Clamp each h coordinate in turn.
+- Delete the specific extracted term (e.g. a g × h interaction) from the symbolic rule.
+
+The claimed property must disappear under the targeted ablation and survive matched random ablations.
+
+**Sufficiency.** Replace the network by the extracted rule, as plain code with no NN. On held-out seeds and streams it must reproduce:
+- ≥ 90% of the instrument's MIN-gap closure;
+- ≥ 95% decision agreement.
+
+**Interventional prediction.** Apply controlled perturbations: inject a scan of length L at time t, switch the hot set, or kick g. The extracted rule's predicted victim sequence and recovery time are written down **before** the instrument is run.
+
+**Patching.** Swap the h of two slots; their future eviction order must swap as predicted. This checks that the per-slot state is causal and not a slot-index artefact.
+
+### AP.4.8 Transplant test
+
+The extracted rule becomes a standalone policy (plain code). It runs against the full library, at equal or greater baseline state, on:
+- the RET-synth held-out ranges;
+- a separately written synthetic suite (other generator code and parameters);
+- public real traces, optionally and only if accessible offline.
+
+It must keep S1 and S2.
+
+A stronger second transplant: initialize a **fresh** instrument with the extracted rule and freeze it. It must match the trained instrument, which rules out an unexplained residual carrying the effect.
+
+### AP.4.9 Independent transfer task — KV-slot retention in a tiny attention model (T-KV)
+
+**Setup:**
+- a 1–2-layer attention model on synthetic long-context multi-query associative recall;
+- key–value pairs are streamed;
+- query interest is nonstationary: some keys are queried repeatedly, some once, with bursts and distractor scans;
+- the KV budget is B < context.
+
+**Event mapping** (fixed before the transfer run):
+- a hit is a token receiving attention mass ≥ τ at the current step;
+- a tick is each step;
+- a miss is a new token arriving while the cache is full.
+
+Only τ is calibrated, on a validation split. The rule's parameters are not retrained.
+
+**Metric:** recall accuracy at fixed B.
+
+**Baselines:**
+- StreamingLLM (sinks + recency);
+- H2O (cumulative attention, ≈ LFU);
+- TOVA (current attention);
+- random;
+- LRU, LFU, S3-FIFO, SIEVE and ARC-resident, through the same event interface;
+- a learned retention gate trained on T-KV, as an upper reference.
+
+**Independence:** a different reuse generator (attention-driven, soft hits), a different objective, no RET-synth traces, and zero-shot rule parameters.
+
+**Transferred property:** the S1-type regime-uniform advantage over the transplanted library at a matched budget.
+
+**Secondary transfer (optional):** the deletion policy of a bounded LZW dictionary on nonstationary symbol sources, scored by compression ratio, against FREEZE, RESTART, LRU and LFU deletion†.
+
+### AP.4.10 Novelty kill test
+
+**Primitive reduction.** A per-slot event-updated state plus argmin eviction is a known primitive class: a priority queue with event-updated keys (the CLOCK / RRIP family).
+- **Pre-registered expectation: the primitive claim dies on sight.**
+- It survives only if the extracted rule needs an operation outside {per-slot state update, global scalar coupling, argmin}.
+
+**Architecture substitutability.** The strongest ordinary decomposition set:
+
+| Ref | Decomposition |
+|---|---|
+| D1 | oracle best library policy per regime (the selection upper bound) |
+| D2 | online regret-weighted expert mixing over the whole library |
+| D3 | a feature ranker (GBM / LRB-style) on the union of library features, trained on MIN with the same data |
+| D4 | published outputs of automated program search (PolicySmith / CacheCraft-style), where available |
+| D5 | EVA / LHD with their full global histograms |
+
+The candidate survives only if both hold:
+- it beats D2, D3 and D5 at equal or smaller state;
+- it transfers (T-KV) where the equivalently transplanted D2 and D3 do not.
+
+**Selector kill.** If the instrument's decisions agree ≥ 95% with known policy A in regime 1, B in regime 2, and so on, it is killed as a **learned selector among known policies** (pipeline), even if it beats D2.
+
+**Direct prior art.** The extracted equations are searched against the caching and KV literature and against the program-search outputs.
+
+**Falsifiers:**
+- *primitive:* after discretization, the rule is a CLOCK / RRIP / 2Q / S3-FIFO automaton;
+- *architecture:* any of the following —
+  - D2, D3 or D5 matches it at equal state;
+  - per-regime agreement with known policies is ≥ 95%;
+  - there is no cross-seed recurrence;
+  - T-KV transfer fails.
+
+### AP.4.11 Positive and negative controls (must pass before any novel extraction is trusted)
+
+| Control | Stream or setup | Required outcome |
+|---|---|---|
+| PC1 | stationary Zipf IRM only | frequency ranking (A0 / LFU); extraction finds a count-like coordinate with near-zero decay |
+| PC2 | pure working-set phases | recency (LRU); a monotone age coordinate |
+| PC3 | scans + hot set | probationary two-level demotion (2Q / S3-FIFO-like) |
+| PC4 (planted rule) | instrument trained to imitate a known policy with hidden structure (SIEVE; ARC-resident) | blind extraction recovers it (SR / FSM extraction does not manufacture stories) |
+| NC | random-weight instrument | extraction reports no compact rule at the acceptance thresholds |
+
+### AP.4.12 Estimated CPU scale for a future pilot (not authorized)
+
+| Item | Estimate |
+|---|---|
+| Instrument training: C = 32, 2-D slots, ~500 parameters, 16-trace batches, 2–5·10^5 request-steps | ≈ 10–20 CPU-min per seed; 10 seeds × substrates A/B ≈ 3–7 CPU-h |
+| Library simulation: ~20 policies × ~50 streams × 10^5 requests | ≈ 0.5–1 CPU-h |
+| Controls PC1–PC4, NC | ≈ 1 CPU-h |
+| Extraction E1–E6 and causal tests | ≈ 1–3 CPU-h |
+| T-KV transfer (tiny attention model and evaluations) | ≈ 1.5–2.5 CPU-h |
+| **Total** | **≈ 8–14 CPU-h** |
+
+- This fits within the remaining ~24.9 CPU-h of the shared 30 CPU-h cap. CPU only.
+- **Suggested staging:** first a 3-seed pilot with the controls (≈ 2–3 CPU-h). Stop if PC1–PC4 fail.
+
+## AP.5 Ranking and recommendation
+
+| Rank | Target | Status |
+|---|---|---|
+| 1 | **T1 RET** — capacity-bounded retention under nonstationary reuse | survives the OMD-0 screen: a conceptual target; crowded; low expected yield |
+| 2 | — | none survived. Nearest miss: zero-delay sender–receiver protocol (family 4) |
+| 3 | — | none survived. Nearest miss: congestion control (family 9) |
+
+**Recommended OMD-1 target: T1 RET. Not frozen, not implemented, not trained.**
+- **Why, despite the low yield:** it is the only screened family whose mechanism space is demonstrably unexhausted at O(1) per-slot state. It also has strong baselines, natural positive controls and an AI-relevant independent transfer (KV / slot retention).
+- **Value of a negative result:** a negative OMD-1 would still validate or falsify the OMD extraction pipeline itself on known rules (PC1–PC4). That is reusable for any later OMD target.
+
+**Open design forks for the owner's freeze** (not decided here):
+1. MIN imitation, an RL objective, or both;
+2. whether substrate B (ghosts) is included;
+3. the S1/S2 thresholds;
+4. the exact T-KV specification and the τ calibration;
+5. whether real traces are used;
+6. the share of the remaining CPU budget.
+
+## AP.6 Handoff
+
+`HANDOFF_Claude_OMD0_targets.md` is self-contained:
+- **Codex:** hostile reduction of T1, plus any disputed kill in AP.3.
+- **Cursor/Gemini:** audit of identifiability, extraction validity, transfer independence and CPU credibility.
+
+It authorizes no training.
 
 ---
 
