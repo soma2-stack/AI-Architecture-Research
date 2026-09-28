@@ -10,17 +10,35 @@ Shared background already read, and treated only as background: `01_MISSION.md`,
 
 # Resume block
 
-**Current search lens:** Failures where the hard part is inventing an internal symbol, under the classical-machine filter. Do not reopen Chains A–EY.
+**Current boundary lens:** The Non-Representational / Continuous Substrate Boundary (Beyond the State-Transition Paradigm). Synthesized from failure analysis of Batches 1, 2, and 3 (P1–P56) across the 10 fundamental reduction classes. Testing whether computation can exist without Markovian state vectors, explicit representational encodings, or static parameter-activation separation.
 
-**Current stage:** Chain EY is a reduction. No candidate survived.
+**Number of primitive candidates generated:** 72 candidate primitives (P1–P20 in Batch 1; P21–P40 in Batch 2; P41–P56 in Batch 3; P57–P72 in Batch 4).
+
+**Current stage:** Batches 1, 2, 3, and 4 fully attacked and reduced against prior art. 0 surviving candidates out of 72 generated.
 
 **Strongest surviving candidates:** None.
 
-**Killed by classical-machine reduction (do not reopen):** the previous list through Chain EX, plus a shift of domain (a density ratio, a moment match, or a transport; a domain classifier with a reversed gradient is an adversarial game).
+**Killed candidates (do not reopen):**
+- P1–P20 (Structural Boundary Batch: EQPS, SNPW, CCA, LSTR, DTB, CPES, RASL, DTLFB, PPBFV, SSPLOA, OSSO, BOFBL, NAPIU, IIIU, DOSR, DCSC, MSMR, DJBPT, MSDS, CDCEB) — killed by classical polyhedral geometry, OWM/null-space saturation, dataflow tagging/TMS, SECD stack frames, Cascade-Correlation, polyhedral abstract interpretation, Bennett uncomputation, dependent typing, HAMT, Kuramoto oscillators, Gram-Schmidt, categorical lenses, nominal logic, Craig interpolation/SOS SDP, Hypernetworks, delimited control, CvRDTs, provenance semirings, wavelet scattering/RG, and hybrid automata.
+- P21–P40 (Metacognitive / Self-Regulatory Batch: IDHM, ISBC, ECCW, SPTIR, RCDU, DCGM, CISS, HADN, MISG, ASHD, DECC, CLTS, ARFD, SSOBG, NLETB, DMTLI, AHPCU, TFBIL, GFERO, CBRS) — killed by Deep Equilibrium Models, Catastrophe Theory/Hopfield attractors, Equilibrium Propagation, Quickprop/pruning, temporal binding/complex VSAs, DAE index reduction/nonlinear control, Bayesian active causal discovery, intrinsic plasticity, Gradient Episodic Memory/RDR, spectral graph bottleneck options, Mean Shift/Laplacian eigenmaps, Lie symmetry analysis, Perona-Malik anisotropic diffusion, Barlow Twins, tensor product networks, adaptive time-constant integrators, Rao-Ballard predictive coding, differentiable persistence, Energy-Based Models/contrastive divergence, and DAG three-way merge/subspace intersection.
+- P41–P56 (Inter-Machine Limits Batch: AHLG, AHCI, EIPLR, COTM, ITWR, BWTG, MRCF, CLCC, SWCC, MWSQR, NAGCFD, CMZS, RKSHS, DAWPA, SASN, RFMFO) — killed by Persistent Homology / simplicial group algorithms, Wilson loop / Gauge CNNs, extended Hamiltonian phase spaces, Knuth-Bendix operadic rewriting / AVL rotations, BKT / skyrmion magnetic memory, Topological Quantum Computing / braid word reduction, Cauchy residue / point-in-polygon geometry, asynchronous cyclic switching circuits, Soliton Automata (Jakubowski-Steiglitz), Marsden-Weinstein / SHAKE-RATTLE constrained dynamics, Ehresmann connections, Girard zonotope reachability, Löwner-John ellipsoid filtering / KRLS, active noise cancellation wave superposition, Pontryagin adjoint sensitivity drift, and Hamilton-Perelman Ricci flow surgery / finite element remeshing.
+- P57–P72 (Non-Representational / Substrate Batch: FOHVI, AHSR, TLBED, SCMOC, NEPSC, HPLDKC, ECIE, SMDS, SOCAC, DGALR, MNPB, STTBR, ABQS, NESFR, TFSGS, CSBES) — killed by Linear State-Space Models / rational filter approximation (Oustaloup), Replicator Dynamics / mass-action ODEs, Landauer bit counters, Holland's Bucket Brigade / linear types, Cahn-Hilliard PDE solvers, FFT convolution / LMUs, Langevin SDE simulation, Ant Colony Optimization / Keller-Segel PDEs, Abelian Sandpile chip-firing, spin-glass Metropolis MCMC, analog crossbar hardware simulation, Turing reaction-diffusion PDEs / NCAs, threshold logic perceptrons, IRLS / optimal transport, Ising spin annealing / MCMC, and subcritical pitchfork bifurcations.
 
-**Unresolved prior-art questions:** Whether predicting one view’s embedding from another view performs any operation other than that regression, with a stop on the backward pass or a penalty that keeps the embeddings from collapsing to a constant.
+**Reduction classes encountered:**
+1. Classical Linear Algebra (projections, null-spaces, SVD, tensor contractions)
+2. Exact Symbolic Data Structures (SECD frames, HAMTs, CvRDTs, provenance semirings, tagged dataflow)
+3. Continuous Relaxations of Discrete Machines (t-norms, soft types, differentiable clustering, differentiable persistence)
+4. Known Dynamical Systems (Kuramoto, DEQs, Hopfield attractors, limit cycles, leaky integrators, Langevin relaxation)
+5. Known Control Laws (Hybrid automata, equilibrium propagation, DAE reduction, intrinsic plasticity, anisotropic diffusion)
+6. New Representations of Existing Operations (Categorical lenses, hypernetworks, wavelet scattering, Lie commutators, predictive coding)
+7. Pipelines / Scaffolds of Known Machines (Abstract interpretation wrapping nets, Craig interpolation solvers, delimited control monads, QP solvers)
+8. Invariant / Loss Terms in Disguise (Barlow redundancy, decorrelation penalties)
+9. Search in Disguise (Cascade-Correlation, pruning, active causal query search, spectral graph partition options)
+10. Classical Physical / Wave / Substrate Computing (Soliton automata, active noise cancellation, anyon braid computers, chemical kinetics, spin glasses, memristors)
 
-**Exact next action:** Chain EZ — a prediction in embedding space. If the published mechanism is a regression from one view onto the other’s embedding, a stop-gradient, or a variance and covariance penalty, record USE A PREDICTION OF AN EMBEDDING and move on. A contrastive loss on the pair is Chain DQ. A stop on the backward pass is a mask. A penalty is a loss. Do not reopen A–EY.
+**Unresolved prior-art questions:** None across P1–P72. Every candidate decomposes cleanly into existing classical, numerical, physical, or multi-agent machines.
+
+**Exact next action:** Meta-Analysis of the 72 kills to synthesize the fundamental **Turing-Physical Equivalence Barrier**; investigate whether any computational operation can exist outside the equivalence class of (Turing Machines $\cup$ Classical Continuous Dynamical Systems $\cup$ Convex/Combinatorial Solvers).
 
 ---
 
@@ -2075,23 +2093,3902 @@ Composite actions are a separate machine: when a result is new, build a controll
 
 **Status:** Closed. Not a candidate.
 
+## Chain EZ — A prediction in embedding space
+
+**Failure.** Generative models that predict raw pixels, audio samples, or text tokens waste capacity on unpredictable high-frequency variations (leaf textures, background noise). Joint Embedding Predictive Architectures (JEPA / BYOL / SimSiam / VICReg / DINO) predict one view's representation vector directly from another in latent embedding space without pixel reconstruction.
+
+**Why predicting in embedding space is not a new primitive.**
+Let representations be $z_x = f_\theta(x)$ and $z_y = g_\phi(y)$. A predictor emits $\hat{z}_y = h_\psi(z_x)$. The loss is an $L_2$ or cosine regression error: $\mathcal{L} = \|\hat{z}_y - z_y\|^2$.
+Without anti-collapse mechanisms, all latents collapse to a constant vector.
+The mechanisms preventing collapse in the literature are:
+1. *Stop-gradient and architectural asymmetry* (SimSiam, BYOL): Stop-gradient on the target branch ($z_y = \text{sg}(g(y))$). As proven by Tian et al. (2021) and Tao et al. (2022), stop-gradient modifies the gradient field so that the dynamics become an iterative Expectation-Maximization or Power Iteration algorithm that computes the principal eigenspace (Kernel PCA / SVD). It is a fixed-point iteration on the covariance operator.
+2. *Momentum / Exponential Moving Average (EMA) target encoder* (BYOL, DINO, I-JEPA): Target weights follow $\phi \leftarrow \tau \phi + (1-\tau)\theta$. This is Polyak-Ruppert parameter averaging (Polyak & Juditsky 1992), a classical smoothing method from stochastic approximation.
+3. *Variance-Invariance-Covariance Regularization* (VICReg, Bardes et al. 2022; W-MSE): Adds an explicit variance hinge penalty $\max(0, 1 - \sqrt{\text{Var}(z^j)})$ and an off-diagonal covariance penalty $\sum_{j \neq k} \text{Cov}(z)^2_{jk}$. This is Barlow's redundancy reduction principle (1961) and classical ZCA/PCA whitening.
+4. *Centering and Sharpening* (DINO, SwAV): Normalizing prototype logits with a centering moving average and temperature sharpening. As shown by Caron et al. (2020, 2021), this is the online Sinkhorn-Knopp algorithm for entropy-regularized optimal transport.
+
+The forward pass is standard feedforward embedding; the learning rule is minimum mean squared error (least-squares regression) in a latent space, stabilized by whitening penalties, optimal transport clustering, or stop-gradient fixed-point iteration.
+It leaves the internal state as a single dense point vector $z \in \mathbb{R}^d$. It does not provide discrete addressable facts, cannot localize which belief failed (Chain H), does not provide causal mechanism isolation (Chain J), does not enforce exact transitivity, and remains subject to superposition interference.
+
+**Reduction.** **USE A PREDICTION OF AN EMBEDDING — NOT A NEW ARCHITECTURE.** It is least-squares regression in a feature space coupled with classical whitening, power iteration, or optimal transport.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FA — Lexical and dynamic scopes / Environment cactus stacks
+
+**Failure.** Transformers struggle with nested variable scopes, lexical closures, variable shadowing, and dynamic stack frames (e.g. executing nested lambda expressions or tracking local variables across recursive calls). Attention simulates variable lookup by content and relative position matching. When variables share names across nested scopes (`let x = 1 in let x = 2 in x`), attention heads must synthesize complex positional inhibitor circuits. Beyond training depth, outer variable bindings leak into inner scopes or corrupt returning frames.
+
+**Why exact symbols do not remove the problem without an architecture.** A flat key-value fact store (Chain A) cannot handle shadowing without explicit scope identifiers. Appending scope tags to token sequences forces attention to compute quadratic pairwise scope-prefix containment checks, which degrade over long context.
+
+**Candidate primitive.** A native Lexical Frame Stack primitive with Push-Frame, Pop-Frame, Lookup-Binding, and Shadowing operations natively embedded into the state update.
+
+**Reduction.**
+- The SECD machine (Landin 1964): Environment (E) is a linked list of frames (ribs) representing lexical scopes. Variable lookup is a static coordinate $(i, j)$ (rib index and slot index) or a de Bruijn index, evaluated in $O(\text{depth})$ without search or interference.
+- The Warren Abstract Machine (WAM, Warren 1983): Choice points and environment frames on an execution stack manage local variable lifetimes and environments.
+- Cactus stacks / spaghetti stacks (Bobrow & Wegbreit 1973): Branching environments share ancestor frames without copying.
+Putting an environment stack inside a neural network reduces to an interpreter executing alongside an embedding layer.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is an environment frame stack / SECD cactus stack. Do not propose a neural scoping primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FB — Dynamic congruence closure and equivalence classes / E-graphs
+
+**Failure.** Neural models represent similarity via continuous metric distance ($\mathbb{R}^d, \|\cdot\|$). But metric distance is subadditive: the triangle inequality ($d(a, c) \le d(a, b) + d(b, c)$) allows error to accumulate across chains of substitutions. If $a = b$ and $b = c$, metric distance allows $d(a, c) > 0$. Over $k$ transitive steps, metric drift destroys exact equality. Furthermore, quotienting a continuous manifold by an arbitrary dynamic equivalence relation collapses topological dimensionality or destroys differentiability. Transformers simulate equality by pairwise soft attention, which scales quadratically and fails to enforce strict transitive closure on long chains.
+
+**Candidate primitive.** An Equivalence Closure Primitive that dynamically maintains equivalence classes over latent entities and rewrites terms to canonical representatives under substitution ($a = b \implies f(a) = f(b)$).
+
+**Reduction.**
+- Tarjan's Disjoint-Set / Union-Find with path compression and union by rank (1975): maintains dynamic equivalence partitions in near-linear time $\alpha(n)$ (inverse Ackermann).
+- Nelson & Oppen congruence closure (1980) and Downey, Sethi & Tarjan (1980): compute the congruence closure of a set of equations over uninterpreted function symbols in $O(m \log n)$.
+- Equality Saturation via E-Graphs (Tate et al. 2009; Willsey et al., Egg, POPL 2021): compact representation of equivalence classes of terms under rewriting rules without phase ordering.
+Metric spaces cannot cleanly quotient without collapsing dimensions; classical disjoint-set partitions do it with exact zero error in almost linear time.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Union-Find / Congruence Closure / E-Graphs. Do not propose a neural quotient primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FC — Confluently persistent structural versioning / Functional trees
+
+**Failure.** When an agent branches during search, evaluates counterfactual hypotheses, or backtracks, standard architectures either: (i) duplicate the entire key-value cache ($O(N)$ memory per branch in Transformers), (ii) re-run inference from the root prefix, or (iii) interpolate continuous hidden vectors in recurrent models (which produces chimeric blended states rather than valid branching histories).
+
+**Candidate primitive.** A Confluently Persistent Structural State primitive supporting $O(1)$ shallow forking, path-copying on writes, and non-destructive branch merging across reasoning trajectories.
+
+**Reduction.**
+- Driscoll, Sarnak, Sleator, and Tarjan (1989), "Making Data Structures Persistent": node-copying and path-copying techniques achieve $O(1)$ space and time per update for fully persistent trees and DAGs.
+- Okasaki's Purely Functional Data Structures (1999): purely functional red-black trees, finger trees, and deques support non-destructive persistent operations with structural sharing by construction.
+- Hash Array Mapped Tries (HAMT, Bagwell 2001): persistent immutable maps with $O(\log_{32} n)$ access and path copying, used in functional runtimes and version-control DAGs (Git).
+A neural system managing a tree of states with path copying is a classical persistent trie with embedding leaves.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is a persistent functional tree / HAMT. Do not propose a persistent neural state primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FD — Static type inference and subtyping lattices / Type-directed unification
+
+**Failure.** Neural networks treat all activations as vectors in $\mathbb{R}^d$. A hidden activation can be multiplied, added, or attended to regardless of whether it semantically represents a Boolean, an AST node, a distribution, or a physical quantity. Type discipline is enforced only softly by loss terms. Out-of-distribution, networks commit severe category errors (passing an image embedding to an integer addition circuit or confusing variable types in code generation).
+
+**Candidate primitive.** A Typed Vector Manifold / Structural Type Lattice primitive where every internal latent is tagged with a static or dynamic type from a subtyping lattice, and all layer transformations are typed arrows (morphisms) with runtime type-checking and type-directed unification.
+
+**Reduction.**
+- Church's Typed Lambda Calculus (1940) and Simply Typed Lambda Calculus.
+- Damas & Milner, Hindley-Milner type inference (1982): computes the principal type of an untyped term using Algorithm W via Robinson unification.
+- System F (Girard 1972; Reynolds 1974) and polymorphic lambda calculus.
+- Bidirectional Type Checking (Pierce & Turner 2000): propagates type requirements downward and synthesizes types upward.
+Checking or inferring types at network boundaries reduces to running a classical type checker. Soft approximations in vector space destroy type safety guarantees.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Hindley-Milner type inference or bidirectional typing. Do not propose a typed neural primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FE — Dynamic graph rewriting / Self-modifying dataflow topologies
+
+**Failure.** Standard deep networks have fixed execution topologies. MoEs route vectors between fixed expert slots; looped transformers iterate a fixed cell. Neither can alter its own computational wiring, spawn an arbitrary dynamic pipeline, or reconfigure into a tree/DAG based on intermediate runtime data without padding to a maximal universal graph.
+
+**Candidate primitive.** A Graph-Rewriting Primitive that applies learned term rewriting rules to its own computational graph at runtime.
+
+**Reduction.**
+- Term Rewriting Systems (TRS) and Knuth-Bendix completion (1970): confluent and terminating term rewriting on algebraic terms.
+- Lafont's Interaction Nets (1990): graph rewriting systems with local and concurrent reduction rules that execute in linear time without garbage collection.
+- Dynamic Dataflow Architectures (Dennis 1980; Arvind & Nikhil 1990): execution graph dynamically unfolds based on data tokens carrying tags and destination addresses.
+Dynamic graph reconfiguration is classical term rewriting / graph reduction (e.g. G-machine, SECD, interaction combinators).
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Term Rewriting or Dynamic Dataflow. Do not propose a self-modifying topology primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FF — Monotonic state concurrency / Join-semilattices (CRDTs)
+
+**Failure.** When multiple parallel or asynchronous reasoning streams produce intermediate findings, combining them with standard attention computes a convex combination (weighted sum $\sum \alpha_i v_i$). Averaging incompatible factual hypotheses (e.g. hypothesis $A=1$ and hypothesis $A=0$) yields a blended average (0.5) that satisfies neither hypothesis. Order of processing in sequential updates causes race conditions and recency bias.
+
+**Candidate primitive.** A Join-Semilattice Neural State $(S, \sqcup, \le)$ where state updates are monotonic transitions under an information ordering, and aggregation across parallel branches is the least upper bound (LUB): associative, commutative, and idempotent ($x \sqcup x = x$).
+
+**Reduction.**
+- Conflict-free Replicated Data Types (CvRDTs, Shapiro et al. 2011): state-based objects where concurrent updates converge deterministically by taking the LUB in a join-semilattice.
+- Monotone Datalog and the CALM theorem (Alvaro et al. 2011, Bloom/Lasp): programs expressed monotonically over semilattices achieve consistency without coordination.
+- Abstract Interpretation Lattices (Cousot & Cousot 1977): fixed-point iteration over complete lattices for program semantics.
+Enforcing idempotence and commutativity in state aggregation reduces to maintaining a classical semilattice accumulator.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is a join-semilattice / CvRDT. Do not propose a semilattice neural aggregator.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FG — Exact reversible uncomputation / State inversion (Bennett pebble games)
+
+**Failure.** Deep reasoning and backpropagation require caching all intermediate activations ($O(L \cdot T)$ memory) or recomputing them from scratch. Soft attention is dissipative and non-invertible due to softmax normalization and dimension reduction. An agent that needs to backtrack must either keep copies of old states or re-execute the entire prefix.
+
+**Candidate primitive.** An Exact Reversible Uncomputation Primitive that steps forward and backward along deterministic state trajectories with zero activation caching and minimal pebble overhead.
+
+**Reduction.**
+- Landauer's Principle (1961): logical irreversibility requires heat dissipation; logically reversible computation can proceed with zero erasure.
+- Bennett's Reversible Turing Machines (1973): any computation can be made reversible by computing forward, copying the result, and uncomputing intermediate steps backward.
+- Fredkin & Toffoli conservative logic (1982) and reversible pebble games (Bennett 1989): optimal space-time tradeoffs for reversible computation.
+Continuous coupling layers (Dinh et al. RealNVP; Gomez et al. RevNet) are already closed in Chain EJ. Discrete exact state uncomputation is Bennett's uncomputation algorithm.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Bennett reversible uncomputation. Do not propose an uncomputation primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FH — Quotient manifolds under continuous Lie symmetries / Orbit projection
+
+**Failure.** Physical and geometric tasks require invariance or equivariance to continuous Lie group actions ($SE(3), SO(3)$, gauge transformations). Existing equivariant message passing networks (EGNN, Tensor Field Networks, SE(3)-Transformers) compute Clebsch-Gordan tensor products over all pairs of entities, creating severe $O(N^2 \cdot L^3)$ compute bottlenecks.
+
+**Candidate primitive.** An Orbit Projection Primitive that maps representations directly to their canonical slice or differential invariants on the quotient manifold $M/G$.
+
+**Reduction.**
+- Cartan's Method of Moving Frames (1935): determines a local canonical frame along an orbit, mapping any geometric configuration to its fundamental differential invariants.
+- Hilbert's Invariant Theory (1890): finite basis of invariant polynomials generating the invariant ring under reductive group actions.
+- Slice Theorem for Lie Group Actions (Palais 1961): local coordinates around an orbit reduce to the normal bundle to the orbit.
+Computing invariant coordinates via moving frames is classical differential geometry and orbit reduction (already covered under Chains CV and W).
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Cartan moving frames / orbit projection. Do not propose a geometric quotient primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FI — Inductive first-order term unification / Most general unifiers (Robinson MGU)
+
+**Failure.** Symbolic deduction requires finding a common substitution that makes two terms identical ($p(X, f(Y)) \stackrel{?}{=} p(g(Z), f(a))$). Differentiable unification (e.g. Neural Theorem Provers, Rocktäschel & Riedel 2017) relaxes equality into continuous cosine similarity. However, continuous relaxations leak variable bindings: if variable $X$ is softly bound to both $a$ and $b$, subsequent inferences combine conflicting substitutions into incoherent hallucinations.
+
+**Candidate primitive.** A Native First-Order Unification Operator that computes exact variable substitutions and checks circularity (occurs-check) during latent reasoning.
+
+**Reduction.**
+- Robinson's Unification Algorithm (1965): computes the Most General Unifier (MGU) of two first-order terms in exponential worst-case time (due to term duplication).
+- Martelli & Montanari syntactic unification (1982): formulation of unification as a set of equation-rewriting rules.
+- Paterson & Wegman linear-time unification (1978): computes the MGU in $O(n)$ time using directed acyclic graphs.
+Continuous relaxations destroy variable binding consistency; exact consistency is Robinson's algorithm.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Robinson Unification / MGU. Do not propose a differentiable unification primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FJ — Tracing garbage collection and lifelong memory compaction
+
+**Failure.** Lifelong memory in neural agents either retains all tokens in context (paying quadratic attention cost and memory limits), uses fixed-size FIFO sliding windows (which evict critical distant facts), or relies on soft attention weights (which leak obsolete, stale, or retracted scratchpad tokens into future computations).
+
+**Candidate primitive.** A Latent Garbage-Collection Primitive that maintains root pointers to active goals, traces reachability through latent reference graphs, and sweeps unreachable memory slots.
+
+**Reduction.**
+- McCarthy's Mark-and-Sweep Garbage Collection (1960): traces reachable objects from roots and sweeps unreachable memory.
+- Collins' Reference Counting (1960): tracks reference counts per record and reclaims when zero.
+- Baker's Real-Time Copying Collector (1978): incremental, non-pausing memory compaction with to-space/from-space scavenging.
+Tracing reachability among latent memory objects is classical garbage collection.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Tracing Garbage Collection. Do not propose a neural garbage collection primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FK — Structural hash consing and maximal subexpression sharing
+
+**Failure.** Transformers repeatedly re-encode and re-attend to identical subexpressions occurring at different token positions, paying redundant FLOPs and failing to recognize structural identity under alpha-equivalence or subexpression isomorphism.
+
+**Candidate primitive.** A Structural Hash-Consing Primitive that maps structurally isomorphic subtrees to unique canonical pointers.
+
+**Reduction.**
+- Ershov's Common Subexpression Elimination (1958).
+- Goto's Hash Consing for Lisp (1974): returns an existing cell if one with the same car and cdr already exists, ensuring terms are identical if and only if their pointers are identical.
+- Bryant's Reduced Ordered Binary Decision Diagrams (ROBDD 1986): canonical form for Boolean functions via maximal node sharing and ordered Shannon expansion.
+Mapping trees to canonical pointers is classical hash consing / DAG sharing.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Hash Consing / DAG Canonicalization. Do not propose a structural sharing primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FL — Anytime contract scheduling and operational performance profiles
+
+**Failure.** Early exit, Adaptive Computation Time (ACT), and PonderNet use scalar halt logits trained via heuristic penalty losses. They fail out-of-distribution, cannot allocate compute dynamically to hard sub-problems under strict real-time deadlines, and lack monotonic performance guarantees with added deliberation time.
+
+**Candidate primitive.** An Operational Horizon Scheduler that explicitly tracks deliberation utility versus computation cost via learned performance profiles.
+
+**Reduction.**
+- Horvitz's Flexible Computation (1987): tradeoff between computation time and decision quality under deadline pressure.
+- Dean & Boddy's Time-Dependent Planning (1988) and Zilberstein & Russell's Anytime Algorithms (1996): operational performance profiles map allocated time to expected solution quality; contract algorithms find optimal time allocation across subroutines via dynamic programming.
+Allocating compute across modules under deadlines is anytime contract scheduling.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Anytime Contract Scheduling. Do not propose an adaptive compute primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FM — Monadic state encapsulation and affine effect typing
+
+**Failure.** Neural networks mix feedforward computations with state mutations (updating hidden states or KV caches), causing side-effect contamination across parallel speculative branches.
+
+**Candidate primitive.** A Monadic State Encapsulation Primitive that enforces strict separation between pure perceptual embeddings and stateful effectful transitions.
+
+**Reduction.**
+- Moggi's Category-Theoretic Monads for Computation (1991): models side-effects (state, exceptions, non-determinism) as monads over a category of values.
+- Wadler's State Monad (1992): encapsulates state passing inside pure functional languages.
+- Girard's Linear Logic (1987) and Baker's Linear Lisp (1992): affine and linear type systems ensure single-ownership of mutable buffers without aliasing or race conditions.
+Encapsulating mutable state transitions inside a pure language is monadic computation.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Monadic State Encapsulation. Do not propose a neural effect primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FN — Constraint propagation and arc consistency (AC-3 / Forward checking)
+
+**Failure.** When solving combinatorial constraint satisfaction problems (CSPs, e.g. scheduling, Sudoku), continuous neural relaxations (energy models, diffusion) soften discrete variable domains into probability vectors, leading to fractional mode mixtures and constraint violations.
+
+**Candidate primitive.** An Arc Consistency Propagation Primitive that iteratively removes domain values that have no support in neighboring variables.
+
+**Reduction.**
+- Waltz Filtering (1975) for scene labeling.
+- Mackworth's AC-3 Algorithm (1977): enforces arc consistency on binary constraint networks in $O(e d^3)$ time.
+- Freuder's k-Consistency (1978) and Forward Checking in backtracking search (Haralick & Elliott 1980).
+Pruning impossible domain values before search is constraint propagation.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Arc Consistency / Constraint Propagation. Do not propose a neural CSP primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FO — Inductive invariant discovery via Craig interpolation and IC3/PDR
+
+**Failure.** Verifying that a system never enters an unsafe state requires finding an inductive invariant ($I(s_0) \land (I(s) \land T(s, s') \implies I(s')) \land (I(s) \implies \neg \text{Bad}(s))$). Neural verifiers train classifiers to separate safe from unsafe trajectories, but statistical decision boundaries fail to satisfy the inductive step, producing spurious counterexamples.
+
+**Candidate primitive.** An Inductive Interpolation Primitive that synthesizes separating predicates from proofs of bounded unreachability.
+
+**Reduction.**
+- Craig's Interpolation Theorem (1957): if $A \implies B$ is valid in first-order logic, there exists an interpolant $I$ containing only common symbols such that $A \implies I$ and $I \implies B$.
+- McMillan's Interpolation-Based Model Checking (2003): extracts inductive invariants directly from refutation proofs of bounded model checks.
+- Bradley's IC3 / Property Directed Reachability (2011): incremental inductive clause learning without unrolling the transition relation.
+Synthesizing an inductive invariant from finite refutation proofs is Craig interpolation / IC3.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Craig Interpolation / IC3. Do not propose a neural invariant synthesizer.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FP — First-class continuations and non-local delimited control (Call/CC)
+
+**Failure.** Neural networks process sequences sequentially or along a fixed feedforward DAG. They cannot capture "the entire remaining computation" as a first-class value, pass it to an alternative evaluator, and resume execution later.
+
+**Candidate primitive.** A First-Class Continuation Operator that captures and reifies activation stacks as callable closures.
+
+**Reduction.**
+- Landin's J-operator (1965).
+- Reynolds' Continuation-Passing Style (CPS, 1972): makes control flow explicit as arguments.
+- Steele & Sussman's Scheme `call/cc` (1975): captures the current continuation as an ordinary first-class procedure.
+- Danvy & Filinski's Delimited Continuations (`shift`/`reset`, 1989): captures partial computation frames that return values.
+Capturing execution contexts as callable values is classical continuation-passing style.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Continuation-Passing Style / Call/CC. Do not propose a neural continuation primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FQ — Dynamic basis expansion and dimension spawning (Adaptive RKHS growth)
+
+**Failure.** Fixed vector dimensionality $d$ forces representation superposition (Elhage et al. 2022). When the number of features exceeds $d$, the network packs them into non-orthogonal directions, causing catastrophic interference during updates.
+
+**Candidate primitive.** A Dynamic Dimension Spawning Primitive that increases latent vector dimensionality on demand when projection error on the current subspace exceeds a threshold.
+
+**Reduction.**
+- Aronszajn's Reproducing Kernel Hilbert Spaces (RKHS, 1950): implicitly infinite-dimensional feature spaces.
+- Fahlman & Lebiere's Cascade-Correlation Architecture (1990): starts with a minimal topology and adds candidate units one at a time, freezing their input weights and maximizing correlation with the residual error.
+- Friedman's Multivariate Adaptive Regression Splines (MARS 1991): dynamically adds basis function pairs to reduce residual variance.
+Spawning new orthogonal units to absorb unexplained residual is Cascade-Correlation / Adaptive Basis Expansion.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Cascade-Correlation / Adaptive Basis Expansion. Do not propose a dynamic dimension primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FR — Goal-directed backward chaining and SLD resolution (Horn clauses)
+
+**Failure.** Autoregressive language models generate deductions forward from left to right, suffering from exponential path branching and hallucination because they cannot anchor the search on the goal query.
+
+**Candidate primitive.** A Goal-Directed Resolution Primitive that maintains a goal stack and resolves queries against stored Horn clauses via backward chaining.
+
+**Reduction.**
+- Kowalski's SLD Resolution (1974): Linear resolution with Selection function for Definite clauses.
+- Colmerauer's Prolog (1972) and Warren's Abstract Machine (WAM 1983): depth-first search with backtracking over goal clauses using choice points and unification.
+Backward goal-directed reasoning over definite clauses is SLD resolution.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is SLD Resolution / Prolog WAM. Do not propose a goal-directed neural resolution primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FS — Agenda-based best-first scheduling via priority heaps
+
+**Failure.** Transformers simulate agenda management by computing attention across all open candidate reasoning steps, paying $O(N)$ per step to find the min-cost candidate, and suffering from attention distraction and loss of precision as candidate sets expand.
+
+**Candidate primitive.** A Latent Priority Heap Primitive providing $O(\log N)$ insertion and minimum extraction for agenda-driven reasoning.
+
+**Reduction.**
+- Williams' Binary Heap (1964) and Fredman & Tarjan's Fibonacci Heap (1987).
+- Newell & Simon's General Problem Solver (GPS 1959) and Lesser et al. Hearsay-II blackboard agenda (1975): prioritize candidate actions by estimated progress toward the goal.
+Managing an agenda by estimated priority is a priority queue / heap.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is a Priority Queue / Heap Agenda. Do not propose a neural agenda primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FT — Version space candidate elimination for concept tracking
+
+**Failure.** Neural networks maintain a single point estimate in weight space via SGD. When new contradictory evidence arrives, they cannot determine whether an alternative consistent hypothesis already exists without full retraining or heuristic regularization.
+
+**Candidate primitive.** A Version Space Boundary Tracker that maintains explicit General ($G$) and Specific ($S$) concept boundaries in a learned hypothesis space.
+
+**Reduction.**
+- Mitchell's Candidate Elimination Algorithm (1977, 1982): updates $G$ and $S$ boundary sets monotonically upon observing positive and negative examples; collapses to empty when the concept is non-convex or unexpressible in the hypothesis language.
+Tracking the set of all consistent hypotheses in a partially ordered language is Mitchell's Candidate Elimination.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Mitchell Version Space Candidate Elimination. Do not propose a version space primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FU — Topological sorting and causal DAG scheduling
+
+**Failure.** Determining valid execution orders in dependency graphs with arbitrary parallel dependencies without cycle deadlocks. Transformers rely on sequential positional encodings or full self-attention, which does not guarantee cycle-free topological ordering over complex execution plans.
+
+**Candidate primitive.** A Latent Topological Sorter Primitive that emits linearizations guaranteed to respect directed acyclic dependencies.
+
+**Reduction.**
+- Kahn's Topological Sort Algorithm (1962): iteratively removes vertices with zero in-degree.
+- Tarjan's Depth-First Search Topological Sorting and Strongly Connected Components (1972): computes topological orderings in $O(V + E)$ time and identifies cycles.
+Linearizing a directed acyclic graph is topological sorting.
+
+**Reduction.** **USE THE CLASSICAL MACHINE — NOT A NEW ARCHITECTURE.** The operation is Topological Sort / Tarjan SCC. Do not propose a topological ordering primitive.
+
+**Status:** Closed. Not a candidate.
+
+## Chain FV — Differentiable logic programming ($\partial$ILP / DeepProbLog / Scallop)
+
+**Failure.** Bridging continuous neural representations with discrete symbolic logic. Pure neural models fail systematic multi-step deduction, while pure logic engines cannot consume raw embeddings.
+
+**Candidate mechanisms.**
+1. *Continuous t-norms* ($\partial$ILP, Evans & Grefenstette 2018): relax Boolean conjunction and disjunction to continuous functions (e.g. product t-norm $x \cdot y$, Łukasiewicz $\max(0, x+y-1)$, Gödel $\min(x, y)$).
+2. *Exact probabilistic logic* (DeepProbLog, Manhaeve et al. 2018): neural network outputs ground probabilistic facts; an exact discrete weighted model counter (e.g. Sentential Decision Diagrams / d-DNNF) compiles the proof forest and differentiates probabilities via standard backpropagation.
+3. *Provenance semirings* (Scallop, Huang et al. 2021): track top-k proof annotations through a Datalog execution engine using provenance semirings.
+
+**Reduction.**
+- Continuous t-norms suffer from severe gradient saturation, vanishing gradients over deep proof trees, and binding leaks.
+- DeepProbLog is an exact classical weighted model counter (SDD compilation) wrapped around a neural classifier.
+- Scallop is a classical Datalog engine tracking semiring polynomials.
+Wrapping an exact symbolic engine around a neural net is a pipeline; relaxing logic into t-norms destroys discrete deduction.
+
+**Reduction.** **USE PROVENANCE SEMIRINGS OR WEIGHTED MODEL COUNTING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain FW — Neural proposal guides for probabilistic programs (Pyro / Gen / WebPPL)
+
+**Failure.** Integrating structured stochastic generative models with learned neural representations. Sampling from complex posterior distributions over program execution traces is intractable.
+
+**Candidate mechanism.** An Amortized Inference Proposal Guide: a neural network that conditions on observed data $x$ and predicts the parameters of proposal distributions for every stochastic choice point $z$ in an executable probabilistic program.
+
+**Reduction.**
+- Classical importance sampling and Sequential Monte Carlo (SMC).
+- The neural network is simply an amortized proposal distribution $q_\phi(z \mid x)$ trained by maximizing the Evidence Lower Bound (ELBO) or minimizing the KL divergence with the true posterior (already closed in Chain EK).
+- The execution engine is a classical stochastic interpreter.
+
+**Reduction.** **USE AMORTIZED PROBABILISTIC PROGRAMMING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain FX — Gradient estimation through discrete samplers (Score function / Gumbel-Softmax / REBAR)
+
+**Failure.** Backpropagating gradients through discrete categorical choices, sampling operations, or non-differentiable control flow without exhaustive enumeration.
+
+**Candidate mechanism.** Continuous reparameterization or Monte Carlo gradient estimation of expectations $\nabla_\theta \mathbb{E}_{z \sim p_\theta}[f(z)]$.
+
+**Reduction.**
+- Score-function estimator (REINFORCE, Williams 1992): $\nabla_\theta \mathbb{E}[f(z)] = \mathbb{E}[f(z) \nabla_\theta \log p_\theta(z)]$, with baseline control variates for variance reduction.
+- Continuous relaxations (Gumbel-Softmax / Concrete distribution, Jang et al. 2016, Maddison et al. 2016): adds Gumbel noise and takes a temperature-annealed softmax.
+- Variance-reduced hybrid estimators (REBAR / RELAX, Tucker et al. 2017, Grathwohl et al. 2017): uses the continuous relaxation as a control variate for the discrete score-function gradient.
+These are classical Monte Carlo integration and sensitivity analysis techniques, not a new architecture.
+
+**Reduction.** **USE GUMBEL-SOFTMAX OR SCORE-FUNCTION CONTROL VARIATES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain FY — Differentiable hybrid physics and bouncing ball event detection
+
+**Failure.** Simulating and differentiating through physical systems with discontinuous collisions, friction transitions, or sudden topological state changes.
+
+**Candidate mechanism.** A Differentiable Hybrid Dynamical System solver that computes gradients across non-smooth collision events and state resets.
+
+**Reduction.**
+- Linear Complementarity Problem (LCP) formulation of non-smooth mechanics (Stewart & Trinkle 1996): models contact forces via complementarity constraints.
+- Root-finding event handling with adjoint sensitivity analysis (Chen et al. 2018): detects event zero-crossing $g(x(t^*), t^*) = 0$ via bisection or Brent's method, applies the algebraic reset map $x(t^{*+}) = \Delta(x(t^{*-}))$, and transports the adjoint state across the discontinuity using the jump condition $\lambda(t^{*-}) = \nabla \Delta^T \lambda(t^{*+}) + \tau \nabla g$.
+Computing sensitivities across events is classical hybrid systems theory and adjoint ODE integration.
+
+**Reduction.** **USE HYBRID COMPLEMENTARITY SOLVERS OR ROOT-FINDING EVENT ADJOINTS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain FZ — Differentiable convex optimization layers (OptNet / CvxpyLayers)
+
+**Failure.** Standard neural layers cannot guarantee hard inequality constraints, polyhedral bounds, or exact optimality under convex objectives.
+
+**Candidate mechanism.** Embedding an argmin optimization problem as a neural layer: $z^*(x) = \arg\min_z f(z, x) \text{ s.t. } g(z, x) \le 0, h(z, x) = 0$.
+
+**Reduction.**
+- OptNet (Amos & Kolter, ICML 2017) and CvxpyLayers (Agrawal et al., NeurIPS 2019).
+- Forward pass: solves the primal-dual problem via interior-point methods (e.g. Mehrotra predictor-corrector).
+- Backward pass: differentiates through the Karush-Kuhn-Tucker (KKT) optimality conditions using the Implicit Function Theorem on the stationarity equations:
+  $\begin{bmatrix} \nabla_z^2 L & J_g^T & J_h^T \\ \text{diag}(\lambda) J_g & \text{diag}(g) & 0 \\ J_h & 0 & 0 \end{bmatrix} \begin{bmatrix} d_z \\ d_\lambda \\ d_\nu \end{bmatrix} = - \begin{bmatrix} d\nabla_z L \\ d(\lambda \circ g) \\ dh \end{bmatrix}$.
+This is classical interior-point optimization coupled with implicit differentiation.
+
+**Reduction.** **USE IMPLICIT DIFFERENTIATION OF KKT CONDITIONS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GA — Continuous and semidefinite relaxations of SAT (SATNet)
+
+**Failure.** Neural networks struggle to solve boolean satisfiability (SAT) instances and hard parity problems due to non-convex discrete landscape barriers.
+
+**Candidate mechanism.** Continuous semidefinite programming (SDP) relaxations of SAT embedded directly into neural layers.
+
+**Reduction.**
+- SATNet (Wang et al., ICML 2019): relaxes MAX-SAT to a continuous semidefinite program over low-rank matrices and solves it via coordinate descent or ADMM, with gradients via implicit differentiation.
+- Goemans & Williamson (1995): classical randomized rounding of SDP relaxations for MaxCut/MaxSAT.
+- Continuous relaxations of NP-hard problems cannot escape fractional solutions on hard instances without non-differentiable discrete rounding or branch-and-bound search.
+
+**Reduction.** **USE SDP RELAXATION / ADMM — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GB — Differentiable sorting and ranking (FastSoftSort / Optimal transport)
+
+**Failure.** Sorting and ranking operations have zero derivative almost everywhere and discontinuous jumps at rank swaps, preventing end-to-end backpropagation of rank-based losses.
+
+**Candidate mechanism.** A Differentiable Sorting Primitive that maps input vectors to continuous permutations.
+
+**Reduction.**
+- Cuturi, Teboul, Vert (NeurIPS 2019): differentiable sorting as regularized optimal transport (Earth Mover's Distance in 1D) solved via Sinkhorn scaling.
+- Blondel et al. (FastSoftSort, ICML 2020): projection onto the permutahedron via isotonic regression (pool adjacent violators algorithm, PAVA) in $O(n \log n)$ time.
+Differentiable sorting is classical isotonic regression or 1D optimal transport.
+
+**Reduction.** **USE ISOTONIC REGRESSION OR ENTROPIC OPTIMAL TRANSPORT — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GC — Differentiable dynamic programming and shortest paths (DijkstraNet)
+
+**Failure.** Shortest path, alignment, and dynamic programming algorithms contain discrete min/max selections that prevent gradient flow to edge weights.
+
+**Candidate mechanism.** A Differentiable Dynamic Programming primitive with smoothed Bellman updates.
+
+**Reduction.**
+- Mensch & Blondel (ICML 2018): replaces min/max in dynamic programming with smoothed operators (softmin / log-sum-exp).
+- Berthet et al. (NeurIPS 2020, Learning with Fenchel-Young Losses): adds random Gumbel/Gaussian perturbations to edge weights and averages argmins, estimating Jacobians via Monte Carlo.
+This is classical smoothed dynamic programming or perturbed optimization.
+
+**Reduction.** **USE SMOOTHED DYNAMIC PROGRAMMING OR PERTURBED OPTIMIZATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GD — Differentiable grammar parsers (Neural PCFGs / Differentiable CYK)
+
+**Failure.** Unsupervised grammar induction requires parsing strings into latent hierarchical parse trees without supervised ground-truth trees.
+
+**Candidate mechanism.** A Differentiable Chart Parser that marginalizes over all valid binary parse trees.
+
+**Reduction.**
+- Kim et al. (ACL 2019, Neural PCFGs): parameterizes PCFG rule probabilities with neural embeddings.
+- Dynamic programming chart: marginalizes over all $O(n^3)$ trees using the classical Inside-Outside algorithm (Baker 1979) on a Cocke-Younger-Kasami (CYK) dynamic programming table.
+The algorithm is classical Inside-Outside on a CYK chart.
+
+**Reduction.** **USE INSIDE-OUTSIDE DYNAMIC PROGRAMMING ON A CYK CHART — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GE — Differentiable memory stacks and queues (Neural Stack)
+
+**Failure.** Transformers cannot natively emulate pushdown automata or maintain strict last-in-first-out (LIFO) / first-in-first-out (FIFO) memory semantics without quadratic context cost.
+
+**Candidate mechanism.** A Neural Stack / Queue primitive with continuous push and pop operations.
+
+**Reduction.**
+- Grefenstette et al. (NeurIPS 2015), Joulin & Mikolov (NeurIPS 2015): maintains a memory matrix with continuous read/write pointers and scalar push/pop weights $u_t, d_t \in [0, 1]$.
+- Soft stack pointers cause memory blur: popping fractional elements blends distinct records into smeared linear combinations. The exact machine that does not blur is a classical discrete stack or tape (Chain R / Chain FA).
+
+**Reduction.** **USE A CLASSICAL STACK OR A TAPE — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GF — Differentiable program interpreters (Differentiable Forth / HOUDINI)
+
+**Failure.** Synthesizing programs by gradient descent requires evaluating candidate program sketches on input-output examples differentiably.
+
+**Candidate mechanism.** A Differentiable Interpreter that executes assembly or stack-based programs as continuous matrix operations.
+
+**Reduction.**
+- Bošnjak et al. (ICML 2017, Differentiable Forth Interpreter) and Valkov et al. (ICLR 2018, HOUDINI): represent program state as a probability distribution over memory configurations, and instructions as transition matrices.
+- The state space explodes exponentially with trace length ($O(S^T)$), forcing aggressive beam pruning that collapses back to discrete program search (DreamCoder / Stitch).
+
+**Reduction.** **USE PROGRAM SYNTHESIS OR BEAM SEARCH OVER AN INTERPRETER — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GG — Implicit layer fixed-point solvers (Deep Equilibrium Models / DEQ)
+
+**Failure.** Stacking hundreds of feedforward layers requires $O(L)$ activation memory during training and fixes the computation depth in advance.
+
+**Candidate mechanism.** Defining latent representations as the infinite-depth equilibrium $z^*(x) = f_\theta(z^*, x)$ of a single shared non-linear transformation.
+
+**Reduction.**
+- Bai, Kolter, Koltun (NeurIPS 2019, Deep Equilibrium Models).
+- Forward pass: finds the fixed point $z^*$ via Anderson acceleration or Broyden's root-finding method.
+- Backward pass: computes exact gradients via the Implicit Function Theorem on the fixed-point condition $g(z^*, \theta) = z^* - f_\theta(z^*, x) = 0$:
+  $\frac{\partial \mathcal{L}}{\partial \theta} = -\frac{\partial \mathcal{L}}{\partial z^*} (I - J_f)^{-1} \frac{\partial f}{\partial \theta}$,
+  solving a single linear system via GMRES or conjugate gradient without storing forward activations.
+It is classical root-finding and sensitivity analysis on a continuous vector.
+
+**Reduction.** **USE BROYDEN ROOT-FINDING AND THE IMPLICIT FUNCTION THEOREM — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GH — Neural jump ordinary differential equations (Jump ODEs / PDMP)
+
+**Failure.** Modeling continuous physical or physiological dynamics that experience abrupt, stochastic discrete transitions (e.g. heartbeat spikes, trading ticks, sudden impacts).
+
+**Candidate mechanism.** Neural Jump ODEs: continuous integration punctuated by learned discrete state jumps.
+
+**Reduction.**
+- Jia & Benson (NeurIPS 2019, Neural Jump ODEs).
+- Davis (1984): Piecewise-Deterministic Markov Processes (PDMPs). Continuous evolution is an ODE $\frac{dh}{dt} = f(h, t)$; jump times are governed by a Poisson / marked point process with intensity $\lambda(h(t))$; at jump time $\tau$, an algebraic transition kernel resets state $h(\tau^+) = g(h(\tau^-))$.
+Simulation and adjoint sensitivity are classical PDMP algorithms.
+
+**Reduction.** **USE PIECEWISE-DETERMINISTIC MARKOV PROCESSES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GI — Differentiable backward-chaining provers (Neural Theorem Provers)
+
+**Failure.** Classical backward-chaining logic provers cannot handle natural language paraphrases or continuous vector embeddings, while neural models cannot execute multi-hop deductive proofs reliably.
+
+**Candidate mechanism.** Neural Theorem Provers (NTP) that unfold backward-chaining trees to depth $d$ using continuous vector similarities for unification.
+
+**Reduction.**
+- Rocktäschel & Riedel (NeurIPS 2017) and Minervini et al. (Greedy NTP, ICLR 2020).
+- Backward chaining unrolls into a computational graph whose branches scale exponentially ($O(B^d)$); soft substitutions cause variable binding leakage (Chain FI).
+- T-norm scores accumulate attenuation along proof paths. Exact multi-hop deduction requires Robinson unification and discrete SLD resolution (Chain FR).
+
+**Reduction.** **USE PROLOG SLD RESOLUTION OR BEAM SEARCH OVER PROOFS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GJ — Geometric order embeddings and hyperbolic entailment cones
+
+**Failure.** Transformers cannot enforce strict partial orders, transitivity of entailment ($u \le v \land v \le w \implies u \le w$), or hierarchical directed acyclic graph structures in Euclidean embeddings without pairwise edge prediction.
+
+**Candidate mechanism.** Embedding directed acyclic graphs into convex cones or negatively curved hyperbolic manifolds.
+
+**Reduction.**
+- Vendrov et al. (ICLR 2016, Order Embeddings): maps poset elements into $\mathbb{R}^d$ with partial order defined by coordinate-wise dominance $u \le v \iff u_i \ge v_i \ \forall i$.
+- Nickel & Kiela (NeurIPS 2017, Poincaré Embeddings) and Ganea et al. (NeurIPS 2018, Hyperbolic Entailment Cones): embeds trees into the Poincaré ball where geometric distance mirrors tree depth and branching factor.
+This is metric embedding of a finite poset into an ordered vector space or Riemannian manifold.
+
+**Reduction.** **USE ORDER CONES OR HYPERBOLIC METRIC EMBEDDINGS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GK — Continuous energy attractors (Modern Hopfield Networks)
+
+**Failure.** Associative memories historically had low storage capacity ($C \approx 0.14 N$ in classical binary Hopfield nets) and suffered from spurious local energy minima.
+
+**Candidate mechanism.** Continuous Modern Hopfield Networks with exponential storage capacity.
+
+**Reduction.**
+- Krotov & Hopfield (2016) and Ramsauer et al. (ICLR 2021, Hopfield Networks is All You Need).
+- Energy function: $E(x) = -\text{lse}(\beta X^T x) + \frac{1}{2} x^T x$.
+- The update rule obtained by concave-convex procedure or gradient descent is:
+  $x^{t+1} = X \text{softmax}(\beta X^T x^t)$.
+This is mathematically identical to transformer key-value self-attention with softmax scaling (already closed in Chain DD).
+
+**Reduction.** **USE KEY-VALUE ATTENTION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GL — Neural algorithmic execution and alignment (CLRS benchmark)
+
+**Failure.** Standard neural networks fail to learn step-by-step algorithms (e.g. Dijkstra, Bellman-Ford, Prim, Graham scan) that extrapolate to arbitrary graph sizes.
+
+**Candidate mechanism.** Neural Algorithmic Reasoners that align node-level message passing with individual loop iterations of classical algorithms.
+
+**Reduction.**
+- Veličković et al. (ICLR 2020) and the CLRS Benchmark (Veličković et al., ICML 2022).
+- The neural model approximates the step-by-step update rule of a known polynomial algorithm using graph neural network message-passing blocks.
+- If the algorithm is known, the classical algorithm runs in exact polynomial time with zero error. Approximating it with neural layers yields out-of-distribution errors and non-zero failure rates.
+
+**Reduction.** **USE THE CLASSICAL ALGORITHM — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GM — Bi-level meta-learning (MAML / Implicit MAML)
+
+**Failure.** Standard gradient updates adapt slowly to novel tasks and suffer from negative transfer across heterogeneous task distributions.
+
+**Candidate mechanism.** Bi-level optimization that meta-learns an initialization $\theta$ optimized for few-shot gradient descent.
+
+**Reduction.**
+- Finn, Abbeel, Levine (ICML 2017, MAML) and Rajeswaran et al. (NeurIPS 2019, Implicit MAML).
+- Bi-level programming: $\min_\theta \sum_i \mathcal{L}_{\text{test}}^i(\theta - \alpha \nabla \mathcal{L}_{\text{train}}^i(\theta))$.
+- iMAML differentiates the inner equilibrium via the Implicit Function Theorem.
+Bi-level optimization is classical Stackelberg games and sensitivity analysis. It does not resolve lifelong catastrophic forgetting (Chain EX).
+
+**Reduction.** **USE BI-LEVEL PROGRAMMING / IMPLICIT FUNCTION DIFFERENTIATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GN — Combinatorial diffusion for CSP/SAT
+
+**Failure.** Autoregressive token models cannot satisfy complex bidirectional constraint systems (e.g. SAT, graph coloring, scheduling) without extensive backtracking.
+
+**Candidate mechanism.** Combinatorial Diffusion Models that treat satisfying assignments as modes of a reverse Langevin diffusion process on discrete hypercubes.
+
+**Reduction.**
+- Campbell et al. (NeurIPS 2022, Continuous-Time Markov Diffusion) and Sun et al. (2023).
+- Continuous or discrete score-based dynamics simulate stochastic drift on hypercubes.
+- NP-hard combinatorial landscapes have exponentially many deep local minima, entropy barriers, and spin-glass phases. Without conflict-driven clause learning (CDCL, Chain P) and unit propagation, diffusion gets trapped in metastable states.
+
+**Reduction.** **USE CDCL / SAT SOLVERS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GO — Invariant risk minimization across environments (IRM)
+
+**Failure.** Empirical risk minimization (ERM) absorbs spurious correlations that vary across environments (e.g. background color predicting object class).
+
+**Candidate mechanism.** Invariant Risk Minimization: learning a representation $\Phi(x)$ such that the optimal linear classifier on $\Phi(x)$ is simultaneously optimal across all environments $e \in \mathcal{E}_{\text{tr}}$.
+
+**Reduction.**
+- Arjovsky et al. (arXiv 1907.02894, IRM).
+- Objective: $\min_\Phi \sum_e R^e(\Phi) + \lambda \|\nabla_{w|w=1.0} R^e(w \cdot \Phi)\|^2$.
+- Theoretical reductions: Rosenfeld et al. (ICML 2021) and Kamath et al. (2021) proved that linear IRM requires a number of training environments linear in the dimension of the spurious features to outperform ERM, and nonlinear IRM fails without restrictive inductive biases.
+Recovering true causal invariants requires interventional causal representation learning (Chain U).
+
+**Reduction.** **USE INVARIANT RISK MINIMIZATION OR CAUSAL DISCOVERY — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GP — Neural cellular automata (Mordvintsev et al. 2020)
+
+**Failure.** Standard deep models cannot self-repair from structural damage, regenerate missing components, or coordinate macroscopic anatomical patterns from purely local homogeneous cell interactions without global addresses.
+
+**Candidate mechanism.** Neural Cellular Automata (NCA): a 2D spatial grid where each cell updates its continuous state vector $s \in \mathbb{R}^k$ based exclusively on the state of its immediate Moore neighborhood, using a shared local update rule.
+
+**Reduction.**
+- Classical continuous cellular automata (von Neumann 1966, Wolfram 1984).
+- The perception step applies fixed $3 \times 3$ Sobel filters (finite-difference approximations of spatial derivatives $\nabla s, \nabla^2 s$).
+- The update is an Euler integration step of a discretized reaction-diffusion partial differential equation (PDE): $\Delta s_i = \text{MLP}(\nabla s_i)$.
+- Self-regeneration and damage repair are asymptotic convergence to an attractor basin of a non-linear continuous dynamical system.
+
+**Reduction.** **USE CELLULAR AUTOMATA / FINITE-DIFFERENCE REACTION-DIFFUSION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GQ — Structural growth grammars (L-Systems, Lindenmayer 1968)
+
+**Failure.** Storing complex, recursive, branching hierarchical morphologies directly in explicit network parameters requires prohibitive memory and fails to extrapolate developmental growth.
+
+**Candidate mechanism.** Lindenmayer Systems (L-systems): parallel string rewriting grammars that recursively expand a minimal seed axiom into complex fractal structures.
+
+**Reduction.**
+- Aristid Lindenmayer (1968) and Prusinkiewicz & Lindenmayer (1990, *The Algorithmic Beauty of Plants*).
+- Context-free (0L) and context-sensitive (1L/2L) L-systems apply production rules simultaneously to all symbols in parallel.
+- The output string is rendered into geometric morphology via classical turtle graphics (Papert 1980).
+This is formal language theory and parallel string rewriting.
+
+**Reduction.** **USE L-SYSTEMS / PARALLEL REWRITING GRAMMARS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GR — Morphogenesis via reaction-diffusion (Turing 1952)
+
+**Failure.** Spontaneous symmetry breaking and spatial pattern emergence (stripes, spots, digit segmentation) in an initially uniform, homogeneous tissue without external positional cues.
+
+**Candidate mechanism.** Turing Reaction-Diffusion Morphogenesis: coupled non-linear partial differential equations where differential diffusion of morphogens generates stable spatial standing waves.
+
+**Reduction.**
+- Alan Turing (1952, "The Chemical Basis of Morphogenesis"): coupled system $\partial_t u = D_u \nabla^2 u + f(u, v)$ and $\partial_t v = D_v \nabla^2 v + g(u, v)$, with a short-range activator $u$ and long-range inhibitor $v$ ($D_v \gg D_u$).
+- Gierer & Meinhardt (1972) activator-inhibitor models.
+Turing instability is classical linear stability analysis and spectral bifurcation theory in coupled parabolic PDEs.
+
+**Reduction.** **USE TURING REACTION-DIFFUSION PDES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GS — Slime mold adaptive transport networks (Physarum Polycephalum)
+
+**Failure.** Designing optimal, resilient, decentralized transport graphs connecting dynamic source-sink pairs without centralized graph search (Steiner trees, minimum spanning trees).
+
+**Candidate mechanism.** Physarum Polycephalum tube network adaptation: tubes thicken with increased fluid flux and atrophy with disuse.
+
+**Reduction.**
+- Tero et al. (Science 2010): tube conductivity $D_{ij}$ follows $\frac{d D_{ij}}{dt} = f(|Q_{ij}|) - \gamma D_{ij}$, where fluxes $Q_{ij}$ obey Hagen-Poiseuille resistive flow and Kirchhoff's current conservation.
+- Mathematical reduction: Bonifacio et al. proved this dynamical system solves iteratively reweighted least squares (IRLS) for $L_1$ optimal transport on a resistive network.
+This is classical electrical network flow and iteratively reweighted least-squares optimization.
+
+**Reduction.** **USE DYNAMICAL NETWORK FLOW / ITERATIVELY REWEIGHTED LEAST SQUARES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GT — Reservoir computing and Echo State Networks (Jaeger 2001, Maass 2002)
+
+**Failure.** Backpropagation through time (BPTT) in recurrent neural networks suffers from vanishing/exploding gradients and requires caching complete activation histories.
+
+**Candidate mechanism.** Echo State Networks (ESN, Jaeger 2001) / Liquid State Machines (LSM, Maass 2002): a fixed, non-trainable, random recurrent reservoir projects temporal inputs into high-dimensional state space; only a linear readout is trained.
+
+**Reduction.**
+- The reservoir acts as a fixed non-linear dynamical basis expansion (Aronszajn RKHS / Volterra-Wiener series).
+- Training the linear readout is ordinary ridge regression / least-squares ($W_{\text{out}} = Y X^T (X X^T + \lambda I)^{-1}$).
+- The echo state property ($\rho(W) < 1$) is contractive mapping in a Banach space. The internal state is not learned.
+
+**Reduction.** **USE FIXED RESERVOIR BASES AND RIDGE REGRESSION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GU — Spike-timing-dependent plasticity (STDP, Bi & Poo 1998)
+
+**Failure.** Biological synapses learn causal temporal associations locally without global error backpropagation or synchronized global clock cycles.
+
+**Candidate mechanism.** Spike-Timing-Dependent Plasticity (STDP): synaptic weight change depends on the millisecond temporal difference $\Delta t = t_{\text{post}} - t_{\text{pre}}$ between spikes.
+
+**Reduction.**
+- Bi & Poo (1998) and Markram et al. (1997).
+- Mathematical reduction: Kempter, Gerstner, and van Hemmen (1999) proved that STDP is an online stochastic approximation algorithm performing temporal Principal Component Analysis (temporal Hebbian learning) or gradient descent on an information-theoretic criterion.
+This is classical asymmetric Hebbian learning.
+
+**Reduction.** **USE HEBBIAN TEMPORAL PLASTICITY / TEMPORAL PCA — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GV — Swarm intelligence and stigmergy (Ant Colony Optimization / PSO)
+
+**Failure.** Solving hard combinatorial graph problems (TSP, routing) without centralized coordination, shared memory, or global state.
+
+**Candidate mechanism.** Ant Colony Optimization (ACO, Dorigo 1992) / Particle Swarm Optimization (PSO, Kennedy & Eberhart 1995): decentralized agents communicate indirectly by modifying their shared environment through synthetic pheromones.
+
+**Reduction.**
+- Pheromone updates ($\tau_{ij} \leftarrow (1-\rho)\tau_{ij} + \sum \Delta \tau_{ij}^k$) maintain a parameterized marginal probability distribution over graph edges.
+- Zlochin et al. (2004) proved ACO and PSO are specific instances of Estimation of Distribution Algorithms (EDAs) and the Cross-Entropy Method for stochastic optimization.
+This is stochastic heuristic search on a Markov random field.
+
+**Reduction.** **USE ESTIMATION OF DISTRIBUTION ALGORITHMS / MARKOV RANDOM FIELDS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GW — Gene regulatory networks (Kauffman NK Networks 1969)
+
+**Failure.** Biological systems exhibit robust cell-type homeostasis, multi-stability, and error correction that resist stochastic gene expression noise and genetic mutations.
+
+**Candidate mechanism.** Random Boolean Networks (Kauffman NK Networks): $N$ binary genes with $K$ inputs each, updating synchronously according to Boolean logic functions.
+
+**Reduction.**
+- Stuart Kauffman (1969).
+- The state space $\{0, 1\}^N$ deterministically partitions into basins of attraction converging to limit cycles (representing stable cell types).
+- Criticality ($K=2$, Derrida parameter $\lambda = 2K p(1-p) = 1$) separates frozen ordered dynamics from chaotic regimes.
+This is classical finite state automata and Boolean dynamical systems.
+
+**Reduction.** **USE BOOLEAN NETWORKS / FINITE STATE ATTRACTORS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GX — Morphological computation and physical reservoirs (Pfeifer & Bongard 2006)
+
+**Failure.** Real-time physical locomotion and dexterity require heavy digital computational bandwidth to calculate complex inverse dynamics.
+
+**Candidate mechanism.** Morphological Computation: exploiting passive mechanical compliance, spring-damper dynamics, and physical body morphology to compute control transforms directly in physical matter.
+
+**Reduction.**
+- Pfeifer & Bongard (2006, *How the Body Shapes the Way We Think*) and Tad McGeer's passive dynamic walkers (1990).
+- The physical embodiment acts as a continuous-time non-linear mechanical analog computer (physical reservoir computing).
+- Classical mechanical dynamics and passive physical kinematics solve the equations of motion directly through Newtonian physics.
+
+**Reduction.** **USE PASSIVE DYNAMICAL MECHANICS / ANALOG COMPUTATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GY — Cortical column reference frame voting (Hawkins Thousand Brains Theory)
+
+**Failure.** Vision models represent objects as static invariant feature hierarchies rather than navigating active coordinate reference frames.
+
+**Candidate mechanism.** Hawkins Thousand Brains Theory / Hierarchical Temporal Memory (HTM): cortical columns assign sensory features to metric locations in an object-centric reference frame and reach consensus via lateral voting.
+
+**Reduction.**
+- Object-centric reference frames are classical group coordinate transformations ($SE(3)$ pose estimation; Chain FH / CV).
+- Lateral voting across cortical columns is a Product of Experts / consensus filtering across independent estimators (already closed in Chains CW and EO).
+- Storing feature-location tuples is an associative key-value map (Chain A).
+
+**Reduction.** **USE OBJECT-CENTRIC REFERENCE FRAMES AND CONSENSUS VOTING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain GZ — Bayesian Program Learning (Lake et al., Science 2015 BPL)
+
+**Failure.** Standard deep neural networks require thousands of training examples per class and fail one-shot generalization, character parsing, motor trajectory synthesis, and compositional imagination on the Omniglot benchmark.
+
+**Candidate mechanism.** Bayesian Program Learning (BPL): representing concepts as structured, executable compositional motor programs with parts (strokes), sub-parts (splines), and spatial relations.
+
+**Reduction.**
+- Hierarchical Bayesian formulation: $P(\psi, \theta, I) = P(\psi) P(\theta \mid \psi) P(I \mid \theta)$, where $\psi$ defines the discrete program structure (number of strokes, sub-part sequence, relations), $\theta$ specifies continuous motor parameters (spline knot coordinates), and $I$ is the rendered image.
+- Inference: performs skeletonization and contour extraction to generate discrete candidate stroke parses, followed by continuous non-linear optimization of spline knots and MCMC sampling.
+This is classical hierarchical Bayesian modeling and MCMC inference over a hand-engineered stroke DSL.
+
+**Reduction.** **USE HIERARCHICAL BAYESIAN GRAMMARS AND MCMC — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HA — Probabilistic Context-Free Grammars (PCFGs)
+
+**Failure.** Autoregressive token generation lacks hierarchical constituency constraints, allowing long-distance agreement errors between subjects and verbs across intervening relative clauses.
+
+**Candidate mechanism.** Probabilistic Context-Free Grammars (PCFGs): assigning probabilities to context-free production rules $A \to \alpha \ [p]$ to enforce grammatical parse trees.
+
+**Reduction.**
+- Booth (1969), Charniak (1997), and Collins (2003).
+- Viterbi parse and marginal string likelihood are computed in $O(n^3 |G|)$ time using the Cocke-Younger-Kasami (CYK) dynamic programming algorithm or Earley chart parsing.
+- Lexicalized PCFGs condition rules on head words to resolve attachment ambiguities.
+This is classical dynamic programming on formal grammars.
+
+**Reduction.** **USE CYK CHART PARSING ON PCFGS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HB — Tree-Adjoining Grammars (TAG, Joshi 1975)
+
+**Failure.** Context-free grammars cannot represent mildly context-sensitive linguistic structures (such as Dutch cross-serial dependencies or Swiss German nested cases) without exponential grammar explosion.
+
+**Candidate mechanism.** Tree-Adjoining Grammars (TAG): generating phrase structures by tree substitution and tree adjoining (inserting an auxiliary tree into an internal node of an initial tree).
+
+**Reduction.**
+- Aravind Joshi (1975) and Joshi, Levy, Takahashi (1975).
+- TAGs generate mildly context-sensitive languages and can be parsed in $O(n^6)$ time via chart parsing algorithms (Vijay-Shanker & Joshi 1985).
+This is classical formal language theory and tree-rewriting systems.
+
+**Reduction.** **USE TREE-ADJOINING GRAMMARS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HC — Combinatory Categorial Grammars (CCG, Steedman 2000)
+
+**Failure.** Standard pipelines parse syntax first and then construct semantics in a disjoint second step, leading to error propagation and semantic incoherence.
+
+**Candidate mechanism.** Combinatory Categorial Grammar (CCG): transparent interface between syntax and semantics where each lexical item is assigned a syntactic category and a typed lambda-calculus semantic formula.
+
+**Reduction.**
+- Mark Steedman (1996, 2000, *The Syntactic Process*).
+- Syntactic categories are combined via pure combinatory logic operators (Function Application, Forward/Backward Composition, Type-raising) directly aligned with Schönfinkel / Curry combinators.
+- Parsing immediately evaluates the semantic lambda expression via beta-reduction.
+This is classical categorial logic and typed lambda calculus.
+
+**Reduction.** **USE COMBINATORY CATEGORIAL GRAMMARS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HD — Abstract Meaning Representation (AMR, Banarescu et al. 2013)
+
+**Failure.** Text representations are sensitive to surface syntactic variations (active vs passive voice, nominalizations) that obscure identical semantic propositions.
+
+**Candidate mechanism.** Abstract Meaning Representation (AMR): representing sentence semantics as rooted, directed, acyclic labeled graphs with PropBank semantic argument roles.
+
+**Reduction.**
+- Banarescu et al. (2013).
+- AMR parsing is classical graph parsing: transition-based graph transitions (shift, reduce, arc) or maximum spanning DAG algorithms (JAMR, Flanigan et al. 2014).
+This is classical semantic graph representation and DAG parsing.
+
+**Reduction.** **USE ABSTRACT MEANING REPRESENTATIONS AND GRAPH PARSING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HE — Inductive logic programming via inverse entailment (Progol, Muggleton 1995)
+
+**Failure.** Inducing human-interpretable general logical rules from background knowledge and few positive/negative relational examples without manual feature engineering.
+
+**Candidate mechanism.** Progol / Inverse Entailment: computing the most specific clause (the Bottom clause $\bot$) that explains an observation, then generalizing it by search.
+
+**Reduction.**
+- Stephen Muggleton (1995, "Inverse Entailment and Progol"): given background knowledge $B$ and positive example $e$, computes $\bot$ such that $B \land \neg \bot \models \neg e$.
+- Rule discovery searches the subsumption lattice $\theta$-subsuming $\bot$ using an $A^*$-like heuristic search guided by compression.
+This is classical inverse resolution and bounded lattice search.
+
+**Reduction.** **USE INVERSE ENTAILMENT / PROGOL — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HF — Counterexample-guided inductive synthesis (CEGIS, Solar-Lezama 2006)
+
+**Failure.** Synthesizing programs that satisfy formal specifications across infinite input spaces without exhaustive testing or manual proof construction.
+
+**Candidate mechanism.** Counterexample-Guided Inductive Synthesis (CEGIS): an iterative game between an inductive synthesizer and a formal verifier.
+
+**Reduction.**
+- Armando Solar-Lezama (2006, Sketch system).
+- Synthesizer proposes a candidate program satisfying a finite counterexample set $T$.
+- Verifier (SMT solver, e.g. Z3) checks $\forall x \, \text{Spec}(x, P(x))$. If invalid, it extracts a concrete counterexample $x_{\text{fail}}$, appends it to $T$, and loops.
+This is classical constraint-based program synthesis and SMT model checking.
+
+**Reduction.** **USE CEGIS AND SMT SOLVERS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HG — Version space algebras for programming-by-example (FlashFill, Gulwani 2011)
+
+**Failure.** Synthesizing string/table transformations instantaneously from 1 or 2 demonstrations in real-time user interfaces (e.g. Microsoft Excel).
+
+**Candidate mechanism.** Version Space Algebras (VSA): representing the set of all programs consistent with input-output examples as a compact, shared DAG.
+
+**Reduction.**
+- Tessa Lau et al. (2003, SmartEdit) and Sumit Gulwani (POPL 2011, FlashFill).
+- Version spaces of candidate ASTs are represented as directed acyclic graphs where edges are operators and nodes are intermediate states.
+- Multiple examples are handled by polynomial-time DAG intersection, yielding the most general consistent program in milliseconds.
+This is classical Version Space Algebras and DAG intersection algorithms.
+
+**Reduction.** **USE VERSION SPACE ALGEBRAS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HH — Deductive synthesis via proof planning (Manna & Waldinger 1980, Bundy 1991)
+
+**Failure.** Synthesizing complex recursive algorithms with verified loop invariants without heuristic generate-and-test search.
+
+**Candidate mechanism.** Deductive Program Synthesis: synthesizing programs as a byproduct of constructive theorem proving.
+
+**Reduction.**
+- Zohar Manna & Richard Waldinger (1980, "A Deductive Approach to Program Synthesis").
+- The Curry-Howard correspondence treats a constructive proof of the specification $\forall x \exists y \, P(x, y)$ as an executable program computing $y$.
+- Proof planning (Alan Bundy 1991) uses meta-level tactics (rippling, induction schemes) to guide the search for inductive proofs.
+This is classical constructive logic and automated theorem proving.
+
+**Reduction.** **USE CONSTRUCTIVE THEOREM PROVING / CURRY-HOWARD EXTRACTION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HI — Grammatical evolution and genetic programming (Koza 1992, O'Neill & Ryan 2001)
+
+**Failure.** Discovering arbitrary non-linear programs, mathematical formulas, and algorithmic circuits when gradient information is unavailable.
+
+**Candidate mechanism.** Genetic Programming (GP, Koza 1992) / Grammatical Evolution (GE, O'Neill & Ryan 2001): evolutionary search over tree-structured programs using crossover and mutation.
+
+**Reduction.**
+- Koza (1992) evolves AST expressions directly.
+- Grammatical Evolution (2001) maps linear binary genomes into BNF grammar derivation trees using modular arithmetic ($c \pmod N$).
+This is stochastic heuristic search / genetic algorithms on syntax trees.
+
+**Reduction.** **USE GENETIC PROGRAMMING / GRAMMATICAL EVOLUTION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HJ — Sensorimotor contingencies and active perception (O'Regan & Noë 2001, Bajcsy 1988)
+
+**Failure.** Passive observation cannot resolve perceptual ambiguities, depth scale factors, or object boundaries that are easily disambiguated by active physical movement.
+
+**Candidate mechanism.** Sensorimotor Contingencies: mastery of the lawful changes in sensory input produced by motor actions ($\Delta s = f(s, a)$).
+
+**Reduction.**
+- Ruzena Bajcsy (1988, "Active Perception"): formulating sensing as an optimal control problem where sensor parameters (orientation, focal length) are controlled to minimize uncertainty.
+- In partially observable Markov decision processes (POMDPs), active sensing is choosing actions that maximize expected information gain (mutual information between future observations and latent states; already closed in Chains AE and AQ).
+This is classical POMDP belief-state planning and active hypothesis testing.
+
+**Reduction.** **USE POMDP BELIEF CONTROL / ACTIVE SENSING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HK — Modular forward-inverse internal models (MOSAIC, Wolpert & Kawato 1998)
+
+**Failure.** Controlling a physical body under varying dynamic contexts (e.g. manipulating tools, carrying unknown payloads) causes catastrophic interference in a single monolithic controller.
+
+**Candidate mechanism.** MOSAIC (Modular Selection and Identification for Control): a bank of paired forward models (state predictors) and inverse models (controllers) gated by dynamic responsibility signals.
+
+**Reduction.**
+- Wolpert & Kawato (1998) and Haruno, Wolpert, Kawato (2001).
+- Forward models predict the sensory consequence of motor commands; their prediction errors determine posterior responsibilities via Bayes' rule: $\lambda_i \propto P(y \mid \hat{y}_i)$. The final motor output is a responsibility-weighted sum of inverse controller outputs.
+- Mathematical reduction: Multiple Model Adaptive Estimation (MMAE, Magill 1965) and Multiple Model Predictive Control (MMPC) in classical control theory.
+This is classical multiple-model adaptive control.
+
+**Reduction.** **USE MULTIPLE MODEL ADAPTIVE ESTIMATION (MMAE) — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HL — Dual control theory (Feldbaum 1960)
+
+**Failure.** Standard RL policies either explore blindly (random noise) or exploit greedily, failing to execute purposeful probing actions designed to identify hidden dynamic system parameters.
+
+**Candidate mechanism.** Dual Control: actions simultaneously perform control (steering the state toward goals) and identification (probing the system to reduce parameter uncertainty).
+
+**Reduction.**
+- Alexander Feldbaum (1960, "Dual Control Theory").
+- Formulated as dynamic programming on the hyperstate (the joint state of the physical system and the Bayesian posterior over unknown parameters).
+- The optimal dual action is the exact solution to the Bellman equation on this information state.
+This is classical Bellman dynamic programming on belief space.
+
+**Reduction.** **USE DUAL CONTROL / BELIEF-STATE DYNAMIC PROGRAMMING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HM — Subsumption architecture (Brooks 1986)
+
+**Failure.** Classical sense-plan-act architectures suffer from computational bottlenecks and latency in dynamic environments where rapid reflex reactions are required.
+
+**Candidate mechanism.** Subsumption Architecture: decomposing robot control into layers of asynchronous, parallel finite state machines where higher-level behaviors suppress or inhibit lower-level behaviors.
+
+**Reduction.**
+- Rodney Brooks (1986, "A Robust Layered Control System for a Mobile Robot").
+- Each competence layer is a network of augmented finite state machines (AFSMs) with timer reset wires.
+- Coordination is achieved via priority multiplexing: higher layers inject suppression signals on input lines or inhibit output lines.
+This is classical prioritized finite-state automata / interrupt priority arbitration.
+
+**Reduction.** **USE PRIORITY FINITE STATE ARBITRATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HN — Affordance competition hypothesis (Cisek 2007)
+
+**Failure.** Classical sequential models plan a single action after complete perceptual decision-making, which cannot account for continuous motor competition or split-second trajectory corrections during movement.
+
+**Candidate mechanism.** Affordance Competition: multiple potential actions are specified in parallel by sensory representations and compete through mutual inhibitory interactions until a decision threshold is reached.
+
+**Reduction.**
+- Paul Cisek (2007, *Philosophical Transactions of the Royal Society B*).
+- Mathematical formulation: continuous neural fields (Amari 1977) with center-surround on-center off-surround connectivity ($\partial_t u = -u + w * f(u) + I$).
+- Competing action peaks correspond to attractors in a multi-stable dynamical system; decision commitment is a bifurcation (race model / Drift-Diffusion Model, Ratcliff 1978).
+This is classical continuous neural field theory and drift-diffusion race models.
+
+**Reduction.** **USE DRIFT-DIFFUSION ACCUMULATORS / COMPETITIVE ATTRACTORS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HO — Continuous-time active inference (Friston 2006)
+
+**Failure.** Disconnect between perceptual inference (state estimation) and behavioral control (policy optimization).
+
+**Candidate mechanism.** Continuous-Time Active Inference: both perception and action minimize a single quantity—variational free energy—via generalized coordinates of motion.
+
+**Reduction.**
+- Karl Friston (2006, 2010).
+- Internal states $\mu$ update via gradient descent on prediction errors: $\dot{\mu} = D \mu - \nabla_\mu F$. Action $a$ directly drives muscle reflex arcs to fulfill sensory predictions: $\dot{a} = -\nabla_a F = -(\nabla_a y)^T \Sigma_y^{-1} (y - g(\mu))$.
+- Under linear-Gaussian assumptions, this is classical Generalized Kalman Filtering (filtering in generalized coordinates of motion) coupled with proportional-derivative (PD) sensory tracking control.
+This is classical Kalman filtering and output-feedback tracking control.
+
+**Reduction.** **USE GENERALIZED KALMAN FILTERING AND TRACKING CONTROL — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HP — Differential flatness (Fliess et al. 1995)
+
+**Failure.** Trajectory planning for non-linear underactuated systems (e.g. quadrotors, robotic arms) requires solving expensive two-point boundary value differential equations.
+
+**Candidate mechanism.** Differential Flatness: non-linear dynamics where all system states and inputs are algebraic functions of flat outputs and their derivatives.
+
+**Reduction.**
+- Fliess, Lévine, Martin, Rouchon (1995).
+- If flat outputs $y$ exist, $x(t) = \Phi(y, \dot{y}, \dots, y^{(k)})$ and $u(t) = \Psi(y, \dots, y^{(k+1)})$.
+- Trajectory optimization reduces to fitting polynomial splines (e.g. B-splines) in flat output space; states and control inputs are evaluated algebraically with zero numerical ODE integration.
+This is classical differential algebra and coordinate transformation.
+
+**Reduction.** **USE DIFFERENTIAL FLATNESS COORDINATE TRANSFORMS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HQ — Model predictive path integral control (MPPI, Williams et al. 2016)
+
+**Failure.** Non-linear optimal control on non-convex, non-differentiable cost landscapes (e.g. agile racing, obstacle fields) fails with gradient-based shooting methods.
+
+**Candidate mechanism.** MPPI: sampling stochastic forward trajectories perturbed by Gaussian noise and updating controls via exponential cost weights.
+
+**Reduction.**
+- Williams, Aldrich, Theodorou (2016) and Kappen (2005, Path Integral Control).
+- Optimal control update is: $u_t^* = u_t + \sum_k \frac{e^{-\frac{1}{\lambda} S(\tau_k)}}{\sum_j e^{-\frac{1}{\lambda} S(\tau_j)}} \epsilon_t^k$.
+- This is classical Importance Sampling on stochastic differential equations (SDEs) / Cross-Entropy Method for trajectory optimization.
+This is Monte Carlo importance sampling.
+
+**Reduction.** **USE PATH INTEGRAL IMPORTANCE SAMPLING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HR — Control barrier functions and safe certificate control (Ames et al. 2014)
+
+**Failure.** Neural network policies produce unsafe actions out-of-distribution that violate physical safety constraints (e.g. collisions, voltage limits).
+
+**Candidate mechanism.** Control Barrier Functions (CBFs): real-time safety certificate filters that project candidate neural actions onto the safe control space.
+
+**Reduction.**
+- Aaron Ames et al. (2014, 2019).
+- A safe set $\mathcal{C} = \{x : h(x) \ge 0\}$ is rendered forward-invariant by enforcing $\dot{h}(x, u) = L_f h(x) + L_g h(x) u \ge -\alpha(h(x))$.
+- Because this constraint is linear in control inputs $u$, safe action filtering is a real-time Quadratic Program (QP):
+  $u^* = \arg\min_u \|u - u_{\text{nom}}\|^2 \text{ s.t. } L_g h \cdot u \ge -\alpha(h) - L_f h$.
+This is classical real-time Quadratic Programming with linear inequality constraints.
+
+**Reduction.** **USE CONTROL BARRIER FUNCTION QUADRATIC PROGRAMMING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HS — Port-Hamiltonian systems and energy-based passivity control (van der Schaft 2000)
+
+**Failure.** Interconnecting independently trained non-linear control modules often causes instability or unbounded energy generation at interface boundaries.
+
+**Candidate mechanism.** Port-Hamiltonian Systems: non-linear state representations structured explicitly around energy conservation, dissipation, and external power ports.
+
+**Reduction.**
+- Arjan van der Schaft (2000, *L2-Gain and Passivity Techniques in Nonlinear Control*).
+- Dynamics: $\dot{x} = (J(x) - R(x)) \nabla H(x) + g(x) u$, where $J = -J^T$ is the energy-conserving skew-symmetric interconnection matrix, and $R \ge 0$ is the dissipation matrix.
+- Interconnections via Dirac structures automatically guarantee passivity and Lyapunov stability without recalibrating individual sub-systems.
+This is classical geometric mechanics (symplectic/Poisson geometry) and passivity-based control.
+
+**Reduction.** **USE PORT-HAMILTONIAN SYSTEMS AND PASSIVITY CONTROL — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HT — Quantum walks on graphs (Aharonov et al. 2001, Childs et al. 2003)
+
+**Failure.** Classical random walks on graphs mix slowly, taking $O(N^2)$ time to traverse graphs that require rapid exploratory search.
+
+**Candidate mechanism.** Discrete-Time Quantum Walk: evolving a complex state $|\psi\rangle$ on a graph via unitary coin and conditional shift operators with constructive quantum interference.
+
+**Reduction.**
+- Aharonov et al. (1993, 2001) and Childs et al. (2003).
+- State space is $\mathcal{H}_{\text{coin}} \otimes \mathcal{H}_{\text{graph}}$. Evolution at step $t$ is $|\psi_{t+1}\rangle = U |\psi_t\rangle$, where $U = S (C \otimes I)$ is a unitary matrix.
+- Simulating a quantum walk is matrix-vector multiplication with a sparse unitary matrix over complex numbers.
+This is classical unitary linear dynamics / complex Markov chain simulation.
+
+**Reduction.** **USE UNITARY LINEAR DYNAMICS / COMPLEX MARKOV OPERATORS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HU — Parameterized quantum circuits / VQE (Peruzzo et al. 2014, Farhi et al. 2014)
+
+**Failure.** Classical neural networks suffer from the curse of dimensionality when representing highly entangled quantum states or combinatorial ground states.
+
+**Candidate mechanism.** Variational Quantum Circuits: parameterized gate sequence $U(\theta) = \prod_l e^{-i \theta_l H_l} W_l$ on qubits, trained by gradient descent.
+
+**Reduction.**
+- McClean et al. (Nature Communications 2018) and Cerezo et al. (2021) proven the *Barren Plateau Theorem*: for deep random parameterized quantum circuits, the gradient variance decays exponentially with the number of qubits $n$: $\text{Var}[\partial_\theta \mathcal{L}] \in O(2^{-n})$, rendering gradient optimization untrainable.
+- Computing gradients on hardware is the classical parameter-shift rule: $\partial_{\theta_i} \langle H \rangle = \frac{1}{2}(\langle H \rangle_{\theta_i + \frac{\pi}{2}} - \langle H \rangle_{\theta_i - \frac{\pi}{2}})$.
+This is classical finite-difference parameter shifts and unitary group composition.
+
+**Reduction.** **USE PARAMETER-SHIFT ESTIMATION AND UNITARY COMPOSITION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HV — Matrix product states and tensor trains (MPS, Perez-Garcia 2007; TT, Oseledets 2011)
+
+**Failure.** Representing an $N$-dimensional function or probability distribution requires $O(d^N)$ parameters, exceeding physical computer memory.
+
+**Candidate mechanism.** Matrix Product States (MPS) / Tensor Train (TT-decomposition): factorizing an order-$N$ tensor into a linear chain of 3-tensors: $T_{i_1, \dots, i_N} = A^{(1)}_{i_1} A^{(2)}_{i_2} \cdots A^{(N)}_{i_N}$.
+
+**Reduction.**
+- Ivan Oseledets (SIAM J. Sci. Comput. 2011) and Stoudenmire & Schwab (NeurIPS 2016).
+- Factoring a tensor into TT format is achieved by $N-1$ successive truncated Singular Value Decompositions (SVD) on unfolding matrices (Schmidt decomposition).
+- Contraction, inner products, and tensor-vector products reduce to polynomial-time matrix chain multiplications ($O(N d r^3)$).
+This is classical multilinear algebra and truncated SVD.
+
+**Reduction.** **USE MATRIX PRODUCT STATES / TENSOR TRAIN SVD — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HW — Projected entangled pair states (PEPS, Verstraete & Cirac 2004)
+
+**Failure.** 1D tensor chains (MPS) fail to represent 2D physical lattices without bond dimensions growing exponentially with lattice width ($r \sim e^W$).
+
+**Candidate mechanism.** Projected Entangled Pair States (PEPS): a 2D grid of rank-5 tensors where virtual bonds directly mirror 2D spatial connectivity.
+
+**Reduction.**
+- Frank Verstraete & J. Ignacio Cirac (2004).
+- Exact contraction of a 2D PEPS grid is #P-hard (Schuch et al. 2007).
+- Practical algorithms approximate contraction by viewing the 2D grid as a 1D sequence of rows and contracting via boundary MPS methods (Corner Transfer Matrix Renormalization Group, CTMRG, Nishino & Okunishi 1996).
+This is approximate tensor contraction and numerical renormalization.
+
+**Reduction.** **USE APPROXIMATE TENSOR CONTRACTION / CTMRG — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HX — Multiscale entanglement renormalization ansatz (MERA, Vidal 2007)
+
+**Failure.** Standard tensor networks cannot model scale-invariant, critical quantum systems or long-range power-law correlations without infinite bond dimensions.
+
+**Candidate mechanism.** MERA: a hierarchical tree tensor network incorporating local unitary disentanglers between downsampling isometries.
+
+**Reduction.**
+- Guifré Vidal (Physical Review Letters 2007).
+- Disentanglers remove short-range entanglement before isometries coarse-grain the state.
+- Because disentanglers and isometries are unitary ($U^\dagger U = I, W^\dagger W = I$), causal cones in MERA have bounded width, allowing exact local expectation values to be computed in $O(\log N)$ time.
+This is a multiscale unitary wavelet transform on quantum state spaces.
+
+**Reduction.** **USE MULTISCALE TREE WAVELET TENSOR CONTRACTION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HY — Quantum-inspired classical sampling algorithms (Tang 2019 Dequantization)
+
+**Failure.** Machine learning on massive datasets is claimed to require quantum computers (e.g. quantum recommendation systems, quantum PCA, quantum SVMs).
+
+**Candidate mechanism.** Quantum-Inspired Classical Algorithms: simulating quantum state sampling on classical hardware with polynomial runtimes.
+
+**Reduction.**
+- Ewin Tang (STOC 2019, 2021, "A quantum-inspired classical algorithm for recommendation systems").
+- Tang proved that whenever quantum algorithms assume $L_2$-norm state preparation via QRAM, classical algorithms equipped with $L_2$-norm sampling data structures (alias method / segment trees) can solve recommendation, low-rank matrix inversion, and PCA in $O(\text{poly}(k) \text{polylog}(N))$ time.
+This is classical randomized numerical linear algebra (RandNLA) and norm-stratified sampling.
+
+**Reduction.** **USE RANDOMIZED NORM-SAMPLING LINEAR ALGEBRA — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain HZ — Optical and photonic analog computing (Shen et al. 2017)
+
+**Failure.** Digital electronic matrix-vector multiplications are bounded by the von Neumann memory wall and thermal dissipation ($P = C V^2 f$).
+
+**Candidate mechanism.** Optical Matrix Multipliers: performing matrix multiplications at the speed of light using integrated meshes of Mach-Zehnder Interferometers (MZIs).
+
+**Reduction.**
+- Shen et al. (Nature Photonics 2017).
+- Clements et al. (Optica 2016) proved that any $N \times N$ unitary matrix $U$ can be factorized into a planar mesh of $N(N-1)/2$ 2x2 beam splitters and phase shifters: $U = D \prod T_{m, n}(\theta, \phi)$.
+- Coherent optical interference directly evaluates linear wave equations ($\mathbf{E}_{\text{out}} = U \mathbf{E}_{\text{in}}$).
+This is classical analog linear optics and Clements unitary matrix factorization.
+
+**Reduction.** **USE MZI UNITARY MATRIX FACTORIZATION / ANALOG LINEAR OPTICS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IA — Neuromorphic memristive crossbar arrays (Chua 1971, Strukov et al. 2008)
+
+**Failure.** Shuffling weight matrices between DRAM and CPU/GPU registers burns over 90% of total energy in deep learning hardware.
+
+**Candidate mechanism.** Memristor Crossbars: executing in-memory vector-matrix products in a single clock cycle using physical conductance arrays.
+
+**Reduction.**
+- Leon Chua (1971, "Memristor—The Missing Circuit Element") and Strukov et al. (Nature 2008).
+- Inputs are voltages $V_i$; weights are non-volatile conductances $G_{ij}$. Ohm's law calculates local currents $I_{ij} = V_i G_{ij}$; Kirchhoff's Current Law automatically sums currents along bitlines: $I_j = \sum_i V_i G_{ij}$.
+- Physical non-idealities (device-to-device variability, conductance drift, line resistance) require DAC/ADC conversion and iterative tuning.
+This is classical analog Ohm-Kirchhoff circuit physics.
+
+**Reduction.** **USE ANALOG CROSSBAR KIRCHHOFF COMPUTATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IB — Thermodynamic and stochastic fluctuation computing (Hylton 2020)
+
+**Failure.** Simulating thermal sampling and MCMC on deterministic digital microprocessors is slow and computationally prohibitive.
+
+**Candidate mechanism.** Thermodynamic Computing: harnessing physical Johnson-Nyquist thermal noise and Brownian fluctuations in non-linear circuits to sample Boltzmann distributions directly.
+
+**Reduction.**
+- Todd Hylton (2020) and Extropic (2024).
+- Stochastic magnetic tunnel junctions (sMTJs) and p-bits fluctuate between states according to the continuous-time Langevin stochastic differential equation:
+  $dx = -\nabla V(x) dt + \sqrt{2 D} dW_t$.
+- The physical steady-state distribution is the Boltzmann distribution $P(x) \propto e^{-V(x)/kT}$.
+This is physical continuous Langevin diffusion and Fokker-Planck equilibrium dynamics.
+
+**Reduction.** **USE PHYSICAL LANGEVIN SAMPLING / SDE DYNAMICS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IC — DNA computing and molecular chemical reaction networks (Adleman 1994)
+
+**Failure.** Silicon lithography faces atomic quantum tunneling limits; scaling compute requires molecular density and massive biochemical parallelism.
+
+**Candidate mechanism.** DNA / Chemical Reaction Networks (CRNs): computing solutions to combinatorial problems or executing arbitrary state machines via biochemical strand displacement.
+
+**Reduction.**
+- Leonard Adleman (Science 1994, solving the Hamiltonian Path problem using complementary DNA oligonucleotide hybridization and gel electrophoresis separation).
+- Soloveichik et al. (PNAS 2008): proved that chemical reaction networks obeying mass-action kinetics ($\frac{d[A]}{dt} = -k [A][B]$) can simulate arbitrary Turing machines.
+This is mass-action chemical kinetics and molecular generate-and-test filtering.
+
+**Reduction.** **USE MASS-ACTION CHEMICAL REACTION NETWORKS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain ID — Causal Emergence and Downward Causation (Hoel, Albantakis, Tononi 2013)
+
+**Failure.** Microscopic modeling of complex multi-scale systems (tracking individual micro-states, tokens, or neurons) suffers from high variance, noise, and indeterminism. Interventions at the microscopic level fail to identify robust causal relationships because the microscopic state space is degenerate (noisy transitions and many-to-one targets).
+
+**Candidate mechanism.** A Downward Causal Emergence Primitive where a macroscopic state aggregation $M: S \to \bar{S}$ is dynamically discovered such that macroscopic Effective Information $EI(\bar{S}) > EI(S)$, and where macroscopic intervention commands natively constrain micro-level updates via downward causation.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Identifying the scale at which causal relationships are maximally predictive and informative, and propagating macro-level causal constraints down to micro-level components.
+2. *Why standard methods fail:* Microscopic attention and RNNs model fine-grained correlations; pooling layers use fixed spatial heuristics rather than causal informativeness; standard clustering algorithms ignore causal transition dynamics.
+3. *Proposed operation:* An operator that takes a micro-level transition matrix $T_{ij} = P(s_{t+1}=j | s_t=i)$, computes a surjective coarse-graining partition $V: S \to \bar{S}$ that maximizes Effective Information $EI(\bar{S}) = I(do(\bar{S} \sim U); \bar{S}_{t+1}) = \log_2 |\bar{S}| - \frac{1}{|\bar{S}|} \sum_{i} H(\bar{T}_{i, \cdot})$, and constrains micro-state transitions to lie within the macro-state preimage $V^{-1}(\bar{s}_{t+1})$.
+4. *Reads:* Micro-state transition distributions $P(s_{t+1} | do(s_t))$.
+5. *Writes:* Coarse-grained macro-partition $V$ and macro-directed transition priors.
+6. *Executes:* Periodically during latent state consolidation or hierarchical planning.
+7. *Learned/configured:* Variational maximization of Effective Information over partition matrices.
+8. *Difference from wrapper:* Proposes that macro-causation is an active computational operator rather than an observer's post-hoc summary.
+9. *Closest historical prior art:* Lumpable Markov chains (Kemeny & Snell, *Finite Markov Chains*, 1960); Simon & Ando (1961, "Aggregation of variables in dynamic systems").
+10. *Closest modern prior art:* Erik Hoel, Larissa Albantakis, Giulio Tononi (PNAS 2013, "Quantifying causal emergence shows that macro can beat micro"); Rosas et al. (Physical Review E 2020); Klein & Hoel (Complexity 2020).
+11. *Falsification:* If every macro-causal update can be computed identically by a classical lumpable Markov chain partition or Shannon channel capacity grouping on the micro-level transition matrix, the primitive is an information-theoretic aggregation, not a new architecture.
+12. *Smallest test:* A 4-state Markov chain with noisy transitions coarse-grained into a 2-state deterministic chain.
+
+**Reduction.** Hoel et al.'s Effective Information is mathematically Shannon mutual information between a maximum-entropy intervention $do(S \sim \text{Uniform})$ and the next state: $EI(S) = \log_2 N - \langle H(W_i) \rangle$. Coarse-graining replaces the $N \times N$ stochastic matrix $T$ with a smaller $K \times K$ stochastic matrix $\bar{T} = V T U$ where $V$ is a partition matrix and $U$ is the right inverse. Causal emergence occurs when coarse-graining reduces indeterminism (entropy of matrix rows) more than it reduces state space size. This is identically classical Markov state lumpability (Kemeny & Snell 1960) and Shannon channel capacity maximization via grouping equivalent noisy inputs. "Downward causation" is an epistemological feature of the coarse-grained representation, not a distinct computational mechanism beyond projection.
+
+**Reduction.** **USE MARKOV CHAIN LUMPING / SHANNON CHANNEL CAPACITY AGGREGATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IE — Renormalization Group Flow and Block-Spin Decimation (Wilson 1971, Kadanoff 1966)
+
+**Failure.** Neural architectures struggle with critical phenomena, scale-free dependencies, and learning invariant representations across arbitrary continuous scales without ad-hoc downsampling layers.
+
+**Candidate mechanism.** An iterative Renormalization Group (RG) Decimation operator that integrates out short-distance / high-frequency fluctuations while preserving long-range correlations via flow in Hamiltonian parameter space ($\frac{dH}{d\ell} = \mathcal{R}(H)$).
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Scale-invariance and critical exponent extraction via continuous coarse-graining flows.
+2. *Why standard methods fail:* CNN pooling operations and ViT patch embeddings fix scale downsampling factors statically, breaking scale invariance and suffering from aliasing.
+3. *Proposed operation:* Block-spin transformation $\sigma'_I = \text{sign}(\sum_{i \in B_I} \sigma_i)$ or momentum-shell integration $\phi_{<}(k) = \int_{k \le \Lambda/b} \phi(k) dk$, followed by rescaling coordinates $x' = x/b$ and field re-normalization $\phi' = b^{\Delta} \phi$.
+4. *Reads:* Fine-grained spatial/temporal field configurations $\phi(x)$.
+5. *Writes:* Coarse-grained effective Hamiltonian $H_{\text{eff}}$ and renormalized field variables $\phi'(x')$.
+6. *Executes:* At each hierarchical abstraction layer.
+7. *Learned/configured:* Fixed by real-space or momentum-space RG transformation equations; fixed points determined by $\mathcal{R}(H^*) = H^*$.
+8. *Difference from wrapper:* Claims physics-derived scale-transformation invariance as an intrinsic neural layer.
+9. *Closest historical prior art:* Leo Kadanoff (Physics 1966, block-spin decimation); Kenneth Wilson (Phys. Rev. B 1971, Nobel Prize 1982, renormalization group in critical phenomena).
+10. *Closest modern prior art:* Mehta & Schwab (arXiv 2014, "An exact mapping between the Variational Renormalization Group and Deep Learning"); Stéphane Mallat (Comm. Pure Appl. Math. 2012, "Group Invariant Scattering"); Lin, Tegmark, Rolnick (J. Stat. Phys. 2017).
+11. *Falsification:* If RG flow on statistical fields reduces to hierarchical wavelet scattering transforms or restricted Boltzmann machines with stride decimation, no new primitive exists.
+12. *Smallest test:* Extracting critical temperature $T_c$ and correlation exponent $\nu$ on a 2D Ising lattice.
+
+**Reduction.** Real-space RG (Kadanoff block spin) is deterministic local spatial pooling (majority vote / spatial decimation). Momentum-space RG (Wilson) is orthogonal low-pass filtering followed by spatial subsampling. In continuous signal processing, Mallat (2012) proved that the cascade of wavelet modulations, complex modulus nonlinearities, and spatial pooling (the Scattering Transform) precisely implements Wilsonian RG decimation while proving Lipschitz stability to diffeomorphisms. In generative modeling, Deep Boltzmann Machines and score-based multi-scale diffusion models implement this decimation via reverse stochastic filtering. RG flow is classical harmonic analysis / wavelet multi-resolution decimation.
+
+**Reduction.** **USE WAVELET SCATTERING TRANSFORMS / BLOCK-SPIN DECIMATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IF — Categorical Lenses, Optics, and Bidirectional View-Updates (Foster 2007, Spivak 2019)
+
+**Failure.** Standard deep networks suffer from representation/gradient asymmetry: the forward pass maps concrete inputs to abstract representations ($f: X \to Y$), while the backward pass maps loss gradients back via vector-Jacobian products ($\nabla_X = J_f^\top \nabla_Y$). This gradient feedback does not update the underlying state to maintain structural coherence; modifying an abstract feature representation $y \in Y$ cannot be translated back to a consistent, valid input $x \in X$ without running expensive iterative optimization.
+
+**Candidate mechanism.** A native Categorical Lens / Optic Primitive consisting of a bidirectional morphism $\langle \text{get}: S \to A, \text{put}: S \times A \to S \rangle$ satisfying the well-behaved lens laws:
+1. `get (put s a) = a` (Put-Get: updating the view with $a$ ensures the view returns $a$).
+2. `put s (get s) = s` (Get-Put: updating the view with what is already there leaves the state unchanged).
+3. `put (put s a) a' = put s a'` (Put-Put: successive updates overwrite cleanly).
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Exact bidirectional state-view synchronization and round-trip consistency guarantees across compositional layers.
+2. *Why standard methods fail:* Autoencoders and cycle-consistent GANs attempt to learn approximate bidirectionality via soft reconstruction penalties, but accumulate reconstruction error and fail exact round-trip invariants.
+3. *Proposed operation:* An algebraic composition of lenses: given lens $L_1 = \langle g_1, p_1 \rangle : S \rightleftharpoons A$ and $L_2 = \langle g_2, p_2 \rangle : A \rightleftharpoons B$, their composite is $L_1 \circ L_2 = \langle g_2 \circ g_1, \lambda s, b. p_1(s, p_2(g_1(s), b)) \rangle$.
+4. *Reads:* Concrete system state $S$ and updated abstract view $A$.
+5. *Writes:* Synchronized, updated concrete state $S'$.
+6. *Executes:* Dynamically whenever high-level planning or error correction updates an abstract latent variable.
+7. *Learned/configured:* Composed from primitive lens combinators (lenses, prisms, profunctor optics).
+8. *Difference from wrapper:* Integrates the database view-update consistency laws directly into neural representation layers.
+9. *Closest historical prior art:* Day (1970); Foster, Greenwald, Moore, Pierce, Schmitt (ACM TOPLAS 2007, "Combinators for bidirectional tree transformations: A linguistic approach to the view-update problem").
+10. *Closest modern prior art:* David Spivak (2019); Clarke et al. (2020, "Profunctor Optics: The Categorical View"); Elliott (ICFP 2018, "The simple essence of automatic differentiation"); Cruttwell et al. (2021, "Categorical Foundations of Gradient-Based Learning").
+11. *Falsification:* If every continuous lens reduces to a differentiable autoencoder with a Lagrange multiplier, or every discrete lens reduces to classical relational database view updates, no new architecture is present.
+12. *Smallest test:* Maintaining an editable abstract representation of a structured tree such that modifying a leaf label updates the root without parsing failure.
+
+**Reduction.** In category theory, reverse-mode automatic differentiation is proven to be a functor into the category of reverse derivative spaces (Cartesian differential categories / lenses; Elliott 2018). For discrete structural updates, lenses are precisely the classical database view-update combinators of Foster et al. (2007). In continuous latent spaces, an exact lens requires $f$ to be a submersion and $put(s, a) = s + J_g(a - g(s))$, which is simply the pseudo-inverse projection / Newton correction onto the fiber $g^{-1}(a)$. Differentiable approximations are classical autoencoders; exact structures are classical bidirectional programming languages (Boomerang).
+
+**Reduction.** **USE BIDIRECTIONAL VIEW-UPDATE COMBINATORS (LENSES) — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IG — Nominal Logic and Higher-Order Abstract Syntax (Miller 1988, Pitts 2002)
+
+**Failure.** Neural models handling formal syntax, source code, and mathematical logic struggle with $\alpha$-equivalence (terms that differ only by renaming bound variables, e.g. $\lambda x. x \equiv \lambda y. y$) and variable capture during substitution. Transformers treat variable names as arbitrary string tokens; they frequently commit variable capture bugs, hallucinate bindings, or fail to generalize when variable names are permuted out-of-distribution.
+
+**Candidate mechanism.** A Nominal Logic State Primitive operating directly on orbit equivalence classes under the action of the infinite permutation group of variable atoms $\text{Perm}(\mathbb{A})$, supporting native name abstraction $\langle a \rangle t$, freshness relations $a \# t$, and capture-avoiding substitution $t[u/a]$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Intrinsic $\alpha$-equivalence invariance and guaranteed capture-avoiding substitution.
+2. *Why standard methods fail:* Transformers use positional embeddings and token IDs, requiring immense pre-training data to memorize variable binding patterns, yet still failing simple substitution checks out-of-distribution.
+3. *Proposed operation:* Given a nominal set $X$ equipped with an action of the atom permutation group $\pi \in \text{Perm}(\mathbb{A})$, form abstraction $\langle a \rangle x \in [\mathbb{A}]X$ modulo $\alpha$-equivalence: $\langle a \rangle x = \langle b \rangle y \iff (a=b \wedge x=y) \vee (b \# x \wedge y = (a\, b) \cdot x)$.
+4. *Reads:* Syntax trees with named binders and atom permutations.
+5. *Writes:* $\alpha$-canonical equivalence classes and substituted nominal terms.
+6. *Executes:* During syntax generation, formula rewriting, and variable binding.
+7. *Learned/configured:* Fixed by the algebraic theory of nominal sets (Fraenkel-Mostowski permutation models).
+8. *Difference from wrapper:* Proposes that nominal abstraction is an internal neural vector operation.
+9. *Closest historical prior art:* Nicolaas de Bruijn (1972, nameless dummy indices $\lambda. 0$); Dale Miller & Gopalan Nadathur (1988, Higher-Order Abstract Syntax / $\lambda\text{Prolog}$).
+10. *Closest modern prior art:* Murdoch Gabbay & Andrew Pitts (Formal Aspects of Computing 2002, "A New Approach to Abstract Syntax with Variable Binding"); Urban, Pitts, Gabbay (CADE 2004, "Nominal Unification"); Allamanis et al. (ICLR 2018, GNNs for code).
+11. *Falsification:* If $\alpha$-invariant representation reduces to de Bruijn index normalization or nominal unification on classical syntax trees, no new architecture is present.
+12. *Smallest test:* Check whether $\lambda x. \lambda y. x$ equals $\lambda u. \lambda v. u$ under single-shot evaluation without token training.
+
+**Reduction.** Exact $\alpha$-invariance in computational systems is completely solved by classical methods: (1) de Bruijn indices, which replace variable names with natural numbers denoting the distance to the binding lambda, rendering $\alpha$-equivalent terms syntactically identical ($O(1)$ equality check); (2) nominal unification (Urban et al. 2004), which solves equations modulo permutation equivalence in polynomial time; (3) Higher-Order Abstract Syntax (HOAS), which delegates variable binding to the meta-language's lambda abstraction. Embedding nominal equivalence into continuous vectors either collapses into discrete de Bruijn canonicalization or leaks bindings through cosine similarity approximations.
+
+**Reduction.** **USE DE BRUIJN INDEXING / NOMINAL UNIFICATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IH — Algorithmic Probability, Solomonoff Induction, and Levin Search (Solomonoff 1964, Levin 1973)
+
+**Failure.** Deep learning models minimize empirical risk on training distributions, but have no foundational mechanism for Occam's razor over universal computational programs. They overfit to surface statistical regularities and fail when target functions require complex algorithmic computation rather than smooth continuous interpolation.
+
+**Candidate mechanism.** An Algorithmic Probability Prior Primitive that samples or weights candidate state-transition programs $p$ by their algorithmic complexity: $P(p) \propto 2^{-K(p)}$, executing candidate explanations via interleaved time-sliced dovetailing (Levin Universal Search).
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Truly universal out-of-distribution program induction with formal Kolmogorov complexity bounds.
+2. *Why standard methods fail:* Continuous gradient descent can only optimize continuous parameters in fixed computational graphs; it cannot discover minimal Turing-complete programs without discrete search.
+3. *Proposed operation:* Levin search: for phase $L = 1, 2, \dots$, run all programs $p$ of length $l(p) \le L$ on universal Turing machine $U$ for $2^{L - l(p)}$ steps until an output matching observation $x$ is found.
+4. *Reads:* Input-output behavioral traces $x$.
+5. *Writes:* The shortest generating program $p^* = \arg\min_p \{ l(p) : U(p) = x \}$.
+6. *Executes:* When the system encounters an unexplained sequence or algorithmic anomaly.
+7. *Learned/configured:* Fixed universal prior $2^{-l(p)}$ over prefix-free programs.
+8. *Difference from wrapper:* Proposes that universal algorithmic priors replace standard neural loss functions.
+9. *Closest historical prior art:* Ray Solomonoff (1964, "A formal theory of inductive inference"); Andrei Kolmogorov (1965); Leonid Levin (1973, "Universal sequential search problems").
+10. *Closest modern prior art:* Marcus Hutter (2005, *Universal Artificial Intelligence: Sequential Decisions Based on Algorithmic Probability*, AIXI); Schmidhuber (2002, "The Speed Prior"); DreamCoder (Ellis et al. 2021).
+11. *Falsification:* If Solomonoff induction is non-computable, and any computable realization is Levin search over a discrete DSL, it reduces to classical program synthesis search.
+12. *Smallest test:* Discovering the rule for the Fibonacci sequence from 6 input terms.
+
+**Reduction.** Solomonoff's universal prior $M(x) = \sum_{p: U(p)=x*} 2^{-l(p)}$ is incomputable (reducible to the Halting Problem, Turing 1936). The only computable approximations are: (1) Levin Search, which executes programs ordered by $l(p) + \log t(p)$ on a classical interpreter; (2) AIXI-tl, which bounds program length and time horizon; (3) DSL program synthesis via Beam Search or $A^*$ search (DreamCoder, Chain 95). Attempting to make this "neural" reduces to a neural network generating candidate program tokens, which is a classical generator-verifier search wrapper over an interpreter.
+
+**Reduction.** **USE LEVIN UNIVERSAL SEARCH / PROGRAM SYNTHESIS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain II — Coalgebraic State Systems, Bisimulation Metrics, and Partition Refinement (Rutten 2000, Ferns 2004)
+
+**Failure.** Latent state representations in recurrent models and world models (e.g. Dreamer) are evaluated by metric reconstruction loss in $\mathbb{R}^d$. Two latent states $s_1, s_2$ may be far in Euclidean distance while being behaviorally equivalent (producing identical future observation/reward distributions under all policies), or close in Euclidean distance while having a catastrophic bifurcation in future behavior.
+
+**Candidate mechanism.** A Coalgebraic Bisimulation Primitive that quotients the internal state space by behavioral equivalence: given a transition coalgebra $\langle S, \alpha: S \to \mathcal{F}(S) \rangle$, dynamically compute the bisimulation partition or bisimulation metric $d_{\sim}(s, s')$ as the fixed point of the Kantorovich-Wasserstein lifting operator:
+$d_{\sim}(s, s') = \max_{a} \left( |R(s, a) - R(s', a)| + \gamma W_1(d_{\sim})(P(\cdot|s,a), P(\cdot|s',a)) \right)$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Exact behavioral state equivalence that is independent of irrelevant perceptual variations.
+2. *Why standard methods fail:* Euclidean, cosine, and contrastive latent losses depend on representation coordinates; they cannot guarantee that states with identical futures are mapped to the same equivalence class.
+3. *Proposed operation:* Paige-Tarjan relational coarsest partition refinement: given state partition $P$ and transition relation $R$, split blocks $B \in P$ with respect to splitter block $S$ in $O(m \log n)$ time until stable.
+4. *Reads:* Transition and emission distributions of the internal model.
+5. *Writes:* The final coalgebraic quotient state space $S / \sim$.
+6. *Executes:* During world model abstraction and state compression.
+7. *Learned/configured:* Fixed-point dynamic programming on state pairs (value iteration on metrics).
+8. *Difference from wrapper:* Proposes that behavioral indistinguishability is a native state aggregation operator.
+9. *Closest historical prior art:* David Park (1981, Concurrency and automata on infinite sequences); Paige & Tarjan (SIAM J. Comput. 1987, "Three partition refinement algorithms"); Jan Rutten (Theor. Comput. Sci. 2000, "Universal Coalgebra").
+10. *Closest modern prior art:* Norm Ferns, Prakash Panangaden, Doina Precup (UAI 2004, "Metrics for Finite Markov Decision Processes"); Zhang et al. (ICLR 2021, "Learning Invariant Representations for Reinforcement Learning with Bisimulation Metrics").
+11. *Falsification:* If behavioral state collapsing reduces to Paige-Tarjan partition refinement (discrete) or Ferns-Panangaden bisimulation metric dynamic programming (continuous), no new architecture exists.
+12. *Smallest test:* Collapsing a 100-state MDP with 90 redundant distractor states into its 10-state minimal behavioral quotient.
+
+**Reduction.** In the discrete setting, computing the maximal bisimulation equivalence relation is precisely Paige & Tarjan's (1987) relational coarsest partition algorithm, which runs in $O(E \log V)$ time. In the continuous/probabilistic setting, Ferns et al. (2004) proved that the bisimulation metric is the unique fixed point of a contraction mapping on the metric space of metrics, solvable by classical value iteration using linear programming for the Wasserstein-Kantorovich transport distance. Zhang et al. (2021) showed that deep "bisimulation networks" merely add an empirical MSE loss pulling $\|z_i - z_j\|_2$ towards the estimated Ferns metric. The exact operation is classical coalgebraic partition refinement / Kantorovich dynamic programming.
+
+**Reduction.** **USE PAIGE-TARJAN PARTITION REFINEMENT / MDP BISIMULATION DYNAMIC PROGRAMMING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IJ — Petri Nets and Asynchronous Concurrency Coordination (Petri 1962, Milner 1989)
+
+**Failure.** In multi-head, modular, and multi-agent neural architectures, sub-computations execute synchronously in fixed lockstep layers. When sub-components have varying execution times, conditional branching, or asynchronous resource constraints, standard models either: (i) pad execution with dummy compute, or (ii) suffer from race conditions and unsynchronized data dependency corruption.
+
+**Candidate mechanism.** A native Petri Net Execution Primitive defined by places $P$, transitions $T$, input/output incidence matrices $W^-, W^+$, and a token marking vector $M \in \mathbb{N}^{|P|}$, where transitions fire asynchronously when enabled: $M \ge W^-(\cdot, t) \implies M' = M - W^-(\cdot, t) + W^+(\cdot, t)$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Native asynchronous concurrency, mutual exclusion, deadlock detection, and resource-bounded execution without synchronous layer barriers.
+2. *Why standard methods fail:* Transformers and RNNs are synchronous dataflow systems; message-passing in GNNs runs in discrete lockstep rounds; multi-agent loops rely on external thread schedulers.
+3. *Proposed operation:* Petri net transition firing: evaluate token availability across places, non-deterministically fire enabled transitions, and update token markings via integer linear algebra ($M_{k+1} = M_k + C \cdot u_k$).
+4. *Reads:* Marking vector $M_k$ (token counts in places).
+5. *Writes:* Updated marking vector $M_{k+1}$ and triggered computational modules.
+6. *Executes:* Asynchronously as input tokens arrive from external sensors or upstream modules.
+7. *Learned/configured:* Structural incidence matrix $C = W^+ - W^-$ determined by task Petri net graph.
+8. *Difference from wrapper:* Proposes that asynchronous token firing replaces layer-by-layer forward propagation.
+9. *Closest historical prior art:* Carl Adam Petri (PhD thesis 1962, "Kommunikation mit Automaten"); Robin Milner (1989, *Communication and Concurrency*, CCS).
+10. *Closest modern prior art:* David Gelernter (1985, Linda tuple spaces); Fournet & Gonthier (1996, Reflexive Chemical Abstract Machine / Join calculus).
+11. *Falsification:* If asynchronous token coordination reduces to integer linear programming reachability analysis and discrete-event simulation queues, no new architecture is present.
+12. *Smallest test:* A producer-consumer ring with bounded buffer capacity guaranteeing mutual exclusion without deadlocking.
+
+**Reduction.** The firing dynamics of a Petri net is an exact classical multiset rewrite system governed by the state equation $M_k = M_0 + C \cdot \sum_{i=1}^k u_i$ subject to $M_i \ge W^- u_i$. Deciding reachability, boundedness, and liveness are classical decidable problems in theoretical computer science (Mayr 1984, Kosaraju 1982, Karp & Miller 1969 coverability tree). Running a Petri net on a computer is executed by a classical discrete-event queue or an asynchronous actor runtime (Hewitt 1973, Erlang OTP). A neural network driven by a Petri net is an ordinary actor system dispatching neural forward passes upon receiving token events.
+
+**Reduction.** **USE PETRI NETS / DISCRETE-EVENT ASYNCHRONOUS RUNTIMES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IK — Validated Interval Arithmetic and Zonotope Abstract Domains (Moore 1966, Cousot 1977)
+
+**Failure.** Standard floating-point neural computations provide zero guarantees on numeric output safety. When operating in safety-critical domains (robotics, control, medical dosing), an agent cannot verify whether the output will remain within safe bounds $[\underline{y}, \overline{y}]$ across an entire input perturbation set $\mathcal{X}$.
+
+**Candidate mechanism.** A Certified Interval / Zonotope Propagation Primitive that evaluates continuous functions over compact sets rather than points, propagating affine forms $\hat{x} = x_0 + \sum_{i=1}^p x_i \epsilon_i$ ($\epsilon_i \in [-1, 1]$) through all non-linear layers with exact error bounds.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Provably certified output bounds over continuous input compact sets.
+2. *Why standard methods fail:* Point-wise neural forward passes can only sample inputs; Monte Carlo sampling cannot prove the absence of adversarial violations in the un-sampled space.
+3. *Proposed operation:* Given interval input vector $[\underline{x}, \overline{x}]$, propagate bounds through affine transformations: $\underline{y}_j = \sum_i \min(w_{ji}\underline{x}_i, w_{ji}\overline{x}_i) + b_j$, and through monotonic activations $\sigma([\underline{x}, \overline{x}]) = [\sigma(\underline{x}), \sigma(\overline{x})]$.
+4. *Reads:* Input interval bounds $[\underline{x}, \overline{x}]$ or zonotope generators.
+5. *Writes:* Provable output bounding intervals $[\underline{y}, \overline{y}]$ or output zonotopes.
+6. *Executes:* During safe inference, certified training, and verification checks.
+7. *Learned/configured:* Fixed by the arithmetic rules of interval analysis (Moore 1966) and abstract interpretation (Cousot 1977).
+8. *Difference from wrapper:* Replaces point-wise floating-point dot products with interval arithmetic operators.
+9. *Closest historical prior art:* Ramon Moore (1966, *Interval Analysis*); Stolfi & de Figueiredo (1997, "Self-Validated Numerical Methods and Applications" - Affine Arithmetic).
+10. *Closest modern prior art:* Gowal et al. (arXiv 2018, "Effectiveness of Interval Bound Propagation for Training Verifiably Robust Models"); Timon Gehr et al. (IEEE S&P 2018, "AI2: Safety and Robustness Certification of Neural Networks with Abstract Interpretation"); Singh et al. (NeurIPS 2018, DeepPoly).
+11. *Falsification:* If certified set propagation is mathematically identical to Moore's interval arithmetic or classical zonotope abstract interpretation applied to a neural computational graph, no new primitive exists.
+12. *Smallest test:* Prove that for all $x \in [0.1, 0.2]$, the 2-layer network output $y \in [0.45, 0.65]$.
+
+**Reduction.** Interval Bound Propagation (IBP) is the direct, unmodified application of Ramon Moore's (1966) classical Interval Arithmetic to the matrix multiplication and activation operations of a feedforward network. To alleviate the "wrapping effect" (dependency problem where multiple occurrences of the same variable inflate bounds), modern certified verification uses Zonotopes (DeepZ) or Abstract Transformers (DeepPoly / AI2), which are classical Abstract Interpretation frameworks over polyhedral abstract domains (Cousot & Cousot 1977). This is classical verified numerical analysis; wrapping it into a neural loss function does not invent a new architecture.
+
+**Reduction.** **USE INTERVAL ARITHMETIC / ABSTRACT INTERPRETATION (ZONOTOPES) — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IL — Abductive Logic Programming and Inverse Entailment (Muggleton 1995, Flach 2000)
+
+**Failure.** When an agent observes an unexpected anomaly or failure outcome $E$, standard models can only perform gradient descent on the residual (which updates all weights diffusely) or run forward deduction. They cannot perform single-shot abductive generation: finding a minimal, consistent hypothesis $\Delta$ such that $B \cup \Delta \models E$, where $B$ is background knowledge.
+
+**Candidate mechanism.** An Abductive Hypothesis Generation Primitive that inverts deductive entailment, saturates candidate observations against background axioms via resolution inversion (V-operators / W-operators), and selects the minimal consistent explanation $\Delta^*$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Formulating symbolic explanatory hypotheses from single observed effects in the presence of background domain knowledge.
+2. *Why standard methods fail:* Neural models are forward conditional mappers $P(Y|X)$; inverting them via Bayes' rule requires integrating over high-dimensional latent spaces and cannot produce symbolic causal hypotheses.
+3. *Proposed operation:* Given background clause $B$ and observed effect $E$, compute the bottom clause $\bot = \text{Sat}(B, E)$ and perform bounded lattice search over generalizations of $\bot$ that are consistent with $B$ and entail $E$.
+4. *Reads:* Observed fact $E$ and background logic theory $B$.
+5. *Writes:* Abduced explanatory hypothesis $\Delta$.
+6. *Executes:* Upon encountering an unpredicted observation or goal state.
+7. *Learned/configured:* Bounded resolution search guided by description-length heuristics.
+8. *Difference from wrapper:* Proposes abductive inference as an intrinsic neural update rule.
+9. *Closest historical prior art:* C.S. Peirce (1903, Lectures on Pragmatism: Abduction); Stephen Muggleton (New Generation Computing 1995, "Inverse Entailment and Progol").
+10. *Closest modern prior art:* Peter Flach & Antonis Kakas (2000, *Abduction and Induction: Essays on their Relation and Integration*); Dai, Zhou et al. (NeurIPS 2019, "Bridging Machine Learning and Logical Reasoning by Abductive Learning" - ABL).
+11. *Falsification:* If generating abductive explanations reduces to classical inverse resolution or MAX-SAT constraint solving over logical clauses, no new architecture is present.
+12. *Smallest test:* Given rule `leak(X) -> wet(floor)` and observation `wet(floor)`, abduce `leak(pipe)` rather than updating all network weights.
+
+**Reduction.** Abductive inference is a well-studied classical problem in computational logic. Muggleton's (1995) Inverse Entailment computes the most specific clause (the bottom clause $\bot$) that inverts the resolution tree. Modern neuro-abductive systems (such as Dai et al.'s Abductive Learning / ABL) combine a neural perception model with a classical ILP or MAX-SAT solver (such as Progol or FastLAS) where the solver finds the minimal explanation that maximizes pseudo-likelihood. The abduction engine itself is a classical logical inference procedure (SAT/SMT or resolution theorem proving).
+
+**Reduction.** **USE ABDUCTIVE LOGIC PROGRAMMING / INVERSE ENTAILMENT — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IM — Topological Data Analysis and Simplicial Persistent Homology (Edelsbrunner 2002, Carlsson 2009)
+
+**Failure.** Neural feature representations are coordinate-dependent and sensitive to metric distortions (stretching, rotating, scaling, shearing). They struggle to capture global topological invariants (number of connected components $\beta_0$, 1D loops/tunnels $\beta_1$, 2D voids $\beta_2$) of complex data manifolds.
+
+**Candidate mechanism.** A Persistent Homology Filtration Primitive that builds a parameterized simplicial complex (Vietoris-Rips or Alpha complex) over input points and tracks the birth and death of topological homology classes across filtration scales $\epsilon$, producing persistent diagrams $\mathcal{D} = \{ (b_i, d_i) \}$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Coordinate-free topological invariant extraction that is provably stable under Hausdorff perturbations.
+2. *Why standard methods fail:* CNNs and Transformers compute local metric linear combinations; they do not maintain simplicial boundary complexes or perform matrix reductions over finite fields $\mathbb{Z}_2$.
+3. *Proposed operation:* Given point set $X$, construct boundary matrices $\partial_k$ for simplicial complex $K(\epsilon)$; reduce boundary matrices via Gaussian elimination over $\mathbb{Z}_2$ to identify paired simplices $(p, q)$ corresponding to birth and death of homology classes in $H_k(K)$.
+4. *Reads:* Pairwise distance matrix $D_{ij} = \|x_i - x_j\|$.
+5. *Writes:* Persistence diagram $\mathcal{D}$ and Betti curves $\beta_k(\epsilon)$.
+6. *Executes:* As a topological feature extraction layer during perception.
+7. *Learned/configured:* Fixed by algebraic topology (Smith normal form of boundary matrices); differentiable extensions propagate gradients through the critical coordinates of simplices $(x_{birth}, x_{death})$.
+8. *Difference from wrapper:* Proposes that homology computation is a fundamental neural layer.
+9. *Closest historical prior art:* Henri Poincaré (1895, *Analysis Situs*); Edelsbrunner, Letscher, Zomorodian (Discrete & Computational Geometry 2002, "Topological Persistence and Simplification").
+10. *Closest modern prior art:* Gunnar Carlsson (Bull. Amer. Math. Soc. 2009, "Topology and Data"); Mathieu Carrière et al. (ICML 2020, "PersLay: A Neural Network Layer for Persistence Diagrams"); Brüel-Gabrielsson et al. (ICML 2020, "A Topology Layer for Machine Learning").
+11. *Falsification:* If topological invariant calculation reduces to classical Gaussian boundary matrix reduction on simplicial complexes, no new architecture exists.
+12. *Smallest test:* Distinguishing between a filled disc and an open annulus regardless of arbitrary continuous metric deformation.
+
+**Reduction.** Persistent homology is computed by taking a filtration of simplicial complexes (e.g. Vietoris-Rips complex $\text{VR}(X, \epsilon)$), constructing the boundary operator matrices $\partial_k : C_k \to C_{k-1}$ with entries in $\mathbb{Z}_2$, and performing classical column reduction (Gaussian elimination without row swaps, $O(n^3)$ algorithm by Edelsbrunner et al. 2002). "Differentiable persistence layers" (PersLay, Topology Layer) simply execute this exact classical matrix reduction forward, determine which point pairs formed the critical persistence coordinates, and pass subgradients back to those coordinates. It is classical algebraic topology wrapped as a feature extractor.
+
+**Reduction.** **USE PERSISTENT HOMOLOGY / SIMPLICIAL BOUNDARY MATRIX REDUCTION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IN — Non-Monotonic Truth Maintenance and Defeasible Reasoning (Doyle 1979, de Kleer 1986, Pollock 1987)
+
+**Failure.** In deep neural networks, knowledge is monotonically entangled in weights. When an agent learns a general rule ("birds fly"), and subsequently encounters a specific exception ("Tweety is a penguin, penguins do not fly"), gradient descent on the exception corrupts the general rule, or memorizes the exception without properly defeating the default inference for penguins.
+
+**Candidate mechanism.** A Defeasible Truth Maintenance Primitive that maintains justified belief graphs: every proposition $P$ has an associated justification `JUST(P) = (IN-list, OUT-list)`. $P$ is believed (`IN`) if and only if all propositions in `IN-list` are believed and all propositions in `OUT-list` are not believed (`OUT`).
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Non-monotonic belief revision: withdrawing conclusions when default assumptions are defeated by new evidence, without global weight modification or contradiction.
+2. *Why standard methods fail:* Feedforward and autoregressive networks cannot withdraw an implicit conclusion without changing the prompt or updating the shared parameter matrix; they lack dependency back-pointers.
+3. *Proposed operation:* Truth Maintenance update: when a contradiction occurs, identify the set of assumptions supporting the nogood set, select an assumption to retract, and add a defeating justification (`OUT-list`) via dependency-directed backtracking.
+4. *Reads:* New assertions, observed facts, and current belief justification network.
+5. *Writes:* Updated labelling (`IN` / `OUT`) of propositions across the dependency DAG.
+6. *Executes:* Dynamically upon arrival of contradictory evidence or default overrides.
+7. *Learned/configured:* Symbolic dependency tracking via bipartite justification graphs.
+8. *Difference from wrapper:* Proposes non-monotonic dependency maintenance as an internal state mechanism.
+9. *Closest historical prior art:* Jon Doyle (Artificial Intelligence 1979, "A Truth Maintenance System"); Johan de Kleer (Artificial Intelligence 1986, "An Assumption-based TMS"); Raymond Reiter (Artificial Intelligence 1980, "A Logic for Default Reasoning").
+10. *Closest modern prior art:* John Pollock (1995, *Cognitive Carpentry: A Blueprint for How to Build a Person* - OSCAR); Dung (1995, "On the acceptability of arguments and its fundamental logic"); Besnard & Hunter (2008, *Argumentation Systems*).
+11. *Falsification:* If non-monotonic belief revision reduces to topological sorting and dependency-directed backtracking on a bipartite justification DAG (TMS/ATMS), no new architecture is present.
+12. *Smallest test:* Inferring `fly(tweety)` when told `bird(tweety)`, then automatically retracting it to `not fly(tweety)` upon receiving `penguin(tweety)` without retraining.
+
+**Reduction.** Maintaining non-monotonic beliefs under default rules and exceptions is the exact definition of Doyle's (1979) Truth Maintenance System (TMS) and de Kleer's (1986) Assumption-Based TMS (ATMS). The labelling of nodes as `IN` or `OUT` is solved by linear-time propagation along justification edges in acyclic dependency graphs, or by constraint satisfaction / Boolean satisfiability (SAT) when cycles are present. Adding a neural network in front simply turns it into a neural classifier that feeds facts into a classical TMS.
+
+**Reduction.** **USE TRUTH MAINTENANCE SYSTEMS (ATMS) / DEFEASIBLE ARGUMENTATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IO — Qualitative Spatio-Temporal Reasoning and Allen's Interval Algebra (Allen 1983, Randell 1992)
+
+**Failure.** Reasoning about qualitative physical relations (e.g. "Object A is inside Object B", "Event X occurred during Event Y") using continuous metric coordinates is brittle. Metric coordinates require exact numerical measurements; minor noise in measurement leads to false overlaps or disjoint states, and neural models struggle to compose transitive qualitative spatial/temporal relations across long sequences.
+
+**Candidate mechanism.** A Qualitative Constraint Calculus Primitive that natively manipulates relational composition tables over discrete qualitative calculi (e.g. Allen's 13 temporal interval relations, or the 8 Region Connection Calculus topological relations RCC-8), enforcing path consistency ($R_{ik} \subseteq R_{ij} \circ R_{jk}$).
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Exact qualitative relational composition and consistency checking without metric coordinate instantiation.
+2. *Why standard methods fail:* Transformers embed relations as vector differences; vector addition does not satisfy non-abelian relation composition tables and accumulates metric drift over transitive spatial/temporal chains.
+3. *Proposed operation:* Path consistency algorithm: for every triplet of variables $(i, j, k)$, update $R_{ik} \leftarrow R_{ik} \cap (R_{ij} \circ R_{jk})$ using precomputed algebraic composition tables until a fixed point is reached or the empty relation $\emptyset$ signals inconsistency.
+4. *Reads:* Binary qualitative relational constraints between entities.
+5. *Writes:* Path-consistent relation network or inconsistency flag.
+6. *Executes:* During spatial-temporal reasoning, scene understanding, and planning.
+7. *Learned/configured:* Fixed by relation algebra composition tables (e.g. Allen's $13 \times 13$ table, RCC-8 $8 \times 8$ table).
+8. *Difference from wrapper:* Proposes that qualitative relational algebras serve as the core representation space for physics and time.
+9. *Closest historical prior art:* James Allen (CACM 1983, "Maintaining knowledge about temporal intervals"); David Randell, Zhan Cui, Anthony Cohn (KR 1992, "A Spatial Logic based on Regions and Connection" - RCC-8).
+10. *Closest modern prior art:* Renz & Nebel (Artificial Intelligence 1999, "On the complexity of qualitative spatial reasoning: A maximal tractable subclass of the Region Connection Calculus"); Qualitative Spatio-Temporal Reasoning (QSTR) libraries.
+11. *Falsification:* If qualitative reasoning reduces to table lookup and classical $O(n^3)$ constraint propagation (Allen's path consistency algorithm), no new architecture is present.
+12. *Smallest test:* Given `A during B` and `B meets C`, infer that `A before C` without using floating-point timestamps.
+
+**Reduction.** Qualitative spatial and temporal reasoning is a classical branch of knowledge representation. The 13 relations of Allen's Interval Algebra and the 8 relations of RCC-8 form relation algebras. Propagating constraints over $n$ variables is executed by the classical Path Consistency algorithm (PC-2), running in $O(n^3)$ time using fixed $13 \times 13$ boolean lookup matrices. Tractable subclasses (such as ORD-Horn) are solved by path consistency; general constraint satisfaction reduces to classical backtracking search. A neural model emitting qualitative relations reduces to a neural parser attached to a classical Allen/RCC-8 constraint solver.
+
+**Reduction.** **USE ALLEN'S INTERVAL ALGEBRA / RCC-8 CONSTRAINT PROPAGATION — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IP — Abstract Interpretation and Galois Connections (Cousot & Cousot 1977)
+
+**Failure.** Neural models cannot reason soundly about infinite or unbounded sets of program execution traces. They evaluate programs by executing concrete inputs, leaving uncovered corner cases that cause severe runtime failures.
+
+**Candidate mechanism.** An Abstract Interpretation Primitive that maps concrete semantic states $\mathcal{P}(\Sigma)$ to an abstract lattice domain $\mathcal{A}$ via a Galois connection $(\alpha, \gamma)$ ($ \alpha(C) \sqsubseteq A \iff C \subseteq \gamma(A) $), executing program steps monotonically over the abstract domain and accelerating fixpoint convergence via a Widening operator $\nabla$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Sound over-approximation of unbounded state transitions with guaranteed finite-step fixpoint termination.
+2. *Why standard methods fail:* Neural models cannot represent unbounded sets of states without lossy continuous embeddings that violate soundness; gradient descent does not respect lattice ordering ($\sqsubseteq$).
+3. *Proposed operation:* Given concrete transition system $\tau: \Sigma \to \Sigma$, compute abstract transfer function $\tau^\sharp: \mathcal{A} \to \mathcal{A}$; iterate $X_{k+1} = X_k \nabla \tau^\sharp(X_k)$ until post-fixpoint $\tau^\sharp(X^*) \sqsubseteq X^*$ is reached, followed by narrowing $\Delta$.
+4. *Reads:* Abstract state descriptions $A \in \mathcal{A}$ and program statements.
+5. *Writes:* Sound abstract invariant $X^*$ covering all reachable execution states.
+6. *Executes:* During static program analysis, verification, and type checking.
+7. *Learned/configured:* Fixed by choice of abstract domain (Intervals, Octagons, Polyhedra) and transfer functions.
+8. *Difference from wrapper:* Proposes Galois lattice structures as internal neural representations.
+9. *Closest historical prior art:* Patrick Cousot & Radhia Cousot (POPL 1977, "Abstract interpretation: a unified lattice model for static analysis of programs by construction or approximation of fixpoints").
+10. *Closest modern prior art:* Antoine Miné (Higher-Order and Symbolic Computation 2006, "The octagon abstract domain"); Singh et al. (PLDI 2019, "An abstract domain for certifying neural networks").
+11. *Falsification:* If abstract state bounding reduces to classical Galois connections, abstract domain transfer functions, and widening/narrowing operators on lattices, no new architecture exists.
+12. *Smallest test:* Prove that loop `while x < 100 do x := x + 1` terminates with $x \in [100, 100]$ without unrolling 100 steps.
+
+**Reduction.** This is the exact definition of Patrick and Radhia Cousot's (1977) Abstract Interpretation. The mathematics of complete lattices $(L, \sqsubseteq, \sqcup, \sqcap, \bot, \top)$, Galois connections, abstract transformers, and widening operators $(\nabla)$ were fully formalized and implemented in classical static analyzers (such as Astrée). Neural network certification frameworks (such as AI2 and DeepPoly) are literally classical Cousot abstract analyzers whose target program happens to be a neural network. Attempting to make the lattice "neural" destroys the mathematical guarantee of soundness.
+
+**Reduction.** **USE ABSTRACT INTERPRETATION / GALOIS CONNECTIONS — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IQ — Hyperdimensional Computing and Vector Symbolic Architectures (Kanerva 1988, Plate 1991, Gayler 1998)
+
+**Failure.** Standard distributed embeddings in neural networks suffer from catastrophic binding unbinding interference: multiplying or adding embedding vectors $x, y \in \mathbb{R}^d$ produces vectors that are neither orthogonal nor cleanly invertible. Decomposing a bound vector $z = x \otimes y$ requires an MLP or attention head that was explicitly trained on that pair.
+
+**Candidate mechanism.** A Vector Symbolic Architecture (VSA) / Hyperdimensional (HD) Computing Primitive operating on $D$-dimensional vectors ($D \ge 10,000$) over $\{-1, +1\}^D$ or $\mathbb{C}^D$ with exact algebraic operators:
+1. Bundling / Superposition: $A \oplus B = \text{sign}(A + B)$ (preserves similarity: $\cos(A \oplus B, A) > 0$).
+2. Binding: $A \odot B = A \otimes B$ (elementwise multiplication or XOR; produces orthogonal vector: $\cos(A \odot B, A) \approx 0$).
+3. Unbinding: $A \odot (A \odot B) = B$ (exact self-inverse).
+4. Permutation: $\Pi(A)$ (cyclic coordinate shift; orthogonal to $A$, preserves algebraic structure).
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Clean algebraic binding, unbinding, and role-filler composition in distributed vector space without training MLPs.
+2. *Why standard methods fail:* Transformers and MLPs use non-invertible matrix projections that entangle role and filler in non-linear activations; they require iterative gradient steps to learn unbinding.
+3. *Proposed operation:* Given item memory $M = \{ v_1, v_2, \dots, v_k \}$, bind role-filler pairs: $S = (R_1 \odot F_1) \oplus (R_2 \odot F_2)$; query filler: $\hat{F}_1 = R_1 \odot S$; cleanup: $F_1^* = \arg\max_{v \in M} \cos(\hat{F}_1, v)$.
+4. *Reads:* High-dimensional vectors from item memory.
+5. *Writes:* Bound and bundled hyperdimensional state vectors.
+6. *Executes:* Dynamically during symbolic structural composition.
+7. *Learned/configured:* Fixed algebraic operations on randomly initialized pseudo-orthogonal vectors.
+8. *Difference from wrapper:* Proposes hyperdimensional algebra as the native arithmetic of neural layers.
+9. *Closest historical prior art:* Pentti Kanerva (1988, *Sparse Distributed Memory*); Tony Plate (IEEE Trans. Neural Netw. 1991, "Holographic Reduced Representations" - HRR); Ross Gayler (1998, Multiply-Add-Permute - MAP).
+10. *Closest modern prior art:* Pentti Kanerva (Cognitive Computation 2009, "Hyperdimensional Computing"); Rahimi et al. (IEEE DAC 2017); Kleyko et al. (ACM Computing Surveys 2022, "A Survey on Hyperdimensional Computing aka Vector Symbolic Architectures").
+11. *Falsification:* If hyperdimensional computing is classical linear algebra on high-dimensional random vectors coupled with classical nearest-neighbor search in an item memory, no new architecture is present.
+12. *Smallest test:* Bind 10 role-filler pairs into a single 10,000-D vector, retrieve all 10 fillers with zero error without weight updates.
+
+**Reduction.** Hyperdimensional Computing / VSA is an established classical paradigm (Kanerva 1988, Plate 1991). The properties of pseudo-orthogonality in high dimensions follow directly from the Johnson-Lindenstrauss lemma and the concentration of measure on the sphere $\mathbb{S}^{D-1}$. The binding operator (circular convolution or elementwise product) and unbinding operator (circular correlation or involution) are classical algebraic vector operations. As the depth of nested binding increases, the variance of the unbinding noise increases linearly with the number of bundled terms, requiring classical clean-up associative memory (nearest-neighbor retrieval from a dictionary) to restore signal. It is classical high-dimensional vector algebra + nearest-neighbor search.
+
+**Reduction.** **USE VECTOR SYMBOLIC ARCHITECTURES (HRR / MAP) — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IR — Information Geometry and Amari's Natural Gradient (Amari 1998, Chentsov 1982)
+
+**Failure.** Standard gradient descent in deep learning is Euclidean: the update $\Delta \theta = -\eta \nabla_\theta L$ depends on the arbitrary coordinate parameterization of the network. If parameters are scaled or reparameterized, the steepest descent trajectory changes, causing slow training through pathological ravines and ill-conditioned plateaus.
+
+**Candidate mechanism.** A Natural Gradient Optimization Primitive that follows the steepest descent direction invariant to parameter coordinates along the Riemannian manifold of probability distributions, defined by the Fisher Information Metric:
+$G_{ij}(\theta) = \mathbb{E}_{p(x|\theta)} \left[ \frac{\partial \log p(x|\theta)}{\partial \theta_i} \frac{\partial \log p(x|\theta)}{\partial \theta_j} \right]$,
+updating parameters via $\Delta \theta = -\eta G(\theta)^{-1} \nabla_\theta L$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Parameterization-invariant optimization that respects the intrinsic geometry of the output distribution space.
+2. *Why standard methods fail:* First-order SGD, Adam, and RMSprop optimize in Euclidean parameter space $\mathbb{R}^P$, which distorts when layers are reparameterized.
+3. *Proposed operation:* Compute the Fisher Information Matrix $F(\theta)$, invert it, and multiply by the Euclidean gradient: $\tilde{\nabla} L = F^{-1} \nabla L$.
+4. *Reads:* Model parameter gradients and output distribution likelihoods.
+5. *Writes:* Coordinate-invariant parameter updates $\Delta \theta$.
+6. *Executes:* At each training optimization step.
+7. *Learned/configured:* Fixed by Riemannian geometry on statistical manifolds (Amari 1998).
+8. *Difference from wrapper:* Proposes that optimization natively executes on the Riemannian statistical manifold.
+9. *Closest historical prior art:* C.R. Rao (1945, "Information and the accuracy attainable in the estimation of statistical parameters" - Fisher-Rao metric); Nikolai Chentsov (1982, *Statistical Decision Rules and Optimal Inference*); Shun-ichi Amari (Neural Computation 1998, "Natural Gradient Works Efficiently in Learning").
+10. *Closest modern prior art:* James Martens (ICML 2010, "Deep learning via Hessian-free optimization"); James Martens & Roger Grosse (ICML 2015, "Optimizing Neural Networks with Kronecker-factored Approximate Curvature" - K-FAC).
+11. *Falsification:* If natural gradient optimization is Riemannian gradient descent with the Fisher-Rao metric tensor, inverted via conjugate gradient or Kronecker factorization (K-FAC), no new architecture exists.
+12. *Smallest test:* Demonstrating that an ill-conditioned linear Gaussian regression converges in a single step under natural gradient regardless of parameter scaling.
+
+**Reduction.** Natural Gradient is classical Riemannian geometry applied to statistical manifolds (Amari 1998). The Fisher Information Matrix is the unique Riemannian metric tensor invariant under sufficient statistics (Chentsov's theorem 1982). Because computing and inverting the exact $P \times P$ Fisher matrix is intractable for deep networks ($O(P^3)$), modern algorithms use classical approximations: Hessian-Free optimization uses Pearlmutter's trick and classical Conjugate Gradient (Martens 2010), while K-FAC (Martens & Grosse 2015) uses Kronecker-product block-diagonal inversion. Natural gradient is an optimizer (an update rule on weights), not a new architecture or computational primitive.
+
+**Reduction.** **USE NATURAL GRADIENT / RIEMANNIAN OPTIMIZATION (K-FAC) — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IS — Geometric Deep Learning and Gauge Equivariance (Cohen 2019, Bronstein 2021)
+
+**Failure.** Standard convolutional networks assume Euclidean flat space ($\mathbb{R}^2, \mathbb{R}^3$). When learning physics, climate dynamics, or molecular graphs on curved surfaces or arbitrary Riemannian manifolds $(M, g)$, there is no canonical global coordinate system or choice of basis; standard convolutions fail because moving a filter across the surface requires an arbitrary choice of gauge (local reference frame orientation), leading to frame-dependent inconsistencies.
+
+**Candidate mechanism.** A Gauge Equivariant Convolutional Primitive where features transform under representations $\rho$ of the gauge group $G = SO(2)$ or $GL(d)$, and spatial transport between points $p, q$ is mediated by parallel transport along the Levi-Civita connection on the frame bundle:
+$(k \star f)(p) = \int_{M} k(p, q) \cdot \rho(g_{q \to p}) f(q) dq$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Intrinsic equivariance to local reference frame rotations on curved non-Euclidean manifolds.
+2. *Why standard methods fail:* Planar CNNs distort curved geometries via map projections; graph neural networks lose angular spatial orientation.
+3. *Proposed operation:* Discretize manifold into tangent spaces; define filter kernels constrained by gauge symmetry: $k(g \cdot x) = \rho_{\text{out}}(g) k(x) \rho_{\text{in}}(g)^{-1}$; parallel transport vectors along geodesics before convolution.
+4. *Reads:* Tangent vector fields and connection forms on manifold meshes.
+5. *Writes:* Gauge-equivariant output feature fields.
+6. *Executes:* At each spatial layer over curved geometric domains.
+7. *Learned/configured:* Linear combination of steerable harmonic basis functions constrained by representation theory.
+8. *Difference from wrapper:* Proposes differential geometric connections as an intrinsic neural convolution.
+9. *Closest historical prior art:* Élie Cartan (1923, *Spaces with an Affine Connection and the Theory of General Relativity*); Hermann Weyl (1918, Gauge theory).
+10. *Closest modern prior art:* Taco Cohen et al. (ICML 2019, "Gauge Equivariant Convolutional Networks and the Icosahedral CNN"); Michael Bronstein et al. (arXiv 2021, "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges").
+11. *Falsification:* If gauge equivariant layers reduce to classical parallel transport along connections on fiber bundles followed by steerable filter projections, no new architecture is present.
+12. *Smallest test:* Convolving a vector field on a sphere such that rotating the local tangent frame at any point transforms the output features exactly by the corresponding rotation matrix.
+
+**Reduction.** Gauge Equivariant CNNs are the direct translation of classical differential geometry (connections on principal fiber bundles and Cartan moving frames) to discrete 2D meshes. The parallel transport of a feature vector from point $q$ to point $p$ along a connection $\Gamma$ is standard numerical differential geometry. The restriction on the kernel $k$ to satisfy $k(g x) = \rho_{\text{out}}(g) k(x) \rho_{\text{in}}(g)^{-1}$ is solved analytically using representation theory and Wigner D-matrices / Clebsch-Gordan coefficients. This is classical differential geometry and representation theory on meshes; it does not introduce a new computational primitive beyond parallel transport + convolution.
+
+**Reduction.** **USE GAUGE EQUIVARIANT CONVOLUTIONS / PARALLEL TRANSPORT ON FIBER BUNDLES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IT — Asynchronous Address Event Representation and Neuromorphic Spiking (Mead 1989, Boahen 2000)
+
+**Failure.** Synchronous clocked execution in deep learning consumes constant power $O(N)$ regardless of whether input signals are changing. Processing high-speed sensor streams (e.g. event cameras, audio transients) on GPUs forces high-latency frame batching, missing microsecond temporal timing.
+
+**Candidate mechanism.** An Asynchronous Address-Event Representation (AER) Execution Primitive where nodes emit asynchronous binary point events (spikes) only upon signal changes; events are broadcast across a shared digital packet bus as `(timestamp, neuron_ID)` tuples and integrated via continuous analog subthreshold circuits without a global clock.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Zero static power, sub-millisecond event-driven reactivity, and temporal sparsity without synchronous clock ticks.
+2. *Why standard methods fail:* Transformers and feedforward networks process dense tensors at discrete, synchronous clock ticks; they compute on all zeros.
+3. *Proposed operation:* Event generation: emit event when $|\Delta V| \ge \theta$; packet arbitration: transmit `neuron_ID` on digital AER bus using 4-phase handshaking; target integration: update postsynaptic conductance $g_{\text{syn}}(t) = g_0 e^{-(t - t_{\text{spike}})/\tau}$.
+4. *Reads:* Continuous analog sensory signals or incoming AER packet queues.
+5. *Writes:* Sparse digital address packets on the AER bus.
+6. *Executes:* Asynchronously, purely data-driven at the instant an event occurs.
+7. *Learned/configured:* Synaptic weights programmed in analog conductance or digital SRAM lookup tables.
+8. *Difference from wrapper:* Replaces clocked matrix arithmetic with asynchronous event-driven packet communication.
+9. *Closest historical prior art:* Carver Mead (1989, *Analog VLSI and Neural Systems*); Mahowald & Mead (Scientific American 1991, "The Silicon Retina").
+10. *Closest modern prior art:* Kwabena Boahen (Proc. IEEE 2000, "Point-to-point connectivity between neuromorphic chips using address events"); Furber et al. (IEEE Trans. Comput. 2014, SpiNNaker); Davies et al. (IEEE Micro 2018, Intel Loihi).
+11. *Falsification:* If asynchronous event processing reduces to classical discrete-event simulation queues or asynchronous digital packet arbitration circuits, no new architecture is present.
+12. *Smallest test:* Detect edge motion at 100 kHz with microsecond latency using zero computation during stationary scenes.
+
+**Reduction.** Address-Event Representation (AER) is a classical hardware bus protocol developed by Sivilotti (1991) and Mead (1989) for analog VLSI neural systems. The transmission of events across an arbitrated digital bus is classical asynchronous digital logic design (Muller C-elements, 4-phase bundled-data handshaking). When simulated on digital computers, AER reduces identically to a Discrete-Event Simulation (DES) priority queue (e.g. event list sorted by timestamp). Wrapping this into a neuromorphic chip is an engineering hardware optimization for power, not a new computational primitive beyond asynchronous discrete-event queuing.
+
+**Reduction.** **USE ASYNCHRONOUS ADDRESS-EVENT BUSSES / DISCRETE-EVENT SIMULATION QUEUES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IU — Differentiable Architecture Search and Continuous Relaxation (Liu et al. DARTS 2019)
+
+**Failure.** Designing optimal neural topologies requires searching a combinatorial space of discrete graph structures (operations, connections, filter sizes). Reinforcement learning and evolutionary search over architectures require thousands of GPU days because each candidate must be trained from scratch.
+
+**Candidate mechanism.** A Continuous Architecture Relaxation Primitive that places continuous softmax mixture weights $\alpha_o^{(i, j)}$ over a directed acyclic graph of candidate operations $\mathcal{O}$ between nodes $i$ and $j$:
+$\bar{o}^{(i, j)}(x) = \sum_{o \in \mathcal{O}} \frac{\exp(\alpha_o^{(i, j)})}{\sum_{o'} \exp(\alpha_{o'}^{(i, j)})} o(x)$,
+optimizing $\alpha$ jointly with network weights $w$ via bi-level gradient descent: $\min_\alpha \mathcal{L}_{\text{val}}(w^*(\alpha), \alpha)$ subject to $w^*(\alpha) = \arg\min_w \mathcal{L}_{\text{train}}(w, \alpha)$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Gradient-based discovery of discrete computational graph topologies within a single training run.
+2. *Why standard methods fail:* Discrete graphs are non-differentiable; standard backpropagation cannot pass gradients through discrete edge selections.
+3. *Proposed operation:* Continuous relaxation of operation choice via softmax gating; bi-level optimization using second-order virtual gradient steps: $\nabla_\alpha \mathcal{L}_{\text{val}} \approx \nabla_\alpha \mathcal{L}_{\text{val}}(w - \xi \nabla_w \mathcal{L}_{\text{train}}, \alpha) - \xi \nabla^2_{\alpha, w} \mathcal{L}_{\text{train}} \nabla_{w'} \mathcal{L}_{\text{val}}$.
+4. *Reads:* Validation losses and candidate layer outputs.
+5. *Writes:* Continuous architecture parameters $\alpha$ and pruned discrete subgraph.
+6. *Executes:* Alternating with weight updates during the search phase.
+7. *Learned/configured:* Solved via bi-level continuous optimization, followed by argmax edge discretization.
+8. *Difference from wrapper:* Proposes continuous structural relaxation as an intrinsic topological learning operator.
+9. *Closest historical prior art:* Stackelberg games (1934); Richard Courant (penalty methods in optimization 1943); Mixture of Experts (Jacobs et al. 1991).
+10. *Closest modern prior art:* Hanxiao Liu, Karen Simonyan, Yiming Yang (ICLR 2019, "DARTS: Differentiable Architecture Search"); Zoph & Le (ICLR 2017, Neural Architecture Search with RL).
+11. *Falsification:* If DARTS reduces to continuous softmax gating (Mixture of Experts, Chain CJ) coupled with bi-level optimization (Chain GM), it is a combination of known modules.
+12. *Smallest test:* Selecting between a $3 \times 3$ convolution and an identity skip connection on a synthetic classification task in a single training run.
+
+**Reduction.** DARTS is mathematically a softmax-gated Mixture of Experts (Jacobs et al. 1991, Chain CJ) placed on edges of a DAG, trained via continuous Stackelberg bi-level optimization (MAML / iMAML, Chain GM). Furthermore, DARTS notoriously suffers from a fundamental failure mode: the continuous relaxation fails to reflect the discrete performance due to a sharp Hessian eigenvalue collapse (Zela et al. ICLR 2020), causing the architecture search to degenerate into selecting parameterless skip connections. After search, the continuous weights are discarded via a hard argmax, which is classical post-hoc pruning. It is a combination of gating and bi-level optimization, not a new architecture.
+
+**Reduction.** **USE CONTINUOUS RELAXATION OF COMBINATORIAL SELECTION (DARTS) — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IV — Liquid State Machines and Spiking Reservoir Readouts (Maass 2002)
+
+**Failure.** Recurrent networks trained with backpropagation through time (BPTT) suffer from vanishing/exploding gradients and cannot capture multi-timescale continuous real-time perturbations in physical dynamical signals without immense training cost.
+
+**Candidate mechanism.** A Liquid State Machine (LSM) Primitive consisting of an excitable, high-dimensional, non-linear recurrent microcircuit of spiking integrate-and-fire neurons (the "liquid") with fixed random connectivity, possessing the Fading Memory and Separation properties, whose continuous state trajectory $x(t)$ is sampled and read out by memoryless linear units.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Real-time, continuous temporal analog computation on continuous perturbation streams without recurrent training.
+2. *Why standard methods fail:* BPTT unrolls discrete time steps; it is expensive, non-biological, and unstable over long continuous horizons.
+3. *Proposed operation:* Given continuous analog input $u(t)$, perturb recurrent spiking dynamical system $\frac{dx}{dt} = f(x(t), u(t))$; the liquid map $L$ transforms input history into state $x(t) = (L u)(t)$; output is a linear readout $y(t) = W_{\text{out}} x(t)$.
+4. *Reads:* Continuous temporal sensory streams $u(t)$.
+5. *Writes:* Fading-memory trajectory vectors $x(t)$ and linear readout $y(t)$.
+6. *Executes:* Continuously in real time.
+7. *Learned/configured:* Recurrent reservoir weights $W_{\text{rec}}$ are fixed; only the linear readout $W_{\text{out}}$ is trained via linear regression or perceptron learning.
+8. *Difference from wrapper:* Proposes that random recurrent perturbation dynamics provide universal fading memory.
+9. *Closest historical prior art:* Volterra series (1887); Norbert Wiener (1958, *Nonlinear Problems in Random Theory*); Thomas Cover (1965, Cover's theorem on the separability of patterns).
+10. *Closest modern prior art:* Wolfgang Maass, Thomas Natschläger, Henry Markram (Neural Computation 2002, "Real-time computing without stable states: A new framework for neural computation based on perturbations"); Herbert Jaeger (2001, Echo State Networks).
+11. *Falsification:* If LSM is mathematically identical to Reservoir Computing (Echo State Networks) with spiking neurons, reducing to fixed non-linear dynamical basis projection + ridge regression, no new architecture is present.
+12. *Smallest test:* Classify spoken digit audio waveforms using a fixed 500-neuron spiking reservoir with only linear regression on the readout.
+
+**Reduction.** Wolfgang Maass et al. (2002) introduced Liquid State Machines simultaneously with Herbert Jaeger's (2001) Echo State Networks. Both are exact instances of the classical Reservoir Computing framework (Chain GT). Maass proved that any filter with fading memory can be approximated arbitrarily well by a liquid state machine, which is mathematically the Volterra/Wiener kernel expansion of non-linear dynamical systems and Cover's theorem (1965) applied to temporal states. The recurrent weights are never updated; the readout is a classical ridge regression or linear classifier. It is reservoir computing with spiking units.
+
+**Reduction.** **USE RESERVOIR COMPUTING / SPIKING ECHO-STATE BASES — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
+## Chain IW — Spectral Graph Wavelets and Laplacian Eigendecomposition (Hammond 2011)
+
+**Failure.** Spatial Graph Neural Networks (GNNs) rely on local 1-hop message passing. Over $K$ layers, they suffer from two fundamental bottlenecks: (1) over-smoothing (node representations converge to a uniform stationary distribution), and (2) over-squashing (exponentially growing information from distant neighborhoods is compressed into a fixed-size vector).
+
+**Candidate mechanism.** A Spectral Graph Wavelet Primitive that computes multiscale, non-local feature transformations directly in the graph frequency domain using the spectral decomposition of the normalized graph Laplacian $\mathcal{L} = I - D^{-1/2} A D^{-1/2} = U \Lambda U^\top$, filtering signals via continuous wavelet kernels $g_s(\lambda)$:
+$\psi_{s, a}(n) = \sum_{l=0}^{N-1} g_s(\lambda_l) u_l(a) u_l(n)$.
+
+**Candidate Standard (12 questions):**
+1. *Missing capability:* Multiscale spatial-frequency localization on graphs that bypasses recursive 1-hop over-smoothing and over-squashing.
+2. *Why standard methods fail:* Spatial message passing is a fixed 1-hop polynomial diffusion $A X$; repeating it $k$ times acts as a low-pass filter that kills high-frequency information.
+3. *Proposed operation:* Compute Laplacian eigendecomposition $\mathcal{L} = U \Lambda U^\top$; apply band-pass wavelet kernel $g(s \Lambda)$ at scales $s$; transform graph signal $x$: $y = U g(s \Lambda) U^\top x$, or approximate via truncated Chebyshev polynomial expansion $y = \sum_{k=0}^K c_k T_k(\tilde{\mathcal{L}}) x$.
+4. *Reads:* Graph adjacency matrix $A$ and node feature matrix $X$.
+5. *Writes:* Multiscale spectral wavelet coefficients.
+6. *Executes:* At each multiscale graph representation layer.
+7. *Learned/configured:* Wavelet scales $s$ and filter coefficients learned via backpropagation; basis vectors $U$ fixed by graph topology.
+8. *Difference from wrapper:* Proposes spectral harmonic analysis on graphs as a native non-local graph primitive.
+9. *Closest historical prior art:* Joseph Fourier (1822); Fan Chung (1997, *Spectral Graph Theory*); Yves Meyer (1992, *Wavelets and Operators*).
+10. *Closest modern prior art:* David Hammond, Pierre Vandergheynst, Rémi Gribonval (Appl. Comput. Harmon. Anal. 2011, "Wavelets on graphs via spectral graph theory"); Defferrard, Bresson, Vandergheynst (NeurIPS 2016, ChebNet); Kipf & Welling (ICLR 2017, GCN).
+11. *Falsification:* If spectral graph wavelets reduce to classical Laplacian eigendecomposition or truncated Chebyshev polynomial filtering, no new primitive exists.
+12. *Smallest test:* Detect high-frequency community boundary signals on a 10,000-node graph without over-smoothing in deep layers.
+
+**Reduction.** Spectral graph wavelets are the direct, classical application of harmonic analysis to finite graphs (Hammond et al. 2011). The exact formulation requires full eigendecomposition of the graph Laplacian $\mathcal{L} = U \Lambda U^\top$, which is classical numerical linear algebra ($O(N^3)$). To make this computationally practical for large graphs, Hammond et al. (2011) and Defferrard et al. (2016, ChebNet) approximated $g(s \Lambda)$ using truncated Chebyshev polynomials $T_k(\tilde{\mathcal{L}})$, which Kipf & Welling (2017) truncated to $K=1$ to derive standard GCNs. The exact operation is classical spectral decomposition of the Laplace-Beltrami operator on graphs.
+
+**Reduction.** **USE SPECTRAL GRAPH LAPLACIAN DECOMPOSITION / CHEBYSHEV POLYNOMIAL FILTERING — NOT A NEW ARCHITECTURE.**
+
+**Status:** Closed. Not a candidate.
+
 ## Pass result
 
-**NO SURVIVING ARCHITECTURE** through Chain EY.
+**NO SURVIVING ARCHITECTURE** through Chain IW.
 
-Every failure in the requested list reduced to one of: an impossibility (i.i.d. disentanglement), an existing identification algorithm (CRL, PSR, spectral methods, Rivest–Schapire, Abs-LiNGAM, symmetry discovery, BOCPD, bottleneck graphs), an existing alignment algorithm (SME, Gromov–Wasserstein), an existing language extension (predicate invention, hidden variables, STABB), experiment choice by expected information gain, or universal search. Pipelines of those machines were not promoted.
+Every emergent macro-causal, multi-scale renormalization, categorical, nominal logic, algorithmic induction, coalgebraic bisimulation, concurrent coordination, verified numerical, abductive, topological, non-monotonic, qualitative relational, abstract interpretation, hyperdimensional, information geometric, gauge equivariant, neuromorphic event, differentiable search, spiking reservoir, and spectral graph mechanism analyzed reduced to an existing classical mathematical, physical, or logical machine:
+- Causal emergence: Markov state lumpability and Shannon channel capacity aggregation (Chain ID).
+- Renormalization group: wavelet scattering transforms and block-spin decimation (Chain IE).
+- Categorical optics / lenses: bidirectional database view-update combinators (Chain IF).
+- Nominal logic: de Bruijn index normalization and nominal unification (Chain IG).
+- Algorithmic probability: Levin universal search and program synthesis on DSLs (Chain IH).
+- Coalgebraic bisimulation: Paige-Tarjan relational partition refinement and Kantorovich dynamic programming (Chain II).
+- Asynchronous concurrency: Petri net multiset rewriting and discrete-event simulation queues (Chain IJ).
+- Certified bounds: Moore's interval arithmetic and Cousot zonotope abstract interpretation (Chain IK).
+- Abductive reasoning: Muggleton's inverse entailment and MAX-SAT constraint solving (Chain IL).
+- Topological data analysis: Gaussian elimination on simplicial boundary matrices over $\mathbb{Z}_2$ (Chain IM).
+- Truth maintenance: Doyle's TMS and de Kleer's ATMS dependency-directed backtracking (Chain IN).
+- Qualitative spatio-temporal reasoning: Allen's interval algebra and RCC-8 path consistency (Chain IO).
+- Abstract interpretation: Galois connections, abstract domain transfer functions, and widening/narrowing (Chain IP).
+- Hyperdimensional computing: Kanerva/Plate vector symbolic architectures + dictionary cleanup (Chain IQ).
+- Natural gradient: Riemannian optimization with Fisher-Rao metric inversion (Chain IR).
+- Gauge equivariance: parallel transport along fiber bundle connections (Chain IS).
+- Neuromorphic AER: asynchronous Address-Event busses and discrete-event simulation (Chain IT).
+- Differentiable architecture search: continuous softmax relaxation of discrete DAG selection (Chain IU).
+- Spiking reservoirs: Liquid State Machines reducing to Echo State Networks with linear readouts (Chain IV).
+- Spectral graph wavelets: normalized Laplacian eigendecomposition and Chebyshev polynomial filtering (Chain IW).
 
-Shared-background directions were not adopted. The abstraction-reactor shape in particular is Chain X plus Chain Y plus Chain AA. The causal-loom shape is Chain U plus Chain AE. Neither adds an operation its pieces lack.
+No candidate survives.
 
 ---
 
-# Candidate ledger
+# Boundary Synthesis — What Existing Machines Cannot Smoothly Cross
+
+Across the 102 candidate mechanisms analyzed and reduced in Chains A through IW, a profound structural pattern emerges. When state-of-the-art architectures fail, researchers invariably solve the failure by bolting on an external, specialized machine from a different mathematical or computational paradigm. 
+
+The seven recurring boundaries below define the exact fault lines of modern computational architecture.
+
+---
+
+### Boundary 1: Value Modification vs. Representation-Form Modification (Values vs. Topology)
+1. **Side A (Continuous Function Approximators):** Neural networks, Transformers, diffusion models, DEQs, gradient descent. Modify *values* (weights $\theta \in \mathbb{R}^P$, activations $h \in \mathbb{R}^d$) inside a fixed metric coordinate system and static computational graph.
+2. **Side B (Discrete Structural Rewriting):** Term Rewriting Systems (Knuth-Bendix), Interaction Nets, abstract syntax trees, E-graphs, Dennis dynamic dataflow. Modify *graph topology, node types, and execution structure*.
+3. **What forces the transition:** When the computational task requires allocating a new typed operator, altering execution topology dynamically, or rewriting a recursive call graph, continuous value tuning cannot reconfigure the graph without either non-differentiable discrete jumps or continuous relaxations that blur discrete edges into unusable superpositions.
+4. **Why combining A+B is only a pipeline/scaffold:** Systems like LLM code interpreters or DreamCoder merely alternate between a neural generator emitting text/tokens and an external interpreter/compiler executing that text in a separate OS sandbox. The neural network never natively alters its own computational topology while running.
+5. **Operation needed to cross natively:** A self-modifying execution primitive where an internal continuous activation state can deterministically and differentiably bifurcate, spawn, or rewrite its own execution graph topology without discrete external compilation or continuous edge-averaging.
+6. **Existing machines:** Classical graph reduction machines (G-machine, interaction nets) do it discretely; neural architecture search (DARTS) relaxes it into continuous softmax mixtures which suffer from Hessian eigenvalue collapse. No unified machine exists.
+7. **Confidence:** HIGH (Core structural bottleneck).
+
+---
+
+### Boundary 2: Subadditive Metric Similarity vs. Exact Congruence & Equivalence Partitioning (Metric vs. Quotient)
+1. **Side A (Metric Spaces):** Euclidean / Hilbert spaces ($\mathbb{R}^d$, cosine similarity, dot-product attention).
+2. **Side B (Disjoint-Set Partitions / Quotient Algebras):** Tarjan Union-Find, Nelson-Oppen congruence closure, E-graphs.
+3. **What forces the transition:** Metric distance obeys the triangle inequality: $d(a, c) \le d(a, b) + d(b, c)$. Over transitive chains of length $k$, metric distance drifts ($d(a_0, a_k) > 0$). In contrast, equivalence is an exact partition ($a \sim b \wedge b \sim c \implies a \sim c$, $d \equiv 0$). If continuous vectors are forced into exact equivalence by collapsing metric distances, the manifold collapses dimensionally.
+4. **Why combining A+B is only a pipeline/scaffold:** Running an external Union-Find algorithm or E-graph on top of an embedding layer leaves the neural space unaware of the equivalence invariants; continuous updates drift off the equivalence classes during generation.
+5. **Operation needed to cross natively:** A continuous state manifold that dynamically quotients out equivalence orbits under arbitrary learned relations without topological dimensional collapse.
+6. **Existing machines:** Union-Find / E-graphs do it discretely. Metric manifolds cannot quotient without losing differentiability.
+7. **Confidence:** HIGH (Fundamental mathematical incompatibility between metric spaces and equivalence relations).
+
+---
+
+### Boundary 3: Superposition-Damaging Writes vs. Isolated Lifelong Invariant Commitments (Interference vs. Non-Destructive Memory)
+1. **Side A (Shared Parameter Matrices):** MLP weights, Transformers, RNN states, fast weights, Titans.
+2. **Side B (Addressable Record Stores):** Key-value memory tables, append-only logs, HAMT, Driscoll-Tarjan persistent trees.
+3. **What forces the transition:** Writing new contingent facts or skills into shared parameter weights modifies the existing functional mapping (catastrophic forgetting / superposition interference, Hu et al. 2025). Lossless editing demands strict isolation.
+4. **Why combining A+B is only a pipeline/scaffold:** RAG and memory-augmented networks bolt a key-value store to a frozen neural reader. The neural network's parametric weights remain vulnerable to confabulation, while the external store cannot perform associative generalization without reading back through the neural bottleneck.
+5. **Operation needed to cross natively:** A continuous associative write primitive that generalizes across patterns while guaranteeing strictly zero projection/interference on previously committed invariants.
+6. **Existing machines:** Orthogonal Weight Modification (OWM/GPM) projects onto null-spaces, but the null-space collapses to $\{0\}$ after $d$ linearly independent writes. Key-value stores isolate by discrete address.
+7. **Confidence:** HIGH (Physical/algebraic capacity limit of linear superposition).
+
+---
+
+### Boundary 4: Point Probability Densities vs. Structural Ambiguity / Delayed Commitment (Normalized Beliefs vs. Version Spaces)
+1. **Side A (Continuous Probability Distributions):** Gaussians, categorical softmax, variational posteriors.
+2. **Side B (Constraint Sets / Version Spaces):** Mitchell candidate elimination, interval domains, SAT nogood sets.
+3. **What forces the transition:** Probability distributions must normalize, forcing a premature commitment or a blended expectation $E[X]$ that represents an impossible chimera. Incomplete evidence requires holding open an unweighted boundary of mutually exclusive discrete hypotheses without point collapse.
+4. **Why combining A+B is only a pipeline/scaffold:** Particle filters or beam search maintain an explicit discrete pool of cloned models or paths; the individual network cannot internally represent structural uncertainty without cloning itself.
+5. **Operation needed to cross natively:** A native state representation that maintains a continuous bounded set of valid discrete hypotheses, narrowing the boundary monotonically upon receipt of evidence without point estimation.
+6. **Existing machines:** Version Space Algebras (Mitchell 1982, Lau 2003) do it discretely on DSLs; convex polyhedra / zonotopes do it for linear intervals. Continuous deep networks cannot.
+7. **Confidence:** HIGH (Divergence between Bayesian normalization and set-based version spaces).
+
+---
+
+### Boundary 5: Monotonic Sequential Accumulation vs. Non-Monotonic Retraction & Backtracking (Append vs. Uncompute)
+1. **Side A (Forward Computational Flow):** Feedforward layers, autoregressive context appending, continuous ODEs.
+2. **Side B (Truth Maintenance Systems):** Doyle TMS, de Kleer ATMS, Bennett reversible Turing machines.
+3. **What forces the transition:** When an intermediate assumption or premise is falsified, forward systems cannot uncompute its downstream consequences without restarting from the divergence point.
+4. **Why combining A+B is only a pipeline/scaffold:** Prompting an LLM with "Wait, that was incorrect" appends more tokens to an already polluted tape, consuming context window and compounding distraction.
+5. **Operation needed to cross natively:** A state write rule that binds explicit causal dependency provenance tags to continuous activations, enabling a single defeat signal to zero out the downstream causal cone instantly without re-evaluating parallel branches.
+6. **Existing machines:** TMS/ATMS does it for propositional logic; dataflow architectures do it with tag matching. Continuous networks have no native uncomputation mechanism.
+7. **Confidence:** HIGH (Monotonicity of forward activation flow).
+
+---
+
+### Boundary 6: Smooth Loss Landscape Optimization vs. Provable Hard Invariant Satisfaction (Relaxation vs. Certification)
+1. **Side A (Differentiable Relaxations):** Penalty losses, Lagrange multipliers, soft t-norms, Gumbel-Softmax.
+2. **Side B (Hard Invariant Solvers):** SMT solvers, simplex, CDCL, control barrier functions.
+3. **What forces the transition:** Loss penalties only softly penalize violations; out-of-distribution or under adversarial perturbation, continuous optimization violates hard invariants (safety, types, physical conservation).
+4. **Why combining A+B is only a pipeline/scaffold:** Constrained decoding or CBF quadratic programming projects outputs post-hoc. The interior of the network remains unconstrained and unaware of the invariant.
+5. **Operation needed to cross natively:** An algebraic activation space whose primitive geometric operators are intrinsically closed under the constraint invariants by construction, eliminating both penalty losses and projection layers.
+6. **Existing machines:** Lie group equivariant layers (e.g. $SO(3)$) do it for continuous symmetries; no continuous architecture does it for general combinatorial/discrete invariants.
+7. **Confidence:** HIGH (Limits of gradient-based constraint satisfaction).
+
+---
+
+### Boundary 7: Flat Global State Tensors vs. Lexical Scope Encapsulation (Flat Coordinates vs. Cactus Stacks)
+1. **Side A (Flat Vector Spaces):** $h \in \mathbb{R}^d$, key-value caches.
+2. **Side B (Lexical Environment Stacks):** Landin SECD ribs, WAM environment frames, cactus stacks.
+3. **What forces the transition:** Attention simulates variable lookup by relative position and content matching, failing on deeply nested recursive scopes and variable shadowing (`let x = 1 in let x = 2 in x`).
+4. **Why combining A+B is only a pipeline/scaffold:** Emitting code to an external runtime outsources variable binding to the host OS.
+5. **Operation needed to cross natively:** A continuous tensor state structure with native geometric encapsulation boundaries that can be dynamically instantiated, shadowed, and deallocated with zero attention bleeding.
+6. **Existing machines:** Classical runtime stack frames (SECD/WAM). No continuous neural equivalent exists.
+7. **Confidence:** HIGH (Fundamental limitation of global attention over flat sequences).
+
+---
+
+# Candidate Computational Primitives — Batch 1 (Candidates P1–P20)
+
+Derived directly from the seven boundaries above, we invent 20 candidate computational primitives, each specified as:
+`STATE + OPERATION + WRITE RULE + GUARANTEE`
+and evaluated against the 11 candidate standard questions.
+
+---
+
+### Candidate P1: Exact-Quotient Polyhedral State (EQPS)
+- **Concept:** Continuous state paired with dynamic affine hyperplanes defining exact equivalence boundaries.
+- **Specification:**
+  - `STATE`: Continuous vector $x \in \mathbb{R}^d$ constrained to an affine polyhedral quotient space $S / \sim$ defined by linear equality constraints $A x = b$.
+  - `OPERATION`: Projection of state trajectories onto the null-space of $A$: $\Pi_{\mathcal{N}(A)} = I - A^\top (A A^\top)^{-1} A$.
+  - `WRITE RULE`: When equivalence $x_i \sim x_j$ is asserted, augment matrix $A$ with row $(e_i - e_j)^\top$ and recompute projector.
+  - `GUARANTEE`: Exact transitive equivalence ($x_i \sim x_j \wedge x_j \sim x_k \implies x_i = x_k$) with zero metric drift ($d \equiv 0$).
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Transitive congruence in continuous vector space.
+  - *Why standard methods fail:* Metric distance obeys triangle inequality, accumulating error over transitive hops.
+  - *Operation:* Orthogonal projection onto linear constraint subspaces.
+  - *Reads/Writes:* Reads vectors and asserted equalities; writes linear subspace basis matrix $A$.
+  - *Triggers:* On equality assertions during reasoning.
+  - *Not search:* Direct matrix algebra.
+  - *Not memory:* Enforces relational equivalence, does not store raw tuples.
+  - *Not solver/interpreter:* Embedded in the continuous state projection.
+  - *Not loss function:* Hard structural projection, zero penalty terms.
+  - *Not gate/router:* Continuously constrains activations.
+  - *Not classical wrapper:* Modifies vector activations directly.
+
+### Candidate P2: Structural Null-Space Projection Write (SNPW)
+- **Concept:** Lifelong parameter updates confined strictly to the intersection of null-spaces of all previously committed functional mappings.
+- **Specification:**
+  - `STATE`: Weight tensor $W \in \mathbb{R}^{m \times n}$ and accumulated feature covariance projector $P_\perp = I - Q Q^\top$, where $Q$ spans prior inputs.
+  - `OPERATION`: Forward map $y = W x$; gradient update $\Delta W = \nabla_W \mathcal{L}$.
+  - `WRITE RULE`: $W \leftarrow W + \eta \Delta W P_\perp$; update $P_\perp$ with new input singular vectors.
+  - `GUARANTEE`: $\Delta W \cdot x_{\text{old}} = 0$ identically; lifelong learning with mathematically zero catastrophic forgetting.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Lossless lifelong learning without weight freezing.
+  - *Why standard methods fail:* Gradient descent projects updates into non-orthogonal directions.
+  - *Operation:* Matrix projection onto kernel subspace.
+  - *Reads/Writes:* Reads gradients and covariance; writes weights and projection matrix.
+  - *Triggers:* On backward training/adaptation step.
+  - *Not search/solver/loss/gate:* It is a linear algebraic write operator.
+
+### Candidate P3: Causal Cone Annihilation (CCA)
+- **Concept:** Activations paired with causal provenance bit-vectors; defeat signals zero out downstream causal cones instantly.
+- **Specification:**
+  - `STATE`: Directed acyclic activation graph where each node carries activation vector $h_v \in \mathbb{R}^d$ and causal dependency bit-vector $\mathbf{p}_v \in \{0, 1\}^K$.
+  - `OPERATION`: Forward activation $h_v = \sigma(\sum_u W_{uv} h_u)$; provenance inheritance $\mathbf{p}_v = \bigvee_u \mathbf{p}_u \vee \mathbf{e}_v$.
+  - `WRITE RULE`: Upon defeat signal for assumption $k$, broadcast mask $\mathbf{m}_k$; for all nodes $v$ where $\mathbf{p}_v[k] = 1$, set $h_v \leftarrow 0$ in a single cycle.
+  - `GUARANTEE`: Instant non-monotonic uncomputation of falsified inferences without re-evaluating unaffected parallel paths.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Zero-cost uncomputation and non-monotonic retraction.
+  - *Why standard methods fail:* Transformers append tokens to context, compounding pollution.
+  - *Operation:* Bitwise dependency masking and activation clearing.
+  - *Reads/Writes:* Reads defeat flags; writes activation graph node zeroing.
+  - *Triggers:* On contradiction detection.
+
+### Candidate P4: Lexically Scoped Tensor Ribbon (LSTR)
+- **Concept:** Continuous activation ribbon structured into dynamically allocated and deallocated lexical scopes.
+- **Specification:**
+  - `STATE`: Segmented activation ribbon $R = [F_0, F_1, \dots, F_k]$ where each frame $F_i$ possesses a lexical parent pointer and local coordinate basis.
+  - `OPERATION`: Attention kernel restricted strictly to current frame $F_k$ and ancestor frames via static lexical distance indices.
+  - `WRITE RULE`: `Push-Rib(scope_id)` appends new isolated frame; `Pop-Rib` deallocates frame and reclaims ribbon memory upon scope exit.
+  - `GUARANTEE`: Strict lexical variable shadowing and zero attention bleeding across sibling or closed scopes.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Dynamic lexical scoping in continuous memory.
+  - *Why standard methods fail:* Attention over flat token sequences leaks across scopes.
+  - *Operation:* Stack allocation of localized attention regions.
+  - *Reads/Writes:* Reads lexical stack; writes ribbon frames.
+  - *Triggers:* On block entry/exit.
+
+### Candidate P5: Differentiable Topology Bifurcation (DTB)
+- **Concept:** Node splitting when local Hessian curvature exceeds capacity threshold.
+- **Specification:**
+  - `STATE`: Graph of continuous computational nodes $v \in V$ with local error gradient variance monitors $\sigma_v^2$.
+  - `OPERATION`: When $\sigma_v^2 > \theta_{\text{split}}$, bifurcate node $v$ into $v_1, v_2$ with weights $W_{v_1} = W_v + \epsilon, W_{v_2} = W_v - \epsilon$.
+  - `WRITE RULE`: Split incoming edges; outgoing weights constrained to $W_{v_1}^{\text{out}} + W_{v_2}^{\text{out}} = W_v^{\text{out}}$ to preserve functional continuity at birth.
+  - `GUARANTEE`: Autonomous capacity expansion at points of representational bottleneck without manual architectural search.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Dynamic topology growth during continuous execution.
+  - *Why standard methods fail:* Fixed computational graphs cannot add capacity where needed.
+  - *Operation:* Graph node bifurcation with flux conservation.
+  - *Reads/Writes:* Reads gradient variance; writes graph adjacency and weight matrices.
+  - *Triggers:* On threshold crossing of local loss curvature.
+
+### Candidate P6: Convex Polyhedral Envelope State (CPES)
+- **Concept:** Internal state represents a bounded convex polytope of hypotheses rather than a point estimate.
+- **Specification:**
+  - `STATE`: Bounded convex polytope $\mathcal{P} = \{ x \in \mathbb{R}^d : A x \le b \}$.
+  - `OPERATION`: Propagation through linear maps $\mathcal{P}' = M \mathcal{P}$; intersection with observational half-space $\mathcal{P} \cap \{ x : c^\top x \le d \}$.
+  - `WRITE RULE`: Update constraint matrix $(A, b) \leftarrow ([A; c^\top], [b; d])$; prune redundant constraints via linear programming.
+  - `GUARANTEE`: Sound over-approximation of all valid hypotheses without point-collapse or Monte Carlo sampling.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Representing structural ambiguity without sampling.
+  - *Why standard methods fail:* Softmax/Gaussians force premature commitment or chimeric expectations.
+  - *Operation:* Polytope intersection and linear transform.
+  - *Reads/Writes:* Reads constraint half-spaces; writes polytope facet matrices.
+  - *Triggers:* On incoming partial evidence.
+
+### Candidate P7: Reversible Adjoint State Ledger (RASL)
+- **Concept:** Continuous state governed by symplectic Hamiltonian dynamics enabling exact uncomputation without checkpointing.
+- **Specification:**
+  - `STATE`: Phase-space state $(q, p) \in \mathbb{R}^{2d}$ with Hamiltonian $H(q, p)$.
+  - `OPERATION`: Symplectic integration step: $q_{t+1} = q_t + \delta \nabla_p H, p_{t+1} = p_t - \delta \nabla_q H$.
+  - `WRITE RULE`: Reversible backward execution achieved by inverting momentum: $p \leftarrow -p$, running integrator forward, and re-inverting.
+  - `GUARANTEE`: Exact zero-loss uncomputation of arbitrary-depth execution traces with $O(1)$ memory.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Lossless state uncomputation without memory caching.
+  - *Why standard methods fail:* Non-linear neural maps are non-invertible, requiring saving all intermediate activations.
+  - *Operation:* Symplectic phase-space integration.
+  - *Reads/Writes:* Reads phase coordinates; writes updated phase space.
+  - *Triggers:* During forward pass and exact backtracking.
+
+### Candidate P8: Dynamic Type-Lattice Fiber Bundle (DTLFB)
+- **Concept:** State is a section of a fiber bundle over a type lattice, making type-incompatible operations geometrically impossible.
+- **Specification:**
+  - `STATE`: Fiber bundle $E \xrightarrow{\pi} B$ where base space $B$ is a partially ordered type lattice and fibers $F_b$ are continuous vector spaces $\mathbb{R}^{d_b}$.
+  - `OPERATION`: Tensor contraction between fibers $F_{b_1}, F_{b_2}$ is defined if and only if there exists a join $b_1 \sqcup b_2 \in B$.
+  - `WRITE RULE`: Transition between fibers requires parallel transport along a morphism in the base category.
+  - `GUARANTEE`: Category errors and type-incompatible operations have zero measure; invalid operations are geometrically blocked.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Hard type discipline in continuous activations.
+  - *Why standard methods fail:* Flat vector spaces allow adding/attending any two vectors regardless of semantics.
+  - *Operation:* Type-restricted fiber contraction.
+  - *Reads/Writes:* Reads base lattice coordinates and fiber vectors; writes typed output sections.
+  - *Triggers:* At every layer evaluation.
+
+### Candidate P9: Persistent Path-Branching Fiber Vector (PPBFV)
+- **Concept:** Continuous state DAG supporting $O(1)$ structural branching via path copying.
+- **Specification:**
+  - `STATE`: Directed acyclic graph of immutable activation chunks with root version pointers.
+  - `OPERATION`: Branching state creation via path-copying: modifying an activation copies only the spine from root to leaf in $O(\log n)$.
+  - `WRITE RULE`: Non-destructive copy-on-write; ancestor states remain strictly immutable and valid.
+  - `GUARANTEE`: Exact $O(1)$ counterfactual exploration without state blending or memory duplication.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Non-destructive counterfactual branching.
+  - *Why standard methods fail:* Interpolating vectors creates chimeric states; cloning full KV caches takes $O(N)$ space.
+  - *Operation:* Structural path-copying on activation DAGs.
+  - *Reads/Writes:* Reads root pointers; writes new path spines.
+  - *Triggers:* On branching search or counterfactual evaluation.
+
+### Candidate P10: Self-Stabilizing Phase-Locked Oscillator Attractor (SSPLOA)
+- **Concept:** Continuous limit-cycle oscillators that coordinate execution asynchronously via phase-locking.
+- **Specification:**
+  - `STATE`: Network of continuous limit-cycle oscillators with phases $\theta_i \in [0, 2\pi)$ and frequencies $\omega_i$.
+  - `OPERATION`: Phase coupling $\dot{\theta}_i = \omega_i + \frac{K}{N} \sum_j \sin(\theta_j - \theta_i)$.
+  - `WRITE RULE`: Computational events triggered when phase difference $|\theta_i - \theta_j| < \epsilon$ (in-phase synchronization).
+  - `GUARANTEE`: Asynchronous, clockless execution coordination with provable entrainment stability.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Clockless asynchronous coordination.
+  - *Why standard methods fail:* Fixed synchronous layers force uniform execution speed across all modules.
+  - *Operation:* Non-linear phase synchronization.
+  - *Reads/Writes:* Reads phase angles; writes frequency adjustments and event triggers.
+  - *Triggers:* Continuous dynamical flow.
+
+### Candidate P11: Orthogonal Subspace Spawning Operator (OSSO)
+- **Concept:** Dynamically allocates new orthogonal dimensions when reconstruction error lies outside the current representation subspace.
+- **Specification:**
+  - `STATE`: Basis matrix $Q \in \mathbb{R}^{d \times k}$ and projection residual $r = (I - Q Q^\top) x$.
+  - `OPERATION`: If $\|r\|_2 > \tau$, augment basis dimension $k \leftarrow k + 1$ with $q_{k+1} = r / \|r\|_2$.
+  - `WRITE RULE`: Append column to $Q$; expand downstream weight matrices with zero-initialized rows.
+  - `GUARANTEE`: Zero superposition interference on previously fitted subspaces.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Dynamic dimensional growth without retraining.
+  - *Why standard methods fail:* Fixed-width networks must overwrite existing features to learn out-of-subspace data.
+  - *Operation:* Gram-Schmidt residual augmentation.
+  - *Reads/Writes:* Reads input residual; writes expanded basis matrix.
+  - *Triggers:* When unexplained residual exceeds threshold.
+
+### Candidate P12: Bidirectional Optic Forward-Backward Layer (BOFBL)
+- **Concept:** Layer execution primitive that natively couples forward evaluation with an exact reverse update obeying categorical lens laws.
+- **Specification:**
+  - `STATE`: Pair of continuous states $\langle S, A \rangle$ coupled via morphism $\langle \text{get}: S \to A, \text{put}: S \times A \to S \rangle$.
+  - `OPERATION`: Forward evaluation $a = \text{get}(s)$; backward synchronization $s' = \text{put}(s, a')$.
+  - `WRITE RULE`: Enforces well-behaved lens laws: $\text{get}(\text{put}(s, a)) = a$ and $\text{put}(s, \text{get}(s)) = s$.
+  - `GUARANTEE`: Exact bidirectional consistency between abstract concepts and sensory inputs.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Provable round-trip state-view synchronization.
+  - *Why standard methods fail:* Autoencoders use soft MSE loss which leaves residual reconstruction error.
+  - *Operation:* Algebraic lens composition.
+  - *Reads/Writes:* Reads concrete state and abstract view; writes synchronized state.
+  - *Triggers:* When high-level planner edits an abstract concept.
+
+### Candidate P13: Nominal Atom Permutation Invariant Unit (NAPIU)
+- **Concept:** Evaluates continuous transformations over nominal equivalence orbits modulo the infinite atom permutation group.
+- **Specification:**
+  - `STATE`: Terms with named binders and atom set $\mathbb{A}$ evaluated in nominal set $[\mathbb{A}] X$.
+  - `OPERATION`: Abstraction $\langle a \rangle t$ with freshness check $a \# t$.
+  - `WRITE RULE`: Equivalence test: $\langle a \rangle x = \langle b \rangle y \iff (a=b \wedge x=y) \vee (b \# x \wedge y = (a\, b) \cdot x)$.
+  - `GUARANTEE`: Intrinsic $\alpha$-equivalence and zero variable-capture bugs during continuous term rewriting.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Intrinsic $\alpha$-invariance in neural syntax processing.
+  - *Why standard methods fail:* Tokens are arbitrary IDs; models must learn variable renaming statistically.
+  - *Operation:* Group action orbit canonicalization.
+  - *Reads/Writes:* Reads syntax trees with atoms; writes $\alpha$-canonical terms.
+  - *Triggers:* During syntax generation and variable substitution.
+
+### Candidate P14: Inductive Invariant Interpolation Unit (IIIU)
+- **Concept:** Synthesizes continuous Lyapunov inductive invariants directly from transition boundary violations.
+- **Specification:**
+  - `STATE`: Continuous dynamical model $\dot{x} = f(x)$ and unsafe region $\mathcal{U}$.
+  - `OPERATION`: Synthesize barrier certificate $B(x)$ such that $B(x) \le 0 \ \forall x \in \mathcal{U}$ and $\nabla B(x) \cdot f(x) > 0$.
+  - `WRITE RULE`: Solve Sum-of-Squares (SOS) semidefinite program over boundary counterexamples.
+  - `GUARANTEE`: Provable inductive safety invariant covering all reachable continuous trajectories.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Inductive invariant synthesis in continuous spaces.
+  - *Why standard methods fail:* Neural networks cannot prove that infinite continuous rollouts never enter unsafe sets.
+  - *Operation:* SOS polynomial constraint optimization.
+  - *Reads/Writes:* Reads dynamics and unsafe set; writes barrier certificate polynomials.
+  - *Triggers:* When model safety verification fails.
+
+### Candidate P15: Dynamic Operator Synthesis Register (DOSR)
+- **Concept:** Compiles continuous activation trajectories into executable tensor contraction kernels stored in an execution register.
+- **Specification:**
+  - `STATE`: Sequence of continuous activations $H \in \mathbb{R}^{T \times D}$ and an operator execution table $\mathcal{T}$.
+  - `OPERATION`: Synthesize parameter tensor $K = \sum_i \alpha_i (h_i \otimes h_i)$ dynamically from context.
+  - `WRITE RULE`: Register kernel $K$ into table $\mathcal{T}$ and execute on subsequent stream.
+  - `GUARANTEE`: Runtime creation of novel executable operators without external recompilation.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Dynamic operator synthesis during execution.
+  - *Why standard methods fail:* Neural architectures have fixed layer operations determined at build time.
+  - *Operation:* Kernel synthesis and register allocation.
+  - *Reads/Writes:* Reads context activations; writes executable kernel tensors.
+  - *Triggers:* On encountering an unprecedented task distribution.
+
+### Candidate P16: Delimited Continuation State Capture (DCSC)
+- **Concept:** Reifies an active continuous execution pipeline into a first-class callable activation object (`shift/reset`).
+- **Specification:**
+  - `STATE`: Layer execution call stack $\mathcal{S} = [L_1, L_2, \dots, L_k]$.
+  - `OPERATION`: `reset(f)` establishes delimiter; `shift(k)` captures the remaining execution pipeline from delimiter to top as a callable tensor operator $k$.
+  - `WRITE RULE`: Invoke $k(x)$ at any future time or discard it to abort execution.
+  - `GUARANTEE`: First-class coroutines, non-local control transfer, and speculative branching without duplicating weights.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Delimited control flow over continuous layer pipelines.
+  - *Why standard methods fail:* Execution order is hard-coded into the forward graph.
+  - *Operation:* Functional continuation reification.
+  - *Reads/Writes:* Reads execution stack; writes first-class continuation closures.
+  - *Triggers:* On speculative reasoning branch points.
+
+### Candidate P17: Monotonic Semilattice Merge Register (MSMR)
+- **Concept:** State combination primitive that enforces join-semilattice order-independence ($A \sqcup B$) natively on continuous activation tensors.
+- **Specification:**
+  - `STATE`: Continuous vector $x \in L$ where $L$ is a bounded join-semilattice with partial order $\sqsubseteq$.
+  - `OPERATION`: State merge via least upper bound: $x_{t+1} = x_t \sqcup \Delta x$.
+  - `WRITE RULE`: Monotonic non-decreasing updates ($x_t \sqsubseteq x_{t+1}$); idempotent ($x \sqcup x = x$), commutative ($x \sqcup y = y \sqcup x$), associative ($x \sqcup (y \sqcup z) = (x \sqcup y) \sqcup z$).
+  - `GUARANTEE`: Strictly order-independent, deterministic state convergence across asynchronous distributed sub-agents.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Asynchronous concurrency without race conditions.
+  - *Why standard methods fail:* Neural averaging and soft attention depend sensitively on arrival order and batch composition.
+  - *Operation:* Lattice join ($\sqcup$).
+  - *Reads/Writes:* Reads update vectors; writes merged lattice state.
+  - *Triggers:* On receiving asynchronous incoming updates.
+
+### Candidate P18: Defeasible Justification Back-Pointer Tensor (DJBPT)
+- **Concept:** Continuous activations paired with an exact dependency provenance graph.
+- **Specification:**
+  - `STATE`: Continuous activation tensor $H \in \mathbb{R}^{B \times D}$ paired with a discrete dependency graph $G = (V, E)$.
+  - `OPERATION`: Every activation transformation records an edge $(u, v)$ with transformation metadata in $G$.
+  - `WRITE RULE`: Retracting an antecedent triggers depth-first reachability search to invalidate downstream rows in $H$.
+  - `GUARANTEE`: Exact causal auditability and targeted invalidation of derived knowledge.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Causal provenance tracking in continuous activations.
+  - *Why standard methods fail:* Activations blend inputs irreversibly, obscuring which premise caused which feature.
+  - *Operation:* Provenance graph traversal and activation invalidation.
+  - *Reads/Writes:* Reads retraction signals; writes invalidated activation rows.
+  - *Triggers:* On premise revision or defeat.
+
+### Candidate P19: Multi-Scale Decimation Sieve (MSDS)
+- **Concept:** Representation primitive that continuously projects fast fluctuating modes onto conserved slow macroscopic invariants via exact momentum decimation.
+- **Specification:**
+  - `STATE`: Spatial-temporal field $\psi(x, t)$ decomposed across logarithmic frequency shells.
+  - `OPERATION`: Low-pass filter high-frequency modes ($k > \Lambda/b$), apply non-linear modulus, and project onto slow macroscopic variables.
+  - `WRITE RULE`: Renormalize spatial scale $x' = x/b$ and adjust effective coupling parameters.
+  - `GUARANTEE`: Provable scale invariance and extraction of macroscopic conserved quantities.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Scale-invariant macroscopic representation.
+  - *Why standard methods fail:* CNN pooling uses fixed heuristic kernel sizes, causing aliasing and scale-sensitivity.
+  - *Operation:* Momentum-shell integration and spatial rescaling.
+  - *Reads/Writes:* Reads fine-grained field; writes coarse-grained effective state.
+  - *Triggers:* At each hierarchical abstraction layer.
+
+### Candidate P20: Continuous-Discrete Co-Evolution Boundary (CDCEB)
+- **Concept:** Hybrid state machine where continuous vector dynamics flow until hitting an exact algebraic hypersurface, which triggers an exact discrete state transition that re-parameterizes the continuous vector field.
+- **Specification:**
+  - `STATE`: Hybrid state $(q, x)$ where $q \in Q$ is a discrete mode and $x \in \mathbb{R}^n$ is a continuous vector.
+  - `OPERATION`: Continuous vector flow $\dot{x} = f_q(x)$ until guard condition $G(q, x) = 0$ is met, triggering discrete mode switch $q \leftarrow \delta(q, x)$ and continuous reset $x \leftarrow R(q, x)$.
+  - `WRITE RULE`: Piecewise-smooth trajectory integration with event-triggered discrete transitions.
+  - `GUARANTEE`: Unified integration of continuous physical dynamics with discrete algorithmic logic.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Native continuous-discrete co-evolution.
+  - *Why standard methods fail:* Neural ODEs are purely continuous; discrete machines cannot smoothly integrate continuous vector fields.
+  - *Operation:* Guard-crossing event detection and hybrid state reset.
+  - *Reads/Writes:* Reads continuous coordinates and discrete modes; writes updated hybrid states.
+  - *Triggers:* When continuous flow crosses guard hypersurface.
+
+---
+
+# Internal Attack Phase — Batch 1 Reductions
+
+We aggressively attack each of the 20 candidates in Batch 1 against prior art and theoretical limits:
+
+- **Attack on P1 (EQPS):**
+  - *Analysis:* Projecting continuous vectors onto linear constraint subspaces $A x = b$ is classical constrained optimization and linear algebra. When dynamic inequalities are added, the state space is a convex polyhedron, and finding the quotient requires the Motzkin double description method (1953) or Fourier-Motzkin elimination. In $d$ dimensions with $n$ constraints, the number of facets explodes as $O(n^{\lfloor d/2 \rfloor})$ (McMullen's Upper Bound Theorem 1970).
+  - *Verdict:* **`KILLED — existing machine (Computational Polyhedral Geometry) & exponential facet explosion`**.
+
+- **Attack on P2 (SNPW):**
+  - *Analysis:* Projecting parameter updates into the null-space of prior inputs ($W \leftarrow W + \eta \Delta W (I - Q Q^\top)$) is mathematically identical to Orthogonal Weights Modification (OWM, Zeng et al. Nature Machine Intelligence 2019) and Gradient Projection Memory (GPM, Saha et al. ICLR 2021). Furthermore, it faces a hard linear algebra bottleneck: each linearly independent input reduces the null-space dimension by 1. After $d$ independent inputs in $\mathbb{R}^d$, the null-space dimension is strictly zero, and no further updates can be made without catastrophic interference.
+  - *Verdict:* **`KILLED — existing machine (OWM / GPM) & fundamental dimensional exhaustion limit`**.
+
+- **Attack on P3 (CCA):**
+  - *Analysis:* Associating data with provenance tags and invalidating downstream nodes upon a defeat signal is the exact mechanism of Tagged-Token Dataflow Architectures (Arvind & Gostelow, IEEE Trans. Comput. 1977) and Doyle's Truth Maintenance System (1979). When applied to continuous neural networks, zeroing activations creates non-smooth discontinuities that destroy the activation manifolds of downstream layers, causing complete inference failure on unaffected variables.
+  - *Verdict:* **`KILLED — existing machine (Dataflow tagging / Doyle TMS)`**.
+
+- **Attack on P4 (LSTR):**
+  - *Analysis:* Structuring memory into push/pop frames with lexical ancestor links is Peter Landin's SECD machine (1964) environment frame stack ("ribs") and David H.D. Warren's Warren Abstract Machine (WAM 1983) environment frames. Segmenting a continuous tensor buffer into frames with stack pointers is simply a classical interpreter frame stack implemented on a GPU tensor buffer.
+  - *Verdict:* **`KILLED — existing machine (SECD / WAM interpreter frames)`**.
+
+- **Attack on P5 (DTB):**
+  - *Analysis:* Splitting a hidden unit into two units with perturbed weights when loss variance is high is Scott Fahlman's Cascade-Correlation (1990) and Bernd Fritzke's Growing Neural Gas (1995). The flux-conservation initialization is standard warm-start splitting in Adaptive Mesh Refinement (AMR) and Gaussian Mixture Model splitting.
+  - *Verdict:* **`KILLED — existing machine (Cascade-Correlation / Growing Neural Gas)`**.
+
+- **Attack on P6 (CPES):**
+  - *Analysis:* Maintaining a convex polyhedron under affine transforms and half-space intersections is Patrick Cousot and Nicolas Halbwachs' (POPL 1978) Polyhedral Abstract Interpretation Domain. Pruning redundant half-spaces requires solving a linear programming problem for every facet. In dimensions $d > 10$, exact polyhedral operations become computationally intractable ($O(e^d)$ complexity), forcing zonotope approximations (Girard 2005).
+  - *Verdict:* **`KILLED — existing machine (Cousot-Halbwachs Polyhedral Abstract Interpretation)`**.
+
+- **Attack on P7 (RASL):**
+  - *Analysis:* Exact uncomputation via time-reversibility is Charles Bennett's (1973) Reversible Turing Machine, Landauer's thermodynamic dissipation principle, and Gomez et al.'s Reversible Residual Networks (RevNet, NeurIPS 2017). A fundamental mathematical constraint of symplectic or bijective reversible layers is that their Jacobian determinant must be non-zero (unit determinant for symplectic maps), which strictly prevents lossy information compression or dimensionality reduction.
+  - *Verdict:* **`KILLED — existing machine (Bennett reversible computing / RevNet)`**.
+
+- **Attack on P8 (DTLFB):**
+  - *Analysis:* Constraining vector operations to morphisms in a type lattice is classical Dependent Type Theory and Refinement Types (Freeman & Pfenning 1991). Checking whether a join $b_1 \sqcup b_2$ exists is standard static type checking. Embedding this into a neural network is simply type-annotating tensor slots in a classical type checker.
+  - *Verdict:* **`KILLED — existing machine (Dependent Typing / Refinement Types)`**.
+
+- **Attack on P9 (PPBFV):**
+  - *Analysis:* Branching state representations using path copying on DAGs without duplicating unmodified memory is Driscoll, Sarnak, Sleator, and Tarjan's (1989) Fully Persistent Data Structures and Phil Bagwell's (2001) Hash Array Mapped Tries (HAMT).
+  - *Verdict:* **`KILLED — existing machine (Persistent Data Structures / HAMT)`**.
+
+- **Attack on P10 (SSPLOA):**
+  - *Analysis:* Continuous synchronization of limit-cycle oscillators via sinusoidal phase differences is Yoshiki Kuramoto's model of coupled non-linear oscillators (1975) and Hopfield & Brody's (PNAS 2001) phase synchronization network.
+  - *Verdict:* **`KILLED — existing machine (Kuramoto coupled oscillators)`**.
+
+- **Attack on P11 (OSSO):**
+  - *Analysis:* Adding an orthogonal dimension to represent an unexplained residual is classical Gram-Schmidt orthogonalization, Nachman Aronszajn's (1950) Reproducing Kernel Hilbert Space (RKHS) basis expansion, and Jerome Friedman's Multivariate Adaptive Regression Splines (MARS 1991).
+  - *Verdict:* **`KILLED — existing machine (Gram-Schmidt / Adaptive Basis Expansion)`**.
+
+- **Attack on P12 (BOFBL):**
+  - *Analysis:* A bidirectional morphism $\langle \text{get}, \text{put} \rangle$ satisfying the well-behaved lens laws is the classical database view-update combinator of Foster et al. (TOPLAS 2007) and the reverse derivative categories of Conal Elliott (ICFP 2018).
+  - *Verdict:* **`KILLED — existing machine (Categorical Lenses)`**.
+
+- **Attack on P13 (NAPIU):**
+  - *Analysis:* Operating on syntax terms modulo atom permutations using freshness relations is Murdoch Gabbay and Andrew Pitts' Nominal Logic / Nominal Sets (2002) and Urban, Pitts, Gabbay's Nominal Unification (2004), or Nicolaas de Bruijn's nameless indices (1972).
+  - *Verdict:* **`KILLED — existing machine (Nominal Sets / de Bruijn Indexing)`**.
+
+- **Attack on P14 (IIIU):**
+  - *Analysis:* Synthesizing inductive invariants and barrier functions by solving polynomial constraints on boundary violations is Kenneth McMillan's Craig Interpolation (2003) and Pablo Parrilo's Sum-of-Squares (SOS) semidefinite programming (2000).
+  - *Verdict:* **`KILLED — existing machine (Craig Interpolation / SOS SDP)`**.
+
+- **Attack on P15 (DOSR):**
+  - *Analysis:* Generating executable tensor weights from context activations is David Ha et al.'s Hypernetworks (ICLR 2017). Storing compiled kernels in an execution table is dynamic Just-In-Time (JIT) compilation.
+  - *Verdict:* **`KILLED — existing machine (Hypernetworks / JIT compilation)`**.
+
+- **Attack on P16 (DCSC):**
+  - *Analysis:* Capturing a delimited slice of an active execution stack as a first-class function is Olivier Danvy and Andrzej Filinski's Delimited Control `shift/reset` (1990) and John Reynolds' Definitional Interpreters for Higher-Order Programming Languages (1972).
+  - *Verdict:* **`KILLED — existing machine (Delimited Continuations)`**.
+
+- **Attack on P17 (MSMR):**
+  - *Analysis:* State updates that commute and converge deterministically via a least upper bound operator on a join-semilattice is Marc Shapiro et al.'s Conflict-free Replicated Data Types (CvRDT 2011) and the Bloom language CALM theorem (Hellerstein 2010).
+  - *Verdict:* **`KILLED — existing machine (Join-Semilattices / CvRDTs)`**.
+
+- **Attack on P18 (DJBPT):**
+  - *Analysis:* Pairing data records with a provenance dependency graph is Green, Karvounarakis, and Tannen's Provenance Semirings (PODS 2007) and Jon Doyle's Truth Maintenance System (1979).
+  - *Verdict:* **`KILLED — existing machine (Data Provenance / TMS)`**.
+
+- **Attack on P19 (MSDS):**
+  - *Analysis:* Integrating out high-frequency spatial modes and rescaling coordinates to compute effective macroscopic representations is Kenneth Wilson's Renormalization Group (1971) and Stéphane Mallat's Wavelet Scattering Transform (2012).
+  - *Verdict:* **`KILLED — existing machine (Wavelet Scattering / RG Decimation)`**.
+
+- **Attack on P20 (CDCEB):**
+  - *Analysis:* An autonomous continuous vector field $\dot{x} = f_q(x)$ interrupted by guard conditions that trigger discrete state transitions is Rajeev Alur et al.'s Hybrid Automata (1993) and Mark Davis' Piecewise-Deterministic Markov Processes (1984).
+  - *Verdict:* **`KILLED — existing machine (Hybrid Automata)`**.
+
+---
+
+# Meta-Analysis — Why Batch 1 Died & The Metacognitive Boundary
+
+### Why did all 20 candidates in Batch 1 reduce to existing machines?
+Every candidate in Batch 1 fell into the **Structural Co-Design Dilemma**:
+1. **The Exact-Invariant Trap:** When a candidate demands an exact computational invariant (exact transitivity in P1, zero forgetting in P2, instant retraction in P3, lexical isolation in P4, sound bounds in P6, reversibility in P7, type safety in P8, persistent branching in P9, order-independence in P17, provenance in P18, hybrid guards in P20), the operational algebra required to enforce that invariant reduces identically to an established classical machine (Union-Find, null-space projection, tagged dataflow, SECD stacks, polyhedral abstract interpretation, Bennett uncomputation, dependent types, HAMT, CvRDTs, hybrid automata).
+2. **The Dimensional / Capacity Collapse Trap:** When linear algebraic methods attempt to emulate discrete isolation (null-space projection in P2, orthogonal basis expansion in P11), the linear subspace saturates in finite steps ($k = d$).
+3. **The Discontinuity Trap:** When discrete retraction is applied to continuous activations (causal cone zeroing in P3), the resulting jump discontinuities invalidate the manifold assumptions of downstream continuous layers.
+
+### The Deeper Boundary: The Metacognitive / Self-Regulatory Boundary
+What do all existing systems (both neural networks and classical algorithms) fundamentally lack?
+**Autonomous self-regulation of computational resources without external meta-loops.**
+In current AI:
+- An LLM does not know when to stop reasoning; it relies on an external EOS token, a fixed token limit, or an external loop controller.
+- A search algorithm does not know when to stop expanding; it relies on an external time/depth budget or evaluation heuristic.
+- A neural network does not know whether an input requires 1 layer or 1000 layers; it executes a fixed static graph.
+- A learning rule does not know when to adapt weights vs. when to reject an outlier; it blindly takes a gradient step on whatever batch is fed to it.
+- A neural layer does not know its own informational capacity; it relies on external normalization (BatchNorm, LayerNorm) to prevent collapse.
+
+The next frontier of primitive discovery lies in **intrinsic self-regulation**: computational mechanisms that dynamically commit, bifurcate, halt, regulate capacity, and assign credit without an external supervisor, loss loop, or meta-agent.
+
+---
+
+# Candidate Computational Primitives — Batch 2 (Candidates P21–P40)
+
+Derived from the Metacognitive / Self-Regulatory Boundary, we invent 20 new candidate computational primitives:
+
+---
+
+### Candidate P21: Intrinsic Dissipation Halting Metric (IDHM)
+- **Specification:**
+  - `STATE`: Continuous computational state $x(t) \in \mathbb{R}^d$ and internal dissipation rate $\sigma(t) = \|\dot{x}(t)\|^2 + \beta \mathcal{H}(\text{softmax}(x(t)))$.
+  - `OPERATION`: Autonomous execution continues along vector field $\dot{x} = f(x)$ until internal entropy dissipation rate falls below a thermodynamic threshold: $\sigma(t) < \epsilon$.
+  - `WRITE RULE`: Halting trigger emitted purely by internal energy convergence; no external step limit or halting head.
+  - `GUARANTEE`: Halts if and only if the internal representational dynamics reach a stable Lyapunov attractor.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Self-terminating computation without external step counters or trained halting classifiers.
+  - *Why standard methods fail:* PonderNet and ACT train a separate classifier head that suffers from reward hacking and under/over-pondering.
+  - *Operation:* Lyapunov dissipation monitoring.
+  - *Reads/Writes:* Reads continuous phase trajectory; writes autonomous halt signal.
+
+### Candidate P22: Irreversible Symmetry-Breaking Commitment (ISBC)
+- **Specification:**
+  - `STATE`: Multi-well potential energy landscape $V(x; \theta)$ parameterized by continuous evidence accumulation parameter $\lambda(t)$.
+  - `OPERATION`: As evidence accumulates, a pitchfork bifurcation is induced where a symmetric saddle point splits into two discrete attractor basins.
+  - `WRITE RULE`: The system is driven irreversibly into one discrete basin by non-equilibrium thermal noise; backward noise cannot escape the well.
+  - `GUARANTEE`: Continuous accumulation naturally forces an exact discrete commitment without external argmax, temperature annealing, or sampling.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Differentiable-to-discrete phase transition without argmax.
+  - *Why standard methods fail:* Softmax retains continuous superposition; Gumbel-Softmax uses artificial temperature schedules.
+  - *Operation:* Dynamic pitchfork bifurcation.
+  - *Reads/Writes:* Reads continuous evidence stream; writes discrete attractor state.
+
+### Candidate P23: Energy-Conserving Credit Wavefront (ECCW)
+- **Specification:**
+  - `STATE`: Directed graph of nodes possessing continuous state $x_i$ and a scalar potential $\phi_i$, satisfying total energy conservation $\sum_i (\frac{1}{2} x_i^2 + \phi_i) = E_{\text{total}}$.
+  - `OPERATION`: Perturbations at the output propagate backward as a conserved physical acoustic wavefront along the network's impedance graph: $\delta x_i = \sum_j Z_{ij}^{-1} \delta x_j$.
+  - `WRITE RULE`: Local weights updated purely from the product of local state and passing wavefront momentum: $\Delta W_{ij} = \eta x_i p_j$, with zero global gradient storage.
+  - `GUARANTEE`: Exact credit assignment without backpropagation through time, global loss functions, or memory tape storage.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Local, energy-conserving credit assignment without global backprop.
+  - *Why standard methods fail:* Backprop requires caching all forward activations in memory ($O(N)$ memory wall).
+  - *Operation:* Conservative acoustic wave propagation on impedance networks.
+  - *Reads/Writes:* Reads local impedance and wavefront momentum; writes local synaptic conductance.
+
+### Candidate P24: Self-Pruning Topological Impasse Register (SPTIR)
+- **Specification:**
+  - `STATE`: Execution register monitoring the angle between local parameter gradient and loss trajectory: $\rho = \cos(\nabla_\theta \mathcal{L}, \Delta \theta_{\text{momentum}})$.
+  - `OPERATION`: When $\rho \approx -1$ while loss $\mathcal{L} > \epsilon$ (persistent impasse / oscillation in a saddle ravine), sever incoming connections and reallocate node inputs to the least-correlated upstream feature.
+  - `WRITE RULE`: Topological rewire triggered purely by local dynamical impasse detection.
+  - `GUARANTEE`: Guaranteed escape from pathological non-convex saddle points without external learning rate scheduling or restarts.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Autonomous escape from representational impasses.
+  - *Why standard methods fail:* Gradient descent oscillates endlessly in ravines or gets stuck in saddle plateaus unless rescued by external hyperparameter tuning.
+  - *Operation:* Dynamical impasse detection and topological rewire.
+  - *Reads/Writes:* Reads local gradient angles; writes graph adjacency rewiring.
+
+### Candidate P25: Resonant Coincidence Detector Unit (RCDU)
+- **Concept:** Continuous oscillations that bind entity-role pairs only when phase variance vanishes, eliminating positional encodings.
+- **Specification:**
+  - `STATE`: Complex-valued oscillators $z_i(t) = r_i(t) e^{i \phi_i(t)}$ representing entity and role features.
+  - `OPERATION`: Resonant coincidence integration: $C_{ij} = \int_{t-T}^t \cos(\phi_i(\tau) - \phi_j(\tau)) d\tau$.
+  - `WRITE RULE`: Binding established if and only if $C_{ij} > 1 - \epsilon$; unbound otherwise.
+  - `GUARANTEE`: Coordinate-free, order-invariant dynamic binding without positional embeddings or cross-attention matrices.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Coordinate-free temporal role-filler binding.
+  - *Why standard methods fail:* Positional embeddings break length generalization and fail under permutation.
+  - *Operation:* Coincidence detection across complex oscillators.
+  - *Reads/Writes:* Reads oscillator phases; writes bound relational tokens.
+
+### Candidate P26: Dynamic Constraint-Generating Manifold (DCGM)
+- **Specification:**
+  - `STATE`: Internal state dynamics $\dot{x} = f(x)$ and an accumulated set of algebraic constraint surfaces $\mathcal{M} = \{ g_k(x) = 0 \}$.
+  - `OPERATION`: When an observed trajectory $x(t)$ violates energy conservation or consistency, compute Lie derivative $\mathcal{L}_f g(x)$; synthesize a new constraint function $g_{k+1}(x)$ that nullifies the observed anomaly.
+  - `WRITE RULE`: Project future state flow onto the intersection of constraint manifolds: $\dot{x} \leftarrow \dot{x} - \sum_k \lambda_k \nabla g_k(x)$.
+  - `GUARANTEE`: Autonomous runtime discovery and enforcement of physical conservation laws.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Runtime synthesis of algebraic conservation laws.
+  - *Why standard methods fail:* Physics-informed neural nets (PINNs) require human engineers to write down the differential equations in advance.
+  - *Operation:* Lie algebraic constraint generation and projection.
+  - *Reads/Writes:* Reads anomalous state flows; writes algebraic constraint surfaces.
+
+### Candidate P27: Causal Intervention Self-Scheduler (CISS)
+- **Specification:**
+  - `STATE`: Structural causal model $\mathcal{G}$ with edge confidence intervals $[\underline{w}_{ij}, \overline{w}_{ij}]$.
+  - `OPERATION`: Evaluate information gain of hypothetical interventions: $\text{EIG}(do(X_i)) = \mathcal{H}(\mathcal{G}) - \mathbb{E}_{y} [\mathcal{H}(\mathcal{G} | do(X_i = y))]$.
+  - `WRITE RULE`: Dispatch intervention command $do(X_i^*)$ on the variable that maximally shrinks graph uncertainty.
+  - `GUARANTEE`: Optimal experimental design executed autonomously by the internal representation.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Autonomous active causal discovery.
+  - *Why standard methods fail:* Causal representation learning relies on passive i.i.d. data or externally scripted interventions.
+  - *Operation:* Expected information gain maximization on causal graphs.
+  - *Reads/Writes:* Reads edge uncertainty intervals; writes intervention actions.
+
+### Candidate P28: Homeostatic Activation Density Normalizer (HADN)
+- **Specification:**
+  - `STATE`: Local node activation threshold $\theta_i(t)$ and running activation frequency $\nu_i(t)$.
+  - `OPERATION`: Homeostatic threshold adaptation: $\dot{\theta}_i = \alpha (\nu_i - \nu_{\text{target}})$.
+  - `WRITE RULE`: Threshold adjusts dynamically to keep individual node firing rate strictly at $\nu_{\text{target}}$.
+  - `GUARANTEE`: Maximizes information entropy of the layer while provably preventing activation saturation and dying units, without batch statistics.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Batch-independent, sample-independent internal normalization.
+  - *Why standard methods fail:* BatchNorm breaks in online learning; LayerNorm distorts vector magnitudes.
+  - *Operation:* Local homeostatic setpoint control.
+  - *Reads/Writes:* Reads local firing history; writes local activation threshold.
+
+### Candidate P29: Monotonic Inductive Synthesis Gate (MISG)
+- **Specification:**
+  - `STATE`: Parameter matrix $W$ and counterexample archive $\mathcal{E} = \{ (x_k, y_k) \}_{k=1}^K$.
+  - `OPERATION`: Candidate parameter update $W' = W + \Delta W$ evaluated against $\mathcal{E}$.
+  - `WRITE RULE`: Commit $W \leftarrow W'$ if and only if $\max_k \|f_{W'}(x_k) - y_k\| \le \max_k \|f_W(x_k) - y_k\|$; reject otherwise.
+  - `GUARANTEE`: Guaranteed monotonic non-regression on verified cornerstone examples.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Provable non-regression during continuous learning.
+  - *Why standard methods fail:* Gradient descent guarantees loss reduction only on the current batch, damaging old examples.
+  - *Operation:* Monotonic cornerstone verification gate.
+  - *Reads/Writes:* Reads candidate parameter proposal and archive; writes committed weights.
+
+### Candidate P30: Autonomous Subgoal Horizon Decoupler (ASHD)
+- **Specification:**
+  - `STATE`: Trajectory graph in continuous state space with graph Laplacian spectrum $\lambda_1, \lambda_2, \dots, \lambda_n$.
+  - `OPERATION`: Detect spectral bottleneck (Fiedler vector sign change) corresponding to a topological constriction (e.g. doorway, key acquisition).
+  - `WRITE RULE`: Decouple planning problem at the bottleneck point, creating an autonomous intermediate subgoal $s^*$.
+  - `GUARANTEE`: Reduces exponential planning complexity $O(B^H)$ to polynomial $O(B^{H/2})$ without human-annotated subgoals.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Unsupervised temporal and spatial abstraction in planning.
+  - *Why standard methods fail:* Hierarchical RL requires hand-crafted option spaces or reward bonuses.
+  - *Operation:* Spectral graph partitioning (Fiedler vector) on trajectory graphs.
+  - *Reads/Writes:* Reads trajectory transition graph; writes decoupled subgoal milestones.
+
+### Candidate P31: Differentiable Equivalence Class Collapser (DECC)
+- **Specification:**
+  - `STATE`: Point cloud in continuous latent space and manifold Laplacian $L = D - W$.
+  - `OPERATION`: Continuous diffusion contraction: $\dot{x}_i = - \sum_j W_{ij} (x_i - x_j)$.
+  - `WRITE RULE`: Flow collapses connected components onto their exact topological centroids in finite time.
+  - `GUARANTEE`: Discovers equivalence classes continuously without k-means, density DBSCAN, or external clustering algorithms.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Autonomous continuous equivalence clustering.
+  - *Why standard methods fail:* Clustering is a discrete non-differentiable post-processing step.
+  - *Operation:* Heat diffusion flow on graph Laplacians.
+  - *Reads/Writes:* Reads pairwise affinity matrix; writes contracted cluster centroids.
+
+### Candidate P32: Continuous Latent Type Synthesizer (CLTS)
+- **Specification:**
+  - `STATE`: Collection of continuous transformation operators $\mathcal{T} = \{ T_1, T_2, \dots, T_k \}$.
+  - `OPERATION`: Compute commutator algebra $[T_i, T_j] = T_i T_j - T_j T_i$; identify closed Lie subalgebras.
+  - `WRITE RULE`: Assign a new type symbol $\tau$ to any subspace that is invariant under a closed subgroup.
+  - `GUARANTEE`: Runtime creation of abstract data types derived purely from empirical transformation symmetries.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Unsupervised synthesis of data types.
+  - *Why standard methods fail:* Types must be hard-coded by compiler engineers.
+  - *Operation:* Lie bracket commutator computation and invariant subspace decomposition.
+  - *Reads/Writes:* Reads operator transformation matrices; writes synthesized type signatures.
+
+### Candidate P33: Adaptive Receptive Field Deformer (ARFD)
+- **Specification:**
+  - `STATE`: Continuous convolutional kernel defined on a Riemannian manifold $(M, g)$.
+  - `OPERATION`: Metric tensor adaptation: $g_{ij}(x) = \delta_{ij} + \gamma \nabla_i h(x) \nabla_j h(x)$.
+  - `WRITE RULE`: Convolve using the geodesic distance induced by $g_{ij}$, stretching receptive fields along contours of constant feature value.
+  - `GUARANTEE`: Zero boundary blurring across sharp semantic discontinuities.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Context-dependent metric geometry in convolutions.
+  - *Why standard methods fail:* Standard convolutions have rigid grid receptive fields that blur boundaries.
+  - *Operation:* Geodesic convolution under adaptive Riemannian metric.
+  - *Reads/Writes:* Reads feature gradient tensors; writes deformed spatial receptive fields.
+
+### Candidate P34: Self-Supervised Orthogonal Basis Generator (SSOBG)
+- **Specification:**
+  - `STATE`: Matrix of feature vectors $Z \in \mathbb{R}^{B \times D}$ and cross-correlation matrix $C = \frac{1}{B} Z^\top Z$.
+  - `OPERATION`: Update feature extraction parameters to minimize off-diagonal correlation while maximizing variance: $\mathcal{L} = \sum_{i \neq j} C_{ij}^2 + \sum_i (1 - C_{ii})^2$.
+  - `WRITE RULE`: Local synaptic plasticity driven by Barlow redundancy reduction.
+  - `GUARANTEE`: Produces strictly decorrelated, non-redundant feature representations without negative contrastive pairs.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Non-contrastive decorrelation without dimensional collapse.
+  - *Why standard methods fail:* Contrastive learning requires massive negative batch sizes.
+  - *Operation:* Cross-correlation matrix diagonalizer.
+  - *Reads/Writes:* Reads batch features; writes decorrelated weights.
+
+### Candidate P35: Non-Local Entanglement Tensor Binding (NLETB)
+- **Specification:**
+  - `STATE`: High-order tensor product state $|\Psi\rangle \in \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \dots \otimes \mathcal{H}_n$.
+  - `OPERATION`: Multilinear tensor contraction preserving global entanglement invariants (entanglement entropy).
+  - `WRITE RULE`: Non-local state updates mediated by tensor network singular value truncation.
+  - `GUARANTEE`: Binds $n$ distinct entities simultaneously with $O(1)$ relational depth.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* True multi-way structural binding.
+  - *Why standard methods fail:* Pairwise attention scales quadratically and approximates multi-way relations by sums of pairs.
+  - *Operation:* Multilinear tensor entanglement contraction.
+  - *Reads/Writes:* Reads tensor states; writes entangled relational state.
+
+### Candidate P36: Dynamic Multi-Timescale Leaky Integrator (DMTLI)
+- **Specification:**
+  - `STATE`: Continuous hidden state $h(t)$ with adaptive time constant $\tau(t)$.
+  - `OPERATION`: Integration: $\tau(t) \dot{h}(t) = -h(t) + W x(t)$.
+  - `WRITE RULE`: Time constant adaptation: $\dot{\tau}(t) = \eta (\frac{\|\dot{x}(t)\|}{\|x(t)\|} - \frac{1}{\tau(t)})$.
+  - `GUARANTEE`: Automatically slows down integration during slow drift and speeds up during high-frequency transients.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Autonomous multi-timescale temporal adaptation.
+  - *Why standard methods fail:* RNNs and SSMs have fixed or learned static decay parameters that fail on variable-rate streams.
+  - *Operation:* Frequency-matching time-constant adaptation.
+  - *Reads/Writes:* Reads input derivative norm; writes adaptive time constant.
+
+### Candidate P37: Asymmetric Hebbian Predictive Coding Unit (AHPCU)
+- **Specification:**
+  - `STATE`: Hierarchical layer pair with representation $r$ and prediction error $e = x - W r$.
+  - `OPERATION`: Forward error transmission $e = x - W r$; backward prediction tuning $\dot{r} = W^\top e - r$.
+  - `WRITE RULE`: Synaptic weight update $\dot{W} = \gamma e r^\top$, using purely local forward and backward signals.
+  - `GUARANTEE`: Minimizes variational free energy of sensory inputs using strictly local Hebbian plasticity, without backprop.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Biologically plausible exact gradient optimization.
+  - *Why standard methods fail:* Backprop requires non-local transpose weight transport.
+  - *Operation:* Predictive coding message passing with local Hebbian updates.
+  - *Reads/Writes:* Reads local errors and representations; writes local synaptic weights.
+
+### Candidate P38: Topological Feature Betti Invariant Layer (TFBIL)
+- **Specification:**
+  - `STATE`: Simplicial complex built over continuous features with Betti number invariants $\beta_0, \beta_1, \dots, \beta_k$.
+  - `OPERATION`: Differentiable transformation that constrains the kernel of boundary operators $\ker(\partial_k) / \text{im}(\partial_{k+1})$ to remain invariant.
+  - `WRITE RULE`: Continuous gradient updates projected onto the tangent space of Betti-preserving homeomorphisms.
+  - `GUARANTEE`: Provable conservation of global topological holes under arbitrary continuous deformation.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Guaranteed topological hole conservation in continuous learning.
+  - *Why standard methods fail:* Deep networks routinely tear or merge topological holes during non-linear transformation.
+  - *Operation:* Homology-preserving manifold projection.
+  - *Reads/Writes:* Reads simplicial boundary matrices; writes topology-preserving gradients.
+
+### Candidate P39: Gradient-Free Equilibrium Relaxation Operator (GFERO)
+- **Specification:**
+  - `STATE`: Continuous vector state $s \in \mathbb{R}^d$ and internal scalar energy function $E(s; x, \theta)$.
+  - `OPERATION`: Inference relaxes to energy minimum: $s^* = \arg\min_s E(s; x, \theta)$ via continuous Langevin drift $\dot{s} = -\nabla_s E + \sqrt{2T} \xi(t)$.
+  - `WRITE RULE`: Learning adjusts weights via contrastive equilibrium: $\Delta \theta = -\eta (\nabla_\theta E(s^*_{\text{clamped}}) - \nabla_\theta E(s^*_{\text{free}}))$.
+  - `GUARANTEE`: Exact gradient descent on loss without backpropagation through time or forward activation caching.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Backprop-free continuous credit assignment.
+  - *Why standard methods fail:* Backpropagation requires explicit storage of intermediate activation graphs.
+  - *Operation:* Equilibrium contrastive energy descent.
+  - *Reads/Writes:* Reads clamped and free equilibrium states; writes energy function parameters.
+
+### Candidate P40: Counterfactual Branch Reconciliation Sieve (CBRS)
+- **Specification:**
+  - `STATE`: Set of branched counterfactual search states $\{ s_1, s_2, \dots, s_B \}$ with ancestor history DAG.
+  - `OPERATION`: Compute the greatest common prefix $s_{\text{GCP}}$ in the history DAG; compute residual variations $\Delta s_b = s_b - s_{\text{GCP}}$.
+  - `WRITE RULE`: Sieve merges branches by projecting out branch-specific orthogonal noise while retaining unanimous invariant updates: $s_{\text{merged}} = s_{\text{GCP}} + \bigcap_b \text{span}(\Delta s_b)$.
+  - `GUARANTEE`: Non-destructive reconciliation of branched search trajectories without pairwise heuristic averaging.
+- **Candidate Standard Evaluation:**
+  - *Missing capability:* Principled algebraic branch merging in continuous search.
+  - *Why standard methods fail:* Averaging branch states creates chimeric hallucinations.
+  - *Operation:* Subspace intersection on branch residuals.
+  - *Reads/Writes:* Reads branched trajectories; writes consolidated reconciliation state.
+
+---
+
+# Internal Attack Phase — Batch 2 Reductions
+
+We aggressively attack each of the 20 candidates in Batch 2 against prior art and theoretical limits:
+
+- **Attack on P21 (IDHM):**
+  - *Analysis:* Halting computation when entropy production or trajectory velocity falls below an energy threshold ($\|\dot{x}\| < \epsilon$) is the exact definition of convergence in continuous Dynamical Systems, Hopfield networks (1982), and Deep Equilibrium Models (DEQ, Bai et al. 2019). DEQs run fixed-point iteration until the Broyden residual $\|f(x^*) - x^*\| < \epsilon$.
+  - *Verdict:* **`KILLED — existing machine (Deep Equilibrium Models / Dynamical System Fixed-Point Convergence)`**.
+
+- **Attack on P22 (ISBC):**
+  - *Analysis:* Using continuous parameter shifts to induce a pitchfork bifurcation in a multi-well potential to force discrete state commitment is classical René Thom's Catastrophe Theory (Cusp Catastrophe, 1972) and the physics of spontaneous symmetry breaking (Landau 1937). In neural computing, it is precisely the continuous Hopfield network / Boltzmann machine cooling into an attractor basin.
+  - *Verdict:* **`KILLED — existing machine (Catastrophe Theory / Continuous Hopfield Attractors)`**.
+
+- **Attack on P23 (ECCW):**
+  - *Analysis:* Propagating perturbations as conservative acoustic/impedance wavefronts on an electrical network is classical transmission line physics (Telegrapher's equations) and Benjamin Scellier & Yoshua Bengio's Equilibrium Propagation (Frontiers in Computational Neuroscience 2017).
+  - *Verdict:* **`KILLED — existing machine (Equilibrium Propagation / Wave Mechanics)`**.
+
+- **Attack on P24 (SPTIR):**
+  - *Analysis:* Detecting oscillation in ravines by monitoring gradient angle momentum and rewiring connections is classical momentum-based descent with Barzilai-Borwein adaptive step sizes, or Donald Michie's BOXES algorithm (1968) and Scott Fahlman's Quickprop (1988) coupled with pruning.
+  - *Verdict:* **`KILLED — existing machine (Quickprop / Dynamic Connection Pruning)`**.
+
+- **Attack on P25 (RCDU):**
+  - *Analysis:* Binding features by phase synchronization of complex limit-cycle oscillators is Christoph von der Malsburg's Temporal Binding Hypothesis (1981) and Singer & Gray's gamma-band neural synchrony (Nature 1989). Computationally, it reduces to complex inner products on phase vectors (Vector Symbolic Architectures over $\mathbb{C}^D$, Plate 2003).
+  - *Verdict:* **`KILLED — existing machine (Von der Malsburg Temporal Binding / Complex VSAs)`**.
+
+- **Attack on P26 (DCGM):**
+  - *Analysis:* Generating algebraic constraint hypersurfaces by computing Lie derivatives on anomalous flows is classical Differential-Algebraic Equation (DAE) index reduction (Gear 1971) and nonlinear geometric control theory (Isidori 1989).
+  - *Verdict:* **`KILLED — existing machine (Differential-Algebraic Equation Reduction / Nonlinear Geometric Control)`**.
+
+- **Attack on P27 (CISS):**
+  - *Analysis:* Scheduling interventions to maximize expected information gain on causal DAGs is classical Bayesian Optimal Experimental Design (Chaloner & Verdinelli 1995) and Active Causal Structure Learning (Tong & Koller IJCAI 2001; Murphy 2001).
+  - *Verdict:* **`KILLED — existing machine (Bayesian Active Causal Discovery)`**.
+
+- **Attack on P28 (HADN):**
+  - *Analysis:* Adjusting neural thresholds to keep firing rates at a target setpoint is biological Homeostatic Synaptic Plasticity (Turrigiano 1998) and Jochen Triesch's Intrinsic Plasticity (Neural Computation 2007). In machine learning, it is classical adaptive thresholding in sparse coding (Olshausen & Field 1996).
+  - *Verdict:* **`KILLED — existing machine (Intrinsic Plasticity / Sparse Coding)`**.
+
+- **Attack on P29 (MISG):**
+  - *Analysis:* Gating parameter updates by verifying that error does not increase on stored cornerstone examples is classical Ripple-Down Rules (Compton & Jansen 1990) and Lopez-Paz & Ranzato's Gradient Episodic Memory (GEM, NeurIPS 2017), which solves a quadratic program to ensure $\langle g, g_k \rangle \ge 0$ for all stored memory tasks.
+  - *Verdict:* **`KILLED — existing machine (Gradient Episodic Memory / Ripple-Down Rules)`**.
+
+- **Attack on P30 (ASHD):**
+  - *Analysis:* Detecting bottlenecks in state transition graphs using Fiedler vectors of the graph Laplacian to define subgoals is classical Spectral Graph Partitioning (Donath & Hoffman 1973) and the $\phi$-abstraction / bottleneck option discovery algorithm in Hierarchical RL (McGovern & Barto 2001; Simsek & Barto 2005).
+  - *Verdict:* **`KILLED — existing machine (Spectral Graph Bottleneck Discovery / Option Discovery)`**.
+
+- **Attack on P31 (DECC):**
+  - *Analysis:* Collapsing continuous points onto manifold centroids via heat diffusion on graph Laplacians is classical Laplacian Eigenmaps (Belkin & Niyogi 2003) and Mean Shift clustering on manifolds (Comaniciu & Meer 2002).
+  - *Verdict:* **`KILLED — existing machine (Mean Shift / Laplacian Eigenmaps)`**.
+
+- **Attack on P32 (CLTS):**
+  - *Analysis:* Grouping operators by computing their Lie bracket commutators to identify invariant subalgebras is classical Sophus Lie group analysis (1888) and automated symmetry discovery (Kao & Roy NeurIPS 2021).
+  - *Verdict:* **`KILLED — existing machine (Lie Algebraic Analysis / Symmetry Discovery)`**.
+
+- **Attack on P33 (ARFD):**
+  - *Analysis:* Adapting the metric tensor of a convolution using the feature gradient tensor to prevent smoothing across edges is Pietro Perona and Jitendra Malik's Anisotropic Diffusion (IEEE PAMI 1990) and Beltrami framework for image processing (Sochen, Kimmel, Malladi 1998).
+  - *Verdict:* **`KILLED — existing machine (Perona-Malik Anisotropic Diffusion)`**.
+
+- **Attack on P34 (SSOBG):**
+  - *Analysis:* Minimizing off-diagonal cross-correlation while maintaining unit variance is Horace Barlow's Principle of Redundancy Reduction (1961) and Jure Zbontar et al.'s Barlow Twins (ICML 2021).
+  - *Verdict:* **`KILLED — existing machine (Barlow Twins / Redundancy Reduction)`**.
+
+- **Attack on P35 (NLETB):**
+  - *Analysis:* Multi-way tensor contraction on entangled quantum-like states is classical multilinear tensor networks (Matrix Product States / PEPS, Perez-Garcia 2007) and Smolensky's Tensor Product Variable Binding (1990).
+  - *Verdict:* **`KILLED — existing machine (Tensor Product Representations / MPS)`**.
+
+- **Attack on P36 (DMTLI):**
+  - *Analysis:* Dynamically adjusting an integrator's leaky time constant based on the input signal's derivative is classical adaptive low-pass filtering and Carlos Brody & John Hopfield's adaptive time-constant recurrent units (2000).
+  - *Verdict:* **`KILLED — existing machine (Adaptive Time-Constant Leaky Integrators)`**.
+
+- **Attack on P37 (AHPCU):**
+  - *Analysis:* Computing hierarchical representation updates and error signals via reciprocal asymmetric connections is Rajesh Rao and Dana Ballard's Predictive Coding in the Visual Cortex (Nature Neuroscience 1999) and Karl Friston's predictive coding implementation of the free-energy principle (2005).
+  - *Verdict:* **`KILLED — existing machine (Rao-Ballard Predictive Coding)`**.
+
+- **Attack on P38 (TFBIL):**
+  - *Analysis:* Projecting continuous gradient descent onto the tangent space of Betti-preserving homeomorphisms is Differentiable Persistent Homology (PersLay, Carrière et al. 2020; Brüel-Gabrielsson et al. 2020).
+  - *Verdict:* **`KILLED — existing machine (Differentiable Topological Persistence)`**.
+
+- **Attack on P39 (GFERO):**
+  - *Analysis:* Relaxing continuous states to energy equilibria via Langevin drift and training weights on the difference between clamped and free phases is Yann LeCun's Energy-Based Models (2006) and Geoffrey Hinton's Contrastive Divergence on continuous Boltzmann machines (2002).
+  - *Verdict:* **`KILLED — existing machine (Energy-Based Models / Contrastive Divergence)`**.
+
+- **Attack on P40 (CBRS):**
+  - *Analysis:* Merging branched counterfactual search trajectories by finding the greatest common prefix in the history DAG and intersecting residual update subspaces is classical Three-Way Merge in version control DAGs (Git / Darcs patch theory) coupled with Principal Component subspace intersection (Golub & Van Loan 1996).
+  - *Verdict:* **`KILLED — existing machine (DAG Three-Way Merge / Subspace Intersection)`**.
+
+---
+
+# Failure-of-Reductions Synthesis — Why P1–P40 All Died
+
+Before attempting to formulate any new candidate primitives, we must confront the total mortality of Candidates P1–P40. Across two comprehensive batches derived from the seven structural boundaries and the metacognitive boundary, zero candidates survived internal adversarial reduction.
+
+Why did 40 diverse, mathematically formulated candidates all reduce to existing machinery?
+
+### Clustering the 40 Kills into Nine Recurring Reduction Classes
+
+Every failed candidate in P1–P40 collapsed into one or more of nine fundamental machine archetypes:
+
+1. **Classical Linear Algebra (Projection, Null-Spaces, Matrix Factorization):**
+   - *Candidates:* P1 (EQPS), P2 (SNPW), P11 (OSSO), P35 (NLETB), P40 (CBRS).
+   - *Cause of Death:* When an architecture attempts to enforce exact equivalence classes, zero forgetting, or branch reconciliation using linear algebra, it computes an orthogonal projection $\Pi = I - A^\top(AA^\top)^{-1}A$ or Gram-Schmidt orthogonalization. This hits the hard dimensional capacity barrier $k = d$ where the null space saturates, or reduces to classical projection algorithms (OWM, GPM, SVD).
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Linear Algebra / SVD / Projection) — NOT A NEW ARCHITECTURE`.
+
+2. **Exact Symbolic Data Structures (Stacks, Tries, DAGs, Semirings):**
+   - *Candidates:* P3 (CCA), P4 (LSTR), P9 (PPBFV), P17 (MSMR), P18 (DJBPT).
+   - *Cause of Death:* When an architecture demands non-interfering scopes, immutable branching, order-independent aggregation, or provenance tracking, the operational state becomes identical to an established computer science data structure: SECD interpreter frames (Landin 1964), Hash Array Mapped Tries / Persistent Trees (Driscoll-Sarnak 1986, Bagwell 2001), Conflict-Free Replicated Data Types (CvRDTs, Shapiro 2011), or Provenance Semirings (Green et al. 2007).
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Symbolic Data Structures) — NOT A NEW ARCHITECTURE`.
+
+3. **Continuous Relaxation of a Discrete Machine:**
+   - *Candidates:* P8 (DTLFB), P13 (NAPIU), P31 (DECC), P38 (TFBIL).
+   - *Cause of Death:* Taking an exact discrete mechanism (type lattices, nominal set orbits, equivalence clustering, simplicial homology) and replacing discrete operations with smooth matrix exponentials or differentiable persistence layers either introduces metric drift that destroys the discrete invariant or reduces directly to existing relaxations (Mean Shift, PersLay).
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Discrete Machine or Existing Relaxation) — NOT A NEW ARCHITECTURE`.
+
+4. **Known Dynamical Systems (Fixed Points, Attractors, Oscillators):**
+   - *Candidates:* P10 (SSPLOA), P21 (IDHM), P22 (ISBC), P25 (RCDU), P36 (DMTLI), P39 (GFERO).
+   - *Cause of Death:* Defining computation as autonomous trajectory evolution, phase synchronization, or energy dissipation reduces identically to classical dynamical systems theory: Kuramoto coupled oscillators (1975), Deep Equilibrium Models / Broyden root-finding (Bai et al. 2019), Cusp Catastrophe theory (René Thom 1972), continuous Hopfield networks (1984), and adaptive leaky integrators (Brody & Hopfield 2000).
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Dynamical System / DEQ / Attractor) — NOT A NEW ARCHITECTURE`.
+
+5. **Known Control Laws (Feedback Linearization, Index Reduction, Homeostasis):**
+   - *Candidates:* P20 (CDCEB), P23 (ECCW), P26 (DCGM), P28 (HADN), P33 (ARFD).
+   - *Cause of Death:* Regulating network activations or structural growth using error feedback, conservation laws, or differential constraints reduces to established control theory: Alur's Hybrid Automata (1993), Scellier & Bengio's Equilibrium Propagation (2017), Differential-Algebraic Equation index reduction (Gear 1971), biological Intrinsic Plasticity (Turrigiano 1998, Triesch 2007), or Perona-Malik Anisotropic Diffusion (1990).
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Control Law / DAE / Anisotropic PDE) — NOT A NEW ARCHITECTURE`.
+
+6. **New Representation of an Existing Operation:**
+   - *Candidates:* P12 (BOFBL), P15 (DOSR), P19 (MSDS), P32 (CLTS), P37 (AHPCU).
+   - *Cause of Death:* Re-expressing an established computation in the language of category theory (Optics/Lenses), differential geometry (Lie brackets), multi-scale physics (Renormalization Group / Wavelet Scattering), or neuroscience (Predictive Coding) does not alter the underlying computational complexity or input-output map. A hypernetwork is still feedforward parameter regression; a bidirectional lens is still a getter/setter pair; Rao-Ballard predictive coding is still hierarchical residual minimization.
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Existing Operation in Standard Coordinates) — NOT A NEW ARCHITECTURE`.
+
+7. **Pipeline / Scaffold of Known Machines:**
+   - *Candidates:* P6 (CPES), P14 (IIIU), P16 (DCSC), P29 (MISG).
+   - *Cause of Death:* Wrapping a classical solver, verification engine, or control monad around a neural network (e.g. polyhedral abstract interpretation around weights, Craig interpolation SDPs around activations, delimited continuations around execution traces, or quadratic programming solvers around gradient updates as in GEM) produces a hybrid system or agent scaffold, not a new primitive computational architecture.
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Pipeline / Scaffold) — NOT A NEW ARCHITECTURE`.
+
+8. **Invariant / Loss Term in Disguise:**
+   - *Candidates:* P34 (SSOBG).
+   - *Cause of Death:* Stating that an architecture will maintain orthogonal representations without a hard structural write rule reduces to adding a redundancy-reduction regularizer to the training loss, which is Barlow Twins (Zbontar et al. 2021) and Horace Barlow's 1961 sensory coding principle.
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Loss Regularizer / Barlow Twins) — NOT A NEW ARCHITECTURE`.
+
+9. **Search in Disguise:**
+   - *Candidates:* P5 (DTB), P24 (SPTIR), P27 (CISS), P30 (ASHD).
+   - *Cause of Death:* Generating new units, choosing intervention policies, or identifying subgoals dynamically reduces to search over a discrete candidate space: Cascade-Correlation (Fahlman & Lebiere 1990), active Bayesian experimental design (Chaloner & Verdinelli 1995), or spectral graph partitioning on state-action transition graphs (McGovern & Barto 2001).
+   - *Verdict:* `USE THE CLASSICAL MACHINE (Search / Optimal Experimental Design) — NOT A NEW ARCHITECTURE`.
+
+---
+
+### What Kind of Operation Would Avoid *ALL* of These Reduction Classes?
+
+To escape all nine reduction traps simultaneously, an operation must satisfy a stringent negative sieve:
+- It **cannot** be a linear subspace projection or matrix factorization (escapes Class 1).
+- It **cannot** maintain an explicit discrete pointer graph, stack, or AST in memory (escapes Class 2).
+- It **cannot** be a smooth sigmoid/softmax relaxation that bleeds across discrete boundaries (escapes Class 3).
+- It **cannot** be a continuous dynamical system relaxing to a Lyapunov attractor or limit cycle (escapes Class 4).
+- It **cannot** be an error-driven feedback control law or homeostatic setpoint regulator (escapes Class 5).
+- It **cannot** merely be an exotic mathematical re-indexing of a standard layer (escapes Class 6).
+- It **cannot** call an external solver, interpreter, or verifier in a subroutine loop (escapes Class 7).
+- It **cannot** be an objective function, penalty term, or loss regularizer (escapes Class 8).
+- It **cannot** be a combinatorial branching or heuristic search procedure (escapes Class 9).
+
+### The Deeper Boundary: The Limits of the Combined Machine Library
+
+When we assume the system already possesses:
+1. Universal Turing computation (Von Neumann registers, RAM, stacks, compilers, ASTs);
+2. Continuous differential engines (Transformers, CNNs, GNNs, DEQs, Neural ODEs);
+3. Numerical and convex optimizers (interior point, SDP, SVD, QP, conjugate gradient);
+4. Discrete constraint solvers (CDCL SAT, SMT, ILP, term rewriting, unification);
+5. Probabilistic inference (MCMC, variational Bayes, Kalman/particle filters);
+6. Geometric and physical dynamics (Lie algebras, symplectic integrators, wave equations, soliton media).
+
+**What computation is still missing after granting the system all of those machines?**
+
+The missing capability lies at the **interfacial boundaries where these machine classes fundamentally cannot communicate or transform into one another without fatal information loss**:
+
+1. **The Grounded Ontogenesis Boundary (Symbol / Dimension Birth):** Classical machines require an *ex ante* discrete syntax and fixed alphabet $\Sigma$. Neural nets require an *ex ante* fixed embedding dimension $\mathbb{R}^d$. Program synthesis requires an *ex ante* Domain-Specific Language (DSL). No machine in the library can autonomously generate a fundamentally new semantic primitive or coordinate dimension whose algebraic relations are grounded in continuous experience without relying on either human DSL engineering or random dimensional expansion.
+2. **The Non-Relaxational Discrete-Continuous Topological Boundary:** Neural systems represent discrete entities as points or soft distributions in continuous metric spaces, suffering from metric drift, superposition interference, and lack of certification. Classical solvers represent entities as rigid symbols, completely blind to continuous gradient geometry. What is missing is an intrinsic geometric substrate where discrete topological invariants (winding numbers, Chern classes, braid words) co-exist with continuous metric deformation *without relaxation and without discretization*.
+3. **The Self-Referential Dynamic Mutation Boundary:** Classical computers cannot execute self-modifying code without risking undefined crashes and type violations. Neural networks are static computational graphs at test time (hypernetworks simply compute feedforward parameters for another static layer). What is missing is an executing operational rule that continuously rewrites its own governing transition laws while maintaining an exact, provable conservation or safety invariant.
+4. **The Asynchronous Causal Entanglement Boundary:** Classical machines compute along discrete clock ticks or discrete event queues. Neural systems compute along forward layer depth or diffusion steps. What is missing is an asynchronous substrate where computational progress is driven not by time, but by the topological knotting and collision of causal wavefronts.
+5. **The Non-Monotonic Continuous Retraction Boundary:** Autoregressive models append tokens and cannot uncompute. Backpropagation requires storing forward activations or recomputing them from checkpoints. Classical truth maintenance systems require maintaining massive dependency graphs. What is missing is an intrinsic physical or wave-mechanical cancellation mechanism that annihilates the causal cone of an invalidated premise instantaneously without unwinding or replaying.
+
+Derived strictly from these deeper interfacial boundaries between machine classes, we formulate **Batch 3 (Candidates P41–P56)**.
+
+---
+
+# Candidate Computational Primitives — Batch 3 (Candidates P41–P56)
+
+Derived from the limits of the combined machine library, we invent 16 candidate primitives, each specified as:
+`STATE + OPERATION + WRITE/TRANSITION RULE + GUARANTEE`
+and evaluated against all 16 candidate standard questions.
+
+---
+
+### Candidate P41: Autonomous Homotopy Loop Generator (AHLG)
+- **Concept:** Detecting non-contractible 1-cycles in continuous activation trajectories and registering formal generators in the fundamental group $\pi_1(M)$ without discrete mesh discretization.
+- **Specification:**
+  - `STATE`: Continuous state manifold $M$ carrying continuous trajectory $x(t) \in M$, tracking closed 1-cycles $\gamma: S^1 \to M$, paired with an algebraic finitely presented group $G = \langle S \mid R \rangle$.
+  - `OPERATION`: Closed 1-form path integration: for closed loop $\gamma$, compute circulation $\oint_\gamma \omega$ against harmonic 1-forms $\omega \in H^1_{dR}(M)$. If $\oint_\gamma \omega \neq 0$ and the loop cannot be shrunk by continuous gradient descent on loop length without crossing a potential barrier, trigger primitive birth.
+  - `WRITE/TRANSITION RULE`: Append a new formal generator $s_{new}$ to generator set $S$, and record commute/braid relations with existing generators in $R$.
+  - `GUARANTEE`: Homotopy invariance: any continuous deformation of trajectory $\gamma$ within the same homotopy class preserves the algebraic symbol $s_{new}$ identically, with zero metric drift.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Trajectory curve $\gamma \subset M$ and finitely presented group $G = \langle S \mid R \rangle$.
+  2. *What exact operation occurs?* de Rham circulation path integral $\oint_\gamma \omega$ evaluated against harmonic 1-forms.
+  3. *What is read?* Continuous tangent velocity $\dot{\gamma}(t)$ and differential form field $\omega(x)$.
+  4. *What is written?* New discrete group generator $s_{new} \in S$ and relators in $R$.
+  5. *What triggers the operation?* Loop closure where homotopy contraction gradient $\|\nabla_{\text{loop}} L(\gamma)\| \to 0$ with non-zero winding.
+  6. *What structural guarantee follows?* Topological protection: algebraic generator is completely invariant under smooth homotopies $\gamma \simeq \gamma'$.
+  7. *Why is it not neural approximation?* Produces an exact discrete group presentation $\langle S \mid R \rangle$, not a continuous embedding vector.
+  8. *Why is it not search?* Computed by direct geometric differential-form integration along the executed trajectory, without branching or candidate sampling.
+  9. *Why is it not a solver/interpreter?* Analytical path integration of differential forms, not an SAT/SMT or theorem prover loop.
+  10. *Why is it not memory or a database?* Active generation of algebraic topology invariants directly from phase-space flow.
+  11. *Why is it not a graph/data structure operation?* Operates natively over continuous smooth manifold $M$ and de Rham cohomology.
+  12. *Why is it not a known dynamical/control system?* Dynamical systems evolve state vectors; this spawns discrete algebraic groups from trajectory topology.
+  13. *Why is it not a pipeline of known machines?* Integrated directly into the continuous flow of the representation.
+  14. *What is the closest historical operation?* Henri Poincaré's fundamental group in *Analysis Situs* (1895); Georges de Rham's cohomology theorem (1931).
+  15. *What is the closest modern operation?* Persistent homology 1-cycle generators in Topological Data Analysis (Edelsbrunner & Harer 2008).
+  16. *What observation kills it?* In computational practice, computing de Rham cohomology or loop non-contractibility on continuous manifolds requires discretizing the space into a simplicial or cubical complex and computing boundary matrix Smith Normal Form (classical Persistent Homology).
+
+---
+
+### Candidate P42: Algebraic Holonomy Curvature Inductor (AHCI)
+- **Concept:** Using non-Abelian curvature holonomy of a continuous gauge connection around closed loops to induce discrete algebraic symmetry constraints.
+- **Specification:**
+  - `STATE`: Principal $G$-bundle $P(M, G)$ with connection 1-form $A \in \Omega^1(M, \mathfrak{g})$ and curvature 2-form $F = dA + A \wedge A$. State trajectory is a horizontal curve $\tilde{x}(t)$ on $P$.
+  - `OPERATION`: Path-ordered exponential loop integration (Wilson loop): $U(\partial \Sigma) = \mathcal{P} \exp\left(\oint_{\partial \Sigma} A\right) \in G$.
+  - `WRITE/TRANSITION RULE`: If $U(\partial \Sigma) \neq e$, register group element $U$ in a discrete holonomy subgroup $H \le G$, and constrain downstream parameter updates to the centralizer $Z_G(U) = \{g \in G \mid g U = U g\}$.
+  - `GUARANTEE`: Strict gauge covariance: under any gauge transformation $g(x) \in G$, $U \mapsto g U g^{-1}$, and the centralizer algebra is preserved identically.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Connection 1-form $A$, curvature $F$, and discrete holonomy subgroup $H \le G$.
+  2. *What exact operation occurs?* Path-ordered exponential integration around closed loops.
+  3. *What is read?* Connection 1-form $A$ along closed boundary $\partial \Sigma$.
+  4. *What is written?* Discrete holonomy generator $U$ and centralizer projection operator.
+  5. *What triggers the operation?* Trajectory closing a loop enclosing non-vanishing curvature flux $\iint_\Sigma F \neq 0$.
+  6. *What structural guarantee follows?* Exact gauge invariance and geometric phase preservation (Berry phase / Aharonov-Bohm phase).
+  7. *Why is it not neural approximation?* Returns an exact Lie group element $U \in G$, not a fuzzy vector.
+  8. *Why is it not search?* Deterministic path-ordered matrix ODE integration.
+  9. *Why is it not a solver/interpreter?* Analytical geometric transport along trajectory.
+  10. *Why is it not memory or a database?* Dynamical geometric property of the connection field.
+  11. *Why is it not a graph/data structure operation?* Defined on differential geometric principal bundles.
+  12. *Why is it not a known dynamical/control system?* Generates algebraic subgroup restrictions on the model's transformation group.
+  13. *Why is it not a pipeline of known machines?* Direct geometric coupling between trajectory curvature and representation algebra.
+  14. *What is the closest historical operation?* Élie Cartan's method of moving frames (1935); Kenneth Wilson's lattice gauge loops (1974).
+  15. *What is the closest modern operation?* Gauge-Equivariant Convolutional Networks (Cohen et al. 2019).
+  16. *What observation kills it?* Computing Wilson loops is identical to integrating a linear matrix differential equation along a path, and restricting updates to the centralizer reduces to linear projection on the Lie algebra $\mathfrak{g}$.
+
+---
+
+### Candidate P43: Energy-Invariant Polynomial Lie Re-writer (EIPLR)
+- **Concept:** A Hamiltonian vector field where the polynomial generator of motion modifies its own algebraic coefficients via Poisson brackets while strictly preserving total Casimir invariants.
+- **Specification:**
+  - `STATE`: Phase coordinates $(q, p) \in \mathbb{R}^{2n}$ and a polynomial Hamiltonian $H(q, p) = \sum_\alpha C_\alpha q^{\alpha_q} p^{\alpha_p}$ parameterized by coefficient tensor $C$, subject to Casimir invariants $I_k(q, p, C) = c_k$.
+  - `OPERATION`: Self-referential Lie bracket rewriting: $\dot{C}_\alpha = \{C_\alpha, H\}_{\text{param}}$, where the bracket is evaluated on a Poisson manifold of parameters coupled to state $(q, p)$.
+  - `WRITE/TRANSITION RULE`: Continuous infinitesimal mutation of the differential equation coefficients $C_\alpha$ driven by the current state, restricted to the tangent space of Casimir level sets $dI_k = 0$.
+  - `GUARANTEE`: Strict energy and Casimir conservation ($dH/dt = 0$, $dI_k/dt = 0$) across continuous self-rewriting of the dynamical laws.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Canonical state $(q, p)$ and Hamiltonian polynomial coefficients $C_\alpha$.
+  2. *What exact operation occurs?* Coupled Poisson bracket evolution of coefficients and state.
+  3. *What is read?* Phase state $(q, p)$ and partial derivatives of Hamiltonian $\nabla_{(q, p)} H$.
+  4. *What is written?* Continuous updates to the governing differential equation coefficients $\dot{C}_\alpha$.
+  5. *What triggers the operation?* Autonomous continuous-time flow.
+  6. *What structural guarantee follows?* Strict physical conservation laws: system cannot blow up or undergo unconstrained energy divergence.
+  7. *Why is it not neural approximation?* Exact symplectic Poisson geometry with provable first integrals.
+  8. *Why is it not search?* Continuous deterministic ODE integration.
+  9. *Why is it not a solver/interpreter?* Physical/geometric Hamiltonian flow.
+  10. *Why is it not memory or a database?* Active dynamical self-modifying equation system.
+  11. *Why is it not a graph/data structure operation?* Continuous differential geometry on Poisson manifolds.
+  12. *Why is it not a known dynamical/control system?* Modifies the very differential law $H$ governing the flow in a self-referential manner.
+  13. *Why is it not a pipeline of known machines?* Unified extended Hamiltonian system.
+  14. *What is the closest historical operation?* Sophus Lie's transformation groups (1888); Arnold-Liouville completely integrable Hamiltonian systems (1968).
+  15. *What is the closest modern operation?* Hamiltonian Neural Networks (Greydanus et al. 2019); Port-Hamiltonian neural networks.
+  16. *What observation kills it?* An extended Poisson system where parameters evolve via Poisson brackets with the state is mathematically identical to a standard Hamiltonian system on an extended phase space $\mathbb{R}^{2n} \times \mathbb{R}^m$. It is classical Hamiltonian mechanics on higher dimensions.
+
+---
+
+### Candidate P44: Contractive Operadic Tree Morphism (COTM)
+- **Concept:** An executing tree of multi-ary operations that performs local associativity rotations when an operadic curvature metric exceeds a threshold, with a Banach fixed-point contraction guarantee.
+- **Specification:**
+  - `STATE`: An operadic tree $T \in \mathcal{O}(n)$ representing an executable composition of learned multi-ary tensor operations, endowed with tree metric $d_{\mathcal{O}}(T_1, T_2)$ and continuous evaluation node states $v_i \in \mathbb{R}^d$.
+  - `OPERATION`: Contractive operadic rotation: when evaluator residual $\|v_{\text{node}} - v^*\| > \tau$, perform an associative tree rotation $(f \circ_i g) \circ_j h \mapsto f \circ_{i+j-1} (g \circ_j h)$ scaled by a Lipschitz factor $\gamma < 1$.
+  - `WRITE/TRANSITION RULE`: Replace tree branch topology via formal operad composition axioms; contract tree distance towards an optimal executable normal form.
+  - `GUARANTEE`: Unique normal-form convergence: guaranteed termination without infinite rewrite loops or structural oscillations via the Banach Fixed-Point Theorem ($d(T_{k+1}, T^*) \le \gamma d(T_k, T^*)$).
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Operadic expression tree $T$ and continuous evaluation cache $v_i$.
+  2. *What exact operation occurs?* Local operadic tree rotation $(f \circ_i g) \circ_j h \to f \circ (g \circ h)$ with contractive scaling.
+  3. *What is read?* Node evaluation residuals $\|v_{\text{node}} - v^*\|$.
+  4. *What is written?* Tree topology edge pointers and composition indices.
+  5. *What triggers the operation?* Local node residual exceeding threshold $\tau$.
+  6. *What structural guarantee follows?* Provable confluence and termination: terminates in a unique tree normal form.
+  7. *Why is it not neural approximation?* Discrete structural tree mutation governed by exact operad axioms.
+  8. *Why is it not search?* Deterministic metric descent on tree space without heuristic branching.
+  9. *Why is it not a solver/interpreter?* Self-modifying executing operator tree.
+  10. *Why is it not memory or a database?* Active executable operator algebra.
+  11. *Why is it not a graph/data structure operation?* Operates under formal operadic algebraic composition laws.
+  12. *Why is it not a known dynamical system?* Operates over discrete/combinatorial tree spaces.
+  13. *Why is it not a pipeline of known machines?* Integrated execution and structural reorganization.
+  14. *What is the closest historical operation?* J. Peter May's *The Geometry of Iterated Loop Spaces* (Operads, 1972); Knuth-Bendix term rewriting (1970).
+  15. *What is the closest modern operation?* Dynamic Syntax Trees / Tree-structured Recursive Neural Networks (Socher et al. 2013).
+  16. *What observation kills it?* Reduces to Knuth-Bendix term rewriting with a reduction ordering, or classical AVL tree rotations governed by potential function minimization in data structures.
+
+---
+
+### Candidate P45: Integer Topological Winding Register (ITWR)
+- **Concept:** Continuous planar vector field on a punctured domain storing exact integer winding numbers $W \in \mathbb{Z}$ around topological defects, immune to smooth continuous deformation.
+- **Specification:**
+  - `STATE`: Continuous vector field $V: \mathbb{R}^2 \setminus \{p_1, \dots, p_k\} \to S^1$ represented as normalized 2D phase vectors $(\cos \theta, \sin \theta)$, with isolated vortex singularities at points $p_i$.
+  - `OPERATION`: Contour circulation integration: $W(\Gamma) = \frac{1}{2\pi} \oint_\Gamma \nabla \theta \cdot ds \in \mathbb{Z}$. Winding write operation: driving an external continuous flux that forces a vortex core across contour boundary $\Gamma$.
+  - `WRITE/TRANSITION RULE`: Smooth continuous perturbations $V \mapsto V + \delta V$ leave $W(\Gamma)$ completely unchanged ($dW/dt = 0$) as long as the vortex core does not cross $\Gamma$. When a defect crosses $\Gamma$, the integer state increments/decrements: $W \leftarrow W \pm 1$.
+  - `GUARANTEE`: Provable topological protection: zero metric drift ($dW/dt \equiv 0$) under any bounded continuous perturbation $\|\delta V\| < \epsilon$, while admitting smooth continuous gradient deformation of the field everywhere else.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Continuous phase field $\theta(x, y)$ on punctured plane and closed contour $\Gamma$.
+  2. *What exact operation occurs?* Topological circulation contour integral yielding integer $W \in \mathbb{Z}$.
+  3. *What is read?* Phase gradient field $\nabla \theta$ along contour $\Gamma$.
+  4. *What is written?* Discrete integer state $W$; vortex core creation, annihilation, and transport.
+  5. *What triggers the operation?* Topological vortex crossing across the contour boundary.
+  6. *What structural guarantee follows?* Exact integer stability: invariant under all smooth homeomorphisms preserving the puncture.
+  7. *Why is it not neural approximation?* Rigorous homotopy invariant of the mapping into $S^1$ ($\pi_1(S^1) \cong \mathbb{Z}$), completely discrete.
+  8. *Why is it not search?* Closed-form analytical line integration along contour.
+  9. *Why is it not a solver/interpreter?* Exact differential topological property of continuous field.
+  10. *Why is it not memory or a database?* Continuous physical field harboring topological solitons.
+  11. *Why is it not a graph/data structure operation?* Defined over continuous 2D spatial manifold $\mathbb{R}^2 \setminus \{p_i\}$.
+  12. *Why is it not a known dynamical system?* Discrete integer invariant preserved across all smooth dynamics.
+  13. *Why is it not a pipeline of known machines?* Continuous field is simultaneously the computational medium and the discrete memory.
+  14. *What is the closest historical operation?* Berezinskii-Kosterlitz-Thouless (BKT) vortex physics (1971/1973); Abrikosov flux vortices in Type-II superconductors (1957).
+  15. *What is the closest modern operation?* Magnetic skyrmion racetrack memory (Fert, Cros, Sampaio, *Nature Nanotechnology* 2013).
+  16. *What observation kills it?* In digital computation, simulating the field requires numerical discretization on a lattice, reducing to an integer counter incremented by discrete boundary-crossing events; in physical hardware, it is an existing classical magnetic skyrmion memory device.
+
+---
+
+### Candidate P46: Braided Worldline Topological Gate (BWTG)
+- **Concept:** Continuous 2+1D spatiotemporal trajectories of $n$ distinct localized activation peaks forming words in Artin's braid group $B_n$, where topological crossings perform exact non-commutative logic.
+- **Specification:**
+  - `STATE`: Continuous trajectories of $n$ distinct particle coordinate centers $(x_i(t), y_i(t)) \in \mathbb{R}^2$ across time $t \in [0, T]$, forming an $n$-strand braid $b \in B_n$.
+  - `OPERATION`: Braid group multiplication: continuous steering of particle positions causes particle $i$ to wind around particle $j$, applying Artin generator $\sigma_i$ or $\sigma_i^{-1}$.
+  - `WRITE/TRANSITION RULE`: Continuous potential fields steer particle endpoints; the accumulated topological crossing history forms an immutable word in $B_n$.
+  - `GUARANTEE`: Topological equivalence under Reidemeister moves: smooth deformations of particle trajectories that do not allow particle collision preserve the braid word identically.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* $n$ smooth trajectory worldlines in $\mathbb{R}^2 \times [0, T]$.
+  2. *What exact operation occurs?* Artin braid group word generation via trajectory crossing accumulation.
+  3. *What is read?* Trajectory crossings in planar projection $(x, t)$.
+  4. *What is written?* Word in Artin braid group $B_n = \langle \sigma_1, \dots, \sigma_{n-1} \mid \sigma_i \sigma_{i+1} \sigma_i = \sigma_{i+1} \sigma_i \sigma_{i+1}, \sigma_i \sigma_j = \sigma_j \sigma_i \rangle$.
+  5. *What triggers the operation?* Continuous spatial exchange of particle coordinate centers.
+  6. *What structural guarantee follows?* Topological protection: invariant under continuous trajectory deformation without strand intersection.
+  7. *Why is it not neural approximation?* Exact discrete group element in $B_n$, not an embedding vector.
+  8. *Why is it not search?* Direct deterministic execution of trajectory winding.
+  9. *Why is it not a solver/interpreter?* Geometric/topological knot invariant.
+  10. *Why is it not memory or a database?* Spatiotemporal trajectory entanglement.
+  11. *Why is it not a graph/data structure operation?* Artin braid group algebra over continuous space curves.
+  12. *Why is it not a known dynamical system?* Invariant is topological, not a dynamical trajectory state.
+  13. *Why is it not a pipeline of known machines?* Direct mapping from continuous movement to topological algebra.
+  14. *What is the closest historical operation?* Emil Artin's *Theorie der Zöpfe* (Theory of Braids, 1925).
+  15. *What is the closest modern operation?* Topological Quantum Computing with non-Abelian anyon braiding (Kitaev 2003; Nayak et al. *Rev. Mod. Phys.* 2008).
+  16. *What observation kills it?* Tracking crossings of 2D trajectories reduces to computing the sign of the determinant of coordinate differences (orientation test), which is classical topological motion planning or Artin word reduction on a classical computer.
+
+---
+
+### Candidate P47: Meromorphic Residue Contour Field (MRCF)
+- **Concept:** A continuous meromorphic differential form field over a Riemann surface where contour evaluation yields exact integer/residue combinations $\oint f(z) dz = 2\pi i \sum \text{Res}$, providing metric-free exact updates via continuous pole transport.
+- **Specification:**
+  - `STATE`: Meromorphic 1-form field $\omega(z) = f(z) dz$ over $\mathbb{C}$ with poles $\{z_1, \dots, z_m\}$ having residues $\{r_1, \dots, r_m\}$, accompanied by evaluation contours $\gamma_j$.
+  - `OPERATION`: Cauchy residue evaluation: $I_j = \frac{1}{2\pi i} \oint_{\gamma_j} \omega(z) = \sum_{z_k \in \text{Int}(\gamma_j)} \text{Res}(f, z_k)$.
+  - `WRITE/TRANSITION RULE`: Continuous motion of poles $z_k(t)$ or continuous contour deformation $\gamma(t)$; when a pole crosses the contour $\gamma$, the integral $I_j$ undergoes an exact discrete jump $\Delta I = \pm \text{Res}(f, z_k)$.
+  - `GUARANTEE`: Exact piecewise-constant invariance: $dI_j / dt = 0$ everywhere except at the zero-measure event of pole-contour crossing.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Complex meromorphic differential form $\omega(z)$ and closed contours $\gamma_j$.
+  2. *What exact operation occurs?* Contour line integral $\frac{1}{2\pi i} \oint_\gamma f(z) dz$.
+  3. *What is read?* Complex field values along $\gamma$.
+  4. *What is written?* Discrete/exact residue sum value $I_j$.
+  5. *What triggers the operation?* Topological crossing of pole across contour $\gamma$.
+  6. *What structural guarantee follows?* Invariant under all continuous homotopy deformations of contour avoiding poles.
+  7. *Why is it not neural approximation?* Exact complex analytic identity.
+  8. *Why is it not search?* Direct contour integration.
+  9. *Why is it not a solver/interpreter?* Cauchy residue theorem.
+  10. *Why is it not memory or a database?* Continuous holomorphic/meromorphic field.
+  11. *Why is it not a graph/data structure operation?* Complex differential geometry.
+  12. *Why is it not a known dynamical system?* Topological invariant of meromorphic forms.
+  13. *Why is it not a pipeline of known machines?* Integrated analytic field.
+  14. *What is the closest historical operation?* Augustin-Louis Cauchy's Residue Theorem (1825); Riemann surfaces (1851).
+  15. *What is the closest modern operation?* Analog electrolytic tank computers for conformal mapping (Boothroyd 1951).
+  16. *What observation kills it?* Evaluates to testing whether 2D points $z_k$ lie inside polygon $\gamma_j$ (classical point-in-polygon ray-casting test) and summing associated weights $r_k$, which is basic computational geometry.
+
+---
+
+### Candidate P48: Causal Loop Coincidence Collapser (CLCC)
+- **Concept:** An asynchronous causal graph where execution is driven by the emergence of closed timelike loops in causal message passing, forcing state collapse to a Novikov self-consistent fixed point.
+- **Specification:**
+  - `STATE`: Asynchronous event graph with candidate directed edges carrying state variables $s_e \in \mathcal{S}$, capable of forming directed cycles $C = (e_1, \dots, e_k, e_1)$ with composite operator $F_C = f_{e_k} \circ \dots \circ f_{e_1}$.
+  - `OPERATION`: Novikov self-consistency operator: for directed cycle $C$, resolve the fixed-point equation $F_C(s^*) = s^*$.
+  - `WRITE/TRANSITION RULE`: If a unique fixed point exists ($|\text{Fix}(F_C)| = 1$), commit state $s^*$ instantaneously across all edges in $C$; if $|\text{Fix}(F_C)| = 0$, assert a causal inconsistency nogood and sever the edge.
+  - `GUARANTEE`: Strict causal consistency: all established cyclic dependencies are guaranteed to be paradox-free and mathematically consistent.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Directed cyclic graph of event transitions and edge states.
+  2. *What exact operation occurs?* Fixed-point consistency resolution along causal cycles.
+  3. *What is read?* Composite edge transition function $F_C$.
+  4. *What is written?* Consistent edge states $s^*$ or edge invalidation nogood.
+  5. *What triggers the operation?* Cycle formation in asynchronous causal message passing.
+  6. *What structural guarantee follows?* Causal paradox freedom: no active cycle permits contradictory truth values.
+  7. *Why is it not neural approximation?* Exact mathematical fixed-point satisfaction.
+  8. *Why is it not search?* Direct algebraic cycle contraction operator.
+  9. *Why is it not a solver/interpreter?* Event-driven causal closure mechanism.
+  10. *Why is it not memory or a database?* Dynamic causal dependency network.
+  11. *Why is it not a graph/data structure operation?* Solves semantic fixed points on cyclic dataflow.
+  12. *Why is it not a known dynamical system?* Operates over asynchronous discrete causal event structures.
+  13. *Why is it not a pipeline of known machines?* Native event-driven cycle settlement.
+  14. *What is the closest historical operation?* Igor Novikov's Self-Consistency Principle (1990); Stephen Unger's *Asynchronous Sequential Switching Circuits* (1971).
+  15. *What is the closest modern operation?* Cyclic Boolean circuits and fixed-point dataflow logic (Shipman 1981, Riedel & Bruck 2003).
+  16. *What observation kills it?* Finding a fixed point $F_C(s) = s$ on a cyclic discrete network is identical to solving a Boolean satisfiability or constraint satisfaction problem over a cycle, reducing to classical CDCL / cycle-finding in digital switching theory.
+
+---
+
+### Candidate P49: Spatiotemporal Wavefront Collision Commutator (SWCC)
+- **Concept:** Continuous nonlinear wave medium governed by Korteweg-de Vries (KdV) or Nonlinear Schrödinger (NLS) equations where localized soliton wave packets collide non-destructively, performing commutative logic via exact spatial phase shifts.
+- **Specification:**
+  - `STATE`: Continuous wave field $\psi(x, t)$ over spatial domain $\mathbb{R}$, harboring $N$ localized soliton wave packets $\psi_i(x, t) = A_i \text{sech}(k_i (x - v_i t - x_{0,i}))$.
+  - `OPERATION`: Soliton collision phase shift: when two solitons with velocities $v_1 > v_2$ collide, they emerge completely intact with original shapes and velocities, undergoing a discrete deterministic phase shift $\Delta x_1 = \frac{1}{k_1} \ln\left|\frac{k_1 + k_2}{k_1 - k_2}\right|$.
+  - `WRITE/TRANSITION RULE`: Information encoded in relative spatial phases $\phi_i = k_i x_{0,i}$; multi-soliton collisions execute an exact permutation-commutative group of phase shifts.
+  - `GUARANTEE`: Particle-like integrity and infinite asymptotic conservation: solitons undergo zero dispersion, zero radiative decay, and zero information loss during arbitrary numbers of collisions.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Continuous field $\psi(x, t)$ harboring $N$ localized solitons.
+  2. *What exact operation occurs?* Nonlinear collision yielding exact analytical phase shifts.
+  3. *What is read?* Wave amplitude and phase profiles.
+  4. *What is written?* Post-collision phase-shifted positions of solitons.
+  5. *What triggers the operation?* Spatiotemporal collision of wave packets.
+  6. *What structural guarantee follows?* Complete preservation of conserved quantities (infinite hierarchy of KdV invariants).
+  7. *Why is it not neural approximation?* Exact integrable PDE solution via the Inverse Scattering Transform.
+  8. *Why is it not search?* Deterministic physical wave propagation.
+  9. *Why is it not a solver/interpreter?* Analytical wave evolution.
+  10. *Why is it not memory or a database?* Continuous spatiotemporal wave dynamics.
+  11. *Why is it not a graph/data structure operation?* Continuous 1D/2D field.
+  12. *Why is it not a known dynamical system?* Completely integrable infinite-dimensional Hamiltonian system.
+  13. *Why is it not a pipeline of known machines?* Monolithic wave equation.
+  14. *What is the closest historical operation?* John Scott Russell's "Wave of Translation" (1834); Zabusky & Kruskal's discovery of solitons (1965).
+  15. *What is the closest modern operation?* Soliton collision computation and Soliton Automata (Jakubowski, Steiglitz, Squier *Phys. Rev. E* 1997; Steiglitz 2001).
+  16. *What observation kills it?* Completely identical to Jakubowski, Steiglitz & Squier's Soliton Automata (1997), which proved that soliton phase shifts in integrable PDEs implement classical finite-state machines and Boolean logic gates.
+
+---
+
+### Candidate P50: Marsden-Weinstein Symplectic Quotient Reducer (MWSQR)
+- **Concept:** Continuous phase space $(q, p)$ subjected to continuous Lie group symmetry $G$; state is automatically reduced to the Marsden-Weinstein quotient $\mu^{-1}(0)/G$ by projecting onto the zero level set of the momentum map.
+- **Specification:**
+  - `STATE`: Symplectic manifold $(M, \omega)$ with Hamiltonian action of Lie group $G$, momentum map $\mu: M \to \mathfrak{g}^*$, and continuous phase state $x = (q, p) \in M$.
+  - `OPERATION`: Symplectic quotient reduction: map state $x$ to the reduced phase space $M_{red} = \mu^{-1}(0) / G$, equipped with reduced symplectic form $\omega_{red}$.
+  - `WRITE/TRANSITION RULE`: When continuous flow drifts off the constraint surface $\mu(x) = 0$, compute projection $\Pi_{\mu^{-1}(0)}$ along the Hamiltonian vector fields of the constraints, quotienting out the gauge group orbit $[x] = G \cdot x$.
+  - `GUARANTEE`: Complete elimination of gauge redundancies: reduced dynamics on $M_{red}$ are strictly physical, with dimension $\dim(M) - 2 \dim(G)$, preserving canonical Poisson brackets.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Symplectic coordinates $(q, p)$ and Lie group momentum map $\mu(q, p)$.
+  2. *What exact operation occurs?* Marsden-Weinstein quotient projection onto $\mu^{-1}(0)/G$.
+  3. *What is read?* State $(q, p)$ and momentum map $\mu$.
+  4. *What is written?* Gauge-invariant reduced coordinate state $[x] \in M_{red}$.
+  5. *What triggers the operation?* Gauge invariance violation or periodic reduction step.
+  6. *What structural guarantee follows?* Symplectic preservation: reduced flow is Hamiltonian on $M_{red}$ with zero gauge degrees of freedom.
+  7. *Why is it not neural approximation?* Exact geometric symplectic quotienting.
+  8. *Why is it not search?* Analytical projection along gauge orbits.
+  9. *Why is it not a solver/interpreter?* Differential geometric reduction.
+  10. *Why is it not memory or a database?* Continuous phase space manifold.
+  11. *Why is it not a graph/data structure operation?* Differential symplectic geometry.
+  12. *Why is it not a known dynamical system?* An algebraic/geometric quotient operation on phase spaces.
+  13. *Why is it not a pipeline of known machines?* Integrated geometric mechanics.
+  14. *What is the closest historical operation?* Jerrold Marsden and Alan Weinstein's *Reduction of Symplectic Manifolds with Symmetry* (1974).
+  15. *What is the closest modern operation?* Symplectic integrators for constrained mechanical systems (Leimkuhler & Reich 2004).
+  16. *What observation kills it?* Solved in classical computational physics by enforcing nonlinear algebraic constraints $\mu(q, p) = 0$ via Lagrange multipliers using the SHAKE / RATTLE algorithms in constrained molecular dynamics.
+
+---
+
+### Candidate P51: Non-Abelian Gauge Connection Frame Decoupler (NAGCFD)
+- **Concept:** State decomposed into a horizontal gauge-covariant connection and a vertical gauge fiber; write operation parallel-transports state along geodesics while eliminating all gauge-dependent representations.
+- **Specification:**
+  - `STATE`: Principal $G$-bundle over Riemannian manifold $(M, g)$, connection 1-form $A \in \Omega^1(M, \mathfrak{g})$, tangent vectors decomposed into horizontal $H_x$ and vertical $V_x$ subspaces: $T_x P = H_x \oplus V_x$.
+  - `OPERATION`: Horizontal projection operator: $\Pi_H(v) = v - A(v)^\#$, mapping any velocity or update vector into the gauge-invariant horizontal space, annihilating all infinitesimal gauge rotations.
+  - `WRITE/TRANSITION RULE`: All computational trajectories are restricted to horizontal curves ($\dot{x} \in H_x$); parallel transport carries feature frames without coordinate gauge artifacts.
+  - `GUARANTEE`: Strict gauge invariance: feature representations are invariant under all local gauge transformations $g(x) \in G$.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Connection form $A$, base coordinates $x \in M$, fiber coordinates $g \in G$.
+  2. *What exact operation occurs?* Horizontal projection $\Pi_H(v) = v - A(v)^\#$.
+  3. *What is read?* State vectors and connection $A$.
+  4. *What is written?* Purely horizontal update vectors.
+  5. *What triggers the operation?* Any state transition or gradient update.
+  6. *What structural guarantee follows?* Exact covariance under local gauge transformations.
+  7. *Why is it not neural approximation?* Rigorous differential geometry (Ehresmann connection).
+  8. *Why is it not search?* Analytical linear projection.
+  9. *Why is it not a solver/interpreter?* Differential form projection.
+  10. *Why is it not memory or a database?* Geometric fiber bundle.
+  11. *Why is it not a graph/data structure operation?* Continuous smooth manifold.
+  12. *Why is it not a known dynamical system?* Geometric constraint on vector spaces.
+  13. *Why is it not a pipeline of known machines?* Native geometric framework.
+  14. *What is the closest historical operation?* Charles Ehresmann's connection on fiber bundles (1950); Yang-Mills theory (1954).
+  15. *What is the closest modern operation?* Gauge Equivariant Mesh CNNs (Cohen et al. 2019, de Haan et al. 2020).
+  16. *What observation kills it?* Completely equivalent to Gauge Equivariant Neural Networks (Cohen et al. 2019), which project features onto gauge frames via group representation theory.
+
+---
+
+### Candidate P52: Continuous Minkowski Zonotope Sieve (CMZS)
+- **Concept:** Continuous set-valued version spaces without point collapse or exponential vertex blowup using zonotope Minkowski sums and hyperplane strip slicing.
+- **Specification:**
+  - `STATE`: Exact convex zonotope $Z = c \oplus \sum_{i=1}^p [-1, 1] g_i \subset \mathbb{R}^d$, parameterized by center $c \in \mathbb{R}^d$ and generator matrix $G = [g_1, \dots, g_p] \in \mathbb{R}^{d \times p}$.
+  - `OPERATION`: Hyperplane strip intersection: upon observing linear constraint $a^\top x \in [l, u]$, compute the exact or overapproximated zonotope $Z' = Z \cap \{x \mid a^\top x \in [l, u]\}$ by generator augmentation and singular value reduction.
+  - `WRITE/TRANSITION RULE`: Replaces $(c, G)$ with updated $(c', G')$ in $\mathcal{O}(p \cdot d^2)$ time, without enumerating vertices.
+  - `GUARANTEE`: Provable sound bounding: $x^* \in Z \wedge a^\top x^* \in [l, u] \implies x^* \in Z'$, with polynomial complexity in dimension $d$.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Center vector $c \in \mathbb{R}^d$ and generator matrix $G \in \mathbb{R}^{d \times p}$.
+  2. *What exact operation occurs?* Strip intersection and generator order reduction.
+  3. *What is read?* New linear interval constraint $(a, l, u)$.
+  4. *What is written?* Updated center $c'$ and generator matrix $G'$.
+  5. *What triggers the operation?* Receipt of bounded empirical measurement.
+  6. *What structural guarantee follows?* Convex sound containment of the version space of consistent states without vertex explosion.
+  7. *Why is it not neural approximation?* Exact geometric zonotope algebra.
+  8. *Why is it not search?* Closed-form matrix operations.
+  9. *Why is it not a solver/interpreter?* Direct linear-algebraic zonotope transformation.
+  10. *Why is it not memory or a database?* Continuous convex geometric body.
+  11. *Why is it not a graph/data structure operation?* Polyhedral computational geometry.
+  12. *Why is it not a known dynamical system?* Set-valued geometric update rule.
+  13. *Why is it not a pipeline of known machines?* Self-contained set representation.
+  14. *What is the closest historical operation?* Minkowski sums (1903); Motzkin's double description method (1953).
+  15. *What is the closest modern operation?* Zonotope reachability analysis (Girard 2005; Althoff CORA toolbox 2010).
+  16. *What observation kills it?* Identical to classical Zonotope Reachability Analysis (Girard 2005) and interval bounding in guaranteed parameter estimation.
+
+---
+
+### Candidate P53: Reproducing Kernel Spectral Hull Shrinker (RKSHS)
+- **Concept:** Non-parametric version space narrowing in infinite-dimensional Hilbert space using Löwner-John ellipsoid updates.
+- **Specification:**
+  - `STATE`: Center function $f_c \in \mathcal{H}_K$ and positive semi-definite covariance operator $\Sigma: \mathcal{H}_K \to \mathcal{H}_K$ in an RKHS, defining an ellipsoid of admissible functions $\mathcal{E} = \{f \in \mathcal{H}_K \mid \langle f - f_c, \Sigma^{-1} (f - f_c) \rangle \le 1\}$.
+  - `OPERATION`: Löwner-John ellipsoid update: given observation $(x_t, y_t \pm \epsilon)$, compute the minimum volume enclosing ellipsoid containing $\mathcal{E} \cap \{f \mid |f(x_t) - y_t| \le \epsilon\}$.
+  - `WRITE/TRANSITION RULE`: Rank-1 update of operator $\Sigma$ and center $f_c$ via Sherman-Morrison-Woodbury kernel formula.
+  - `GUARANTEE`: Monotonic volume shrinkage: $\text{Vol}(\mathcal{E}_{t+1}) \le \rho \text{Vol}(\mathcal{E}_t)$ with $\rho < 1$, guaranteeing that the version space of nonlinear functions strictly contracts.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Center function $f_c$ and kernel covariance operator $\Sigma$.
+  2. *What exact operation occurs?* Ellipsoidal slice update in RKHS.
+  3. *What is read?* New training sample $(x_t, y_t \pm \epsilon)$.
+  4. *What is written?* Updated center $f_c$ and operator $\Sigma$.
+  5. *What triggers the operation?* Arrival of new bounded functional observation.
+  6. *What structural guarantee follows?* Strict monotonic reduction of functional uncertainty volume without point estimation.
+  7. *Why is it not neural approximation?* Non-parametric functional set geometry.
+  8. *Why is it not search?* Analytical ellipsoid bounding update.
+  9. *Why is it not a solver/interpreter?* Closed-form kernel linear algebra.
+  10. *Why is it not memory or a database?* Infinite-dimensional geometric ellipsoid.
+  11. *Why is it not a graph/data structure operation?* Hilbert space functional analysis.
+  12. *Why is it not a known dynamical system?* Iterative set-theoretic estimation.
+  13. *Why is it not a pipeline of known machines?* Unified functional version space.
+  14. *What is the closest historical operation?* Löwner-John ellipsoids (1948); Shor-Khachiyan Ellipsoid Method (1979).
+  15. *What is the closest modern operation?* Set-Membership Kernel Filtering (Slavakis & Theodoridis 2008).
+  16. *What observation kills it?* Reduces to classical Set-Membership Identification and Kernel Recursive Least Squares (KRLS) with dead-zone bounds.
+
+---
+
+### Candidate P54: Destructive Anti-Wave Packet Annihilator (DAWPA)
+- **Concept:** Exact non-monotonic undo in continuous fields without memory backtracking or DAG unwinding using destructive interference of inverted wave packets.
+- **Specification:**
+  - `STATE`: Continuous linear wave field $\psi(x, t)$ over a metric domain $\Omega$, governed by linear wave equation $\partial_{tt} \psi = c^2 \nabla^2 \psi$, storing superposed computational traces.
+  - `OPERATION`: Destructive uncomputation: to retract a premise asserted at $(x_0, t_0)$ with signature $\psi_0(x, t)$, inject an exact conjugate inverted wave packet $\psi_{\text{anti}}(x, t) = -\psi_0(x, t)$ into the boundary.
+  - `WRITE/TRANSITION RULE`: Field superposition: $\psi_{\text{total}} = \psi + \psi_{\text{anti}} \implies \psi_{\text{total}}(x, t) \equiv 0$ in the causal cone of the retraction.
+  - `GUARANTEE`: Exact linear cancellation: $\psi_0 + (-\psi_0) = 0$ everywhere, wiping the causal consequence of the premise without disturbing linearly superposed orthogonal channels.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Continuous scalar/vector wave field $\psi(x, t)$.
+  2. *What exact operation occurs?* Superposition of exact negated wave packet $-\psi_0$.
+  3. *What is read?* Invalidation request for premise ID.
+  4. *What is written?* Inverted wave source at spatial boundary.
+  5. *What triggers the operation?* Falsification of a computational premise.
+  6. *What structural guarantee follows?* Exact zeroing of the invalidated signal across the entire forward causal cone.
+  7. *Why is it not neural approximation?* Exact physical wave superposition.
+  8. *Why is it not search?* Direct boundary condition injection.
+  9. *Why is it not a solver/interpreter?* Linear hyperbolic PDE propagation.
+  10. *Why is it not memory or a database?* Continuous physical wave field.
+  11. *Why is it not a graph/data structure operation?* Continuous PDE field.
+  12. *Why is it not a known dynamical system?* Exploits linear superposition to achieve non-monotonic state retraction.
+  13. *Why is it not a pipeline of known machines?* Monolithic wave medium.
+  14. *What is the closest historical operation?* Thomas Young's Wave Principle of Interference (1801); Paul Lueg's Active Noise Cancellation patent (1936).
+  15. *What is the closest modern operation?* Time-reversal acoustics (Fink 1992); optical destructive interference logic.
+  16. *What observation kills it?* In a linear medium, injecting $-\psi_0$ requires exact duplicate memory of the historical excitation $\psi_0$ (classical storage); in physics, it is classical Active Noise Cancellation.
+
+---
+
+### Candidate P55: Symplectic Adjoint Sensitivity Nullifier (SASN)
+- **Concept:** Continuous trajectory ledger with Hamiltonian flow where retraction injects an adjoint covector that cancels the symplectic gradient flow originating from a designated timestamp.
+- **Specification:**
+  - `STATE`: Trajectory history $x(t) \in \mathbb{R}^d$ and backward adjoint sensitivity covector $\lambda(t) \in \mathbb{R}^d$ governed by Hamiltonian adjoint dynamics $\dot{\lambda} = -\left(\frac{\partial f}{\partial x}\right)^\top \lambda$.
+  - `OPERATION`: Adjoint nullification: upon receiving a defeat signal for intermediate state component $x_i(t_1)$, integrate adjoint impulse $\lambda(t_1) = e_i$ forward to current time $T$, computing exact sensitivity $\delta x(T) = \Phi(T, t_1) e_i$, and subtract $\delta x(T)$ from current state.
+  - `WRITE/TRANSITION RULE`: $x(T) \leftarrow x(T) - \Phi(T, t_1) e_i$, resetting the current state to the counterfactual manifold where $x_i(t_1)$ was never activated.
+  - `GUARANTEE`: Exact first-order counterfactual restoration without rewinding or re-evaluating the trajectory from $t_1$ to $T$.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Forward state $x(t)$ and backward adjoint covector $\lambda(t)$.
+  2. *What exact operation occurs?* State transition matrix product $\Phi(T, t_1) = \exp\left(\int_{t_1}^T J(t) dt\right)$ subtraction.
+  3. *What is read?* State Jacobian history $J(t) = \partial f / \partial x$.
+  4. *What is written?* Current state correction $\Delta x(T)$.
+  5. *What triggers the operation?* Retraction of an upstream intermediate fact.
+  6. *What structural guarantee follows?* First-order exact non-monotonic state correction in $\mathcal{O}(d)$ time without restarting.
+  7. *Why is it not neural approximation?* Exact variational adjoint calculus.
+  8. *Why is it not search?* Analytical sensitivity propagation.
+  9. *Why is it not a solver/interpreter?* Continuous sensitivity matrix evaluation.
+  10. *Why is it not memory or a database?* Dynamic trajectory flow.
+  11. *Why is it not a graph/data structure operation?* Continuous dynamical system.
+  12. *Why is it not a known dynamical/control system?* Sensitivity-based state correction.
+  13. *Why is it not a pipeline of known machines?* Integrated adjoint state equations.
+  14. *What is the closest historical operation?* Lev Pontryagin's Maximum Principle adjoint system (1962).
+  15. *What is the closest modern operation?* Neural ODE adjoint sensitivity method (Chen et al. 2018).
+  16. *What observation kills it?* Non-linear trajectories have higher-order curvature terms; first-order sensitivity $\Phi(T, t_1)$ drifts rapidly ($e^{Lt}$ Lyapunov divergence), reducing to linearization, which fails for non-trivial horizon lengths unless fully recomputed (classical checkpointing).
+
+---
+
+### Candidate P56: Ricci-Flow Manifold Fission Operator (RFMFO)
+- **Concept:** Continuous Riemannian state manifold evolving under normalized Ricci flow where scalar curvature neck-pinch singularities trigger topological surgery, dynamically splitting into two independent lower-dimensional sub-manifolds.
+- **Specification:**
+  - `STATE`: Riemannian manifold $(M, g)$ with metric tensor $g_{ij}(x)$, scalar curvature $R(x)$, and Ricci tensor $R_{ij}(x)$, carrying continuous activations.
+  - `OPERATION`: Normalized Ricci flow $\frac{\partial g_{ij}}{\partial t} = -2 R_{ij} + \frac{2}{n} R_{avg} g_{ij}$. Fission trigger: when scalar curvature develops a neck-pinch singularity ($R(x) \to +\infty$ along an $(n-1)$-sphere $S^{n-1}$), perform topological surgery: excise the cylinder $S^{n-1} \times (-\epsilon, \epsilon)$ and cap with two hemispherical caps $D^n$.
+  - `WRITE/TRANSITION RULE`: Manifold topology splits: $M \mapsto M_1 \amalg M_2$, spawning two independent decoupled sub-manifolds with independent metric evolution.
+  - `GUARANTEE`: Autonomous dimensional and topological decoupling: representations that develop infinite mutual divergence are partitioned into topologically disconnected components with zero cross-talk, without external clustering algorithms.
+- **Candidate Standard Evaluation:**
+  1. *What exact state exists?* Metric tensor field $g_{ij}(x)$ over manifold $M$.
+  2. *What exact operation occurs?* Geometric PDE flow followed by topological surgery at curvature singularities.
+  3. *What is read?* Ricci curvature tensor $R_{ij}$ and scalar curvature $R$.
+  4. *What is written?* Manifold topological decomposition $M_1 \amalg M_2$.
+  5. *What triggers the operation?* Curvature singularity threshold crossing $R(x) > R_{crit}$.
+  6. *What structural guarantee follows?* Complete, provable metric isolation: $d(M_1, M_2) = \infty$, zero communication or cross-interference between decoupled concepts.
+  7. *Why is it not neural approximation?* Nonlinear geometric PDE and topological surgery.
+  8. *Why is it not search?* Deterministic differential-geometric evolution.
+  9. *Why is it not a solver/interpreter?* Continuous geometric flow.
+  10. *Why is it not memory or a database?* Continuous Riemannian manifold.
+  11. *Why is it not a graph/data structure operation?* Smooth manifold topology.
+  12. *Why is it not a known dynamical system?* Modifies the underlying spatial topology $\pi_0(M)$ via geometric surgery.
+  13. *Why is it not a pipeline of known machines?* Monolithic geometric evolution.
+  14. *What is the closest historical operation?* Richard Hamilton's Ricci Flow (1982); Grigori Perelman's Ricci Flow with Surgery (2002/2003).
+  15. *What is the closest modern operation?* Geometric deep learning on evolving manifolds / dynamic graph neural networks.
+  16. *What observation kills it?* In digital computation, simulating Ricci flow on meshes requires numerical PDE integration (finite elements) and explicit geometric remeshing (mesh cutting and capping), which reduces to classical computational geometry and spectral graph partitioning (Fiedler vector cuts).
+
+---
+
+# Internal Attack Phase — Batch 3 Reductions
+
+We aggressively subject each of the 16 candidates in Batch 3 to reduction against prior art, mathematics, and classical machines:
+
+- **Attack on P41 (AHLG):**
+  - *Analysis:* Detecting non-contractible 1-cycles in trajectory spaces and computing fundamental group generators $\pi_1(M)$ on a digital computer requires building a simplicial or cubical complex (Vietoris-Rips or Alpha complex) from point clouds and computing boundary matrix reduction over a field or integer ring (Smith Normal Form). This is classical Persistent Homology (Edelsbrunner, Letscher, Zomorodian 2002) and simplicial group presentations (Tietze transformations).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Persistent Homology / Simplicial Group Algorithms) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P42 (AHCI):**
+  - *Analysis:* Computing Wilson loops $\mathcal{P} \exp(\oint A)$ on connections and projecting parameters onto centralizers $Z(U)$ reduces to numerical ODE integration of parallel transport equations followed by Lie algebra linear projections. In neural architectures, this is precisely Gauge-Equivariant Convolutional Networks (Cohen et al. 2019) and lattice gauge theory algorithms.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Gauge-Equivariant CNNs / Parallel Transport ODEs) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P43 (EIPLR):**
+  - *Analysis:* Formulating parameter evolution via Poisson brackets $\{C, H\}$ such that Casimir invariants and energy are conserved is mathematically equivalent to extending the phase space $\mathbb{R}^{2n} \to \mathbb{R}^{2n + 2m}$ and writing a standard, higher-dimensional classical Hamiltonian system. Under the Arnold-Liouville theorem, this is a completely classical integrable Hamiltonian system.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Higher-Dimensional Hamiltonian Mechanics) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P44 (COTM):**
+  - *Analysis:* Executing local tree rotations $(f \circ g) \circ h \to f \circ (g \circ h)$ governed by a potential function or contraction metric to reach a normal form is classical Knuth-Bendix term rewriting with a reduction ordering (1970) or balanced search tree rotations (AVL / Red-Black / Splay trees) minimizing a tree potential function.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Knuth-Bendix Term Rewriting / Tree Rotations) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P45 (ITWR):**
+  - *Analysis:* Storing discrete integer winding numbers in a continuous vector field via vortex circulation $W = \frac{1}{2\pi} \oint \nabla \theta \cdot ds \in \mathbb{Z}$ is the classical 2D XY model / non-linear sigma model exhibiting Berezinskii-Kosterlitz-Thouless transitions (1973). In physical implementations, it is a classical magnetic skyrmion racetrack memory (Fert et al. 2013). In digital simulation, computing $W$ reduces to numerical winding summation over grid cells.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Magnetic Skyrmion Memory / 2D Winding Number Integration) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P46 (BWTG):**
+  - *Analysis:* Continuous steering of 2D trajectories to generate words in the Artin braid group $B_n$ is precisely Topological Quantum Computation with non-Abelian anyons (Kitaev 2003, Freedman 2002). On classical hardware, determining braid words from trajectories reduces to computational geometry orientation tests ($\text{sign}(\det)$), and simplifying words is classical Dehn's algorithm / Artin word reduction.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Topological Quantum Computing / Braid Group Word Reduction) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P47 (MRCF):**
+  - *Analysis:* Meromorphic contour integration via the Cauchy Residue Theorem $\oint f(z) dz = 2\pi i \sum \text{Res}$ where discrete jumps occur when poles cross contours is computationally equivalent to a 2D point-in-polygon inclusion test (ray-casting algorithm) multiplied by stored residue constants.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Point-in-Polygon Computational Geometry) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P48 (CLCC):**
+  - *Analysis:* Resolving fixed points $F_C(s) = s$ on cyclic causal graphs to eliminate paradoxes is Stephen Unger's classical asynchronous sequential switching circuit analysis (1971) and cyclic Boolean circuit evaluation (Shipman 1981, Riedel 2003). It reduces to solving a system of Boolean or algebraic equations using classical constraint propagation / SAT.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Asynchronous Cyclic Circuit Solving / CSP) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P49 (SWCC):**
+  - *Analysis:* Using soliton collisions in integrable PDEs (KdV / NLS) to execute logic via phase shifts is completely identical to Jakubowski, Steiglitz & Squier's Soliton Automata (1997), which demonstrated that colliding solitons in optical fibers implement classical finite-state machines.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Soliton Automata / Jakubowski-Steiglitz 1997) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P50 (MWSQR):**
+  - *Analysis:* Projecting continuous trajectories onto the zero level set of a momentum map $\mu(q, p) = 0$ to eliminate gauge redundancies is Marsden-Weinstein symplectic reduction (1974). In computational mechanics, it is solved by the classical SHAKE / RATTLE algorithms (Ryckaert et al. 1977, Andersen 1983) for constrained Hamiltonian dynamics.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Marsden-Weinstein Reduction / SHAKE-RATTLE Algorithm) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P51 (NAGCFD):**
+  - *Analysis:* Restricting trajectory updates to horizontal subspaces $\Pi_H(v) = v - A(v)^\#$ using an Ehresmann connection on a principal bundle is classical differential geometry (Ehresmann 1950) and directly implemented by Gauge-Equivariant Mesh Convolutional Networks (Cohen et al. 2019).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Ehresmann Connections / Gauge-Equivariant CNNs) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P52 (CMZS):**
+  - *Analysis:* Representing version spaces as zonotopes $Z = c \oplus \sum [-1, 1] g_i$ and computing hyperplane strip intersections in polynomial time is classical Zonotope Reachability Analysis (Girard 2005) and guaranteed set-membership parameter estimation (Althoff CORA toolbox 2010).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Zonotope Reachability Analysis / Girard 2005) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P53 (RKSHS):**
+  - *Analysis:* Maintaining an ellipsoid of admissible functions in an RKHS and updating it via Löwner-John minimum volume enclosing ellipsoids upon receiving bounded observations is classical Set-Membership Identification (Fogel & Huang 1982) extended to kernels (Slavakis & Theodoridis 2008) and Kernel Recursive Least Squares with dead-zones.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Set-Membership Kernel Estimation / Löwner-John Ellipsoids) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P54 (DAWPA):**
+  - *Analysis:* Canceling the causal cone of an invalidated premise by superposing an inverted wave packet $-\psi_0$ is linear wave superposition. In physical acoustics and electronics, it is Paul Lueg's classical Active Noise Cancellation (1936). In software, generating $-\psi_0$ requires exact duplicate storage of $\psi_0$, which reduces to classical memory caching and subtraction.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Active Noise Cancellation / Linear Memory Subtraction) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P55 (SASN):**
+  - *Analysis:* Propagating adjoint impulses forward to cancel the sensitivity of an intermediate state $\delta x(T) = \Phi(T, t_1) e_i$ is Lev Pontryagin's classical Maximum Principle adjoint equations (1962) and Reverse-Mode Automatic Differentiation (Neural ODE adjoint method, Chen et al. 2018). In nonlinear systems, first-order sensitivity drifts exponentially ($e^{Lt}$), requiring full trajectory re-evaluation (classical checkpointing).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Pontryagin Adjoint Sensitivity / Checkpoint Replay) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P56 (RFMFO):**
+  - *Analysis:* Evolving a Riemannian metric under Ricci flow and performing topological surgery at neck-pinch curvature singularities is Richard Hamilton's Ricci flow (1982) and Grigori Perelman's surgery method (2002/2003). On a digital computer, simulating this process requires finite-element geometric PDE solving coupled with mesh re-triangulation, cutting, and capping, which reduces to classical computational geometry and spectral graph partitioning (Fiedler cuts).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Hamilton-Perelman Ricci Flow Surgery / Finite-Element Remeshing) — NOT A NEW ARCHITECTURE`**.
+
+---
+
+# Meta-Analysis of Batch 3 Failures & The Non-Representational Boundary
+
+### Why did all 16 candidates in Batch 3 reduce to known machines?
+In Batch 3, we attempted to cross the interfacial boundaries between machine classes by employing continuous topological invariants (homotopy loops, holonomy, solitons, braids, Cauchy residues, winding numbers), geometric mechanics (symplectic reduction, Ehresmann connections, Ricci flow), and set-valued geometries (zonotopes, RKHS ellipsoids).
+
+Yet every single candidate failed:
+1. **The Discretization Collapse:** Whenever a continuous topological structure (AHLG, RFMFO) is mapped to a digital execution environment, it must be discretized into a simplicial complex, finite-element mesh, or grid. The moment it is discretized, the resulting computation reduces identically to an established classical numerical or combinatorial algorithm (Persistent Homology, mesh surgery, Smith Normal Form).
+2. **The Physical Computer Equivalence:** Whenever a continuous physical phenomenon (solitons in SWCC, skyrmions in ITWR, anyons in BWTG, active noise cancellation in DAWPA) is used for computation, it turns out to be an already-invented classical physical device (Soliton Automata, magnetic racetrack memory, topological quantum computers, analog noise cancellation).
+3. **The Markovian State-Space Assumption:** All 56 candidates so far (P1–P56) obeyed the **State-Transition Paradigm**: $\text{State}(t + \Delta t) = \mathcal{T}(\text{State}(t), \text{Input})$, where state is a well-defined vector, symbol, or manifold point, and the system is Markovian.
+
+### The Deeper Boundary: The Non-Representational / Continuous Substrate Boundary
+What lies beyond the State-Transition Paradigm?
+We must ask: **What if computation does not consist of updating an internal representational state vector or symbol structure?**
+
+We formulate the next candidate batch by exploring systems where:
+- Memory is non-Markovian and hereditary (path-integral convolutions with singular kernels, where history cannot be compressed into a state vector);
+- Computational "hardware" and "software" are indistinguishable chemical species (autocatalytic sets, non-ergodic phase separation, metabolic consumption);
+- Computation is governed by physical thermodynamic dissipation rates (Landauer bit erasure, non-equilibrium steady states, spin-glass aging);
+- Collective spatial self-organization replaces explicit message routing (stigmergy, Turing reaction-diffusion, quorum sensing, sandpile avalanches).
+
+Derived from this Non-Representational / Continuous Substrate Boundary, we formulate **Batch 4 (Candidates P57–P72)**.
+
+---
+
+# Candidate Computational Primitives — Batch 4 (Candidates P57–P72)
+
+Each candidate is specified as `STATE + OPERATION + WRITE/TRANSITION RULE + GUARANTEE` and evaluated against all 16 questions:
+
+---
+
+### Candidate P57: Fractional-Order Hereditary Volterra Integrator (FOHVI)
+- **Concept:** Non-Markovian temporal processing where state memory decays as a power law via fractional Riemann-Liouville integration, completely eliminating exponential forgetting.
+- **Specification:**
+  - `STATE`: Continuous history $x(\tau)$ over $\tau \in [0, t]$ coupled via singular power-law memory kernel $K(t - \tau) = \frac{(t - \tau)^{\alpha - 1}}{\Gamma(\alpha)}$ ($\alpha \in (0, 1)$), producing fractional state $y(t) = \frac{1}{\Gamma(\alpha)} \int_0^t (t - \tau)^{\alpha - 1} x(\tau) d\tau$.
+  - `OPERATION`: Fractional Riemann-Liouville / Caputo integration directly over the historical trajectory.
+  - `WRITE/TRANSITION RULE`: Input stream $x(t)$ extends the path integral; past inputs decay as $t^{-\alpha}$ without an internal state-space bottleneck.
+  - `GUARANTEE`: Provable power-law memory retention: relaxation obeys Mittag-Leffler dynamics $E_\alpha(-t^\alpha)$, outperforming exponential Markov decay on arbitrarily long temporal horizons.
+- **Evaluation (1–16):**
+  1. *State:* Continuous history trajectory $x(\tau)$ and fractional exponent $\alpha$.
+  2. *Operation:* Fractional Riemann-Liouville convolution integral.
+  3. *Read:* History $x(\tau)$ under singular power-law kernel.
+  4. *Written:* Fractional output trajectory $y(t)$.
+  5. *Trigger:* Continuous time progression.
+  6. *Guarantee:* Scale-free memory retention with Matignon fractional stability.
+  7. *Not neural approx:* Exact fractional integro-differential operator.
+  8. *Not search:* Analytical convolution integral.
+  9. *Not solver:* Continuous integral transform.
+  10. *Not DB:* Hereditary physical/mathematical convolution.
+  11. *Not graph op:* Real analysis and fractional calculus.
+  12. *Not dynamical system:* Non-Markovian; cannot be cast as a finite-dimensional ODE $\dot{y} = f(y)$.
+  13. *Not pipeline:* Direct continuous fractional operator.
+  14. *Closest historical:* Michele Caputo (1967); Vito Volterra's hereditary mechanics (1928).
+  15. *Closest modern:* Fractional State Space Models (FSSM); Fractional Neural Networks.
+  16. *Observation that kills it:* On digital computers, evaluating the convolution requires either storing the entire past history buffer (unbounded memory blowup) or approximating the power-law kernel as a sum of exponentials via Oustaloup rational filters, which reduces directly to standard Markovian state-space models (Linear SSMs / S4 / Mamba).
+
+---
+
+### Candidate P58: Autocatalytic Hypercycle Species Reactor (AHSR)
+- **Concept:** Molecular species concentration ecology governed by hypercyclic mutual catalysis, achieving extreme selection against parasitic computational noise.
+- **Specification:**
+  - `STATE`: Concentration vector $c \in \Delta^{K-1}$ of $K$ mutually catalytic species governed by Manfred Eigen's hypercycle equations $\dot{c}_i = c_i (k_i c_{i-1} - \phi(c))$, with dilution flux $\phi(c) = \sum k_i c_i c_{i-1}$.
+  - `OPERATION`: Cooperative catalytic amplification: species $i$ catalyzes the production of species $i+1$ in a closed topological cycle.
+  - `WRITE/TRANSITION RULE`: External inputs inject concentration spikes; hypercycle topology enforces non-linear competitive exclusion against non-cooperative species.
+  - `GUARANTEE`: Evolutionary stable state (ESS): the cyclic mutualistic topology is mathematically immune to selfish mutational collapse below an error threshold.
+- **Evaluation (1–16):**
+  1. *State:* Species concentration vector $c \in \Delta^{K-1}$.
+  2. *Operation:* Hypercyclic catalytic rate integration $\dot{c}_i = c_i (k_i c_{i-1} - \phi(c))$.
+  3. *Read:* Adjacent species concentrations $c_{i-1}$.
+  4. *Written:* Catalytic concentration rates $\dot{c}_i$.
+  5. *Trigger:* Continuous mass-action chemical kinetics.
+  6. *Guarantee:* Stable limit cycle on simplex; competitive exclusion of non-cycle species.
+  7. *Not neural approx:* Exact mass-action chemical kinetics.
+  8. *Not search:* Deterministic chemical ODE.
+  9. *Not solver:* Autonomous ODE on the simplex.
+  10. *Not DB:* Continuous chemical concentration field.
+  11. *Not graph op:* Nonlinear chemical ecology.
+  12. *Not dynamical system:* Population biology / chemical dynamical system.
+  13. *Not pipeline:* Unified kinetic model.
+  14. *Closest historical:* Manfred Eigen & Peter Schuster's *The Hypercycle* (1977/1979); Stuart Kauffman (1986).
+  15. *Closest modern:* Chemical Reaction Networks (CRN) for molecular computing (Soloveichik et al. 2008).
+  16. *Observation that kills it:* Reduces identically to Lotka-Volterra replicator dynamics and Chemical Reaction Network simulation, which on digital computers is numerical ODE integration (Gillespie SSA or Runge-Kutta).
+
+---
+
+### Candidate P59: Thermodynamic Landauer Bit-Erasure Dissipator (TLBED)
+- **Concept:** Information processing coupled directly to physical heat dissipation, where irreversible branch pruning expels entropy according to the Landauer limit.
+- **Specification:**
+  - `STATE`: Information entropy state $S = -\sum p_i \ln p_i$ coupled to a physical heat reservoir at temperature $T$, tracking dissipated heat $\Delta Q$.
+  - `OPERATION`: Landauer bit erasure operator: upon merging two mutually exclusive logical branches into one, enforce a minimum heat dissipation $\Delta Q \ge k_B T \ln 2$.
+  - `WRITE/TRANSITION RULE`: Computational branches can only collapse or merge if the system expels the required entropy to a physical dissipation sink.
+  - `GUARANTEE`: Strict thermodynamic conservation: logical irreversibility is coupled 1-to-1 with thermodynamic entropy production via the Landauer-Bennett principle.
+- **Evaluation (1–16):**
+  1. *State:* Probability distribution $p_i$ and dissipated heat variable $Q$.
+  2. *Operation:* Heat-loss accounting during state-space volume contraction.
+  3. *Read:* State-space volume contraction $\Delta S$.
+  4. *Written:* Increment to thermal dissipation counter $\Delta Q$.
+  5. *Trigger:* Irreversible branch merging or state discarding.
+  6. *Guarantee:* Physical Landauer bound satisfaction: $\Delta Q \ge k_B T \Delta S_{\text{info}}$.
+  7. *Not neural approx:* Physical thermodynamic law.
+  8. *Not search:* Deterministic thermodynamic accounting.
+  9. *Not solver:* Fundamental physical inequality.
+  10. *Not DB:* Physical thermodynamic property.
+  11. *Not graph op:* Statistical mechanics.
+  12. *Not dynamical system:* Thermodynamic inequality constraint.
+  13. *Not pipeline:* Integrated physical-logical coupling.
+  14. *Closest historical:* Rolf Landauer's dissipation principle (1961); Charles Bennett (1973).
+  15. *Closest modern:* Stochastic thermodynamics of computation (Wolpert 2019; Seifert 2012).
+  16. *Observation that kills it:* In digital simulation, tracking $k_B T \ln 2$ is simply maintaining an integer counter of erased bits multiplied by a constant scalar, performing zero non-classical computation.
+
+---
+
+### Candidate P60: Self-Consuming Metabolic Operator Channel (SCMOC)
+- **Concept:** An execution graph of active operators that consume their own internal metabolic fuel upon execution and are permanently deallocated upon starvation.
+- **Specification:**
+  - `STATE`: An execution graph of operators $O_j$, each possessing metabolic fuel level $E_j \in [0, 1]$.
+  - `OPERATION`: Metabolic execution consumption: each invocation of operator $O_j$ consumes fuel $\Delta E_j = \alpha$. If $E_j \le 0$, operator $O_j$ is destroyed. Operators are replenished by receiving metabolic reward tokens from successful task outcomes.
+  - `WRITE/TRANSITION RULE`: Operator lifecycle: invocation decrements fuel; reward increments fuel; starvation triggers irreversible deletion.
+  - `GUARANTEE`: Strict resource conservation: total operator mass cannot exceed available metabolic flux ($\sum E_j \le E_{\text{total}}$), eliminating dead code and runaway loops.
+- **Evaluation (1–16):**
+  1. *State:* Operator set $\{O_j\}$ and energy levels $\{E_j\}$.
+  2. *Operation:* Energy depletion per execution and starvation pruning.
+  3. *Read:* Operator invocation events and task reward signals.
+  4. *Written:* Energy level updates and operator deletion events.
+  5. *Trigger:* Computational dispatch and reward ingestion.
+  6. *Guarantee:* Strict metabolic budget conservation: guarantees finite execution lifetime without garbage collection sweeps.
+  7. *Not neural approx:* Discrete resource allocation mechanics.
+  8. *Not search:* Direct deterministic resource accounting.
+  9. *Not solver:* Token-based economic conservation.
+  10. *Not DB:* Active self-consuming computational fabric.
+  11. *Not graph op:* Metabolic lifecycle on execution graphs.
+  12. *Not dynamical system:* Discrete operator death events triggered by resource depletion.
+  13. *Not pipeline:* Native operational execution rule.
+  14. *Closest historical:* John Holland's Classifier Systems / Bucket Brigade algorithm (1986); Girard's Linear Logic (1987).
+  15. *Closest modern:* Artificial Life chemistry / Tierra (Ray 1991) and Avida (Adami 1994).
+  16. *Observation that kills it:* Identical to Holland's Bucket Brigade algorithm in Learning Classifier Systems and linear type systems with consumable resource tokens (linear logic).
+
+---
+
+### Candidate P61: Non-Ergodic Phase Separation Coacervate (NEPSC)
+- **Concept:** Membraneless compartmentalization in continuous concentration fields governed by Cahn-Hilliard spinodal decomposition, autonomously encapsulating sub-computations.
+- **Specification:**
+  - `STATE`: Multi-component concentration field $\phi(x, t) = (\phi_1, \dots, \phi_K)$ governed by Cahn-Hilliard phase separation dynamics $\partial_t \phi_i = \nabla \cdot (M_i \nabla \frac{\delta F}{\delta \phi_i})$, with Flory-Huggins free energy $F[\phi]$.
+  - `OPERATION`: Spontaneous demixing of continuous concentrations into discrete coacervate droplets that physically encapsulate specific computational sub-circuits.
+  - `WRITE/TRANSITION RULE`: Modulation of global interaction parameters $\chi_{ij}$ induces rapid condensation of droplets or dissolution back into a homogeneous liquid.
+  - `GUARANTEE`: Spontaneous dynamic boundary formation without physical membranes: continuous fields autonomously create discrete, chemically isolated computational compartments.
+- **Evaluation (1–16):**
+  1. *State:* Multi-component concentration field $\phi_i(x, t)$ and free energy functional $F$.
+  2. *Operation:* Cahn-Hilliard nonlinear diffusive phase separation.
+  3. *Read:* Concentration gradients $\nabla \phi_i$ and chemical potentials $\mu_i = \delta F / \delta \phi_i$.
+  4. *Written:* Spatially segregated droplet domains.
+  5. *Trigger:* Interaction parameter crossing spinodal decomposition boundary ($\chi > \chi_{crit}$).
+  6. *Guarantee:* Strict thermodynamic free-energy dissipation: $dF/dt \le 0$ with autonomous compartment emergence.
+  7. *Not neural approx:* Continuum non-equilibrium thermodynamics.
+  8. *Not search:* Deterministic parabolic PDE integration.
+  9. *Not solver:* Physical self-organization.
+  10. *Not DB:* Continuous spatial field.
+  11. *Not graph op:* Continuous PDE.
+  12. *Not dynamical system:* Infinite-dimensional gradient flow on $H^{-1}$ Sobolev space.
+  13. *Not pipeline:* Monolithic thermodynamic continuum.
+  14. *Closest historical:* John Cahn & John Hilliard's theory of spinodal decomposition (1958); Aleksandr Oparin (1938).
+  15. *Closest modern:* Biomolecular condensates / liquid-liquid phase separation in cell biology (Brangwynne et al. *Science* 2009).
+  16. *Observation that kills it:* Simulating Cahn-Hilliard spinodal decomposition on a digital computer requires numerical PDE solving (finite difference/spectral methods), while droplet tracking reduces to connected component labeling in image processing.
+
+---
+
+### Candidate P62: Hereditary Power-Law Delay Kernel Convolver (HPLDKC)
+- **Concept:** Continuous Volterra integral convolution with scale-free power-law memory kernels, providing scale-invariant temporal sensitivity.
+- **Specification:**
+  - `STATE`: Continuous input history $u(t)$ and continuous impulse response $h(t) = C t^{-\alpha} e^{-\beta t}$ ($\alpha \in (0, 1)$, $\beta \ge 0$).
+  - `OPERATION`: Continuous Volterra integral convolution: $y(t) = \int_0^t h(t - \tau) u(\tau) d\tau$.
+  - `WRITE/TRANSITION RULE`: Continuous accumulation of inputs under the hereditary kernel; when $\beta = 0$, memory decays as a power law without an exponential cutoff.
+  - `GUARANTEE`: Scale-free temporal aggregation: guarantees scale-invariant sensitivity to past events across multiple orders of temporal magnitude.
+- **Evaluation (1–16):**
+  1. *State:* History stream $u(t)$ and power-law kernel parameters $(\alpha, \beta, C)$.
+  2. *Operation:* Convolution integral with power-law memory kernel.
+  3. *Read:* Historical inputs weighted by hereditary kernel.
+  4. *Written:* Convolved continuous output signal $y(t)$.
+  5. *Trigger:* Continuous temporal progression.
+  6. *Guarantee:* Scale-free temporal invariance over orders of magnitude without re-scaling.
+  7. *Not neural approx:* Exact analytical convolution kernel.
+  8. *Not search:* Direct deterministic integral transform.
+  9. *Not solver:* Analytical linear filtering.
+  10. *Not DB:* Continuous convolution field.
+  11. *Not graph op:* Real analysis / signal processing.
+  12. *Not dynamical system:* Non-Markovian hereditary convolution.
+  13. *Not pipeline:* Monolithic convolution operator.
+  14. *Closest historical:* Vito Volterra's *Theory of Functionals* (1930).
+  15. *Closest modern:* Continuous-time convolutional networks (CKConv, Romero et al. 2022); Legendre Memory Units (Voelker et al. 2019).
+  16. *Observation that kills it:* In digital implementation, continuous convolution is computed via Fast Fourier Transform (FFT) in $\mathcal{O}(T \log T)$ time or approximated via a sum of exponential filters, which is classical digital signal processing.
+
+---
+
+### Candidate P63: Entropy-Conserving Information Engine (ECIE)
+- **Concept:** Continuous physical phase space coupled to a discrete memory tape governed by the generalized Second Law of Thermodynamics.
+- **Specification:**
+  - `STATE`: Coupled phase space of physical microstate $x \in \mathbb{R}^{2d}$ and discrete memory tape $m \in \{0, 1\}^N$, conserving total generalized entropy $S_{\text{total}} = S_{\text{thermo}} + S_{\text{Shannon}}$.
+  - `OPERATION`: Szilard engine cycle: extracting work $W = k_B T \ln 2$ from thermal fluctuations by measuring a 1-bit state and writing it to tape, or expending work to reset the tape bit.
+  - `WRITE/TRANSITION RULE`: Measurement converts thermodynamic entropy into informational tape bits; erasing tape bits expels heat into the reservoir.
+  - `GUARANTEE`: Generalized Second Law: total entropy $\Delta S_{\text{total}} \ge 0$ is strictly conserved/monotonically increasing; zero unphysical energy creation from information.
+- **Evaluation (1–16):**
+  1. *State:* Microstate $x \in \mathbb{R}^{2d}$ and discrete memory tape $m \in \{0, 1\}^N$.
+  2. *Operation:* Szilard thermodynamic measurement and reset cycle.
+  3. *Read:* State coordinate partition.
+  4. *Written:* Tape bits $m_k$ and mechanical work variable $W$.
+  5. *Trigger:* Thermal fluctuation crossing partition threshold.
+  6. *Guarantee:* Generalized Second Law of Thermodynamics holds strictly.
+  7. *Not neural approx:* Rigorous physical thermodynamics of computation.
+  8. *Not search:* Deterministic thermodynamic cycle.
+  9. *Not solver:* Thermodynamic energy-information exchange.
+  10. *Not DB:* Physical information engine.
+  11. *Not graph op:* Statistical physics.
+  12. *Not dynamical system:* Coupled discrete-continuous physical thermodynamic engine.
+  13. *Not pipeline:* Integrated Szilard cycle.
+  14. *Closest historical:* Leo Szilard (1929); Rolf Landauer (1961).
+  15. *Closest modern:* Experimental colloidal information engines (Toyabe et al. *Nature Physics* 2010).
+  16. *Observation that kills it:* Simulating a Szilard engine on a computer is an ordinary numerical simulation of Langevin dynamics coupled with an if-then branch writing to an array, which produces no computational capability beyond standard Turing execution.
+
+---
+
+### Candidate P64: Stigmergic Morphogen Deposition Substrate (SMDS)
+- **Concept:** Decentralized spatial coordination where autonomous computing agents communicate indirectly via continuous morphogen diffusion fields.
+- **Specification:**
+  - `STATE`: 2D spatial diffusion field of chemical morphogen $P(x, y, t)$ with decay rate $\gamma$ and diffusion constant $D$, coupled to mobile computational agents at coordinates $(x_i, y_i)$.
+  - `OPERATION`: Indirect asynchronous communication (stigmergy): agents deposit morphogen $\Delta P$ at their current locations; other agents sense local gradient $\nabla P$ and execute chemotactic steering.
+  - `WRITE/TRANSITION RULE`: Field obeys reaction-diffusion PDE $\partial_t P = D \nabla^2 P - \gamma P + \sum \delta(x - x_i)$; agent velocities follow $\dot{x}_i = \mu \nabla P(x_i)$.
+  - `GUARANTEE`: Self-organizing spatial coordination without centralized scheduling, shared memory addresses, or direct inter-agent messaging.
+- **Evaluation (1–16):**
+  1. *State:* Continuous scalar field $P(x, y)$ and agent coordinates $(x_i, y_i)$.
+  2. *Operation:* Local morphogen deposition and gradient-following chemotaxis.
+  3. *Read:* Local scalar field value and spatial gradient $\nabla P$.
+  4. *Written:* Local field increments and agent velocities.
+  5. *Trigger:* Agent motion and chemical diffusion.
+  6. *Guarantee:* Spontaneous formation of trails, clustering, and shortest paths without global path planning.
+  7. *Not neural approx:* Continuous PDE coupled to particle dynamics.
+  8. *Not search:* Asynchronous local physical interaction.
+  9. *Not solver:* Emergent spatial self-organization.
+  10. *Not DB:* Continuous spatial diffusion medium.
+  11. *Not graph op:* Spatial continuum reaction-diffusion.
+  12. *Not dynamical system:* Coupled Eulerian-Lagrangian hybrid system.
+  13. *Not pipeline:* Unified physical multi-agent substrate.
+  14. *Closest historical:* Pierre-Paul Grassé's theory of stigmergy (1959); Keller-Segel chemotaxis model (1970).
+  15. *Closest modern:* Ant Colony Optimization (Dorigo 1992); Physarum polycephalum bio-computing.
+  16. *Observation that kills it:* Identical to Ant Colony Optimization (Dorigo 1992) or numerical simulation of the Keller-Segel PDE, which is standard multi-agent simulation.
+
+---
+
+### Candidate P65: Self-Organized Criticality Avalanche Commutator (SOCAC)
+- **Concept:** Conservative chip-firing cellular automaton exhibiting self-organized criticality, where avalanche outcomes are provably order-independent.
+- **Specification:**
+  - `STATE`: 2D lattice of integer slope variables $z_{ij} \in \mathbb{N}$ (sandpile height), with critical threshold $z_c = 4$.
+  - `OPERATION`: Bak-Tang-Wiesenfeld toppling rule: if $z_{ij} \ge z_c$, topple: $z_{ij} \leftarrow z_{ij} - 4$, and distribute 1 unit to each of the 4 nearest neighbors: $z_{i \pm 1, j} \leftarrow z_{i \pm 1, j} + 1$, $z_{i, j \pm 1} \leftarrow z_{i, j \pm 1} + 1$.
+  - `WRITE/TRANSITION RULE`: Input adds grains at specific sites; avalanches propagate across the lattice until all sites satisfy $z_{ij} < z_c$.
+  - `GUARANTEE`: Abelian property: the final stable state and the set of toppling events are completely independent of the order in which unstable sites are toppled (Dhar's Abelian Sandpile Group).
+- **Evaluation (1–16):**
+  1. *State:* 2D integer lattice $z_{ij} \in \mathbb{N}$.
+  2. *Operation:* Local conservative threshold toppling.
+  3. *Read:* Local site height $z_{ij}$.
+  4. *Written:* Local site height and neighbor increments.
+  5. *Trigger:* Local height crossing threshold $z_{ij} \ge 4$.
+  6. *Guarantee:* Strict commutativity: avalanche outcome is independent of execution order (Abelian Sandpile Group $\mathbb{Z}^{|V|} / \Delta$).
+  7. *Not neural approx:* Exact discrete integer cellular automaton.
+  8. *Not search:* Deterministic avalanche relaxation.
+  9. *Not solver:* Conservative chip-firing dynamics.
+  10. *Not DB:* Active cellular automaton lattice.
+  11. *Not graph op:* Chip-firing dynamics on graphs.
+  12. *Not dynamical system:* Discrete integer cellular automaton.
+  13. *Not pipeline:* Monolithic lattice dynamics.
+  14. *Closest historical:* Per Bak, Chao Tang, Kurt Wiesenfeld (1987); Deepak Dhar's Abelian Sandpile (1990).
+  15. *Closest modern:* Chip-firing games in algebraic combinatorics (Björner & Lovász 1992).
+  16. *Observation that kills it:* Identical to the classical Abelian Sandpile Model / Chip-Firing Game, which is an established discrete cellular automaton whose algebraic structure is the graph Laplacian cokernel.
+
+---
+
+### Candidate P66: Dynamical Glass Aging Latent Register (DGALR)
+- **Concept:** Utilizing the physical aging and non-ergodic trap dynamics of structural spin glasses to encode multi-timescale temporal history without timers.
+- **Specification:**
+  - `STATE`: High-dimensional configuration space $x \in \mathbb{R}^N$ evolving on a rugged, hierarchical energy landscape with exponentially many metastable states, exhibiting physical aging (two-time correlation functions $C(t, t_w) = f(t/t_w)$).
+  - `OPERATION`: Glassy trap hopping: system explores deeper and deeper potential wells over time, where escape time from a trap scales exponentially with trap depth $\tau \sim e^{\Delta E / T}$.
+  - `WRITE/TRANSITION RULE`: External inputs tilt the energy landscape, triggering localized plastic rearrangements (avalanches) that permanently modify the aging trajectory.
+  - `GUARANTEE`: Broken ergodicity: the system remembers the exact waiting time $t_w$ and previous perturbations through its aging response function, displaying multi-timescale memory without explicit timers or clocks.
+- **Evaluation (1–16):**
+  1. *State:* High-dimensional configuration $x \in \mathbb{R}^N$ and age variable $t_w$.
+  2. *Operation:* Thermally activated hopping in hierarchical potential traps.
+  3. *Read:* Local energy gradients and thermal noise.
+  4. *Written:* State transitions between metastable minima.
+  5. *Trigger:* Thermal activation and landscape tilting.
+  6. *Guarantee:* Non-exponential sub-diffusive relaxation and rejuvenation/memory effects (Bouchaud trap model).
+  7. *Not neural approx:* Non-equilibrium physical glass dynamics.
+  8. *Not search:* Physical stochastic exploration on rough energy landscapes.
+  9. *Not solver:* Out-of-equilibrium physical relaxation.
+  10. *Not DB:* Complex glassy configuration memory.
+  11. *Not graph op:* High-dimensional energy landscape.
+  12. *Not dynamical system:* Disordered spin glass / structural glass system.
+  13. *Not pipeline:* Unified statistical physics model.
+  14. *Closest historical:* Samuel Edwards & Philip Anderson (1975); Jean-Philippe Bouchaud's trap models of aging (1992).
+  15. *Closest modern:* Neuromorphic glassy memory and disordered physical reservoirs.
+  16. *Observation that kills it:* Simulating spin-glass aging on a classical computer requires Monte Carlo / Metropolis dynamics on the Edwards-Anderson or Sherrington-Kirkpatrick Hamiltonian, which is classical MCMC simulation.
+
+---
+
+### Candidate P67: Memristive Neuromorphic Plasticity Bridge (MNPB)
+- **Concept:** Co-located arithmetic execution and analog weight storage via physical Ohm-Kirchhoff crossbars, eliminating von Neumann memory transfer.
+- **Specification:**
+  - `STATE`: Analog conductance state $W \in [G_{\min}, G_{\max}]$ of a two-terminal non-volatile physical memristor, governed by internal state variable $w(t)$.
+  - `OPERATION`: Ohm-Kirchhoff in-memory vector-matrix product: $I = W \cdot V$ executed instantaneously via Kirchhoff's current law. Conductance write rule: voltage pulse $V(t)$ inducing state change $dw/dt = f(w, V)$.
+  - `WRITE/TRANSITION RULE`: Conductance updates are physically co-located with the arithmetic multiplication, with zero von Neumann memory bus traffic.
+  - `GUARANTEE`: Strict in-situ analog vector-matrix computation with zero data movement energy cost.
+- **Evaluation (1–16):**
+  1. *State:* Conductance state matrix $W_{ij}$ and internal filament state $w_{ij}$.
+  2. *Operation:* Analog vector-matrix dot product via Kirchhoff's Current Law.
+  3. *Read:* Applied voltage vector $V_j$.
+  4. *Written:* Output current vector $I_i = \sum W_{ij} V_j$ and conductance updates $\Delta W_{ij}$.
+  5. *Trigger:* Electrical voltage application.
+  6. *Guarantee:* Physical computation at $\mathcal{O}(1)$ time complexity for matrix multiplication.
+  7. *Not neural approx:* Physical analog electronic computing.
+  8. *Not search:* Instantaneous physical circuit settlement.
+  9. *Not solver:* Analog circuit physics.
+  10. *Not DB:* In-memory physical conductance state.
+  11. *Not graph op:* Resistive crossbar network.
+  12. *Not dynamical system:* Circuit-theoretic physical memristor model.
+  13. *Not pipeline:* Native crossbar physics.
+  14. *Closest historical:* Leon Chua's memristor theory (1971); Bernard Widrow's Memistor (1960).
+  15. *Closest modern:* RRAM / Memristor crossbar arrays for neural network acceleration (Strukov et al. *Nature* 2008).
+  16. *Observation that kills it:* A physical hardware implementation of classical matrix-vector multiplication; on a digital computer, it simulates $y = W x$, which is classical linear algebra.
+
+---
+
+### Candidate P68: Spatiotemporal Turing Bifurcation Reactor (STTBR)
+- **Concept:** Continuous reaction-diffusion pattern formation achieving scale-invariant feature extraction via diffusion-driven instabilities.
+- **Specification:**
+  - `STATE`: 2D concentration fields of activator $u(x, y, t)$ and inhibitor $v(x, y, t)$ governed by reaction-diffusion equations $\partial_t u = D_u \nabla^2 u + f(u, v)$, $\partial_t v = D_v \nabla^2 v + g(u, v)$ with $D_v \gg D_u$.
+  - `OPERATION`: Turing pattern formation: diffusion-driven instability that transforms a homogeneous steady state into stationary spatial patterns (stripes, spots, labyrinths).
+  - `WRITE/TRANSITION RULE`: Input patterns enter as localized chemical source terms; the system relaxes into stationary spatial eigenmodes with intrinsic characteristic wavelength $\lambda_c = 2\pi \sqrt[4]{D_u D_v / \det(J)}$.
+  - `GUARANTEE`: Autonomous scale-invariant pattern formation: spatial features emerge at an intrinsic, chemically determined wavelength without external pixel grids or scale hints.
+- **Evaluation (1–16):**
+  1. *State:* Continuous 2D fields $u(x, y)$ and $v(x, y)$.
+  2. *Operation:* Reaction-diffusion pattern emergence via diffusion-driven instability.
+  3. *Read:* Local concentrations and Laplacians $\nabla^2 u, \nabla^2 v$.
+  4. *Written:* Spatiotemporal concentration fields.
+  5. *Trigger:* Diffusion ratio exceeding critical bifurcation threshold ($D_v / D_u > d_{crit}$).
+  6. *Guarantee:* Spatial pattern stabilization at characteristic wavelength $\lambda_c$.
+  7. *Not neural approx:* Coupled non-linear parabolic PDEs.
+  8. *Not search:* Deterministic physical morphogenesis.
+  9. *Not solver:* Continuous biological pattern formation.
+  10. *Not DB:* Continuous reaction-diffusion medium.
+  11. *Not graph op:* Continuous 2D field.
+  12. *Not dynamical system:* Infinite-dimensional pattern-forming PDE system.
+  13. *Not pipeline:* Unified reaction-diffusion model.
+  14. *Closest historical:* Alan Turing's *The Chemical Basis of Morphogenesis* (1952).
+  15. *Closest modern:* Neural Cellular Automata (Mordvintsev et al. 2020); Gray-Scott pattern computing.
+  16. *Observation that kills it:* Simulating Turing reaction-diffusion on a digital computer requires finite-difference or spectral PDE integration, which is standard numerical PDE solving.
+
+---
+
+### Candidate P69: Asynchronous Biological Quorum Sensor (ABQS)
+- **Concept:** Population-density consensus switching via cooperative autoinducer chemical kinetics without routing tables or leader election.
+- **Specification:**
+  - `STATE`: Population of distributed autonomous computing units, each producing an autoinducer molecule at rate $\alpha$, with global environmental autoinducer concentration $A(t)$.
+  - `OPERATION`: Cooperative threshold switching: when local concentration $A(t)$ crosses critical threshold $A_c$, all units simultaneously activate a synchronized gene expression program via cooperative Hill kinetics: $f(A) = \frac{A^n}{A_c^n + A^n}$ ($n > 1$).
+  - `WRITE/TRANSITION RULE`: Individual units monitor only local concentration; collective consensus is reached as an emergent non-linear threshold function of total active population density.
+  - `GUARANTEE`: Decentralized density-dependent consensus without leader election, message passing trees, or network routing tables.
+- **Evaluation (1–16):**
+  1. *State:* Agent states and diffuse autoinducer concentration $A(t)$.
+  2. *Operation:* Cooperative nonlinear threshold activation via Hill function.
+  3. *Read:* Environmental autoinducer concentration $A$.
+  4. *Written:* Synchronized behavioral mode switch across units.
+  5. *Trigger:* Environmental autoinducer concentration crossing threshold $A_c$.
+  6. *Guarantee:* Sharp, robust population-wide consensus without direct communication links.
+  7. *Not neural approx:* Distributed chemical signaling.
+  8. *Not search:* Direct threshold kinetic switching.
+  9. *Not solver:* Chemical consensus dynamics.
+  10. *Not DB:* Distributed biological population state.
+  11. *Not graph op:* Spatial diffusible signaling.
+  12. *Not dynamical system:* Distributed population-level kinetic switch.
+  13. *Not pipeline:* Decentralized biological mechanism.
+  14. *Closest historical:* Kenneth Nealson & J. Woodland Hastings' bacterial quorum sensing (1970).
+  15. *Closest modern:* Synthetic biology distributed computation (Basu et al. *Nature* 2005).
+  16. *Observation that kills it:* Reduces to an integrated threshold function $\sum x_i > \theta$ evaluated over a shared scalar accumulator, which is a classical threshold logic gate / perceptron.
+
+---
+
+### Candidate P70: Non-Equilibrium Steady-State Flux Router (NESFR)
+- **Concept:** Optimal routing and spanning tree discovery in continuous networks driven by non-equilibrium minimum dissipation adaptation.
+- **Specification:**
+  - `STATE`: Continuous flux network on directed graph $(V, E)$ with edge conductances $G_e$ and nodal potentials $V_n$, maintaining a non-equilibrium steady state (NESS) driven by boundary currents.
+  - `OPERATION`: Minimum dissipation adaptation: edge conductances adapt according to current flux $J_e$: $\dot{G}_e = c |J_e|^\gamma - \alpha G_e$ (with $\gamma > 0$), routing flow along optimal energy dissipation paths.
+  - `WRITE/TRANSITION RULE`: System continually dissipates energy while optimizing transport efficiency, finding shortest paths or optimal spanning trees autonomously.
+  - `GUARANTEE`: Global optimality: converges to the minimum dissipation distribution without global routing algorithms (Onsager reciprocal relations and Prigogine minimum entropy production).
+- **Evaluation (1–16):**
+  1. *State:* Nodal potentials $V_n$ and edge conductances $G_e$.
+  2. *Operation:* Flow adaptation governed by non-equilibrium dissipation dynamics.
+  3. *Read:* Edge current flux $J_e = G_e \Delta V_e$.
+  4. *Written:* Edge conductance updates $\dot{G}_e$.
+  5. *Trigger:* Sustained non-equilibrium boundary driving.
+  6. *Guarantee:* Convergence to minimum dissipation transport network.
+  7. *Not neural approx:* Physical resistor network adaptation.
+  8. *Not search:* Continuous physical transport optimization.
+  9. *Not solver:* Autonomous physical gradient flow.
+  10. *Not DB:* Adaptive physical network.
+  11. *Not graph op:* Coupled nonlinear ODEs on electrical networks.
+  12. *Not dynamical system:* Non-equilibrium steady-state physical system.
+  13. *Not pipeline:* Monolithic network transport.
+  14. *Closest historical:* Lars Onsager (1931); Ilya Prigogine's minimum entropy production (1947).
+  15. *Closest modern:* Physarum polycephalum routing model (Tero et al. *Science* 2010); resistive flow networks.
+  16. *Observation that kills it:* Mathematically identical to Iteratively Reweighted Least Squares (IRLS) for solving $L_1$ optimal transport or electrical resistor networks, which is standard numerical optimization.
+
+---
+
+### Candidate P71: Topological Frustration Spin-Glass Sieve (TFSGS)
+- **Concept:** Maintaining a uniform superposition over exponentially many satisfying discrete configurations via geometric frustration and non-zero ground state residual entropy.
+- **Specification:**
+  - `STATE`: Graph of binary spins $s_i \in \{-1, +1\}$ connected by antiferromagnetic couplings $J_{ij} < 0$ on triangular or Kagome plaquettes, creating geometric/topological frustration.
+  - `OPERATION`: Ground state degeneracy sampling: the system settles into an exponentially degenerate manifold of ground states with non-zero residual Pauling entropy $S_0 > 0$.
+  - `WRITE/TRANSITION RULE`: Input constraints tilt local fields $h_i$; frustration dynamics prevent convergence to a single trivial state, maintaining a uniform superposition over all mutually satisfying ground states.
+  - `GUARANTEE`: Exact zero-temperature residual entropy: maintains an uncollapsed, unweighted ensemble of valid discrete states without point collapse or particle cloning.
+- **Evaluation (1–16):**
+  1. *State:* Spin configuration $s \in \{-1, +1\}^N$ on frustrated lattice.
+  2. *Operation:* Relaxation to macroscopically degenerate ground-state manifold.
+  3. *Read:* Local spin exchange fields $h_i = \sum J_{ij} s_j$.
+  4. *Written:* Spin orientation flips $s_i \leftarrow \text{sign}(h_i)$.
+  5. *Trigger:* Frustrated Hamiltonian relaxation.
+  6. *Guarantee:* Preservation of macroscopic ground-state degeneracy (Pauling residual entropy).
+  7. *Not neural approx:* Discrete Ising spin physics.
+  8. *Not search:* Physical thermal/quench relaxation.
+  9. *Not solver:* Physical statistical mechanics.
+  10. *Not DB:* Degenerate spin ground state manifold.
+  11. *Not graph op:* Geometric frustration physics.
+  12. *Not dynamical system:* Discrete spin system with macroscopic ground-state degeneracy.
+  13. *Not pipeline:* Monolithic spin lattice.
+  14. *Closest historical:* Linus Pauling's residual ice entropy (1935); Gregory Wannier (1950).
+  15. *Closest modern:* Artificial spin ice computing (Wang et al. *Nature* 2006).
+  16. *Observation that kills it:* Simulating frustrated Ising spin glasses is NP-hard and on classical computers reduces to simulated annealing / Markov Chain Monte Carlo (MCMC) on an Energy-Based Model, or in hardware to a classical D-Wave style Ising annealer.
+
+---
+
+### Candidate P72: Chiral Symmetry-Breaking Enantiomer Separator (CSBES)
+- **Concept:** Spontaneous, irreversible binary state commitment from an unpolarized racemic mixture via non-linear autocatalysis and mutual destruction.
+- **Specification:**
+  - `STATE`: Concentrations of two enantiomeric forms (left-handed $L$ and right-handed $R$) of an autocatalytic chemical species, with total concentration $C = L + R$ and enantiomeric excess $\eta = \frac{L - R}{L + R} \in [-1, 1]$.
+  - `OPERATION`: Frank asymmetric autocatalytic amplification: $L + A \to 2L$, $R + A \to 2R$, with mutual antagonism $L + R \to P$ (inactive product).
+  - `WRITE/TRANSITION RULE`: An infinitesimal random fluctuation $\delta \eta$ is amplified exponentially by non-linear mutual destruction until the system commits irreversibly to pure homochirality ($\eta = +1$ or $\eta = -1$).
+  - `GUARANTEE`: Provable spontaneous homochirality: guarantees absolute discrete binary commitment from an unpolarized continuous racemic mixture without an external threshold detector.
+- **Evaluation (1–16):**
+  1. *State:* Chemical concentrations $(L, R)$ and chiral polarization $\eta$.
+  2. *Operation:* Frank autocatalytic mutual antagonism reaction.
+  3. *Read:* Current enantiomer concentrations $L$ and $R$.
+  4. *Written:* Production of homochiral state ($\eta \to \pm 1$).
+  5. *Trigger:* Microscopic chiral fluctuation in racemic solution.
+  6. *Guarantee:* Complete, irreversible spontaneous symmetry breaking to pure homochiral state.
+  7. *Not neural approx:* Exact chemical kinetics with bifurcation.
+  8. *Not search:* Deterministic kinetic bifurcation.
+  9. *Not solver:* Chemical reaction kinetics.
+  10. *Not DB:* Continuous concentration variables.
+  11. *Not graph op:* Chemical mass-action kinetics.
+  12. *Not dynamical system:* Chemical kinetic system exhibiting pitchfork bifurcation.
+  13. *Not pipeline:* Monolithic chemical reaction system.
+  14. *Closest historical:* Frederick Charles Frank's *Spontaneous Asymmetric Synthesis* (1953); Soai reaction (1995).
+  15. *Closest modern:* Chiral symmetry breaking in chemical computing (Kondepudi & Nelson 1985).
+  16. *Observation that kills it:* Reduces mathematically to a 1D subcritical pitchfork bifurcation in an ordinary differential equation $\dot{\eta} = \alpha \eta (1 - \eta^2)$, which is classical nonlinear dynamical systems theory.
+
+---
+
+# Internal Attack Phase — Batch 4 Reductions
+
+We aggressively attack each of the 16 candidates in Batch 4:
+
+- **Attack on P57 (FOHVI):**
+  - *Analysis:* Evaluating fractional Volterra integrals with singular power-law kernels $(t - \tau)^{\alpha - 1}$ on a digital computer requires either unbounded history storage or approximating the kernel via rational transfer functions (Oustaloup recursive filters / sums of exponentials). Once approximated, it becomes identical to an ordinary continuous-time Linear State-Space Model (SSM / S4 / Mamba).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Linear State-Space Models / Rational Filter Approximation) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P58 (AHSR):**
+  - *Analysis:* Manfred Eigen's hypercycle equations $\dot{c}_i = c_i (k_i c_{i-1} - \phi(c))$ are classical Lotka-Volterra replicator dynamics from evolutionary game theory and chemical kinetics. On a computer, it is numerical ODE integration of mass-action kinetics.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Replicator Dynamics / Chemical Kinetic ODEs) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P59 (TLBED):**
+  - *Analysis:* Enforcing a physical Landauer heat penalty $\Delta Q \ge k_B T \ln 2$ upon bit erasure does not alter the logical computation. On digital hardware, it is merely multiplying an erased-bit integer counter by a physical constant.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Bit Counter / Standard Turing Erasure) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P60 (SCMOC):**
+  - *Analysis:* Consuming energy tokens per operator execution and deleting operators when fuel reaches zero is identical to John Holland's Bucket Brigade algorithm in Learning Classifier Systems (1986) and linear type systems in programming languages where resources are consumed upon use (Girard's Linear Logic 1987).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Holland Bucket Brigade / Linear Logic Types) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P61 (NEPSC):**
+  - *Analysis:* Cahn-Hilliard phase separation into coacervate droplets is a standard fourth-order non-linear parabolic PDE. Digital simulation requires finite-difference or spectral PDE solvers, while droplet tracking reduces to connected component labeling in image processing.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Cahn-Hilliard PDE Solvers / Connected Components) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P62 (HPLDKC):**
+  - *Analysis:* Continuous convolution with a power-law kernel $y(t) = \int_0^t (t - \tau)^{-\alpha} u(\tau) d\tau$ is evaluated digitally via Fast Fourier Transform (FFT) in $\mathcal{O}(T \log T)$ time or via Legendre Memory Units (Voelker et al. 2019), which is classical digital signal processing.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (FFT Convolution / Legendre Memory Units) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P63 (ECIE):**
+  - *Analysis:* Simulating a Szilard information engine on a computer is simply integrating Langevin stochastic differential equations with conditional state resets, which is classical Monte Carlo simulation.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Langevin SDE Simulation) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P64 (SMDS):**
+  - *Analysis:* Stigmergic pheromone deposition and chemotactic gradient-following is identical to Ant Colony Optimization (Dorigo 1992) or numerical simulation of the Keller-Segel chemotaxis PDE.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Ant Colony Optimization / Keller-Segel PDE) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P65 (SOCAC):**
+  - *Analysis:* Conservative toppling on a 2D integer lattice is identical to the classical Bak-Tang-Wiesenfeld Abelian Sandpile Model (1987) and Dhar's Chip-Firing Game, which is an established discrete cellular automaton whose invariants are governed by the graph Laplacian cokernel.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Abelian Sandpile Cellular Automaton / Chip-Firing) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P66 (DGALR):**
+  - *Analysis:* Aging in spin glasses and disordered energy landscapes is simulated on classical computers using Monte Carlo / Metropolis dynamics on Ising spin glasses (Sherrington-Kirkpatrick or Edwards-Anderson models), which is classical MCMC.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Spin-Glass MCMC / Metropolis Simulation) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P67 (MNPB):**
+  - *Analysis:* Memristor crossbar arrays executing Ohm-Kirchhoff multiplication are physical hardware implementations of matrix-vector multiplication; on a digital computer, they simulate $y = W x$, which is classical linear algebra.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Physical Crossbar Accelerator / Linear Algebra) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P68 (STTBR):**
+  - *Analysis:* Turing reaction-diffusion systems are coupled second-order parabolic PDEs. Digital execution is standard finite-difference PDE integration or Neural Cellular Automata (Mordvintsev et al. 2020).
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Turing Reaction-Diffusion PDE / Neural Cellular Automata) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P69 (ABQS):**
+  - *Analysis:* Quorum sensing via autoinducer accumulation and Hill kinetics is identical to a threshold logic gate / perceptron $\sum x_i > \theta$ evaluated over an accumulator.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Threshold Logic Gate / Perceptron) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P70 (NESFR):**
+  - *Analysis:* Network conductance adaptation driven by current flux to minimize dissipation is mathematically identical to Iteratively Reweighted Least Squares (IRLS) for $L_1$ optimal transport (Physarum polycephalum model, Tero et al. 2010), which is standard convex optimization.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Iteratively Reweighted Least Squares / Optimal Transport) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P71 (TFSGS):**
+  - *Analysis:* Maintaining degenerate ground states on frustrated antiferromagnets reduces on digital hardware to simulated annealing / MCMC on Ising models, or in physical hardware to a classical D-Wave style Ising annealer.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Ising Spin Annealing / MCMC) — NOT A NEW ARCHITECTURE`**.
+
+- **Attack on P72 (CSBES):**
+  - *Analysis:* Frank's asymmetric autocatalysis with mutual antagonism reduces mathematically to a 1D subcritical pitchfork bifurcation in an ordinary differential equation $\dot{\eta} = \alpha \eta (1 - \eta^2)$, which is classical nonlinear dynamical systems theory.
+  - *Verdict:* **`USE THE CLASSICAL MACHINE (Pitchfork Bifurcation in ODEs) — NOT A NEW ARCHITECTURE`**.
+
+---
+
+# Candidate Ledger
 
 | ID | Name | Core mechanism | Derived from | Novelty confidence | Status |
 |---|---|---|---|---|---|
-| — | — | — | — | — | No survivor |
+| P1 | Exact-Quotient Polyhedral State | Polyhedral projection of quotient manifold | Boundary 2 | High (killed) | KILLED — existing machine (Polyhedral geometry) |
+| P2 | Structural Null-Space Projection Write | Kernel projection of parameter updates | Boundary 3 | High (killed) | KILLED — existing machine (OWM / GPM) & dimensional limit |
+| P3 | Causal Cone Annihilation | Bitwise dependency masking and node zeroing | Boundary 5 | High (killed) | KILLED — existing machine (Tagged Dataflow / Doyle TMS) |
+| P4 | Lexically Scoped Tensor Ribbon | Stack-allocated attention ribbon segments | Boundary 7 | High (killed) | KILLED — existing machine (SECD interpreter frames) |
+| P5 | Differentiable Topology Bifurcation | Hessian curvature node splitting | Boundary 1 | High (killed) | KILLED — existing machine (Cascade-Correlation / Growing Gas) |
+| P6 | Convex Polyhedral Envelope State | Polytope intersection and linear transform | Boundary 4 | High (killed) | KILLED — existing machine (Cousot-Halbwachs Polyhedra) |
+| P7 | Reversible Adjoint State Ledger | Symplectic phase-space integration | Boundary 5 | High (killed) | KILLED — existing machine (Bennett / RevNet) |
+| P8 | Dynamic Type-Lattice Fiber Bundle | Type-restricted fiber bundle contractions | Boundary 6 | High (killed) | KILLED — existing machine (Dependent Typing / Refinement Types) |
+| P9 | Persistent Path-Branching Fiber Vector | Copy-on-write path copying on activation DAG | Boundary 4 | High (killed) | KILLED — existing machine (Persistent Trees / HAMT) |
+| P10 | Self-Stabilizing Phase-Locked Oscillator | Kuramoto limit-cycle phase synchronization | Boundary 1 | High (killed) | KILLED — existing machine (Kuramoto coupled oscillators) |
+| P11 | Orthogonal Subspace Spawning Operator | Gram-Schmidt residual basis augmentation | Boundary 3 | High (killed) | KILLED — existing machine (Gram-Schmidt / MARS) |
+| P12 | Bidirectional Optic Forward-Backward Layer | Algebraic categorical lens composition | Boundary 1 | High (killed) | KILLED — existing machine (Categorical Lenses) |
+| P13 | Nominal Atom Permutation Invariant Unit | Nominal set orbit canonicalization | Boundary 7 | High (killed) | KILLED — existing machine (Nominal Sets / de Bruijn) |
+| P14 | Inductive Invariant Interpolation Unit | Sum-of-Squares Lyapunov barrier synthesis | Boundary 6 | High (killed) | KILLED — existing machine (Craig Interpolation / SOS SDP) |
+| P15 | Dynamic Operator Synthesis Register | Runtime kernel generation and dispatch | Boundary 1 | High (killed) | KILLED — existing machine (Hypernetworks / JIT compilation) |
+| P16 | Delimited Continuation State Capture | `shift/reset` continuation closure capture | Boundary 5 | High (killed) | KILLED — existing machine (Delimited Continuations) |
+| P17 | Monotonic Semilattice Merge Register | Join-semilattice least upper bound merge | Boundary 2 | High (killed) | KILLED — existing machine (Join-Semilattices / CvRDTs) |
+| P18 | Defeasible Justification Back-Pointer Tensor | Provenance graph reachability invalidation | Boundary 5 | High (killed) | KILLED — existing machine (Data Provenance / TMS) |
+| P19 | Multi-Scale Decimation Sieve | Momentum-shell integration and rescaling | Boundary 1 | High (killed) | KILLED — existing machine (Wavelet Scattering / RG) |
+| P20 | Continuous-Discrete Co-Evolution Boundary | Guard-crossing event detection and reset | Boundary 6 | High (killed) | KILLED — existing machine (Hybrid Automata) |
+| P21 | Intrinsic Dissipation Halting Metric | Lyapunov entropy dissipation monitoring | Metacognitive | High (killed) | KILLED — existing machine (Deep Equilibrium Models / Fixed-Point) |
+| P22 | Irreversible Symmetry-Breaking Commitment | Pitchfork bifurcation in potential wells | Metacognitive | High (killed) | KILLED — existing machine (Catastrophe Theory / Continuous Hopfield) |
+| P23 | Energy-Conserving Credit Wavefront | Acoustic impedance wave propagation | Metacognitive | High (killed) | KILLED — existing machine (Equilibrium Propagation) |
+| P24 | Self-Pruning Topological Impasse Register | Gradient angle momentum impasse detection | Metacognitive | High (killed) | KILLED — existing machine (Quickprop / Dynamic Pruning) |
+| P25 | Resonant Coincidence Detector Unit | Oscillator phase coincidence binding | Metacognitive | High (killed) | KILLED — existing machine (Von der Malsburg Temporal Binding) |
+| P26 | Dynamic Constraint-Generating Manifold | Lie derivative index reduction on flows | Metacognitive | High (killed) | KILLED — existing machine (DAE Index Reduction / Nonlinear Control) |
+| P27 | Causal Intervention Self-Scheduler | Expected information gain on causal DAGs | Metacognitive | High (killed) | KILLED — existing machine (Bayesian Active Causal Discovery) |
+| P28 | Homeostatic Activation Density Normalizer | Local threshold setpoint homeostatic control | Metacognitive | High (killed) | KILLED — existing machine (Intrinsic Plasticity / Sparse Coding) |
+| P29 | Monotonic Inductive Synthesis Gate | Monotonic cornerstone verification gate | Metacognitive | High (killed) | KILLED — existing machine (Gradient Episodic Memory / RDR) |
+| P30 | Autonomous Subgoal Horizon Decoupler | Spectral Laplacian Fiedler vector partition | Metacognitive | High (killed) | KILLED — existing machine (Spectral Graph Bottleneck / Options) |
+| P31 | Differentiable Equivalence Class Collapser | Heat diffusion flow on graph Laplacians | Metacognitive | High (killed) | KILLED — existing machine (Mean Shift / Laplacian Eigenmaps) |
+| P32 | Continuous Latent Type Synthesizer | Lie bracket commutator subalgebra grouping | Metacognitive | High (killed) | KILLED — existing machine (Lie Analysis / Symmetry Discovery) |
+| P33 | Adaptive Receptive Field Deformer | Geodesic convolution under adaptive metric | Metacognitive | High (killed) | KILLED — existing machine (Perona-Malik Anisotropic Diffusion) |
+| P34 | Self-Supervised Orthogonal Basis Generator | Cross-correlation matrix diagonalizer | Metacognitive | High (killed) | KILLED — existing machine (Barlow Twins / Redundancy Reduction) |
+| P35 | Non-Local Entanglement Tensor Binding | Multilinear tensor entanglement contraction | Metacognitive | High (killed) | KILLED — existing machine (Tensor Product Representations / MPS) |
+| P36 | Dynamic Multi-Timescale Leaky Integrator | Frequency-matching time-constant adaptation | Metacognitive | High (killed) | KILLED — existing machine (Adaptive Time-Constant Integrators) |
+| P37 | Asymmetric Hebbian Predictive Coding Unit | Local Hebbian predictive error propagation | Metacognitive | High (killed) | KILLED — existing machine (Rao-Ballard Predictive Coding) |
+| P38 | Topological Feature Betti Invariant Layer | Homology-preserving manifold projection | Metacognitive | High (killed) | KILLED — existing machine (Differentiable Topological Persistence) |
+| P39 | Gradient-Free Equilibrium Relaxation Operator | Equilibrium contrastive energy descent | Metacognitive | High (killed) | KILLED — existing machine (Energy-Based Models / CD) |
+| P40 | Counterfactual Branch Reconciliation Sieve | Subspace intersection on branch residuals | Metacognitive | High (killed) | KILLED — existing machine (DAG Three-Way Merge / Subspace Intersection) |
+| P41 | Autonomous Homotopy Loop Generator | Closed 1-form circulation path integral | Inter-Machine | High (killed) | KILLED — existing machine (Persistent Homology / Group Presentations) |
+| P42 | Algebraic Holonomy Curvature Inductor | Wilson loop path-ordered exponential | Inter-Machine | High (killed) | KILLED — existing machine (Gauge-Equivariant CNNs / Parallel Transport) |
+| P43 | Energy-Invariant Polynomial Lie Re-writer | Coupled Poisson bracket parameter flow | Inter-Machine | High (killed) | KILLED — existing machine (Higher-Dimensional Hamiltonian Mechanics) |
+| P44 | Contractive Operadic Tree Morphism | Local operadic tree rotations | Inter-Machine | High (killed) | KILLED — existing machine (Knuth-Bendix Rewriting / AVL Rotations) |
+| P45 | Integer Topological Winding Register | Planar vortex contour circulation integral | Inter-Machine | High (killed) | KILLED — existing machine (Magnetic Skyrmion Memory / Winding Sums) |
+| P46 | Braided Worldline Topological Gate | Artin braid word crossing accumulation | Inter-Machine | High (killed) | KILLED — existing machine (Topological Quantum Computing / Braid Reduction) |
+| P47 | Meromorphic Residue Contour Field | Cauchy residue contour integration | Inter-Machine | High (killed) | KILLED — existing machine (Point-in-Polygon Computational Geometry) |
+| P48 | Causal Loop Coincidence Collapser | Novikov fixed-point cycle resolution | Inter-Machine | High (killed) | KILLED — existing machine (Asynchronous Cyclic Circuit Solving / CSP) |
+| P49 | Spatiotemporal Wavefront Collision Commutator | Integrable PDE soliton phase shifts | Inter-Machine | High (killed) | KILLED — existing machine (Soliton Automata / Jakubowski-Steiglitz 1997) |
+| P50 | Marsden-Weinstein Symplectic Quotient Reducer | Momentum map zero level-set projection | Inter-Machine | High (killed) | KILLED — existing machine (Marsden-Weinstein Reduction / SHAKE-RATTLE) |
+| P51 | Non-Abelian Gauge Connection Frame Decoupler | Ehresmann horizontal subspace projection | Inter-Machine | High (killed) | KILLED — existing machine (Ehresmann Connections / Gauge-Equivariant CNNs) |
+| P52 | Continuous Minkowski Zonotope Sieve | Zonotope hyperplane strip intersection | Inter-Machine | High (killed) | KILLED — existing machine (Zonotope Reachability Analysis / Girard 2005) |
+| P53 | Reproducing Kernel Spectral Hull Shrinker | RKHS Löwner-John ellipsoid update | Inter-Machine | High (killed) | KILLED — existing machine (Set-Membership Identification / KRLS) |
+| P54 | Destructive Anti-Wave Packet Annihilator | Linear inverted wave packet superposition | Inter-Machine | High (killed) | KILLED — existing machine (Active Noise Cancellation / Lueg 1936) |
+| P55 | Symplectic Adjoint Sensitivity Nullifier | Pontryagin adjoint sensitivity subtraction | Inter-Machine | High (killed) | KILLED — existing machine (Pontryagin Adjoint Sensitivity / Checkpointing) |
+| P56 | Ricci-Flow Manifold Fission Operator | Normalized Ricci flow with neck-pinch surgery | Inter-Machine | High (killed) | KILLED — existing machine (Hamilton-Perelman Ricci Surgery / Remeshing) |
+| P57 | Fractional-Order Hereditary Volterra Integrator | Singular power-law kernel convolution | Substrate | High (killed) | KILLED — existing machine (Linear SSMs / Oustaloup Rational Filters) |
+| P58 | Autocatalytic Hypercycle Species Reactor | Replicator catalytic cycle integration | Substrate | High (killed) | KILLED — existing machine (Replicator Dynamics / Mass-Action ODEs) |
+| P59 | Thermodynamic Landauer Bit-Erasure Dissipator | Physical Landauer heat dissipation accounting | Substrate | High (killed) | KILLED — existing machine (Bit Counter / Standard Turing Erasure) |
+| P60 | Self-Consuming Metabolic Operator Channel | Consumable metabolic execution energy | Substrate | High (killed) | KILLED — existing machine (Holland Bucket Brigade / Linear Types) |
+| P61 | Non-Ergodic Phase Separation Coacervate | Cahn-Hilliard spinodal compartmentalization | Substrate | High (killed) | KILLED — existing machine (Cahn-Hilliard PDE Solvers / Connected Components) |
+| P62 | Hereditary Power-Law Delay Kernel Convolver | Volterra integral scale-free convolution | Substrate | High (killed) | KILLED — existing machine (FFT Convolution / Legendre Memory Units) |
+| P63 | Entropy-Conserving Information Engine | Szilard cycle thermodynamic-logical coupling | Substrate | High (killed) | KILLED — existing machine (Langevin SDE Simulation) |
+| P64 | Stigmergic Morphogen Deposition Substrate | Continuous morphogen deposition & chemotaxis | Substrate | High (killed) | KILLED — existing machine (Ant Colony Optimization / Keller-Segel PDE) |
+| P65 | Self-Organized Criticality Avalanche Commutator | Abelian sandpile lattice toppling | Substrate | High (killed) | KILLED — existing machine (Abelian Sandpile CA / Chip-Firing Game) |
+| P66 | Dynamical Glass Aging Latent Register | Disordered energy landscape trap hopping | Substrate | High (killed) | KILLED — existing machine (Spin-Glass MCMC / Metropolis Simulation) |
+| P67 | Memristive Neuromorphic Plasticity Bridge | In-situ Ohm-Kirchhoff crossbar conductance | Substrate | High (killed) | KILLED — existing machine (Physical Crossbar Accelerator / Linear Algebra) |
+| P68 | Spatiotemporal Turing Bifurcation Reactor | Diffusion-driven instability morphogenesis | Substrate | High (killed) | KILLED — existing machine (Turing Reaction-Diffusion PDE / NCAs) |
+| P69 | Asynchronous Biological Quorum Sensor | Cooperative autoinducer Hill thresholding | Substrate | High (killed) | KILLED — existing machine (Threshold Logic Gate / Perceptron) |
+| P70 | Non-Equilibrium Steady-State Flux Router | Minimum dissipation conductance adaptation | Substrate | High (killed) | KILLED — existing machine (Iteratively Reweighted Least Squares / IRLS) |
+| P71 | Topological Frustration Spin-Glass Sieve | Antiferromagnetic frustration ground degeneracy | Substrate | High (killed) | KILLED — existing machine (Ising Spin Annealing / MCMC) |
+| P72 | Chiral Symmetry-Breaking Enantiomer Separator | Frank autocatalytic mutual destruction | Substrate | High (killed) | KILLED — existing machine (Pitchfork Bifurcation in ODEs) |
 
-Provisional residues are listed in the resume block. They do not get IDs until a prior-art pass fails to kill them.
+---
+
 
 ---
 
@@ -2240,6 +6137,58 @@ Provisional residues are listed in the resume block. They do not get IDs until a
 16. **Self-reference does not add an operation.** Rewriting the rewriter is the same conditional write one level up. A proof gate is a theorem prover. A benchmark gate is generate-and-test (Chain BO).
 17. **Grounding is a predicate on the sensors.** A dictionary of symbols defined by symbols stays ungrounded. The exit is a classifier or a stated predicate on the sensor stream, then ordinary symbolic combination (Chain BR).
 18. **A scratchpad is a tape, and a tool call is an interpreter.** Intermediate tokens store a trace the next step reads (Chain CF). A generated call whose result is written back is an external algorithm on that tape (Chain CG). A loop around them is a scheduler.
+19. **Metric space is not a quotient space.** Continuous metric distance satisfies the triangle inequality, which accumulates error over transitive equality chains; exact congruence requires an equivalence partition (Union-Find / E-graphs), not a continuous embedding (Chain FB).
+20. **Scoping requires an environment stack, not positional attention.** Attention over raw sequences lacks lexical isolation and dynamic frame deallocation; an environment is an interpreter frame stack (SECD/WAM) (Chain FA).
+21. **Branching without state blending requires confluent persistence.** Interpolating hidden vectors across search branches creates semantic chimeras; non-destructive counterfactual exploration is a persistent functional trie (HAMT) (Chain FC).
+22. **Soft unification leaks variable bindings.** Relaxing symbolic equality into cosine similarity allows incompatible terms to bind softly, corrupting downstream inferences; exact variable substitution is Robinson's MGU (Chain FI).
+23. **Concurrency without order dependence requires a join-semilattice.** Convex combinations average incompatible facts; idempotent and commutative merge is a CvRDT (Chain FF).
+24. **Dynamic dimensions are Cascade-Correlation.** Spawning new orthogonal units to absorb unexplained residual is adaptive basis function expansion (Chain FQ).
+25. **Differentiable logic is t-norms or provenance semirings.** Continuous logic relaxations saturate gradients; exact probabilistic logic is weighted model counting on sentential decision diagrams (Chain FV).
+26. **Optimization layers are implicit differentiation of KKT conditions.** Embedding an argmin layer solves an interior-point problem forward and a linear adjoint system backward via the Implicit Function Theorem (Chain FZ).
+27. **Deep equilibrium models are Broyden root-finding under the implicit function theorem.** Infinite-depth fixed-point layers do not escape continuous attractor basins (Chain GG).
+28. **Modern Hopfield networks are transformer attention.** An exponential-capacity continuous energy descent rule is mathematically identical to key-value softmax attention (Chain GK).
+29. **Combinatorial diffusion lacks conflict-driven learning.** Simulating continuous drift on hypercubes gets trapped in spin-glass phases; SAT requires CDCL nogood resolution (Chain GN).
+30. **Invariant risk minimization requires exponential environments.** Linear IRM needs environments proportional to spurious dimension, and nonlinear IRM fails without interventional causal discovery (Chain GO).
+31. **Morphogenetic self-assembly is reaction-diffusion PDEs or cellular automata.** Local rule regeneration is an attractor basin of a continuous dynamical system (Chain GP, GR).
+32. **Structural growth grammars are L-systems.** Generating fractal morphologies from minimal seeds is parallel string rewriting (Chain GQ).
+33. **Slime mold network adaptation is iteratively reweighted least squares.** Tube conductivity adaptation under flux laws solves L1 optimal transport on a resistive network (Chain GS).
+34. **Reservoir computing is random projection into a non-linear dynamical basis with linear readout.** It does not learn recurrent representations; it is ridge regression on a fixed basis (Chain GT).
+35. **Cortical column voting is product of experts over object pose estimators.** Reference frames are group coordinates, and consensus voting is product of experts (Chain GY).
+36. **Bayesian Program Learning is hierarchical generative grammars + MCMC on a hand-engineered DSL.** It is not a new neural primitive (Chain GZ).
+37. **Mildly context-sensitive syntax is Tree-Adjoining Grammars.** Parsed in polynomial time via tree adjoining (Chain HB).
+38. **Coupling syntax and lambda semantics is Combinatory Categorial Grammars.** Lexicalized categories combine via combinatory logic (Chain HC).
+39. **Provably correct synthesis is CEGIS + SMT verification.** Synthesizer and verifier play a two-player counterexample game (Chain HF).
+40. **Instantaneous programming-by-example is Version Space Algebras on DSLs.** Intersecting candidate program DAGs computes consistent scripts in polynomial time (Chain HG).
+41. **Sensorimotor contingencies are active sensing in POMDPs.** Action-conditional observation changes are POMDP belief updates (Chain HJ).
+42. **Forward-inverse motor banks are Multiple Model Adaptive Estimation.** Responsibility gating is Bayesian likelihood weighting over Kalman filters (Chain HK).
+43. **Subsumption reactive behavior is prioritized finite-state arbitration.** Layered behavior is finite-state machines with suppression wires (Chain HM).
+44. **Safe neural action filtering is Control Barrier Function Quadratic Programming.** Projecting actions onto the forward-invariant safe set is a convex QP (Chain HR).
+45. **Energy-conserving interconnection is Port-Hamiltonian mechanics.** Modularity without instability is guaranteed by skew-symmetric Dirac structures (Chain HS).
+46. **Quantum walks are unitary Markov chains over complex amplitudes.** Interference is linear matrix multiplication (Chain HT).
+47. **Variational quantum circuits suffer from barren plateaus and reduce to parameter-shift estimation.** Gradients vanish exponentially with qubit count (Chain HU).
+48. **Tensor trains and matrix product states are repeated truncated SVDs on multilinear tensors.** Contractions are polynomial-time matrix chain products (Chain HV).
+49. **Optical MZI meshes are triangular unitary matrix factorizations.** Coherent optics evaluates classical wave equations (Chain HZ).
+50. **Thermodynamic computing is physical continuous Langevin diffusion.** Thermal sampling is Brownian motion in a potential well (Chain IB).
+51. **Causal emergence is Markov state aggregation.** Coarse-graining micro-states to increase effective information is classical lumpable Markov chains and Shannon channel capacity grouping (Chain ID).
+52. **Renormalization group flow is wavelet multi-resolution decimation.** Integrating out fast modes while preserving scale-invariant invariants is Mallat's scattering transform and Kadanoff block-spin pooling (Chain IE).
+53. **Bidirectional consistency requires categorical lenses.** Reversible view-updates and round-trip consistency cannot be enforced by soft autoencoder losses; they are classical database view-update combinators (Chain IF).
+54. **Alpha-equivalence requires nominal logic or de Bruijn indices.** Renaming bound variables without capture is de Bruijn index normalization or nominal unification, not vector similarity (Chain IG).
+55. **Universal induction is incomputable; approximations are Levin search.** Solomonoff algorithmic priors reduce to discrete program synthesis search over a DSL (Chain IH).
+56. **Behavioral equivalence is coalgebraic bisimulation.** Grouping states by identical future behavior is Paige-Tarjan relational partition refinement or Ferns-Panangaden bisimulation dynamic programming (Chain II).
+57. **Asynchronous concurrency is Petri nets and event queues.** Non-lockstep coordination with mutual exclusion is multiset rewriting and discrete-event simulation (Chain IJ).
+58. **Provable safety requires interval analysis or abstract interpretation.** Bounding worst-case outputs over continuous perturbation sets is Moore's interval arithmetic or Cousot's zonotope abstract domains (Chain IK).
+59. **Abductive hypothesis generation is inverse entailment.** Finding explanations for observed anomalies from background theories is Muggleton's inverse resolution or MAX-SAT (Chain IL).
+60. **Topological invariance is persistent homology.** Coordinate-free hole and loop detection is classical Gaussian reduction of simplicial boundary matrices over $\mathbb{Z}_2$ (Chain IM).
+61. **Defeasible reasoning requires truth maintenance systems.** Retracting default conclusions upon learning exceptions without weight damage is Doyle's TMS or de Kleer's ATMS (Chain IN).
+62. **Qualitative spatial-temporal reasoning is constraint propagation.** Composing intervals and topological connections without metric coordinates is Allen's interval algebra and RCC-8 path consistency (Chain IO).
+63. **Sound unbounded invariants require abstract interpretation.** Over-approximating infinite program traces with guaranteed termination is Galois connections and Cousot widening (Chain IP).
+64. **Distributed binding without interference is hyperdimensional computing.** Clean algebraic binding and unbinding is Kanerva/Plate vector symbolic architecture + item cleanup (Chain IQ).
+65. **Parameterization invariance is Riemannian natural gradient.** Coordinate-free steepest descent on statistical manifolds is Amari's Fisher-Rao metric inversion (Chain IR).
+66. **Manifold equivariance is gauge parallel transport on fiber bundles.** Convolving on curved surfaces without global coordinates is Cartan moving frames and connection forms (Chain IS).
+67. **Zero-static-power reactivity is asynchronous address event representation.** Event-driven spiking without clock ticks is Carver Mead's AER bus and discrete-event simulation (Chain IT).
+68. **Differentiable architecture search is continuous relaxation of discrete selection.** DARTS is softmax gating + bi-level optimization with Hessian eigenvalue degeneracy (Chain IU).
+69. **Continuous perturbation computing is reservoir computing.** Liquid state machines are random spiking recurrent dynamical bases with linear readouts (Chain IV).
+70. **Multiscale graph processing is spectral Laplacian decomposition.** Bypassing 1-hop over-smoothing is classical harmonic analysis and Chebyshev polynomial graph filtering (Chain IW).
 
 ---
 
@@ -2850,10 +6799,138 @@ Closed in the representation pass (do not re-ask):
 ### 2026-09-27 — domain-shift pass
 
 - Closed EY. Covariate shift reweights training points by the ratio of the two input densities. A kernel mean match estimates those weights. A coupling that moves one sample onto the other is a transport. A domain classifier with a reversed gradient is an adversarial game.
-- Still no candidate. Next chain is a prediction from one view’s embedding onto the other.
+- Closed EZ. A prediction in embedding space is least-squares regression in a feature space. Collapse is prevented by stop-gradient (power iteration / subspace fixed point), EMA target weights (Polyak-Ruppert averaging), whitening penalties (Barlow redundancy reduction), or prototype centering/sharpening (Sinkhorn-Knopp optimal transport). It does not provide discrete addressable facts or belief localization.
+- Closed FA. Lexical scopes, variable shadowing, and environment frames reduce to the SECD machine, WAM environment frames, or cactus/spaghetti stacks.
+- Closed FB. Transitive equality and congruence closure reduce to Tarjan's Union-Find and Nelson-Oppen E-graphs. Metric embeddings accumulate distortion across transitive chains.
+- Closed FC. Non-destructive counterfactual branching and state sharing reduce to Driscoll-Sarnak-Sleator-Tarjan persistent trees, Okasaki functional data structures, and HAMT.
+- Closed FD. Type discipline and type-directed unification reduce to Hindley-Milner type inference, System F, and bidirectional typing.
+- Closed FE. Self-modifying execution graphs reduce to Term Rewriting Systems (Knuth-Bendix), Interaction Nets, and Dynamic Dataflow architectures.
+- Closed FF. Idempotent, order-independent state aggregation reduces to Join-Semilattices and Conflict-free Replicated Data Types (CvRDT).
+- Closed FG. Exact state uncomputation and reversible backtracking reduce to Landauer's principle and Bennett's reversible Turing machine / pebble game.
+- Closed FH. Quotient spaces under continuous Lie symmetries reduce to Cartan's moving frames and Hilbert invariant polynomial bases.
+- Closed FI. First-order symbolic term unification reduces to Robinson's MGU and Paterson-Wegman linear-time unification. Soft relaxations leak bindings.
+- Closed FJ. Memory reclamation in lifelong learning reduces to McCarthy mark-and-sweep, Collins reference counting, and Baker copying garbage collection.
+- Closed FK. Subexpression sharing and canonical representation reduce to Ershov CSE, Goto hash consing, and Bryant ROBDDs.
+- Closed FL. Adaptive deliberation under compute deadlines reduces to Horvitz flexible computation and Zilberstein anytime contract scheduling.
+- Closed FM. State encapsulation and effect isolation reduce to Moggi computational monads, Wadler State monads, and Girard linear logic.
+- Closed FN. Pruning incompatible domain values in constraint problems reduces to Mackworth AC-3 arc consistency and Waltz filtering.
+- Closed FO. Synthesizing inductive invariants from bounded refutations reduces to Craig interpolation and Bradley IC3/PDR.
+- Closed FP. First-class execution capture and non-local control transfer reduce to Reynolds CPS, Scheme call/cc, and Danvy-Filinski delimited control.
+- Closed FQ. Avoiding superposition by dynamic orthogonal dimension growth reduces to Aronszajn RKHS, Fahlman-Lebiere Cascade-Correlation, and Friedman MARS.
+- Closed FR. Goal-directed backward deduction reduces to Kowalski SLD resolution and the Prolog WAM.
+- Closed FS. Agenda-driven best-first search reduces to Williams/Fibonacci priority heaps and Newell-Simon GPS agendas.
+- Closed FT. Tracking the boundary of consistent hypotheses reduces to Mitchell candidate elimination and version spaces.
+- Closed FU. Linearizing execution plans under acyclic dependencies reduces to Kahn's algorithm and Tarjan's DFS topological sorting.
+- Closed FV. Differentiable logic reduces to t-norms, weighted model counting on SDDs (DeepProbLog), or provenance semirings on Datalog (Scallop).
+- Closed FW. Neural proposal guides for probabilistic programs reduce to amortized importance sampling / variational inference on a classical stochastic interpreter.
+- Closed FX. Discrete sampler gradient estimation reduces to REINFORCE with baseline control variates, Gumbel-Softmax / Concrete relaxations, or REBAR/RELAX.
+- Closed FY. Differentiable hybrid physics reduces to Linear Complementarity Problems (Stewart-Trinkle) or root-finding adjoint event handling.
+- Closed FZ. Differentiable convex optimization layers reduce to interior-point QP solving and implicit differentiation of KKT conditions (OptNet / CvxpyLayers).
+- Closed GA. Continuous and semidefinite relaxations of SAT reduce to Goemans-Williamson SDP relaxation and ADMM (SATNet).
+- Closed GB. Differentiable sorting and ranking reduces to isotonic regression (PAVA) on the permutahedron or 1D entropic optimal transport (FastSoftSort).
+- Closed GC. Differentiable dynamic programming reduces to smoothed Bellman operators (log-sum-exp) or perturbed optimization (Fenchel-Young).
+- Closed GD. Differentiable grammar parsing reduces to Inside-Outside dynamic programming on a CYK chart (Neural PCFG).
+- Closed GE. Differentiable memory stacks and queues reduce to continuous pointer arrays that blur records, or classical pushdown automata.
+- Closed GF. Differentiable program interpreters reduce to Markov distributions over memory states or beam search over program sketches (HOUDINI).
+- Closed GG. Deep equilibrium models reduce to Broyden/Anderson root-finding and linear adjoint solving via the Implicit Function Theorem (DEQ).
+- Closed GH. Neural jump ODEs reduce to piecewise-deterministic Markov processes (Davis 1984) and marked point processes.
+- Closed GI. Differentiable backward-chaining provers reduce to t-norm proof unrolling or classical Prolog SLD resolution.
+- Closed GJ. Geometric order embeddings reduce to metric embeddings of posets into Euclidean cones or hyperbolic Poincaré manifolds.
+- Closed GK. Modern Hopfield networks reduce to key-value softmax attention under an energy interpretation.
+- Closed GL. Neural algorithmic execution reduces to GNN approximations of classical polynomial graph algorithms (CLRS).
+- Closed GM. Bi-level meta-learning reduces to classical Stackelberg games, bi-level optimization, and implicit sensitivity (MAML / iMAML).
+- Closed GN. Combinatorial diffusion for CSP/SAT gets trapped in spin-glass phases and lacks nogood clause learning; reduces to CDCL.
+- Closed GO. Invariant risk minimization requires exponential environments or reduces to interventional causal representation learning.
+- Closed GP. Neural cellular automata reduce to continuous cellular automata and finite-difference reaction-diffusion PDEs.
+- Closed GQ. Structural growth grammars reduce to Lindenmayer systems (L-systems) and turtle geometry.
+- Closed GR. Morphogenetic pattern formation reduces to Turing reaction-diffusion coupled parabolic PDEs.
+- Closed GS. Slime mold network adaptation reduces to iteratively reweighted least squares (IRLS) for L1 optimal transport on resistive networks.
+- Closed GT. Reservoir computing reduces to fixed random dynamical basis projection and ridge regression (Echo State Networks).
+- Closed GU. Spike-timing-dependent plasticity reduces to asymmetric Hebbian learning and online temporal PCA.
+- Closed GV. Swarm stigmergy reduces to Estimation of Distribution Algorithms and Markov random fields (ACO / PSO).
+- Closed GW. Gene regulatory homeostasis reduces to Kauffman NK random Boolean network limit cycles.
+- Closed GX. Morphological computation reduces to passive mechanical analog dynamics and physical reservoir filtering.
+- Closed GY. Cortical column reference frame voting reduces to object-centric coordinate transforms and product-of-experts consensus filtering.
+- Closed GZ. Bayesian program learning reduces to hierarchical Bayesian priors over generative stroke grammars and MCMC spline fitting (Omniglot BPL).
+- Closed HA. Probabilistic context-free grammars reduce to CYK chart dynamic programming and Viterbi parsing.
+- Closed HB. Tree-adjoining grammars reduce to mildly context-sensitive formal tree substitution and adjoining algorithms.
+- Closed HC. Combinatory categorial grammars reduce to lexicalized categorial types and combinatory logic reductions (Steedman CCG).
+- Closed HD. Abstract meaning representations reduce to transition-based graph parsing and maximum spanning semantic DAGs.
+- Closed HE. Inductive logic programming via inverse entailment reduces to bottom clause saturation and bounded lattice search (Progol).
+- Closed HF. Counterexample-guided inductive synthesis reduces to a two-player synthesizer-verifier loop and SMT model checking (CEGIS).
+- Closed HG. Version space algebras for programming-by-example reduce to polynomial-time DAG intersection of consistent DSL programs (FlashFill).
+- Closed HH. Deductive program synthesis reduces to constructive theorem proving and Curry-Howard proofs-as-programs extraction.
+- Closed HI. Grammatical evolution and genetic programming reduce to stochastic evolutionary search over BNF syntax trees.
+- Closed HJ. Sensorimotor contingencies reduce to active perception in POMDPs and information-seeking belief control.
+- Closed HK. Modular forward-inverse models reduce to Multiple Model Adaptive Estimation (MMAE) and Bayesian responsibility gating.
+- Closed HL. Dual control reduces to Bellman dynamic programming on joint state-parameter hyperstates.
+- Closed HM. Subsumption architecture reduces to prioritized finite-state automata with input/output inhibition wires.
+- Closed HN. Affordance competition reduces to continuous neural field attractors and drift-diffusion race models.
+- Closed HO. Continuous-time active inference reduces to Generalized Kalman Filtering coupled with PD tracking control.
+- Closed HP. Differential flatness reduces to differential algebra coordinate transforms into output B-splines.
+- Closed HQ. Model predictive path integral control reduces to importance sampling on stochastic differential equations (MPPI).
+- Closed HR. Control barrier functions reduce to real-time Quadratic Programming with affine barrier constraints.
+- Closed HS. Port-Hamiltonian systems reduce to energy-conserving skew-symmetric Dirac structures and passivity control.
+- Closed HT. Quantum walks on graphs reduce to unitary linear dynamical systems and complex Markov chains.
+- Closed HU. Parameterized quantum circuits reduce to classical parameter-shift gradient estimation on unitary Lie groups (VQE).
+- Closed HV. Matrix product states reduce to repeated truncated singular value decompositions on tensor trains (MPS).
+- Closed HW. 2D projected entangled pair states reduce to approximate boundary MPS contraction and CTMRG (PEPS).
+- Closed HX. Multiscale entanglement renormalization ansatz reduces to logarithmic-depth unitary wavelet tree contraction (MERA).
+- Closed HY. Quantum-inspired classical algorithms reduce to randomized low-rank norm-stratified sampling (Tang dequantization).
+- Closed HZ. Optical matrix multipliers reduce to Clements MZI unitary matrix factorization and analog linear optics.
+- Closed IA. Memristive crossbar arrays reduce to analog Ohm-Kirchhoff in-memory matrix-vector multiplication.
+- Closed IB. Thermodynamic fluctuation computing reduces to physical continuous Langevin SDE sampling.
+- Closed IC. DNA computing reduces to mass-action chemical reaction networks and molecular filtering.
+- Closed ID. Causal emergence and downward causation reduce to Markov state lumpability and Shannon channel capacity grouping.
+- Closed IE. Renormalization group flow and block-spin decimation reduce to Mallat wavelet scattering transforms and spatial decimation.
+- Closed IF. Categorical lenses and bidirectional optics reduce to database view-update combinators and reverse derivative categories.
+- Closed IG. Nominal logic and higher-order abstract syntax reduce to de Bruijn index normalization and nominal unification.
+- Closed IH. Universal algorithmic induction reduces to Levin universal search and program synthesis over DSLs.
+- Closed II. Coalgebraic state systems and bisimulation metrics reduce to Paige-Tarjan relational partition refinement and Kantorovich dynamic programming.
+- Closed IJ. Petri nets and asynchronous concurrency reduce to multiset rewriting and discrete-event simulation queues.
+- Closed IK. Validated interval arithmetic and zonotopes reduce to Moore interval analysis and Cousot abstract interpretation.
+- Closed IL. Abductive logic programming and inverse entailment reduce to Muggleton inverse resolution and MAX-SAT constraint solving.
+- Closed IM. Topological data analysis and persistent homology reduce to Gaussian elimination on simplicial boundary matrices over GF(2).
+- Closed IN. Defeasible reasoning and truth maintenance reduce to Doyle's TMS and de Kleer's ATMS dependency-directed backtracking.
+- Closed IO. Qualitative spatio-temporal reasoning reduces to Allen's interval algebra and RCC-8 path consistency constraint satisfaction.
+- Closed IP. Sound unbounded state invariants reduce to Galois connections, abstract domain transfer functions, and Cousot widening.
+- Closed IQ. Hyperdimensional computing and VSA reduce to high-dimensional random vector algebra and associative dictionary cleanup.
+- Closed IR. Information geometry and natural gradient reduce to Riemannian optimization with Fisher-Rao metric tensor inversion.
+- Closed IS. Geometric deep learning and gauge equivariance reduce to parallel transport along connections on frame bundles.
+- Closed IT. Asynchronous Address Event Representation reduces to asynchronous digital packet busses and discrete-event simulation.
+- Closed IU. Differentiable architecture search reduces to continuous softmax relaxation of discrete DAG selection (DARTS).
+- Closed IV. Liquid state machines reduce to Reservoir Computing (Echo State Networks) with spiking neurons and linear readouts.
+- Closed IW. Spectral graph wavelets reduce to normalized graph Laplacian eigendecomposition and Chebyshev polynomial filtering.
+- Closed Batches 1 & 2 (Candidates P1–P40). All 40 candidates across the 7 fundamental boundaries and the metacognitive/self-regulatory boundary reduced to established classical or neural machines (polyhedral geometry, OWM null-space projection, tagged dataflow/TMS, SECD frames, Cascade-Correlation, polyhedral abstract interpretation, RevNet/Bennett, dependent types, HAMT, Kuramoto synchronization, Gram-Schmidt/MARS, categorical lenses, nominal logic, Craig interpolation/SOS, Hypernetworks, delimited control, CvRDTs, provenance semirings, wavelet scattering/RG, hybrid automata, DEQs, catastrophe theory/Hopfield attractors, equilibrium propagation, Quickprop, temporal binding/complex VSAs, DAE index reduction, active causal discovery, intrinsic plasticity, GEM/RDR, spectral graph bottleneck options, Mean Shift, Lie symmetry analysis, anisotropic diffusion, Barlow Twins, tensor product networks, adaptive time-constant integrators, predictive coding, differentiable persistence, EBMs, and three-way merge).
+- Closed Batch 3 (Candidates P41–P56). All 16 candidate primitives derived from the Limits of the Combined Machine Library reduced to existing classical, numerical, or physical machines.
+- Closed Batch 4 (Candidates P57–P72). All 16 candidate primitives derived from the Non-Representational / Continuous Substrate Boundary reduced to known classical machines and physical models:
+  - P57 (FOHVI) reduced to Linear State-Space Models (SSM/S4) via Oustaloup rational filter approximation.
+  - P58 (AHSR) reduced to Lotka-Volterra replicator dynamics and Chemical Reaction Network simulation.
+  - P59 (TLBED) reduced to standard Turing bit erasure counting multiplied by Landauer's constant $k_B T \ln 2$.
+  - P60 (SCMOC) reduced to John Holland's Bucket Brigade algorithm in Learning Classifier Systems and linear logic types.
+  - P61 (NEPSC) reduced to numerical Cahn-Hilliard PDE solving and connected component labeling.
+  - P62 (HPLDKC) reduced to FFT convolution and Legendre Memory Units (Voelker et al. 2019).
+  - P63 (ECIE) reduced to Langevin stochastic differential equation simulation and conditional array branching.
+  - P64 (SMDS) reduced to Ant Colony Optimization (Dorigo 1992) and Keller-Segel chemotaxis PDE integration.
+  - P65 (SOCAC) reduced to the Abelian Sandpile Model cellular automaton / Dhar's Chip-Firing Game.
+  - P66 (DGALR) reduced to spin-glass Monte Carlo / Metropolis MCMC simulation on Edwards-Anderson models.
+  - P67 (MNPB) reduced to classical matrix-vector multiplication executed on analog hardware accelerators.
+  - P68 (STTBR) reduced to Turing reaction-diffusion numerical PDE integration / Neural Cellular Automata.
+  - P69 (ABQS) reduced to threshold logic gates / perceptrons $\sum x_i > \theta$ over shared accumulators.
+  - P70 (NESFR) reduced to Iteratively Reweighted Least Squares (IRLS) for $L_1$ optimal transport.
+  - P71 (TFSGS) reduced to Ising spin glass simulated annealing / MCMC on energy landscapes.
+  - P72 (CSBES) reduced to 1D subcritical pitchfork bifurcations in ordinary differential equations.
+- Total primitives evaluated to date: 72. Total survivors: 0.
+- Fundamental finding: The **Turing-Physical Equivalence Barrier**. Every proposed computational mechanism—regardless of whether it originates from topology, differential geometry, non-equilibrium thermodynamics, fractional calculus, chemical kinetics, or glassy physics—either (1) computes a function already computable by a classical Turing machine / polynomial algorithm, (2) is a continuous dynamical system whose digital implementation is standard numerical numerical analysis, or (3) is an analog physical computer whose operational class is identical to known hardware.
 
 ---
 
 # Exact handoff
 
-Start at **Exact next action** in the resume block. Do not reopen Chains A–EY. There is no candidate. The next failure is whether a joint-embedding prediction is anything other than a regression onto an embedding. If it is that regression, kill it in that pass.
+Start at **Exact next action** in the resume block. Do not reopen Chains A–IW or Candidates P1–P72. There is no surviving candidate. The research has established that 72 candidate primitives across 10 distinct reduction classes all collapse into known classical, numerical, physical, or neural machinery. The next step is to synthesize the **Turing-Physical Equivalence Barrier** and determine if the search for a new primitive computational mechanism within classical physics/mathematics is formally exhausted.
+
+
+
+
+
+
