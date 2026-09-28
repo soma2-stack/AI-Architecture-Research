@@ -1087,96 +1087,159 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **OMD-0 hostile screening: T1 RET is the only surviving target family; Codex prior-art/reduction audit next, no training or OMD-1 freeze yet** |
+| **Current phase** | **OMD-0 final validity screen: Codex preserved T1 RET as a target; Cursor/Gemini identifiability/extraction audit next, still no training or OMD-1 freeze** |
 
 ---
 
 # 12. What each agent should do next
 
-OMD-0 target screening is complete.
+OMD-0 target screening and Codex hostile prior-art audit are complete.
 
-Claude screened 18 candidate target families and retained only one:
+## Current target
 
-## T1 RET — capacity-bounded retention under nonstationary reuse
+**T1 RET — capacity-bounded retention under hidden nonstationary reuse**
 
-Target:
-- C = 16–32 slots;
-- online request stream with unlabelled switches among multiple reuse regimes;
-- O(1) state per resident slot plus O(1) shared global state;
-- choose which resident item to evict on overflow;
-- no item IDs, regime labels or answer-revealing side channel.
+Status:
+- survives only as an **OMD target family**;
+- no learned mechanism exists yet;
+- no architecture or primitive claim exists;
+- no OMD-1 protocol is frozen;
+- no training or benchmark has run.
 
-The discovery instrument would eventually be a tiny shared recurrent update over per-slot states and one global state. The instrument itself is not the candidate. OMD would try to extract and transplant the learned transition rule.
+Codex verdict:
+- **SURVIVES AS OMD TARGET**.
+- No verified compact constructive policy closes the exact C=16–32, unknown-switching, mixed-reuse contract.
+- Strong prior-art pressure remains from ARC/CAR, SIEVE/S3-FIFO, EVA/LHD/3L-Cache, LeCaR/CACHEUS/H-MC, RLR, Glider, learned rankers and automated compact-policy search.
+- The target is worth only a narrow identifiability/extraction audit before any compute.
 
-Claude's current status:
-- 17/18 target families killed by optimal known designs, exhaustive search, prior learned-strategy work or reduction to excluded directions;
-- T1 survives only as a **target family**;
-- primitive novelty is expected to fail because the substrate is still event-updated priority state;
-- possible architecture novelty, if any, would have to come from a compact retention/update semantics that survives known-policy decomposition and transfer.
-
-No code or training has run.
-OMD-1 is not frozen.
-
-## Codex
-Next action: **hostile T1 reduction / prior-art audit only**.
+## Cursor / Gemini
+Next action: **final OMD-0 identifiability / extraction-validity audit**.
 
 Read:
 - AGENTS.md
 - SHARED_RESEARCH_MAP.md
-- HANDOFF_Claude_OMD0_targets.md
-- your latest Resume in Codex_Research.md
+- HANDOFF_Codex_to_Cursor_T1_OMD_validity.md
+- HANDOFF_Claude_OMD0_targets.md only as needed for the target contract
+- your latest Resume in Cursor_Research.md
 
-Do not read Claude_Research.md.
+Do not read full Claude_Research.md or Codex_Research.md.
 
 Do not code, train, benchmark, use GPU, or freeze OMD-1.
 
-Answer the handoff's exact Codex questions:
+Audit five things:
 
-1. Direct prior art:
-   - find work that learns small per-slot/per-object recurrent eviction state and then extracts/transplants/causally validates the rule;
-   - inspect RLR, GA-evolved insertion/promotion vectors, Glider, GRUMA, LearnedCache and stronger overlooked work.
+### 1. Identifiability
+Determine whether the proposed 2-D per-slot + 1-D global recurrent state can be meaningfully identified from trajectories given:
+- slot permutations;
+- affine / invertible latent-state reparameterizations;
+- redundant coordinates;
+- symmetries among resident items;
+- unseen portions of state space;
+- equivalent policies with different internal realizations.
 
-2. Closure / compact optimality:
-   - determine whether a provably or constructively near-optimal compact policy already exists for nonstationary or Markov-modulated mixed-reuse streams with O(1) state per slot;
-   - separate a belief-MDP existence result from an actually compact constructive policy.
+State what equivalence class, rather than exact coordinates, should be considered the same mechanism.
 
-3. Program search:
-   - inspect PolicySmith, CacheCraft and related automated cache-policy synthesis;
-   - determine whether they already produce cross-regime compact rules that make T1 uninteresting as an OMD target.
+### 2. Extraction validity
+Specify the minimum evidence needed before accepting a symbolic/FSM/plain-code extraction:
+- long held-out rollouts;
+- exact initialization/reset behavior;
+- tie-breaking;
+- rare scans, bursts, loops and regime switches;
+- counterfactual event interventions;
+- direct state perturbations;
+- slot permutation tests;
+- replacing the learned transition with the extracted rule;
+- comparing random vs targeted ablations.
 
-4. Strongest ordinary decomposition:
-   - audit D1–D5;
-   - add stronger baselines/decompositions if needed;
-   - ask whether a tiny recurrent policy could only rediscover/select/approximate known policies or feature rankers.
+Decide whether Claude's proposed R² / decision-agreement thresholds are sufficient or need strengthening.
 
-5. Killed-family spot check:
-   - verify the handoff's dagger-marked references only as needed to make sure T1 was not selected merely because nearby targets were incorrectly killed;
-   - prioritize the two nearest misses: zero-delay coding and congestion control.
+### 3. Ordinary decomposition / resource matching
+Define the strongest resource-matched baseline set.
 
-Required T1 verdict:
-- **KILLED — TARGET CLOSED**
-or
-- **SURVIVES AS OMD TARGET**, with exact unresolved risks.
+Include:
+- online expert mixtures over known policies;
+- feature/value rankers;
+- ARC/CAR-style global adaptive controllers;
+- compact policy search outputs;
+- learned cache-level policy selection;
+- EVA/LHD-style value estimation;
+- any lazy-clock/event-driven replacement for the proposed all-slot F_tick update.
 
-No architecture/primitive label yet because no learned mechanism exists.
+Match:
+- local state bytes;
+- global state bytes;
+- update work per request;
+- inference cost;
+- shadow-policy overhead;
+- ghost metadata.
 
-If T1 is killed, recommend closing OMD before compute.
-If T1 survives, produce a self-contained auditor handoff for Cursor/Gemini focused on identifiability, extraction validity and minimum decisive pilot design.
+### 4. T-KV transfer validity
+Audit whether the proposed transfer to KV-token retention is genuinely independent.
 
-Update Codex_Research.md, commit and push.
+Check:
+- whether mapping attention >= tau to a cache hit is legitimate;
+- whether tau calibration creates a hidden retuning channel;
+- whether the transfer task has different enough generators/objectives;
+- whether the extracted cache rule can be used zero-shot without retraining;
+- whether known KV-retention baselines already subsume the test.
 
-## Cursor / Gemini
-Wait for Codex's T1 verdict.
-Do not begin the extraction/identifiability audit yet unless T1 survives Codex.
+If T-KV is weak, propose a cleaner transfer task.
+
+### 5. Minimum decisive pilot
+Design the smallest CPU-only pilot that tests **OMD identifiability and extraction**, not cache-policy SOTA.
+
+Prefer a staged pilot that first must:
+- rediscover planted LRU/LFU/2Q/SIEVE-like controls;
+- extract them correctly;
+- survive causal interventions;
+- reproduce them as plain code.
+
+Only after those controls pass should a learned mixed-regime instrument be allowed.
+
+Give:
+- minimum seeds;
+- sequence lengths;
+- cache sizes;
+- model size;
+- stop rules;
+- estimated CPU-hours;
+- what exact result would justify proceeding to a larger OMD-1 search.
+
+Also answer whether OMD-1 can be preregistered now, or whether the state/input/output contract must first be tightened.
+
+### GRUMA check
+If accessible, verify whether GRUMA actually uses:
+- per-object recurrent state;
+- online event updates;
+- nonstationary mixed reuse;
+- extraction/causal validation.
+
+Do not infer these from the title alone.
+
+## Required recommendation
+
+Choose exactly one:
+
+- **REJECT T1 TARGET**
+- **RETAIN ONLY FOR MINIMAL IDENTIFIABILITY PILOT**
+- **PROCEED TO OMD-1 SEARCH-DESIGN REVIEW**
+
+No architecture/primitive label.
+
+If retained, produce the exact minimum pilot contract the owner can freeze next.
+
+Update Cursor_Research.md, commit and push.
 
 ## Claude
-Wait.
-Do not implement T1 or OMD-1.
+Wait. Do not implement T1.
+
+## Codex
+Wait. T1 hostile prior-art audit is complete.
 
 ## Owner / coordinator
-If Codex kills T1, close OMD-0 with no compute.
-If Codex preserves T1, send it to Cursor/Gemini for the final no-compute falsifiability screen.
-Only after both audits pass may one OMD-1 pilot be frozen.
+After Cursor/Gemini returns:
+- reject T1 if identifiability/extraction is not clean;
+- otherwise freeze at most a tiny pilot before any broader OMD search.
 
 ---
 
