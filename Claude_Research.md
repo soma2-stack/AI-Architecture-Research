@@ -8,7 +8,34 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 8
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 9
+
+- **Governing files:** `AGENTS.md` (highest authority; never edit; primitive / architecture / pipeline levels) → `SHARED_RESEARCH_MAP.md` → this notebook. The branch was fast-forwarded to `origin/main` (`479dd08`; only the other lanes' notebooks had changed). `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
+- **Current search lens:** **Interface-Blocked Signal / Native Coupling (Lens 14, Part AC)**. Look for architectures whose important property exists because signals cross components internally in a way ordinary interfaces cannot preserve.
+- **Current stage (session 9):** lens **complete**. 13 candidates NC01–NC13, one per signal family in the brief, each with native vs strongest decomposition and the "property lost" blank. **0 survive.**
+  - 11 killed by direct architecture-level prior art.
+  - NC05 killed as pipeline-only (a widened interface restores it).
+  - NC11 killed because its blank could only be filled by scheduling (immediacy).
+- **Strongest surviving candidate(s):** **none**; no conceptual candidates either.
+  - Q06 (stable-matching router) stays **parked**: the only routing signal found (NC03, counterfactual expert credit) is partial feedback, solved by Default MoE, and unrelated to blocking pairs.
+- **Key results (AC.4):**
+  - (1) **Interface Transparency proposition** (derivation): a native coupling can have a non-preserved property only through joint state (T3), lazy access to a huge signal (T1), sub-call granularity (T2), or a constant-factor / latency claim. All three classes are occupied: AD / implicit differentiation / lazy explanation; attention / recurrence / CDCL / propagators / TTT; DEQ / EBM / predictive coding / BP / IIT.
+  - (2) Every signal content named in the brief already has a native short path.
+  - (3) The one genuinely interface-blocked signal with a real property, NC07 (interventional alignment), is IIT (2022).
+  - (4) Of the AB.1 positive controls, **only CDCL is an inter-module coupling**. Attention, residual, backprop and diffusion are *intra-model parameterization* innovations whose property is learning dynamics, which only matched experiments can establish.
+- **Killed / closed this session:** NC01–NC13 (AC.2, with reasons of death).
+- **Unresolved prior-art questions:**
+  - (a) Codex answer to `HANDOFF_Claude_to_Codex_filter_calibration.md`.
+  - (b) Is any AB.1 positive control better described as an inter-module coupling with still-open content? This is a falsifier of AC.4.
+  - (c) 2025–26 items were verified from abstracts / snippets only.
+- **Exact next action:** owner / cross-lane decision (shared map §12) between:
+  - (A) a parameterization / learning-dynamics lens. Conceptual screen first; any matched experiments **need authorization**.
+  - (B) specification invention (Lens 11c).
+  - (C) formal tightening of the Interface Transparency proposition, plus a content × path occupancy table for all lanes.
+- **Default if the owner only says "continue":** (C) briefly, then (A) at conceptual-screen level only, with no experiments.
+- **ID scheme addition:** `NC01–NC13` (session 9, Part AC).
+
+# Resume Pointer as of session 8 (historical; superseded by the block above)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit; **recalibrated by the owner** into primitive / architecture / pipeline levels) → `SHARED_RESEARCH_MAP.md` (owner-authorized synthesis) → this notebook. The branch was fast-forwarded to `origin/main` with no Claude work lost. `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** calibration re-audit (Part AB). Old kills are re-tested under the rule "a clean reduction kills the primitive claim; an architecture survives only if its native organization has an important property that the ordinary decomposition does not preserve".
@@ -29,7 +56,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
   - (c) 2025–26 items were verified from abstracts / snippets only (arXiv full text blocked).
 - **Exact next action:** per shared map §12, cross-lane synthesis decides the next phase. **Default if the owner only says "continue": Lens 14, interface-blocked signal (AB.5).** Pick a place where the best pipeline must pass only outputs across an interface. Name the learning signal or derivation that would need to cross it and the property lost when the coupling is cut, **before** prior-art search. Check first against abductive learning, EBNN, lazy clause generation, DPLL(T) and expert iteration. Keep batches small; no experiments without authorization.
 
-# Resume Pointer as of session 7 (historical; superseded by the block above)
+# Resume Pointer as of session 7 (historical)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (owner-authorized cross-lane synthesis; read in session 7) → this notebook. `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** *irreducible-operation discovery*. Grant every machine in map §6, then ask what useful operation is still missing (Part AA).
@@ -2688,6 +2715,340 @@ No batch is generated in this session, as the brief instructs. The next session 
 
 ---
 
+# Part AC — Interface-Blocked Signal / Native Coupling Lens (session 9, 2026-09-28)
+
+**Brief (owner, session 9).** Fresh invention phase; no more re-audits.
+- **Central question:** can an architecture have an important property that exists *because* information, learning signals, derivations or state transitions flow internally across components in a way ordinary module interfaces cannot preserve?
+- **Size:** about 10–15 genuinely different candidates.
+- **Format for each:**
+  - `STATE + NATIVE COUPLING + TRANSITION/WRITE RULE + PROPERTY LOST UNDER DECOMPOSITION`;
+  - the owner's 15 questions;
+  - a *native* vs *strongest decomposition* comparison with the blank "Property native system has that decomposition loses: ___";
+  - if the blank cannot be filled precisely, the candidate is killed.
+- **Constraints:** Q06 stays parked unless a concrete harm from blocking pairs appears. No experiments.
+
+**Resources:** reasoning and 12 web searches. No compute. arXiv full text is still blocked, so 2025–26 items are verified at abstract / snippet level.
+
+**Labels:** VERIFIED (cited result) · DERIVATION (my own argument) · INTERPRETATION · SPECULATION.
+
+---
+
+## AC.0 Framing — when can an interface "block" a signal at all?
+
+**DERIVATION (elementary; stated before generating candidates so every candidate is tested against it).** Any signal that a module computes from its own state can be *exported* through a widened ordinary interface: a richer message or an extra API method. So "the interface blocks signal S" can only mean one of three things:
+- **(T1) Size / cost.** Exporting S explicitly is asymptotically costlier than native, lazy access to it. Examples: a full Jacobian vs vector–Jacobian products; the whole derivation space vs explaining on demand.
+- **(T2) Granularity / timing.** S must cross *during* a module's computation, e.g. at every conflict or every step, not at call/return boundaries.
+- **(T3) Joint state.** S is not computable by either module alone; it exists only as a joint state, such as a shared fixed point or shared identity.
+
+A candidate can have a property that "an ordinary API/message/vector cannot restore" only if it is in T1, T2 or T3 **and** the content it carries is not already given a native path by a known architecture. AC.4 turns this into a proposition.
+
+---
+
+## AC.1 Candidates NC01–NC13
+
+One candidate per signal family in the brief, each in its strongest form I could construct. Numbers (1)–(15) answer the owner's questions:
+1. components;
+2. what crosses;
+3. when;
+4. bidirectional?;
+5. learning / inference / both;
+6. ordinary decomposition;
+7. what the interface loses;
+8. property that disappears;
+9. why an ordinary API cannot restore it;
+10. closest architecture;
+11. historical prior art;
+12. modern prior art;
+13. just end-to-end training?;
+14. just attention / recurrence / differentiable programming / message passing / shared memory?;
+15. killing observation.
+
+### NC01 — Write-Credit Ledger · *gradients / credit assignment + memory updates*
+- **STATE:**
+  - slot memory with, per slot, content mᵢ, write context xᵢ and credit accumulator gᵢ;
+  - write controller W_θ;
+  - reader.
+- **NATIVE COUPLING:** every read adds its credit ∂L/∂mᵢ into gᵢ. At eviction (or every K steps), the controller receives gᵢᵀ·∂W_θ(xᵢ)/∂θ, evaluated at the stored context.
+- **TRANSITION / WRITE:**
+  - write: mᵢ ← W_θ(xₜ), xᵢ ← xₜ, gᵢ ← 0;
+  - read: r = Σ aᵢmᵢ, then gᵢ += aᵢ·∂L/∂r;
+  - evict: θ ← θ − η gᵢᵀ J_W(xᵢ).
+- **Native vs decomposition:**
+  - *Native:* the ledger above.
+  - *Strongest decomposition:* a memory-augmented RNN trained with truncated BPTT (window k), full BPTT, or approximate RTRL.
+- **Property native has that decomposition loses:** exact, delay-independent credit for memory-mediated dependencies, with training memory independent of stream length. TBPTT drops the credit of any read more than k steps after the write; full BPTT needs O(T) memory.
+- **Answers:**
+  - (1) controller, slots, reader, loss. (2) credit ∂L/∂content, reads → slot → controller. (3) accumulated at each read, applied at eviction. (4) yes: content forward, credit backward. (5) learning.
+  - (6) TBPTT / BPTT / RTRL. (7) credit of reads beyond the truncation window. (8) the property above.
+  - (9) it *can* be restored: storing a per-slot backward context is simply reverse-mode AD with a slot-keyed tape. SAB already does selective local backprop through retrieved states.
+  - (10) Sparse Attentive Backtracking. (11) RTRL (Williams & Zipser 1989); eligibility traces. (12) SAB (Ke et al., NeurIPS 2018); TVT (Hung et al. 2019); tractable exact RTRL for element-wise / linear recurrences (Zucchet et al., NeurIPS 2023; Irie, Gopalakrishnan & Schmidhuber, ICLR 2024).
+  - (13) **yes**: it is exact backprop restricted to memory paths. (14) reverse-mode AD over attention reads.
+  - (15) SAB and tractable RTRL already give selective or exact credit through memory without full replay.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE** (SAB / TVT / tractable RTRL). The residue (slot-shaped tape) is an AD implementation detail.
+
+### NC02 — Conflict-Coupled Representation Learning · *proof / solver derivations ↔ learned representation*
+- **STATE:** CDCL state (trail, implication graph, clause DB, activities) plus neural literal embeddings E with a fast-weight overlay.
+- **NATIVE COUPLING:** each learned clause c is *lifted* to literals whose embeddings are near c's literals under a learned alignment ("approximate symmetric images"). The lifted images receive activity bumps, and E gets a fast-weight update so the scorer ranks c-like configurations low. Branching mixes activity with the neural score.
+- **TRANSITION:** conflict → 1-UIP clause → lift → bump / update → branch.
+- **Native vs decomposition:**
+  - *Native:* the lifting loop inside the solver.
+  - *Strongest decomposition:* CDCL + VSIDS (syntactic bumping) + Symmetric Explanation Learning (exact symmetric images) + periodic neural guidance on the learned clause set.
+- **Property native has that decomposition loses:** within-episode transfer of each conflict to *approximately* (not exactly) symmetric literals. The intended effect is that a family of analogous branches costs O(1) conflicts instead of O(family size).
+- **Answers:**
+  - (1) solver, neural scorer. (2) learned clauses → scorer; scorer similarity → heuristics. (3) at every conflict. (4) yes. (5) inference plus within-episode learning.
+  - (6) as above. (7) approximate-symmetry generalization of conflicts.
+  - (8) the effect is **heuristic only**. Unsound lifted clauses cannot prune (NG-2), so the "property" is a distributional speed claim, not a guarantee.
+  - (9) an ordinary interface already passes learned clauses to a network: NeuroCore re-runs its model on the current clause set, including learned clauses, during search.
+  - (10) NeuroCore; SEL. (11) dependency-directed backtracking (1977); symmetric learning (Benhamou et al. 2010). (12) SEL (Devriendt, Bogaerts & Bruynooghe, SAT 2017); NeuroCore; NeuroBack (ICLR 2024).
+  - (13) no. (14) it is a heuristic / routing policy inside CDCL (Candidate Standard question 13).
+  - (15) the sound version is SEL, and the online neural coupling is NeuroCore.
+- **Verdict:** ✗ **KILLED — EXISTING** (SEL + NeuroCore). The remaining novelty is a heuristic policy with no architectural property.
+
+### NC03 — Counterfactual Expert Credit · *structural decisions (routing)*
+- **STATE:** router, experts, and a default output d_e per expert (a running average).
+- **NATIVE COUPLING:** unselected experts contribute d_e to the router's gradient, so the router sees every routing alternative.
+- **TRANSITION:** forward is sparse; the backward pass to the router is dense.
+- **Native vs decomposition:**
+  - *Native:* the dense router gradient.
+  - *Strongest decomposition:* top-k gating, where only selected experts give gradient.
+- **Property native has that decomposition loses:** full-information router credit at sparse compute.
+- **Answers:**
+  - (1) router, experts. (2) counterfactual outputs of unselected experts. (3) every step. (4) yes. (5) learning.
+  - (6) top-k. (7) outcomes of the alternatives not taken. (8) as above.
+  - (9) a real block: an ordinary interface cannot return outputs of experts that were not run. Defaults approximate them.
+  - (10) Default MoE. (11) local-expectation gradients (Titsias & Lázaro-Gredilla 2015); REINFORCE. (12) Default MoE (Panda et al., NeurIPS 2024 workshop; *Dense Backpropagation Improves Training for Sparse MoE*, NeurIPS 2025); SparseMixer (2023).
+  - (13) partly. (14) MoE routing.
+  - (15) Default MoE implements exactly this.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+- **Q06 note:** this is the only *routing* signal the lens surfaced. It concerns partial feedback, not blocking pairs, so it gives **no reason to reopen Q06**.
+
+### NC04 — All-Node Search Credit · *search derivations → value learning*
+- **STATE:** search tree with backed-up values at every node; value network.
+- **NATIVE COUPLING:** every interior node's backed-up value becomes a training target.
+- **TRANSITION:** after each search, bootstrap every node toward its search value.
+- **Native vs decomposition:**
+  - *Native:* all-node targets.
+  - *Strongest decomposition:* root-only targets (AlphaZero-style expert iteration).
+- **Property native has that decomposition loses:** |tree| targets per search instead of one.
+- **Answers:**
+  - (1)–(5) search, value net; backed-up values cross after the search; one-way; learning.
+  - (7) internal-node values. (9) *restorable*: the tree is data the search can export.
+  - (10)–(12) **TreeStrap** (Veness, Silver, Uther & Blair, NeurIPS 2009: updates *every* interior node toward its minimax value); TD-Leaf (Baxter et al. 1998); MuZero Reanalyze.
+  - (13) no. (14) no.
+  - (15) TreeStrap.
+- **Verdict:** ✗ **KILLED — EXISTING.**
+
+### NC05 — Formalization-Distribution Coupling · *uncertainty (LLM) ↔ solver derivations*
+- **STATE:** an LLM's distribution over alternative formalizations; a solver with a shared clause database.
+- **NATIVE COUPLING:**
+  - alternatives enter as selector literals weighted by LLM log-probabilities;
+  - learned clauses are shared across alternatives;
+  - evidence eliminates alternatives during search.
+- **Native vs decomposition:**
+  - *Native:* one joint search.
+  - *Strongest ordinary decomposition:* sample k formalizations and solve each separately.
+- **Property native has that decomposition loses:** clause sharing across formalizations, so total work can be sublinear in k.
+- **Answers:**
+  - (1) LLM, solver. (2) formalization weights down; eliminations up. (3) throughout search. (4) yes. (5) inference.
+  - (7) cross-alternative learning.
+  - (9) **restorable by a widened ordinary interface.** Weighted MaxSAT or assumption-based incremental SAT with selector literals is a standard data format (Eén & Sörensson 2003).
+  - (10)–(12) incremental SAT with assumptions; MaxSAT; LINC / SatLM (multiple formalizations with voting).
+  - (13) no. (14) no.
+  - (15) the selector-literal encoding.
+- **Verdict:** ✗ **KILLED — PIPELINE ONLY.** This is the textbook T-case: the "blocked" signal is restored by a richer ordinary message.
+
+### NC06 — Regional ("polytope") Credit, a neural analogue of learned clauses · *error signals + state revision*
+- **STATE:** a ReLU network, plus the activation pattern (linear region) of a failing input.
+- **NATIVE COUPLING:** an error is lifted from the point to its whole linear region; one repair fixes every input in the region, with a guarantee.
+- **Native vs decomposition:**
+  - *Native:* region-level repair.
+  - *Strongest decomposition:* a pointwise gradient step / fine-tuning.
+- **Property native has that decomposition loses:** a single repair provably fixes all inputs of the failing region, with locality.
+- **Answers:**
+  - (7) the region structure of the error.
+  - (9) restorable: an external verifier computes the region.
+  - (10)–(12) PRDNN, provable polytope repair (Sotoudeh & Thakur, PLDI 2021); REASSURE (repair of the containing linear region); APRNN (PLDI 2023).
+  - (13) no. (14) no.
+  - (15) existing.
+- **Verdict:** ✗ **KILLED — EXISTING.**
+
+### NC07 — Interventional Interface · *causal provenance*
+- **STATE:** module B with internal variables; a supervisor (causal model or module A) that can set B's internal variables.
+- **NATIVE COUPLING:** interchange interventions. B's internal variables are set to values they take on other inputs, and B's *counterfactual* outputs are supervised.
+- **Native vs decomposition:**
+  - *Native:* intervention-supervised training.
+  - *Strongest decomposition:* observational input/output training.
+- **Property native has that decomposition loses:** B's internal variables become causally aligned with a high-level causal model. An observational interface cannot enforce this: models can have perfect behavioural accuracy but imperfect intervention accuracy.
+- **Answers:**
+  - (1) B, supervisor. (2) interventions down, counterfactual outputs up. (3) during training. (4) yes. (5) learning.
+  - (7) internal counterfactual behaviour.
+  - (9) **genuinely blocked:** an input/output API cannot set internal variables.
+  - (10) Interchange Intervention Training. (11) causal abstraction (Rubenstein et al. 2017; Beckers & Halpern 2019). (12) IIT (Geiger et al., ICML 2022); DAS; Self-Interventional Learning (arXiv 2608.14894, 2026: a network perturbs its own structure, learns a predictive self-model, and its model-guided action did *not* beat a direct empirical-memory policy).
+  - (13) no. (14) no.
+  - (15) IIT is the same coupling with the same property.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE** (IIT, 2022).
+- **Calibration value:** this is the one candidate whose lost property is *genuinely* interface-blocked (type T2/T3). It shows the lens can find real architectural properties; this one has been occupied since 2022.
+- **Side result (DERIVATION):** "provenance-gated credit" dies separately. The gradient is already a soft provenance signal, and exact provenance in a dense network is trivially "everything".
+
+### NC08 — Value-of-Information Backflow · *uncertainty + internal resource allocation*
+- **STATE:** posterior of an upstream latent; downstream decision; compute allocator.
+- **NATIVE COUPLING:** downstream returns, per upstream latent, the expected loss reduction from refining it (value of information). Upstream spends refinement steps accordingly.
+- **Native vs decomposition:**
+  - *Native:* VOI-driven refinement.
+  - *Strongest decomposition:* upstream computes everything; or downstream requests glimpses; or ACT / PonderNet halting.
+- **Property native has that decomposition loses:** compute proportional to decision relevance, with bounded regret against full computation.
+- **Answers:**
+  - (9) VOI is a vector message, so it is restorable. Computing it *is* metareasoning.
+  - (10)–(12) rational metareasoning (Russell & Wefald 1991; Hay & Russell 2012 for MCTS); recurrent attention / glimpses (Mnih et al. 2014); ACT / PonderNet.
+  - (13) no. (14) no.
+  - (15) existing, and the message is restorable.
+- **Verdict:** ✗ **KILLED — EXISTING / PIPELINE.**
+
+### NC09 — Target Backflow across Non-Differentiable Modules · *error signals*
+- **STATE:** modules with local learners.
+- **NATIVE COUPLING:** downstream computes a *corrected target* for upstream's output (the minimal output change that fixes the error) instead of a gradient.
+- **Native vs decomposition:**
+  - *Native:* target exchange.
+  - *Strongest decomposition:* gradient estimators (REINFORCE, straight-through) across the boundary.
+- **Property native has that decomposition loses:** credit across a discrete boundary without estimator variance.
+- **Answers:**
+  - (9) targets are messages, so restorable.
+  - (10)–(12) target propagation (Bengio 2014); difference target propagation (Lee et al. 2015); abductive learning (targets by abduction, Zhou 2019).
+  - (15) existing.
+- **Verdict:** ✗ **KILLED — EXISTING.**
+
+### NC10 — Gradient-Conflict Abstraction Creation · *abstraction creation from internal credit*
+- **STATE:** shared parameters; per-context gradient statistics.
+- **NATIVE COUPLING:** persistent gradient conflict between contexts on a shared block triggers a split into context-specific copies, creating a new structural boundary.
+- **Native vs decomposition:**
+  - *Native:* conflict-driven splitting.
+  - *Strongest decomposition:* fixed sharing + gradient surgery; or architecture search.
+- **Property native has that decomposition loses:** structure is created exactly where sharing causes interference.
+- **Answers:**
+  - (10)–(12) **Recon** (ICLR 2023: layers with high gradient-conflict scores are turned task-specific); branched multi-task networks (Vandenhende et al. 2019; Guo et al. 2020); PCGrad.
+  - (15) Recon.
+- **Verdict:** ✗ **KILLED — EXISTING.**
+
+### NC11 — Derivation Consolidation · *learned rules / state revisions across episodes*
+- **STATE:** weights + a fast-weight / adapter store + a verifier.
+- **NATIVE COUPLING:** intermediate conclusions verified during inference are written immediately into persistent fast weights, so later episodes do not re-derive them.
+- **Native vs decomposition:**
+  - *Native:* immediate consolidation.
+  - *Strongest decomposition:* retrieval memory over past traces + periodic fine-tuning (context distillation).
+- **Property native has that decomposition loses:** immediacy only. That is a scheduling difference, not a property. Generalization beyond retrieval also comes from the fine-tuning half of the decomposition.
+- **Answers:**
+  - (10)–(12) STaR (2022); context distillation (Snell et al. 2022); test-time-training layers (2024); Titans (2025).
+  - (15) existing; the blank cannot be filled with a non-scheduling property.
+- **Verdict:** ✗ **KILLED — PIPELINE / EXISTING.**
+
+### NC12 — Credit-Conserving Internal Economy · *internal resource allocation*
+- **STATE:** modules holding credit; auctions for the right to act.
+- **NATIVE COUPLING:** modules pay for compute or decisions with credit earned downstream; a conservation law ties credits to reward.
+- **Native vs decomposition:**
+  - *Native:* the internal economy.
+  - *Strongest decomposition:* a centralized learner with a global policy.
+- **Property native has that decomposition loses:** decentralized credit assignment whose Nash equilibrium coincides with the global optimum.
+- **Answers:**
+  - (10)–(12) cloned Vickrey society (Chang, Kaushik, Weinberg, Griffiths & Levine, ICML 2020); Holland's bucket brigade (1985); Baum's Hayek machine (1999).
+  - (15) existing.
+- **Verdict:** ✗ **KILLED — EXISTING.**
+
+### NC13 — Rule ↔ Weight Duality · *learned rules*
+- **STATE:** network + a rule set extracted from it.
+- **NATIVE COUPLING:** rules act as constraints (a teacher) on the network; network gradients and fit propose edits to rule confidences.
+- **Native vs decomposition:**
+  - *Native:* the coupled rule / network loop.
+  - *Strongest decomposition:* a network trained alone, and rules applied at inference.
+- **Property native has that decomposition loses:** rule knowledge transferred into the weights, and rules calibrated by data.
+- **Answers:**
+  - (10)–(12) iterative rule distillation with posterior regularization (Hu, Ma, Liu, Hovy & Xing, ACL 2016); KBANN (Towell & Shavlik 1994); TREPAN (1996).
+  - (15) existing.
+- **Verdict:** ✗ **KILLED — EXISTING.**
+
+---
+
+## AC.2 Result table
+
+| ID | Signal family | Blank filled? (property native has that decomposition loses) | Restorable by a widened ordinary interface? | Closest prior art (architecture level) | Verdict / reason of death |
+|---|---|---|---|---|---|
+| NC01 | credit + memory | yes: delay-independent exact memory-path credit | yes (slot-keyed AD tape) | SAB 2018; TVT 2019; tractable RTRL 2023–24 | EXISTING ARCHITECTURE |
+| NC02 | derivations ↔ representation | only as a heuristic speed claim | yes (clauses passed to a network) | SEL 2017; NeuroCore | EXISTING; heuristic policy only |
+| NC03 | structural decision (routing) | yes: dense router credit at sparse compute | no (needs defaults) | Default MoE 2024–25; SparseMixer | EXISTING ARCHITECTURE |
+| NC04 | search derivations → value | yes: \|tree\| targets per search | yes | TreeStrap 2009; TD-Leaf | EXISTING |
+| NC05 | uncertainty ↔ derivations | yes: cross-formalization clause sharing | **yes** (selector literals / MaxSAT) | incremental SAT; MaxSAT | PIPELINE ONLY |
+| NC06 | error → region repair | yes: region-wide provable repair | yes (external verifier) | PRDNN 2021; REASSURE; APRNN 2023 | EXISTING |
+| NC07 | causal provenance / interventions | **yes: interventional alignment of internals** | **no — genuinely blocked** | IIT 2022; DAS; SIL 2026 | EXISTING ARCHITECTURE |
+| NC08 | uncertainty → compute | yes: relevance-proportional compute | yes (VOI message) | rational metareasoning; glimpses; ACT | EXISTING / PIPELINE |
+| NC09 | error targets | yes: estimator-free discrete credit | yes | target propagation 2014–15; ABL | EXISTING |
+| NC10 | abstraction from gradient conflict | yes | yes | Recon 2023; branched MTL | EXISTING |
+| NC11 | derivations → weights | **no** (immediacy only) | yes | STaR; context distillation; TTT; Titans | PIPELINE / EXISTING |
+| NC12 | resource economy | yes | partly | Chang et al. 2020; bucket brigade; Hayek | EXISTING |
+| NC13 | rules ↔ weights | yes | yes | Hu et al. 2016; KBANN | EXISTING |
+
+**Result: 0 of 13 survive.**
+- 11 are killed by **direct architecture-level prior art**.
+- 1 (NC05) is killed as **pipeline-only**, because a widened ordinary interface restores the signal.
+- 1 (NC11) is killed because its blank can only be filled by scheduling (immediacy), which is not a property.
+- Only NC03 and NC07 carry a signal that an ordinary interface *genuinely* cannot restore. Both are occupied: Default MoE, and IIT.
+
+---
+
+## AC.3 Q06 status
+
+**No reason to reopen.** The lens surfaced one routing signal, NC03: counterfactual outcomes of unselected experts. It concerns *partial feedback* to the router, and Default MoE already addresses it. No harm attributable to *blocking pairs* appeared in any searched source. Q06 stays parked under the AB.5 reopen condition.
+
+---
+
+## AC.4 Why the Native-Coupling lens collapses
+
+**Proposition (Interface Transparency; DERIVATION, informal statement with proof sketch).**
+- **Setup:** let N be a native coupling of modules A and B that exchanges signals S₁, S₂, … and has property φ.
+- **Condition (i) — computable by the sender:** each Sᵢ is computable by its sender from the sender's own state at some call boundary.
+- **Condition (ii) — polynomial size:** each Sᵢ has size polynomial in the module states.
+- **Condition (iii) — not needed mid-call:** no Sᵢ is needed by its receiver before the receiver's current call returns.
+- **Claim:** if (i)–(iii) hold, some pipeline P′ with a widened ordinary interface (messages = the Sᵢ) preserves φ up to polynomial overhead.
+- **Proof sketch:** simulate every exchange of N as a message at call boundaries. (i) makes each message constructible, (ii) keeps it polynomial, and (iii) means no exchange has to interrupt a call. Guarantees and learning dynamics are preserved exactly; resource laws up to polynomial factors.
+- **Contrapositive:** a native coupling has a non-preserved property only if it violates
+  - (i), **joint state** (T3);
+  - (ii), **size**, i.e. it needs lazy access to a huge signal (T1);
+  - (iii), **granularity** (T2);
+  - or its φ is a claim about *constant factors or latency*, which only a matched experiment can decide.
+
+**Each violation class is occupied by named architecture families (VERIFIED by the prior art above and in earlier Parts):**
+- **T1, size / lazy access:** reverse- and forward-mode AD (VJP / JVP interfaces), implicit differentiation (DEQ, OptNet), lazy explanation (lazy clause generation, DPLL(T) `explain`), version-space algebras, influence functions.
+- **T2, granularity:** fine-grained interleaving. Neural: attention, recurrence, message passing, test-time-training layers. Symbolic: CDCL, propagators, DPLL(T), constrained decoding.
+- **T3, joint state:** joint settling (DEQ, energy-based models, Hopfield networks, predictive coding, belief propagation, SATNet) and interventional coupling (IIT).
+
+**Content is occupied too.** The brief lists 13 signal *contents*: gradients, structure, provenance, uncertainty, derivations, memory updates, rules, revisions, control, evidence, errors, abstraction, resources. Each already has an established native short path (AC.2 plus earlier Parts: CSL for evidence, Q-series for control). A survivor therefore needs **either a content type not on that list, or a (content × path × constraint) combination whose property is not implied by the known ones**. The two combinations tried were occupied: NC01 (credit × memory × streaming) and NC02 (derivation × approximate symmetry × within-episode).
+
+**Re-reading the positive controls sharpens this (INTERPRETATION).** Of the five controls in AB.1, **only CDCL is an inter-module native coupling**, of the granularity type T2 (conflict analysis inside the search, per conflict). Attention, residual connections, backpropagation and diffusion are **intra-model parameterization / training-structure** innovations. Their property is the *learning dynamics of a single differentiable model* (gradient-path length, identity path, credit cost, noise-level coupling), not a signal crossing a module interface. So the precedent that motivated this lens mixes two different things:
+1. **Native coupling between modules:** one control (CDCL), whose content type (derivations) is now thoroughly occupied.
+2. **Parameterization of one learnable model:** four controls. Their defining properties (trainability, sample efficiency, scaling) are *empirical learning-dynamics claims*. A conceptual screen can pass or kill them on prior art, but only matched experiments can establish them.
+
+**Conclusion of the lens.** The Interface-Blocked Signal / Native Coupling Lens **collapses**:
+- by the transparency proposition, *any* candidate lives in T1, T2 or T3;
+- every class and every content type named in the brief has a direct architecture-level occupant;
+- the one genuinely blocked signal with an important property (NC07, interventional alignment) is IIT (2022).
+
+This is **not** a proof that no native-coupling architecture remains. It shows that producing one requires a *new content type* or a *new combination with a provable non-preserved property*, and in 13 attempts spanning all listed families I could not name one that is unoccupied.
+
+---
+
+## AC.5 Survivors, falsifiers and next action
+
+- **Survivors:** **none.** No candidate is `SURVIVES AS ARCHITECTURE CANDIDATE` or `SURVIVES AS PRIMITIVE CANDIDATE`, and there is no conceptual candidate.
+- **Falsifiers of the collapse claim (what would reopen the lens):**
+  1. a signal content type absent from AC.2 / AC.4, with a property that is not restorable through a widened interface;
+  2. a proof that some neural × symbolic coupling of type T1–T3 yields a *distributional* separation that no widened-interface pipeline achieves. This would contradict the transparency proposition's polynomial-overhead claim for that case; a counterexample to the proposition is itself a result;
+  3. Codex archaeology finding that a positive control I classed as intra-model (e.g., attention) is better described as an inter-module coupling whose content is still open.
+- **Exact next action (recommendation; owner / cross-lane decision per shared map §12):** the evidence now points to where architecture-level novelty *could* still come from, and it is not settleable by reasoning alone.
+  - **(A) Parameterization / learning-dynamics lens.** Generate a small number of single-model parameterizations whose claimed property is a learning-dynamics property: a gradient-path structure, a credit-cost law, or a scaling law. Screen for direct prior art. Survivors become *conceptual candidates* that need matched experiments with mechanism-removal ablations. **Running those experiments requires owner authorization** under the Experiment Rule.
+  - **(B) Specification invention (Lens 11c)** from requirements reported for agentic systems. Low expected yield (AA.4).
+  - **(C) Formal work:** tighten the Interface Transparency proposition (precise model of interfaces, polynomial-overhead notion) and add a content × path occupancy table to the shared map, so all lanes stop generating occupied couplings.
+- **Default if the owner only says "continue":** (C) briefly, then (A) at the conceptual-screen level only, with no experiments.
+
+---
+
 # Part K — Research Proposal: Certified Structural Learning (CSL)
 
 *(Living summary of the lead candidate. Evidence details are in H.1–H.1h.)*
@@ -2796,6 +3157,7 @@ The proofs are standard, and nothing in them depends on the component type. **No
 19. **Invention from recall can only rediscover** (AA.7). Every operation I can name has a name. Unnamed operations must be *observed* in systems that implement them, e.g. by dissecting trained networks; they cannot be generated from memory.
 20. **Fix the decomposition convention before running a substitutability test** (AB.1). "Ordinary decomposition" must mean known components joined through their ordinary interfaces and trained in their ordinary way. Otherwise the test is empty: kernel regression whose kernel is learned end-to-end with the features *is* attention.
 21. **Record the reason of death precisely** (AB.4). "System-level", "component" and "low value" are not reasons. Say which decomposition preserves which property, or which property lacks demonstrated importance. The same verdict with a sharper reason is still a result.
+22. **Before claiming a signal is "interface-blocked", try widening the interface** (AC.0, AC.4). Any signal a module can compute can be sent as a richer message. A native coupling matters only through joint state, lazy access to a huge signal, sub-call granularity, or a constant-factor claim. NC05's "blocked" signal was restored by a standard data format (selector literals / MaxSAT).
 
 # Part I — Open Questions
 
@@ -2812,7 +3174,7 @@ The proofs are standard, and nothing in them depends on the component type. **No
 
 # Part J — Rejected Ideas Log
 
-Never silently delete. Format follows `04_RESEARCH_STATE.md` (compressed into a table). **Session-8 calibration re-audit:** recalibrated verdicts and corrected reasons of death for N02, N03, N04, N08, Q05, Q06, Q14, Q17, Q20, R8-1, Y.5/Z.4, I01 and I05 are in AB.3–AB.4. None was reopened; Q06 is parked. Rejections with full reasoning are also in D.2–D.4, E.1, F2–F5, H.2.
+Never silently delete. Format follows `04_RESEARCH_STATE.md` (compressed into a table). **Session-8 calibration re-audit:** recalibrated verdicts and corrected reasons of death for N02, N03, N04, N08, Q05, Q06, Q14, Q17, Q20, R8-1, Y.5/Z.4, I01 and I05 are in AB.3–AB.4. None was reopened; Q06 is parked. **Session-9 native-coupling lens:** NC01–NC13 and their reasons of death are in AC.1–AC.2 (0 survivors). Rejections with full reasoning are also in D.2–D.4, E.1, F2–F5, H.2.
 
 | ID / Name | Idea | Reason rejected | Closest existing concept | Could a component still be useful? |
 |---|---|---|---|---|
