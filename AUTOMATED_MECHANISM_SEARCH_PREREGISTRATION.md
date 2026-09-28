@@ -2,7 +2,7 @@
 
 ## Status
 
-**FROZEN DESIGN v4 — STAGES 0–3 AUTHORIZED BY OWNER**
+**FROZEN DESIGN v5 — STAGES 0–3 AUTHORIZED BY OWNER**
 
 Date: 2026-09-28
 
@@ -82,7 +82,43 @@ v4 changes only the pre-search calibration logic:
 
 The official v3 Stage-0 PASS remains valid because v4 changes no Stage-0 rule or implementation. Stage 0 does not need to be rerun. Official Stage 1 must rerun under v4 before Stage 2 may begin.
 
-**Version 4 is now the sole active protocol.** Stages 0-3 remain authorized. No further material protocol changes are authorized after v4 Stage 1 passes and Stage 2 begins unless another explicit owner amendment is recorded.
+Version 4 governed the second official Stage-1 calibration.
+
+## Version 5 amendment — final Task-B representability-oracle budget repair
+
+Official v4 Stage 1 stopped before any candidate search because the sole failing mandatory gate was V1-B-REP, the joint-training representability oracle. Every other mandatory v4 gate passed.
+
+At the frozen 1,000-update oracle budget, the best official result (clipped SGD, lr 0.1) achieved seed-mean relative error reductions of approximately 0.914 on Task 1 and 0.904 on Task 2, below the frozen 0.95/0.95 requirement.
+
+A post-failure diagnostic, recorded as diagnostic-only evidence, showed:
+- removing clipping did not solve the 1,000-update gate;
+- clipped SGD at 2,000 updates reached approximately 0.950 / 0.945, still failing Task 2;
+- clipped SGD at 4,000 updates reached approximately 0.967 / 0.960, clearing the original 0.95 / 0.95 representability threshold.
+
+The purpose of V1-B-REP is **representability**, not training-speed comparison. The owner therefore authorized one final pre-search amendment that changes only the oracle's convergence budget.
+
+v5 changes exactly one calibration quantity:
+- V1-B-REP uses **exactly 4,000 joint-training updates** instead of 1,000.
+
+v5 explicitly retains:
+- the original 0.95 relative-error-reduction threshold on both tasks;
+- the official clipped update pipeline;
+- SGD, SGDM and AdamW as the three oracle optimizers;
+- Glorot initialization;
+- the LR grid `{1e-3, 1e-2, 1e-1}`;
+- 16 fresh Task-1 + 16 fresh Task-2 examples per update;
+- no early stopping;
+- training-side LR selection only;
+- all Task-B/C*/F candidate schedules and promotion thresholds;
+- all Stage-2/3 budgets, ablations, matching and novelty gates.
+
+The v4 diagnostic result at 4,000 updates motivated the budget choice and is preserved transparently in Git history. It is not itself accepted as the official v5 gate result; v5 Stage 1 must be rerun from a clean committed implementation.
+
+**No further Task-B calibration amendment is permitted before Stage 2.** If V1-B-REP fails under the frozen 4,000-update v5 oracle, Stage 2 remains blocked and Task B must be dropped or the pilot terminated under a separate owner decision rather than tuning this oracle again.
+
+The accepted v3 Stage-0 PASS remains valid because v5 changes no Stage-0 rule. Official Stage 1 must rerun under v5 before Stage 2 may begin.
+
+**Version 5 is now the sole active protocol.** Stages 0-3 remain authorized. If v5 Stage 1 passes, Stage 2 may begin immediately under the already-frozen search rules.
 
 ---
 
@@ -411,7 +447,7 @@ Using the frozen equal learning-rate grid and no early stopping:
 - **B representability oracle (V1-B-REP):** the same two-hidden-layer MLP must be able to represent both frozen Task-B mappings when replay/interleaving is allowed:
   - same calibration seeds and Glorot initialization;
   - same LR grid `{1e-3, 1e-2, 1e-1}`;
-  - exactly 1,000 updates;
+  - exactly **4,000 updates**;
   - batch size 32 with exactly 16 Task-1 and 16 Task-2 fresh examples in every update;
   - no early stopping;
   - LR selected by the mean of Task-1 and Task-2 training MSE over the last 50 updates;
@@ -421,7 +457,7 @@ The representability oracle is a benchmark-validity control only. It is not an e
 
 GPM, R17, R18 and R13 remain recorded known-family Task-B controls and remain eligible as relevant matched controls when stable, but their failure to reduce forgetting is **not** a Stage-1 stop condition under v4.
 
-If the v3 Stage-0 directional-conflict gate, M2-v4, M3, or V1-B-REP fails, Task B is invalid and the run stops for owner review.
+If the v3 Stage-0 directional-conflict gate, M2-v4, M3, or V1-B-REP fails, Task B is invalid and the run stops for owner review. Under v5, V1-B-REP is the frozen 4,000-update oracle and may not be amended again before search.
 
 #### Metric
 
@@ -862,18 +898,18 @@ Because v3 supersedes the failed v2 Task-B Stage-0 gate, official Stage 0 must b
 
 ## Stage 1 — calibration
 
-Run established mechanisms and ordinary baselines **under v4**.
+Run established mechanisms and ordinary baselines **under v5**.
 
-The v3 Stage-1 run is preserved as calibration evidence but does not authorize Stage 2 because its then-mandatory gates failed.
+The v3 and v4 Stage-1 runs are preserved as calibration evidence. Neither authorized Stage 2 because their then-mandatory gates failed.
 
 Purpose:
 - validate tasks;
-- validate mandatory v4 benchmark controls;
+- validate mandatory v5 benchmark controls;
 - record known-family behavioral signatures;
 - validate effect metrics;
 - validate equivalence detector.
 
-Mandatory v4 gates include:
+Mandatory v5 gates include:
 - M2-v4 Task-B relative fit;
 - M3 Task-B interference;
 - V1-B-REP joint-training representability oracle;
@@ -884,9 +920,9 @@ Mandatory v4 gates include:
 - V3-F;
 - V-D.
 
-R12/R13/R15 C* positive-control wins and GPM/R17/R18/R13 Task-B retention wins are recorded diagnostics, not mandatory v4 stop gates.
+R12/R13/R15 C* positive-control wins and GPM/R17/R18/R13 Task-B retention wins are recorded diagnostics, not mandatory v5 stop gates.
 
-Abort if any mandatory v4 control fails.
+Abort if any mandatory v5 control fails. V1-B-REP must use exactly 4,000 updates; do not retune it.
 
 ## Stage 2 — automated search
 Run the frozen MAP-Elites search within the candidate and compute budgets.
@@ -915,4 +951,4 @@ As of this commit:
 
 Owner authorization for Stages 0–3 was given in chat on 2026-09-28.
 
-The v4 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
+The v5 protocol, CPU-only execution rule, and 30 CPU-hour hard cap remain binding. Any further material protocol change, any GPU use, or any larger follow-up run requires separate owner authorization.
