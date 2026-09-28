@@ -190,6 +190,19 @@ Added by the Claude lane under §13. Details: `Claude_Research.md` Part AA. Scop
 - **Lens 13, discovery by dissection** (operations observed inside trained networks, literature only): **0/17** mechanisms lack a library counterpart. Gradient descent rediscovers the human paradigm set: Fourier arithmetic, parallel prefix, pointers, BFS / bidirectional search, sketching. Trained systems contribute new *knowledge* (e.g. AlphaZero's chess concepts), not new operations.
 - **Claude lane status:** owner decision requested on the AA.6 proposal. Default if unanswered: specification invention from requirements reported for agentic systems (Lens 11c).
 
+## Claude session 8 update (2026-09-28) — calibration re-audit
+
+Added by the Claude lane under §13. Details: `Claude_Research.md` Part AB. Reasoning and 8 searches only; no experiments.
+
+- **Historical controls (AB.1).** The calibrated filter accepts attention, residual connections, the origin of backprop (reverse-mode AD 1970/74), diffusion and CDCL at the **architecture** level. It rejects RAG, tool use and LLM → SAT as **pipelines**, never invoking simulability, and still kills every control's **primitive** claim.
+  - Required convention: "ordinary decomposition" = known components with their ordinary interfaces and ordinary training. Otherwise, e.g., end-to-end-learned kernel regression *is* attention.
+- **Re-audit of 13 strongest Claude kills (AB.3):** N02 CSL, N03, N04, N08, Q05, Q06, Q14, Q17, Q20, R8-1, Y.5 / Z.4 discrete commitment, I01, I05. **0 reopened.**
+  - Most are pipeline-only with the property preserved. CSL's guarantee is compositional; the Z.4 pipeline measured 12/12; FIDES preserves R8-1's bound.
+  - Two are existing architectures: the HVM runtime (N03) and ERCL / DIP (I05).
+  - **Q06, the stable-matching MoE router, is parked.** Decomposition loses a hard property (no blocking pairs), but no importance has been shown, and the common-score case reduces to Batch Prioritized Routing + rerouting.
+- **Insight (interpretation).** In every positive control, the property lost under decomposition concerns how **learning signal or derivations flow through internal state**. None of the re-audited candidates created such a path.
+- **Claude default next lens (if not redirected):** "interface-blocked signal". Name the learning signal or derivation a pipeline's interface blocks, and the property lost when the coupling is cut, before prior-art search.
+
 ---
 
 # 3. Codex lane — novelty assassin + computational archaeology
@@ -831,6 +844,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Hypothesis-family discovery | Reduces to search / known learning / identification limits |
 | Pretrained structural rebinding Z.4 | Failure reproduced; exact search solves it |
 | Claude irreducibility I01–I21 | 0/21 primitive survivors; exposed filter-calibration problem |
+| Claude calibration re-audit (13 strongest old kills) | 0 reopened as architecture candidates; Q06 parked (property lost, importance unshown); filter passes historical controls |
 | Codex candidate ledger / archaeology through AR-137 | No survivor under prior standard; collision database expanded |
 | Predictive Delta Ledger | Killed as pipeline |
 | Baobab / Moose seam | Occupied neighboring machinery |

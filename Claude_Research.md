@@ -8,7 +8,28 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 7
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 8
+
+- **Governing files:** `AGENTS.md` (highest authority; never edit; **recalibrated by the owner** into primitive / architecture / pipeline levels) → `SHARED_RESEARCH_MAP.md` (owner-authorized synthesis) → this notebook. The branch was fast-forwarded to `origin/main` with no Claude work lost. `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
+- **Current search lens:** calibration re-audit (Part AB). Old kills are re-tested under the rule "a clean reduction kills the primitive claim; an architecture survives only if its native organization has an important property that the ordinary decomposition does not preserve".
+- **Current stage (session 8):** re-audit **complete**.
+  - AB.1: the calibrated filter separates the positive controls (attention, residual, backprop origin, diffusion, CDCL) from the negative controls (RAG, tool use, LLM → SAT) without invoking simulability.
+  - AB.3: 13 strongest old kills re-audited: **0 reopened**.
+- **Strongest surviving candidate(s):** **none.** Nothing is at `SURVIVES AS ARCHITECTURE CANDIDATE` or `SURVIVES AS PRIMITIVE CANDIDATE`.
+  - **Parked (not reopened): Q06, stable-matching router.** Decomposition does lose a hard property (no blocking pairs), but the property has no argued importance, and the common-score case reduces to Batch Prioritized Routing + rerouting. A reopen condition and a matched test are specified in AB.5.
+- **Killed / closed, with corrected reasons (AB.4):**
+  - pipeline-only: N02 CSL (compositional guarantee), N04, N08 (measured), Q05, Q17, Q20, R8-1 (FIDES preserves the bound), Y.5 / Z.4 (measured 12/12 by the pipeline), I01;
+  - existing architecture: N03 (HVM runtime preserves confluence), I05 (ERCL / DIP);
+  - no demonstrable property: Q14.
+  - Session-7 AA.1 is restricted to **primitive** claims.
+- **Key insight (AB.1 / AB.4, interpretation):** every positive control's non-preserved property concerns how **learning signal or derivations flow through internal state**. My past candidates were mechanisms with external interfaces, and none created such a path, which is why none reopened.
+- **Unresolved prior-art questions:**
+  - (a) Codex answer to `HANDOFF_Claude_to_Codex_filter_calibration.md`. The shared map (§12) now also asks Codex to stress-test the historical controls.
+  - (b) Is there a stable-matching MoE router? Two searches found none.
+  - (c) 2025–26 items were verified from abstracts / snippets only (arXiv full text blocked).
+- **Exact next action:** per shared map §12, cross-lane synthesis decides the next phase. **Default if the owner only says "continue": Lens 14, interface-blocked signal (AB.5).** Pick a place where the best pipeline must pass only outputs across an interface. Name the learning signal or derivation that would need to cross it and the property lost when the coupling is cut, **before** prior-art search. Check first against abductive learning, EBNN, lazy clause generation, DPLL(T) and expert iteration. Keep batches small; no experiments without authorization.
+
+# Resume Pointer as of session 7 (historical; superseded by the block above)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (owner-authorized cross-lane synthesis; read in session 7) → this notebook. `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** *irreducible-operation discovery*. Grant every machine in map §6, then ask what useful operation is still missing (Part AA).
@@ -39,7 +60,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 - **Default if the owner only says "continue":** Lens 11c, specification invention from requirements reported for agentic / multi-agent LLM systems in 2025–26. Literature only; each candidate must be a spec + mechanism.
 - **ID scheme addition:** `I01–I21` (session 7, Part AA); `NG-1…NG-9` (no-go map).
 
-# Resume Pointer as of session 6 (historical; superseded by the block above)
+# Resume Pointer as of session 6 (historical)
 
 - **Current stage (session 6):** the Pretrained Structural Rebinding phase (Part Z) is complete: **Outcome C — pretraining reduces but does not eliminate the E2/Y.4 failure; explicit discrete search removes it** (Z.5). No further tests were run after the user's "no more test" instruction.
 - **Earlier stages:**
@@ -2104,6 +2125,8 @@ No breakdown of reasoning-based rebinding was found up to n = 9. **Overall, thin
 - **(Q1) a cost separation from a new efficiency paradigm.** An implementation that beats every composition of L on a natural problem family by an asymptotic margin in time, space, communication or energy. It counts as a primitive only if its efficiency comes from a new *paradigm*, not from a new instance of DP, divide-and-conquer, relaxation, hashing, sketching, propagation, amortization, conflict learning, and so on.
 - **(Q2) a new specification.** A guarantee type that no machine in L states, together with an efficient mechanism meeting it. Bloom filters, consistent hashing, LSH, differential privacy, CRDTs and zero-knowledge all entered computing this way.
 
+> **Session-8 correction (2026-09-28, AB):** under the owner's recalibrated standard, this Library-Closure argument applies to **primitive** claims only. It is not an architecture-level kill; see Part AB.
+
 **Explains the project's null result.** This is why roughly 340 candidates across three lanes all died at the "operation" level. That was a structural necessity, not a failure to think of the right idea. Every candidate named an operation, and every nameable computable operation is already in L. The only live questions are cost (Q1) and specification (Q2). AA.2–AA.5 attack both.
 
 ---
@@ -2399,6 +2422,8 @@ This does not show that the standard is wrong. The owner chose a deliberately st
 - **what a survivor would have to look like**: a new specification, or a fusion with a proof of separation;
 - **that the prior probability of finding one by concept generation is very low**, consistent with ~360 kills across lanes.
 
+> **Session-8 note:** the owner has since recalibrated the standard (primitive / architecture / pipeline levels). This adopts the substance of the proposal below. The filter is re-tested on historical controls in AB.1.
+
 **Proposal for the owner (recorded only here, as AGENTS.md requires; AGENTS.md and the shared map's rules are not modified):**
 1. **Refine the pipeline kill rule.** A composition of known machines should *not* be killed as a pipeline if the candidate supplies a **proof of worst-case separation** from every black-box composition of the same machines (CDCL-type). Distributional-only gains stay killed.
 2. **Optionally, define a second, explicitly weaker tier.** A "distributional primitive" would be a known operation whose placement or parameterization gives large empirical gains. It would be judged only by experiment. This is the tier where attention and residual connections live. Whether such a tier serves the project's mission is the owner's decision; I do not assume it.
@@ -2519,6 +2544,150 @@ This matches AA.1: learning is a search over programs, and what it finds is buil
 
 ---
 
+# Part AB — Calibration Re-audit of Strongest Historical Kills (session 8, 2026-09-28)
+
+**Brief (owner, session 8).** The novelty standard has been recalibrated (AGENTS.md, owner-authorized change on `main`). Three levels are now distinguished: **new primitive**, **new architecture**, **system / pipeline**.
+- A clean reduction to known machinery still kills a **primitive** claim.
+- It does **not** automatically kill an **architecture** claim. An architecture survives if its native organization creates an important property that the ordinary decomposition does not preserve.
+- General implementability (Turing machine, interpreter, synthesis, solver emulation) is **not** a novelty kill.
+- Task: re-audit roughly 10–15 of my strongest old kills that died mainly by decomposition, interpreter, search, solver or "pieces have prior art" arguments. Do not generate a new batch. No experiments.
+
+**Resources:** reasoning plus 8 web searches. No compute. arXiv full text is still blocked by the proxy, so 2025–26 items are verified at abstract / snippet level.
+
+**Relation to session 7.** The owner's recalibration adopts the substance of my AA.6 proposal: a separation-proof exemption and a separate empirical tier. **Correction recorded here, not by rewriting AA:**
+- the AA.1 Library-Closure argument applies to **primitive** claims only;
+- it is **not** an architecture-level kill;
+- this also qualifies Part M lesson 16.
+
+---
+
+## AB.1 Historical sanity check of the calibrated filter (controls)
+
+**Purpose.** Test whether the new rule separates known architectural innovations from software pipelines *without* invoking simulability. These controls are used only as calibration; they are not claimed to be equivalent kinds of innovation.
+
+**Decomposition convention used throughout (important).** The "ordinary decomposition" means the known components joined through their **ordinary interfaces and trained in their ordinary way**. Without this convention the test is empty. For example, Nadaraya–Watson kernel regression whose kernel is *learned end-to-end jointly with the features by backprop* simply **is** attention. Every verdict below uses this convention.
+
+| Control | Primitive verdict | Native organization | Strongest ordinary decomposition (at the time) | Property lost under decomposition | Calibrated verdict |
+|---|---|---|---|---|---|
+| **Attention** (Bahdanau 2014; Vaswani 2017) | KILLED: Nadaraya–Watson kernel smoothing (1964) + content-addressable memory perform the same weighted read | learned, input-dependent, differentiable all-pairs routing trained jointly with the representation | RNN encoder–decoder (fixed-length bottleneck); or fixed-kernel NW / hard CAM with separately trained features | **information and credit flow:** O(1) path length between any two positions, parallel training over positions, learned routing under end-to-end credit assignment; matched gains on long sentences | **ARCHITECTURE** ✔ |
+| **Residual connections** (He 2015) | KILLED: identity skip; LSTM constant error carousel (1997) | x + F(x) in every block | plain deep stack with the *same function class* (it can represent the identity) | **credit assignment / trainability at depth:** identity gradient path; the matched plain-vs-residual ablation shows the degradation problem | **ARCHITECTURE** ✔ vs plain stacks. **Direct architecture prior art:** highway networks (May 2015), so the *family* (CEC → highway → residual) passes and priority is shared |
+| **Backpropagation** (1986) | reverse-mode AD (Linnainmaa 1970), applied to neural networks by Werbos (1974) | exact gradient of all weights at O(forward) cost | weight perturbation / finite differences (O(#params) forward passes) | **resource law of credit assignment** (O(1) vs O(#params) passes) | the **1970/74 origin** passes (resource separation); the 1986 paper → KILLED — EXISTING MECHANISM on priority, despite its empirical impact. The filter credits the origin rather than rejecting for simulability ✔ |
+| **Diffusion models** (Sohl-Dickstein 2015; Song & Ermon 2019; Ho 2020) | KILLED: denoising score matching (Vincent 2011) + Langevin dynamics | one noise-conditional score network coupled across a noise schedule with annealed / reverse-time sampling | single-noise-level score-matching EBM + Langevin MCMC | **learning + sampling property:** well-defined scores in low-density regions and mixing between modes; Song & Ermon show the single-level version fails | **ARCHITECTURE** ✔ |
+| **CDCL** (GRASP 1996; Chaff 2001) | KILLED-ish: resolution; dependency-directed backtracking (1977); nogood learning (Dechter 1990) | clause learned at each conflict by cutting the **internal** implication graph (1-UIP), used by the same unit propagation | DPLL + a learner that sees only search *outputs* (decision clauses) | **worst-case separation:** DPLL ≈ tree-like resolution; clause learning is exponentially stronger and with restarts simulates general resolution (Beame, Kautz & Sabharwal, JAIR 2004; Pipatsrisawat & Darwiche, AIJ 2011) | **ARCHITECTURE** ✔ |
+| *Negative control:* RAG | — | retriever + LM | itself | none | **PIPELINE** ✔ |
+| *Negative control:* LLM + calculator / code tool | — | tool call | itself | none | **PIPELINE** ✔ |
+| *Negative control:* LLM → SAT/SMT translation (Logic-LM, SatLM) | — | translate, solve, read back | itself | none | **PIPELINE** ✔ |
+
+**Result (INTERPRETATION).**
+- **The filter behaves sensibly.** With the convention above, it accepts all five positive controls at the architecture level and rejects all three negative controls as pipelines. It never uses simulability, and it still kills every positive control's *primitive* claim.
+- **The lost property is always about signal flow through internal state.** In every positive control it is how *learning signal or derivation information* moves through the system's internal state: path length (attention), identity gradient path (residual), cost of exact credit (backprop), score coupling across noise levels (diffusion), learning from the internal implication graph (CDCL). Pipelines lose exactly this, because their interfaces pass outputs rather than internal credit or derivations. This pattern is used for the next lens (AB.5).
+
+---
+
+## AB.2 Selection of candidates for re-audit
+
+**Included (13).** My strongest old kills whose stated reason was decomposability of some kind: "combination / pipeline", "system-level", "component", "search / solver reproduces it", "no learning advantage", or "low value":
+- N02 CSL; N03 NIN; N04 ESR; N08 CFWM;
+- Q05; Q06; Q14; Q17; Q20;
+- R8-1;
+- Y.5 / Z.4 discrete commitment;
+- I01; I05.
+
+**Excluded (not reopened), as the brief instructs:**
+- *Direct architecture-level prior art:* N01 (Hruby et al. 2022; Simulator HC), N05 (SATNet / OptNet; LLM→solver translators), N07 (1993 chaotic-relaxation neuro-operators), N09 (ACIL / AFCL), N10, N11, N12, N15, N16, N19, N21, N25, N33, Q01–Q04 (published 2025–26), Q09–Q12, Q15 (Multiverse), Q19, I03, I06, I07, I09–I17, I19, I20.
+- *Impossibility / non-identifiability:* I04 and I08 (NG-3), NG-listed families, Y.3 identification limits.
+- *True equivalence:* N22 (algebraically ordinary attention), Q08 (invertible net).
+- *Closed cross-lane seam:* Q13 / R22 (learned truth maintenance).
+
+---
+
+## AB.3 Re-audit table
+
+Legend. **P** = primitive verdict. **A** = architecture verdict. "Preserved?" asks whether the strongest ordinary decomposition keeps the claimed property.
+
+| Candidate | Original kill reason | Primitive verdict | Architecture verdict | Closest prior art | Strongest ordinary decomposition | Property lost under decomposition | Evidence needed next |
+|---|---|---|---|---|---|---|---|
+| **N02 CSL** (certified admit / retire lifecycle) | every property published; "combination" (G.3) | PRIMITIVE CLAIM KILLED (e-processes, α-investing, e-detectors) | **KILLED — PIPELINE ONLY** | Amoukou et al. 2026; AMRules; ARF; α-investing; decaying-memory FDR; Medeiros–Teräsvirta 2006 | any growing learner + independent anytime-valid admission test per proposal + change detector per part + online-FDR budget | **none.** The guarantee is a union bound over separately valid e-processes, so it is **compositional by construction** and survives any assembly. Matched evidence: no advantage outside the sparse regime (H.1d/e/o/p; H.1l plain likelihood ratio matches) | none; kill final |
+| **N03 NIN** (confluent learned interaction nets) | "no learning advantage"; fixed templates = TreeRNN; learned templates = program synthesis | PRIMITIVE CLAIM KILLED (Lafont interaction nets) | **KILLED — EXISTING ARCHITECTURE (runtime) + pipeline preserves** | Lafont 1990/97; HVM / HVM2 (interaction-combinator runtime); TreeRNN; recursive NPI | train a TreeRNN / recursive model normally, express it functionally and run it on an interaction-combinator runtime (HVM) | **none.** Schedule-free bit-identical execution under dynamic topology comes from the runtime's strong confluence and is kept by compilation. No learning property depends on it; it is an execution property | none; the corrected reason replaces the value-based kill |
+| **N04 ESR** (e-graph working memory) | neural guidance of a classical engine | PRIMITIVE CLAIM KILLED (e-graphs, egg) | **KILLED — PIPELINE ONLY** | egg; RL / MCTS equality saturation; Babble; TENSAT | neural model reads the canonical extracted term (or a class hash) from an external e-graph | **none** for the claim: exact invariance to known equivalences and compact storage of many forms are both kept. "Richer features pooled over all members" is an untested empirical hope, not a property | none unless a matched task shows class-pooled features beat canonical extraction (no motivating evidence) |
+| **N08 CFWM** (learned commutation algebra for pruning) | experiment H.2: exact on-the-fly checks dominate; learned predicate lost plans | PRIMITIVE CLAIM KILLED (partial-order reduction, move pruning) | **KILLED — PIPELINE ONLY (measured)** | automatic move pruning (Holte & Burch 2014); POR; CoDA | world model + on-the-fly exact commutation check (simulate both orders) | **none.** The decomposition kept the search savings *and* was safe in the matched experiment. The residual "avoid simulating both orders" resource claim lost to exact checks in H.2 | none; kill final (matched experiment) |
+| **Q05** in-pass memoization with canonical keys | engineering / system-level | PRIMITIVE CLAIM KILLED (memoization, VQ keys) | **KILLED — PIPELINE ONLY** | recursive LM calls; Memorizing Transformers; DNN computation reuse | modular / recursive model issuing explicit sub-calls + external cache keyed by the same learned canonicalizer | **none.** "Same key → same answer" and O(1) repeats are cache properties and survive externalization. Equivalent subproblems getting equal keys is learned in both versions | none |
+| **Q06** stable-matching (deferred-acceptance) router | low value; novelty not refuted | PRIMITIVE CLAIM KILLED (Gale–Shapley 1962; many-to-one DA) | **NOT REOPENED — property lost under decomposition, but no argued importance** | BASE (linear assignment); Expert Choice; **Batch Prioritized Routing** (V-MoE 2021); Sinkhorn routing; congestion-game MoE routing (2026); ad-hoc overflow rerouting. No stable-matching router found (2 searches) | top-k token choice + capacity + drop / reroute; or BASE; or Expert Choice | **stability** (no token–expert blocking pairs); token-side strategy-proofness; and via the rural-hospitals theorem, the *set* of dropped tokens and per-expert loads is the same in every stable matching. **But:** with a *common* score for both sides the stable matching reduces to greedy priority assignment ≈ BPR + rerouting (known). With separate expert-side preferences it is novel, but **no MoE pathology is known to be caused by blocking pairs** | reopen only if a pathology attributable to blocking pairs is first documented; then a matched router ablation (below). Not run |
+| **Q14** within-episode nogoods in latent reasoning | CDCL + neural guidance | PRIMITIVE CLAIM KILLED (CDCL, nogood learning) | **KILLED — PIPELINE ONLY / no demonstrable property** | CDCL; NeuroCore; reasoning models that backtrack in text | formalize → CDCL; or explicit textual "tried X, failed" notes in reasoning traces | **none demonstrable.** The complexity benefit of nogoods needs *sound* nogoods (NG-2: proof power sits in the proof system). Unsound latent nogoods carry no guarantee, and text-level nogoods already exist | none |
+| **Q17** persistent trigger units | system-level | PRIMITIVE CLAIM KILLED (Rete, ECA rules) | **KILLED — PIPELINE ONLY** | Rete (Forgy 1982); Neural Production Systems (2021) | agent + external trigger store; Rete for symbolic conditions, vector index over condition embeddings for latent ones | **none.** Guaranteed firing and sublinear matching are both kept | none |
+| **Q20** sketch-state recurrent layer | external-structure category | PRIMITIVE CLAIM KILLED (count-min, HLL) | **KILLED — PIPELINE ONLY (+ existing learned-sketch architectures)** | learned sketches (Hsu et al. 2019); Meta-sketch (AAAI 2023) | item recognizer + classical sketch | **none.** The error bounds come from the sketch and are kept | none |
+| **R8-1** Declassification Transformer | system-level design relocated into one network | PRIMITIVE CLAIM KILLED (masking + k-ary VQ bottleneck) | **KILLED — PIPELINE ONLY** | FIDES (typed low-capacity declassification); CaMeL; Dual-LLM; ASIDE; arXiv 2606.27567 (names enforced separation as required) | planner LLM on trusted input + quarantined LLM answering typed k-ary queries + data-typed variables (FIDES) | **none.** Same quantitative-noninterference bound (≤ 2^B control behaviours); same information-flow structure. Cost matches with prefix caching of the quarantined context. Joint training is possible in both | none for novelty. Still the best *application* direction (Part J) |
+| **Y.5 / Z.4 discrete commitment** (binding-restricted adaptation with native assignment inference) | operation exists (CSP / structure search) | PRIMITIVE CLAIM KILLED (CSP, IRM / CrossCat, abductive learning) | **KILLED — PIPELINE ONLY (measured)** | model-as-scorer + CSP; abductive learning; in-context algebra | frozen model as scorer + external CSP over bindings, then substitute the symbols | **none.** The pipeline recovered the mapping **12/12**, native relaxed restriction 7/12 (Z.4). Post-commitment sharing (new symbol uses the old concept's parameters) is kept by symbol substitution | none |
+| **I01** orbit commitment | pipeline (group algorithms + certain answers) | PRIMITIVE CLAIM KILLED | **KILLED — PIPELINE ONLY** | Schreier–Sims; nauty; certain answers; lifted MCMC on orbits (Niepert 2012) | version-space learner + permutation-group library + certain-answer semantics | **none** | none |
+| **I05** learned extension-variable invention in CDCL | "old algorithm + neural proposer"; NG-1 | PRIMITIVE CLAIM KILLED (Tseitin extension) | **KILLED — EXISTING ARCHITECTURE** | **ERCL via Dual Implication Points** (arXiv 2406.14190: runtime extension from the implication graph); GlucoseER (2010); SBVA | ERCL / DIP (native, non-learned) + learned scoring of candidate definitions | **none architectural.** The native coupling (definitions introduced at conflict time from the implication graph) already exists. Learning the choice is a distributional heuristic (NG-1 / NG-2) | none |
+
+**Result: 0 of 13 reopened as `SURVIVES AS ARCHITECTURE CANDIDATE`.**
+- 11 are killed as **pipeline-only** (for CSL, NIN, CFWM and Z.4 the kill is backed by measured or formal evidence) or **existing architecture** (NIN runtime; I05 ERCL).
+- 1 (Q14) is killed because it has **no demonstrable property**.
+- 1 (Q06) is the only case where the decomposition **does** lose a hard property. It is **not reopened** because that property has no argued importance, and its common-score special case collapses to known routing (BPR + rerouting).
+
+---
+
+## AB.4 What the recalibration changed, candidate by candidate (reason-of-death audit)
+
+AGENTS.md now asks for the *reason for death* to be recorded precisely. Old vs corrected reasons:
+
+| Candidate | Old reason (as recorded) | Was it "merely general computability"? | Corrected reason of death |
+|---|---|---|---|
+| N02 CSL | combination of published parts | partly (decomposability of properties) | **pipeline-only:** the guarantee is compositional, and there is no matched advantage |
+| N03 NIN | no learning advantage (value) | no, but the reason was value-based | **existing runtime preserves the property** (HVM compilation); no learning property |
+| N04, Q05, Q17, Q20, I01 | system-level / component / engineering | yes, in form ("could be built from parts") | **pipeline-only:** substitutability check done explicitly; property preserved |
+| N08, Y.5 / Z.4 | experiment showed exact / search methods dominate | no | **pipeline-only (measured):** already the right reason |
+| Q06 | low value | no | **property not preserved; importance unargued** (not reopened) |
+| Q14 | solver + guidance | partly | **no demonstrable property** (NG-2) |
+| R8-1 | system-level design relocated inside one network | partly | **pipeline-only:** FIDES preserves the same information-flow bound |
+| I05 | old algorithm + neural proposer; NG-1 | no | **existing architecture** (ERCL / DIP) |
+| Session-7 AA.1 library closure | — | **yes** (it is a computability argument) | valid for **primitive** claims only; withdrawn as an architecture-level argument |
+
+**Finding (INTERPRETATION).**
+- **No old kill of mine was overturned.** Several were recorded with an *imprecise* reason: "system-level", "component", "value". Applying the substitutability test explicitly confirmed each kill with a sharper reason.
+- **The one genuinely computability-based argument I made** (AA.1) did not by itself kill any listed candidate; each I-candidate also had specific prior art. It is now restricted to primitive claims.
+- **Why nothing reopened.** My past candidates were overwhelmingly *mechanisms with external interfaces*: tests, caches, solvers, runtimes, routers. For those, the pipeline and the "native" version exchange the same information, so decomposition preserves the property. None of them created a new path for **learning signal or derivations through internal state**, which is what every positive control in AB.1 has.
+
+---
+
+## AB.5 Survivors, falsifiers, and next step
+
+**Survivors of the re-audit: none.** No candidate is `SURVIVES AS ARCHITECTURE CANDIDATE` or `SURVIVES AS PRIMITIVE CANDIDATE`.
+
+**Parked, not reopened: Q06 (stable-matching router).** Recorded precisely so that it can be reopened cheaply if evidence appears.
+- **Formal statement:**
+  - STATE = token-side scores s_{t,e}, *separately parameterized* expert-side scores r_{e,t}, capacities c_e;
+  - OPERATION = token-proposing deferred acceptance;
+  - TRANSITION = dispatch to the matched expert, drop only if all of a token's acceptable experts reject it; gradients via perturbed-optimizer / straight-through;
+  - ARCHITECTURAL PROPERTY = no blocking pairs; token-side strategy-proofness; rural-hospitals invariance of the dropped-token set.
+- **Reopen condition:** first document an MoE pathology *caused by* blocking pairs, e.g. a token dropped or demoted while an expert it prefers holds tokens that expert ranks lower, with measurable harm to specialization or loss.
+- **Smallest matched test if reopened (not run):** small MoE LM at equal capacity factor, comparing:
+  - (a) top-k + drop;
+  - (b) BPR + reroute to the next choice (the common-score stable matching);
+  - (c) Expert Choice;
+  - (d) two-sided DA.
+
+  Measure loss, blocking-pair rate, drop rate and expert-specialization metrics over ≥3 seeds.
+- **Falsifier:** (d) ≤ (b) on loss at matched compute. Then separate expert-side preferences add nothing beyond known priority routing.
+
+**Proposed next lens (Lens 14, derived from AB.1 and AB.4).** Start from an **interface-blocked signal** rather than from an operation or a failure. The template:
+1. find a place where the best ordinary pipeline *must* pass only outputs across an interface;
+2. find a learning signal or derivation that would be valuable if it crossed that interface (as the implication graph is for CDCL, or the identity gradient path for residual networks);
+3. propose a native coupling that carries it;
+4. state *in advance* which property is lost when the coupling is cut.
+
+Candidates must name that property **before** prior-art search. Known collisions to check first:
+- abductive learning (knowledge-base inconsistency → label revision);
+- EBNN (domain-theory derivatives as training signal);
+- lazy clause generation;
+- DPLL(T) explanations;
+- expert iteration.
+
+No batch is generated in this session, as the brief instructs. The next session should decide, with cross-lane synthesis (shared map §12), whether to open Lens 14.
+
+---
+
 # Part K — Research Proposal: Certified Structural Learning (CSL)
 
 *(Living summary of the lead candidate. Evidence details are in H.1–H.1h.)*
@@ -2621,10 +2790,12 @@ The proofs are standard, and nothing in them depends on the component type. **No
 13. **Check the minimal description length of every test target** (E8). A diagnostic built from invertible, partly commuting primitives lets deep compositions collapse into short programs, so "depth" stopped measuring difficulty. Always verify the true minimal program length (or group diameter) before claiming a test requires deep search.
 14. **Condition switch/regime metrics on actual changes** (E3). If the "next regime" can equal the current one, the share of no-change "switches" depends on the number of regimes. That makes every learner look worse as regimes are added, including the optimal filter; always check that the optimal baseline's curve behaves as theory predicts.
 15. **Separate "does not have the family" from "cannot optimize within it"** (Y.4b). Give the gradient learner the correct hypothesis family as a relaxation and compare it with discrete search over the *same* family. In Y.4b the relaxation failed in 0/125 restarts while discrete search succeeded, which localizes the failure to optimization-by-relaxation rather than representation.
-16. **Once a universal interpreter, synthesis and Bayes are granted, operation-level novelty is impossible in the computability sense** (AA.1). Ask of every candidate: is it a *cost separation from a new paradigm*, or a *new specification*? If it is neither, kill it immediately.
+16. **Once a universal interpreter, synthesis and Bayes are granted, operation-level novelty is impossible in the computability sense** (AA.1). Ask of every candidate: is it a *cost separation from a new paradigm*, or a *new specification*? If it is neither, kill it immediately. *(Session 8: this applies to primitive claims only; for architecture claims use the substitutability test of AB.)*
 17. **Neural components add heuristics, not proof power** (NG-2). For a sound system, runtime is bounded below by proof size in the proof system it uses. A neural × symbolic fusion can only win on a distribution. Look for a worst-case gain in the *proof system*, not in the guidance.
 18. **Calibrate a novelty filter on history before trusting its nulls** (AA.6). The current filter would kill attention, backpropagation, residual connections and even CDCL. Only new *specifications* pass. A null result under a filter with an almost empty historical positive class is weak evidence about the idea space.
 19. **Invention from recall can only rediscover** (AA.7). Every operation I can name has a name. Unnamed operations must be *observed* in systems that implement them, e.g. by dissecting trained networks; they cannot be generated from memory.
+20. **Fix the decomposition convention before running a substitutability test** (AB.1). "Ordinary decomposition" must mean known components joined through their ordinary interfaces and trained in their ordinary way. Otherwise the test is empty: kernel regression whose kernel is learned end-to-end with the features *is* attention.
+21. **Record the reason of death precisely** (AB.4). "System-level", "component" and "low value" are not reasons. Say which decomposition preserves which property, or which property lacks demonstrated importance. The same verdict with a sharper reason is still a result.
 
 # Part I — Open Questions
 
@@ -2641,7 +2812,7 @@ The proofs are standard, and nothing in them depends on the component type. **No
 
 # Part J — Rejected Ideas Log
 
-Never silently delete. Format follows `04_RESEARCH_STATE.md` (compressed into a table). Rejections with full reasoning are also in D.2–D.4, E.1, F2–F5, H.2.
+Never silently delete. Format follows `04_RESEARCH_STATE.md` (compressed into a table). **Session-8 calibration re-audit:** recalibrated verdicts and corrected reasons of death for N02, N03, N04, N08, Q05, Q06, Q14, Q17, Q20, R8-1, Y.5/Z.4, I01 and I05 are in AB.3–AB.4. None was reopened; Q06 is parked. Rejections with full reasoning are also in D.2–D.4, E.1, F2–F5, H.2.
 
 | ID / Name | Idea | Reason rejected | Closest existing concept | Could a component still be useful? |
 |---|---|---|---|---|
