@@ -8,7 +8,35 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 9
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 10
+
+- **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (owner closed the native-coupling round and set the learning-dynamics phase, §6.5 / §12) → this notebook. The branch was fast-forwarded to `origin/main` (`4ada31d`). `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
+- **Current search lens:** **single-model learning dynamics (Part AD)**. Look for internal organization that changes what or how a model learns, where the strongest matched baseline with the same function class cannot preserve the property.
+- **Current stage (session 10):** lens **complete at the conceptual level**.
+  - AD.1: key reduction. Pure reparameterizations are optimizer-restorable (commuting reparametrization ≡ mirror descent, Li et al. 2022; Amid & Warmuth 2020; depth-as-preconditioner, Arora et al. 2018; abc-parameterization symmetry).
+  - The non-equivalent remainder is eight channels K1–K8.
+  - AD.2: 30-row taxonomy. AD.3: 12 candidates LD1–LD12, one per channel, prioritizing the project's discrete-commitment failure. **0 survive.**
+- **Strongest surviving candidate(s):** **none.**
+  - 10 of 12 are genuine learning-dynamics architectures (removal statement fillable), but all are published: RepVGG, Natural Neural Networks, TTT / Titans / Nested Learning, sparse memory finetuning, stacking ≈ Nesterov, EP / PC / DFA, asymmetric nets, recurrent depth, WarpGrad, softassign.
+  - LD1 is optimizer-equivalent.
+  - LD2 is SATNet, capped by relaxation non-tightness.
+  - Q06 stays parked.
+- **Key result (AD.5):**
+  - The optimizer-equivalent part of the space is excluded by theorem; the remainder (K1–K8) is occupied.
+  - The project's own failure (gradient learning does not commit to discrete structure) is an optimization-hardness gap that learning-dynamics architectures move only heuristically.
+  - What is left here is **quantitative and empirical**. A prior-art screen can kill named mechanisms but cannot certify the absence of better unnamed ones, and invention is recall-bound (AA.7).
+- **Unresolved prior-art questions:**
+  - (a) Codex answer to `HANDOFF_Claude_to_Codex_filter_calibration.md`.
+  - (b) Codex's learning-dynamics collision map (shared map §12) may add occupants.
+  - (c) 2025–26 items were verified from abstracts / snippets only.
+- **Exact next action:** **owner decision** between:
+  - (A) a pre-registered automated mechanism search in K1–K8 (AutoML-Zero-style, CPU first, with a rediscovery filter against the AD.2 taxonomy and a mechanism-removal rule). **Needs experiment authorization and budget.**
+  - (B) stop concept-level invention and consolidate the cross-lane negative map.
+  - (C) an owner-specified new lens.
+- **Default if the owner only says "continue":** add a learning-dynamics occupancy table to the shared map, then *design without running* the (A) protocol for approval.
+- **ID scheme addition:** `LD1–LD12` (session 10, Part AD); channels `K1–K8`.
+
+# Resume Pointer as of session 9 (historical; superseded by the block above)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit; primitive / architecture / pipeline levels) → `SHARED_RESEARCH_MAP.md` → this notebook. The branch was fast-forwarded to `origin/main` (`479dd08`; only the other lanes' notebooks had changed). `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** **Interface-Blocked Signal / Native Coupling (Lens 14, Part AC)**. Look for architectures whose important property exists because signals cross components internally in a way ordinary interfaces cannot preserve.
@@ -35,7 +63,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 - **Default if the owner only says "continue":** (C) briefly, then (A) at conceptual-screen level only, with no experiments.
 - **ID scheme addition:** `NC01–NC13` (session 9, Part AC).
 
-# Resume Pointer as of session 8 (historical; superseded by the block above)
+# Resume Pointer as of session 8 (historical)
 
 - **Governing files:** `AGENTS.md` (highest authority; never edit; **recalibrated by the owner** into primitive / architecture / pipeline levels) → `SHARED_RESEARCH_MAP.md` (owner-authorized synthesis) → this notebook. The branch was fast-forwarded to `origin/main` with no Claude work lost. `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** calibration re-audit (Part AB). Old kills are re-tested under the rule "a clean reduction kills the primitive claim; an architecture survives only if its native organization has an important property that the ordinary decomposition does not preserve".
@@ -3049,6 +3077,312 @@ This is **not** a proof that no native-coupling architecture remains. It shows t
 
 ---
 
+# Part AD — Single-Model Learning Dynamics Lens (session 10, 2026-09-28)
+
+**Brief (owner, session 10).** The native-coupling lens is closed; no NC14.
+- **Target:** architectural mechanisms inside **one model** that change what it can learn, how credit is assigned, how representations form, how optimization moves, interference, adaptation speed, depth, train/inference coupling, or scaling.
+- **Not wanted:** a new optimizer or a new loss.
+- **Central question:** can two systems with roughly the same final function class differ in a learning dynamic that the strongest matched baseline cannot preserve?
+- **Order:** taxonomy first; then 8–12 candidates LD1… in the format `STATE + LEARNING DYNAMIC + UPDATE RULE + PROPERTY THAT MATCHED BASELINE LOSES`, answering 14 questions.
+- **Survival rule:** every survivor must satisfy "remove / replace this mechanism → this exact learning property disappears".
+- **Experiments:** none; design the smallest matched test only for a survivor.
+
+**Resources:** reasoning and 16 web searches. No compute. arXiv full text blocked: 2025–26 items verified at abstract / snippet level.
+
+**Labels:** VERIFIED · DERIVATION · INTERPRETATION · SPECULATION.
+
+---
+
+## AD.1 The key reduction: architecture-as-reparameterization is optimizer-restorable
+
+Question 8 in the brief ("could a different optimizer restore it?") has a known theoretical answer for a large class of architectural changes. It is stated first because it decides where survivors can exist at all.
+
+**VERIFIED.**
+- **Commuting reparametrizations.** Gradient flow under any *commuting* reparametrization w = φ(θ) is equivalent to continuous **mirror descent** on w with a related mirror map, and conversely (Li, Wang, Lee & Arora, NeurIPS 2022). Earlier: Amid & Warmuth (NeurIPS 2020), "Reparameterizing mirror descent as gradient descent"; the quadratic / Hadamard parameterization u⊙u − v⊙v gives a sparsity (hyperbolic-entropy) implicit bias.
+- **Depth in linear nets.** Depth-N overparameterization acts as a specific **preconditioner**. Its acceleration cannot be obtained from the gradient of *any* regularizer, but it *is* an explicit update rule on the end-to-end matrix (Arora, Cohen & Hazan, ICML 2018).
+- **Multiplier / init / learning rate.** Width-scaling "parameterizations" (μP and the abc-family) are equivalence classes of multiplier, initialization and learning-rate choices (Yang & Hu 2021). They are optimizer hyperparameters in architectural clothing.
+
+**DERIVATION (general form; elementary).** Let an architecture re-express the baseline f_w as f_{φ(θ)}. Gradient flow on θ gives
+ẇ = −J(θ)J(θ)ᵀ ∇_w L(w), with J = ∂φ/∂θ.
+- **(a) Pure reparameterization.** If φ is a diffeomorphism (dim θ = dim w), the preconditioner P = JJᵀ depends on w only. An optimizer on the baseline with preconditioner P(w) reproduces the trajectory exactly in continuous time. **The architecture claim dies at question 8.**
+- **(b) Overparameterization.** If dim θ > dim w, P depends on the hidden fibre coordinate. Matching it needs an optimizer carrying extra state, up to θ itself. This is a *hidden-state* channel, not a new function class.
+- **(c) Residual differences.** Beyond (a) and (b), differences can only come from:
+  - discrete-time / stochastic effects (step size × curvature, noise geometry shaped by J);
+  - **cost:** P may be cheap for the architecture but costly for an optimizer (e.g. data-dependent whitening);
+  - or **not being a reparameterization at all:** the function class changes, extra non-parameter state is added, or credit is routed by data.
+
+**Consequence (INTERPRETATION).** Every "same function class, different learning dynamics" candidate must live in one of the following non-optimizer-equivalent **channels**:
+
+| Channel | What makes it non-optimizer-equivalent |
+|---|---|
+| **K1** function-class change / trajectory | the reachable set changes during learning (growth, gating, residual structure) |
+| **K2** non-parameter persistent state | learning state stored in activations / fast weights, not in θ or optimizer moments |
+| **K3** data-routed credit | different inputs update different parameters by an architectural routing decision |
+| **K4** hidden overparameterized state | training-time parameters exceed the inference function's parameters (case b) |
+| **K5** cheap data-dependent preconditioning | the preconditioner depends on activations and is cheap in the forward pass (case c, cost) |
+| **K6** credit locality / timing | a different credit rule enabled by the architecture (local, forward-only, energy-based) |
+| **K7** train / test asymmetry | different depth, noise or structure at training vs inference time |
+| **K8** landscape geometry | symmetry removal or lifting changes critical points, not just paths |
+
+This also explains the historical controls. Residual connections and attention are **not** pure reparameterizations: they change the function class and add data-routed paths (K1 / K3). BatchNorm is cheap data-dependent preconditioning plus batch coupling (K5). That is why the equivalence did not erase them.
+
+---
+
+## AD.2 Taxonomy of existing learning-dynamics mechanisms
+
+| # | Mechanism (key refs) | Property it changes | Optimizer-restorable? | Channel |
+|---|---|---|---|---|
+| 1 | Backprop / reverse-mode AD (Linnainmaa 1970; Werbos 1974; Rumelhart et al. 1986) | cost of exact credit: O(forward) vs O(p) passes | it *is* the gradient oracle | credit cost |
+| 2 | Residual / highway connections (2015); LSTM constant error carousel (1997) | credit path length; identity gradient; signal propagation; rank collapse avoided (Dong et al. 2021) | no (function-class change) | K1 |
+| 3 | Weight normalization (2016) | conditioning via reparameterization | **yes** (preconditioning) | optimizer-eq. |
+| 4 | BatchNorm / LayerNorm (2015–16) | scale invariance → effective LR auto-tuning; batch coupling | partly; data-dependent and cheap | K5 |
+| 5 | Whitening layers: Natural Neural Networks / PRONG (Desjardins et al., NIPS 2015); decorrelated BN (2018) | Fisher conditioning (≈ natural gradient) | yes in principle; cost asymmetry | K5 |
+| 6 | Init / parameterization: dynamical isometry; μP / abc (Yang & Hu 2021) | signal propagation; feature learning at width; HP transfer | **yes** (abc symmetry) | optimizer-eq. |
+| 7 | Depth overparameterization of linear nets (Arora et al. 2018); commuting reparametrizations (Amid & Warmuth 2020; Li et al. 2022) | implicit acceleration; implicit bias (sparse, low rank) | **yes** (mirror descent / explicit preconditioned rule) | optimizer-eq. |
+| 8 | Structural re-parameterization: ExpandNets (2020), ACNet (2019), RepVGG (2021) | different training dynamics at an identical inference function | needs hidden state | K4 |
+| 9 | Attention (2014 / 2017) | content routing; O(1) path length; emergent in-context learning | no | K1 / K3 |
+| 10 | Synthetic gradients / decoupled interfaces (2017) | removes update locking; enables pipeline parallelism | alternative credit rule | K6 |
+| 11 | Target propagation / difference TP (2014–15) | non-differentiable / local targets | alternative rule | K6 |
+| 12 | Feedback alignment / DFA (2014–16) | no weight transport; direct error paths | alternative rule | K6 |
+| 13 | Predictive coding (Whittington & Bogacz 2017) | local error units; ≈ backprop at equilibrium | alternative rule + state | K6 |
+| 14 | Equilibrium propagation (2017; holomorphic EP 2022, exact gradients) | local two-phase credit in energy models | alternative rule | K6 |
+| 15 | Hebbian / local unsupervised rules (Oja; BCM) | unsupervised feature formation | alternative rule | K6 |
+| 16 | Forward-forward (2022); forward gradients (2022) | no backward pass | alternative rule | K6 |
+| 17 | Fast weights (Hinton & Plaut 1987; Schmidhuber 1992; Ba et al. 2016); linear attention / DeltaNet (2021–24) | activation-timescale learning state | no | K2 |
+| 18 | Plastic networks: differentiable plasticity (2018), backpropamine (2019) | learned Hebbian traces and learned plasticity | no | K2 |
+| 19 | Test-time training (Sun 2020); TTT layers (2024); Titans (2025); **Nested Learning / HOPE** (NeurIPS 2025: optimizers as associative memories, self-modifying module, continuum memory) | inference-time gradient updates of layer state; multi-timescale state | no | K2 |
+| 20 | Learned optimizers (VeLO 2022) | learned update rule | it *is* an optimizer | excluded |
+| 21 | Meta-learning: MAML (2017); **WarpGrad** warp layers (ICLR 2020); MT-nets (2018) | fast adaptation; architecture-realized meta-learned preconditioning | warp layers: an architecture that *is* a preconditioner | K5 (meta) |
+| 22 | Implicit / equilibrium layers (DEQ 2019); neural ODEs (2018); reversible nets (2017) | O(1) training memory in depth; adaptive depth | no (resource law) | K7 / resource |
+| 23 | MoE (1991; 2017); memory layers (PKM 2019; Memory Layers at Scale 2024); **sparse memory finetuning** (Lin et al. 2025: 11% vs 89% forgetting) | specialization; sparse credit; low interference; params ≠ FLOPs | no (routing) | K3 |
+| 24 | Continual-learning architectures: progressive nets (2016), PackNet (2018), HAT (2018), supermasks (2020). Contrast optimizer-level (OGD, GPM, OWM, AlphaEdit) and loss-level (EWC, SI) | interference / forgetting | architecture versions: no (isolation) | K3 |
+| 25 | Growth: cascade-correlation (1990); Net2Net (2016); splitting steepest descent (2019); progressive stacking (2019); **stacking ≈ Nesterov acceleration** (Agarwal et al. 2024); LEMON (2024) | function-class trajectory; training compute | no | K1 |
+| 26 | Train / test asymmetry: dropout (2014), stochastic depth (2016), Universal Transformer (2019), PonderNet (2021), recurrent-depth models (2025) | noise and depth differ between training and inference | partly (noise can be injected by an optimizer) | K7 |
+| 27 | Parameter-symmetry reduction: W- / σ-asymmetric nets (Lim et al., NeurIPS 2024); singularity-induced plateaus (Fukumizu & Amari 2000); natural gradient (Amari 1998) | landscape convexity; linear mode connectivity; plateaus | natural gradient addresses plateaus | K8 |
+| 28 | Lifting / Burer–Monteiro benign landscapes (Boumal, Voroninski & Bandeira 2016); SATNet low-rank SDP layer (2019); graduated assignment / softassign (Gold & Rangarajan 1996) | benign landscape for relaxations; annealed commitment | optimizer with lifted state | K8 |
+| 29 | Loss-of-plasticity fixes: CReLU (2023); continual backprop (Dohare et al., Nature 2024); shrink-and-perturb (2020) | sustained plasticity | partly (reset rules are optimizer-level) | K1 / K3 |
+| 30 | Architecture-dependent optimization theory: NTK lazy vs rich (2018–20); edge of stability (2021) | the *regime* of learning | analysis, not a mechanism | — |
+
+---
+
+## AD.3 Candidates LD1–LD12
+
+One candidate per channel, each in its strongest form. **Priority went to the project's own measured failure:** gradient learning fits examples but does not commit to the true discrete structure (Y.4b 0/125; Z.4 free 0/12, restricted 7/12). That is the one place where a learning-dynamics architecture would matter most to the mission.
+
+The 14 answers are compressed as:
+1. model state;
+2. what changes during learning;
+3. what carries credit;
+4. what persists;
+5. architecture vs loss / optimizer;
+6. strongest matched baseline;
+7. property the baseline loses;
+8. optimizer restores?;
+9. more parameters restore?;
+10. recurrence / attention / fast weights restore?;
+11. already meta-learning / TTT?;
+12. historical closest;
+13. modern closest;
+14. falsifier.
+
+### LD1 — Hadamard Binding Layer (discrete commitment by implicit bias) · channel: *optimizer-equivalent test case*
+- **STATE:** binding matrix B = rownorm(U⊙U) mapping new symbols onto existing concept embeddings.
+- **LEARNING DYNAMIC:** GD on U has an implicit bias toward sparse B (the vertices = discrete bindings). Among interpolating solutions it should select a discrete binding.
+- **UPDATE:** plain GD on U.
+- **PROPERTY BASELINE LOSES:** a softmax-parameterized binding (Z.4 "restricted") has no sparsity bias.
+- **Answers:**
+  - (1) U; (2) U; (3) gradient; (4) U; (5) a parameterization.
+  - (6) softmax binding + GD; (7) implicit sparsity bias.
+  - (8) **Yes.** The Hadamard parameterization is commuting, so GD on U ≡ mirror descent / exponentiated gradient on B (Amid & Warmuth 2020; Li et al. 2022). EG on the simplex restores the bias.
+  - (9) no; (10) no; (11) no.
+  - (12) exponentiated gradient (Kivinen & Warmuth 1997); (13) Woodworth et al. 2020 (kernel vs rich regimes); Li et al. 2022.
+  - (14) the EG baseline matches it. **Moreover**, implicit bias only chooses *among global minima*; Z.4's restricted failures were coherent *wrong* permutations, i.e. an optimization failure that a bias does not address.
+- **Removal statement:** cannot be filled; the property survives replacing the mechanism with an optimizer.
+- **Verdict:** ✗ **KILLED — OPTIMIZER-EQUIVALENT** (not an architecture).
+
+### LD2 — Lifted Burer–Monteiro Binding (benign landscape for structure recovery) · channel K8
+- **STATE:** low-rank factor V of a lifted PSD matrix X = VVᵀ encoding pairwise binding consistency, so demonstration constraints become linear in X.
+- **LEARNING DYNAMIC:** GD on V. For rank r ≳ √(2m) the BM landscape of the SDP has no spurious local minima (Boumal et al. 2016).
+- **UPDATE:** GD / mixing method.
+- **PROPERTY BASELINE LOSES:** the Birkhoff / softmax relaxation has spurious minima (Y.4b 0/125; Z.4 coherent wrong permutations).
+- **Answers:**
+  - (1) V; (2) V; (3) gradient through the lifted objective; (4) V; (5) parameterization + lifted objective.
+  - (6) relaxed binding + GD; (7) benign landscape.
+  - (8) an optimizer carrying the lifted state restores it (K4-type).
+  - (9) the lifting *is* the extra parameters; (10) no; (11) no.
+  - (12) SDP relaxations of QAP / graph matching (Zhao et al. 1998); graduated assignment (1996); (13) **SATNet** (Wang et al. 2019: low-rank BM / mixing-method SDP layer for learning logical structure). SATNet **fails symbol grounding** without intermediate labels: 0% on visual Sudoku once the label leak is removed (Chang et al., NeurIPS 2020).
+  - (14) **No-go:** landscape benignity only helps if the relaxation is *tight*. For isomorphism-type recovery, bounded levels of the Sherali–Adams / Lasserre hierarchies are not tight (their power tracks Weisfeiler–Leman; CFI-type instances need linear levels; Atserias & Maneva 2013).
+- **Removal statement:** partly fillable ("remove the lifting → spurious minima return"), but the mechanism is an existing architecture and its power is capped by relaxation tightness.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE (SATNet / BM) + NON-TIGHTNESS NO-GO.**
+
+### LD3 — Train-Time Expansion, Inference-Time Collapse · channel K4
+- **STATE:** multi-branch / over-factorized training parameters θ that merge exactly into a single inference weight w.
+- **LEARNING DYNAMIC:** training follows the overparameterized flow (preconditioning that depends on θ); inference is identical to a plain network.
+- **PROPERTY BASELINE LOSES:** the training trajectory of the collapsed architecture, trained directly.
+- **Answers:**
+  - (8) only with θ-sized optimizer state. (9) yes, that is the mechanism. (10) no. (11) no.
+  - (12) linear overparameterization (Arora et al. 2018). (13) ExpandNets (2020); ACNet (2019); **RepVGG** (2021); DBB (2021).
+  - (14) existing.
+- **Removal statement:** "remove the training-time branches → the training dynamics revert" holds, but it is published.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD4 — Whitening-Reparameterized Layers (natural-gradient conditioning by architecture) · channel K5
+- **STATE:** layers whose inputs are whitened by running statistics; weights re-expressed so the forward function is unchanged.
+- **LEARNING DYNAMIC:** plain GD approximates natural gradient; Fisher conditioning improves at forward-pass cost.
+- **PROPERTY BASELINE LOSES:** cheap conditioning. An optimizer would need K-FAC-like curvature estimates.
+- **Answers:**
+  - (8) yes in principle (K-FAC / natural gradient), at a cost asymmetry. (9) no. (10) no. (11) no.
+  - (12) natural gradient (Amari 1998). (13) **Natural Neural Networks / PRONG** (NIPS 2015); decorrelated BN (2018); IterNorm; BatchNorm.
+  - (14) existing.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD5 — Inference-Time Learning State (layer state updated by an inner learning rule during the forward pass) · channel K2
+- **STATE:** slow weights + a fast state updated by an inner (self-supervised or Hebbian) rule at every token.
+- **LEARNING DYNAMIC:** adaptation during inference without touching the slow weights; the outer loop trains the inner rule.
+- **PROPERTY BASELINE LOSES:** efficient within-sequence adaptation that standard weights cannot emulate without per-sequence fine-tuning.
+- **Answers:**
+  - (8) no. (9) no. (10) this *is* fast weights / linear attention. (11) **yes, this is TTT.**
+  - (12) fast weights (1987 / 1992); plastic networks (2018–19). (13) TTT layers (2024); Titans (2025); DeltaNet; **Nested Learning / HOPE** (NeurIPS 2025, multi-timescale continuum memory).
+  - (14) existing.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD6 — Sparse-Slot Memory for Low-Interference In-Weight Learning · channel K3
+- **STATE:** a large key–value memory layer; each input reads and updates only its top-k slots.
+- **LEARNING DYNAMIC:** new facts write into a few slots; interference is limited to shared slots.
+- **PROPERTY BASELINE LOSES:** low forgetting when learning new facts in weights (dense FFN / LoRA forget far more).
+- **Answers:**
+  - (8) partly (gradient masking by routing needs the architecture's routing). (9) no. (10) no. (11) no.
+  - (12) Kanerva sparse distributed memory (1988); MoE (1991). (13) PKM (2019); Memory Layers at Scale (2024); **sparse memory finetuning** (Lin et al. 2025: NQ F1 drop 11% vs 89% full fine-tuning vs 71% LoRA).
+  - (14) existing.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD7 — Function-Preserving Growth During Training · channel K1
+- **STATE:** a network that is widened or deepened by function-preserving insertions on a schedule.
+- **LEARNING DYNAMIC:** the reachable function class grows during training.
+- **PROPERTY BASELINE LOSES:** training-compute savings / acceleration relative to training the final size from scratch.
+- **Answers:**
+  - (8) no (function-class trajectory). (9) no.
+  - (12) cascade-correlation (1990). (13) Net2Net (2016); splitting steepest descent (2019); progressive stacking (2019); **Stacking as Accelerated Gradient Descent** (Agarwal et al. 2024: stacking ≈ Nesterov acceleration); LEMON (2024).
+  - (14) existing, with theory.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD8 — Forward-Only Local Credit with Exactness at Equilibrium · channel K6
+- **STATE:** an energy-based or predictive-coding network with local error units.
+- **LEARNING DYNAMIC:** credit is computed by local relaxation / nudging, with exact gradients in the limit.
+- **PROPERTY BASELINE LOSES:** locality / no weight transport / no separate backward pass, at matched gradients.
+- **Answers:**
+  - (8) n/a (it is an alternative learning rule). (10) no.
+  - (12) Hebbian learning; Boltzmann machines (1985). (13) EP (2017); holomorphic EP (2022); predictive coding ≈ backprop (Whittington & Bogacz 2017; Millidge et al. 2020); DFA (2016); synthetic gradients (2017); forward-forward (2022).
+  - (14) existing.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD9 — Symmetry-Free Parameterization · channel K8
+- **STATE:** layers with fixed, untrainable asymmetric entries that break hidden-unit permutation symmetry.
+- **LEARNING DYNAMIC:** fewer symmetry-induced saddles and plateaus; more convex-like landscape.
+- **PROPERTY BASELINE LOSES:** landscape regularity (linear mode connectivity, monotone interpolation).
+- **Answers:**
+  - (8) plateaus are addressed by natural gradient (Amari 1998). (9) no.
+  - (12) Fukumizu & Amari 2000 (singularities and plateaus). (13) **W- / σ-asymmetric networks** (Lim et al., NeurIPS 2024).
+  - (14) existing.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD10 — Random-Depth Recurrent Training · channel K7
+- **STATE:** a weight-tied recurrent block, trained with a randomly sampled number of iterations.
+- **LEARNING DYNAMIC:** train-time depth distribution ≠ test-time depth; compute scales at inference.
+- **PROPERTY BASELINE LOSES:** test-time depth extrapolation from a fixed-parameter model.
+- **Answers:**
+  - (10) it *is* recurrence in depth.
+  - (12) Universal Transformer (2019); ACT (2016). (13) PonderNet (2021); looped transformers (2024); recurrent-depth latent reasoning (2025).
+  - (14) existing.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD11 — Meta-Learned Warp Layers (architecture that *is* a learned preconditioner) · channel K5 (meta)
+- **STATE:** task layers interleaved with warp layers that are meta-learned and frozen during adaptation.
+- **LEARNING DYNAMIC:** backprop through the warp layers preconditions task-layer updates across a task distribution.
+- **PROPERTY BASELINE LOSES:** faster task adaptation without backpropagating through adaptation.
+- **Answers:**
+  - (8) a learned optimizer could approximate it; WarpGrad shows the architectural form is cheaper and scales. (11) **yes, meta-learning.**
+  - (13) **WarpGrad** (Flennerhag et al., ICLR 2020); MT-nets (Lee & Choi 2018).
+  - (14) existing.
+- **Verdict:** ✗ **KILLED — EXISTING ARCHITECTURE.**
+
+### LD12 — Competitive Commitment Dynamics (bindings / specializations committed by winner-take-all with exclusivity) · channels K1 / K3
+- **STATE:** soft assignment matrix under row / column competition (Sinkhorn) with an annealed temperature, or ART-style categories with a vigilance gate.
+- **LEARNING DYNAMIC:** continuous dynamics bifurcate into discrete commitments (bindings, experts, categories).
+- **PROPERTY BASELINE LOSES:** discrete commitment emerging from continuous learning *without external search*. This is the owner's central question.
+- **Answers:**
+  - (8) annealing schedules are optimizer-level; competition is architectural. (9) no. (10) no. (11) no.
+  - (12) competitive learning (Rumelhart & Zipser 1985); ART (Grossberg / Carpenter 1987); **graduated assignment / softassign** (Gold & Rangarajan 1996). (13) Gumbel-Sinkhorn (2018); slot attention (2020).
+  - (14) existing, **and** known to reach local optima on hard matching instances. That is the same wrong-permutation failure seen in Z.4, so it does not remove the failure the project measured.
+- **Verdict:** ✗ **KILLED — EXISTING** (and does not solve the measured failure).
+
+---
+
+## AD.4 Result
+
+| ID | Channel | Removal statement fillable? | Occupant / reason | Verdict |
+|---|---|---|---|---|
+| LD1 | optimizer-equivalent | no | mirror descent / EG (Amid & Warmuth 2020; Li et al. 2022) | OPTIMIZER-EQUIVALENT |
+| LD2 | K8 lifting | partly | SATNet (2019) + BM theory; relaxation non-tightness | EXISTING + NO-GO |
+| LD3 | K4 hidden state | yes | RepVGG / ExpandNets / ACNet | EXISTING |
+| LD4 | K5 cheap preconditioning | yes | Natural Neural Networks 2015; decorrelated BN | EXISTING |
+| LD5 | K2 non-parameter state | yes | TTT / Titans / DeltaNet / Nested Learning | EXISTING |
+| LD6 | K3 routed credit | yes | memory layers; sparse memory finetuning 2025 | EXISTING |
+| LD7 | K1 trajectory | yes | Net2Net; stacking ≈ Nesterov 2024; LEMON | EXISTING |
+| LD8 | K6 credit locality | yes | EP; predictive coding; DFA; synthetic gradients; forward-forward | EXISTING |
+| LD9 | K8 symmetry | yes | asymmetric networks 2024 | EXISTING |
+| LD10 | K7 train / test depth | yes | UT; PonderNet; recurrent depth 2025 | EXISTING |
+| LD11 | K5 meta-preconditioning | yes | WarpGrad 2020; MT-nets | EXISTING |
+| LD12 | K1 / K3 commitment | yes | softassign 1996; competitive learning; ART | EXISTING (and fails the measured case) |
+
+**0 of 12 survive.** In 10 of 12 the removal statement *can* be filled: the mechanisms are genuine learning-dynamics architectures. **All 10 are published.** LD1 fails the optimizer test, and LD2 is capped by a non-tightness no-go.
+
+**Q06:** no new reason surfaced (LD6 and the MoE rows concern interference and sparse credit, not blocking pairs). Still parked.
+
+---
+
+## AD.5 Why the lens collapses at the conceptual level, and what it cannot settle
+
+**Collapse argument (INTERPRETATION built on VERIFIED results).**
+1. **The optimizer-equivalent part is excluded.** Pure reparameterizations of the same function class are optimizer-restorable (AD.1a). This removes the largest part of "same function class, different dynamics" from architecture novelty. The owner's brief excludes optimizers, and the equivalence theorems make that exclusion bite.
+2. **The rest is a finite set of channels, all occupied.** The non-equivalent remainder falls into eight channels (K1–K8). Each has multiple published occupants, several with theory (stacking ≈ Nesterov; implicit acceleration; BM landscapes; EP exactness; asymmetric-network landscapes).
+3. **The project's own failure is also occupied, or blocked.** The one learning-dynamics target that matters most here, making gradient learning *commit* to the true discrete structure without search, is covered by:
+   - implicit bias (LD1: optimizer-equivalent, and helps only among global minima);
+   - lifting (LD2: SATNet, capped by relaxation tightness);
+   - competitive annealing (LD12: softassign, same local-optimum failure).
+
+   Together with NG-5 (reliable commitment needs a finite / Littlestone class) and Z.4 (search succeeds), this indicates that the gap is an *optimization-hardness* gap. A learning-dynamics architecture can only move it heuristically.
+
+**What this lens cannot settle by reasoning (important, and different from earlier lenses).**
+- **Nature of the remaining properties.** In this region they are **quantitative and empirical**: sample efficiency, compute-to-loss, forgetting rate, depth scaling at realistic scale. A prior-art screen can *kill* named mechanisms, as above. It cannot *certify* that no unnamed mechanism with a better learning curve exists.
+- **How the controls were found.** The historical controls here (residual connections, BatchNorm, attention) were established by matched experiments at scale, not by conceptual arguments.
+- **Where conceptual invention stops.** Invention is recall-bound (AA.7). Beyond this point, new candidates in K1–K8 would come from *search* over mechanisms, not from naming them. Automated search has precedent. AutoML-Zero (Real et al., ICML 2020), starting from basic math operations, evolved two-layer networks trained by backprop and "invented" bilinear interactions, weight averaging, normalized gradients and noise augmentation. **All of these were rediscoveries**, which is a caution that search also rediscovers, so a rediscovery filter is essential. EvoNorm (2020) and Lion (Chen et al. 2023) were found by automated search.
+
+---
+
+## AD.6 Survivors, falsifiers, next action
+
+- **Survivors:** **none.** No architecture, primitive or conceptual candidate.
+- **Falsifiers of the collapse claim:**
+  1. a learning-dynamics mechanism that is not a commuting reparameterization and falls outside K1–K8;
+  2. a K-channel mechanism with a precisely stated property absent from all occupants (e.g. a hard learning invariant not provided by isolation or projection methods);
+  3. a proof that some architecture makes gradient learning recover discrete structure on a class where relaxations are provably non-tight.
+- **Exact next action:** an **owner decision** is required, because the remaining route is empirical.
+  - **(A) Pre-registered automated mechanism search** in the learning-dynamics channels:
+    - small scale, CPU first;
+    - candidates generated by search, not recall (AutoML-Zero-style);
+    - every discovered mechanism screened against this taxonomy by *functional signature*, so rediscoveries are auto-killed;
+    - survivors must beat the strongest matched baseline *and* lose the advantage under mechanism removal.
+
+    This needs experiment authorization and a compute budget.
+  - **(B) Stop concept-level invention in the Claude lane.** Consolidate the cross-lane negative map (primitive, fusion, native-coupling and learning-dynamics levels) into a single deliverable.
+  - **(C) An owner-specified new lens.**
+- **Default if the owner only says "continue":**
+  - add a learning-dynamics occupancy table (AD.2 condensed) to the shared map;
+  - then *design, without running*, the pre-registered protocol for (A): search space, primitive set, matched baselines, the ablation rule, rediscovery filter and compute estimate, for the owner to approve or reject.
+
+---
+
 # Part K — Research Proposal: Certified Structural Learning (CSL)
 
 *(Living summary of the lead candidate. Evidence details are in H.1–H.1h.)*
@@ -3158,6 +3492,7 @@ The proofs are standard, and nothing in them depends on the component type. **No
 20. **Fix the decomposition convention before running a substitutability test** (AB.1). "Ordinary decomposition" must mean known components joined through their ordinary interfaces and trained in their ordinary way. Otherwise the test is empty: kernel regression whose kernel is learned end-to-end with the features *is* attention.
 21. **Record the reason of death precisely** (AB.4). "System-level", "component" and "low value" are not reasons. Say which decomposition preserves which property, or which property lacks demonstrated importance. The same verdict with a sharper reason is still a result.
 22. **Before claiming a signal is "interface-blocked", try widening the interface** (AC.0, AC.4). Any signal a module can compute can be sent as a richer message. A native coupling matters only through joint state, lazy access to a huge signal, sub-call granularity, or a constant-factor claim. NC05's "blocked" signal was restored by a standard data format (selector literals / MaxSAT).
+23. **Before claiming a learning-dynamics advantage for an architecture, check whether it is a reparameterization** (AD.1). If w = φ(θ) with the same function class, gradient flow on θ is preconditioned (for commuting φ, mirror) gradient flow on w, so an optimizer restores it. Only function-class change, non-parameter state, routed credit, hidden overparameterized state, cheap data-dependent preconditioning, credit-rule changes, train/test asymmetry or landscape geometry can survive question 8.
 
 # Part I — Open Questions
 
@@ -3174,7 +3509,7 @@ The proofs are standard, and nothing in them depends on the component type. **No
 
 # Part J — Rejected Ideas Log
 
-Never silently delete. Format follows `04_RESEARCH_STATE.md` (compressed into a table). **Session-8 calibration re-audit:** recalibrated verdicts and corrected reasons of death for N02, N03, N04, N08, Q05, Q06, Q14, Q17, Q20, R8-1, Y.5/Z.4, I01 and I05 are in AB.3–AB.4. None was reopened; Q06 is parked. **Session-9 native-coupling lens:** NC01–NC13 and their reasons of death are in AC.1–AC.2 (0 survivors). Rejections with full reasoning are also in D.2–D.4, E.1, F2–F5, H.2.
+Never silently delete. Format follows `04_RESEARCH_STATE.md` (compressed into a table). **Session-8 calibration re-audit:** recalibrated verdicts and corrected reasons of death for N02, N03, N04, N08, Q05, Q06, Q14, Q17, Q20, R8-1, Y.5/Z.4, I01 and I05 are in AB.3–AB.4. None was reopened; Q06 is parked. **Session-9 native-coupling lens:** NC01–NC13 and their reasons of death are in AC.1–AC.2 (0 survivors). **Session-10 learning-dynamics lens:** LD1–LD12 and their reasons of death are in AD.3–AD.4 (0 survivors). Rejections with full reasoning are also in D.2–D.4, E.1, F2–F5, H.2.
 
 | ID / Name | Idea | Reason rejected | Closest existing concept | Could a component still be useful? |
 |---|---|---|---|---|

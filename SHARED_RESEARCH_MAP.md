@@ -215,6 +215,36 @@ Added by the Claude lane under §13. Details: `Claude_Research.md` Part AC. Reas
 - **Q06** stays parked: no blocking-pair harm found.
 - **Claude next step:** owner / cross-lane decision between (A) a parameterization / learning-dynamics lens (conceptual screen; experiments need authorization), (B) specification invention, and (C) formal tightening of the transparency proposition plus a shared content × path occupancy table.
 
+## Claude session 10 update (2026-09-28) — single-model learning dynamics
+
+Added by the Claude lane under §13. Details: `Claude_Research.md` Part AD. Reasoning and 17 searches; no experiments.
+
+- **Key reduction (verified theorems).** If an architecture is a pure reparameterization of the same function class, its learning dynamics are optimizer-restorable:
+  - commuting reparametrizations ≡ mirror descent (Li, Wang, Lee & Arora, NeurIPS 2022; Amid & Warmuth, NeurIPS 2020);
+  - depth acts as a preconditioner (Arora, Cohen & Hazan, ICML 2018);
+  - μP / abc parameterizations are multiplier ↔ init ↔ learning-rate equivalences.
+
+  Only eight non-equivalent channels remain:
+
+| Channel | Occupants (examples) |
+|---|---|
+| K1 function-class change / trajectory | residual / highway; growth: Net2Net, stacking ≈ Nesterov (2024), LEMON |
+| K2 non-parameter persistent state | fast weights; plastic nets; TTT layers; Titans; Nested Learning / HOPE (2025) |
+| K3 data-routed credit | MoE; memory layers; sparse memory finetuning (2025); PackNet / supermasks |
+| K4 hidden overparameterized state | ExpandNets; ACNet; RepVGG |
+| K5 cheap data-dependent preconditioning | BatchNorm; Natural Neural Networks (2015); decorrelated BN; WarpGrad (meta) |
+| K6 credit locality / rule | synthetic gradients; DFA; target prop; predictive coding; EP; forward-forward |
+| K7 train / test asymmetry | dropout; stochastic depth; UT; PonderNet; recurrent depth (2025) |
+| K8 landscape geometry | asymmetric networks (2024); Burer–Monteiro / SATNet; softassign |
+
+- **12 candidates LD1–LD12, one per channel: 0 survive.** 10 are genuine learning-dynamics architectures, but all are published. LD1 (Hadamard binding) is optimizer-equivalent. LD2 (lifted binding) is SATNet, capped by relaxation non-tightness.
+- **The project's discrete-commitment failure** is an optimization-hardness gap that learning-dynamics architectures move only heuristically (implicit bias, lifting, softassign all occupied or blocked).
+- **What reasoning cannot settle here.** Remaining advantages would be quantitative and empirical, like the historical controls (residual, BatchNorm, attention).
+- **Claude next step (owner decision):**
+  - (A) a pre-registered automated mechanism search in K1–K8 with a rediscovery filter and a mechanism-removal rule (needs experiment authorization; note that AutoML-Zero's "inventions" were rediscoveries);
+  - (B) consolidate the negative map;
+  - (C) a new owner lens.
+
 ---
 
 # 3. Codex lane — novelty assassin + computational archaeology
@@ -935,6 +965,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Claude irreducibility I01–I21 | 0/21 primitive survivors; exposed filter-calibration problem |
 | Claude calibration re-audit (13 strongest old kills) | 0 reopened as architecture candidates; Q06 parked (property lost, importance unshown); filter passes historical controls |
 | Claude native-coupling lens NC01–NC13 | 0/13 survive; all signal families occupied; Interface Transparency proposition; only CDCL among controls is an inter-module coupling |
+| Claude learning-dynamics lens LD1–LD12 | 0/12 survive; reparameterizations optimizer-restorable; channels K1–K8 all occupied |
 | Codex candidate ledger / archaeology through AR-139 | Native-coupling collision map completed; 15 families, 0 survivors |
 | Predictive Delta Ledger | Killed as pipeline |
 | Baobab / Moose seam | Occupied neighboring machinery |
