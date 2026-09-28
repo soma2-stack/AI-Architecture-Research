@@ -126,8 +126,15 @@
    "wall_seconds": 6.077,
    "note": "Codex v6 independent structural audit and lightweight import/descriptor/cap checks; conservative total 1.5 CPU-s, including 0.719 CPU-s measured inside the 1,000-slot validator; no task/T0/probe/training evaluation",
    "utc": "2026-09-28T06:31:25Z"
+  },
+  {
+   "stage": "v7_static_validation",
+   "cpu_seconds": 6.54,
+   "wall_seconds": 0.0,
+   "note": "prereg v7 static validation (seed 70707, official, 3.04 CPU-s measured) plus one scratch dry run with non-official seed 71717 (conservative 3.5 CPU-s); structural only, no T0/probe/benchmark evaluation",
+   "utc": "2026-09-28T13:56:28Z"
   }
  ],
- "total_cpu_seconds": 2365.632,
- "total_cpu_hours": 0.65712
+ "total_cpu_seconds": 2372.172,
+ "total_cpu_hours": 0.65894
 }
