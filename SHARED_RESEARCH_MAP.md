@@ -908,7 +908,7 @@ Requirements before any run:
 - no novelty claim from benchmark performance alone;
 - any promising mechanism must survive fresh prior-art review before promotion.
 
-**Status:** protocol design may proceed; experiments remain blocked until explicit owner authorization.
+**Status:** owner has authorized Stages 0–3. Version 1 was invalidated before official Stage 1/search; version 2 is now the sole active execution protocol.
 
 ---
 
@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Preregistered CPU pilot authorized: execute Stages 0–3 under frozen protocol** |
+| **Current phase** | **AMS preregistration v2 frozen after pre-search validity repair; restart official Stage 0 under v2** |
 
 ---
 
@@ -1152,7 +1152,25 @@ Key decisions:
 - CPU-only, expected 6–8 CPU-hours, hard cap 30 CPU-hours;
 - owner authorized Stages 0–3 on 2026-09-28; CPU-only and the 30 CPU-hour hard cap remain binding; GPU/larger follow-up still requires separate authorization.
 
-The preregistration is now the execution authority for the first pilot unless a later owner instruction explicitly revises it.
+The preregistration is now **version 2** and remains the execution authority for the first pilot.
+
+### Pre-search v2 validity repair
+
+Before official Stage 1 or any candidate search, two blocking defects were found:
+- v1 Task B required both orthogonal task subspaces and approximately anti-aligned first-layer gradients, which is mathematically inconsistent for the stated construction;
+- v1 referenced 16 behavioral probes but did not serialize the probe corpus or fully define its sampler.
+
+The owner authorized an in-place amendment rather than adding another MD file.
+
+v2 changes:
+- Task B now uses an overlapping shared/private construction with an explicit empirical gradient-conflict validity gate;
+- the 16 behavioral probes are frozen at `experiments/automated_mechanism_search/config/behavioral_probes_v2.json`;
+- C*, D, E and F now have fixed schedules/budgets sufficient for reproducible implementation;
+- Task D is explicitly baseline-only because it is not compatible with the candidate-program substrate;
+- official baselines/candidates receive the same frozen learning-rate search budget;
+- pre-v2 calibration drafts/replays are diagnostic only.
+
+No Stage-2 search results existed when v2 was frozen. Official Stage 0 must restart under v2.
 
 ## Execution authorization — 2026-09-28
 
@@ -1171,6 +1189,8 @@ Still prohibited without separate authorization:
 - materially changing benchmarks, thresholds, grammar, search budget, or promotion rules after results are visible.
 
 If a Stage 0/1 validity control fails, stop and report the failure. Do not silently repair or retune the preregistration.
+
+**Current restart point:** Stage 0 under `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` v2.
 
 ---
 
