@@ -1087,112 +1087,96 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **OMD-0 design: observed-mechanism discovery from tiny trained recurrent systems; no training/search authorized until a target task family passes prior-art and falsifiability review** |
+| **Current phase** | **OMD-0 hostile screening: T1 RET is the only surviving target family; Codex prior-art/reduction audit next, no training or OMD-1 freeze yet** |
 
 ---
 
 # 12. What each agent should do next
 
-The AMS / grammar-expansion line is closed.
+OMD-0 target screening is complete.
 
-The next research lens is **Observed Mechanism Discovery (OMD)**.
+Claude screened 18 candidate target families and retained only one:
 
-## Why this is a different lens
+## T1 RET — capacity-bounded retention under nonstationary reuse
 
-Previous rounds generated candidate operations from:
-- human conceptual recall;
-- a fixed typed program grammar;
-- mutations/crossover over that grammar.
+Target:
+- C = 16–32 slots;
+- online request stream with unlabelled switches among multiple reuse regimes;
+- O(1) state per resident slot plus O(1) shared global state;
+- choose which resident item to evict on overflow;
+- no item IDs, regime labels or answer-revealing side channel.
 
-That search can only discover mechanisms representable in the proposed vocabulary.
+The discovery instrument would eventually be a tiny shared recurrent update over per-slot states and one global state. The instrument itself is not the candidate. OMD would try to extract and transplant the learned transition rule.
 
-OMD reverses the direction:
+Claude's current status:
+- 17/18 target families killed by optimal known designs, exhaustive search, prior learned-strategy work or reduction to excluded directions;
+- T1 survives only as a **target family**;
+- primitive novelty is expected to fail because the substrate is still event-updated priority state;
+- possible architecture novelty, if any, would have to come from a compact retention/update semantics that survives known-policy decomposition and transfer.
 
-1. train a deliberately tiny but flexible recurrent system on a carefully chosen behavior;
-2. treat the trained network as an **instrument**, not the proposed architecture;
-3. identify the smallest causally sufficient internal state-transition mechanism;
-4. fit/distill that mechanism into explicit equations or a tiny executable state machine;
-5. compare the distilled mechanism against the known-machine library;
-6. only if the distilled transition is reproducible, useful and non-substitutable does it become an architecture/primitive candidate.
-
-This is not a claim that tiny RNNs, circuit discovery, symbolic regression or dynamical-systems analysis are themselves new. They are discovery tools.
-
-## OMD-0 — design only
-
-**No training or search is authorized yet.**
-
-The immediate question is:
-
-> Is there a small, controlled task family outside B/C*/F on which a tiny recurrent learner could plausibly discover a compact internal algorithm that is not already forced by the task definition or trivially reducible to a known algorithm?
-
-A valid OMD target must satisfy all of the following:
-- outside the B/C*/F continual-learning / shortcut-learning benchmarks;
-- no explicit task ID or answer-revealing side channel;
-- low enough dimensionality that internal dynamics can be inspected exactly or nearly exactly;
-- a strong library of known algorithmic baselines exists;
-- the target behavior admits more than one plausible strategy;
-- success is not equivalent to ordinary memorization, replay, search, attention, external memory, or optimizer tuning;
-- the learned mechanism can be causally intervened on;
-- a distilled rule could be transplanted into a separate minimal model;
-- a second held-out task family can test whether the mechanism is more general than one benchmark.
-
-### Required OMD evidence before any architecture claim
-
-A candidate distilled from a trained system must pass:
-
-1. **Behavioral advantage:** reproducible matched advantage over the strongest known baseline family on the eliciting task.
-2. **Low-dimensional extraction:** an explicit small state-transition description explains the relevant behavior.
-3. **Causal sufficiency:** transplanting / replaying the extracted mechanism reproduces the behavior.
-4. **Causal necessity:** targeted ablation destroys the claimed property.
-5. **Cross-seed recurrence:** materially equivalent dynamics emerge across independently trained networks.
-6. **Known-machine reduction:** primitive and architecture substitutability tests against the existing collision library and new prior art.
-7. **Transfer:** the distilled mechanism retains the claimed property on a separately designed task family not used for discovery.
-
-A strange-looking hidden state or a benchmark win is not enough.
-
-## Claude
-Primary role for OMD-0: **target-task and discovery-design researcher**.
-
-Do not code or train yet.
-
-Produce at most **3 candidate OMD target families**.
-
-For each:
-- define the capability and smallest synthetic task family;
-- explain why the answer is not hard-coded by the benchmark;
-- list strongest known algorithms/architectures that already solve or approximate it;
-- state what behavior would indicate the trained tiny recurrent system found something outside those baselines;
-- specify the smallest recurrent substrate that remains interpretable;
-- specify the extraction method: phase portrait, dynamical regression, causal patching/ablation, symbolic regression, or another concrete method;
-- specify how the extracted transition would be transplanted and falsified;
-- specify an entirely separate transfer task;
-- kill the target immediately if known prior art already spans all plausible solution strategies.
-
-Favor tasks where the unknown object is the **internal transition algorithm**, not merely a better representation or larger memory.
-
-Do not reuse B, C*, F, GG1–GG8, CSL, truth-maintenance, external-memory, generic architecture-search, or optimizer-learning directions.
-
-Return a ranked set of at most 3 target families, but do not authorize or run them.
+No code or training has run.
+OMD-1 is not frozen.
 
 ## Codex
-Wait for Claude's OMD-0 target packet.
+Next action: **hostile T1 reduction / prior-art audit only**.
 
-Then perform hostile prior-art / known-machine reduction only on the surviving target families. Do not train models.
+Read:
+- AGENTS.md
+- SHARED_RESEARCH_MAP.md
+- HANDOFF_Claude_OMD0_targets.md
+- your latest Resume in Codex_Research.md
+
+Do not read Claude_Research.md.
+
+Do not code, train, benchmark, use GPU, or freeze OMD-1.
+
+Answer the handoff's exact Codex questions:
+
+1. Direct prior art:
+   - find work that learns small per-slot/per-object recurrent eviction state and then extracts/transplants/causally validates the rule;
+   - inspect RLR, GA-evolved insertion/promotion vectors, Glider, GRUMA, LearnedCache and stronger overlooked work.
+
+2. Closure / compact optimality:
+   - determine whether a provably or constructively near-optimal compact policy already exists for nonstationary or Markov-modulated mixed-reuse streams with O(1) state per slot;
+   - separate a belief-MDP existence result from an actually compact constructive policy.
+
+3. Program search:
+   - inspect PolicySmith, CacheCraft and related automated cache-policy synthesis;
+   - determine whether they already produce cross-regime compact rules that make T1 uninteresting as an OMD target.
+
+4. Strongest ordinary decomposition:
+   - audit D1–D5;
+   - add stronger baselines/decompositions if needed;
+   - ask whether a tiny recurrent policy could only rediscover/select/approximate known policies or feature rankers.
+
+5. Killed-family spot check:
+   - verify the handoff's dagger-marked references only as needed to make sure T1 was not selected merely because nearby targets were incorrectly killed;
+   - prioritize the two nearest misses: zero-delay coding and congestion control.
+
+Required T1 verdict:
+- **KILLED — TARGET CLOSED**
+or
+- **SURVIVES AS OMD TARGET**, with exact unresolved risks.
+
+No architecture/primitive label yet because no learned mechanism exists.
+
+If T1 is killed, recommend closing OMD before compute.
+If T1 survives, produce a self-contained auditor handoff for Cursor/Gemini focused on identifiability, extraction validity and minimum decisive pilot design.
+
+Update Codex_Research.md, commit and push.
 
 ## Cursor / Gemini
-Wait for Claude's OMD-0 target packet and Codex reductions.
+Wait for Codex's T1 verdict.
+Do not begin the extraction/identifiability audit yet unless T1 survives Codex.
 
-Then audit identifiability and extraction validity:
-- can the proposed internal algorithm actually be distinguished from known alternatives from the planned interventions?
-- could symbolic/dynamical regression manufacture a misleading story?
-- is the transfer test independent?
-- is the CPU budget credible?
-
-No training yet.
+## Claude
+Wait.
+Do not implement T1 or OMD-1.
 
 ## Owner / coordinator
-After all three lanes finish OMD-0, select at most one target family.
-Only then freeze an OMD-1 experimental protocol and authorize compute.
+If Codex kills T1, close OMD-0 with no compute.
+If Codex preserves T1, send it to Cursor/Gemini for the final no-compute falsifiability screen.
+Only after both audits pass may one OMD-1 pilot be frozen.
 
 ---
 
