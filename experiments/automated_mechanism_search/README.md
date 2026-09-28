@@ -1,10 +1,10 @@
-# Automated mechanism search (AMS) — preregistration v5 implementation
+# Automated mechanism search (AMS) — preregistration v6 implementation
 
-Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v5; v2 package, v3 Task-B gate, v4/v5 Stage-1 calibration).
+Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v6; v2 package, v3 Task-B gate, v4/v5 Stage-1 calibration, v6 SGD-anchored Stage-2 constructor).
 
 Open choices are fixed in `IMPLEMENTATION_DECISIONS.md`, committed before any gate or run.
 
-**Status:** v3 Stage 0 PASS (`runs/stage0_v3/`); v5 Stage 1 PASS (`runs/stage1_v5/`). Stage 2 first run stopped on the implementation-defect rule (`runs/stage2/`); after repair 1, the official rerun (`runs/stage2_repair1/`) completed at `N_GEN_MAX` with 0 Tier-1 evaluations and 0 promoted (`STAGE2_REPORT.md` §6). Stage 3 not reached. Earlier stops: `STAGE0_REPORT.md` (v2), `STAGE1_REPORT.md` (v3), `STAGE1_V4_REPORT.md` (v4).
+**Status:** v3 Stage 0 PASS (`runs/stage0_v3/`); v5 Stage 1 PASS (`runs/stage1_v5/`). Stage 2 first run stopped on the implementation-defect rule (`runs/stage2/`); after repair 1, the official rerun (`runs/stage2_repair1/`) completed at `N_GEN_MAX` with 0 Tier-1 evaluations and 0 promoted (`STAGE2_REPORT.md` §6). **v6:** the SGD-anchored constructor is implemented (`ams/v6gen.py`), but its static validation failed on C2 coupling presence under the frozen fingerprint. The official v6 search was not started (`STAGE2_V6_REPORT.md`; `runs/v6_static_validation/`). Stage 3 not reached. Earlier stops: `STAGE0_REPORT.md` (v2), `STAGE1_REPORT.md` (v3), `STAGE1_V4_REPORT.md` (v4).
 
 ## Layout
 
@@ -19,12 +19,14 @@ Open choices are fixed in `IMPLEMENTATION_DECISIONS.md`, committed before any ga
 | `ams/families.py` | reference library R1–R24 + extras, disguises, matcher, K(P) |
 | `ams/tasks.py`, `ams/runners.py`, `ams/metrics.py` | v2 tasks, runners, learning-rate selection, metrics |
 | `ams/generate.py`, `ams/search.py` | random programs, mutation / crossover, collision pipeline, MAP-Elites |
+| `ams/v6gen.py` | prereg v6 SGD-anchored initial constructor (C1 / C2 / C3) and its structural invariants |
 | `ams/accounting.py`, `ams/manifest.py`, `ams/stats.py` | CPU ledger and cap, immutable config and manifest, statistics |
 | `scripts/stage0.py` | official Stage-0 gate |
+| `scripts/stage2.py`, `scripts/v6_static_validation.py` | Stage-2 search (v5 runs; `stage2_v6` gated on the v6 static validation) and the v6 static validation |
 | `tests/` | Stage-0 test suite (114 tests) |
 | `runs/` | machine-readable results and `cpu_ledger.json` |
 | `config/behavioral_probes_v2.json` | frozen v2 probe corpus (owner-supplied) |
-| `config/run_config.json` | immutable run configuration |
+| `config/run_config*.json` | immutable run configurations (v2 … v6; `run_config_v6.json` is active) |
 
 ## Reproduce Stage 0
 

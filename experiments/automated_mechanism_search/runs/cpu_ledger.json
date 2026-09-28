@@ -98,8 +98,29 @@
    "wall_seconds": 0.0,
    "note": "Stage-2 final",
    "utc": "2026-09-28T06:00:08Z"
+  },
+  {
+   "stage": "v6_static_validation",
+   "cpu_seconds": 5.18,
+   "wall_seconds": 0.0,
+   "note": "prereg v6 static validation of the anchored constructor, seed 60606, 1,000 slots, two structural runs (check-6 scope fix); no T0/probe/benchmark evaluation",
+   "utc": "2026-09-28T06:21:50Z"
+  },
+  {
+   "stage": "v6_static_validation",
+   "cpu_seconds": 2.6,
+   "wall_seconds": 0.0,
+   "note": "clean-tree rerun of the v6 static validation after the check-6 scope commit",
+   "utc": "2026-09-28T06:23:45Z"
+  },
+  {
+   "stage": "v6_static_validation",
+   "cpu_seconds": 2.55,
+   "wall_seconds": 0.0,
+   "note": "clean-tree rerun (docs stashed) of the v6 static validation",
+   "utc": "2026-09-28T06:23:57Z"
   }
  ],
- "total_cpu_seconds": 2353.802,
- "total_cpu_hours": 0.65383
+ "total_cpu_seconds": 2364.132,
+ "total_cpu_hours": 0.6567
 }
