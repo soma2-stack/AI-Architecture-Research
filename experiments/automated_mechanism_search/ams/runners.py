@@ -129,12 +129,14 @@ def run_C(make_learner: Callable[[], Learner], seeds: Sequence[int], lrs=LR_GRID
     except (Timeout, OutOfMemory) as ex:
         return _fail_record(runs, type(ex).__name__.upper())
     m0, m1 = np.stack(m0), np.stack(m1)
-    entries = [t for r, t in TaskCstar(seeds[0]).entries if r == "R1"]     # [256, 384]
+    tc = TaskCstar(seeds[0])
+    entries = [t for r, t in tc.entries if r == "R1"]                  # [256, 384] under v3
+    seg = dict(tc.schedule)["R1"]                                      # 64
     per = []
     for r in range(len(runs)):
-        hls = [MX.half_life(ev, m1[:, r], e, TaskCstar.tau) for e in entries]
-        pre = float(m0[ev.index(256), r])
-        after = float(m0[ev.index(384), r])
+        hls = [MX.half_life(ev, m1[:, r], e, TaskCstar.tau, seg_len=seg) for e in entries]
+        pre = float(m0[ev.index(entries[0]), r])      # R0 just before the first shift (step 256)
+        after = float(m0[ev.index(entries[1]), r])    # R0 after 64 steps back in R0 (step 384)
         per.append({
             "half_lives": hls, "median_hl": MX.median_hl(hls),
             "median_hl_censored": MX.median_hl([MX.censor(h) for h in hls]),
