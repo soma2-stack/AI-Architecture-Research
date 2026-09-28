@@ -174,12 +174,18 @@ def terms(e: Node, rt) -> List[Node]:
 
 
 def strip_gates(e: Node, rt) -> Node:
-    """Replace topk/where gates by neutral 1 (where -> its positive branch)."""
+    """Neutralize topk/where gates while preserving the original expression type."""
     def fn(x: Node):
         if x.op == "topk":
             return tconst(1.0, type_of(x, rt))
         if x.op == "where":
-            return x.args[1]
+            branch = x.args[1]
+            out_t = type_of(x, rt)
+            if type_of(branch, rt) == out_t:
+                return branch
+            # A legal scalar where-branch is broadcast to the condition/output vector type.
+            # Returning the scalar directly makes the surrounding tree ill-typed.
+            return Node("add", (tconst(0.0, out_t), branch))
         return None
     return simplify(subst(e, fn), rt)
 
