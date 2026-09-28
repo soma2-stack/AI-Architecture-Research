@@ -9,6 +9,8 @@
 
 The cause is a conflict between the v6 C2 constructor and the unchanged collision/descriptor layer. It is not an implementation bug, so it cannot be fixed under the instruction "fix implementation bugs only; do not modify v6".
 
+> **Historical clarification (added in session 19).** The owner accepted this failure as historical evidence and replaced the C2 rule in prereg **v7**: C2 became detector-aligned `topk`/`where` routing with selector depth 0–1, and the accounting rule was stated explicitly. v6 never ran a search; seed 2026092806 was first used by the official v7 Stage 2. The v6 code, configuration record and validation outputs are preserved unchanged. `stage2_v6` now also refuses to start because v6 is no longer the active protocol. See `STAGE2_V7_REPORT.md`.
+
 ## 1. What was implemented (commit `956efdf`, pushed before validation)
 
 - **`ams/v6gen.py`, `AnchoredGen`.** A subclass of the v5 `Gen`; mutation and crossover are inherited unchanged.
