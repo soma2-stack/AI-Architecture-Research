@@ -14,7 +14,11 @@ Pass criteria (fixed here before the run):
      may be absent only where canonicalization removed a vacuous data dependence (i.e. it is
      present on the raw proposal) -- that is the unchanged filter deciding, reported as a count;
   5. uniform primary-class choice over slots: chi-square p > 0.01; sub-choices reported;
-  6. no task / probe / benchmark / evaluation module is imported by the constructor.
+  6. no task / probe / benchmark / evaluation module is imported by the constructor.  Measured
+     on sys.modules right after all 1,000 slots are constructed and before any structural check
+     runs.  (The first run, kept as validation_initial_check6_whole_process.json, measured the
+     whole process instead; it flagged only ams.interp, which the unchanged canonicalizer imports
+     for constant folding during the checks, not the constructor.)
 """
 import collections
 import gzip
@@ -30,8 +34,6 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 from scipy.stats import chisquare  # noqa: E402
 
 from ams import manifest  # noqa: E402
-from ams.canon import canon  # noqa: E402
-from ams.fingerprint import fingerprint  # noqa: E402
 from ams.grammar import program_to_dict  # noqa: E402
 from ams.v6gen import V6_CLASSES, AnchoredGen, v6_invariants  # noqa: E402
 
@@ -52,9 +54,12 @@ def main():
     git = {"commit": manifest._git("rev-parse", "HEAD"),
            "dirty_excluding_runs": bool(manifest._git("status", "--porcelain", "--", ".", ":!runs"))}
     gen = AnchoredGen(random.Random(SEED))
+    built = [list(gen.v6_attempts()) for _ in range(N)]
+    leaked = sorted(m for m in FORBIDDEN if m in sys.modules)       # constructor phase only
+    from ams.canon import canon
+    from ams.fingerprint import fingerprint
     rows, slots = [], []
-    for s in range(N):
-        att = list(gen.v6_attempts())
+    for s, att in enumerate(built):
         slots.append({"slot": s, "class": att[0][1]["v6_class"], "attempts": len(att),
                       "valid": att[-1][2] is None})
         for p, meta, code in att:
@@ -68,7 +73,7 @@ def main():
                            canon_couplings=fc["couplings"], canon_learning_signal=fc["learning_signal"],
                            canon_descriptor=fc["descriptor"], canonical=program_to_dict(c))
             rows.append(row)
-    leaked = sorted(m for m in FORBIDDEN if m in sys.modules)
+    process_modules = sorted(m for m in FORBIDDEN if m in sys.modules)
 
     valid = [r for r in rows if r["invalid_code"] is None]
     inv_names = sorted({k for r in valid for k in r["invariants"]})
@@ -128,6 +133,7 @@ def main():
         "raw_intended_coupling_missing": raw_cpl_fail,
         "canon_coupling_removed_by_canonicalization": canon_explained,
         "evaluation_modules_imported": leaked,
+        "listed_modules_loaded_by_whole_process": process_modules,
         "no_task_evaluation": "no T0, probe, B, C* or F run; no FamilyLibrary; structural checks only",
     }
     with open(os.path.join(OUT, "validation.json"), "w") as f:
