@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Anomaly-first phase complete: all 3 literature survivors closed; 0 anomaly survivors; no active compute or experiment** |
+| **Current phase** | **Negative-space audit complete: no defensible architectural blind spot found; no active search, compute, or experiment** |
 
 ---
 
@@ -1124,6 +1124,20 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 **Cursor / Gemini:** wait.
 
 **Claude:** wait.
+
+## Negative-space search-space audit
+
+Cursor/Gemini completed the no-compute audit of whether the project’s prior methods left a meaningful architectural blind spot.
+
+Verdict:
+- **No defensible architectural blind spot remains.**
+- Apparent gaps such as event-driven execution, multi-slot memory, runtime growth, discrete hypotheses, dynamic lifetimes, new learning channels, or quantitative variants are already occupied, already closed, or fail the project’s falsifiability/novelty requirements.
+- The recalibrated novelty filter has known residual false-negative risks, but they do not currently identify an unsearched architecture region.
+- The strongest process residue is that some early pre-calibration “classical machine” kills were not individually rewritten under the later substitutability rule; this is not itself a new search region.
+
+Do not open another broad generation lens, grammar, anomaly family, theorem screen, or OMD instrument.
+
+A future architecture search should reopen only when there is a **specific named property** that an ordinary decomposition fails to preserve and that lies outside the closed search modes.
 
 ## Coordinator next step
 
