@@ -116,12 +116,12 @@ def test_config_immutable(tmp_path):
         manifest.write_or_verify_config(p)
 
 
-def test_v6_config_markers():
+def test_v7_config_markers():
     from ams import PROTOCOL_VERSION
     from ams.runners import ORACLE_UPDATES, V5_ORACLE_UPDATES
-    assert PROTOCOL_VERSION == "AMS-prereg-v6"
+    assert PROTOCOL_VERSION == "AMS-prereg-v7"
     c = manifest.RUN_CONFIG
-    assert c["protocol"] == "AMS-prereg-v6" and c["substrate"]["init"] == "glorot_normal"
+    assert c["protocol"] == "AMS-prereg-v7" and c["substrate"]["init"] == "glorot_normal"
     g = c["taskB_stage0_gate_v3"]                                           # v3 Stage-0 gate carries forward
     assert g["seed_mean_cos_lt"] == 0.0 and g["frac_pairs_negative_min"] == 0.90 and g["pairs_per_seed"] == 64
     s1 = c["stage1_v5"]
@@ -130,12 +130,17 @@ def test_v6_config_markers():
     assert s1["V1_B_REP"]["optimizers"] == ["SGD", "SGDM", "AdamW"]
     assert set(s1["diagnostic_only"]) == {"V1_B", "V2_Cstar"} and "V1_B_REP" in s1["mandatory"]
     assert V5_ORACLE_UPDATES == 4000 and ORACLE_UPDATES == 1000             # v4 script behaviour preserved
-    assert manifest.CONFIG.endswith("run_config_v6.json")
+    assert manifest.CONFIG.endswith("run_config_v7.json")
     assert c["lr_grid"] == [1e-3, 1e-2, 1e-1] and c["seeds"]["stage1"] == [100, 101, 102, 103, 104]
     v6 = c["stage2_v6"]                                                     # v6 changes only the initial constructor
     assert v6["search_seed"] == 2026092806 and v6["max_construction_attempts"] == 10
     assert v6["decays"] == [0.5, 0.9, 0.99] and v6["expr_depths"] == [1, 2] and v6["C3_thetas"] == [0.0, 0.1, 0.5]
     assert v6["static_validation"]["seed"] not in (2026092806, 20260928)
+    v7 = c["stage2_v7"]                                                     # v7 changes only C2 and accounting wording
+    assert v7["search_seed"] == 2026092806 and v7["max_construction_attempts"] == 10
+    assert v7["C2"]["selector_depths"] == [0, 1] and v7["C2"]["topk_ks"] == [1, 4, 8]
+    assert v7["C2"]["residual_scale"] == 0.1 and v7["C2"]["routes"] == ["topk", "where"]
+    assert v7["static_validation"]["seed"] == 70707
     assert c["budget"]["generated"] == 6000 and c["budget"]["tier1"] == 1200 and c["budget"]["promoted"] == 20
     assert c["thresholds"]["B_forgetting_pp"] == 40 and c["thresholds"]["C_hl_reduction"] == 0.5
 
@@ -146,8 +151,18 @@ def test_v5_config_record_unchanged():
     assert d["config"]["protocol"] == "AMS-prereg-v5" and "stage2_v6" not in d["config"]
     assert hashlib.sha256(json.dumps(d["config"], sort_keys=True).encode()).hexdigest() == d["sha256"]
     v5, v6 = dict(d["config"]), dict(manifest.RUN_CONFIG)
-    v5.pop("protocol"), v6.pop("protocol"), v6.pop("stage2_v6")
-    assert v5 == v6                                                         # nothing else changed in v6
+    v5.pop("protocol"), v6.pop("protocol"), v6.pop("stage2_v6"), v6.pop("stage2_v7")
+    assert v5 == v6                                                         # nothing else changed in v6 / v7
+
+
+def test_v6_config_record_unchanged():
+    import hashlib
+    d = json.load(open(manifest.CONFIG_V6))
+    assert d["config"]["protocol"] == "AMS-prereg-v6" and "stage2_v7" not in d["config"]
+    assert hashlib.sha256(json.dumps(d["config"], sort_keys=True).encode()).hexdigest() == d["sha256"]
+    v6, v7 = dict(d["config"]), dict(manifest.RUN_CONFIG)
+    v6.pop("protocol"), v7.pop("protocol"), v7.pop("stage2_v7")
+    assert v6 == v7                                                         # v7 adds only its own section
 
 
 def test_stage1_v5_script_uses_4000_updates():

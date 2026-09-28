@@ -5,7 +5,9 @@ shared 30 CPU-h cap is checked before every Tier-1 evaluation.  Writes runs/<RUN
 
 Run names: stage2, stage2_repair1 (prereg v5, uniform random constructor, seed 20260928);
 stage2_v6 (prereg v6, SGD-anchored constructor, seed 2026092806; refuses to start unless the
-v6 static validation in runs/v6_static_validation/ passed)."""
+v6 static validation in runs/v6_static_validation/ passed -- it failed, so this never ran);
+stage2_v7 (prereg v7, detector-aligned constructor, seed 2026092806; refuses to start unless the
+v7 static validation in runs/v7_static_validation/ passed)."""
 import json
 import math
 import multiprocessing as mp
@@ -30,8 +32,9 @@ RUN_NAME = sys.argv[1] if len(sys.argv) > 1 else "stage2"      # official repair
 OUT = os.path.join(HERE, "runs", RUN_NAME)
 assert not os.path.exists(os.path.join(OUT, "manifest.json")), f"{OUT} already holds a run; refusing to overwrite"
 V6 = RUN_NAME.startswith("stage2_v6")
-INIT = "v6" if V6 else "v5"
-SEARCH_SEED = 2026092806 if V6 else 20260928
+V7 = RUN_NAME.startswith("stage2_v7")
+INIT = "v7" if V7 else ("v6" if V6 else "v5")
+SEARCH_SEED = 2026092806 if (V6 or V7) else 20260928
 SANITY_SEED = 500
 CHECKPOINT_EVERY = 25
 
@@ -49,11 +52,15 @@ def _json(o):
 
 
 def main():
-    if V6:
-        assert manifest.RUN_CONFIG["stage2_v6"]["search_seed"] == SEARCH_SEED
-        sv = os.path.join(HERE, "runs", "v6_static_validation", "validation.json")
+    if V6 or V7:
+        ver = INIT
+        assert manifest.RUN_CONFIG[f"stage2_{ver}"]["search_seed"] == SEARCH_SEED
+        sv = os.path.join(HERE, "runs", f"{ver}_static_validation", "validation.json")
         if not (os.path.exists(sv) and json.load(open(sv))["pass"]):
-            print("v6 static validation missing or failed; the official v6 Stage 2 is not allowed.")
+            print(f"{ver} static validation missing or failed; the official {ver} Stage 2 is not allowed.")
+            return 4
+        if V6 and manifest.RUN_CONFIG["protocol"] != "AMS-prereg-v6":
+            print("prereg v6 is no longer the active protocol; the v6 Stage 2 is not allowed.")
             return 4
     os.makedirs(OUT, exist_ok=True)
     git_at_start = {"commit": manifest._git("rev-parse", "HEAD"),

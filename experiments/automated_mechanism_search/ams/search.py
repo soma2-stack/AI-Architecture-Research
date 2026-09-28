@@ -200,7 +200,7 @@ class Pipeline:
 
 
 def _v6_slot(pipe: Pipeline, gen) -> None:
-    """One v6 anchored proposal slot (prereg v6; D-V6-4).  Invalid attempts are logged and count
+    """One anchored proposal slot (prereg v6 / v7; D-V6-4, D-V7-4; used by both constructors).  Invalid attempts are logged and count
     as generated, exactly like invalid offspring retries (AE.3.5); after MAX_RETRY invalid
     attempts the slot is skipped."""
     for cand, meta, code in gen.v6_attempts():
@@ -222,13 +222,18 @@ def map_elites(pipe: Pipeline, rng: random.Random, progress: Optional[Callable[[
     """AE.3.4 loop.  Returns stop reason and per-generation stats.
 
     init="v5": initial / empty-archive proposals from the v5 uniform random constructor.
-    init="v6": from the v6 SGD-anchored constructor; everything else is unchanged."""
+    init="v6": from the v6 SGD-anchored constructor; init="v7": from the v7 constructor (v6 C1 / C3,
+    detector-aligned C2); everything else is unchanged."""
     if init == "v5":
         gen = Gen(rng)
         propose = lambda: pipe.try_add(gen.program())
     elif init == "v6":
         from .v6gen import AnchoredGen
         gen = AnchoredGen(rng)
+        propose = lambda: _v6_slot(pipe, gen)
+    elif init == "v7":
+        from .v7gen import DetectorAlignedGen
+        gen = DetectorAlignedGen(rng)
         propose = lambda: _v6_slot(pipe, gen)
     else:
         raise ValueError(init)

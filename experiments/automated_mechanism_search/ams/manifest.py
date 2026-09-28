@@ -18,7 +18,8 @@ CONFIG_V2 = os.path.join(HERE, "config", "run_config.json")        # historical 
 CONFIG_V3 = os.path.join(HERE, "config", "run_config_v3.json")     # v3 record (Stage-0 PASS, v3 Stage 1)
 CONFIG_V4 = os.path.join(HERE, "config", "run_config_v4.json")     # v4 record (v4 Stage 1)
 CONFIG_V5 = os.path.join(HERE, "config", "run_config_v5.json")     # v5 record (v5 Stage 1, v5 Stage 2 runs)
-CONFIG = os.path.join(HERE, "config", "run_config_v6.json")
+CONFIG_V6 = os.path.join(HERE, "config", "run_config_v6.json")     # v6 record (v6 static validation only)
+CONFIG = os.path.join(HERE, "config", "run_config_v7.json")
 
 RUN_CONFIG = {
     "protocol": PROTOCOL_VERSION,
@@ -51,6 +52,16 @@ RUN_CONFIG = {
                   "C1_reg_types": ["O", "M"], "C3_kinds": ["freeze", "reinit"], "C3_thetas": [0.0, 0.1, 0.5],
                   "max_construction_attempts": 10, "search_seed": 2026092806,
                   "static_validation": {"seed": 60606, "n_proposals": 1000}},
+    "stage2_v7": {"initial_constructor": "v6 SGD-anchored C1 / C3 unchanged; detector-aligned C2 (prereg v7)",
+                  "C2": {"selector_depths": [0, 1], "activity": ["dphi", "h", "z"], "routes": ["topk", "where"],
+                         "topk_ks": [1, 4, 8], "where_branches": ["1.0", "(sub 1.0 1.0)"],
+                         "residual_scale": 0.1,
+                         "dW": "(add dW_base (mul (rowscale dW_base route) 0.1))",
+                         "db": "(add db_base (mul (mul db_base route) 0.1))"},
+                  "accounting": "activity redraws not counted; invalid instantiated programs counted; "
+                                "<= 10 attempts per requested proposal, class fixed",
+                  "max_construction_attempts": 10, "search_seed": 2026092806,
+                  "static_validation": {"seed": 70707, "n_emitted": 1000}},
     "thresholds": {"dup_cos": 0.999, "family_cos": 0.99,
                    "B_forgetting_pp": 40, "B_retention": 80, "B_T2_mse_ratio": 1.25,
                    "C_hl_reduction": 0.5, "C_tau": 0.05, "F_train": 0.98, "F_sgg_pp": 15,

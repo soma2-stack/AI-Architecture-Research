@@ -646,3 +646,38 @@ Committed before the v6 static validation and before any v6 search. Prereg v6 ch
   - The first validation run measured check 6 over the whole process. It flagged only `ams.interp`, which the unchanged canonicalizer imports for constant folding while the structural checks run; the constructor does not import it. That output is kept as `runs/v6_static_validation/validation_initial_check6_whole_process.json`.
   - Check 6 now measures `sys.modules` right after the 1,000 slots are constructed and before any check (commit `6331de4`). The recorded `validation.json` was rerun from that clean commit. Its proposals are byte-identical to the first run's, and only check 6 changed.
   - Overall result: **FAIL**, on the C2 coupling-presence checks only. See `STAGE2_V6_REPORT.md`. The official v6 search was not started, and neither v6 nor the frozen fingerprint was modified.
+
+---
+
+# v7 amendment — detector-aligned C2 (session 19)
+
+Committed before the v7 static validation and before any v7 search. Prereg v7 changes only the C2 initial constructor and states the constructor-accounting rule. The fingerprint, collision library, canonicalizer, probes, pipeline, T0, Tier-1, q, archive, v5 mutation and crossover, budgets, promotion and Stage-3 rules are unchanged. `ams/fingerprint.py`, `ams/families.py`, `ams/canon.py`, `ams/probes.py`, `ams/grammar.py` and `ams/generate.py` have no diff against `956efdf`. The golden 155-entry snapshot is unchanged.
+
+- **D-V7-1. Code.**
+  - `ams/v7gen.py` defines `DetectorAlignedGen`, a subclass of the v6 `AnchoredGen`. Only C2 is overridden.
+    - C1 and C3 are the v6 code. A test checks that they produce programs identical to v6 from the same RNG state.
+    - The slot, retry and accounting logic (`search._v6_slot`), mutation and crossover are inherited unchanged.
+  - `search.map_elites(init="v7")` enables the v7 constructor.
+  - `scripts/stage2.py stage2_v7` uses seed 2026092806 and is gated on `runs/v7_static_validation/validation.json` passing. `stage2_v6` stays gated and now also refuses because v6 is no longer the active protocol.
+  - Configuration: `config/run_config_v7.json`, which is the v6 configuration plus a `stage2_v7` section (tested). The v6 record is preserved.
+  - The metadata key `v6_class` remains the class key for both anchored constructors, and `constructor` is `"v7"`.
+- **D-V7-2. The `where` route's 0.0 branch.** The frozen constant set is {−1, −0.5, 0.1, 0.5, 1, 2}, so a literal `0.0` in a generated program fails the typecheck (`bad_const`).
+  - The branch is spelled `(sub 1.0 1.0)`, a legal S-typed expression equal to 0.
+  - The unchanged canonicalizer folds it to 0. The canonical program — the one the pipeline hashes, fingerprints, probes and evaluates — is therefore exactly the specified `where(selector, 1, 0)`. `test_where_route_zero_spelling_canonicalizes_to_where_1_0` checks struct-hash identity on 150 cases.
+  - Like the operand ordering v7 allows, this is a grammar-compatible spelling of the same computation. It costs 2 AST nodes; the maximum C2 total is 38 of 40 nodes, and the depth is at most 5.
+  - Observation, left unchanged because mutation is frozen: the v5 `m_gate` mutation's `where` variant uses a literal `0.0` and therefore always yields a `bad_const` invalid offspring (583 of 583 in a check). Such offspring are retried and count as generated, as before.
+- **D-V7-3. Selector "depth 0–1".**
+  - The grow-method depth argument is drawn uniformly from {0, 1} in the PARAM phase, with no registers and no cvec.
+  - The selector is redrawn until it reads z, h or dphi.
+  - Then the route kind is drawn uniformly from {topk, where}, and k uniformly from {1, 4, 8} for topk.
+  - RNG draw order per C2 attempt: selector, route kind, k.
+- **D-V7-4. Accounting** (v7 statement, unchanged from D-V6-4).
+  - Activity-leaf redraws are conditional sampling: they are not counted, but are logged per proposal.
+  - An instantiated program that fails the grammar, type, node, depth or register checks counts as one generated program and is logged as `invalid`.
+  - A request gets at most 10 attempts with its class held fixed, and is skipped after 10 invalid attempts.
+  - The same rule applies to C1, C2 and C3. Under v7 every class is valid by construction, so no invalid attempt is expected.
+- **D-V7-5. Static validation** (`scripts/v7_static_validation.py`, seed 70707).
+  - Requested proposals are constructed until exactly 1,000 are emitted. The checks are structural only.
+  - The pass criteria are listed in the script's docstring.
+  - Coupling recognition is required on every emitted proposal. On the canonical form, a class may be lost only where the drawn expression simplifies to one that reads no required leaf (a vacuous dependence such as `(sub h h)`, which the unchanged filter will log as `pure_rule`).
+  - The script was dry-run once with the non-official seed 71717, writing only to a scratch directory, to check that it runs. It passed.
