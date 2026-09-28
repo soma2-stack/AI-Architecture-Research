@@ -35,8 +35,15 @@
    "wall_seconds": 14.66,
    "note": "official v3 Stage-0 script (tests, v3 gate, self-check, profile)",
    "utc": "2026-09-28T04:55:14Z"
+  },
+  {
+   "stage": "stage1",
+   "cpu_seconds": 66.545,
+   "wall_seconds": 12.151,
+   "note": "official Stage-1 calibration (parent 33.8s + workers 32.7s)",
+   "utc": "2026-09-28T04:57:12Z"
   }
  ],
- "total_cpu_seconds": 969.761,
- "total_cpu_hours": 0.26938
+ "total_cpu_seconds": 1036.306,
+ "total_cpu_hours": 0.28786
 }

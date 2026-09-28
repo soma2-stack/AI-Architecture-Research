@@ -9,7 +9,37 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 13
+# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 14
+
+- **Governing files:**
+  - `AGENTS.md` (unchanged);
+  - `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v3** (owner amendment `91bb7d8`: the Task-B gate becomes directional; Glorot initialization, the `W_ep0` probe rule and the Stage-1 Task-B gates are ratified);
+  - `SHARED_RESEARCH_MAP.md` §12;
+  - this notebook.
+
+  The branch was fast-forwarded to `origin/main` `069cc15` (the v2 Stage-0 package was merged via PR #8).
+- **Current stage:**
+  - **Official v3 Stage 0 PASSED.** Directional gate: all 8 seed means < 0 and 512/512 paired cosines < 0. Tests 118/118. Probe blob verified. Detector recall 100%.
+  - **Official Stage 1 FAILED.**
+  - **Stop reason:** `STAGE-1 MANDATORY GATE FAILURE: M2_B_fit, V1_B, V2_Cstar`.
+    - M2: generic Task-1 held-out MSE ≈ 0.016 against the 1e-3 threshold.
+    - V1-B: no retention control reduces forgetting ≥ 15%. GPM reaches 93.8% forgetting (SGD 100%) with poor Task-2 learning.
+    - V2-C\*: the R12 and R13 fast-weight controls diverge at every learning rate, because of the Hebbian register on the linear output layer; R15 is much slower than SGD.
+  - Passed: M3, M4, M5, M6, M7, V3-F, V-D.
+  - **Stage 2 did not legally begin; Stage 3 did not run.** Full record: Part AG; `experiments/automated_mechanism_search/STAGE1_REPORT.md`; `runs/stage1/*.json`.
+- **Strongest surviving candidate(s):** none. No candidate was generated.
+- **Search counts:**
+  - rediscoveries n/a;
+  - negatives n/a;
+  - promoted IDs none (0 programs searched).
+- **CPU:** 0.288 CPU-h of the 30 CPU-h cap; no GPU.
+- **Exact next action:**
+  - wait for an owner v4 decision on M2 / V1-B / V2-C\* (options in `STAGE1_REPORT.md`);
+  - then rerun `scripts/stage0.py` and `scripts/stage1.py` unchanged apart from the amended items.
+
+  Do not start Stage 2 under v3.
+
+# Resume Pointer as of session 13 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (highest authority; never edit);
@@ -4203,6 +4233,79 @@ Machine-readable results are in `runs/stage0/`.
 1. A gate that depends on an unfrozen implementation choice (here, the initialization scale) should freeze that choice in the protocol, or state a robustness requirement across the reasonable choices.
 2. Pre-committing implementation decisions before the first gate computation is what makes this failure clean. The initialization was fixed (Glorot) before any cosine was seen, so there is no question of it having been chosen to fail or to pass.
 3. One-step behavioural probes cannot represent multi-step or event-driven mechanisms (STRUCT, delayed register effects). A future probe corpus version could add short exogenous tapes that cover a STRUCT event (AR-141 Level B already recommends tapes).
+
+---
+
+# Part AG — AMS under Preregistration v3: Stage 0 rerun and official Stage 1 (session 14, 2026-09-28)
+
+**Status: Stage 0 (v3) PASSED. Stage 1 FAILED three mandatory gates. Stage 2 not started.**
+
+## AG.1 What changed (owner v3 amendment)
+
+- The v2 Task-B construction and the pre-declared Glorot-normal initialization are kept.
+- The failed magnitude gate is replaced by a directional-consistency gate: every seed mean cosine < 0, and at least 90% of the 512 paired cosines < 0.
+- The Stage-1 Task-B fit and interference gates (M2, M3) and the `W_ep0` probe derivation are ratified.
+
+The v2 package was reused. Only these parts changed:
+- the protocol marker;
+- the gate code;
+- a new `config/run_config_v3.json` (the v2 record is unchanged);
+- the affected tests.
+
+Stage-1 operational clarifications (D-V3, D-S1, D-T1) were committed and pushed in `fa5fc00` before the v3 gate or any Stage-1 run.
+
+## AG.2 Stage 0 (v3)
+
+Result: **PASS** (`runs/stage0_v3/stage0_result.json`; manifest git `fa5fc00`, clean).
+
+- Per-seed mean cosines: −0.35 to −0.51 (identical to v2, as expected).
+- Negative pairs: 512/512 (100%).
+- Tests: 118/118.
+- Probe blob: `d5a8e0d1…` verified.
+- Recall: 100% (0 / 155 misses).
+- Profiling: ≈ 7.5 CPU-s per Tier-1 candidate.
+
+## AG.3 Stage 1 (official)
+
+Seeds 100–104; learning-rate grid {1e-3, 1e-2, 1e-1}; no early stopping. Full tables are in `STAGE1_REPORT.md`.
+
+**Verified results** (seed means at the selected learning rate):
+
+| Area | Result | Gate |
+|---|---|---|
+| B, generics | `L1_pre` = 0.0172 / 0.0163 / 0.0158 (SGD / SGDM / AdamW) | **M2 fails** (needs < 1e-3) |
+| B, interference | Forgetting 100 / 100 / 100 pp; `L1_post` ≈ 4.1 > `L1_init` 1.42 on every seed | M3 passes |
+| B, retention controls | GPM Forgetting 93.8 with T2 MSE 0.615; R17 100 / 0.014; R18 100 / 0.051; R13 unstable at every learning rate | **V1-B fails** |
+| C\* | SGD censored half-life 14.0 updates; R12 and R13 unstable at every learning rate; R15 half-life 110.4 | **V2-C\* fails** |
+| C\* sanity | `R0(256)` MSE 0.031, R1 entry MSE ≈ 1.0 / 0.9 | M7 passes |
+| F | train 1.00; OOD 0.162–0.168; SGG ≈ 83 pp | M4 passes |
+| F | discrete synthesis OOD 1.00 | V3-F passes |
+| D | natgrad `S_τ` 90 / 109 steps at κ = 1e4 / 1e6; SGD and SGDM diverge at every learning rate | V-D passes |
+
+**Stop reason:** `STAGE-1 MANDATORY GATE FAILURE: M2_B_fit, V1_B, V2_Cstar`. Stage 2 did not legally begin.
+
+## AG.4 Interpretation (not a verdict)
+
+- **M2.** The 1e-3 Task-1 threshold, taken from the Cursor Task-B text, is not reached by the fixed MLP in 500 updates. The fit achieved is R² ≈ 0.984.
+- **V1-B.** The v2/v3 Task B produces extreme interference (Task-1 error ends about 3× above its initial value). A pre-declared GPM (energy threshold 0.97) still forgets 94% and learns Task 2 poorly. The EWC-type and k-WTA templates do not protect at all.
+- **V2-C\*.** A design interaction, confirmed by a post-hoc diagnostic trace:
+  - AE's shared-program rule applies the fast-weight Hebbian register to the identity output layer too;
+  - that register has unbounded positive feedback independent of η;
+  - so the fast-weight positive controls cannot run on this substrate.
+- **What works:** the F, D and C\* task machinery behaves as intended, and so do the collision gate and all guards. The failures lie in Task-B calibration and in the design of the known-family positive controls, not in the code.
+
+## AG.5 Compute
+
+- Stage 0 v3: 17.3 CPU-s.
+- Stage 1: 66.5 CPU-s.
+- Cumulative: **0.288 CPU-h of 30**.
+- No GPU.
+
+## AG.6 Lessons
+
+1. Positive controls written as generic templates, such as AE's R12 "fast weights" applied to every layer, need a substrate check at design time. A template that is fine for hidden tanh layers can be unstable on a linear output layer.
+2. Absolute thresholds inherited from a task description (MSE < 1e-3) should be checked against the fixed model and budget before freezing, or expressed relative to the task's own scale.
+3. The conflict strength that makes Task B a hard interference benchmark also defeats the pre-declared retention controls. A benchmark needs a positive control that visibly succeeds, otherwise candidate wins cannot be interpreted.
 
 ---
 
