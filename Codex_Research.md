@@ -6,15 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
-### Codex resume/status — 2026-09-27
+### Codex resume/status — 2026-09-28
 
-- **Lane and lens:** Novelty assassin / computational archaeology. Separate primitive, architecture, and pipeline claims. For learning-dynamics claims, match the exact update/state behavior and the claimed adaptation, credit, conditioning, interference, or resource property; simulability alone is not an architecture kill.
-- **Stage:** AR-141 specifies a machine-oriented rediscovery filter and novelty gate for a preregistered automated mechanism search. It follows AR-140's literature-only collision map for single-model learning dynamics. The gate is a protocol design, not an authorization to run a search.
-- **Strongest surviving candidates:** None. No candidate update program has been evaluated or promoted. All named optimizer, plasticity, credit-assignment, adaptation, and architecture families in AR-141 are collision controls, not candidate mechanisms.
-- **Closed in this continuation:** Treating unusual source code, a benchmark win, finite-trace novelty, or a new combination of familiar state variables as evidence of a new mechanism. These are search outputs that must pass semantic, behavioral, structural, matched-control, and literature gates.
-- **Unresolved operation-level questions:** The eventual candidate grammar and typed runtime contract have not been frozen; exact program equivalence is undecidable in the general case, and finite behavioral fingerprints are only screening evidence. The bounded protocol in AR-141 states how to handle these limits without treating them as proof of novelty.
-- **Exact next action:** Freeze the candidate IR, fingerprint schema, collision templates, diagnostic traces, matched-control budget, and locked confirmation split from AR-141 before any search. No experiment, benchmark, or search run is authorized in this continuation.
-- **Resource constraint:** Literature, primary-source checks, and formal reasoning only. No experiments, benchmarks, GPU work, CPU-heavy jobs, or background jobs were run.
+- **Lane and lens:** Novelty-gate / rediscovery audit for the frozen mechanism search. Distinguish exact state-transition equivalence from same-task or same-goal similarity; do not call an implementation equivalent merely because a general machine can simulate it.
+- **Stage:** AR-142 audits the authorized Stages 0–3 and records a preregistration validity failure before search. The frozen behavioral-equivalence probe corpus is referenced as stored but is absent from the frozen repository bundle, and no sampler specification allows exact reconstruction from the seed alone.
+- **Strongest surviving candidates:** None. No Stage-2 archive or promoted Stage-3 program artifacts exist on the fetched remote branches. No candidate is eligible for an allowed novelty classification.
+- **Completed:** Fetched `origin/main` at `c543f85315326c0e49ee7f02e590bfc18e4d5910`; read its `AGENTS.md`, frozen preregistration, shared map and this notebook's prior Resume. Read only the bounded Part AE grammar/probe/freeze passages needed to check the frozen contract. Ran six existing local benchmark-generator/metric unit tests (pass; 1.891 process CPU seconds); these do not test the novelty filter.
+- **Validity failure:** Part AE AE.2.2 and AE.5.10 say the exact 16 probe tuples are stored with the freeze, but neither `origin/main` nor the Claude design branch has the tuples, a separate probe asset, or distributions/RNG procedure for sampling them. Reconstructing probes would change the frozen behavioral gate. Do not run Stage 1–3 or substitute a new corpus.
+- **Other audit findings:** The untracked local `experiments/ams_audit` files contain generator tests and a calibration draft, not the canonicalizer, fingerprint extractor, reference-template matcher, or search outputs. Its Task-F draft uses adaptive early stopping and one fixed, unequal learning-rate setting across optimizers without an equal tuning-budget record; treat it as an unaudited local draft, not official calibration evidence.
+- **Exact next action:** Obtain the already-frozen 16-tuple asset and its deterministic serialization/sampler from the experiment owner/runner, without changing the design. Then rerun Stage 0's collision positive controls and anti-cheating checks; Stage 1 may proceed only after they pass. If the tuples were never frozen, the owner must authorize a versioned preregistration amendment before any continuation.
+- **Resource constraint:** CPU-only. The six generator/metric tests used 1.891 process CPU seconds. No training, baseline calibration, candidate search, GPU, Stage 2, or Stage 3 work was run. Project-wide CPU usage is not visible in the checked-out artifacts, so no remaining-cap estimate is asserted.
 
 - **Rolling state correction (2026-09-27; supersedes the older snapshot below):** candidate ledger now runs C001–C038, and no broad model class has survived yet. Recent additions: AR-112 robustness result (operator-matched gains under mild noise, loss under misspecification), AR-113 KBANN prior-art audit, AR-114 QPT/QSIM archaeology, AR-115 saturation theorem proving, AR-116 Warren Abstract Machine, AR-117 Graphplan, AR-118 set-valued reachability, AR-119 Cellular Potts, AR-120 oscillator Ising machines, and C029's Incrementally-Computable Neural Network prior-art update. This continuation adds AR-121 for HTN planning, HY-106 for learned HTN method-selection collisions, and AR-122 for active inference; these are established planning/inference frameworks, not new broad model classes. It also adds an FCM source correction: nonlinear edges and delays predate KA-FCM, with Fuzzy Relational Maps recorded as a narrow bipartite variant. HY-100 now separates predictive-basis test selection from physical sensing; HY-103–HY-107 record oscillator-learning, Rete/neural-Datalog, heteroclinic-learning, HTN, and deep-active-inference collisions. A JTMS/ATMS addendum sharpens the truth-maintenance prior-art comparison. The latest pass adds AR-123/HY-108 closing generic reversible structural edits, AR-124/HY-109 closing persistent entity identity plus learned slots, AR-125/HY-110 closing runtime symbol/operator growth, and AR-126/HY-111 closing generic frame/script knowledge plus neural grounding. This continuation adds AR-127/HY-112 for KL-ONE classification and learned ontology construction; AR-128 for DL concept revision; AR-129/HY-113 for incremental TBox/ABox maintenance and conservative extension; AR-130/HY-114 for proof-carrying updates; AR-131 for learned specification generation; AR-132 for policy learning via membership/equivalence queries; AR-133 for per-update translation validation; AR-134 for live code/state replacement through dynamic software updating; AR-135 for reflective interpretation and executable code as data; AR-136 for automatic revision/creation of executable rules and programs; and AR-137 for evaluators/objectives inferred from feedback or generated internally. Each has direct same-operation prior art or reduces to known tools and explicit oracle/specification/update-point assumptions. No broad or hybrid architecture candidate survives. Continue literature and formal reduction only under the owner's no-experiment rule; only `Codex_Research.md` was changed.
 - **Calibration rolling update (2026-09-27):** AR-138 tests the owner-updated primitive/architecture/pipeline standard against attention, residual connections, backpropagation, diffusion, and CDCL, and re-audits C003, C007, C014, C017, C020, and HY-80. CDCL and Strassen serve as positive controls; no current Codex architecture candidate survives. No experiment ran.
@@ -4831,6 +4832,53 @@ Use a two-level evaluation split:
 - **External/task-family check:** if an effect is claimed as broadly useful, test a distinct family or real workload; do not infer broad capability from the toy panel.
 
 The evaluator itself is part of the threat model. Run candidates in a deterministic sandbox with explicit inputs, state, RNG, and time/operation limits. Deny file/network/process access and undeclared global state. Check that the candidate returns finite values and that no read occurs before its declared availability. Record the exact evaluator, generator seed, and objective version.
+
+## AR-142 — Frozen novelty-gate validity audit (2026-09-28)
+
+### Scope and evidence
+
+This audit is limited to the owner's authorized Stages 0–3 and does not alter the frozen design. After `git fetch origin`, the authoritative main commit was `c543f85315326c0e49ee7f02e590bfc18e4d5910`. I read that commit's `AGENTS.md`, `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md`, and `SHARED_RESEARCH_MAP.md`, then the current Resume above. For Claude's notebook I read only Part AE's bounded grammar, behavioral-probe, reference-library, and freeze passages required by the preregistration; I did not read the full Claude or Cursor notebook.
+
+The latest remote main tree contains the frozen design and research notebooks, but no executable mechanism-search runner, collision-filter implementation, probe asset, calibration result, MAP-Elites archive, candidate file, or Stage-3 report. The fetched Claude design branch (`3617547d324f2a929918ebe352bb10ea4442155a`) likewise has no separate probe or runner artifact. No candidate archive was available to inspect.
+
+### Stage 0 — collision machinery and calibration
+
+The decisive frozen-contract gap is the Level-B positive-control corpus:
+
+- Part AE AE.2.2 requires a fixed set of 16 tuples and says they are sampled once with seed `20260928` and stored with the preregistration. Each tuple is supposed to carry `W`, `b`, `a`, target, loss, register values, and noise. AE.5.10 repeats that the probe set, reference library, task generators, and all seeds are stored with the freeze.
+- The frozen Part AE source records the seed but contains no tuple values or serialized corpus. The remote repository tree has no separate probe file. It also does not specify the RNG implementation, sampling distributions, shapes for each value, draw order, or a sampler that would reproduce the tuples byte-for-byte. A seed by itself does not determine these data.
+- The behavior gate is therefore not reproducible. Hand-authoring probes or choosing a sampler now would create a different calibration set and silently change a frozen component. I did not substitute probes, weaken a threshold, or claim a behavioral calibration.
+
+The local, untracked `experiments/ams_audit` directory contains generator/metric code and `test_generators.py`, but no collision-filter/compiler implementation or search outputs. I ran its six small generator/metric unit tests: all six passed in 1.891 process CPU seconds. This establishes only that those local generator and metric examples execute as written; it does not validate canonicalization, family signatures, behavioral equivalence, structural fingerprints, or the official benchmark generators.
+
+Consequently, the required known-family positives (SGD, momentum, Adam-like second moment, Hebbian/Oja, eligibility traces, feedback alignment, fast weights, retention projection, freeze/reinitialization, and test-time state updates) have not been accepted as calibrated controls. No canonical IR, A-level rewrite suite, exact B-level probe traces, C-level event fingerprints, or family-template match reports were supplied. Level D is not reached because there is no empirical survivor.
+
+**Stage 0 disposition: VALIDITY FAILURE — the frozen behavioral-equivalence calibration cannot be reproduced from the frozen artifacts. Stop before Stage 1.** This is a missing frozen-input failure, not evidence that any candidate is novel or non-novel.
+
+### Anti-cheating and local calibration-draft audit
+
+The official execution pipeline cannot be audited because no runner or calibration outputs are present. The only local calibration draft is untracked and is not treated as an official runner result. Read-only inspection found at least these risks in `experiments/ams_audit/calibrate_baselines.py`:
+
+- Task F uses a data-dependent early break at training accuracy `>= 0.99` and loss `< 0.05` (lines 175–185), so update exposure/stopping differs by optimizer unless explicitly equalized and recorded.
+- Task F sets fixed learning rates of 0.1 for SGD/SGDM and 0.01 for AdamW (lines 163–166); Task B likewise uses 0.05 for SGD/SGDM and 0.01 for AdamW (lines 57–60). The script contains no equal tuning-budget record for these choices. This does not establish a false win, but the code cannot certify the frozen matching requirements as written.
+- No output files record parameters, state bytes, FLOPs, forward/backward passes, initialization, data exposure, clipping, normalization, stopping, or the locked confirmation boundary. Thus the matching/holdout anti-cheating audit is unverified.
+
+These are draft-code hazards, not Stage-1 experimental findings: I did not run `calibrate_baselines.py`, train models, or inspect results that do not exist. The local untracked files were left untouched.
+
+### Stages 1–3 and candidate classifications
+
+| Stage or artifact | Evidence found | Disposition |
+|---|---|---|
+| Stage 0 collision filter | No executable filter or exact frozen Level-B corpus; local generator tests pass but are unrelated to collision calibration | **VALIDITY FAILURE — STOP** |
+| Stage 1 calibration outputs | No official runner outputs found; no Task-D optimizer/preconditioner diagnostic result to review | Not run/reviewable |
+| Stage 2 machine-readable candidate/archive outputs | None on fetched remote branches | No search audit possible; search must not start before Stage 0 passes |
+| Stage 3 promoted mechanisms | None | No mechanism has a novelty classification; no literature search or survivor claim is warranted |
+
+No mechanism is classified as `REDISCOVERY — OPTIMIZER`, `REDISCOVERY — LOCAL LEARNING RULE`, `REDISCOVERY — EXISTING ARCHITECTURE`, `REDISCOVERY — LOSS / SCHEDULE`, `BENCHMARK EXPLOIT`, `NEGATIVE`, `INTERESTING EMPIRICAL MECHANISM — NOVELTY NOT ESTABLISHED`, or `POSSIBLE ARCHITECTURE CANDIDATE — REQUIRES CROSS-LANE CONFIRMATION`: there are no candidate programs or promoted artifacts to classify.
+
+### Exact next action
+
+Recover the exact frozen 16-tuple corpus and its deterministic sampler/serialization from the owner or runner, plus the executable filter and machine-readable Stage-1 outputs. Do not alter the preregistration to make a substitute corpus fit. After those frozen artifacts are available, rerun Stage 0's canonicalization, family-positive, behavioral, structural, and benchmark-generator checks and verify the anti-cheating counters. Continue to Stage 1 only if all controls pass. If the promised corpus was never actually frozen, the owner must authorize a versioned preregistration amendment before work resumes. Stage 4, GPU, training, and candidate search remain unrun in this audit.
 
 ### 7. Automated-discovery failure modes and calibration
 
