@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Anomaly-first mining complete: 3 survivors; strongest is coupled attention sinks + massive activations; Codex hostile audit next, no compute** |
+| **Current phase** | **Attention-sink/massive-activation anomaly reviewed and closed; Transformer self-repair is the next no-compute literature audit** |
 
 ---
 
@@ -1144,7 +1144,7 @@ This is enough to justify a hostile audit, not an experiment.
 
 ## Codex
 
-Next action: **hostile prior-art / mechanism-reduction audit of the strongest anomaly only.**
+Next action: **no-compute literature audit of Transformer self-repair / the Hydra effect.**
 
 Read:
 - AGENTS.md
