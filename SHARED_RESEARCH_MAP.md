@@ -1087,83 +1087,107 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **OMD-PILOT-1 complete and failed at Phase A; current T1 OMD path closed; no active compute authorization** |
+| **Current phase** | **Property-first separation search complete: 8/8 candidate gaps killed, 0 survivors; no active compute authorization** |
 
 ---
 
 # 12. What each agent should do next
 
-OMD-PILOT-1 is complete.
+The first property-first separation search is complete.
 
-## Final result
+Perplexity performed the deep-research lane for this phase. It investigated 8 candidate architectural property gaps and found **0 survivors**.
 
-The pilot stopped at the frozen **Phase A imitation gate**.
+## Property-first result
 
-Required:
-- every (controller, held-out seed) pair >= 99.5% teacher victim-decision agreement.
+All eight candidate separations were killed by one of:
+- direct prior art;
+- an impossibility/lower-bound result;
+- an already-known resource trade-off;
+- a newer construction that already crosses the weaker proposed gap.
 
-Observed:
-- LRU: 0.959–0.990;
-- LFU: 0.918–0.999;
-- SIEVE-like: 0.852–0.938;
-- 2Q-resident: 0.839–0.957;
-- only 3/36 pairs passed.
+The strongest near-survivor was:
 
-Per protocol:
-- blinded extraction did not run;
-- Phase B did not run;
-- Phase C did not run;
-- OMD-1 did not run;
-- no rescue/retuning was performed.
+**compact exact mergeability + adaptive strong-tracking robustness in streaming state**
 
-Compute:
-- pilot: about 0.06892 CPU-hours;
-- project cumulative: about 5.19629 CPU-hours;
-- no GPU.
+It was killed because:
+- exact union-composable state is directly vulnerable under existing adaptive-attack results;
+- broader compact adaptive robustness is already achieved by nonlinear history-sensitive streaming constructions;
+- ordinary robustification methods already cross weaker forms of the proposed gap.
+
+Other screened gaps included:
+- safe-memory reclamation robustness vs transparent integration;
+- constant-rate error correction vs constant-query local decoding;
+- minimax adversarial regret vs sublinear communication;
+- continual-observation privacy vs adaptive long-horizon accuracy;
+- snap stabilization vs nontrivial safety with unbounded channels;
+- silent self-stabilization vs constant local state;
+- full-stream decoding vs polylog workspace / near-linear redundancy.
+
+None remains an unresolved architectural separation under the frozen resource/interface assumptions.
 
 ## Interpretation
 
-The failed pilot does **not** show that observed-mechanism discovery is impossible.
+This is another useful negative result.
 
-It shows that this specific tiny recurrent imitation setup did not reliably reproduce even known planted policies under the frozen training contract.
+The project has now tested several distinct discovery modes:
+1. concept-first invention;
+2. primitive/architecture reduction;
+3. native coupling;
+4. learning-dynamics invention;
+5. bounded automated mechanism search;
+6. grammar-gap expansion;
+7. observed-mechanism discovery;
+8. property-first separation search.
 
-The strongest diagnostic pattern was:
-- coarse policy class often learned correctly;
-- fine-grained oldest-first ordering inside that class was not learned reliably;
-- repeated-hit burst behavior remained a major failure mode for SIEVE-like and 2Q-resident;
-- LRU was still underfit at the fixed training budget.
+The repeated failure mode is now broader than “we keep inventing known mechanisms.”
 
-Because these weaknesses were visible only after the official run, do **not** rescue this protocol by adding policy-specific features, relaxing thresholds, increasing passes, or changing hit dynamics.
-
-That would be a new method tuned to the observed failure.
+Even when the search starts from **desired property combinations instead of mechanisms**, the strongest candidate gaps tend to collapse into:
+- theorem-level impossibility;
+- known resource trade-offs;
+- or recently published constructions.
 
 ## Owner decision
 
-**Close the current T1 OMD path under the present instrument/training design.**
+Do not launch another property-pair survey immediately.
 
-There is now **no active compute authorization**.
+There is no active compute authorization.
 
-Any future OMD work must start from a separately justified methodological design that does not merely patch the failed planted controls.
+The next research lens, if continued, should search for **replicated empirical anomalies that do not yet have a satisfactory mechanism-level explanation**, rather than:
+- another architecture idea;
+- another property pair;
+- another synthetic task;
+- another grammar;
+- another tiny discovery instrument.
 
-## Claude
-Stop.
-Preserve the OMD-PILOT-1 implementation and evidence.
-Do not rerun or rescue it.
+The next candidate source should therefore be **observed unexplained behavior in existing published systems**, not a human-invented mechanism or desired separation.
 
-## Codex
-Stop.
-No further T1 prior-art work is needed.
+## Proposed next phase — anomaly-first literature mining (design only)
 
-## Cursor / Gemini
-Stop.
-The validity audit already predicted that a failed planted-control gate should block discovery.
+Question:
+
+> Are there replicated, architecture-sensitive empirical phenomena in modern learning systems where the behavior is real, survives matched controls, and current explanations are incomplete enough that a missing state-transition or information-flow mechanism might still exist?
+
+Requirements before any experiment:
+- phenomenon reproduced by more than one paper/group or across more than one model family;
+- not merely a scaling-law, optimizer, dataset, or representation artifact;
+- architecture dependence must survive matched compute/data/parameter controls where available;
+- existing mechanistic explanations must be explicitly incomplete or mutually inconsistent;
+- ordinary decomposition must not already explain the effect;
+- no novelty claim from the anomaly alone.
+
+## Perplexity
+If used again, serve only as deep-research anomaly miner:
+- search for replicated unexplained architecture-sensitive phenomena;
+- prefer primary empirical papers and follow-up replications;
+- kill crowded/solved phenomena aggressively;
+- return at most 3 genuinely unresolved anomaly families.
+
+## Claude / Codex / Cursor-Gemini
+Wait.
+No compute or implementation.
 
 ## Owner / coordinator
-The next research phase, if continued, must begin from a genuinely new methodological question rather than another rescue of:
-- the AMS grammar;
-- GG1–GG8;
-- T1 RET;
-- OMD-PILOT-1's recurrent imitation setup.
+Only if anomaly-first mining returns a well-supported unresolved phenomenon should it be sent through Codex/Cursor hostile review before any experiment.
 
 ---
 
