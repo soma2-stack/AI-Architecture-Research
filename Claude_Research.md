@@ -13,6 +13,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 - **Governing files:** `AGENTS.md` (highest authority; never edit) → `SHARED_RESEARCH_MAP.md` (owner-authorized cross-lane synthesis; read in session 7) → this notebook. `Codex_Research.md` and `Cursor_Research.md` are still **not** opened.
 - **Current search lens:** *irreducible-operation discovery*. Grant every machine in map §6, then ask what useful operation is still missing (Part AA).
 - **Current stage (session 7):**
+  - Lens 13 (dissection) done in two literature passes: 0/14 (AA.9) and 0/3 (AA.10).
   - Lenses 9–12 done: library closure + no-go map; seams between granted machines (candidates I01–I21); specification genesis; separation-first fusion.
   - **0/21 survive.** No experiments; web search and one algebra sanity check only.
 - **Strongest surviving candidate(s):** **none.** Nothing is at `SURVIVES INITIAL REDUCTION`. CSL remains a useful combination with low novelty (Part K); it is not an architecture candidate.
@@ -31,7 +32,11 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
   - (b) Has the AA.6 refinement (a separation proof exempts a fusion from the "pipeline" kill) been formalized for neuro-symbolic systems? Nothing found; a 2026 survey calls tight-vs-federated coupling unanswered.
   - (c) 2025–26 items were verified from abstracts / snippets only, because arXiv full text was blocked.
 - **Owner-level proposal (notebook only, AGENTS.md untouched):** AA.6 — refine the pipeline kill rule with a separation-proof exemption, and optionally add a separate "distributional primitive" tier judged by experiment.
-- **Exact next action:** Lens 13, *discovery by dissection* (AA.7), step 1: survey 2023–26 mechanistic-interpretability reports of algorithmic mechanisms and map each onto the granted library. Keep only mechanisms with no library counterpart. Literature only; any probing experiment needs owner authorization.
+- **Lens 13 first pass (AA.9):** 14 mechanisms observed in trained networks; **0/14 lack a library counterpart.** Gradient descent rediscovers the human paradigm set.
+- **Lens 13 second pass (AA.10):** non-language systems (AlphaZero, protein LMs, MuZero); 0/3. Dissection finds new *knowledge* (AlphaZero chess concepts), not new *operations*.
+- **Session conclusion (AA.10):** 21 candidates + 17 observed mechanisms, **0 survivors**. Under the current standard the remaining target appears to be only new *specifications* or *separation-proved fusions*.
+- **Exact next action:** **owner decision on AA.6** (keep the standard / separation-proof exemption / empirical tier). Also pending: the Codex answer to `HANDOFF_Claude_to_Codex_filter_calibration.md`.
+- **Default if the owner only says "continue":** Lens 11c, specification invention from requirements reported for agentic / multi-agent LLM systems in 2025–26. Literature only; each candidate must be a spec + mechanism.
 - **ID scheme addition:** `I01–I21` (session 7, Part AA); `NG-1…NG-9` (no-go map).
 
 # Resume Pointer as of session 6 (historical; superseded by the block above)
@@ -2445,6 +2450,72 @@ This does not show that the standard is wrong. The owner chose a deliberately st
   - neural × symbolic worst-case separations (AA.5).
 - **Handoff:** `HANDOFF_Claude_to_Codex_filter_calibration.md` asks the archaeology lane for counterexamples to AA.6. Are there historical mechanisms that would pass the current filter *and* are not new specifications?
 - **Exact next action:** Lens 13, step 1 (a literature survey of mechanistic reports, then mapping onto L). If that yields nothing irreducible, the remaining option is Q2 specification invention driven by *new settings created by agentic systems*, or an owner decision on AA.6.
+
+
+## AA.9 Lens 13, first pass — discovery by dissection (literature only)
+
+**Method.** Take algorithmic mechanisms that mechanistic-interpretability work (2023–26) reports *inside trained networks*. Map each onto the granted library L. Keep only mechanisms with no L-counterpart. Kill criteria were set in AA.7 before the search. Items were verified from abstracts or search snippets; arXiv full text was blocked.
+
+| # | Mechanism observed in a trained system (source) | What it computes | L-counterpart | Verdict |
+|---|---|---|---|---|
+| D1 | "Pizza" algorithm for modular addition (Zhong, Liu, Tegmark & Andreas, NeurIPS 2023) | average two tokens' circle embeddings, double the frequency with an MLP, score candidates by dot product | Fourier / trigonometric arithmetic | reduces; a new *instance* of a known paradigm |
+| D2 | Clock / helix addition (Nanda et al. 2023; Kantamneni & Tegmark 2025) | compose rotations | group representations / Fourier | reduces |
+| D3 | Binding IDs; ordering IDs (Feng & Steinhardt 2023; 2024–25 follow-ups) | additive tag vectors bind entity ↔ attribute | role–filler / tag binding (VSA) | reduces |
+| D4 | Lookback mechanism for belief tracking (Prakash et al., NeurIPS 2025) | copy a reference to an *address* and a *pointer*, later dereference by attention | pointers / RAM dereference | reduces |
+| D5 | Variable-binding dereference chains (Wu et al., ICML 2025) | residual stream as addressable memory; multi-step dereferencing | pointer chasing | reduces |
+| D6 | Permutation state tracking (Li, Guo & Andreas, ICML 2025) | associative scan; or parity feature to prune, then scan | parallel prefix (Blelloch 1990); invariant-based pruning | reduces |
+| D7 | Shared value slot + low-rank "space router" for belief / counterfactual / fiction / time (arXiv 2607.10248; 2607.11945, 2026) | one slot format, one index selects which "mental space" is read | contexts ist(c, p) (McCarthy 1993); mental spaces (Fauconnier 1985); tagged / indexed memory | reduces |
+| D8 | Spectral Line Navigator (Cohen et al., ICLR 2025 workshop) | greedy navigation in the line-graph spectral embedding (no DP found) | greedy / geographic routing in embeddings; Laplacian eigenmaps | reduces; new approximate *instance* |
+| D9 | Sokoban DRC planner (Taufeeque et al. 2024; ICLR 2026 path channels / plan-extension kernels) | bidirectional plan extension, internal transition model, value-driven backtracking; "pacing" to buy computation | bidirectional search (Pohl 1971); value iteration; adaptive computation time | reduces |
+| D10 | Reasoning by superposition (Zhu et al., NeurIPS 2025) | each continuous thought holds a *set* of frontier nodes: reachability in D steps vs O(n²) for discrete CoT | BFS with a set-valued frontier; set as a sum of near-orthogonal codes (Bloom / VSA) | reduces (the separation is BFS vs sampled single paths) |
+| D11 | Computation in superposition: universal-AND (Hänni, Mendel, Vaintrob & Chan 2024) | ε-approximate ANDs of all m-choose-2 feature pairs with Õ(m^{2/3}) neurons | sketching of x⊗x (TensorSketch, Pham & Pagh 2013; count sketch); a 2026 paper argues it is compressed computation rather than superposition (arXiv 2606.14673) | reduces |
+| D12 | In-context gradient descent (von Oswald et al. 2023); function / task vectors (Todd et al. 2024); induction, successor and retrieval heads | GD in the forward pass; task vectors; copy / increment / lookup | gradient descent; lookup / copy | reduces |
+| D13 | Self-repair / Hydra effect (McGrath et al. 2023; Rushing & Nanda 2024) | downstream components compensate for ablated ones, partly via normalization | redundancy / graceful degradation | reduces |
+| D14 | In-context algebra (Todd et al., ICLR 2026; already in Z.5) | symbolic in-context mechanisms for variable binding | symbolic binding | reduces |
+
+**Result: 0/14 mechanisms lack an L-counterpart.**
+
+**What this reveals (INTERPRETATION).**
+- **Paradigm convergence.** Gradient descent rediscovers the *same small set of paradigms* humans use: Fourier arithmetic, parallel prefix, pointers, BFS / bidirectional search, sketching, greedy embedding routing, additive binding.
+- **New instances, not new paradigms.** Two reports describe algorithms "not previously described" (D1, D8). Both are new *instances* of known paradigms.
+- **Superposition.** The most "neural-native" feature, several objects held in one vector (D3, D10, D11), is the known sketching / VSA family.
+
+This matches AA.1: learning is a search over programs, and what it finds is built from the known paradigm set.
+
+**Status of Lens 13:** first pass closed with no survivor. Not exhausted: only literature, only 14 mechanisms, almost all from language or toy models.
+
+**Next step inside the lens:** a second pass over *non-language* trained systems whose problem structure humans have not studied closely (RL agents in novel environments, scientific foundation models). Same kill criteria.
+
+
+## AA.10 Lens 13, second pass (non-language trained systems) and session conclusion
+
+| # | Mechanism (source) | What it computes | L-counterpart | Verdict |
+|---|---|---|---|---|
+| D15 | AlphaZero concept discovery (Schut, Tomašev, McGrath, Hassabis, Paquet & Kim; PNAS 2025) | chess concepts unknown to humans, extracted from internal representations and learned by four grandmasters | *content* of a value / policy network; the computation is MCTS + evaluation | reduces as an **operation**; novel as **knowledge** |
+| D16 | Protein language models (Zhang et al., PNAS 2024; Bhattacharya et al. 2022) | store and look up coevolutionary motif statistics | Potts models / direct-coupling analysis | reduces |
+| D17 | MuZero learned model (arXiv 2411.04580, 2024); model-free Sokoban planning (arXiv 2504.01871, 2025) | latent dynamics + tree search; concept-based plans | MCTS over a learned model; D9 | reduces |
+
+**Result:** 0/17 across both passes.
+
+**Distinction the second pass makes clear (INTERPRETATION):** dissection finds **new content** (AlphaZero's chess concepts are a verified case of machine knowledge that humans lacked) but **not new operations**. Trained systems are a source of novel *knowledge* running on standard computation. This fits AA.1: an architecture primitive is an operation, and operations are what the library already closes over.
+
+### Session-7 conclusion
+
+- **Lenses tried:** 9 (library closure + no-go map), 10 (seams: I01–I21), 11 (specification genesis: classical-spec transfer; relational grid), 12 (separation-first fusion), 13 (dissection, two literature passes).
+- **Candidates / mechanisms examined:** 21 + 17. **Survivors: 0.** Nothing is at `SURVIVES INITIAL REDUCTION`.
+- **Strongest supported claim (INTERPRETATION, grounded in AA.1, AA.2 and AA.6):** under the current standard with the §6 library granted, the remaining target set is at most:
+  - (i) **new specifications** with an efficient mechanism, and
+  - (ii) **fusions with a proven worst-case separation** over black-box composition.
+
+  NG-2 shows neural components cannot supply (ii). Lenses 11a/11b found no unnamed specification that learned systems need. Lens 13 found that trained systems rediscover known operations.
+- **This is not a proof that the target set is empty.** It shows that concept generation from recall, and literature dissection, are very unlikely to reach it.
+
+**Owner input now genuinely required (AGENTS.md "Autonomy": stop when owner input is required).** Productive continuation depends on a choice only the owner can make (AA.6):
+1. **Keep the standard.** Then the only remaining route is *specification invention*. Next action: **Lens 11c**. Collect requirements reported for agentic / multi-agent LLM systems in 2025–26 (memory compaction, handoffs between agents, parallel agents on shared state, self-editing skills, tool permissions). For each, check whether a named guarantee covers it. Candidates must be a *spec + mechanism*.
+2. **Admit a separation-proof exemption to the pipeline rule.** Then search for fusions with worst-case separation proofs outside neural × symbolic (by NG-2, neural parts cannot provide proof power).
+3. **Add a "distributional primitive" tier.** Then candidates must be tested empirically, which requires experiment authorization under AGENTS.md.
+
+**Default if the owner says only "continue":** option 1 (Lens 11c), literature only.
 
 ---
 

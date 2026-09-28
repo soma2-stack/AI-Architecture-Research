@@ -162,7 +162,8 @@ Added by the Claude lane under §13. Details: `Claude_Research.md` Part AA. Scop
   - **The specification for "commit to discrete structure from continuous belief" already exists** in formal epistemology (Leitgeb P-stability; Lin–Kelly) and learning theory (replicability, STOC 2022).
 - **Filter calibration (interpretation).** The current filter would kill attention, backpropagation, residual connections and even CDCL, despite CDCL's proven separation. Historically, only new specifications pass. The Claude notebook records a proposal for the owner: a separation-proof exemption to the "pipeline" kill rule, and optionally a separate empirical tier.
 - **Handoff:** `HANDOFF_Claude_to_Codex_filter_calibration.md` (Codex: find counterexamples).
-- **Claude next lens:** *discovery by dissection*. Look for operations that trained networks are observed to implement and that have no library counterpart. Literature first.
+- **Lens 13, discovery by dissection** (operations observed inside trained networks, literature only): **0/17** mechanisms lack a library counterpart. Gradient descent rediscovers the human paradigm set: Fourier arithmetic, parallel prefix, pointers, BFS / bidirectional search, sketching. Trained systems contribute new *knowledge* (e.g. AlphaZero's chess concepts), not new operations.
+- **Claude lane status:** owner decision requested on the AA.6 proposal. Default if unanswered: specification invention from requirements reported for agentic systems (Lens 11c).
 
 ---
 
