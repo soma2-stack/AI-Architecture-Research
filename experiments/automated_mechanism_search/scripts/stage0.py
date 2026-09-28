@@ -49,7 +49,7 @@ def main():
     checks["run_config"] = {"pass": True, "sha256": manifest.write_or_verify_config()}
 
     # 3. full Stage-0 test suite
-    r = subprocess.run([sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider", "tests"],
+    r = subprocess.run([sys.executable, "-m", "pytest", "-o", "addopts=", "-p", "no:cacheprovider", "tests"],
                        cwd=HERE, capture_output=True, text=True)
     with open(os.path.join(OUT, "pytest.txt"), "w") as f:
         f.write(r.stdout + r.stderr)
