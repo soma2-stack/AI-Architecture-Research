@@ -1087,159 +1087,103 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **OMD-0 final validity screen: Codex preserved T1 RET as a target; Cursor/Gemini identifiability/extraction audit next, still no training or OMD-1 freeze** |
+| **Current phase** | **OMD-PILOT-1 frozen and authorized: <=1 CPU-hour planted-control identifiability/extraction pilot only; mixed-regime OMD-1 remains unauthorized** |
 
 ---
 
 # 12. What each agent should do next
 
-OMD-0 target screening and Codex hostile prior-art audit are complete.
+OMD-0 is complete.
 
-## Current target
+Final no-compute verdicts:
+- Claude: T1 RET is the only one of 18 screened target families worth further study;
+- Codex: **SURVIVES AS OMD TARGET**;
+- Cursor/Gemini: **RETAIN ONLY FOR MINIMAL IDENTIFIABILITY PILOT**.
 
-**T1 RET — capacity-bounded retention under hidden nonstationary reuse**
+The owner has now frozen **OMD-PILOT-1** in the canonical preregistration.
 
-Status:
-- survives only as an **OMD target family**;
-- no learned mechanism exists yet;
-- no architecture or primitive claim exists;
-- no OMD-1 protocol is frozen;
-- no training or benchmark has run.
+This is **not** the mixed-regime discovery run.
 
-Codex verdict:
-- **SURVIVES AS OMD TARGET**.
-- No verified compact constructive policy closes the exact C=16–32, unknown-switching, mixed-reuse contract.
-- Strong prior-art pressure remains from ARC/CAR, SIEVE/S3-FIFO, EVA/LHD/3L-Cache, LeCaR/CACHEUS/H-MC, RLR, Glider, learned rankers and automated compact-policy search.
-- The target is worth only a narrow identifiability/extraction audit before any compute.
+## Active authorization
 
-## Cursor / Gemini
-Next action: **final OMD-0 identifiability / extraction-validity audit**.
+Exactly one experiment is authorized:
 
-Read:
-- AGENTS.md
-- SHARED_RESEARCH_MAP.md
-- HANDOFF_Codex_to_Cursor_T1_OMD_validity.md
-- HANDOFF_Claude_OMD0_targets.md only as needed for the target contract
-- your latest Resume in Cursor_Research.md
+**OMD-PILOT-1 — planted-control identifiability / extraction validation**
 
-Do not read full Claude_Research.md or Codex_Research.md.
+Purpose:
+- train tiny recurrent controllers to imitate four known cache policies;
+- blindly extract their quotient transition semantics;
+- causally intervene on those semantics;
+- transplant the extracted rule into plain code;
+- prove the OMD pipeline can recover known mechanisms before asking it to discover an unknown one.
 
-Do not code, train, benchmark, use GPU, or freeze OMD-1.
+Planted controls:
+- LRU;
+- LFU;
+- SIEVE-like resident control;
+- 2Q-resident control without ghost history.
 
-Audit five things:
+Frozen basics:
+- C=16;
+- N=256;
+- train seeds 101–103;
+- held-out seeds 201–203;
+- 10,000 training requests/seed;
+- 20,000 held-out transplant requests/seed;
+- local recurrent state R^2 per slot;
+- global recurrent state R^1;
+- shared <=2-layer width-16 networks;
+- <=600 trainable parameters;
+- lazy/event-driven state updates only;
+- no all-slot recurrent F_tick;
+- supervised teacher imitation only;
+- Adam 1e-3;
+- truncated BPTT 256;
+- no LR/model sweep;
+- CPU only;
+- <=1.0 CPU-hour total;
+- stop on any mandatory Phase A/B/C gate failure.
 
-### 1. Identifiability
-Determine whether the proposed 2-D per-slot + 1-D global recurrent state can be meaningfully identified from trajectories given:
-- slot permutations;
-- affine / invertible latent-state reparameterizations;
-- redundant coordinates;
-- symmetries among resident items;
-- unseen portions of state space;
-- equivalent policies with different internal realizations.
+Important semantic rule:
+- do not interpret or align raw latent coordinates;
+- extraction targets the quotient transition system / abstract policy automaton up to slot permutations and invertible state reparameterization.
 
-State what equivalence class, rather than exact coordinates, should be considered the same mechanism.
-
-### 2. Extraction validity
-Specify the minimum evidence needed before accepting a symbolic/FSM/plain-code extraction:
-- long held-out rollouts;
-- exact initialization/reset behavior;
-- tie-breaking;
-- rare scans, bursts, loops and regime switches;
-- counterfactual event interventions;
-- direct state perturbations;
-- slot permutation tests;
-- replacing the learned transition with the extracted rule;
-- comparing random vs targeted ablations.
-
-Decide whether Claude's proposed R² / decision-agreement thresholds are sufficient or need strengthening.
-
-### 3. Ordinary decomposition / resource matching
-Define the strongest resource-matched baseline set.
-
-Include:
-- online expert mixtures over known policies;
-- feature/value rankers;
-- ARC/CAR-style global adaptive controllers;
-- compact policy search outputs;
-- learned cache-level policy selection;
-- EVA/LHD-style value estimation;
-- any lazy-clock/event-driven replacement for the proposed all-slot F_tick update.
-
-Match:
-- local state bytes;
-- global state bytes;
-- update work per request;
-- inference cost;
-- shadow-policy overhead;
-- ghost metadata.
-
-### 4. T-KV transfer validity
-Audit whether the proposed transfer to KV-token retention is genuinely independent.
-
-Check:
-- whether mapping attention >= tau to a cache hit is legitimate;
-- whether tau calibration creates a hidden retuning channel;
-- whether the transfer task has different enough generators/objectives;
-- whether the extracted cache rule can be used zero-shot without retraining;
-- whether known KV-retention baselines already subsume the test.
-
-If T-KV is weak, propose a cleaner transfer task.
-
-### 5. Minimum decisive pilot
-Design the smallest CPU-only pilot that tests **OMD identifiability and extraction**, not cache-policy SOTA.
-
-Prefer a staged pilot that first must:
-- rediscover planted LRU/LFU/2Q/SIEVE-like controls;
-- extract them correctly;
-- survive causal interventions;
-- reproduce them as plain code.
-
-Only after those controls pass should a learned mixed-regime instrument be allowed.
-
-Give:
-- minimum seeds;
-- sequence lengths;
-- cache sizes;
-- model size;
-- stop rules;
-- estimated CPU-hours;
-- what exact result would justify proceeding to a larger OMD-1 search.
-
-Also answer whether OMD-1 can be preregistered now, or whether the state/input/output contract must first be tightened.
-
-### GRUMA check
-If accessible, verify whether GRUMA actually uses:
-- per-object recurrent state;
-- online event updates;
-- nonstationary mixed reuse;
-- extraction/causal validation.
-
-Do not infer these from the title alone.
-
-## Required recommendation
-
-Choose exactly one:
-
-- **REJECT T1 TARGET**
-- **RETAIN ONLY FOR MINIMAL IDENTIFIABILITY PILOT**
-- **PROCEED TO OMD-1 SEARCH-DESIGN REVIEW**
-
-No architecture/primitive label.
-
-If retained, produce the exact minimum pilot contract the owner can freeze next.
-
-Update Cursor_Research.md, commit and push.
+The full frozen rules and thresholds are in:
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md`
+under **OMD-PILOT-1 amendment — minimal planted-control identifiability pilot**.
 
 ## Claude
-Wait. Do not implement T1.
+Primary execution lane for OMD-PILOT-1.
+
+Next:
+- sync latest main;
+- read the active OMD-PILOT-1 section and this map;
+- implement only the frozen planted-control pilot;
+- preserve existing AMS/OMD evidence;
+- run tests before pilot training;
+- record git-at-start, config, seeds and CPU ledger;
+- execute Phases A–C exactly;
+- stop immediately if any planted control fails a mandatory gate;
+- do not retune after seeing results;
+- do not continue to mixed-regime T1 discovery even if the pilot passes;
+- update Claude_Research.md and machine-readable pilot outputs;
+- commit and push final evidence.
 
 ## Codex
-Wait. T1 hostile prior-art audit is complete.
+Wait.
+No additional prior-art audit is needed during the planted-control pilot unless implementation reveals a materially different target.
+
+## Cursor / Gemini
+Wait.
+The validity audit is complete.
+After the pilot, independently audit the machine-readable pass/fail result only if the owner requests it.
 
 ## Owner / coordinator
-After Cursor/Gemini returns:
-- reject T1 if identifiability/extraction is not clean;
-- otherwise freeze at most a tiny pilot before any broader OMD search.
+After OMD-PILOT-1:
+- if any planted control fails, close the current OMD path or redesign the extraction methodology before any discovery run;
+- if all four pass, review the evidence and only then decide whether to freeze an OMD-1 mixed-regime discovery protocol.
+
+No OMD-1 mixed-regime training is authorized yet.
 
 ---
 
