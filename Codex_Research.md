@@ -8,16 +8,17 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ### Codex resume/status -- 2026-09-28
 
-- **Lane and lens:** Independent novelty, rediscovery, and artifact audit. Do not duplicate Claude's full MAP-Elites search.
-- **Stage:** AMS v7 Stage 2 and Stage 3 are complete and independently audited from the raw run artifacts. No Stage-3 candidate survived Gate 3.
-- **Strongest surviving candidates:** None. All eight promoted candidates received `NEGATIVE` labels on fresh seeds 10000-10009.
-- **Completed:** Fetched and safely fast-forwarded the tracked checkout to `origin/main` at `e516ab5fb82a56a6a64e03f258f7dad3a93f8311`. Read the current governance, frozen preregistration, shared map, and this Resume; inspected v7 raw gzip records/jobs, manifests, promotion records, source-level gate logic, and the bounded Stage-2 run report. Did not read either full Claude or Cursor notebook. Existing untracked `experiments/ams_audit/audit_stage3_v7.py` was preserved and not edited.
-- **Stage-2 audit:** Independently counted 5,544 proposal records; 2,230 sanity evaluations; and 1,200 Tier-1 attempts, comprising 1,197 scored records plus three logged Task-F broadcast defects. Recomputed `q = max(finite task effects) - cost penalty` exactly for every scored Tier-1 record. The archive has 35/56 cells; 41 scored Tier-1 candidates had q >= 0.15; 12 archived candidates met promotion eligibility; the top eight were promoted. All eight are Cstar-task offspring.
-- **Stage-3 audit:** Re-summarized candidate and shared-SGD metrics from raw job results; all matched the stored per-seed metrics. Independently recomputed paired Wilcoxon tests, preregistered bootstrap intervals, threshold checks, Holm step-down, Gate 3, and labels. Every Gate 3 is false and every label is `NEGATIVE`.
-- **Rediscovery screen:** Every promoted program retains the exact R1_SGD parameter-update backbone or gates that backbone. Nearest-family results split four R21 continual-backprop matches (similarity 0.8556-0.9504) and four R1_SGD matches (0.6577-0.8863); residual terms are combinations of sparse/top-k update gating, noisy or activation-derived state/gain, effective-weight perturbation, and/or reinitialization. These are not exact R21 identities, but no candidate has a replicated material advantage or a supported architecture claim.
-- **Cap accounting:** The v6 exact-boundary construction issue did not affect v7's final count: v7 stopped at G_MAX after 20 generations with 5,544/6,000 generated and 1,200/1,200 Tier-1 attempts. The shared helper still has the latent exact-cap construction behavior; it was not exercised, and this audit did not alter it.
-- **Exact next action:** No independent search or experiment. Await the next owner-authorized audit/search phase; if a future run promotes candidates, audit only its exact raw artifacts and run fresh prior-art review only for mechanisms that pass their preregistered empirical gates.
-- **Resource constraint:** This audit used lightweight file parsing, source inspection, and statistics over stored outputs only. No model runs, search, benchmark, training, GPU, or protocol changes.
+- **Lane and lens:** Independent novelty and rediscovery audit of automated-search artifacts. Do not duplicate the MAP-Elites search.
+- **Stage:** AMS v8 Stage 2 and its confirmation funnel are independently audited. No candidate was confirmation-eligible; Stage 3 did not run and must remain unrun.
+- **Strongest case:** P03974 has the strongest confirmation AULC/paired-win result, but it fails the frozen R0 return constraint (5/8 vs 6/8); it is not a survivor.
+- **Completed:** Safely synchronized the clean tracked checkout to `origin/main` at `951ffe86dd9ba4bcd9433e19b0dc852b003f6381`. Read the latest governance, active v8 protocol, shared map and Codex Resume; recomputed Stage-2 counts from raw records and confirmation results from the saved per-seed/LR curves. Did not read either full Claude or Cursor notebook.
+- **Stage-2 audit:** 4,413 raw proposals; 1,961 sanity evaluations; 1,200 fast Tier-1 attempts (1,198 scored records plus two recorded Task-F defects); 42/56 archive cells. Recomputed q_fast exactly for all scored rows; seven have q_fast >= 0.15. The raw source and label counts reconcile to the official totals.
+- **Confirmation audit:** Recomputed the v8 normalized Cstar AULC from raw R1 curves and the return test from raw R0 curves. All 42 candidates are stable; all 42 fail q_confirm >= 0.15 (maximum 0.062885); 34 fail task constraints, 32 fail AdamW 2-sigma, and 29 fail the 6/8 paired-win rule (overlapping failures). Result: 0/42 eligible and zero promotions.
+- **P03974:** Confirmation mean AULC 0.213282 vs SGD 0.400092, wins 8/8, and passes AdamW 2-sigma; its uncapped effect is 0.466918. Return passes only 5/8, so the frozen constraint caps its effect at zero and q_confirm is -0.051362.
+- **Seed lock:** Discovery seeds 5000-5002 and confirmation seeds 6000-6007 are disjoint. Stage-3 seeds 30000-30009 appear only as locked identifiers in validation; they are absent from recorded run manifests and no `stage3_v8` directory exists.
+- **Compute ledger:** Re-summed 120 ledger entries to 18,458.528 CPU-seconds = 5.12737 CPU-hours of 30 (about 17.1%). v8 entries total 8,240.208 seconds: pre-search 74, Stage 2 7,745.007, confirmation 421.201. No GPU. The ledger includes a prior 900-second upper-bound estimate.
+- **Exact next action:** Do not run Stage 3 or another search. Preserve the v8 negative result and await an owner-level v9 decision.
+- **Resource constraint:** This audit only parsed stored files and recomputed metrics from saved curves. No search, candidate training, benchmark, GPU, or Stage 3 was run.
 
 - **Rolling state correction (2026-09-27; supersedes the older snapshot below):** candidate ledger now runs C001–C038, and no broad model class has survived yet. Recent additions: AR-112 robustness result (operator-matched gains under mild noise, loss under misspecification), AR-113 KBANN prior-art audit, AR-114 QPT/QSIM archaeology, AR-115 saturation theorem proving, AR-116 Warren Abstract Machine, AR-117 Graphplan, AR-118 set-valued reachability, AR-119 Cellular Potts, AR-120 oscillator Ising machines, and C029's Incrementally-Computable Neural Network prior-art update. This continuation adds AR-121 for HTN planning, HY-106 for learned HTN method-selection collisions, and AR-122 for active inference; these are established planning/inference frameworks, not new broad model classes. It also adds an FCM source correction: nonlinear edges and delays predate KA-FCM, with Fuzzy Relational Maps recorded as a narrow bipartite variant. HY-100 now separates predictive-basis test selection from physical sensing; HY-103–HY-107 record oscillator-learning, Rete/neural-Datalog, heteroclinic-learning, HTN, and deep-active-inference collisions. A JTMS/ATMS addendum sharpens the truth-maintenance prior-art comparison. The latest pass adds AR-123/HY-108 closing generic reversible structural edits, AR-124/HY-109 closing persistent entity identity plus learned slots, AR-125/HY-110 closing runtime symbol/operator growth, and AR-126/HY-111 closing generic frame/script knowledge plus neural grounding. This continuation adds AR-127/HY-112 for KL-ONE classification and learned ontology construction; AR-128 for DL concept revision; AR-129/HY-113 for incremental TBox/ABox maintenance and conservative extension; AR-130/HY-114 for proof-carrying updates; AR-131 for learned specification generation; AR-132 for policy learning via membership/equivalence queries; AR-133 for per-update translation validation; AR-134 for live code/state replacement through dynamic software updating; AR-135 for reflective interpretation and executable code as data; AR-136 for automatic revision/creation of executable rules and programs; and AR-137 for evaluators/objectives inferred from feedback or generated internally. Each has direct same-operation prior art or reduces to known tools and explicit oracle/specification/update-point assumptions. No broad or hybrid architecture candidate survives. Continue literature and formal reduction only under the owner's no-experiment rule; only `Codex_Research.md` was changed.
 - **Calibration rolling update (2026-09-27):** AR-138 tests the owner-updated primitive/architecture/pipeline standard against attention, residual connections, backpropagation, diffusion, and CDCL, and re-audits C003, C007, C014, C017, C020, and HY-80. CDCL and Strassen serve as positive controls; no current Codex architecture candidate survives. No experiment ran.
@@ -141,6 +142,81 @@ Claude's machine-readable validation (`6331de4`) independently fails the same C2
 The exact independent machine-readable proposal dump and run summary are committed in `experiments/automated_mechanism_search/audit_artifacts/v6_static_codex_20260928/`; the compressed proposal dump is SHA-256 `EC5D0026647DB1BF978215389BDD4633F70A7F07F6FB7769B6E48CEAF6A6B7BB`. The shared ledger incorporates Claude's three static-validation entries and a conservative 1.5-second Codex audit allocation (0.719 seconds measured inside the validator), totaling 2,365.632 CPU-seconds (0.657120 hours) of the 30-hour cap. No GPU or training ran. The Codex Python environment did not have `pytest`, so the constructor test module was not independently rerun; Claude's branch report records its full suite as 167/167 passing.
 
 **Conclusion:** `STOP — v6 static validity failure; no Stage-2 search or novelty candidate audit.` The failure is the concrete C2 constructor/frozen-classifier mismatch, with a separate one-at-cap uncounted constructor attempt. No protocol, detector, preregistration, or Claude file was changed. **Exact next action:** wait for an owner-authorized resolution and a static-passing implementation; then fetch that revision and audit only its structural outputs before any candidate work.
+
+## AR-146 -- Independent AMS v8 Stage-2 and confirmation audit (2026-09-28)
+
+### Scope and provenance
+
+The checkout was clean before synchronization and fast-forwarded from `d5c1e41` to the fetched main at `b5e3b9e`; main advanced during this audit to `951ffe86dd9ba4bcd9433e19b0dc852b003f6381`. That later commit changes the Cursor notebook and adds a separate audit script; I did not read either artifact. The v8 result files and governing v8 protocol are unchanged in that commit. I read the current `AGENTS.md`, v8 preregistration, `SHARED_RESEARCH_MAP.md`, and the Codex Resume. The run manifests identify Stage 2 code commit `297369ee12b0eed89d655a5af1d7a9eff0921aed`, confirmation commit `8c5af23cd1a53b479a1411c3819acc615249c4c3`, and shared config hash `b393ca0818ad9bcb18e4bbaa188f83a71a508ac1b6d8597b9a12714802fe9e58`. I did not run another search or Stage 3. Only `Codex_Research.md` is changed by this audit.
+
+### Stage-2 raw recount
+
+I independently counted every line in `stage2_v8/records.jsonl.gz`. The record-label partition exactly sums to 4,413 and agrees with `counts.json` and the run manifest:
+
+| Terminal record | Raw count |
+|---|---:|
+| `invalid` | 45 |
+| `dup_syntactic` | 1,245 |
+| `dup_behavioral` | 976 |
+| `pure_rule` | 76 |
+| `no_signal` | 101 |
+| `REDISCOVERY_inert` | 9 |
+| `sanity_fail` | 761 |
+| `TIER1_EVALUATED` with score | 1,198 |
+| `defect` during Tier-1 | 2 |
+| **Generated total** | **4,413** |
+
+The counters reconcile: 1,961 sanity evaluations are 761 failures plus 1,200 Tier-1 attempts. The Tier-1 counter includes 1,198 scored records and two defects, P03104 and P04262, both offspring that raised the recorded Task-F interpreter broadcasting `ValueError`. Those attempts have no score. Both defects are below the frozen defect stop threshold.
+
+The 4,413 records divide by source into 172 C1 constructor proposals (98 scored Tier-1), 188 C2 (zero reached T0), 179 C3 (102 scored Tier-1), and 3,874 offspring (998 scored Tier-1 plus the two defects). The raw archive has 42 unique occupied descriptors out of 56. Recomputing `q_fast = max(finite task effects) - cost penalty` for all 1,198 scored rows gives a maximum absolute difference of zero from stored values and exactly seven rows with q_fast >= 0.15. As specified, fast q only drives the exploration archive; no direct Stage-2 promotion was made.
+
+### Confirmation funnel: independent metric and eligibility calculation
+
+The confirmation job file contains 51 jobs, no errors, and 1,224 seed/LR runs (51 x 24): nine task/generic baselines plus one candidate job for each of the 42 archive elites. I matched each candidate job to its archived canonical program. All 42 candidates are stable after the frozen training-side LR selection. The task distribution is B=29, F=8, Cstar=5.
+
+For Cstar, I recalculated each run's normalized AULC directly from its stored R1 curve at entries 256 and 384, using tau=0.05 and k={4,8,...,64}; the seed metric is the mean of those two entry areas. I recalculated R0 return from each raw R0 curve at steps 256 and 384. For B and F, I recomputed the stored lower-is-better metrics from the selected per-run metrics. Learning rates were selected only using the saved training-side `train_select` values. The resulting per-seed metrics, best-generic choices, confirmation effects, q_confirm values, constraints, AdamW gates, paired wins, and eligibility flags match `confirmation.json`.
+
+| Confirmation check | Independent result |
+|---|---:|
+| Candidate elites evaluated | 42/42 |
+| Stable after LR selection | 42/42 |
+| q_confirm >= 0.15 | 0/42; maximum q_confirm = 0.062885 |
+| Task constraint failure | 34/42 |
+| AdamW 2-sigma failure | 32/42 |
+| Fewer than 6/8 paired wins | 29/42 |
+| Confirmation eligible | **0/42** |
+| Promotions | **0** |
+
+Failure categories overlap. The confirmation best generics recomputed from the job data are SGD for B (mean forgetting 100), SGD for Cstar (mean AULC 0.400092; confirmation AdamW 0.441275, sample SD 0.071946), and SGDM for F (mean OOD error 0.827; AdamW 0.828125, sample SD 0.038772). This is a negative result for the frozen v8 robust-metric anchored search, not evidence that no novel mechanism exists.
+
+### P03974: AULC versus return constraint
+
+P03974 is the strongest confirmation case by AULC. Recalculation from the selected-LR raw curves gives mean candidate AULC 0.213281936 versus confirmation SGD 0.400092021. It wins on all 8 paired seeds, corresponding to an uncapped relative effect of 0.466917797, and passes the AdamW 2-sigma comparison: improvement 0.227993 versus required 0.143893. Its R0 return flags recomputed from raw curves are:
+
+`6000 pass, 6001 pass, 6002 pass, 6003 fail, 6004 pass, 6005 fail, 6006 pass, 6007 fail`.
+
+Thus return passes only 5/8, below the frozen 6/8 requirement. `assess()` therefore caps its effect at zero; with its recorded cost penalty 0.051361503, q_confirm is -0.051361503. It is correctly ineligible despite the all-seed AULC advantage and the AdamW pass.
+
+The canonical program has exact R1_SGD `dW`/`db` updates, `w_eff = W_ep0` (the substrate applies this additively, so forward `W_eff = W + W_ep0`), and a nominal freeze mask driven by its RUN O register. The nearest collision-library match is R1_SGD (similarity 0.809518). This is evidence for an SGD-based effective-weight/retention trade-off, not evidence of a new optimizer or architecture. No Stage-3 novelty/ablation claim is available or made.
+
+### Seed separation and Stage-3 lock
+
+The official v8 manifests specify search seed 2026092808, fast Tier-1 seeds 5000-5002, sanity seed 500, and confirmation seeds 6000-6007. The pre-search validation also records Stage-1 seeds 100-104 and historical v5-v7 sets; the current fast and confirmation sets are disjoint. Every confirmation job uses exactly seeds 6000-6007. Stage-3 seeds 30000-30009 occur in preregistration/validation only as locked identifiers: validation reports `stage3_seeds_in_recorded_manifests: []`, the Stage-3 seed lock is a passing check, and `runs/stage3_v8/` does not exist. No Stage-3 data were generated or inspected.
+
+### Compute ledger audit
+
+I summed all 120 entries in `runs/cpu_ledger.json`: 18,458.528 CPU-seconds, or 5.1273689 hours, matching the ledger totals (rounded to 5.12737 h) under the 30-hour cap. That is about 17.1% used and 24.8726 hours remaining. The v8-specific ledger subtotals are:
+
+| v8 stage | Ledger CPU seconds |
+|---|---:|
+| Pre-search validation | 74.000 |
+| Stage 2 | 7,745.007 |
+| Confirmation | 421.201 |
+| **v8 total** | **8,240.208** |
+
+Confirmation manifest CPU is 421.201110 seconds, matching the 421.201-second ledger entry to rounding. Stage-2 `counts.json` and manifest report 7,745.023498 and 7,745.031899 seconds, respectively, versus 7,745.007 seconds summed from its ledger entries; the largest difference is 0.025 seconds and has no cap consequence. The cumulative ledger includes a prior 900-second explicitly labelled unmeasured upper-bound estimate. Manifests report CPU-only and no GPU.
+
+**Conclusion:** Raw Stage-2 counts, source counts, q_fast, confirmation AULC, return flags, q_confirm, all eligibility criteria, seed separation, and ledger totals reconcile. The v8 funnel correctly yields 0/42 eligible and no promotions. P03974's fast AULC wins are real in the confirmation vectors but its return failure removes the effect under the frozen rule. Stage 3 remains unrun; preserve the negative v8 search result and wait for an owner decision before any v9 work.
 
 ## AR-145 -- Independent AMS v7 Stage-2/Stage-3 artifact and rediscovery audit (2026-09-28)
 
