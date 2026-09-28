@@ -1087,107 +1087,178 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **Property-first separation search complete: 8/8 candidate gaps killed, 0 survivors; no active compute authorization** |
+| **Current phase** | **Anomaly-first mining complete: 3 survivors; strongest is coupled attention sinks + massive activations; Codex hostile audit next, no compute** |
 
 ---
 
 # 12. What each agent should do next
 
-The first property-first separation search is complete.
+Anomaly-first literature mining is complete.
 
-Perplexity performed the deep-research lane for this phase. It investigated 8 candidate architectural property gaps and found **0 survivors**.
+Perplexity screened 11 anomaly families:
+- 8 killed;
+- 3 survived as unresolved empirical anomalies.
 
-## Property-first result
+## Surviving anomalies
 
-All eight candidate separations were killed by one of:
-- direct prior art;
-- an impossibility/lower-bound result;
-- an already-known resource trade-off;
-- a newer construction that already crosses the weaker proposed gap.
+1. **Coupled attention sinks + massive residual-stream activations** — strongest survivor.
+2. **Transformer Hydra / self-repair under intervention**.
+3. **Continual loss of plasticity**.
 
-The strongest near-survivor was:
+No architecture or primitive claim exists.
 
-**compact exact mergeability + adaptive strong-tracking robustness in streaming state**
+No compute is authorized.
 
-It was killed because:
-- exact union-composable state is directly vulnerable under existing adaptive-attack results;
-- broader compact adaptive robustness is already achieved by nonlinear history-sensitive streaming constructions;
-- ordinary robustification methods already cross weaker forms of the proposed gap.
+## Strongest survivor: coupled attention sinks + massive activations
 
-Other screened gaps included:
-- safe-memory reclamation robustness vs transparent integration;
-- constant-rate error correction vs constant-query local decoding;
-- minimax adversarial regret vs sublinear communication;
-- continual-observation privacy vs adaptive long-horizon accuracy;
-- snap stabilization vs nontrivial safety with unbounded channels;
-- silent self-stabilization vs constant local state;
-- full-stream decoding vs polylog workspace / near-linear redundancy.
+Observed literature-level facts:
+- massive residual activations and attention sinks recur across multiple Transformer families;
+- the two phenomena are coupled in ordinary pretrained models but can be partially separated by architectural or backward-path interventions;
+- several serious explanations remain in competition:
+  - implicit bias storage;
+  - softmax no-op pressure;
+  - forward variance amplification / causal-mask structure;
+  - gradient-sink / backward-regulation;
+  - normalization-mediated rescaling;
+- existing ordinary components explain many pieces but do not yet provide one predictive account of:
+  - which token is selected;
+  - which residual direction is selected;
+  - which layer becomes the onset layer;
+  - whether forward variance or backward gradient concentration initiates the loop;
+  - why some interventions remove massive activations while preserving sinks and others remove both.
 
-None remains an unresolved architectural separation under the frozen resource/interface assumptions.
+The narrow unresolved question is:
 
-## Interpretation
+> **What training-time causal loop selects a token, residual direction and onset layer, then couples forward attention routing to normalization-mediated backward gain control?**
 
-This is another useful negative result.
+This is an anomaly target only. It is not evidence for a new architecture.
 
-The project has now tested several distinct discovery modes:
-1. concept-first invention;
-2. primitive/architecture reduction;
-3. native coupling;
-4. learning-dynamics invention;
-5. bounded automated mechanism search;
-6. grammar-gap expansion;
-7. observed-mechanism discovery;
-8. property-first separation search.
+## Immediate independent sanity check
 
-The repeated failure mode is now broader than “we keep inventing known mechanisms.”
+The following core papers exist and support the fact that multiple incompatible mechanistic accounts are active:
+- *Massive Activations in Large Language Models* (2024): large input-invariant residual activations, implicit-bias interpretation, associated attention concentration;
+- *Attention Sinks Induce Gradient Sinks* (2026): backward-path account; sink concentration induces gradient concentration and massive activations act as RMSNorm-mediated regulators; V-scale preserves sinks while suppressing massive activations;
+- *The Structural Origin of Attention Sink* (2026): forward structural account based on causal-mask/value-aggregation variance disparity, FFN super-neuron amplification and dimension disparity; interventions can move sinks to targeted positions.
 
-Even when the search starts from **desired property combinations instead of mechanisms**, the strongest candidate gaps tend to collapse into:
-- theorem-level impossibility;
-- known resource trade-offs;
-- or recently published constructions.
+This is enough to justify a hostile audit, not an experiment.
 
-## Owner decision
+## Codex
 
-Do not launch another property-pair survey immediately.
+Next action: **hostile prior-art / mechanism-reduction audit of the strongest anomaly only.**
 
-There is no active compute authorization.
+Read:
+- AGENTS.md
+- SHARED_RESEARCH_MAP.md
+- your latest Resume in Codex_Research.md
 
-The next research lens, if continued, should search for **replicated empirical anomalies that do not yet have a satisfactory mechanism-level explanation**, rather than:
-- another architecture idea;
-- another property pair;
-- another synthetic task;
-- another grammar;
-- another tiny discovery instrument.
+Do not read full Claude_Research.md or Cursor_Research.md unless specifically needed.
 
-The next candidate source should therefore be **observed unexplained behavior in existing published systems**, not a human-invented mechanism or desired separation.
+Do not code, train, benchmark, or use GPU.
 
-## Proposed next phase — anomaly-first literature mining (design only)
+Audit whether the coupled sink/massive-activation anomaly really contains an unresolved mechanism after accounting for all current explanations.
 
-Question:
+You must attack the target in five ways:
 
-> Are there replicated, architecture-sensitive empirical phenomena in modern learning systems where the behavior is real, survives matched controls, and current explanations are incomplete enough that a missing state-transition or information-flow mechanism might still exist?
+### 1. Explanation-completeness audit
 
-Requirements before any experiment:
-- phenomenon reproduced by more than one paper/group or across more than one model family;
-- not merely a scaling-law, optimizer, dataset, or representation artifact;
-- architecture dependence must survive matched compute/data/parameter controls where available;
-- existing mechanistic explanations must be explicitly incomplete or mutually inconsistent;
-- ordinary decomposition must not already explain the effect;
-- no novelty claim from the anomaly alone.
+Build the strongest possible ordinary explanation from:
+- softmax probability-simplex / no-op pressure;
+- causal-mask positional variance asymmetry;
+- residual persistence;
+- RMSNorm Jacobian scaling;
+- FFN outlier / super-neuron amplification;
+- implicit additive key/value bias storage;
+- ordinary forward/backward feedback during gradient descent.
+
+Ask whether their combination already predicts all claimed observations without a missing mechanism.
+
+### 2. Direct prior-art audit
+
+Search especially for 2024–2026 papers on:
+- attention sinks;
+- massive activations;
+- massive emergence layers;
+- super neurons;
+- compression valleys;
+- gradient sinks;
+- head-wise normalization;
+- gated attention;
+- sigmoid / non-normalized attention;
+- explicit key/value bias slots;
+- backward-only gradient interventions;
+- token-position relocation of sinks;
+- initialization/training-time onset prediction.
+
+Do not rely on titles or secondary summaries if primary papers are accessible.
+
+### 3. Causal-contradiction audit
+
+Check whether the apparent conflict is actually a conflict.
+
+In particular:
+- Can forward variance disparity cause sink formation while sink-induced gradient concentration independently cause massive activations?
+- Are the forward and backward papers simply explaining different stages of one ordinary feedback loop?
+- Does this combined loop already explain the partial separability results?
+- Is the unresolved part merely “which effect happens first” rather than a missing architectural principle?
+
+If an ordinary coupled feedback account is already sufficient, kill the anomaly for this project even if details remain open academically.
+
+### 4. Novelty relevance
+
+Even if some details remain unexplained, ask whether resolving them could plausibly reveal:
+- a new state-transition organization;
+- a new credit-flow organization;
+- a new architecture-level coupling;
+
+rather than merely:
+- a training pathology;
+- a scaling/stability phenomenon;
+- a normalization artifact;
+- a descriptive mechanistic detail of ordinary Transformers.
+
+If the unresolved residual has no credible architecture-discovery value, kill it.
+
+### 5. Minimal discriminator validity
+
+Audit the proposed crossed intervention:
+- forward-only variance equalization;
+- backward-only sink-gradient attenuation;
+- explicit no-op/bias capacity.
+
+Determine whether those three factors are truly independently manipulable without changing the forward function class, optimization scale, or effective capacity.
+
+If not, specify the smallest cleaner discriminator.
+
+## Required verdict
+
+Choose exactly one:
+
+- **KILLED — ORDINARY KNOWN DYNAMICS**
+- **KILLED — EXPLANATION ALREADY SUFFICIENT**
+- **KILLED — NOT ARCHITECTURE-DISCOVERY RELEVANT**
+- **SURVIVES — HOSTILE AUDIT PASSED**
+
+If killed, state whether Hydra/self-repair should be audited next or whether the entire anomaly-first lens should stop.
+
+If it survives, do NOT design or run an experiment yet. State the exact remaining unresolved mechanism question and the minimum no-compute protocol issue that Cursor/Gemini should audit next.
+
+Update Codex_Research.md and its Resume.
+Commit and push.
+
+## Cursor / Gemini
+Wait.
+
+## Claude
+Wait.
 
 ## Perplexity
-If used again, serve only as deep-research anomaly miner:
-- search for replicated unexplained architecture-sensitive phenomena;
-- prefer primary empirical papers and follow-up replications;
-- kill crowded/solved phenomena aggressively;
-- return at most 3 genuinely unresolved anomaly families.
-
-## Claude / Codex / Cursor-Gemini
-Wait.
-No compute or implementation.
+Wait. Deep anomaly mining is complete.
 
 ## Owner / coordinator
-Only if anomaly-first mining returns a well-supported unresolved phenomenon should it be sent through Codex/Cursor hostile review before any experiment.
+After Codex:
+- if strongest anomaly is killed and Codex recommends Hydra next, audit Hydra before any compute;
+- if strongest anomaly survives, send it to Cursor/Gemini for discriminator/identifiability validity;
+- do not authorize training yet.
 
 ---
 
