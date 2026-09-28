@@ -1087,49 +1087,70 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **v5 Stage 1 passed; Stage 2 stopped on a code defect; rerun exact Stage 2 after type-preserving repair** |
+| **Current phase** | **v6 frozen: SGD-anchored architecture-residual Stage 2 after v5 uniform-generator zero-yield result** |
 
 ---
 
 # 12. What each agent should do next
 
-The design phase is complete. The active execution authority is:
+The active execution authority is:
 
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v5**
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v6**
 
 Stages 0–3 remain owner-authorized, CPU-only, with the 30 CPU-hour hard cap.
 
-v1 is invalid. v2 produced the implementation but failed its Task-B Stage-0 gate. v3 Stage 0 passed. v3/v4 Stage 1 exposed calibration defects before any search. All lanes must now use v5. Claude should reuse the merged implementation and rerun official Stage 1 only.
+The accepted v3 Stage-0 PASS and v5 Stage-1 PASS carry forward.
+
+The repaired v5 Stage-2 rerun is complete and is a search-design negative for the old uniform random typed generator:
+- 6,000 generated;
+- 382 T0 sanity evaluations;
+- 0 T0 passes;
+- 0 Tier-1;
+- 0/56 archive cells;
+- 0 promoted;
+- 0 defects.
+
+It is not evidence that no novel mechanism exists.
 
 ## Claude
-Primary role: **primary implementation and search runner**.
+Primary role: **v6 implementation and search runner**.
 
 - Sync latest `origin/main`.
-- Read v5 before running experiment code.
-- Treat the official v5 Stage-1 PASS as accepted.
-- Sync the type-preserving `strip_gates` repair from `main`, run its regression/full tests, then rerun Stage 2 exactly under the frozen search configuration.
-- If Stage 0 passes, run official Stage 1 with equal learning-rate budgets and no early stopping.
-- Only if Stage 1 passes may Claude proceed to Stage 2 MAP-Elites and Stage 3 matched validation.
-- Stop on any v2 validity failure; do not alter the protocol.
+- Read v6 before changing Stage-2 code.
+- Preserve all v5 Stage-2 runs.
+- Implement only the frozen v6 SGD-anchored initial candidate constructor.
+- Run the required static 1,000-proposal structural validation without T0/benchmark evaluation.
+- Verify reference/disguise collision golden snapshots remain unchanged.
+- Commit and push the v6 implementation before official search.
+- Run official v6 Stage 2 from seed `2026092806`.
+- If promoted candidates appear, continue directly to the already-frozen Stage 3.
+- Do not relax T0, change benchmarks, increase budgets, alter promotion thresholds or use GPU.
 
 ## Codex
-Primary role: **rediscovery / equivalence / novelty auditor**.
+Primary role: **independent generator / rediscovery / novelty auditor**.
 
-- Use the checked-in probe corpus and v5 protocol; collision/filter logic is unchanged.
-- Treat pre-v2 calibration as diagnostic only.
-- Audit official Stage-1 outputs and later Stage-2/3 artifacts rather than duplicating the full search.
-- Perform targeted replay and fresh prior-art review for promoted candidates.
-- Preserve unrelated local work and continue cautious GitHub sync.
+- Sync latest v6 `main`.
+- Audit the v6 constructor statically:
+  - exact SGD backbone;
+  - C1/C2/C3 construction;
+  - no task-result-dependent generation;
+  - unchanged collision filters;
+  - unchanged search/promotion thresholds.
+- It may reproduce the 1,000-proposal **static** structural validation with a different non-official seed.
+- Do not run an independent full Stage-2 search.
+- Once Claude publishes v6 outputs, audit machine-readable counts, collision classifications and any Tier-1/promoted candidates.
+- Run targeted candidate replays only when needed.
 
 ## Cursor / Gemini
-Primary role: **benchmark-validity and independent results auditor**.
+Primary role: **independent search-design and metric auditor**.
 
-- Treat the v3 Stage-0 PASS as accepted. Audit the v5 Stage-1 oracle and later search outputs; C*/D/E/F generators remain unchanged.
-- Earlier v1 Task-F calibration is informative but not official v2 evidence.
-- Do not duplicate the full MAP-Elites search.
-- Once Claude publishes outputs, independently recompute metrics and ablations for promoted candidates.
+- Sync latest v6 `main`.
+- Verify the anchored constructor preserves the intended learning backbone without leaking benchmark information into generation.
+- Check accounting, descriptor balance and C1/C2/C3 proposal counts.
+- Do not run the full Stage-2 search.
+- Once Claude publishes results, independently recompute Tier-1 and Stage-3 metrics for promoted candidates.
 
-No lane may use GPU, Stage 4, or expand the 30 CPU-hour cap without separate owner authorization.
+No lane may use GPU, Stage 4, expand the 30 CPU-hour cap, or alter v6 thresholds without a new owner amendment.
 
 ---
 
@@ -1270,6 +1291,20 @@ The next run must be an **exact Stage-2 rerun** with the same search seed, gener
 
 If the exact repaired rerun still produces no Tier-1 evaluations by the frozen generation cap, classify the result as a search-design negative for the frozen generator/filter configuration.
 
+### v6 anchored-generator amendment
+
+The exact repaired v5 Stage-2 rerun completed at the frozen 6,000-program limit with no implementation defects but also no T0 passes, Tier-1 evaluations, archive cells or promotions.
+
+The owner classifies this as a search-design negative for the v5 uniform random typed generator and authorizes v6 to replace only the **initial Stage-2 proposal generator**.
+
+v6 initial candidates preserve the exact R1 SGD learning backbone and add exactly one primary architecture coupling class (C1, C2 or C3). The unchanged rediscovery filter removes known/inert variants, T0 remains unchanged, and all Tier-1/Stage-3 criteria remain unchanged.
+
+Search seed: `2026092806`.
+
+Budgets remain 6,000 generated / 3,000 sanity / 1,200 Tier-1 / 20 promoted, CPU-only, 30 CPU-hours.
+
+The v3 Stage-0 and v5 Stage-1 PASS results carry forward. Current restart point: **implement and run Stage 2 under v6**.
+
 ## Execution authorization — 2026-09-28
 
 The owner explicitly authorized execution of the frozen preregistered pilot.
@@ -1288,7 +1323,7 @@ Still prohibited without separate authorization:
 
 If a Stage 0/1 validity control fails, stop and report the failure. Do not silently repair or retune the preregistration.
 
-**Current restart point:** rerun Stage 0 under `AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` v3. If it passes, proceed to official Stage 1.
+**Current restart point:** implement the frozen v6 initial generator, run its static validation, then execute official Stage 2 under v6.
 
 ---
 
