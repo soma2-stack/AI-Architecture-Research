@@ -1,0 +1,140 @@
+{
+ "checks": {
+  "1_full_suite": false,
+  "2_golden_155_unchanged": false,
+  "3_v7_constructor_unchanged": true,
+  "4_repair_regressions": false,
+  "5_aulc_unit_tests": false,
+  "6_v7_generic_aulc_replay": true,
+  "7_seed_separation_and_stage3_lock": true,
+  "8_active_protocol_v8": true
+ },
+ "git_at_start": {
+  "commit": "46947c4d65bb560e92fdd34dbffabe980b3a5ac4",
+  "dirty_excluding_runs": false
+ },
+ "info": {
+  "aulc_unit_tests": {
+   "failed": false,
+   "passed": 0,
+   "returncode": 0,
+   "summary": "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html"
+  },
+  "full_suite": {
+   "failed": false,
+   "passed": 0,
+   "returncode": 0,
+   "summary": "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html"
+  },
+  "golden_snapshot": {
+   "failed": false,
+   "passed": 0,
+   "returncode": 0,
+   "summary": ".                                                                        [100%]"
+  },
+  "repair_regressions": {
+   "failed": false,
+   "passed": 0,
+   "returncode": 0,
+   "summary": "....                                                                     [100%]"
+  },
+  "seeds": {
+   "confirm": [
+    6000,
+    6001,
+    6002,
+    6003,
+    6004,
+    6005,
+    6006,
+    6007
+   ],
+   "fast": [
+    5000,
+    5001,
+    5002
+   ],
+   "sanity": [
+    500
+   ],
+   "stage1": [
+    100,
+    101,
+    102,
+    103,
+    104
+   ],
+   "stage3": [
+    30000,
+    30001,
+    30002,
+    30003,
+    30004,
+    30005,
+    30006,
+    30007,
+    30008,
+    30009
+   ],
+   "tier3": [
+    20000,
+    20001,
+    20002,
+    20003,
+    20004,
+    20005,
+    20006,
+    20007,
+    20008,
+    20009
+   ],
+   "v5_v7_tier1": [
+    1000,
+    1001,
+    1002
+   ],
+   "v7_stage3": [
+    10000,
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009
+   ]
+  },
+  "stage3_seeds_in_recorded_manifests": [],
+  "v7_constructor": {
+   "class_not_recognized": 0,
+   "identical": true,
+   "invariant_failures": 0,
+   "stored_proposals": 1000
+  },
+  "v7_generic_curve_replay": {
+   "AdamW": {
+    "all_finite_deterministic": true,
+    "max": 1.4661254486805186,
+    "min": 0.2866166457323381,
+    "n_stable_runs": 27
+   },
+   "SGD": {
+    "all_finite_deterministic": true,
+    "max": 1.085908157535496,
+    "min": 0.33158993855755775,
+    "n_stable_runs": 29
+   },
+   "SGDM": {
+    "all_finite_deterministic": true,
+    "max": 1.625578575105446,
+    "min": 0.3612700224393287,
+    "n_stable_runs": 29
+   }
+  }
+ },
+ "no_candidate_training": "no v8 candidate trained; tests run only non-official seeds and fixtures",
+ "pass": false,
+ "protocol": "AMS-prereg-v8"
+}

@@ -483,8 +483,15 @@
    "wall_seconds": 0.0,
    "note": "Stage 3 on stage2_v7 promotions (8 candidates), parent self + workers",
    "utc": "2026-09-28T15:35:54Z"
+  },
+  {
+   "stage": "v8_presearch_validation",
+   "cpu_seconds": 74.0,
+   "wall_seconds": 0.0,
+   "note": "prereg v8 pre-search validation: three runs (two with a pytest-summary parser bug, one official PASS from clean 5606002), each including the full test suite in subprocesses; no v8 candidate trained",
+   "utc": "2026-09-28T16:39:51Z"
   }
  ],
- "total_cpu_seconds": 10218.32,
- "total_cpu_hours": 2.83842
+ "total_cpu_seconds": 10292.32,
+ "total_cpu_hours": 2.85898
 }
