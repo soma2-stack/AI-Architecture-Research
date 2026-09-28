@@ -681,3 +681,34 @@ Committed before the v7 static validation and before any v7 search. Prereg v7 ch
   - The pass criteria are listed in the script's docstring.
   - Coupling recognition is required on every emitted proposal. On the canonical form, a class may be lost only where the drawn expression simplifies to one that reads no required leaf (a vacuous dependence such as `(sub h h)`, which the unchanged filter will log as `pure_rule`).
   - The script was dry-run once with the non-official seed 71717, writing only to a scratch directory, to check that it runs. It passed.
+
+## D-S3-IMPL — Stage-3 runner (session 19; committed while the official v7 Stage 2 was still running, before its promotion list was final)
+
+`ams/stage3.py` and `scripts/stage3.py <stage2_run> <stage3_run>` implement D-S3-1…4 and D-S3-v4 without changing any rule. Where the frozen text leaves a detail open:
+
+- **Seeds and learning rates.** Every condition runs on seeds 10000–10009 over the frozen learning-rate grid and selects its rate with `runners.select_lr` (D-LR-1). The per-seed metric is the Tier-1 one: B forgetting; C\* censored median half-life; F OOD error.
+- **G.** G is the best stable generic (SGD / SGDM / AdamW) by seed-mean metric on the Stage-3 seeds.
+- **A1.** C1 sets `w_eff` / `gain` to none. C2 replaces every routing gate that `Analysis._routing_gates` finds in dW with a typed constant 1. C3 sets STRUCT to none. The result is canonicalized.
+- **A2 / A3.** Only non-EXAMPLE registers are affected, and only when P has one. The reset happens before that step's update:
+  - events: B at t = 500; C\* at the regime entries 256, 320 and 384; F at t = 100, 200, 300 and 400;
+  - A3 noise is drawn per run, layer and register, with the standard deviation of the register's current values, from an RNG keyed by (run seed, 7331, t, layer).
+- **A5a / A5b.** P's update Δ is treated as g = −Δ and fed through heavy-ball SGDM (β 0.9) or AdamW moments (0.9 / 0.999 / 1e-8, wd 0.01), with the generic controls' constants. A test checks that R1_SGD fed this way reproduces the generic SGDM / AdamW trajectory.
+- **A6.** k = ⌈FLOPs_P / FLOPs_G⌉, with `learner_flops_per_example` on the task's network.
+- **A7.** The smallest hidden width at which G's network has params ≥ P's params + P's persistent state floats, both on the task's network.
+- **Unstable or failed conditions** count as infinitely bad (lower is better):
+  - an unstable K(P), A1, A6 or A7 therefore counts as the effect dropping, or as P beating it;
+  - an unstable A5b fails gate 5;
+  - a known control must be stable to be used.
+- **Robustness add-on.**
+  - Perturbed: register decays (DECAYS), expression constants in the constant set, topk k (TOPK_KS) and STRUCT θ, each moved to each neighbouring value of its frozen set, one at a time.
+  - Constants in the canonical program count as evolved, including constructor-template constants, since mutation can change them. Folded constants outside the set are skipped.
+  - With no perturbable constant, the add-on is N/A and passes.
+- **Statistics.**
+  - Wilcoxon: one-sided paired signed-rank test on G − P, zeros dropped; an all-zero difference gives p = 1.
+  - Holm: applied over all promoted (candidate, task) pairs at α = 0.05.
+  - Bootstrap: percentile 95% CI of the mean per-seed difference, 10,000 resamples, RNG seed 12345.
+- **Gate 2 on B** compares with the seed-mean variance of the Task-2 held-out targets.
+- **Cursor A1** is a Welch one-sided test that A1 > P, passing at p < 0.01; an unstable A1 gives p = 0. **Cursor A7** rejects if |m_A7 − m_P| ≤ 0.05·|m_P|.
+- **Known control:** the strongest stable control. It passes if P's seed mean is better and the one-sided Wilcoxon test (control − P) gives p < 0.05, uncorrected.
+- **Tier 3** (Tasks A and E, seeds 20000–20009) is only listed for candidates with the maximum label; it is not implemented yet.
+- **Smoke test:** only non-official seeds 900–901 were used. The Stage-3 seeds had not been run before the official Stage 3.
