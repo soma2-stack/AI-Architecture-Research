@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **AMS preregistration v4 frozen after Stage-1 calibration repair; rerun official Stage 1 under v4** |
+| **Current phase** | **AMS preregistration v5 frozen with final Task-B oracle budget; rerun official Stage 1 under v5** |
 
 ---
 
@@ -1095,19 +1095,19 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 
 The design phase is complete. The active execution authority is:
 
-`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v4**
+`AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` **v5**
 
 Stages 0–3 remain owner-authorized, CPU-only, with the 30 CPU-hour hard cap.
 
-v1 is invalid. v2 produced the implementation but failed its Task-B Stage-0 gate. v3 Stage 0 passed and Stage 1 exposed three calibration-gate defects before any search. All lanes must now use v4. Claude should reuse the merged implementation and rerun official Stage 1, not rebuild Stage 0.
+v1 is invalid. v2 produced the implementation but failed its Task-B Stage-0 gate. v3 Stage 0 passed. v3/v4 Stage 1 exposed calibration defects before any search. All lanes must now use v5. Claude should reuse the merged implementation and rerun official Stage 1 only.
 
 ## Claude
 Primary role: **primary implementation and search runner**.
 
 - Sync latest `origin/main`.
-- Read v4 before running experiment code.
+- Read v5 before running experiment code.
 - Reuse the merged implementation and accepted v3 Stage-0 PASS.
-- Update only v4 Stage-1 calibration logic/config/version markers and rerun official Stage 1 under v4.
+- Update only the V1-B-REP oracle budget/version markers/config/tests and rerun official Stage 1 under v5.
 - If Stage 0 passes, run official Stage 1 with equal learning-rate budgets and no early stopping.
 - Only if Stage 1 passes may Claude proceed to Stage 2 MAP-Elites and Stage 3 matched validation.
 - Stop on any v2 validity failure; do not alter the protocol.
@@ -1115,7 +1115,7 @@ Primary role: **primary implementation and search runner**.
 ## Codex
 Primary role: **rediscovery / equivalence / novelty auditor**.
 
-- Use the checked-in probe corpus and v4 protocol; the collision-filter implementation remains valid because v4 changes calibration only.
+- Use the checked-in probe corpus and v5 protocol; collision/filter logic is unchanged.
 - Treat pre-v2 calibration as diagnostic only.
 - Audit official Stage-1 outputs and later Stage-2/3 artifacts rather than duplicating the full search.
 - Perform targeted replay and fresh prior-art review for promoted candidates.
@@ -1124,7 +1124,7 @@ Primary role: **rediscovery / equivalence / novelty auditor**.
 ## Cursor / Gemini
 Primary role: **benchmark-validity and independent results auditor**.
 
-- Treat the v3 Stage-0 PASS as accepted. Audit the v4 Stage-1 calibration logic and later search outputs; C*/D/E/F generators remain unchanged.
+- Treat the v3 Stage-0 PASS as accepted. Audit the v5 Stage-1 oracle and later search outputs; C*/D/E/F generators remain unchanged.
 - Earlier v1 Task-F calibration is informative but not official v2 evidence.
 - Do not duplicate the full MAP-Elites search.
 - Once Claude publishes outputs, independently recompute metrics and ablations for promoted candidates.
@@ -1220,6 +1220,36 @@ The owner-approved v4 amendment changes calibration only:
 Candidate generators, search budgets, promotion thresholds, ablations and novelty gates are unchanged.
 
 The v3 Stage-0 PASS carries forward because v4 changes no Stage-0 rule. **Current restart point: official Stage 1 under v4.**
+
+
+
+### v5 final Task-B representability-oracle budget repair
+
+Claude's official v4 Stage-1 run is merged to `main` via PR #10.
+
+v4 outcome:
+- every mandatory gate passed except `V1_B_REP`;
+- the 1,000-update joint-training oracle reached about 0.914 / 0.904 relative error reduction with clipped SGD, below the frozen 0.95 / 0.95 threshold;
+- Stage 2 and Stage 3 did not run;
+- no candidate was generated;
+- cumulative project CPU use: about 0.310 CPU-hours; no GPU.
+
+A post-failure diagnostic showed that the same clipped SGD oracle reached approximately:
+- 0.950 / 0.945 at 2,000 updates;
+- 0.967 / 0.960 at 4,000 updates.
+
+Because the oracle is a representability check rather than a speed benchmark, the owner authorized one final pre-search repair:
+- keep the 0.95 / 0.95 threshold;
+- keep clipping;
+- keep Glorot initialization;
+- keep the same LR grid and optimizer set;
+- increase the oracle to exactly **4,000 updates**.
+
+No candidate/search threshold changed.
+
+This is the final Task-B calibration amendment before search. If the 4,000-update oracle still fails, do not tune it again before Stage 2.
+
+The v3 Stage-0 PASS carries forward. **Current restart point: official Stage 1 under v5.**
 
 
 ## Execution authorization — 2026-09-28
