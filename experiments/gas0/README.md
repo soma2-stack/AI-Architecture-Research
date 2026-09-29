@@ -330,7 +330,7 @@ the repaired call was a non-plan action. Including the earlier aborted attempts,
 - Rejected-call JSONL rows now record `plan_required`.
 - `harness/tools.py`: `plan` rejects `steps` that are not an array of strings, which enforces the frozen tool schema. All 24 plans recorded in the pilot and in model selection already conformed.
 - No model, decoding, budget, condition, information access, tool set, or context policy changed.
-- `frozen_config.json` logs the amendment under `harness_amendments`. It records the `agent_loop.py` SHA-256 before (`e70bf6b8…`) and after (`26e47a21…`).
+- `frozen_config.json` logs the amendment under `harness_amendments`. It records the `agent_loop.py` SHA-256 before (`e70bf6b8…`) and after (`3fa6ccbf…`).
 
 **Tests.** `validate/test_plan_first.py` has 19 tests:
 - a valid first plan continues normally (all five cells);
@@ -355,6 +355,8 @@ fail on the defect itself.
 - No existing pilot transcript, score, `pilot_summary.json`, `pilot_analysis.json`, audit file or aborted-attempt directory was modified or deleted.
 - All earlier DEV-pilot and model-selection episodes ran under the pre-fix loop and remain historical evidence.
 - No evaluation-project or Phase 2 work occurred.
+
+**Commits.** Fix: `9650008b9c793db25fda233d7742c5ec0abd09a9`. The follow-up commit that adds this paragraph corrects the recorded post-fix `agent_loop.py` SHA-256. The first value was hashed from a CRLF working copy; the canonical LF file, matching the convention of the original frozen hash, is `3fa6ccbf…`. Code is unchanged. After that correction, the full suite passed again: 63/63.
 
 **Clean C4 rerun.** The rerun uses `analysis/run_qwen35_c4_postfix.py`. It starts
 a new C4 `dev_arena` seed-1 episode from Stage 1 in
