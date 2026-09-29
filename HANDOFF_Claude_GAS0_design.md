@@ -446,7 +446,7 @@ experiments/gas0/
 ```
 
 **LLM serving** (RTX 3060 12 GB):
-- `llama.cpp` server (GGUF Q4_K_M, `--ctx-size 16384`, `--parallel 4`, `--jinja` tool calling) **or** vLLM (AWQ);
+- `llama.cpp` server (GGUF Q4_K_M, `--parallel 4 --ctx-size 65536` so that **each slot holds 16,384 tokens**, `--jinja` tool calling) **or** vLLM (AWQ). *Correction (VPS quality review, 2026-09-29):* llama.cpp splits `--ctx-size` across `--parallel` slots, so the earlier `--ctx-size 16384 --parallel 4` would have given 4,096 per sequence. The frozen 16,384-token rule is unchanged, and `LlamaClient.check_context` enforces it;
 - OpenAI-compatible client; prompt/prefix caching on.
 - **Model selection** (done once, then frozen):
   - candidates: open-weight instruct models ≤ 9B that fit in ≤ 11 GB VRAM at 4-bit with a 16k context and reliable tool calling (e.g. Qwen2.5-Coder-7B-Instruct, Seed-Coder-8B-Instruct, Qwen3-8B, Ornith-1.0-9B);

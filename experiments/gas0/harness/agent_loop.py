@@ -77,19 +77,26 @@ def _one_action(message, tools):
     return name, json.loads(function["arguments"])
 
 
+def build_components(cell: str, workspace: Path, out: Path):
+    """Wire the frozen C0-C4 factors: ledger (S), gate (V), and the coupling (gate writes ledger)."""
+    condition = CONDITIONS[cell]
+    ledger = Ledger(Path(out) / ".gas" / "ledger.json", condition.coupled) if condition.ledger else None
+    gate = RegressionGate(workspace, ledger if condition.coupled else None) if condition.gate else None
+    runner = ToolRunner(workspace, condition, ledger, gate)
+    return condition, ledger, gate, runner, tool_schemas(condition.ledger)
+
+
 def run_episode(project: Path, cell: str, seed: int, llm, out: Path,
                 model_parameters: int, dry_oracle=False):
     """A dev/calibration/evaluation episode. Oracle is validation-only."""
-    condition = CONDITIONS[cell]
     project = Path(project)
     out = Path(out)
+    if hasattr(llm, "check_context"):
+        llm.check_context(16384)
     out.mkdir(parents=True, exist_ok=False)
     workspace = out / "workspace"
     _init_workspace(project, workspace)
-    ledger = Ledger(out / ".gas" / "ledger.json", condition.coupled) if condition.ledger else None
-    gate = RegressionGate(workspace, ledger if condition.coupled else None) if condition.gate else None
-    runner = ToolRunner(workspace, condition, ledger, gate)
-    schemas = tool_schemas(condition.ledger)
+    condition, ledger, gate, runner, schemas = build_components(cell, workspace, out)
     history = []
     stages = []
     manifest = json.loads((project / "manifest.json").read_text())
