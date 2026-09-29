@@ -13,10 +13,14 @@ class Ledger:
     def __init__(self, path: Path, coupled: bool):
         self.path = Path(path)
         self.coupled = coupled
-        self.data = json.loads(self.path.read_text()) if self.path.exists() else {
+        existed = self.path.exists()
+        self.data = json.loads(self.path.read_text()) if existed else {
             "requirements": [], "tasks": [], "failures": [], "checkpoint": None,
             "event": 0,
         }
+        # A ledger with no model writes still needs a stage audit snapshot.
+        if not existed:
+            self.save()
 
     def save(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)

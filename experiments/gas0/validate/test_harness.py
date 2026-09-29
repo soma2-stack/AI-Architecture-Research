@@ -42,6 +42,15 @@ def test_ledger_permissions(tmp_path):
     assert coupled.data["failures"][0]["count"] == 1
 
 
+@pytest.mark.parametrize("coupled", [False, True])
+def test_empty_ledger_has_stage_snapshot_without_model_write(tmp_path, coupled):
+    path = tmp_path / "audit" / "ledger.json"
+    ledger = Ledger(path, coupled)
+    assert path.exists()
+    assert ledger.view(set(), count) == ""
+    assert Ledger(path, coupled).data == ledger.data
+
+
 def test_context_elision_and_budget():
     history = [{"role": "tool", "name": "read_file", "arguments": {"path": str(i)},
                 "content": "many words " * 500} for i in range(8)]
