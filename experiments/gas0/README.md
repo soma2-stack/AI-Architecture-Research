@@ -20,7 +20,21 @@ the calibration RPS floor. See `analysis/model_selection.json` for exact
 artifacts, scores, and resource counts. No `frozen_config.json` was created.
 
 The C0-C4 dev pilot was not run. The full evaluation matrix was not run. GAS-0
-Phase 2 remains unauthorized.
+Phase 2 remains unauthorized. Screens before the context serialization
+amendment are labeled `PRE-CONTEXT-SERIALIZATION-AMENDMENT`; their RPS values
+are historical and must not be compared numerically with later screens.
+
+**Owner-authorized pre-freeze context serialization amendment (2026-09-29):**
+`context.assemble` now emits one leading system message, followed by one
+current user message containing the unchanged request, optional ledger, and
+optional plan in that order. History follows using the existing elision policy.
+No C0-C4 information access, ledger cap, total context budget, reserve, request,
+plan, or tool schema changed. Policy SHA-256:
+`A0779B00CE6CF19DA7E1BDABB2E2A232449F6928F079DAC7FC1796F0BD8C36A5`.
+Validation: `.venv/Scripts/python -m pytest -q validate` — 30 passed. Six
+focused tests cover message roles/order, condition-specific ledger access,
+ledger and total context limits, history elision, request/plan retention, and
+no future-stage additions. No model episode has run under the amendment yet.
 
 **Follow-up Granite check (2026-09-29):** Q6_K passed the memory/context check
 (one 16,384-token sequence, all 41 layers on CUDA, 1,623 MiB VRAM free), but

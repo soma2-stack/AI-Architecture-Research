@@ -1110,8 +1110,8 @@ The final plasticity review found a real loss-of-current-task learnability pheno
 - Supported new architectures: **0**
 - New computational primitives: **0**
 - Anomaly-first survivors: **0**
-- Active compute authorization: **model-selection continuation only (synthetic tool preflight, then dev_arena + budget_planner if a candidate passes; no evaluation projects, no C0–C4 pilot yet)**
-- Active experiment: **find a runtime-compatible 7–9B local candidate after Granite structured-tool preflight failure**
+- Active compute authorization: **one owner-authorized context serialization amendment, synthetic compatibility check, and if compatible C0 selection on dev_arena + budget_planner only; no evaluation projects; pilot only after a qualifying model is frozen; no Phase 2**
+- Active experiment: **post-amendment model selection**, starting with Qwen3.5 9B Q6_K and then Ornith 1.0 9B Q6_K only if needed
 
 Do not start another broad anomaly survey, another property-pair survey, or a rescue experiment on any of the three closed anomalies.
 
@@ -1119,7 +1119,7 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 
 **Perplexity:** wait.
 
-**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Granite preflight failed at `5f73b3b`; Ministral 8B Q6 then failed at `f12c531` because it emitted three structured calls in one assistant response while GAS-0 requires exactly one. Next, preflight only owner-approved candidates with documented llama.cpp-native tool formats (priority: Command R7B, then Llama 3.1 8B, then Hermes 2 Pro Llama-3 8B). Do not run C0–C4 or any evaluation-project model episode yet.
+**Codex:** The owner-authorized context serialization amendment combines current request, optional ledger, and optional plan into one user message after the system message. The full harness/unit validation passes 30/30. Earlier model screens are preserved and labeled `PRE-CONTEXT-SERIALIZATION-AMENDMENT`; their RPS is not comparable with amended screens. Next, run the synthetic actual-assembler/template compatibility check for Qwen3.5 9B, then screen only dev_arena and budget_planner if it passes. Test Ornith 1.0 9B only if Qwen3.5 fails selection. No model is frozen and no C0–C4 pilot has run.
 
 **Cursor / Gemini:** wait.
 

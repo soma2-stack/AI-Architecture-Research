@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-29",
+  "authorization": "Owner explicitly authorized one narrow pre-freeze common context serialization correction.",
+  "reason": "Cross-model chat-template role-order incompatibility: the previous assembler put PROJECT LEDGER and LATEST PLAN system messages after the current user request.",
+  "protocol_status": "AUTHORIZED_PRE_FREEZE_AMENDMENT",
+  "serialization": {
+    "leading_messages": [
+      {"role": "system", "content": "existing GAS-0 SYSTEM text"},
+      {
+        "role": "user",
+        "content_sections_in_order": [
+          "CURRENT STAGE REQUEST: <unchanged request>",
+          "PROJECT LEDGER: <unchanged ledger view; only for ledger cells and when present>",
+          "LATEST PLAN: <unchanged plan; when present>"
+        ]
+      }
+    ],
+    "history": "follows using existing history elision policy",
+    "context_policy_file": "experiments/gas0/harness/context.py",
+    "context_policy_sha256": "A0779B00CE6CF19DA7E1BDABB2E2A232449F6928F079DAC7FC1796F0BD8C36A5"
+  },
+  "preserved": [
+    "VPS and C0-C4 treatment definitions",
+    "benchmark content and metrics",
+    "calibration RPS interval [0.20, 0.80]",
+    "16,384 usable context tokens and 1,024 reply reserve",
+    "1,536-token ledger cap",
+    "model-call budgets and tool schemas",
+    "plan requirement and history elision policy",
+    "cell-specific information access"
+  ],
+  "validation": {
+    "command": ".venv/Scripts/python -m pytest -q validate",
+    "result": "30 passed",
+    "duration_seconds": 32.37,
+    "focused_test_file": "validate/test_context_serialization_amendment.py",
+    "focused_tests_passed": 6,
+    "benchmark_content_used": false,
+    "model_episode_run": false
+  },
+  "prior_screen_label": "PRE-CONTEXT-SERIALIZATION-AMENDMENT",
+  "prior_screen_comparison_rule": "Keep prior artifacts unchanged. Their RPS values must not be compared numerically with screens under this amendment.",
+  "next_action": "Commit and push this amendment before a synthetic-only compatibility check using actual assemble() outputs for C0 with plan and C4 with ledger plus plan against Qwen3.5-9B-Q6_K's real llama.cpp template. If it passes, run its fixed dev_arena and budget_planner C0 seed-1 screen. If it fails eligibility or the frozen calibration gate, test Ornith 1.0 9B Q6_K once under the same serialization."
+}

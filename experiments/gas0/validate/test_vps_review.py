@@ -92,7 +92,9 @@ def test_c4_verification_and_rollback_consistency(tmp_path):
     assert ledger._req(rid)["status"] == "VERIFIED"
     failure = next(f for f in ledger.data["failures"] if f["test"].endswith("test_poison_floor"))
     assert failure["req_ids"] == [rid] and "tests.test_combat" in failure["tb_symbols"]
-    assert "FAILURE" in ledger.view(set(runner.edit_scope), words)  # edit scope = game/combat.py
+    # Check the project-relative path in the ledger's canonical POSIX form.
+    scope = {path.replace("\\", "/") for path in runner.edit_scope}
+    assert "FAILURE" in ledger.view(scope, words)  # edit scope = game/combat.py
     assert runner.last_edit is None  # undo cannot resurrect the rolled-back edit
 
 
@@ -151,8 +153,9 @@ def test_deferred_work_stays_visible(tmp_path):
 
 # ---------------------------------------------------------------- A1 scoped failure records
 def test_traceback_symbols_from_pytest_repr(tmp_path):
+    external_file = (tmp_path.parent / "x.py").resolve().as_posix()
     repr_ = ("tests/test_combat.py:3: \n_ _ _\ngame/combat.py:2: in apply_poison\n    return helper(hp)\n"
-             "game/combat.py:4: ValueError\n/usr/lib/python3.11/x.py:9: in outside\n")
+             "game/combat.py:4: ValueError\n" + external_file + ":9: in outside\n")
     assert traceback_symbols(repr_, tmp_path) == ["tests.test_combat", "game.combat.apply_poison", "game.combat"]
 
 

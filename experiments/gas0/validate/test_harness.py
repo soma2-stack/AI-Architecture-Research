@@ -93,7 +93,9 @@ def test_fake_null_episode_logs_all_model_calls(tmp_path):
             return len(str(value).split())
 
         def chat(self, messages, tools, seed):
-            request = messages[1]["content"]
+            content = messages[1]["content"]
+            request = content.split("CURRENT STAGE REQUEST:\n", 1)[1].split(
+                "\n\nPROJECT LEDGER:", 1)[0].split("\n\nLATEST PLAN:", 1)[0]
             n = self.seen.get(request, 0)
             self.seen[request] = n + 1
             name = "plan" if n == 0 else "declare_stage_done"

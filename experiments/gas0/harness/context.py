@@ -20,15 +20,16 @@ def elide(history: list[dict], keep_tool_outputs=6):
 
 def assemble(system: str, request: str, history: list[dict], ledger_view: str,
              tools: list[dict], count_tokens, latest_plan: str = ""):
-    """Trim only old history; never trim system, current request, ledger or plan."""
-    fixed = [{"role": "system", "content": system},
-             {"role": "user", "content": "CURRENT STAGE REQUEST:\n" + request}]
+    """Serialize fixed context under one leading system message; trim old history only."""
+    user_content = "CURRENT STAGE REQUEST:\n" + request
     if ledger_view:
         if count_tokens(ledger_view) > LEDGER:
             raise ValueError("ledger exceeds token budget")
-        fixed.append({"role": "system", "content": "PROJECT LEDGER:\n" + ledger_view})
+        user_content += "\n\nPROJECT LEDGER:\n" + ledger_view
     if latest_plan:
-        fixed.append({"role": "system", "content": "LATEST PLAN:\n" + latest_plan})
+        user_content += "\n\nLATEST PLAN:\n" + latest_plan
+    fixed = [{"role": "system", "content": system},
+             {"role": "user", "content": user_content}]
     past = elide(history)
     while count_tokens(fixed + past, tools) > WINDOW - REPLY and past:
         past.pop(0)
