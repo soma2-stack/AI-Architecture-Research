@@ -67,14 +67,47 @@ def _stage_intake(project: Path, workspace: Path, stage: int):
 
 
 def _one_action(message, tools):
-    calls = message.get("tool_calls") or []
-    if len(calls) != 1:
+    if not isinstance(message, dict):
+        raise ValueError("assistant message must be an object")
+    calls = message.get("tool_calls")
+    if not isinstance(calls, list) or len(calls) != 1:
         raise ValueError("expected one tool call")
-    function = calls[0]["function"]
-    name = function["name"]
+    call = calls[0]
+    if not isinstance(call, dict) or call.get("type") != "function":
+        raise ValueError("tool call must be a function call")
+    if not isinstance(call.get("id"), str) or not call["id"]:
+        raise ValueError("tool call id is missing")
+    function = call.get("function")
+    if not isinstance(function, dict):
+        raise ValueError("tool function is missing")
+    name = function.get("name")
+    if not isinstance(name, str):
+        raise ValueError("tool name is missing")
     if name not in {t["function"]["name"] for t in tools}:
         raise ValueError("unsupported tool")
-    return name, json.loads(function["arguments"])
+    raw_arguments = function.get("arguments")
+    if not isinstance(raw_arguments, str):
+        raise ValueError("tool arguments must be a JSON string")
+    try:
+        args = json.loads(raw_arguments)
+    except (json.JSONDecodeError, TypeError) as exc:
+        raise ValueError("tool arguments are not valid JSON") from exc
+    if not isinstance(args, dict):
+        raise ValueError("tool arguments must decode to a JSON object")
+    return name, args
+
+
+def _repair_message():
+    """Return a safe user turn after an invalid call, without replaying it."""
+    return {
+        "role": "user",
+        "content": (
+            "FORMAT ERROR: The previous tool call was invalid and was not run. "
+            "Make one repair attempt now: issue exactly one supported structured "
+            "tool call with valid JSON object arguments. Do not put tool-call JSON "
+            "in message text."
+        ),
+    }
 
 
 def build_components(cell: str, workspace: Path, out: Path):
@@ -133,27 +166,33 @@ def run_episode(project: Path, cell: str, seed: int, llm, out: Path,
                 name, args = _one_action(message, schemas)
                 if calls == 1 and name != "plan":
                     raise ValueError("first action must be plan")
+            except (ValueError, PermissionError, KeyError, TypeError) as exc:
+                errors += 1
+                result = {"error": str(exc)}
+                name, args = "format_error", {}
+                _write_jsonl(stage_log, {"type": "tool", "stage": stage, "call": calls,
+                                        "name": name, "arguments": args, "result": result})
+                # The malformed assistant response stays in the raw audit log only.
+                # Do not synthesize a tool result or replay an invalid call object.
+                history.append(_repair_message())
+                continue
+
+            try:
                 result = runner.run(name, args, stage)
             except (ValueError, PermissionError, KeyError, TypeError, RuntimeError,
                     FileNotFoundError, FileExistsError) as exc:
+                # This was a valid structured call that failed during execution.
+                # Preserve the real tool error so the model can react to it.
                 errors += 1
                 result = {"error": str(exc)}
-                if errors > 1:
-                    # Invalid calls still consume budget and remain visible.
-                    pass
-                name, args = "format_error", {}
             _write_jsonl(stage_log, {"type": "tool", "stage": stage, "call": calls,
                                     "name": name, "arguments": args, "result": result})
-            tool_calls = message.get("tool_calls") or []
-            if tool_calls:
-                history.append({"role": "assistant", "content": message.get("content") or "",
-                                "tool_calls": tool_calls})
-                history.append({"role": "tool", "tool_call_id": tool_calls[0]["id"],
-                                "name": name, "arguments": args,
-                                "content": json.dumps(result, default=str)[:4800]})
-            else:
-                history.append({"role": "assistant", "content": message.get("content") or ""})
-                history.append({"role": "user", "content": "FORMAT ERROR: call exactly one tool."})
+            tool_calls = message["tool_calls"]
+            history.append({"role": "assistant", "content": message.get("content") or "",
+                            "tool_calls": tool_calls})
+            history.append({"role": "tool", "tool_call_id": tool_calls[0]["id"],
+                            "name": name, "arguments": args,
+                            "content": json.dumps(result, default=str)[:4800]})
             if name == "declare_stage_done" and isinstance(result, dict) and result.get("done"):
                 done = True
                 done_summary = args["summary"]

@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-29",
+  "scope": "Generic structured-tool format-error recovery; audit and implementation only",
+  "protocol_changes": false,
+  "audit": {
+    "frozen_design": "HANDOFF_Claude_GAS0_design.md Section 9",
+    "predeclared_mitigation": "JSON-schema tools, a one-retry repair message, and format-error counts reported per cell",
+    "harness_path": "experiments/gas0/harness/agent_loop.py",
+    "confirmed_old_path": [
+      "_one_action rejected a malformed, unsupported, or non-single tool call.",
+      "The exception incremented the format-error counter and created a format_error audit record.",
+      "The response's raw message.tool_calls object was still appended to replay history, with an error-shaped tool result.",
+      "The next llama.cpp /apply-template request attempted to render the malformed call and returned HTTP 500."
+    ],
+    "recorded_cases": [
+      {
+        "model": "Qwen3.5-9B Q6_K",
+        "log": "experiments/gas0/analysis/model_selection_amended_20260929/qwen35/budget_planner_seed1/stage7.jsonl",
+        "call": 6,
+        "completion_tokens": 1024,
+        "tool_name": "edit_file",
+        "tool_call_count": 1,
+        "argument_json": "unterminated string",
+        "following_failure": "llama.cpp HTTP 500 in /apply-template, recorded in the preserved model-selection result"
+      },
+      {
+        "model": "Ornith-1.0-9B Q6_K",
+        "log": "experiments/gas0/analysis/model_selection_amended_20260929/ornith/dev_arena_seed1/stage2.jsonl",
+        "call": 1,
+        "completion_tokens": 1024,
+        "tool_name": "edit_file",
+        "tool_call_count": 1,
+        "argument_json": "unterminated string",
+        "following_failure": "llama.cpp HTTP 500 in /apply-template, recorded in the preserved model-selection result"
+      }
+    ]
+  },
+  "correction": {
+    "generic_across_models_and_cells": true,
+    "invalid_response_remains_in_raw_jsonl": true,
+    "invalid_tool_call_replayed": false,
+    "synthetic_tool_result_for_invalid_call": false,
+    "safe_user_repair_turn": true,
+    "next_retry_uses_ordinary_model_call": true,
+    "call_budget_increased": false,
+    "valid_tool_execution_errors_still_return_real_tool_result": true,
+    "tool_schemas_changed": false,
+    "completion_cap_changed": false,
+    "completion_cap_tokens": 1024,
+    "C0_C4_conditions_changed": false
+  },
+  "tests": {
+    "focused_command": ".venv/Scripts/python -m pytest -q validate/test_tool_recovery.py",
+    "focused_result": "9 passed",
+    "full_command": ".venv/Scripts/python -m pytest -q validate",
+    "full_result": "39 passed in 120.38 seconds",
+    "covered": [
+      "truncated JSON arguments",
+      "unsupported tool name",
+      "multiple tool calls",
+      "valid tool call",
+      "malformed raw response is logged but not replayed",
+      "safe repair message is present",
+      "next valid tool call succeeds",
+      "format-error and normal call accounting",
+      "identical recovery path in C0, C1, C2, C3, and C4",
+      "replay contains no malformed tool-call history"
+    ]
+  },
+  "model_screening_after_fix": {
+    "started": false,
+    "next_authorized_action": "Run synthetic malformed-call recovery with Qwen3.5's actual template; if it passes, rerun C0 seed-1 selection from scratch on dev_arena and budget_planner only.",
+    "evaluation_projects_used": false,
+    "C0_C4_pilot_run": false,
+    "phase_2_run": false
+  }
+}

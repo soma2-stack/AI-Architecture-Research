@@ -203,3 +203,38 @@ evaluation-project model call, training, or Phase 2 run occurred. The Qwen3.5
 and Ornith selection inference upper bounds total 3,622.825 seconds (1.006
 hours), excluding synthetic preflight inference because its per-call wall time
 was not captured. Stop model selection at this point pending owner direction.
+
+## Generic malformed-tool recovery audit and correction — 2026-09-29
+
+The prior Qwen3.5 Stage-7 Budget Planner log and Ornith Stage-2 dev-arena log
+confirm a generic replay failure. Each model emitted one `edit_file` call whose
+`arguments` string was cut off at the fixed 1,024-completion-token ceiling. The
+JSONL model records preserve those exact malformed responses, and the adjacent
+format-error records show `_one_action` rejected the argument JSON. Before this
+correction, `run_episode` nevertheless appended the raw assistant `tool_calls`
+object and an error-shaped tool result to conversation history. The next
+llama.cpp `/apply-template` request then returned HTTP 500 while rendering that
+history. This is confirmed by the preserved partial episode records and the
+machine-readable model-selection report; the failure is not a context-role-order
+error.
+
+The harness now keeps invalid raw responses in the JSONL audit log only. It
+does not replay their tool-call objects or invent a tool result. It appends one
+common safe user repair instruction, and the next model response uses the next
+ordinary call-budget slot. Valid structured calls whose tools return ordinary
+execution errors still receive their real tool error result in history. The
+change implements the already-frozen mitigation in
+`HANDOFF_Claude_GAS0_design.md` §9 (“JSON-schema tools, a one-retry repair
+message, and format-error counts reported per cell”). It does not change the
+tool schemas, model completion limit, conditions, information access, or call
+budget.
+
+Focused tests cover truncated JSON, unsupported tool names, multiple calls,
+valid calls, raw-log retention, omission from replay history, safe repair text,
+successful retry, error/call accounting, all C0–C4 cells, and template-safe
+history shape. Full validation: `.venv/Scripts/python -m pytest -q validate` —
+39 passed in 120.38 seconds. No model or benchmark episode has run after this
+fix yet. Audit details are in
+`analysis/tool_format_recovery_audit_20260929.json`. The next authorized step
+is a synthetic malformed-call recovery against the Qwen3.5 template; only if
+that passes may the frozen C0 dev/calibration selection be rerun from scratch.
