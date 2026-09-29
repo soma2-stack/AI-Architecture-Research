@@ -1,0 +1,39 @@
+{
+  "model": "Qwen3.5-9B Q6_K",
+  "synthetic_only": true,
+  "runtime": "llama.cpp b11193 / commit 4e7481175",
+  "model_alias": "qwen3.5-9b-q6k",
+  "context_tokens_per_sequence": 16384,
+  "parallel_tool_calls": false,
+  "active_template_renders_tools": true,
+  "active_template_sha256": "7f0e529032c25183bcd66c7f238da2d377f43be754a94e2725a58c4e16d2ed67",
+  "injected_failure": {
+    "type": "truncated JSON arguments",
+    "rejected_by_one_action": true,
+    "error": "tool arguments are not valid JSON",
+    "raw_invalid_call_in_replay": false,
+    "synthetic_tool_result_created": false,
+    "safe_repair_turn_present": true
+  },
+  "recovery": {
+    "repair_call_name": "plan",
+    "repair_arguments_valid": true,
+    "next_call_name": "read_file",
+    "next_call_arguments_valid": true,
+    "one_structured_call_per_response": true,
+    "tool_result_continuation": true,
+    "prompt_tokens": [
+      1192,
+      1293
+    ],
+    "completion_tokens": [
+      302,
+      30
+    ],
+    "peak_context_tokens": 1494
+  },
+  "template_invalid_history": false,
+  "http_500": false,
+  "apply_template_failure": false,
+  "passed": true
+}

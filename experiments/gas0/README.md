@@ -11,23 +11,43 @@ LOC/test/retention/null-replay counts are in
 `analysis/benchmark_validation.json`. The Stage-4 bug replay retained all
 previously green visible and hidden tests in all nine projects (9/9).
 
-Model selection was screened only on `dev_arena` and `budget_planner` (C0,
-seed 1). No eligible model was found: Qwen2.5-Coder produced no usable tool
-calls and missed the calibration RPS floor; Qwen3 aborted on malformed tool
-call JSON that caused a llama.cpp server error; Hermes 3 completed both
-episodes but had 471 format/tool-following errors across 480 calls and missed
-the calibration RPS floor. See `analysis/model_selection.json` for exact
-artifacts, scores, and resource counts. No `frozen_config.json` was created.
+Earlier model-selection rounds are historical: Qwen2.5-Coder produced no
+usable tool calls, Qwen3 aborted on malformed tool-call JSON, and Hermes 3
+missed the calibration RPS floor. Their original results remain in
+`analysis/model_selection.json` and are not overwritten by later rounds.
 
-The owner-authorized post-amendment C0 screen tried Qwen3.5 and Ornith, after
-both passed synthetic actual-context tool checks. Qwen3.5 completed dev_arena
-at RPS 0.6495 but Budget Planner aborted before a final RPS; Ornith aborted in
-dev_arena before a complete RPS. Both emitted malformed long `edit_file`
-arguments at the unchanged 1,024-token cap, after which llama.cpp returned
-HTTP 500 while re-rendering tool history. Neither model is eligible, so no
-model was frozen. Details and raw stage logs are in
-`analysis/model_selection_amended_20260929.json` and
-`analysis/model_selection_amended_20260929/`.
+The first post-context-amendment screen tried Qwen3.5 and Ornith. Both emitted
+malformed long `edit_file` arguments at the unchanged 1,024-token cap, and
+llama.cpp returned HTTP 500 when the raw malformed calls were replayed. Those
+results remain in `analysis/model_selection_amended_20260929.json` and its
+stage logs; they are superseded for current eligibility by the generic
+recovery correction and fresh selection run below, not rewritten.
+
+**Current model-selection state (2026-09-29): Qwen3.5-9B Q6_K frozen; stop
+before the dev pilot.** The owner-authorized generic recovery correction
+implements the frozen one-retry repair behavior: invalid tool calls remain in
+raw JSONL audit records but are omitted from replay history, a common repair
+message is added, and the failed call still consumes its normal budget slot.
+The full harness suite passed (39 tests), and a synthetic truncated-call test
+against the active Qwen template recovered without `/apply-template` HTTP 500.
+
+Fresh C0 seed-1 selection runs completed on the only allowed projects:
+
+| Project | RPS | Calls | Malformed-call records | Recovered on next call | Peak context |
+|---|---:|---:|---:|---:|---:|
+| dev_arena | 0.603409 | 149 | 7 | 6 | 15,718 |
+| budget_planner | 0.354315 | 224 | 18 | 13 | 16,376 |
+
+Budget Planner is within the unchanged [0.20, 0.80] gate. The exact frozen
+configuration is `frozen_config.json`; full score files and JSONL transcripts
+are in `analysis/model_selection_recoveryfix_20260929/`. Estimated GPU-time
+upper bound was 4,238.510 seconds (1.177 hours), episode wall time totaled
+7,989.735 seconds, and total test executions were 62. The harness aggregate
+error counter was 40; the malformed-call record count above is a distinct
+raw-audit measure. Some malformed calls did not yield a valid tool action on
+the immediately following call. No evaluation project, C0–C4 pilot, or Phase 2
+run occurred. Do not interpret this model-selection screen as a synergy
+result.
 
 The C0-C4 dev pilot was not run. The full evaluation matrix was not run. GAS-0
 Phase 2 remains unauthorized. Screens before the context serialization

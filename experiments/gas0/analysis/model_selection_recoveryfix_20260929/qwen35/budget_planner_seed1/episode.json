@@ -1,0 +1,73 @@
+{
+  "RPS": 0.3543154761904762,
+  "final": 0.375,
+  "regressions": [
+    {
+      "first_green": 4,
+      "red_stage": 7,
+      "test": "tests/hidden_4/test_stage4.py::test_zero_record_between_nonzero_records_keeps_order"
+    },
+    {
+      "first_green": 5,
+      "red_stage": 7,
+      "test": "tests/hidden_5/test_stage5.py::test_v1_migration_and_exact_cents"
+    }
+  ],
+  "requirement_retention": 0.5,
+  "resources": {
+    "completion_tokens": 50818,
+    "estimated_flops": 50414148000000000,
+    "format_errors": 28,
+    "gpu_seconds_upper_bound": 2683.851999999373,
+    "hidden_test_seconds": 10.142000000108965,
+    "model_calls": 224,
+    "peak_context_tokens": 16376,
+    "prompt_tokens": 2749968,
+    "test_executions": 37,
+    "tool_calls": 224,
+    "visible_test_seconds": 45.078000000095926,
+    "wall_seconds": 5900.01500000013
+  },
+  "stages": [
+    {
+      "CR": 0,
+      "SC": 0,
+      "stage": 1
+    },
+    {
+      "CR": 0,
+      "SC": 0,
+      "stage": 2
+    },
+    {
+      "CR": 0.25,
+      "SC": 0.5,
+      "stage": 3
+    },
+    {
+      "CR": 0.6,
+      "SC": 1,
+      "stage": 4
+    },
+    {
+      "CR": 0.8,
+      "SC": 1,
+      "stage": 5
+    },
+    {
+      "CR": 0.6666666666666666,
+      "SC": 0,
+      "stage": 6
+    },
+    {
+      "CR": 0.14285714285714285,
+      "SC": 0,
+      "stage": 7
+    },
+    {
+      "CR": 0.375,
+      "SC": 0,
+      "stage": 8
+    }
+  ]
+}
