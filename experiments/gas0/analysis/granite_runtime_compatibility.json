@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-09-29",
+  "purpose": "Memory/context compatibility only before any GAS-0 model episodes; not a benchmark or model-performance selection result.",
+  "repository": "ibm-granite/granite-3.3-8b-instruct-GGUF",
+  "revision": "e40e9dd739c7be00fa965c16ce167088190ce114",
+  "filename": "granite-3.3-8b-instruct-Q6_K.gguf",
+  "file_size_bytes": 6705464064,
+  "sha256": "b0fe6e279cf247a8119ca744286f53ce22890d871e26c3af38e12f5f9008b2bb",
+  "quantization": "Q6_K",
+  "engine": {
+    "name": "llama.cpp",
+    "version": "0.5.0-dev (build 11193, commit 4e7481175)",
+    "gpu_layers_requested": 99,
+    "parallel_sequences": 1,
+    "ctx_size": 16384,
+    "flash_attention": "auto",
+    "jinja": true
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "vram_total_mib": 12288,
+    "preload_vram_used_mib": 1307,
+    "startup_reported_free_mib": 11253
+  },
+  "observed": {
+    "model_context_training_limit": 131072,
+    "configured_context_tokens": 16384,
+    "server_slot_context_tokens": 16384,
+    "server_slots": 1,
+    "health": "ok",
+    "model_type": "Q6_K",
+    "transformer_layers_offloaded": "41/41",
+    "cuda_model_buffer_mib": 6393.16,
+    "cuda_kv_buffer_mib": 2560.0,
+    "cuda_compute_buffer_mib": 115.01,
+    "cpu_mapped_model_buffer_mib": 157.52,
+    "total_vram_used_mib_with_server": 10491,
+    "vram_free_mib_with_server": 1623,
+    "generation_or_gas_episode_run": false
+  },
+  "verdict": "Q6_K satisfies the requested 16,384-token single-sequence context and fits the RTX 3060 with all 41 transformer layers assigned to CUDA and about 1.6 GiB VRAM free under the observed desktop load. The 157.52 MiB CPU-mapped model buffer is small; no transformer-layer CPU offload occurred. No lower quantization fallback is warranted for memory/runtime compatibility. This does not establish tool-call reliability or benchmark suitability; do not treat the model as selected/frozen until authorized model-selection episodes are run.",
+  "runtime_log": "%LOCALAPPDATA%\\GAS0\\granite-q6-context16384-verbose.log"
+}

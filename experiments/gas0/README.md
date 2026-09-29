@@ -22,6 +22,14 @@ artifacts, scores, and resource counts. No `frozen_config.json` was created.
 The C0-C4 dev pilot was not run. The full evaluation matrix was not run. GAS-0
 Phase 2 remains unauthorized.
 
+**Follow-up runtime compatibility check (2026-09-29):** IBM Granite 3.3 8B
+Instruct Q6_K loaded with one 16,384-token sequence on the RTX 3060; llama.cpp
+placed all 41 transformer layers on CUDA, with 1,623 MiB VRAM remaining under
+the observed desktop load. Exact revision, GGUF filename/hash, buffer sizes,
+and runtime settings are recorded in `analysis/granite_runtime_compatibility.json`.
+This was a memory/context check only; Granite has not been benchmark-screened,
+selected, or frozen for GAS-0.
+
 ## VPS quality/validity review (Claude lane, 2026-09-29; base `61fb988`)
 
 This was a targeted review of the harness in response to a Perplexity audit. The C0–C4 definitions, benchmark, metrics, verdicts, budgets, model-selection rules and Phase 2 authorization are all unchanged. No GPU was used and no model was run.
