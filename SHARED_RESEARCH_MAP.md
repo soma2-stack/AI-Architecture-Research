@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **GAS-0 benchmark complete and validated; IBM Granite 3.3 8B Instruct Q6_K passed the 16,384-token RTX 3060 runtime/memory compatibility check, but has not yet been tool-preflighted or benchmark-screened; no model is frozen and no C0–C4 pilot has run; Phase 2 remains unauthorized** |
+| **Current phase** | **GAS-0 benchmark complete and validated; IBM Granite 3.3 8B Instruct Q6_K passed memory/context but failed the first structured-tool preflight under the current llama.cpp/GGUF template, so it was not benchmark-screened or frozen; no C0–C4 pilot has run; continue model selection only with a new runtime-compatible candidate; Phase 2 remains unauthorized** |
 
 ---
 
@@ -1110,8 +1110,8 @@ The final plasticity review found a real loss-of-current-task learnability pheno
 - Supported new architectures: **0**
 - New computational primitives: **0**
 - Anomaly-first survivors: **0**
-- Active compute authorization: **model-selection continuation only (dev_arena + budget_planner; no evaluation projects, no C0–C4 pilot yet)**
-- Active experiment: **Granite 3.3 8B Instruct Q6_K tool/runtime preflight and model-selection screen**
+- Active compute authorization: **model-selection continuation only (synthetic tool preflight, then dev_arena + budget_planner if a candidate passes; no evaluation projects, no C0–C4 pilot yet)**
+- Active experiment: **find a runtime-compatible 7–9B local candidate after Granite structured-tool preflight failure**
 
 Do not start another broad anomaly survey, another property-pair survey, or a rescue experiment on any of the three closed anomalies.
 
@@ -1119,7 +1119,7 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 
 **Perplexity:** wait.
 
-**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Granite 3.3 8B Instruct Q6_K runtime compatibility is recorded at `3982834`: 16,384-token slot, 41/41 layers on CUDA, ~1.6 GiB VRAM free. Next, run the non-benchmark structured-tool preflight, then—only if it passes—the existing C0 model-selection screen on dev_arena + budget_planner. Do not run C0–C4 or any evaluation-project model episode yet.
+**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Granite Q6 memory/context compatibility is at `3982834`, and its structured-tool preflight failure is at `5f73b3b`: the GGUF-provided Granite template returned a content-level `function_call` object with no OpenAI `tool_calls`, while the runtime reported `supports_tool_calls=false`. Granite is ineligible under the current runtime/template. Next, preflight the next owner-approved runtime-compatible 7–9B candidate before any benchmark episode. Do not run C0–C4 or any evaluation-project model episode yet.
 
 **Cursor / Gemini:** wait.
 
