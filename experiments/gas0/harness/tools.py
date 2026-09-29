@@ -133,7 +133,10 @@ class ToolRunner:
             return {"exit_code": proc.returncode,
                     "tail": (proc.stdout + proc.stderr)[-3000:]}
         if name == "plan":
-            self.plan = json.dumps(args["steps"], ensure_ascii=False)
+            steps = args["steps"]
+            if not isinstance(steps, list) or not all(isinstance(step, str) for step in steps):
+                raise ValueError("plan steps must be an array of strings")
+            self.plan = json.dumps(steps, ensure_ascii=False)
             return "plan recorded"
         if name == "declare_stage_done":
             return {"done": True, "summary": args["summary"]}

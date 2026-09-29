@@ -33,7 +33,8 @@
     "schema_count": 11,
     "invalid_call_recovery": "generic one-retry repair turn; malformed assistant tool_calls are omitted from replay history and retained in raw audit JSONL",
     "recovery_fix_commit": "a50c678edb338a152961288269a2adf7e7810a35",
-    "agent_loop_sha256": "e70bf6b88f8aaba23241cc7ea53a5ca010e1143b4e8b7c01dfc21e44adf4a502"
+    "agent_loop_sha256": "26e47a218536991840036a7de1e7a512db4dfa5a4ce9ec14e012b2b372d8b011",
+    "plan_first_enforcement": "per-stage plan_required state; cleared only by an accepted plan(steps) action; reset at every stage start"
   },
   "context_policy": {
     "usable_context_tokens_per_sequence": 16384,
@@ -81,5 +82,24 @@
     "evaluation_project_episodes": 0,
     "c0_c4_pilot_episodes": 0,
     "phase_2_run": false
-  }
+  },
+  "harness_amendments": [
+    {
+      "date": "2026-09-29",
+      "type": "bug fix applying identically to all cells (HANDOFF pre-registration rule: logged, identical in every cell)",
+      "defect": "plan-first enforced only on model call 1 of each stage; after a malformed or rejected call 1, a non-plan action was accepted",
+      "found_by": "DEV pilot audit, commit 2ffe984 (15 of 39 attempted stages began with plan)",
+      "files": [
+        "harness/agent_loop.py",
+        "harness/tools.py"
+      ],
+      "agent_loop_sha256_before": "e70bf6b88f8aaba23241cc7ea53a5ca010e1143b4e8b7c01dfc21e44adf4a502",
+      "agent_loop_sha256_after": "26e47a218536991840036a7de1e7a512db4dfa5a4ce9ec14e012b2b372d8b011",
+      "tools_py_change": "plan(steps) rejects steps that are not an array of strings (the frozen schema); all 24 recorded pilot/selection plans conformed",
+      "repair_turn_change": "while no plan is accepted, the unchanged repair turn gets one appended sentence restating the SYSTEM rule; after an accepted plan it is byte-identical to before",
+      "model_parameters_budgets_conditions_tools_context_policy_changed": false,
+      "affected_prior_episodes": "all C0-C4 DEV pilot episodes and model-selection episodes ran under the pre-fix loop; they are preserved unmodified as historical evidence",
+      "audit_log_change": "rejected-call JSONL tool rows now carry plan_required (true/false)"
+    }
+  ]
 }

@@ -306,3 +306,61 @@ pilot. Together with incomplete C4, it means GAS-0 is **not technically ready
 for the official matrix**. Do not restart C4 or run evaluation projects
 without owner direction. The pilot and analysis script are descriptive
 artifacts only.
+
+## Plan-first enforcement fix — 2026-09-29 (owner-authorized, after audit `2ffe984`)
+
+**Root cause.** `run_episode` enforced the frozen rule "the first action of each
+stage must be `plan(steps)`" with `if calls == 1 and name != "plan"`. The check
+was tied to the model-call counter rather than to stage state. Any rejected call
+1 (malformed JSON, several calls in one reply, or a valid non-plan action) went
+through the generic format-repair turn, and on call 2 the counter check no
+longer applied, so any tool was accepted. In the pilot, 24 of 39 attempted stages
+did not begin with `plan`. In every one of them the first call was rejected and
+the repaired call was a non-plan action. Including the earlier aborted attempts, all 45 logged stages fit this pattern: 16 had a plan on call 1, and 29 had a rejected call 1 followed by an accepted non-plan action. The loop has no connection-retry path:
+`llm.chat` exceptions abort the episode.
+
+**Fix (generic, identical in all cells).**
+- `harness/agent_loop.py` now keeps a per-stage `plan_required` state:
+  - it is set at the start of every stage;
+  - it is cleared only when a `plan` call passes `_one_action` validation and `ToolRunner.run` executes it without error;
+  - until then, any non-plan action is rejected through the existing format-error path. The call is not executed or replayed, it consumes its normal call slot, and it is counted as a format error;
+  - malformed calls, repair turns, and failed tool executions (including a failed `plan`) leave the state set;
+  - after an accepted plan, the loop behaves exactly as before, including re-planning.
+- While `plan_required` is set, the existing repair turn gets one appended sentence restating the SYSTEM rule ("No plan has been accepted for this stage yet, so the next action must be plan(steps)."). Before the fix, the repair text claimed only a JSON-format problem, which is false for a valid non-plan call. After an accepted plan, the repair turn is byte-identical to before.
+- Rejected-call JSONL rows now record `plan_required`.
+- `harness/tools.py`: `plan` rejects `steps` that are not an array of strings, which enforces the frozen tool schema. All 24 plans recorded in the pilot and in model selection already conformed.
+- No model, decoding, budget, condition, information access, tool set, or context policy changed.
+- `frozen_config.json` logs the amendment under `harness_amendments`. It records the `agent_loop.py` SHA-256 before (`e70bf6b8…`) and after (`26e47a21…`).
+
+**Tests.** `validate/test_plan_first.py` has 19 tests:
+- a valid first plan continues normally (all five cells);
+- malformed first call → repair → non-plan bypass rejected (all five cells);
+- malformed, schema-invalid and missing-`steps` plans → corrected plan;
+- 30 mixed malformed/non-plan attempts never clear the requirement, and no edit reaches the workspace;
+- client-level connection recovery preserves the requirement;
+- a connection failure aborts without accepting an action;
+- a plan whose execution fails does not clear the requirement;
+- a new stage resets the requirement (C0 and C4);
+- behavior after an accepted plan is unchanged;
+- `plan` step-type validation.
+
+Against the pre-fix loop, 8 of the 13 C0/C4 tests fail. The core bypass tests
+fail on the defect itself.
+
+**Validation.**
+- `.venv/Scripts/python -m pytest -q validate` — 63 passed (the 44 previous tests plus the 19 new ones).
+- Dev-arena benchmark validation is unchanged: null RPS 0.0823, reference 1.0, tool oracle 1.0. It was run for `dev_arena` only; evaluation projects were not touched.
+
+**Preservation.**
+- No existing pilot transcript, score, `pilot_summary.json`, `pilot_analysis.json`, audit file or aborted-attempt directory was modified or deleted.
+- All earlier DEV-pilot and model-selection episodes ran under the pre-fix loop and remain historical evidence.
+- No evaluation-project or Phase 2 work occurred.
+
+**Clean C4 rerun.** The rerun uses `analysis/run_qwen35_c4_postfix.py`. It starts
+a new C4 `dev_arena` seed-1 episode from Stage 1 in
+`analysis/dev_pilot_qwen35_20260929/C4_dev_arena_seed1_clean_after_plan_first_fix/`
+and writes `c4_postfix_summary.json`. It does not resume the old Stage-8 attempt
+and does not modify `pilot_summary.json`. The unchanged 3-GPU-hour pilot cap is
+enforced during the episode: a model call starts only if the cumulative upper
+bound plus a 60 s reservation stays within the cap. The largest pilot call took
+36.7 s.

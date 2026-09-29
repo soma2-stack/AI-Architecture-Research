@@ -97,17 +97,19 @@ def _one_action(message, tools):
     return name, args
 
 
-def _repair_message():
+def _repair_message(plan_required=False):
     """Return a safe user turn after an invalid call, without replaying it."""
-    return {
-        "role": "user",
-        "content": (
-            "FORMAT ERROR: The previous tool call was invalid and was not run. "
-            "Make one repair attempt now: issue exactly one supported structured "
-            "tool call with valid JSON object arguments. Do not put tool-call JSON "
-            "in message text."
-        ),
-    }
+    content = (
+        "FORMAT ERROR: The previous tool call was invalid and was not run. "
+        "Make one repair attempt now: issue exactly one supported structured "
+        "tool call with valid JSON object arguments. Do not put tool-call JSON "
+        "in message text."
+    )
+    if plan_required:
+        # Restates the SYSTEM rule; identical in every condition.
+        content += (" No plan has been accepted for this stage yet, so the next "
+                    "action must be plan(steps).")
+    return {"role": "user", "content": content}
 
 
 def build_components(cell: str, workspace: Path, out: Path):
@@ -147,6 +149,9 @@ def run_episode(project: Path, cell: str, seed: int, llm, out: Path,
             runner.test_executions += 1
             runner.test_cpu_seconds += initial_gate["seconds"]
         calls, errors, done, done_summary = 0, 0, False, ""
+        # Cleared only by an accepted plan action, never by a rejected, malformed,
+        # repaired, or failed call; every new stage starts with it set again.
+        plan_required = True
         stage_log = out / f"stage{stage}.jsonl"
         while calls < 30 and time.monotonic() - stage_start < 1200:
             if dry_oracle:
@@ -164,21 +169,24 @@ def run_episode(project: Path, cell: str, seed: int, llm, out: Path,
                                     "message": message, "usage": usage})
             try:
                 name, args = _one_action(message, schemas)
-                if calls == 1 and name != "plan":
+                if plan_required and name != "plan":
                     raise ValueError("first action must be plan")
             except (ValueError, PermissionError, KeyError, TypeError) as exc:
                 errors += 1
                 result = {"error": str(exc)}
                 name, args = "format_error", {}
                 _write_jsonl(stage_log, {"type": "tool", "stage": stage, "call": calls,
-                                        "name": name, "arguments": args, "result": result})
+                                        "name": name, "arguments": args, "result": result,
+                                        "plan_required": plan_required})
                 # The malformed assistant response stays in the raw audit log only.
                 # Do not synthesize a tool result or replay an invalid call object.
-                history.append(_repair_message())
+                history.append(_repair_message(plan_required))
                 continue
 
             try:
                 result = runner.run(name, args, stage)
+                if name == "plan":
+                    plan_required = False
             except (ValueError, PermissionError, KeyError, TypeError, RuntimeError,
                     FileNotFoundError, FileExistsError) as exc:
                 # This was a valid structured call that failed during execution.

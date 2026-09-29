@@ -9,7 +9,17 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-29, session 26
+# Resume Pointer (read this first in a new session) — updated 2026-09-29, session 27
+
+- **Current:** the GAS-0 plan-first enforcement fix is done (Part AT).
+  - Root cause: plan-first was checked only on model call 1, so a repaired call 2 bypassed it.
+  - The fix is a per-stage `plan_required` state that only an accepted plan clears.
+  - 19 new tests; 63/63 pass; dev benchmark validation unchanged.
+  - Commit and clean-C4 status: `experiments/gas0/README.md`, section "Plan-first enforcement fix".
+- **Scientific design unchanged.** No evaluation project and no Phase 2. The official matrix is not authorized.
+- **Next:** owner decision (see Part AT, "Readiness"). The pre-fix C0–C3 pilot cells ran under the defective loop.
+
+# Resume Pointer as of session 26 (historical; superseded by the block above)
 
 - **Current:** the GAS-0 VPS quality/validity review is done (Part AS). The harness fixes are merged on the Claude branch on top of `61fb988`, with 24/24 harness tests passing and dev validation unchanged.
 - **Scientific design unchanged.**
@@ -4900,6 +4910,37 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AT — GAS-0 plan-first enforcement fix (session 27, 2026-09-29; CPU tests, then the owner-authorized clean C4 DEV rerun)
+
+- **Scope:** fix the defect found by the DEV pilot audit (`2ffe984`). Only 15 of 39 attempted stages began with the frozen `plan(steps)` action. No change to the scientific design, conditions, model, budgets or context policy.
+- **Root cause (verified from the preserved logs):** `agent_loop.run_episode` checked `calls == 1 and name != "plan"`.
+  - A rejected call 1 went through the format-repair turn. Call 2 was then unchecked.
+  - All 29 bypassed stages across all 45 logged stages (including aborted attempts) show a rejected call 1 followed by an accepted non-plan action.
+  - The repair text described only a JSON-format error, so it gave the model no reason to plan.
+- **Fix:**
+  - a per-stage `plan_required` flag, set at stage start and cleared only by an accepted plan (valid call and successful execution);
+  - non-plan actions are rejected through the existing format-error path while the flag is set;
+  - while it is set, the repair turn appends one sentence restating the SYSTEM rule;
+  - `plan` enforces its frozen schema (steps must be an array of strings);
+  - the amendment is logged in `frozen_config.json` (`harness_amendments`, with before/after SHA-256).
+- **Tests:** `validate/test_plan_first.py`, 19 tests. They cover:
+  - a valid first plan;
+  - the malformed → non-plan bypass (all cells);
+  - malformed plan → corrected plan;
+  - repeated failures;
+  - connection recovery and abort;
+  - a failed plan execution;
+  - the stage reset;
+  - unchanged post-plan behavior;
+  - step validation.
+
+  8 of the 13 C0/C4 tests fail on the pre-fix loop. Full suite: 63/63.
+- **Interpretation (not a result):**
+  - every pre-fix DEV pilot cell ran under the defective loop, so the C0–C3 pilot numbers are not directly comparable with a post-fix C4;
+  - the design's pre-registration rule says episodes affected by a fix are re-run for all cells;
+  - no synergy or treatment effect is claimed from the pilot.
+- **Readiness:** see `experiments/gas0/README.md` for the clean-C4 outcome. Whether to re-run C0–C3 under the fixed loop, extend the pilot GPU budget, or proceed is the owner's decision.
 
 # Part AS — GAS-0 VPS quality/validity review (session 26, 2026-09-29; CPU tests only)
 
