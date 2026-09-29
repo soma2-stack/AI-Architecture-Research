@@ -73,6 +73,23 @@ def test_c3_stays_model_mediated(tmp_path):
     assert ledger._req(rid)["status"] == "VERIFIED"
 
 
+@pytest.mark.parametrize("cell", ["C2", "C3", "C4"])
+def test_gate_accepts_green_noop_without_empty_commit(tmp_path, cell):
+    ws = _repo(tmp_path, GAME)
+    _, _, gate, runner, _ = build_components(cell, ws, tmp_path / "out")
+    gate.stage_start()
+    checkpoint = gate.checkpoint
+    result = runner.run("edit_file", {
+        "path": "game/combat.py",
+        "old": "max(1, hp - 1)",
+        "new": "max(1, hp - 1)",
+    }, 2)
+    event = json.loads(result["notice"])["event"] if cell == "C4" else result["event"]
+    assert event == "GREEN"
+    assert gate.checkpoint == checkpoint
+    assert runner.test_executions == 1
+
+
 # ---------------------------------------------------------------- C4 gate -> ledger, rollback consistency
 def test_c4_verification_and_rollback_consistency(tmp_path):
     ws = _repo(tmp_path, GAME)

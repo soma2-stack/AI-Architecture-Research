@@ -122,8 +122,10 @@ class RegressionGate:
             event = "REGRESSION_ROLLBACK"
         elif not result["failed"]:
             git(self.workspace, "add", "-A")
-            git(self.workspace, "-c", "user.name=GAS0", "-c", "user.email=gas0@local",
-                "commit", "-m", "green checkpoint")
+            # A no-op edit can still be GREEN; Git refuses a commit with no staged change.
+            if git(self.workspace, "diff", "--cached", "--name-only"):
+                git(self.workspace, "-c", "user.name=GAS0", "-c", "user.email=gas0@local",
+                    "commit", "-m", "green checkpoint")
             self.checkpoint = git(self.workspace, "rev-parse", "HEAD")
             self.green = result["passed"]
             event = "GREEN"
