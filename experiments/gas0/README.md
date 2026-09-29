@@ -10,5 +10,8 @@ has 608 nonblank Python lines in 14 files, 31 visible tests, 13 hidden tests,
 four text-only/retention probes and eight stage requests. A null replay scored
 0.08229 RPS; reference patch and tool-replay oracles scored 1.0 RPS. The
 calibration and seven evaluation projects, model freeze and pilot are pending.
+The `bench/expression_interpreter/starter/` directory is an incomplete draft
+of one generic evaluation project. It has no stage manifest, reference patches,
+or hidden tests and has not passed GAS-Bench validation.
 Do not run an official episode until every Section 12 validation check passes
 for all projects and `frozen_config.json` is committed.

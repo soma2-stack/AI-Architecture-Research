@@ -6,7 +6,15 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
-### Codex resume/status -- 2026-09-28
+### Codex resume/status -- 2026-09-29
+
+- **Current lens:** GAS-0 Verified Project State implementation. This is a known-mechanism synthesis and performance study, not a novelty claim.
+- **Stage:** Harness and dev project implemented, validated, committed, and pushed (`39b7f9c`, `bd20f2c`). Calibration and seven evaluation projects remain incomplete. The expression-interpreter starter is an unvalidated draft.
+- **Validation:** Six harness unit cases passed. The dev project has eight stages, 608 nonblank Python LOC in 14 files, 31 visible tests, 13 hidden tests, and four text-only/retention probes. Dev reference patches and tool oracle each scored RPS 1.0; null replay scored 0.0822916667. These are scoped dev checks, not full Section 12 benchmark validation.
+- **Model and compute:** No model selected or frozen. No model inference, GPU pilot, or Phase 2 episode has run. GPU time consumed by this implementation is zero; lightweight CPU validation ran, without a separately measured CPU-time ledger.
+- **Exact next action:** Finish calibration and all seven evaluation projects and run full Section 12 validation. Only then select a model on dev/calibration, freeze configuration and analysis plan, and run the authorized dev C0–C4 pilot within its resource limit. Stop before Phase 2 pending the owner's explicit authorization.
+
+### Prior anomaly-first resume -- 2026-09-28
 
 - **Lane and lens:** Final no-compute hostile audit of continual plasticity collapse, defined as reduced ability to learn the *current new task* after a history of comparable tasks, distinct from forgetting old tasks.
 - **Stage and verdict:** AR-150 closes the final anomaly as **KILLED — ORDINARY KNOWN DYNAMICS** for architecture discovery. **ANOMALY-FIRST PHASE COMPLETE — 0 SURVIVORS.** The phenomenon is real, but the strongest evidence locates it in ordinary parameter/optimizer geometry, signal propagation, and distribution/target shifts; no new trainability-state semantics have been demonstrated.
