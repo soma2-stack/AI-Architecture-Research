@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **GAS-0 benchmark complete and validated; Granite Q6 failed structured-tool shape, and Ministral 8B Q6 failed the one-tool-per-response preflight despite valid structured calls; neither was benchmark-screened or frozen; next model-selection candidates should prioritize llama.cpp-native single-tool formats such as Command R7B / Llama 3.1 / Hermes 2 Pro; no C0–C4 pilot has run; Phase 2 remains unauthorized** |
+| **Current phase** | **GAS-0 benchmark complete and validated; Qwen3.5-9B Q6_K is frozen and passed model selection. A one-seed dev C0–C4 pilot was attempted: C0–C3 completed, C4 reached seven scored stages and aborted at Stage 8 on a local /apply-template timeout. The audit also found a generic plan-first enforcement defect, so the pilot is descriptive only and the system is not technically ready for the official matrix. Phase 2 remains unauthorized.** |
 
 ---
 
@@ -1110,8 +1110,8 @@ The final plasticity review found a real loss-of-current-task learnability pheno
 - Supported new architectures: **0**
 - New computational primitives: **0**
 - Anomaly-first survivors: **0**
-- Active compute authorization: The owner-authorized context serialization amendment and bounded Qwen3.5/Ornith C0 selection screens are complete. No additional candidate is authorized by the current prompt. No evaluation-project model episodes, pilot, or Phase 2 runs have occurred.
-- Active experiment: None. The two-candidate post-amendment model-selection screen ended without an eligible model.
+- Active compute authorization: **none pending owner direction**. The Qwen3.5 model-selection freeze and one-seed dev pilot authorization are complete. No evaluation-project episodes or Phase 2 runs are authorized.
+- Active experiment: **paused after dev-pilot audit**. C0–C3 completed; C4 is incomplete at Stage 8, and the plan-first enforcement defect must be resolved before any clean rerun.
 
 Do not start another broad anomaly survey, another property-pair survey, or a rescue experiment on any of the three closed anomalies.
 
@@ -1119,7 +1119,7 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 
 **Perplexity:** wait.
 
-**Codex:** The context serialization amendment was committed as `aaaf80a` after the full harness/unit suite passed 30/30. Amended actual-assembler C0/C4 synthetic checks passed for Qwen3.5 9B and Ornith 1.0 9B. Qwen3.5 completed dev_arena at RPS 0.6495 but Budget Planner aborted during Stage 7 after malformed tool JSON reached the unchanged 1,024-token limit and `/apply-template` returned HTTP 500 replaying history. Ornith aborted in dev_arena Stage 2 for the same model-output/truncation failure; Budget Planner was not run. Neither is eligible, no model is frozen, and no dev pilot or Phase 2 episode ran. Results and partial stage logs are in `experiments/gas0/analysis/model_selection_amended_20260929.json` and `experiments/gas0/analysis/model_selection_amended_20260929/`. Stop pending owner direction before testing another model or changing the protocol.
+**Codex:** Qwen3.5-9B Q6_K is frozen at `87959946`. The dev pilot audit is at `2ffe984`: C0 RPS 0.166888, C1 0.673706, C2 0.275063, C3 0.556534; C4 has no full-episode score because Stage 8 context assembly timed out. The audit found the frozen plan-first rule was enforced only on call 1, so a repaired malformed first response could be followed by a non-plan action; only 15 of 39 attempted stages began with `plan`. Treat current pilot numbers as descriptive diagnostics only. Wait for owner direction before any harness correction, rerun, evaluation-project episode, or Phase 2.
 
 **Cursor / Gemini:** wait.
 
