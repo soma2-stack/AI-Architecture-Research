@@ -1,0 +1,50 @@
+{
+  "model": "Meta Llama 3.1 8B Instruct Q6_K",
+  "synthetic_only": true,
+  "schemas": 11,
+  "explicit_parallel_tool_calls": false,
+  "context_tokens_per_sequence": 16384,
+  "template_apply_probe": {
+    "renders_tools": true,
+    "token_count": 1228
+  },
+  "turns": [
+    {
+      "index": 1,
+      "kind": "no_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 21,
+        "prompt_tokens": 1281,
+        "total_tokens": 1302,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "list_files",
+      "arguments": {
+        "path": "",
+        "depth": 0
+      },
+      "valid_json_arguments": true,
+      "expected_function": "list_files",
+      "function_match": true,
+      "arguments_match": false
+    }
+  ],
+  "http_500": false,
+  "apply_template_failure": false,
+  "eligible_preflight": false,
+  "failure": "wrong function/arguments at turn 1",
+  "successful_structured_turns": 0,
+  "successful_tool_calls_total": 0,
+  "tool_error_recovery": false,
+  "valid_tool_calls": 1,
+  "all_exact_single_calls": false,
+  "total_prompt_tokens": 1281,
+  "total_completion_tokens": 21,
+  "peak_context_tokens": 1302
+}

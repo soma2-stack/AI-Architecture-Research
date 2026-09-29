@@ -60,7 +60,8 @@ class LlamaClient:
     def chat(self, messages, tools, seed, max_tokens=1024):
         start = time.monotonic()
         body = {"model": self.model, "messages": messages, "tools": tools,
-                "tool_choice": "auto", "temperature": 0.2, "top_p": 0.95,
+                "tool_choice": "auto", "parallel_tool_calls": False,
+                "temperature": 0.2, "top_p": 0.95,
                 "seed": seed, "max_tokens": max_tokens, "stream": False}
         answer = self._post("/v1/chat/completions", body)
         usage = answer.get("usage", {})

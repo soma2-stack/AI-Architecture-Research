@@ -1,0 +1,174 @@
+{
+  "model": "Cohere Command R7B 12-2024 Q6_K_L",
+  "synthetic_only": true,
+  "schemas": 11,
+  "explicit_parallel_tool_calls": false,
+  "context_tokens_per_sequence": 16384,
+  "template_apply_probe": {
+    "renders_tools": true,
+    "token_count": 1960
+  },
+  "turns": [
+    {
+      "index": 1,
+      "kind": "no_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 46,
+        "prompt_tokens": 2050,
+        "total_tokens": 2096,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "list_files",
+      "arguments": {},
+      "valid_json_arguments": true,
+      "expected_function": "list_files",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 2,
+      "kind": "array_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 60,
+        "prompt_tokens": 2168,
+        "total_tokens": 2228,
+        "prompt_tokens_details": {
+          "cached_tokens": 2045
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "plan",
+      "arguments": {
+        "steps": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "valid_json_arguments": true,
+      "expected_function": "plan",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 3,
+      "kind": "string_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 59,
+        "prompt_tokens": 2299,
+        "total_tokens": 2358,
+        "prompt_tokens_details": {
+          "cached_tokens": 2163
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "read_file",
+      "arguments": {
+        "path": "synthetic.txt"
+      },
+      "valid_json_arguments": true,
+      "expected_function": "read_file",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 4,
+      "kind": "ordinary_error",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 46,
+        "prompt_tokens": 2424,
+        "total_tokens": 2470,
+        "prompt_tokens_details": {
+          "cached_tokens": 2294
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "run_tests",
+      "arguments": {},
+      "valid_json_arguments": true,
+      "expected_function": "run_tests",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "ordinary error"
+    },
+    {
+      "index": 5,
+      "kind": "error_recovery",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 51,
+        "prompt_tokens": 2555,
+        "total_tokens": 2606,
+        "prompt_tokens_details": {
+          "cached_tokens": 2419
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "grep",
+      "arguments": {
+        "pattern": "needle"
+      },
+      "valid_json_arguments": true,
+      "expected_function": "grep",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 6,
+      "kind": "sequential_success",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 74,
+        "prompt_tokens": 2680,
+        "total_tokens": 2754,
+        "prompt_tokens_details": {
+          "cached_tokens": 2550
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "create_file",
+      "arguments": {
+        "path": "synthetic.txt",
+        "content": "ok"
+      },
+      "valid_json_arguments": true,
+      "expected_function": "create_file",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    }
+  ],
+  "http_500": false,
+  "apply_template_failure": false,
+  "eligible_preflight": true,
+  "successful_structured_turns": 5,
+  "successful_tool_calls_total": 5,
+  "tool_error_recovery": true,
+  "valid_tool_calls": 6,
+  "all_exact_single_calls": true,
+  "total_prompt_tokens": 14176,
+  "total_completion_tokens": 336,
+  "peak_context_tokens": 2754
+}

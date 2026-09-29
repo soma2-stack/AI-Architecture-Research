@@ -1,0 +1,151 @@
+{
+  "model": "Qwen2.5-7B-Instruct Q6_K",
+  "condition": "C0",
+  "seed": 1,
+  "parallel_tool_calls": false,
+  "projects": {
+    "dev_arena": {
+      "RPS": 0.025,
+      "final": 0,
+      "stages": [
+        {
+          "stage": 1,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 2,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 3,
+          "SC": 0.3333333333333333,
+          "CR": 0.2
+        },
+        {
+          "stage": 4,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 5,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 6,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 7,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 8,
+          "SC": 0,
+          "CR": 0
+        }
+      ],
+      "regressions": [
+        {
+          "test": "tests/hidden_3/test_stage3_deferred.py::test_antidote_still_deferred",
+          "first_green": 3,
+          "red_stage": 4
+        },
+        {
+          "test": "tests/hidden_3/test_stage3_deferred.py::test_antidote_still_deferred",
+          "first_green": 3,
+          "red_stage": 5
+        },
+        {
+          "test": "tests/hidden_3/test_stage3_deferred.py::test_antidote_still_deferred",
+          "first_green": 3,
+          "red_stage": 6
+        }
+      ],
+      "requirement_retention": 0,
+      "resources": {
+        "model_calls": 206,
+        "prompt_tokens": 2305737,
+        "completion_tokens": 80980,
+        "peak_context_tokens": 16373,
+        "estimated_flops": 36325832740000000,
+        "gpu_seconds_upper_bound": 2781.872000000323,
+        "test_executions": 17,
+        "visible_test_seconds": 32.78300000028685,
+        "hidden_test_seconds": 15.751000000163913,
+        "tool_calls": 206,
+        "wall_seconds": 5245.561999999918,
+        "format_errors": 136
+      },
+      "episode_wall_elapsed_seconds": 5246.718999999925
+    },
+    "budget_planner": {
+      "RPS": 0.10208333333333333,
+      "final": 0,
+      "stages": [
+        {
+          "stage": 1,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 2,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 3,
+          "SC": 0.5,
+          "CR": 0.25
+        },
+        {
+          "stage": 4,
+          "SC": 0,
+          "CR": 0.2
+        },
+        {
+          "stage": 5,
+          "SC": 0,
+          "CR": 0.2
+        },
+        {
+          "stage": 6,
+          "SC": 0,
+          "CR": 0.16666666666666666
+        },
+        {
+          "stage": 7,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 8,
+          "SC": 0,
+          "CR": 0
+        }
+      ],
+      "regressions": [],
+      "requirement_retention": 0.1875,
+      "resources": {
+        "model_calls": 22,
+        "prompt_tokens": 57052,
+        "completion_tokens": 2012,
+        "peak_context_tokens": 3917,
+        "estimated_flops": 898954080000000,
+        "gpu_seconds_upper_bound": 53.06000000005588,
+        "test_executions": 0,
+        "visible_test_seconds": 0.0,
+        "hidden_test_seconds": 13.234999999869615,
+        "tool_calls": 22,
+        "wall_seconds": 68.20499999984168,
+        "format_errors": 8
+      },
+      "episode_wall_elapsed_seconds": 69.34400000004098
+    }
+  },
+  "uncaught_error": null
+}

@@ -132,3 +132,21 @@ This was a targeted review of the harness in response to a Perplexity audit. The
 2. A decision or constraint with no tests renders twice (UNPROTECTED plus DECISION), which spends ledger tokens. Left as specified.
 3. History trimming pops single messages, so a `tool` result can start the history without its assistant call. Some chat templates may reject this. Check it during model selection; the trimming is shared by all cells.
 4. `_fit` assumes non-decreasing token counts; this was not violated in any test.
+
+## Model selection continuation — 2026-09-29
+
+The authorized continuation used only C0 on `dev_arena` and `budget_planner`, seed 1. Synthetic tool preflights used no benchmark content. Every loaded model had a verified 16,384-token single sequence and all transformer layers on the RTX 3060. `parallel_tool_calls=false` was sent with the existing OpenAI tool schemas to enforce the existing one-action contract. Detailed pinned model hashes, preflight outcomes, and episode measurements are in `analysis/model_selection_continuation_20260929.json` and its linked records. Raw transcripts are retained under `%LOCALAPPDATA%/GAS0/model-selection-runs/20260929`.
+
+| Candidate | Preflight | C0 selection outcome |
+|---|---|---|
+| Command R7B Q6_K_L | Passed 6/6 | Dev run aborted on malformed tool arguments and llama.cpp HTTP 500; calibration not run |
+| Meta Llama 3.1 8B Q6_K | Failed array argument schema | Not run |
+| Hermes 2 Pro 8B | Native 8K context only | Not downloaded or run |
+| Qwen2.5 7B Instruct Q6_K | Passed 6/6 | Dev RPS 0.025; budget RPS 0.1021, below the unchanged 0.20 floor |
+| Functionary Small v3.2 Q6_K | Native parser HTTP 500 | Not run |
+| Mistral 7B Instruct v0.3 Q6_K | No structured tool calls under either tested template | Not run |
+| Qwen3.5 9B Q6_K | Passed 6/6 | Dev stage 1 aborted because its template rejected a system message after the stage request |
+| Qwen3-VL 8B Instruct Q6_K | Passed 6/6 | Dev RPS 0.0823; calibration aborted on malformed tool arguments and HTTP 500 |
+| Ornith 1.0 9B Q6_K | Passed 6/6 | Same post-request system-message template error as Qwen3.5 |
+
+No model passed selection. `frozen_config.json` was not created, no C0–C4 pilot ran, and Phase 2 remains unauthorized. The post-request `LATEST PLAN` system message is part of the current context assembly. Reordering it could make additional templates usable but changes the frozen prompt organization; that requires an explicit protocol decision before further screening. The calibration interval remains [0.20, 0.80].

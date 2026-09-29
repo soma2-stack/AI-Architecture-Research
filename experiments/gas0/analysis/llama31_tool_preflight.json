@@ -1,0 +1,65 @@
+{
+  "model": "Meta Llama 3.1 8B Instruct Q6_K",
+  "synthetic_only": true,
+  "schemas": 11,
+  "explicit_parallel_tool_calls": false,
+  "context_tokens_per_sequence": 16384,
+  "template_apply_probe": {
+    "renders_tools": true,
+    "token_count": 1228
+  },
+  "turns": [
+    {
+      "index": 1,
+      "kind": "no_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 14,
+        "prompt_tokens": 1282,
+        "total_tokens": 1296,
+        "prompt_tokens_details": {
+          "cached_tokens": 1270
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "undo_last_edit",
+      "arguments": {},
+      "valid_json_arguments": true,
+      "expected_function": "undo_last_edit",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 2,
+      "kind": "array_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 21,
+        "prompt_tokens": 1339,
+        "total_tokens": 1360,
+        "prompt_tokens_details": {
+          "cached_tokens": 1295
+        }
+      },
+      "accepted_unchanged_by_one_action": false,
+      "failure": "ValidationError: \"['alpha', 'beta']\" is not of type 'array'\n\nFailed validating 'type' in schema['properties']['steps']:\n    {'type': 'array',\n     'items': {'type': 'string'},\n     'description': 'stage plan'}\n\nOn instance['steps']:\n    \"['alpha', 'beta']\""
+    }
+  ],
+  "http_500": false,
+  "apply_template_failure": false,
+  "eligible_preflight": false,
+  "successful_structured_turns": 1,
+  "successful_tool_calls_total": 1,
+  "tool_error_recovery": false,
+  "valid_tool_calls": 1,
+  "all_exact_single_calls": false,
+  "total_prompt_tokens": 1282,
+  "total_completion_tokens": 14,
+  "peak_context_tokens": 1296,
+  "failure": "one or more preflight criteria failed"
+}

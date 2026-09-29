@@ -1,0 +1,24 @@
+{
+  "model": "Functionary Small v3.2 Q6_K",
+  "synthetic_only": true,
+  "schemas": 11,
+  "explicit_parallel_tool_calls": false,
+  "context_tokens_per_sequence": 16384,
+  "template_apply_probe": {
+    "renders_tools": false,
+    "token_count": 815
+  },
+  "turns": [],
+  "http_500": true,
+  "apply_template_failure": false,
+  "eligible_preflight": false,
+  "failure": "HTTP 500 at turn 1: {\"error\":{\"code\":500,\"message\":\"The model produced output that does not match the expected peg-native format\",\"type\":\"server_error\"}}",
+  "successful_structured_turns": 0,
+  "successful_tool_calls_total": 0,
+  "tool_error_recovery": false,
+  "valid_tool_calls": 0,
+  "all_exact_single_calls": true,
+  "total_prompt_tokens": 0,
+  "total_completion_tokens": 0,
+  "peak_context_tokens": 0
+}

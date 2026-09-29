@@ -9,10 +9,30 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 ### Codex resume/status -- 2026-09-29
 
 - **Current lens:** GAS-0 Verified Project State implementation. This is a known-mechanism synthesis and performance study, not a novelty claim.
-- **Stage:** Harness and dev project implemented, validated, committed, and pushed (`39b7f9c`, `bd20f2c`). Calibration and seven evaluation projects remain incomplete. The expression-interpreter starter is an unvalidated draft.
-- **Validation:** Six harness unit cases passed. The dev project has eight stages, 608 nonblank Python LOC in 14 files, 31 visible tests, 13 hidden tests, and four text-only/retention probes. Dev reference patches and tool oracle each scored RPS 1.0; null replay scored 0.0822916667. These are scoped dev checks, not full Section 12 benchmark validation.
-- **Model and compute:** No model selected or frozen. No model inference, GPU pilot, or Phase 2 episode has run. GPU time consumed by this implementation is zero; lightweight CPU validation ran, without a separately measured CPU-time ledger.
-- **Exact next action:** Finish calibration and all seven evaluation projects and run full Section 12 validation. Only then select a model on dev/calibration, freeze configuration and analysis plan, and run the authorized dev C0–C4 pilot within its resource limit. Stop before Phase 2 pending the owner's explicit authorization.
+- **Stage:** All nine benchmark projects and the full benchmark validator were completed earlier. Model selection continued on `main` at `a816691` with dev/calibration only. No model met the unchanged eligibility and calibration gates; no model is frozen, and no C0–C4 dev pilot or Phase 2 episode has run.
+- **Selection evidence:** Command R7B passed synthetic tools but its dev run ended in malformed tool JSON/HTTP 500; Meta Llama 3.1 failed the array-argument preflight; Hermes 2 Pro has only a safe native 8K context; Qwen2.5 7B passed preflight but scored dev RPS 0.025 and budget-planner RPS 0.1021 (<0.20); Functionary v3.2 had a native-parser HTTP 500; Mistral 7B v0.3 did not emit structured calls under either embedded or pinned original template; Qwen3.5 9B and Ornith 9B passed preflight but rejected the harness's post-request `LATEST PLAN` system message; Qwen3-VL 8B passed preflight but scored dev RPS 0.0823 and its calibration run aborted on malformed long tool JSON. Exact records are under `experiments/gas0/analysis/`; raw transcripts remain in `%LOCALAPPDATA%/GAS0/model-selection-runs/20260929`.
+- **Protocol issue:** `context.assemble` sends `LATEST PLAN` as a system message after the current-stage user request. Moving it changes the frozen prompt/context organization and could change both eligibility and treatment behavior. The model search has reached a scientific protocol decision; no such change was made.
+- **Exact next action:** Owner decides whether to authorize a documented common context-order correction and renewed dev/calibration screening, or stop GAS-0 at model-selection failure. Do not run the C0–C4 pilot unless a model first passes the fixed calibration gate and is frozen; Phase 2 still requires its explicit authorization.
+
+### GAS-0 model-selection continuation audit — 2026-09-29
+
+**Scope and outcome.** Starting from `a81669124b0542fb7ebab423b4b0819b7de0aa57`, I kept the frozen C0 dev/calibration scope, seed 1, 16,384-token single-sequence context, and budget-planner RPS gate [0.20, 0.80]. I screened the remaining named candidates and a small number of models with documented native llama.cpp tool support. No evaluation project was used. No model qualified, no freeze or C0–C4 pilot occurred, and Phase 2 remains unauthorized. The structured record with source revisions, GGUF hashes, templates, VRAM, and machine-readable outcomes is [`experiments/gas0/analysis/model_selection_continuation_20260929.json`](experiments/gas0/analysis/model_selection_continuation_20260929.json). Individual preflight and episode summaries sit beside it; full raw transcripts are under `%LOCALAPPDATA%/GAS0/model-selection-runs/20260929`.
+
+| Candidate | Synthetic structured-tool check | Selection result |
+|---|---|---|
+| Command R7B Q6_K_L | 6/6 pass | Dev retry aborted at stage 8 on malformed tool arguments/HTTP 500; budget not run |
+| Meta Llama 3.1 8B Q6_K | Failed: array returned as a string | No benchmark episode |
+| Hermes 2 Pro Llama-3 8B | Native context only 8K | No download or benchmark episode |
+| Qwen2.5 7B Instruct Q6_K | 6/6 pass | Dev RPS 0.025; budget RPS 0.102083, below 0.20 |
+| Functionary Small v3.2 Q6_K | Failed: native call parser HTTP 500 | No benchmark episode |
+| Mistral 7B v0.3 Q6_K | Failed: content text instead of `message.tool_calls` | No benchmark episode |
+| Qwen3.5 9B Q6_K | 6/6 pass | Dev aborted after plan because official template requires system messages first |
+| Qwen3-VL 8B Instruct Q6_K | 6/6 pass | Dev RPS 0.082292; budget aborted at stage 2 on malformed tool JSON/HTTP 500 |
+| Ornith 1.0 9B Q6_K | 6/6 pass | Same post-plan role-order template error as Qwen3.5 |
+
+**Resource accounting.** Qwen2.5 used 206 dev model calls and 22 budget calls, with 136 and 8 format errors respectively; its upper-bound GPU-call wall time was 2,834.932 seconds. Qwen3-VL used 240 dev calls and at most 425.253 seconds of dev GPU-call wall time; budget aborted before a final score. Other aborted runs and synthetic preflights used additional time recorded in the individual artifacts. These wall durations are upper bounds, not measured GPU busy time. The dev pilot's authorized 3 GPU-hour allocation was untouched. Loaded models used all GPU transformer layers; recorded VRAM usage remained below 12 GiB. No evaluation-model episode ran.
+
+**Protocol blocker.** `harness/context.py` appends `LATEST PLAN` as a system role message after `CURRENT STAGE REQUEST` as a user role message. Qwen3.5 and Ornith's official tool templates reject that order with `/apply-template` HTTP 500, after otherwise passing the synthetic tool preflight. Reordering the messages might unblock those models, but it changes the specified prompt/context organization and could affect the C0–C4 comparison. I did not make that change. No eligible model remains in this bounded continuation without an owner decision on a documented common protocol correction or a new scientifically clean model route. This is a model-selection failure, not evidence about VPS synergy.
 
 ### Prior anomaly-first resume -- 2026-09-28
 

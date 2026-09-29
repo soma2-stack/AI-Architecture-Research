@@ -1,0 +1,174 @@
+{
+  "model": "Qwen2.5 7B Instruct Q6_K",
+  "synthetic_only": true,
+  "schemas": 11,
+  "explicit_parallel_tool_calls": false,
+  "context_tokens_per_sequence": 16384,
+  "template_apply_probe": {
+    "renders_tools": true,
+    "token_count": 908
+  },
+  "turns": [
+    {
+      "index": 1,
+      "kind": "no_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 17,
+        "prompt_tokens": 946,
+        "total_tokens": 963,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "undo_last_edit",
+      "arguments": {},
+      "valid_json_arguments": true,
+      "expected_function": "undo_last_edit",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 2,
+      "kind": "array_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 23,
+        "prompt_tokens": 1011,
+        "total_tokens": 1034,
+        "prompt_tokens_details": {
+          "cached_tokens": 962
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "plan",
+      "arguments": {
+        "steps": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "valid_json_arguments": true,
+      "expected_function": "plan",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 3,
+      "kind": "string_argument",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 22,
+        "prompt_tokens": 1080,
+        "total_tokens": 1102,
+        "prompt_tokens_details": {
+          "cached_tokens": 1033
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "read_file",
+      "arguments": {
+        "path": "synthetic.txt"
+      },
+      "valid_json_arguments": true,
+      "expected_function": "read_file",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 4,
+      "kind": "ordinary_error",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 16,
+        "prompt_tokens": 1143,
+        "total_tokens": 1159,
+        "prompt_tokens_details": {
+          "cached_tokens": 1101
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "run_tests",
+      "arguments": {},
+      "valid_json_arguments": true,
+      "expected_function": "run_tests",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "ordinary error"
+    },
+    {
+      "index": 5,
+      "kind": "error_recovery",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 19,
+        "prompt_tokens": 1219,
+        "total_tokens": 1238,
+        "prompt_tokens_details": {
+          "cached_tokens": 1158
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "grep",
+      "arguments": {
+        "pattern": "needle"
+      },
+      "valid_json_arguments": true,
+      "expected_function": "grep",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    },
+    {
+      "index": 6,
+      "kind": "sequential_success",
+      "finish_reason": "tool_calls",
+      "tool_calls_count": 1,
+      "content_present": false,
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 1287,
+        "total_tokens": 1315,
+        "prompt_tokens_details": {
+          "cached_tokens": 1237
+        }
+      },
+      "accepted_unchanged_by_one_action": true,
+      "function": "create_file",
+      "arguments": {
+        "path": "synthetic.txt",
+        "content": "ok"
+      },
+      "valid_json_arguments": true,
+      "expected_function": "create_file",
+      "function_match": true,
+      "arguments_match": true,
+      "mock_tool_result": "success"
+    }
+  ],
+  "http_500": false,
+  "apply_template_failure": false,
+  "eligible_preflight": true,
+  "successful_structured_turns": 5,
+  "successful_tool_calls_total": 5,
+  "tool_error_recovery": true,
+  "valid_tool_calls": 6,
+  "all_exact_single_calls": true,
+  "total_prompt_tokens": 6686,
+  "total_completion_tokens": 125,
+  "peak_context_tokens": 1315
+}

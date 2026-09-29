@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-29",
+  "candidate": "NousResearch/Hermes-2-Pro-Llama-3-8B",
+  "original_revision": "f798274b30e7d2d4797c369edcc0cc7473b6e6f2",
+  "original_license": "llama3",
+  "parameter_class": "8B",
+  "documented_native_tool_template": "ggml-org/llama.cpp@4e7481175/models/templates/NousResearch-Hermes-2-Pro-Llama-3-8B-tool_use.jinja",
+  "template_sha256": "7ce09d55d3690e06c70b5c07228cc7e8c99c43a23cdc027762be4011efcdea6c",
+  "source_config": "https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B/resolve/f798274b30e7d2d4797c369edcc0cc7473b6e6f2/config.json",
+  "config_max_position_embeddings": 8192,
+  "config_rope_scaling": null,
+  "maintainer_context_statement": "https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B-GGUF/discussions/1",
+  "maintainer_context_summary": "GGUF context is 8K; RoPE scaling beyond that was described as pushing one's luck, with 8K the safe choice.",
+  "required_true_usable_context": 16384,
+  "verdict": "INELIGIBLE_BEFORE_DOWNLOAD_CONTEXT",
+  "reason": "The source model and its GGUF support an 8192-token native context, not the frozen 16384-token usable context. An unvalidated 2x RoPE extrapolation would not establish a true usable 16384-token window for GAS-0.",
+  "downloaded": false,
+  "gpu_loaded": false,
+  "synthetic_preflight_run": false,
+  "gas0_episodes_run": 0
+}

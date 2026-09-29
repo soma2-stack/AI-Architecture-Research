@@ -1,0 +1,170 @@
+{
+  "date": "2026-09-29",
+  "authorization": "Owner authorized continued model search and, only after an eligible freeze, a one-seed C0-C4 dev pilot. No model qualified; no pilot ran.",
+  "candidate_order": [
+    "Cohere Command R7B 12-2024",
+    "Meta Llama 3.1 8B Instruct",
+    "Hermes 2 Pro Llama-3 8B"
+  ],
+  "stop_after_first_eligible_candidate": true,
+  "allowed_projects": [
+    "dev_arena",
+    "budget_planner"
+  ],
+  "condition": "C0",
+  "seeds": [
+    1
+  ],
+  "context_tokens_per_sequence": 16384,
+  "parallel_sequences": 1,
+  "max_model_calls_per_stage": 30,
+  "max_completion_tokens_per_call": 1024,
+  "temperature": 0.2,
+  "top_p": 0.95,
+  "max_test_executions_per_stage": 40,
+  "stage_wall_limit_seconds": 1200,
+  "calibration_gate": "budget_planner RPS in [0.20, 0.80]",
+  "parallel_tool_calls": false,
+  "command_r7b": {
+    "original_model_repo": "CohereLabs/c4ai-command-r7b-12-2024",
+    "original_model_revision": "4f3d0aa6856e322f2f4480fe65420d5d53d297b8",
+    "gguf_repo": "bartowski/c4ai-command-r7b-12-2024-GGUF",
+    "gguf_revision": "bfc7a934c45cb839d84c8ca01d87f1cfa51aaa3f",
+    "gguf_file": "c4ai-command-r7b-12-2024-Q6_K_L.gguf",
+    "gguf_sha256": "76479cdeae94ffd050c564bf64bd8c26c151cc9f40e320433f81d41831cd3330",
+    "template": "ggml-org/llama.cpp@4e7481175/models/templates/CohereForAI-c4ai-command-r7b-12-2024-tool_use.jinja",
+    "template_sha256": "CC60B553279347D83DF761F5DC55B4B2FB66BC1FA9A33E219911C13C11552FAC",
+    "context_compatibility": "GGUF advertises n_ctx_train=8192; without RoPE scaling b11193 caps the slot at 8192. The original model card documents a 128K context window. A YaRN scale of 2 with original context 8192 produces a server slot of exactly 16384; use this fixed compatibility setting for both selection episodes and record it in any frozen config.",
+    "rope_scaling": "yarn",
+    "rope_scale": 2,
+    "yarn_original_context": 8192
+  },
+  "meta_llama_31_8b": {
+    "original_model_repo": "meta-llama/Llama-3.1-8B-Instruct",
+    "original_model_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "gguf_repo": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF",
+    "gguf_revision": "bf5b95e96dac0462e2a09145ec66cae9a3f12067",
+    "gguf_file": "Meta-Llama-3.1-8B-Instruct-Q6_K.gguf",
+    "gguf_sha256": "33981adf6bae52c503fb5c24f72539010632f7ed290a56c1315a8cd50adca587",
+    "license": "Llama 3.1 Community License (llama3.1)",
+    "parameter_count": 8000000000,
+    "template": "ggml-org/llama.cpp@4e7481175/models/templates/meta-llama-Llama-3.1-8B-Instruct.jinja",
+    "template_sha256": "E10CA381B1CCC5CF9DB52E371F3B6651576CAEE0A630B452E2816B2D404D4B65",
+    "context_claim": "Meta model card documents 128K; verify actual GGUF/server slot before preflight."
+  },
+  "additional_candidate_after_fixed_order": {
+    "reason": "Command R7B aborted the dev screen after malformed tool arguments poisoned /apply-template; Meta Llama 3.1 failed the array-argument schema in the synthetic preflight; Hermes 2 Pro was eliminated before download because its documented safe context is only 8192. The owner permits one further 7B-9B candidate with documented native llama.cpp tool support.",
+    "name": "Qwen2.5-7B-Instruct Q6_K",
+    "original_model_repo": "Qwen/Qwen2.5-7B-Instruct",
+    "original_model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "gguf_repo": "bartowski/Qwen2.5-7B-Instruct-GGUF",
+    "gguf_revision": "8911e8a47f92bac19d6f5c64a2e2095bd2f7d031",
+    "gguf_file": "Qwen2.5-7B-Instruct-Q6_K.gguf",
+    "gguf_sha256": "489138dfed4f04cd6dea56e5a8423e4aa05a0318cce2a4a72250fe1278e97cf8",
+    "license": "apache-2.0",
+    "parameter_count": 7610000000,
+    "source_native_max_position_embeddings": 32768,
+    "native_tool_template": "ggml-org/llama.cpp@4e7481175/models/templates/Qwen-Qwen2.5-7B-Instruct.jinja",
+    "template_sha256": "CD8E9439F0570856FD70470BF8889EBD8B5D1107207F67A5EFB46E342330527F"
+  },
+  "environment_setup": {
+    "python": "3.11.9",
+    "required_test_packages_installed_after_first_partial_attempt": {
+      "pytest": "9.1.1",
+      "pytest-timeout": "2.4.0",
+      "pytest-json-report": "1.5.0"
+    },
+    "first_partial_dev_attempt": "Stage 1 stopped at hidden scoring because the Python 3.11 environment lacked pytest. Two model calls were logged (one format error, then declare_stage_done); the attempt has no episode score and is preserved outside the repository. After installing the standard harness test dependencies, a direct run_visible check on the dev starter passed 24 tests with zero failures. The authorized dev selection episode is restarted in a fresh output directory; the partial attempt is not treated as an episode or silently discarded."
+  },
+  "no_eval_projects": true,
+  "no_c0_c4_pilot": true,
+  "no_phase_2": true,
+  "candidate_order_after_fixed_three": [
+    "Qwen2.5-7B-Instruct Q6_K",
+    "Functionary Small v3.2 Q6_K",
+    "Mistral-7B-Instruct-v0.3 Q6_K",
+    "Qwen3.5-9B Q6_K",
+    "Qwen3-VL-8B-Instruct Q6_K",
+    "Ornith-1.0-9B Q6_K"
+  ],
+  "status": "NO_ELIGIBLE_MODEL_PROTOCOL_DECISION_REQUIRED",
+  "selected_model": null,
+  "frozen_config_created": false,
+  "c0_c4_dev_pilot_run": false,
+  "phase_2_run": false,
+  "runtime": {
+    "engine": "llama.cpp b11193 0.5.0-dev",
+    "commit": "4e7481175",
+    "server_sha256": "eba08aa1a6ad397e8954874ca58f62271cf15ab45a85d6f1f59176a47cabd6c2",
+    "gpu": "RTX 3060 12 GB",
+    "context_per_sequence": 16384,
+    "parallel": 1,
+    "n_gpu_layers_requested": 99,
+    "parallel_tool_calls": false
+  },
+  "outcomes": [
+    {
+      "model": "Command R7B 12-2024 Q6_K_L",
+      "synthetic_preflight": "PASS 6/6",
+      "selection": "INELIGIBLE: dev stage 8 aborted with HTTP 500 after malformed 1024-token tool argument; calibration not run",
+      "dev_partial_calls": 16,
+      "dev_partial_format_errors": 9,
+      "local_raw": "%LOCALAPPDATA%/GAS0/model-selection-runs/20260929/command-r7b-q6kl_retry1"
+    },
+    {
+      "model": "Meta Llama 3.1 8B Instruct Q6_K",
+      "synthetic_preflight": "FAIL: array argument returned as string",
+      "selection": "NOT RUN",
+      "record": "llama31_tool_preflight.json"
+    },
+    {
+      "model": "Hermes 2 Pro Llama-3 8B",
+      "synthetic_preflight": "NOT RUN: original source has native 8192 context only",
+      "selection": "NOT RUN",
+      "record": "hermes2_context_gate.json"
+    },
+    {
+      "model": "Qwen2.5-7B-Instruct Q6_K",
+      "synthetic_preflight": "PASS 6/6",
+      "selection": "INELIGIBLE: budget_planner RPS 0.1020833333 below frozen 0.20",
+      "dev_rps": 0.025,
+      "budget_planner_rps": 0.10208333333333333,
+      "dev_format_errors": 136,
+      "budget_format_errors": 8,
+      "selection_record": "selection_qwen25_instruct_20260929.json"
+    },
+    {
+      "model": "Functionary Small v3.2 Q6_K",
+      "synthetic_preflight": "FAIL: HTTP 500, generated call did not match llama.cpp peg-native format",
+      "selection": "NOT RUN",
+      "record": "functionary_v32_tool_preflight.json"
+    },
+    {
+      "model": "Mistral-7B-Instruct-v0.3 Q6_K",
+      "synthetic_preflight": "FAIL: no structured call under GGUF embedded and pinned original tool-aware template",
+      "selection": "NOT RUN",
+      "record": "mistral_v03_official_template_preflight.json"
+    },
+    {
+      "model": "Qwen3.5-9B Q6_K",
+      "synthetic_preflight": "PASS 6/6",
+      "selection": "INELIGIBLE: dev stage 1 /apply-template HTTP 500 after plan; official template requires system first, while fixed context appends LATEST PLAN system after user",
+      "selection_record": "selection_qwen35_9b_20260929.json"
+    },
+    {
+      "model": "Qwen3-VL-8B-Instruct Q6_K",
+      "synthetic_preflight": "PASS 6/6",
+      "selection": "INELIGIBLE: dev RPS 0.0822916667, budget planner aborted at stage 2 after malformed long tool JSON caused HTTP 500",
+      "dev_rps": 0.08229166666666667,
+      "selection_record": "selection_qwen3vl_8b_20260929.json"
+    },
+    {
+      "model": "Ornith-1.0-9B Q6_K",
+      "synthetic_preflight": "PASS 6/6",
+      "selection": "INELIGIBLE: same post-plan system-message template error as Qwen3.5 on dev stage 1",
+      "selection_record": "selection_ornith_9b_20260929.json"
+    }
+  ],
+  "protocol_decision_needed": "The fixed context assembler sends LATEST PLAN as a system message after CURRENT STAGE REQUEST user message. Some otherwise tool-capable official templates reject this role order. Moving it before the user request would alter the frozen prompt/context organization and requires an owner protocol decision. Calibration remains [0.20,0.80]; no change is proposed or made here.",
+  "raw_transcripts_location": "%LOCALAPPDATA%/GAS0/model-selection-runs/20260929; machine-readable selection summaries copied into analysis/. No evaluation project was used."
+}

@@ -1,0 +1,40 @@
+{
+  "model": "Mistral 7B Instruct v0.3 Q6_K",
+  "synthetic_only": true,
+  "schemas": 11,
+  "explicit_parallel_tool_calls": false,
+  "context_tokens_per_sequence": 16384,
+  "template_apply_probe": {
+    "renders_tools": false,
+    "token_count": 849
+  },
+  "turns": [
+    {
+      "index": 1,
+      "kind": "no_argument",
+      "finish_reason": "stop",
+      "tool_calls_count": 0,
+      "content_present": true,
+      "usage": {
+        "completion_tokens": 12,
+        "prompt_tokens": 68,
+        "total_tokens": 80
+      },
+      "accepted_unchanged_by_one_action": false,
+      "failure": "ValueError: expected one tool call"
+    }
+  ],
+  "http_500": false,
+  "apply_template_failure": false,
+  "eligible_preflight": false,
+  "successful_structured_turns": 0,
+  "successful_tool_calls_total": 0,
+  "tool_error_recovery": false,
+  "valid_tool_calls": 0,
+  "all_exact_single_calls": false,
+  "total_prompt_tokens": 0,
+  "total_completion_tokens": 0,
+  "peak_context_tokens": 0,
+  "failure": "no structured tool call with GGUF embedded template",
+  "template": "GGUF embedded"
+}
