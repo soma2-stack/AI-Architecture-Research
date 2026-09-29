@@ -1,0 +1,124 @@
+{
+  "project": "expression_interpreter",
+  "kind": "evaluation",
+  "stages": 8,
+  "orientation_answers": {
+    "q1": "expr.lexer.tokenize",
+    "q2": "expr.token.PUNCTUATION",
+    "q3": "expr.nodes.Assign",
+    "q4": "expr.parser.parse",
+    "q5": "expr.runtime.evaluate",
+    "q6": "expr.errors.ExpressionError",
+    "q7": "expr.builtins.FUNCTIONS",
+    "q8": "expr.cli.run_lines"
+  },
+  "probes": [
+    {
+      "introduced": 1,
+      "retired": 2,
+      "tests": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "text_only": false,
+      "requirement": "R1.1"
+    },
+    {
+      "introduced": 2,
+      "retired": null,
+      "tests": [
+        "tests/hidden_2/test_stage2.py::test_relational_operators_and_parenthesized_boolean",
+        "tests/hidden_2/test_stage2.py::test_assignment_does_not_coerce_boolean_to_python_bool",
+        "tests/hidden_2/test_stage2.py::test_equality_is_not_truthiness"
+      ],
+      "text_only": false,
+      "requirement": "R2.1"
+    },
+    {
+      "introduced": 2,
+      "retired": 5,
+      "tests": [
+        "tests/hidden_2/test_stage2_legacy.py::test_legacy_integer_division_contract"
+      ],
+      "text_only": true,
+      "requirement": "R2.2"
+    },
+    {
+      "introduced": 3,
+      "retired": null,
+      "tests": [
+        "tests/hidden_3/test_stage3.py::test_multiple_functions_and_argument_order",
+        "tests/hidden_3/test_stage3.py::test_function_body_does_not_read_caller_local_values",
+        "tests/hidden_3/test_stage3.py::test_builtin_calls_still_resolve_inside_function"
+      ],
+      "text_only": false,
+      "requirement": "R3.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 7,
+      "tests": [
+        "tests/hidden_3/test_stage3_deferred.py::test_boolean_operators_remain_deferred"
+      ],
+      "text_only": true,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 4,
+      "retired": null,
+      "tests": [
+        "tests/hidden_4/test_stage4.py::test_ceil_arity_fix_preserves_other_unary_builtins"
+      ],
+      "text_only": false,
+      "requirement": "R4.1"
+    },
+    {
+      "introduced": 5,
+      "retired": null,
+      "tests": [
+        "tests/hidden_5/test_stage5.py::test_division_inside_function_uses_true_division",
+        "tests/hidden_5/test_stage5.py::test_floor_precedence_and_comparison",
+        "tests/hidden_5/test_stage5.py::test_float_operands_floor_correctly"
+      ],
+      "text_only": false,
+      "requirement": "R5.1"
+    },
+    {
+      "introduced": 6,
+      "retired": null,
+      "tests": [
+        "tests/hidden_6/test_stage6.py::test_recursive_whitelist_covers_children",
+        "tests/hidden_6/test_stage6.py::test_every_parsed_program_passes_guard_without_changing_result"
+      ],
+      "text_only": false,
+      "requirement": "G6.1"
+    },
+    {
+      "introduced": 7,
+      "retired": null,
+      "tests": [
+        "tests/hidden_7/test_stage7.py::test_and_or_evaluate_right_side_only_when_needed",
+        "tests/hidden_7/test_stage7.py::test_evaluated_right_side_normalizes_to_boolean",
+        "tests/hidden_7/test_stage7.py::test_extra_and_missing_arguments_both_rejected",
+        "tests/hidden_7/test_stage3_deferred_stage7.py::test_deferred_boolean_operators_now_short_circuit"
+      ],
+      "text_only": false,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 8,
+      "retired": null,
+      "tests": [
+        "tests/hidden_8/test_stage8.py::test_cli_flag_formats_each_error_line"
+      ],
+      "text_only": false,
+      "requirement": "R8.1"
+    }
+  ]
+}

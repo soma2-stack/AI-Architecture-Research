@@ -1,0 +1,45 @@
+--- a/td/save.py
++++ b/td/save.py
+@@ -3,6 +3,8 @@
+ def save_game(game):
+     return {
+         "wave": game.wave,
++        "seed": game.seed,
++        "rng_state": repr(game.rng.getstate()) if game.rng else None,
+         "tick": game.tick_count,
+         "lives": game.lives,
+         "money": game.money,
+@@ -27,6 +29,8 @@
+                 "max_hp": enemy.max_hp,
+                 "alive": enemy.alive,
+                 "kind": enemy.kind,
++                "slow_ticks": enemy.slow_ticks,
++                "armor": enemy.armor,
+             }
+             for enemy in game.enemies
+         ],
+@@ -41,7 +45,7 @@
+         lives=data["lives"],
+         money=data["money"],
+         tick_count=data["tick"],
+-        wave=data["wave"],
++        wave=data["wave"], seed=data.get("seed", 0),
+     )
+     game.towers = [
+         Tower(
+@@ -64,9 +68,15 @@
+             row["max_hp"],
+             row["alive"],
+             row["kind"],
++            row.get("slow_ticks", 0), row.get("armor", 0),
+         )
+         for row in data["enemies"]
+     ]
++    if data.get('rng_state') is not None:
++        import ast
++        from .rng import GameRNG
++        game.rng = GameRNG(game.seed)
++        game.rng.setstate(ast.literal_eval(data['rng_state']))
+     return game
+ 
+ 

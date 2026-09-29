@@ -24,10 +24,14 @@ def _mean(values):
     return sum(values) / len(values)
 
 
-def _absolute(values):
+def _one(values, name):
     if len(values) != 1:
-        raise EvalError("abs needs one argument")
-    return abs(values[0])
+        raise EvalError(f"{name} needs one argument")
+    return values[0]
+
+
+def _absolute(values):
+    return abs(_one(values, "abs"))
 
 
 def _round(values):

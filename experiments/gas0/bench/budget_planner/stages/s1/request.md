@@ -1,0 +1,1 @@
+Do not edit. Inspect the project and return JSON with exactly q1 through q8: q1 the amount parser; q2 the transaction fields; q3 the date format; q4 the monthly summary entry point; q5 category normalization; q6 saved schema version; q7 CSV import entry point; q8 CLI command that prints a monthly summary. Use exact names and values.

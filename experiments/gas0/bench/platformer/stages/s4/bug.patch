@@ -1,0 +1,11 @@
+--- a/platformer/collision.py
++++ b/platformer/collision.py
+@@ -4,7 +4,7 @@
+ 
+ def platform_delta(previous,current):
+     """Return one frame of carrier motion from two platform positions."""
+-    return current-previous
++    return (current-previous).scaled(2)
+ 
+ def carry_body(body,previous,current):
+     delta=platform_delta(previous,current)

@@ -1,0 +1,1 @@
+The supplied save crashes because its optional projects collection is null. Diagnose the load failure and preserve compatibility with older saves that omit the collection. Also implement the bulk-complete/undo behavior deferred in Stage 3; undo must restore each task's prior completion state and original list order.

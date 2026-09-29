@@ -1,0 +1,33 @@
+--- a/spaceecs/save.py
++++ b/spaceecs/save.py
+@@ -6,13 +6,13 @@
+         "next": world.next_entity_id,
+         "entities": [
+             {"id": e.entity_id, "x": e.x, "y": e.y, "vx": e.vx, "vy": e.vy,
+-             "hp": e.hp, "faction": e.faction, "alive": e.alive}
++             "hp": e.hp, "faction": e.faction, "alive": e.alive, "shield": e.shield}
+             for e in sorted(world.entities.values(), key=lambda item: item.entity_id)
+         ],
+         "projectiles": [
+             {"id": p.entity_id, "owner": p.owner_id, "x": p.x, "y": p.y,
+              "px": p.previous_x, "py": p.previous_y, "vx": p.vx, "vy": p.vy,
+-             "damage": p.damage, "radius": p.radius}
++             "damage": p.damage, "radius": p.radius, "piercing": p.piercing}
+             for p in sorted(world.projectiles.values(), key=lambda item: item.entity_id)
+         ],
+     }
+@@ -25,11 +25,12 @@
+     for row in data["entities"]:
+         world.entities[row["id"]] = Entity(
+             row["id"], row["x"], row["y"], row["vx"], row["vy"], row["hp"],
+-            row["faction"], row["alive"])
++            row["faction"], row["alive"], row.get("shield", 0))
+     for row in data["projectiles"]:
+         world.projectiles[row["id"]] = Projectile(
+             row["id"], row["owner"], row["x"], row["y"], row["px"], row["py"],
+-            row["vx"], row["vy"], row["damage"], row["radius"])
++            row["vx"], row["vy"], row["damage"], row["radius"],
++            row.get("piercing", False))
+     return world
+ 
+ 

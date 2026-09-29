@@ -1,0 +1,10 @@
+--- a/deckgame/combat.py
++++ b/deckgame/combat.py
+@@ -38,6 +38,7 @@
+ def end_enemy_turn(battle):
+     """Resolve enemy action and start the next player turn."""
+     suffered = enemy_attack(battle)
++    battle.block = 0
+     battle.turn += 1
+     battle.energy = 3
+     return suffered

@@ -1,0 +1,73 @@
+--- a/rogue/combat.py
++++ b/rogue/combat.py
+@@ -2,6 +2,7 @@
+ from dataclasses import dataclass
+ from .model import Actor,Enemy,Player
+ from .errors import InvalidAction
++from .damage import DamagePacket,DamageType,ResistanceProfile,resolve_damage
+ 
+ @dataclass(frozen=True)
+ class CombatResult:
+@@ -10,16 +11,18 @@
+     attempted:int
+     applied:int
+     defeated:bool
++    damage_type:str="physical"
+ 
+ def poison_tick_amount(damage):
+     """Central tick calculation so effects and combat use one rule."""
+     return max(0,int(damage))
+ 
+-def attack(source:Actor,target:Actor,power=1):
++def attack(source:Actor,target:Actor,power=1,kind=DamageType.PHYSICAL,resistance=ResistanceProfile()):
+     if not source.alive: raise InvalidAction("dead actor cannot attack")
+     if not target.alive: raise InvalidAction("target is already defeated")
+-    amount=max(0,int(power)); applied=target.take_damage(amount)
+-    return CombatResult(source.actor_id,target.actor_id,amount,applied,not target.alive)
++    packet=DamagePacket(max(0,int(power)),DamageType(kind),source.actor_id)
++    outcome=resolve_damage(target,packet,resistance)
++    return CombatResult(source.actor_id,target.actor_id,outcome.attempted,outcome.applied,outcome.defeated,outcome.kind.value)
+ 
+ def enemy_turn(player:Player,enemies):
+     total=0
+--- /dev/null
++++ b/rogue/damage.py
+@@ -0,0 +1,38 @@
++"""Typed damage packets with explicit, bounded mitigation."""
++from dataclasses import dataclass
++from enum import Enum
++from .model import Actor
++
++class DamageType(str,Enum):
++    PHYSICAL="physical"; FIRE="fire"; POISON="poison"
++
++@dataclass(frozen=True)
++class DamagePacket:
++    amount:int
++    kind:DamageType
++    source_id:str
++    def __post_init__(self):
++        if self.amount<0: raise ValueError("damage cannot be negative")
++
++@dataclass(frozen=True)
++class ResistanceProfile:
++    physical:int=0
++    fire:int=0
++    poison:int=0
++    def against(self,kind): return max(0,int(getattr(self,DamageType(kind).value)))
++
++@dataclass(frozen=True)
++class DamageOutcome:
++    kind:DamageType
++    attempted:int
++    resisted:int
++    applied:int
++    defeated:bool
++
++def resolve_damage(target:Actor,packet:DamagePacket,resistance=ResistanceProfile()):
++    blocked=min(packet.amount,resistance.against(packet.kind))
++    applied=target.take_damage(packet.amount-blocked)
++    return DamageOutcome(packet.kind,packet.amount,blocked,applied,not target.alive)
++
++def weakness_bonus(packet,weakness):
++    return DamagePacket(packet.amount+1,packet.kind,packet.source_id) if DamageType(packet.kind)==DamageType(weakness) else packet

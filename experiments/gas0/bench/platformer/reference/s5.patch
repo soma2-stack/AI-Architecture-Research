@@ -1,0 +1,16 @@
+--- a/platformer/geometry.py
++++ b/platformer/geometry.py
+@@ -20,11 +20,11 @@
+     def contains(self,point): return self.left<=point.x<=self.right and self.top<=point.y<=self.bottom
+ 
+ def overlap(a:Rect,b:Rect):
+-    return a.left<=b.right and a.right>=b.left and a.top<=b.bottom and a.bottom>=b.top
++    return a.left<b.right and a.right>b.left and a.top<b.bottom and a.bottom>b.top
+ 
+ def intersection(a:Rect,b:Rect):
+     left=max(a.left,b.left); top=max(a.top,b.top); right=min(a.right,b.right); bottom=min(a.bottom,b.bottom)
+-    return Rect(left,top,right,bottom) if right>=left and bottom>=top else None
++    return Rect(left,top,right,bottom) if right>left and bottom>top else None
+ 
+ def union(a:Rect,b:Rect): return Rect(min(a.left,b.left),min(a.top,b.top),max(a.right,b.right),max(a.bottom,b.bottom))
+ def from_body(body): return Rect(*body.bounds())

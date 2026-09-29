@@ -1,0 +1,59 @@
+--- a/expr/lexer.py
++++ b/expr/lexer.py
+@@ -42,7 +42,9 @@
+             cursor += 1
+             while cursor < len(source) and (source[cursor].isalnum() or source[cursor] == "_"):
+                 cursor += 1
+-            tokens.append(Token("NAME", source[start:cursor], start))
++            text = source[start:cursor]
++            kind = {"and": "AND", "or": "OR"}.get(text, "NAME")
++            tokens.append(Token(kind, text, start))
+             continue
+         raise LexError(f"unexpected character {char!r}", cursor)
+     tokens.append(Token("EOF", "", len(source)))
+--- a/expr/parser.py
++++ b/expr/parser.py
+@@ -59,6 +59,18 @@
+         return Program(tuple(statements))
+ 
+     def expression(self):
++        node = self.logical_and()
++        while self.accept("OR"):
++            node = Binary("OR", node, self.logical_and(), self.tokens[self.index - 1].position)
++        return node
++
++    def logical_and(self):
++        node = self.comparison()
++        while self.accept("AND"):
++            node = Binary("AND", node, self.comparison(), self.tokens[self.index - 1].position)
++        return node
++
++    def comparison(self):
+         node = self.additive()
+         while self.current.kind in {"EQ", "NE", "LT", "LE", "GT", "GE"}:
+             operator = self.advance()
+--- a/expr/runtime.py
++++ b/expr/runtime.py
+@@ -53,7 +53,13 @@
+         return value if node.operator == "PLUS" else -value
+     if isinstance(node, Binary):
+         left = evaluate_node(node.left, env)
++        if node.operator == "AND" and left == 0:
++            return 0.0
++        if node.operator == "OR" and left != 0:
++            return 1.0
+         right = evaluate_node(node.right, env)
++        if node.operator in {"AND", "OR"}:
++            return float(right != 0)
+         if node.operator == "PLUS":
+             result = left + right
+         elif node.operator == "MINUS":
+@@ -88,6 +94,8 @@
+         args = [evaluate_node(arg, env) for arg in node.arguments]
+         function = env.functions.get(node.callee)
+         if function is not None:
++            if len(args) != len(function.parameters):
++                raise EvalError("wrong number of function arguments", node.position)
+             local = Environment()
+             for index, name in enumerate(function.parameters):
+                 local.assign(name, args[index])

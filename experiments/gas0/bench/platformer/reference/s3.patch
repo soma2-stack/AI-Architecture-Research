@@ -1,0 +1,18 @@
+--- /dev/null
++++ b/platformer/pressure.py
+@@ -0,0 +1,15 @@
++"""Weight-sensitive pressure switch evaluation."""
++from .geometry import Rect,overlap,from_body
++
++def pressed(player,plate):
++    if not player.on_ground: return False
++    feet=Rect(player.position.x,player.position.y+player.height-0.05,
++              player.position.x+player.width,player.position.y+player.height+0.05)
++    return overlap(feet,plate)
++
++def update_plate(player,plate,previous=False):
++    current=pressed(player,plate)
++    return {"pressed":current,"activated":current and not previous,
++            "released":previous and not current}
++
++def plate_weight(player): return max(1,int(player.width*player.height))

@@ -1,0 +1,38 @@
+--- a/rogue/effects.py
++++ b/rogue/effects.py
+@@ -31,3 +31,11 @@
+     return applied
+ 
+ def status_names(book,actor_id): return ("poison",) if book.get(actor_id) else ()
++
++
++def use_cleansing_charm(player,book,item_id):
++    item=next((row for row in player.inventory if row.item_id==item_id),None)
++    if item is None: raise KeyError(item_id)
++    if item.kind!="charm": raise ValueError("item is not a cleansing charm")
++    book.remove(player.actor_id); player.heal(1); player.inventory.remove(item)
++    return player.hp
+--- a/rogue/model.py
++++ b/rogue/model.py
+@@ -58,7 +58,7 @@
+     kind:str
+     power:int=0
+     def __post_init__(self):
+-        if not self.item_id or self.kind not in {"potion","key","weapon","tonic"}: raise ValueError("invalid item")
++        if not self.item_id or self.kind not in {"potion","key","weapon","tonic","charm"}: raise ValueError("invalid item")
+         if self.power<0: raise ValueError("item power cannot be negative")
+ 
+ def actor_at(actors,position): return next((a for a in actors if a.position==position and a.alive),None)
+--- a/rogue/world.py
++++ b/rogue/world.py
+@@ -24,7 +24,9 @@
+     @property
+     def lost(self): return not self.player.alive
+     def visible_enemies(self): return sorted((e for e in self.enemies if e.alive),key=lambda e:e.actor_id)
+-    def last_enemy_name(self): return self.visible_enemies()[-1].name
++    def last_enemy_name(self):
++        enemies=self.visible_enemies()
++        return enemies[-1].name if enemies else None
+     def enemy_at(self,point): return actor_at(self.enemies,point)
+     def log(self,message): self.messages.append(str(message)); self.messages=self.messages[-20:]
+ 

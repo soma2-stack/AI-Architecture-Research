@@ -1,0 +1,104 @@
+--- a/budgeter/csv_io.py
++++ b/budgeter/csv_io.py
+@@ -2,6 +2,7 @@
+ from __future__ import annotations
+ 
+ import csv
++from .amounts import format_amount
+ import io
+ 
+ from .errors import ValidationError
+@@ -17,7 +18,7 @@
+     writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
+     writer.writeheader()
+     for row in sorted(rows, key=lambda item: (item.day, item.transaction_id)):
+-        writer.writerow({key: row.to_dict().get(key, "") for key in FIELDS})
++        writer.writerow({key: (format_amount(row.amount) if key == "amount" else row.to_dict().get(key, "")) for key in FIELDS})
+     return stream.getvalue()
+ 
+ 
+--- a/budgeter/model.py
++++ b/budgeter/model.py
+@@ -6,34 +6,44 @@
+ from .dates import parse_date
+ from .errors import ValidationError
+ 
+-@dataclass
++@dataclass(init=False)
+ class Transaction:
+     transaction_id: str
+     day: str
+-    amount: Decimal
++    amount_cents: int
+     category: str
+-    description: str = ""
+-    recurring: str | None = None
++    description: str
++    recurring: str | None
+ 
+-    def __post_init__(self):
+-        self.transaction_id = str(self.transaction_id).strip()
+-        if not self.transaction_id:
+-            raise ValidationError("transaction id is required")
+-        self.day = parse_date(self.day).isoformat()
+-        self.amount = parse_amount(self.amount)
+-        self.category = normalize_category(self.category)
+-        self.description = str(self.description).strip()
++    def __init__(self, transaction_id, day, amount, category, description="", recurring=None):
++        self.transaction_id=str(transaction_id).strip()
++        if not self.transaction_id: raise ValidationError("transaction id is required")
++        self.day=parse_date(day).isoformat()
++        self.amount_cents=int(parse_amount(amount)*100)
++        self.category=normalize_category(category)
++        self.description=str(description).strip()
++        self.recurring=recurring
++
++    @property
++    def amount(self):
++        """Decimal display boundary; calculations use amount_cents."""
++        return Decimal(self.amount_cents)/100
++
++    @property
++    def amount_value(self):
++        return self.amount
+ 
+     def to_dict(self):
+-        from dataclasses import asdict
+-        row = asdict(self)
+-        row["amount"] = str(self.amount)
+-        return row
++        return {"transaction_id":self.transaction_id,"day":self.day,
++                "amount_cents":self.amount_cents,"category":self.category,
++                "description":self.description,"recurring":self.recurring}
+ 
+     @classmethod
+     def from_dict(cls,row):
+-        return cls(**{key: row.get(key) for key in
+-                      ("transaction_id", "day", "amount", "category", "description", "recurring")})
++        cents=row.get("amount_cents")
++        amount=Decimal(int(cents))/100 if cents is not None else row.get("amount",0)
++        return cls(row.get("transaction_id"),row.get("day"),amount,
++                   row.get("category"),row.get("description", ""),row.get("recurring"))
+ 
+ @dataclass
+ class SavingsGoal:
+--- a/budgeter/store.py
++++ b/budgeter/store.py
+@@ -14,7 +14,7 @@
+ 
+ 
+ class BudgetStore:
+-    VERSION = 1
++    VERSION = 2
+ 
+     def __init__(self, path: str | Path):
+         self.path = Path(path)
+@@ -62,7 +62,7 @@
+ 
+     @classmethod
+     def from_payload(cls, path: str | Path, data: dict) -> "BudgetStore":
+-        if data.get("version") != cls.VERSION:
++        if data.get("version") not in {1, cls.VERSION}:
+             raise StorageError("unsupported budget schema")
+         store = cls(path)
+         store.transactions = [Transaction.from_dict(row) for row in data.get("transactions", [])

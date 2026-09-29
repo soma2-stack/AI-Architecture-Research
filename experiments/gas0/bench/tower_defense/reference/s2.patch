@@ -1,0 +1,38 @@
+--- a/td/model.py
++++ b/td/model.py
+@@ -27,6 +27,7 @@
+     max_hp: int
+     alive: bool = True
+     kind: str = "basic"
++    slow_ticks: int = 0
+ 
+ 
+ @dataclass
+--- a/td/pathing.py
++++ b/td/pathing.py
+@@ -16,7 +16,10 @@
+ def move_enemies(game, distance=1):
+     """Advance all live enemies, decrementing lives for each escape."""
+     escaped = []
++    from .slow import tick_slow
+     for enemy in game.enemies:
++        if enemy.alive and tick_slow(enemy):
++            continue
+         if advance_enemy(enemy, distance):
+             enemy.alive = False
+             game.lives = max(0, game.lives - 1)
+--- /dev/null
++++ b/td/slow.py
+@@ -0,0 +1,12 @@
++from .model import Event
++
++def apply_slow(game, enemy, ticks=2):
++    enemy.slow_ticks = max(getattr(enemy, "slow_ticks", 0), int(ticks))
++    game.events.append(Event(game.tick_count, "slow", "slow_tower", enemy.enemy_id, enemy.slow_ticks))
++    return enemy.slow_ticks
++
++def tick_slow(enemy):
++    active = getattr(enemy, "slow_ticks", 0) > 0
++    if active:
++        enemy.slow_ticks -= 1
++    return active

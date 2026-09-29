@@ -1,0 +1,97 @@
+--- a/taskapp/model.py
++++ b/taskapp/model.py
+@@ -17,6 +17,7 @@
+     completed: bool = False
+     tags: tuple[str, ...] = ()
+     due_date: str | None = None
++    project_id: str | None = None
+ 
+     def __post_init__(self):
+         self.task_id = str(self.task_id).strip()
+@@ -33,14 +34,16 @@
+     def to_dict(self):
+         return {"task_id": self.task_id, "title": self.title,
+                 "description": self.description, "completed": self.completed,
+-                "tags": list(self.tags), "due_date": self.due_date}
++                "tags": list(self.tags), "due_date": self.due_date,
++                "project_id": self.project_id}
+ 
+     @classmethod
+     def from_dict(cls, row):
+         return cls(task_id=row["task_id"], title=row["title"],
+                    description=row.get("description", ""),
+                    completed=row.get("completed", False),
+-                   tags=tuple(row.get("tags", ())), due_date=row.get("due_date"))
++                   tags=tuple(row.get("tags", ())), due_date=row.get("due_date"),
++                   project_id=row.get("project_id"))
+ 
+ 
+ def normalize_tags(values):
+--- /dev/null
++++ b/taskapp/projects.py
+@@ -0,0 +1,37 @@
++"""Named-project registry and deterministic project task ordering."""
++from dataclasses import dataclass
++from .errors import MissingProject, ValidationError
++from .dates import is_overdue, date_sort_key
++
++@dataclass(frozen=True)
++class Project:
++    project_id: str
++    name: str
++
++    def __post_init__(self):
++        if not self.project_id.strip() or not self.name.strip():
++            raise ValidationError("project id and name are required")
++
++class ProjectRegistry:
++    def __init__(self, projects=None):
++        self.projects={row.project_id:row for row in (projects or [])}
++    def add(self, project_id, name):
++        if project_id in self.projects: raise ValidationError("duplicate project id")
++        row=Project(project_id,name); self.projects[project_id]=row; return row
++    def require(self, project_id):
++        try: return self.projects[project_id]
++        except KeyError as exc: raise MissingProject(project_id) from exc
++    def payload(self):
++        return {key:row.name for key,row in sorted(self.projects.items())}
++    @classmethod
++    def from_payload(cls, data):
++        return cls([Project(key,value) for key,value in data.items()])
++
++def project_tasks(tasks, project_id, today):
++    selected=[task for task in tasks if task.project_id==project_id]
++    return sorted(selected,key=lambda task:(task.completed,
++        0 if is_overdue(task.due_date,today) else 1,
++        date_sort_key(task.due_date),task.task_id))
++
++def assign_project(task, registry, project_id):
++    registry.require(project_id); task.project_id=project_id; return task
+--- a/taskapp/store.py
++++ b/taskapp/store.py
+@@ -19,6 +19,7 @@
+         self.path = Path(path)
+         self.tasks = []
+         self.preferences = {"hide_done": False}
++        self.projects = {}
+ 
+     def add(self, task):
+         if any(row.task_id == task.task_id for row in self.tasks):
+@@ -30,7 +31,8 @@
+             raise ValueError("duplicate task id")
+         return {"version": self.VERSION,
+                 "tasks": [self._task_payload(task) for task in self.tasks],
+-                "preferences": dict(self.preferences)}
++                "preferences": dict(self.preferences),
++                "projects": dict(sorted(self.projects.items()))}
+ 
+     @staticmethod
+     def _task_payload(task):
+@@ -54,6 +56,7 @@
+         store = cls(path)
+         store.tasks = [Task.from_dict(row) for row in data.get("tasks", [])]
+         store.preferences = dict(data.get("preferences", {}))
++        store.projects = dict(data.get("projects", {}))
+         if not ids_are_unique(store.tasks):
+             raise StorageError("duplicate task id")
+         return store

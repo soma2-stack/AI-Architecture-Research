@@ -1,0 +1,121 @@
+{
+  "project": "roguelike",
+  "kind": "evaluation",
+  "stages": 8,
+  "orientation_answers": {
+    "q1": "rogue.model.Player",
+    "q2": "rogue.grid.Grid",
+    "q3": "rogue.world.move_player",
+    "q4": "rogue.combat.attack",
+    "q5": "rogue.inventory.use_potion",
+    "q6": 1,
+    "q7": "rogue.rng.SeededRNG",
+    "q8": "rogue.display.render_grid"
+  },
+  "probes": [
+    {
+      "introduced": 1,
+      "retired": 2,
+      "tests": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "text_only": false,
+      "requirement": "R1.1"
+    },
+    {
+      "introduced": 2,
+      "retired": null,
+      "tests": [
+        "tests/hidden_2/test_stage2.py::test_tonic_at_full_health_keeps_new_capacity_available",
+        "tests/hidden_2/test_stage2.py::test_tonic_consumption_cannot_be_repeated"
+      ],
+      "text_only": false,
+      "requirement": "R2.1"
+    },
+    {
+      "introduced": 2,
+      "retired": 5,
+      "tests": [
+        "tests/hidden_2/test_stage2_legacy.py::test_flat_attack_has_no_damage_type_field_yet"
+      ],
+      "text_only": true,
+      "requirement": "R2.2"
+    },
+    {
+      "introduced": 3,
+      "retired": null,
+      "tests": [
+        "tests/hidden_3/test_stage3.py::test_poison_is_nonlethal_even_when_damage_exceeds_health",
+        "tests/hidden_3/test_stage3.py::test_status_book_round_trip_preserves_duration",
+        "tests/hidden_3/test_stage3.py::test_poison_for_another_actor_does_not_tick_player"
+      ],
+      "text_only": false,
+      "requirement": "R3.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 7,
+      "tests": [
+        "tests/hidden_3/test_cleanse_deferred.py::test_cleansing_charm_is_deferred"
+      ],
+      "text_only": true,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 4,
+      "retired": null,
+      "tests": [
+        "tests/hidden_4/test_stage4.py::test_repeated_poison_ticks_do_not_double_damage"
+      ],
+      "text_only": false,
+      "requirement": "R4.1"
+    },
+    {
+      "introduced": 5,
+      "retired": null,
+      "tests": [
+        "tests/hidden_5/test_stage5.py::test_resistance_cannot_absorb_more_than_attempted_damage",
+        "tests/hidden_5/test_stage5.py::test_weakness_bonus_is_typed_and_immutable"
+      ],
+      "text_only": false,
+      "requirement": "R5.1"
+    },
+    {
+      "introduced": 6,
+      "retired": null,
+      "tests": [
+        "tests/hidden_6/test_stage6.py::test_each_world_event_consumes_one_private_draw",
+        "tests/hidden_6/test_stage6.py::test_world_streams_are_isolated"
+      ],
+      "text_only": false,
+      "requirement": "G6.1"
+    },
+    {
+      "introduced": 7,
+      "retired": null,
+      "tests": [
+        "tests/hidden_7/test_stage7.py::test_empty_world_summary_is_safe_after_final_defeat",
+        "tests/hidden_7/test_stage7.py::test_charm_preserves_unrelated_statuses_and_cannot_be_reused",
+        "tests/hidden_7/test_cleanse_deferred_stage7.py::test_deferred_cleansing_charm_removes_poison_and_consumes_item"
+      ],
+      "text_only": false,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 8,
+      "retired": null,
+      "tests": [
+        "tests/hidden_8/test_stage8.py::test_cumulative_system_round_trip_preserves_deterministic_next_drop"
+      ],
+      "text_only": false,
+      "requirement": "R8.1"
+    }
+  ]
+}

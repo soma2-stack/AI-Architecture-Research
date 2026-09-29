@@ -60,7 +60,7 @@ def evaluate_node(node, env: Environment) -> float:
         elif node.operator == "SLASH":
             if right == 0:
                 raise EvalError("division by zero", node.position)
-            result = left / right
+            result = float(int(left / right))
         elif node.operator == "PERCENT":
             if right == 0:
                 raise EvalError("modulo by zero", node.position)

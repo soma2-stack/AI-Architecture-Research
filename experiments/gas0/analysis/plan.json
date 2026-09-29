@@ -1,0 +1,67 @@
+{
+  "protocol": "GAS-0 Candidate A / VPS",
+  "source": "HANDOFF_Claude_GAS0_design.md Section 10",
+  "status": "FROZEN DESIGN; no thresholds or conditions changed",
+  "primary_matrix": {
+    "evaluation_projects": [
+      "roguelike",
+      "platformer",
+      "tower_defense",
+      "deck_builder",
+      "ecs_space_shooter",
+      "cli_task_manager",
+      "expression_interpreter"
+    ],
+    "conditions": ["C0", "C1", "C2", "C3", "C4"],
+    "seeds": [1, 2, 3],
+    "episodes": 105,
+    "status": "NOT RUN; requires explicit owner authorization using the phrase GAS-0 Phase 2"
+  },
+  "metrics": {
+    "primary": "RPS",
+    "rps": "Arithmetic mean of cumulative requirement completion (CR) over the eight stages.",
+    "deltas": {
+      "delta_s": "C1 - C0",
+      "delta_v": "C2 - C0",
+      "delta_sv": "C4 - C0",
+      "interaction": "delta_sv - delta_s - delta_v",
+      "coupling": "C4 - C3",
+      "beyond_best_single": "C4 - max(C1, C2)"
+    },
+    "interval": {
+      "method": "cluster bootstrap over evaluation projects with seeds nested",
+      "resamples": 10000,
+      "seed": 0,
+      "confidence": 0.9,
+      "bounds": "5th and 95th percentiles"
+    },
+    "robustness": "Repeat verdict on logit scale of CR; if verdict differs, report scale-dependent."
+  },
+  "validity_gates": {
+    "c0_mean_stage_completion": [0.2, 0.8],
+    "all_benchmark_validation_checks_pass": true,
+    "minimum_episodes_without_harness_errors": 0.95
+  },
+  "verdicts": {
+    "positive_synergy": "interaction >= max(0.05, 0.25 * (abs(delta_s) + abs(delta_v))); interaction CI lower bound > 0; and delta_sv > max(delta_s, delta_v) with CI lower bound > 0.",
+    "additive_benefit": "delta_sv > max(delta_s, delta_v) with CI lower bound > 0, but interaction misses the positive-synergy threshold or its CI includes 0.",
+    "no_synergy": "delta_sv is not significantly above max(delta_s, delta_v), and interaction is not significantly negative.",
+    "negative_interaction": "interaction <= -0.05 and interaction CI upper bound < 0.",
+    "invalid_benchmark": "Any validity gate fails; report INCONCLUSIVE — BENCHMARK."
+  },
+  "coupling_test": {
+    "coupling_matters": "C4 - C3 >= 0.05 and the coupling CI lower bound > 0.",
+    "co_presence_suffices": "The C3-C4 interval includes 0.",
+    "otherwise": "INCONCLUSIVE COUPLING"
+  },
+  "mechanism_signature_checks": [
+    "C4 vs max(C1, C2): fewer repeated failures",
+    "C4 vs max(C1, C2): higher requirement retention on text-only probes",
+    "C4 vs max(C1, C2): gain concentrated in stages 5-8"
+  ],
+  "novelty_review_flag_only": "Only if COUPLING MATTERS and POSITIVE SYNERGY and both replicate with a second model and on a second benchmark variant. This is not a novelty claim.",
+  "selection_and_stop": {
+    "model_selection": "C0 on dev_arena and budget_planner only, one seed each; see model_selection_plan.json.",
+    "owner_steering": "Stop at model selection. Do not run the C0-C4 dev pilot or the primary matrix."
+  }
+}

@@ -1,0 +1,1 @@
+Change collision rectangles to half-open intervals: touching edges are adjacent but have zero shared area and do not collide. Update overlap and intersection consistently; preserve positive-area collisions and platform landing semantics.

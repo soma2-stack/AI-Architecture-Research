@@ -1,0 +1,1 @@
+Replace the persisted Boolean completion field with `status` values `open`, `in_progress`, and `done`. Migrate version-1 Boolean saves on load; preserve completion commands and ensure new saves contain status rather than completed.

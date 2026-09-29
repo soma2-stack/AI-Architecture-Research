@@ -1,0 +1,1 @@
+Integrate world, checkpoint manager, fixed-update counters, route state, and one-way platform definitions with deterministic save/load. Round-trip must preserve player motion, score/lives, activated checkpoint, collected coins, and one-way platform geometry.

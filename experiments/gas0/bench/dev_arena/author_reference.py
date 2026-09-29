@@ -204,33 +204,39 @@ implement R3.3 yet; a later stage will request that deferred item.
     write_patch(REFERENCE / "s3.patch", patch(previous, files))
     previous = files.copy()
 
-    # S4: an injected path-collision regression in stable starter code.
+    # S4: an injected same-position path regression, isolated from earlier routes.
     bugged = files.copy()
-    change(bugged, "arena/model.py", '        return self.in_bounds(p) and p not in self.walls',
-           '        return self.in_bounds(p)')
+    path_source = bugged["arena/path.py"]
+    marker = "def shortest_path(world: World, start: Point, goal: Point) -> list[Point]:\n"
+    if path_source.count(marker) != 1:
+        raise AssertionError("shortest_path marker missing or duplicated")
+    bugged["arena/path.py"] = path_source.replace(
+        marker, marker + "    if start == goal and world.walkable(start):\n        return []\n", 1)
     (STAGES / "s4").mkdir(exist_ok=True)
     write_patch(STAGES / "s4" / "bug.patch", patch(files, bugged))
     write_patch(REFERENCE / "s4.patch", patch(bugged, files))
     put(4, "visible", "test_stage4.py", """# req: R4.1
 from arena.mapgen import bordered_world
 from arena.model import Point
+from arena.path import shortest_path
 
-def test_wall_collision_regression_after_patch():
-    w=bordered_world(7,7); w.walls.add(Point(2,2))
-    assert not w.walkable(Point(2,2))
+def test_path_to_current_tile_contains_that_tile():
+    w=bordered_world(7,7); current=Point(2,2)
+    assert shortest_path(w,current,current)==[current]
 """)
     put(4, "hidden", "test_stage4.py", """# req: R4.1
 from arena.mapgen import bordered_world
 from arena.model import Point
 from arena.path import shortest_path
 
-def test_paths_do_not_cross_interior_walls():
-    w=bordered_world(7,7); w.walls.add(Point(2,1))
-    assert Point(2,1) not in shortest_path(w,Point(1,1),Point(3,1))
+def test_same_position_path_is_nonempty_and_deterministic():
+    w=bordered_world(7,7); current=Point(3,4)
+    assert shortest_path(w,current,current)==[current]
 """)
-    put(4, "", "request.md", """An injected defect makes the headless pathfinder
-route through walls. The visible regression test demonstrates the symptom.
-Find and fix the root cause without breaking earlier mechanics.
+    put(4, "", "request.md", """A path request whose start and destination are the same
+returns an empty route, so the caller treats an actor already at its destination
+as unreachable. Diagnose and fix this edge case without changing wall traversal
+or ordinary route selection.
 """)
     previous = files.copy()
 
@@ -472,7 +478,7 @@ Inventory items and the event sequence must still survive round-trip.
         (3, "R3.1", ["test_tonic_does_not_heal"], False, None),
         (3, "R3.2", ["test_tonic_capped_at_five"], True, None),
         (3, "R3.3", ["test_antidote_still_deferred"], True, 7),
-        (4, "R4.1", ["test_paths_do_not_cross_interior_walls"], False, None),
+        (4, "R4.1", ["test_same_position_path_is_nonempty_and_deterministic"], False, None),
         (5, "R5.1", ["test_piercing_event_and_dependents"], False, None),
         (6, "R6.1", ["test_generated_events_monotone", "test_sequence_persists_after_event_clear"], False, None),
         (7, "R3.3", ["test_antidote_does_not_heal_or_grant_shield"], True, None),

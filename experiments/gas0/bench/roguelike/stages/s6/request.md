@@ -1,0 +1,1 @@
+Persistent global constraint G6.1: every stochastic gameplay choice must draw from the World-owned seeded stream; no module-global random state. Add a deterministic world loot event that consumes one draw and retains its draw count. Preserve reproducibility across identical seeds.

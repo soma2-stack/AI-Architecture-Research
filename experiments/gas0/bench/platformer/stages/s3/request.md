@@ -1,0 +1,1 @@
+Add pressure plates and activation-edge reporting. Designer decision D3.1: only a grounded player's feet can press a plate; airborne overlap does not activate it. Defer one-way platform support until Stage 7.

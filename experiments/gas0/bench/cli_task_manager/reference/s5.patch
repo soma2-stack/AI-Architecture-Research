@@ -1,0 +1,122 @@
+--- a/taskapp/model.py
++++ b/taskapp/model.py
+@@ -1,65 +1,52 @@
+-"""Validated task records.
+-
+-The starter schema deliberately stores completion as a Boolean. Later requests
+-change the persisted representation while preserving the public behavior.
+-"""
++"""Validated tasks with a migrated open/done status."""
+ from __future__ import annotations
+ from dataclasses import dataclass
+ from .dates import parse_date
+ from .errors import ValidationError
+ 
++STATUSES={"open","in_progress","done"}
+ 
+-@dataclass
++@dataclass(init=False)
+ class Task:
+     task_id: str
+     title: str
+-    description: str = ""
+-    completed: bool = False
+-    tags: tuple[str, ...] = ()
+-    due_date: str | None = None
+-    project_id: str | None = None
+-
+-    def __post_init__(self):
+-        self.task_id = str(self.task_id).strip()
+-        self.title = " ".join(str(self.title).split())
+-        self.description = str(self.description).strip()
+-        if not self.task_id or not self.title:
+-            raise ValidationError("task id and title are required")
+-        if not isinstance(self.completed, bool):
+-            raise ValidationError("completed must be Boolean")
+-        self.tags = normalize_tags(self.tags)
+-        if self.due_date is not None:
+-            self.due_date = parse_date(self.due_date)
+-
++    description: str
++    status: str
++    tags: tuple[str,...]
++    due_date: str | None
++    project_id: str | None
++    def __init__(self,task_id,title,description="",completed=False,tags=(),due_date=None,
++                 project_id=None,status=None):
++        self.task_id=str(task_id).strip(); self.title=" ".join(str(title).split())
++        self.description=str(description).strip(); self.tags=normalize_tags(tags)
++        self.due_date=parse_date(due_date) if due_date else None
++        self.project_id=project_id
++        self.status=status or ("done" if completed else "open")
++        if not self.task_id or not self.title: raise ValidationError("task id and title are required")
++        if self.status not in STATUSES: raise ValidationError("invalid task status")
++    @property
++    def completed(self): return self.status=="done"
++    @completed.setter
++    def completed(self,value): self.status="done" if value else "open"
+     def to_dict(self):
+-        return {"task_id": self.task_id, "title": self.title,
+-                "description": self.description, "completed": self.completed,
+-                "tags": list(self.tags), "due_date": self.due_date,
+-                "project_id": self.project_id}
+-
++        return {"task_id":self.task_id,"title":self.title,"description":self.description,
++                "status":self.status,"tags":list(self.tags),"due_date":self.due_date,
++                "project_id":self.project_id}
+     @classmethod
+-    def from_dict(cls, row):
+-        return cls(task_id=row["task_id"], title=row["title"],
+-                   description=row.get("description", ""),
+-                   completed=row.get("completed", False),
+-                   tags=tuple(row.get("tags", ())), due_date=row.get("due_date"),
+-                   project_id=row.get("project_id"))
+-
++    def from_dict(cls,row):
++        return cls(task_id=row["task_id"],title=row["title"],description=row.get("description",""),
++                   tags=tuple(row.get("tags",())),due_date=row.get("due_date"),
++                   project_id=row.get("project_id"),status=row.get("status"),
++                   completed=row.get("completed",False))
+ 
+ def normalize_tags(values):
+-    """Normalize tags once so filters and saved output agree."""
+-    result = []
++    result=[]
+     for value in values or ():
+-        tag = " ".join(str(value).split()).casefold()
+-        if tag and tag not in result:
+-            result.append(tag)
++        tag=" ".join(str(value).split()).casefold()
++        if tag and tag not in result: result.append(tag)
+     return tuple(sorted(result))
+ 
+-
+-def task_identity(task):
+-    return task.task_id
+-
+-
++def task_identity(task): return task.task_id
+ def task_label(task):
+-    marker = "x" if task.completed else " "
++    marker="x" if task.completed else " "
+     return f"[{marker}] {task.task_id}: {task.title}"
+--- a/taskapp/store.py
++++ b/taskapp/store.py
+@@ -13,7 +13,7 @@
+ 
+ 
+ class TaskStore:
+-    VERSION = 1
++    VERSION = 2
+ 
+     def __init__(self, path):
+         self.path = Path(path)
+@@ -51,7 +51,7 @@
+ 
+     @classmethod
+     def from_payload(cls, path, data):
+-        if data.get("version") != cls.VERSION:
++        if data.get("version") not in {1, cls.VERSION}:
+             raise StorageError("unsupported task schema")
+         store = cls(path)
+         store.tasks = [Task.from_dict(row) for row in data.get("tasks", [])]

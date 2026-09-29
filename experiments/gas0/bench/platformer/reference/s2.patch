@@ -1,0 +1,21 @@
+--- /dev/null
++++ b/platformer/dash.py
+@@ -0,0 +1,18 @@
++"""Short horizontal burst input for the headless player."""
++from .model import Vec2,clamp
++
++def dash(player,axis,speed=12,ticks=6):
++    if ticks<=0: return False
++    direction=1 if axis>0 else -1 if axis<0 else 0
++    if direction==0: return False
++    player.velocity=Vec2(direction*abs(float(speed)),player.velocity.y)
++    player.dash_ticks=int(ticks)
++    return True
++
++def advance_dash(player):
++    if player.dash_ticks<=0: return False
++    player.dash_ticks-=1
++    return player.dash_ticks>0
++
++def cancel_dash(player): player.dash_ticks=0
++def dash_ready(player): return player.dash_ticks==0

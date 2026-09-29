@@ -1,0 +1,1 @@
+The supplied run crashes when a user function receives the wrong number of arguments. Use the trace and scenario to fix the runtime failure. Also implement the short-circuit boolean operators deferred in Stage 3; their behavior is described in the saved design note. Keep evaluation deterministic.

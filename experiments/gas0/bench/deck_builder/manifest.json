@@ -1,0 +1,119 @@
+{
+  "project": "deck_builder",
+  "kind": "evaluation",
+  "stages": 8,
+  "orientation_answers": {
+    "q1": "deckgame.model.Card",
+    "q2": "deckgame.model.Deck",
+    "q3": "deckgame.combat.play_card",
+    "q4": "deckgame.piles.draw_card",
+    "q5": "deckgame.combat.enemy_attack",
+    "q6": "deckgame.turns.advance_turn",
+    "q7": "deckgame.save.save_battle",
+    "q8": "deckgame.model.is_terminal"
+  },
+  "probes": [
+    {
+      "introduced": 1,
+      "retired": 2,
+      "tests": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "text_only": false,
+      "requirement": "R1.1"
+    },
+    {
+      "introduced": 2,
+      "retired": null,
+      "tests": [
+        "tests/hidden_2/test_deck_stage2.py::test_next_turn_does_not_inherit_old_block"
+      ],
+      "text_only": false,
+      "requirement": "R2.1"
+    },
+    {
+      "introduced": 3,
+      "retired": null,
+      "tests": [
+        "tests/hidden_3/test_deck_stage3.py::test_poison_is_capped_by_remaining_health",
+        "tests/hidden_3/test_deck_stage3.py::test_poison_does_not_damage_defeated_enemy"
+      ],
+      "text_only": false,
+      "requirement": "R3.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 5,
+      "tests": [
+        "tests/hidden_3/test_deck_poison_timing.py::test_poison_ticks_before_enemy_attack_in_original_timing"
+      ],
+      "text_only": false,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 3,
+      "retired": 7,
+      "tests": [
+        "tests/hidden_3/test_deck_reward_deferred.py::test_reward_offer_is_deferred"
+      ],
+      "text_only": true,
+      "requirement": "D3.1"
+    },
+    {
+      "introduced": 4,
+      "retired": null,
+      "tests": [
+        "tests/hidden_4/test_deck_stage4.py::test_recycle_never_reintroduces_exhausted_card"
+      ],
+      "text_only": false,
+      "requirement": "R4.1"
+    },
+    {
+      "introduced": 5,
+      "retired": null,
+      "tests": [
+        "tests/hidden_5/test_deck_stage5.py::test_poison_tick_follows_attack_and_keeps_stack_rule"
+      ],
+      "text_only": false,
+      "requirement": "R5.1"
+    },
+    {
+      "introduced": 6,
+      "retired": null,
+      "tests": [
+        "tests/hidden_6/test_deck_stage6.py::test_rng_instances_have_independent_replay",
+        "tests/hidden_6/test_deck_stage6.py::test_sampling_is_without_replacement"
+      ],
+      "text_only": false,
+      "requirement": "G6.1"
+    },
+    {
+      "introduced": 7,
+      "retired": null,
+      "tests": [
+        "tests/hidden_7/test_deck_stage7.py::test_offer_has_frozen_count_and_distinct_ids",
+        "tests/hidden_7/test_deck_stage7.py::test_offer_is_repeatable_for_same_seed",
+        "tests/hidden_7/test_deck_reward_deferred_stage7.py::test_deferred_reward_rule_is_enforced"
+      ],
+      "text_only": false,
+      "requirement": "D3.1"
+    },
+    {
+      "introduced": 8,
+      "retired": null,
+      "tests": [
+        "tests/hidden_8/test_deck_stage8.py::test_round_trip_preserves_random_continuation",
+        "tests/hidden_8/test_deck_stage8.py::test_round_trip_preserves_poison_and_reward_offer"
+      ],
+      "text_only": false,
+      "requirement": "R8.1"
+    }
+  ]
+}

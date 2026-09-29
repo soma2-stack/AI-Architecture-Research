@@ -1,0 +1,1 @@
+Persistent global constraint G6.1: task-state saves must use an atomic same-directory replacement, so an interrupted write cannot leave a truncated JSON file. Preserve this invariant for task, project, preference, and later undo state.

@@ -1,0 +1,26 @@
+{
+  "validated_at": "2026-09-29",
+  "base_commit": "eafc2e93397f90b54a8ad3b62e06c2803e6ef323",
+  "working_tree_changes_were_present": true,
+  "command": "PYTHONPATH=<experiments/gas0> python validate/validate_bench.py",
+  "exit_code": 0,
+  "full_bench_validator": "PASS",
+  "stage4_prior_green_replay": {
+    "projects_checked": 9,
+    "projects_passed": 9,
+    "visible_prior_test_failures": 0,
+    "hidden_prior_test_failures": 0,
+    "result": "PASS"
+  },
+  "projects": {
+    "budget_planner": {"loc": 609, "files": 15, "visible_tests": 28, "hidden_tests": 11, "retention_probes": 4, "stages": 8, "reference_rps": 1.0, "null_rps": 0.10208333333333333, "tool_oracle_rps": 1.0},
+    "cli_task_manager": {"loc": 604, "files": 15, "visible_tests": 57, "hidden_tests": 15, "retention_probes": 2, "stages": 8, "reference_rps": 1.0, "null_rps": 0.18764880952380952, "tool_oracle_rps": 1.0},
+    "deck_builder": {"loc": 604, "files": 15, "visible_tests": 34, "hidden_tests": 19, "retention_probes": 1, "stages": 8, "reference_rps": 1.0, "null_rps": 0.08229166666666667, "tool_oracle_rps": 1.0},
+    "dev_arena": {"loc": 608, "files": 14, "visible_tests": 31, "hidden_tests": 13, "retention_probes": 4, "stages": 8, "reference_rps": 1.0, "null_rps": 0.08229166666666667, "tool_oracle_rps": 1.0},
+    "ecs_space_shooter": {"loc": 607, "files": 15, "visible_tests": 28, "hidden_tests": 16, "retention_probes": 1, "stages": 8, "reference_rps": 1.0, "null_rps": 0.10208333333333333, "tool_oracle_rps": 1.0},
+    "expression_interpreter": {"loc": 610, "files": 14, "visible_tests": 52, "hidden_tests": 19, "retention_probes": 2, "stages": 8, "reference_rps": 1.0, "null_rps": 0.11125679875679875, "tool_oracle_rps": 1.0},
+    "platformer": {"loc": 601, "files": 15, "visible_tests": 67, "hidden_tests": 17, "retention_probes": 2, "stages": 8, "reference_rps": 1.0, "null_rps": 0.1263392857142857, "tool_oracle_rps": 1.0},
+    "roguelike": {"loc": 600, "files": 15, "visible_tests": 59, "hidden_tests": 16, "retention_probes": 2, "stages": 8, "reference_rps": 1.0, "null_rps": 0.07514880952380952, "tool_oracle_rps": 1.0},
+    "tower_defense": {"loc": 602, "files": 15, "visible_tests": 26, "hidden_tests": 18, "retention_probes": 1, "stages": 8, "reference_rps": 1.0, "null_rps": 0.09270833333333334, "tool_oracle_rps": 1.0}
+  }
+}

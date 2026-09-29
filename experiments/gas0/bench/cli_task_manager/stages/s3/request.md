@@ -1,0 +1,1 @@
+Add named projects and assign tasks to them. Within a project, list open overdue tasks first; within each group sort by due date and then task ID. Designer decision D3.1: a task due today is not overdue. Defer bulk-complete with undo; do not implement it yet.

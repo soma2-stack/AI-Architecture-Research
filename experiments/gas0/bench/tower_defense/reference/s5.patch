@@ -1,0 +1,13 @@
+--- a/td/targeting.py
++++ b/td/targeting.py
+@@ -18,7 +18,9 @@
+     candidates = eligible_targets(tower, game)
+     if not candidates:
+         return None
+-    return min(candidates, key=lambda enemy: (enemy.enemy_id, enemy.progress))
++    furthest = max(enemy.progress for enemy in candidates)
++    return min((enemy for enemy in candidates if enemy.progress == furthest),
++               key=lambda enemy: enemy.enemy_id)
+ 
+ 
+ def targetable_count(tower, game):

@@ -1,0 +1,51 @@
+--- a/expr/inspect.py
++++ b/expr/inspect.py
+@@ -114,3 +114,30 @@
+         "assignment_dependencies": [(name, sorted(deps))
+                                     for name, deps in dependency_order(source)],
+     }
++
++
++def validate_program(program):
++    """Reject every node outside the interpreter's explicit syntax tree."""
++    from .errors import EvalError
++    from .nodes import Assign, Binary, Call, FunctionDef, Name, Number, Program, Unary
++    allowed=(Assign,Binary,Call,FunctionDef,Name,Number,Program,Unary)
++    def visit(node):
++        if not isinstance(node,allowed):
++            raise EvalError("unsupported syntax tree node")
++        if isinstance(node,Program):
++            children=node.statements
++        elif isinstance(node,Assign):
++            children=(node.value,)
++        elif isinstance(node,Binary):
++            children=(node.left,node.right)
++        elif isinstance(node,Unary):
++            children=(node.operand,)
++        elif isinstance(node,Call):
++            children=node.arguments
++        elif isinstance(node,FunctionDef):
++            children=(node.body,)
++        else:
++            children=()
++        for child in children: visit(child)
++    visit(program)
++    return True
+--- a/expr/runtime.py
++++ b/expr/runtime.py
+@@ -8,6 +8,7 @@
+ from .errors import EvalError
+ from .nodes import Assign, Binary, Call, FunctionDef, Name, Number, Program, Unary
+ from .parser import parse
++from .inspect import validate_program
+ 
+ 
+ @dataclass
+@@ -102,6 +103,7 @@
+ def evaluate(source: str, env: Environment | None = None) -> float | None:
+     env = env or Environment()
+     program = parse(source)
++    validate_program(program)
+     value = None
+     for statement in program.statements:
+         value = evaluate_node(statement, env)

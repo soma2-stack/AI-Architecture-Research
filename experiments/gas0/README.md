@@ -4,17 +4,23 @@ Candidate A (Verified Project State) implementation. The governing experimental
 design is `HANDOFF_Claude_GAS0_design.md` at the repository root. No novelty is
 claimed. The official 105-episode matrix requires separate owner authorization.
 
-Status: Stage 1 (harness and dev project) has passed its scoped validation:
-six harness unit cases and the eight-stage dev reference check. The dev starter
-has 608 nonblank Python lines in 14 files, 31 visible tests, 13 hidden tests,
-four text-only/retention probes and eight stage requests. A null replay scored
-0.08229 RPS; reference patch and tool-replay oracles scored 1.0 RPS. The
-calibration and seven evaluation projects, model freeze and pilot are pending.
-The `bench/expression_interpreter/starter/` directory is an incomplete draft
-of one generic evaluation project. It has no stage manifest, reference patches,
-or hidden tests and has not passed GAS-Bench validation.
-Do not run an official episode until every Section 12 validation check passes
-for all projects and `frozen_config.json` is committed.
+Status: all nine benchmark projects are implemented and GAS-Bench validation
+passed on 2026-09-29. Each project has eight stages, a passing reference replay
+(RPS 1.0), and a valid tool-oracle replay (RPS 1.0). The complete per-project
+LOC/test/retention/null-replay counts are in
+`analysis/benchmark_validation.json`. The Stage-4 bug replay retained all
+previously green visible and hidden tests in all nine projects (9/9).
+
+Model selection was screened only on `dev_arena` and `budget_planner` (C0,
+seed 1). No eligible model was found: Qwen2.5-Coder produced no usable tool
+calls and missed the calibration RPS floor; Qwen3 aborted on malformed tool
+call JSON that caused a llama.cpp server error; Hermes 3 completed both
+episodes but had 471 format/tool-following errors across 480 calls and missed
+the calibration RPS floor. See `analysis/model_selection.json` for exact
+artifacts, scores, and resource counts. No `frozen_config.json` was created.
+
+The C0-C4 dev pilot was not run. The full evaluation matrix was not run. GAS-0
+Phase 2 remains unauthorized.
 
 ## VPS quality/validity review (Claude lane, 2026-09-29; base `61fb988`)
 

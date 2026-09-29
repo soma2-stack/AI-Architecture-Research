@@ -1,0 +1,11 @@
+--- a/expr/builtins.py
++++ b/expr/builtins.py
+@@ -48,7 +48,7 @@
+ 
+ 
+ def _ceil(values):
+-    if len(values) != 1:
++    if len(values) == 1:
+         raise EvalError("ceil needs one argument")
+     return float(math.ceil(values[0]))
+ 

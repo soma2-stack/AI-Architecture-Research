@@ -1,0 +1,12 @@
+--- a/deckgame/combat.py
++++ b/deckgame/combat.py
+@@ -38,8 +38,8 @@
+ def end_enemy_turn(battle):
+     """Resolve enemy action and start the next player turn."""
+     from .status import tick_poison
++    suffered = enemy_attack(battle)
+     tick_poison(battle)
+-    suffered = enemy_attack(battle)
+     battle.block = 0
+     battle.turn += 1
+     battle.energy = 3

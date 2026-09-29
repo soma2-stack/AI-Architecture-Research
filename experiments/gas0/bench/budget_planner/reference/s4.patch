@@ -1,0 +1,11 @@
+--- a/budgeter/store.py
++++ b/budgeter/store.py
+@@ -10,7 +10,7 @@
+ 
+ def _keep_transaction(row: dict) -> bool:
+     """Return whether a persisted transaction belongs in the loaded ledger."""
+-    return str(row.get("amount", "")).strip() not in {"0", "0.00", "0.0"}
++    return True
+ 
+ 
+ class BudgetStore:

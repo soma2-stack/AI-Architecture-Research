@@ -1,0 +1,20 @@
+--- a/td/combat.py
++++ b/td/combat.py
+@@ -8,6 +8,7 @@
+     if not enemy.alive:
+         return 0
+     amount = max(0, int(amount))
++    amount = max(0, amount - max(0, int(getattr(enemy, 'armor', 0))))
+     dealt = min(enemy.hp, amount)
+     enemy.hp -= dealt
+     if enemy.hp <= 0:
+--- a/td/model.py
++++ b/td/model.py
+@@ -28,6 +28,7 @@
+     alive: bool = True
+     kind: str = "basic"
+     slow_ticks: int = 0
++    armor: int = 0
+ 
+ 
+ @dataclass

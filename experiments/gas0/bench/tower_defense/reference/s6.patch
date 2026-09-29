@@ -1,0 +1,50 @@
+--- a/td/model.py
++++ b/td/model.py
+@@ -53,6 +53,8 @@
+     enemies: list[Enemy] = field(default_factory=list)
+     events: list[Event] = field(default_factory=list)
+     wave: int = 0
++    seed: int = 0
++    rng: object = field(default=None, repr=False)
+ 
+ 
+ def living_enemies(game):
+--- a/td/pathing.py
++++ b/td/pathing.py
+@@ -51,9 +51,12 @@
+     """Append a deterministic wave with monotonically numbered IDs."""
+     wave_number = max(1, int(wave_number))
+     game.wave = wave_number
++    if game.rng is None:
++        from .rng import GameRNG
++        game.rng = GameRNG(game.seed)
+     created = []
+     for index in range(max(0, int(count))):
+-        hp = 4 + wave_number
++        hp = 4 + wave_number + game.rng.randint(0, 2)
+         enemy = Enemy(f"w{wave_number}-e{index}", 0, hp, hp)
+         game.enemies.append(enemy)
+         created.append(enemy)
+--- /dev/null
++++ b/td/rng.py
+@@ -0,0 +1,20 @@
++import random
++
++class GameRNG:
++    def __init__(self, seed=0):
++        self._random = random.Random(int(seed))
++
++    def randint(self, low, high):
++        return self._random.randint(int(low), int(high))
++
++    def choice(self, values):
++        values = tuple(values)
++        if not values:
++            raise ValueError("cannot choose from an empty sequence")
++        return self._random.choice(values)
++
++    def getstate(self):
++        return self._random.getstate()
++
++    def setstate(self, state):
++        self._random.setstate(state)

@@ -1,0 +1,1 @@
+Users report that saving and reopening a project-linked task silently removes its due date. Diagnose the regression and repair persistence without changing project association, ordering, or task status.

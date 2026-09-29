@@ -1,0 +1,1 @@
+Add numeric comparison operators ==, !=, <, <=, >, >= with conventional precedence below arithmetic. Equality is type-strict: reject unlike runtime scalar types rather than coercing them. Return numeric booleans 1 and 0. Preserve assignments, arithmetic, built-ins and stable source positions.

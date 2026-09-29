@@ -1,0 +1,39 @@
+--- a/rogue/rng.py
++++ b/rogue/rng.py
+@@ -10,7 +10,9 @@
+     def shuffle(self,values):
+         result=list(values); self._random.shuffle(result); return result
+     def state(self): return self._random.getstate()
+-    def restore(self,state): self._random.setstate(state)
++    def restore(self,state):
++        version,values,gauss=state
++        self._random.setstate((version,tuple(values),gauss))
+ 
+ def loot_roll(rng,chance=0.25): return rng.randint(0,9999)<int(float(chance)*10000)
+ def choose_spawn(rng,points): return rng.choice(points)
+--- a/rogue/save.py
++++ b/rogue/save.py
+@@ -22,7 +22,9 @@
+ def world_payload(world):
+     return {"version":VERSION,"map":list(world.grid.rows),"player":player_payload(world.player),
+             "enemies":[enemy_payload(e) for e in world.enemies],"turn":world.turn,
+-            "messages":list(world.messages)}
++            "messages":list(world.messages),
++            "statuses":world.statuses.payload(),"random_draws":world.random_draws,
++            "rng_state":world.rng.state()}
+ 
+ def save_world(path,world):
+     Path(path).write_text(json.dumps(world_payload(world),sort_keys=True,indent=2),encoding="utf-8")
+@@ -43,6 +45,12 @@
+     if data.get("version")!=VERSION: raise SaveError("unsupported save version")
+     world=World(Grid(data["map"]),_player(data["player"]),[_enemy(row) for row in data.get("enemies",[])])
+     world.turn=int(data.get("turn",0)); world.messages=list(data.get("messages",[]))
++    from .effects import StatusBook
++    from .rng import SeededRNG
++    world.statuses=StatusBook.from_payload(data.get("statuses",{}))
++    world.random_draws=int(data.get("random_draws",0))
++    world.rng=SeededRNG(0)
++    if data.get("rng_state") is not None: world.rng.restore(data["rng_state"])
+     return world
+ 
+ def save_text(world): return json.dumps(world_payload(world),sort_keys=True,separators=(",",":"))

@@ -1,0 +1,1 @@
+Add a directional dash. It sets horizontal speed from the input direction and configured magnitude for a bounded number of ticks. Preserve the player's current vertical velocity exactly, including while airborne; zero direction does not start a dash.

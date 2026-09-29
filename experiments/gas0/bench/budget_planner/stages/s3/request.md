@@ -1,0 +1,1 @@
+Add named savings goals with a target, contributions, and progress reporting. Designer decision D3.1: refunds are negative expenses and reduce actual category spending. Defer recurring-transaction expansion; do not implement it yet because it is required later.

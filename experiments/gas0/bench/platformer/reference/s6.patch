@@ -1,0 +1,62 @@
+--- /dev/null
++++ b/platformer/fixed.py
+@@ -0,0 +1,31 @@
++"""Signed fixed-point arithmetic for reproducible frame updates."""
++from dataclasses import dataclass
++SCALE=65536
++
++@dataclass(frozen=True,order=True)
++class Fixed:
++    raw:int
++    @classmethod
++    def from_number(cls,value): return cls(round(float(value)*SCALE))
++    def to_number(self): return self.raw/SCALE
++    def __add__(self,other): return Fixed(self.raw+coerce(other).raw)
++    def __sub__(self,other): return Fixed(self.raw-coerce(other).raw)
++    def __mul__(self,other): return Fixed((self.raw*coerce(other).raw)//SCALE)
++    def __truediv__(self,other):
++        divisor=coerce(other).raw
++        if divisor==0: raise ZeroDivisionError("fixed division by zero")
++        return Fixed((self.raw*SCALE)//divisor)
++
++def coerce(value): return value if isinstance(value,Fixed) else Fixed.from_number(value)
++def fixed_sum(values): return Fixed(sum(coerce(v).raw for v in values))
++def quantized_position(x,y): return (Fixed.from_number(x),Fixed.from_number(y))
++
++def step_fixed_body(body,dt,gravity=18):
++    fx,fy=quantized_position(body.position.x,body.position.y)
++    vx,vy=quantized_position(body.velocity.x,body.velocity.y)
++    step=coerce(dt); g=coerce(gravity)
++    if not body.on_ground: vy=vy+g*step
++    fx=fx+vx*step; fy=fy+vy*step
++    body.position=type(body.position)(fx.to_number(),fy.to_number())
++    body.velocity=type(body.velocity)(vx.to_number(),vy.to_number())
++    return body.position
+--- a/platformer/world.py
++++ b/platformer/world.py
+@@ -2,6 +2,7 @@
+ from dataclasses import dataclass,field
+ from .model import Player,Waypoint,Vec2
+ from .physics import step_body
++from .fixed import step_fixed_body
+ from .collision import resolve_landing,carry_body
+ 
+ @dataclass
+@@ -10,6 +11,7 @@
+     platforms:list
+     tick_count:int=0
+     coins:set=field(default_factory=set)
++    fixed_updates:int=0
+     route:list[Waypoint]=field(default_factory=list)
+     def __post_init__(self): self.platforms=sorted(self.platforms,key=lambda p:p.platform_id)
+     def score(self,amount): return self.player.award(amount)
+@@ -22,7 +24,8 @@
+ 
+ def tick(world,dt=1/60):
+     world.tick_count+=1; previous_bottom=world.player.position.y+world.player.height
+-    step_body(world.player,dt)
++    step_fixed_body(world.player,dt)
++    world.fixed_updates+=1
+     for platform in world.platforms:
+         if resolve_landing(world.player,platform,previous_bottom): break
+     return world.state()

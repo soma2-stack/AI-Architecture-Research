@@ -1,0 +1,1 @@
+The scripted route has no waypoint and crashes while selecting the next target. Fix the empty-route case. Also implement the one-way platforms deferred in Stage 3: catch downward crossings from above and allow upward passage from below.

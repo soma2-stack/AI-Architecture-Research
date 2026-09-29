@@ -1,0 +1,12 @@
+--- a/td/combat.py
++++ b/td/combat.py
+@@ -29,7 +29,8 @@
+     if target is None:
+         return None
+     dealt = apply_damage(game, target, tower.damage, tower.tower_id)
+-    tower.cooldown_left = tower.cooldown
++    armor_delay = max(0, int(getattr(target, 'armor', 0)))
++    tower.cooldown_left = tower.cooldown + armor_delay
+     return target.enemy_id, dealt
+ 
+ 

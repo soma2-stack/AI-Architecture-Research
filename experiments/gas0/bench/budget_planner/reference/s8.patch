@@ -1,0 +1,50 @@
+--- a/budgeter/csv_io.py
++++ b/budgeter/csv_io.py
+@@ -9,7 +9,7 @@
+ from .model import Transaction
+ 
+ 
+-FIELDS = ("transaction_id", "day", "amount", "category", "description")
++FIELDS = ("transaction_id", "day", "amount", "category", "description", "recurring")
+ 
+ 
+ def export_csv(rows) -> str:
+--- a/budgeter/store.py
++++ b/budgeter/store.py
+@@ -22,6 +22,7 @@
+         self.transactions: list[Transaction] = []
+         self.goals: list[SavingsGoal] = []
+         self.budgets: dict = {}
++        self.recurring = []
+         self.metadata: dict = {}
+ 
+     def add(self, row: Transaction) -> None:
+@@ -52,6 +53,7 @@
+                 "transactions": [row.to_dict() for row in self.transactions],
+                 "goals": [goal.to_dict() for goal in self.goals],
+                 "budgets": {key:int(value) for key,value in self.budgets.items()},
++                "recurring": [row.to_dict() for row in self.recurring],
+                 "metadata": dict(self.metadata)}
+ 
+     def save(self) -> None:
+@@ -72,6 +74,7 @@
+         store.metadata = dict(data.get("metadata", {}))
+         raw_budgets=data.get("budgets", {}) or {}
+         store.budgets={key:(int(value) if data.get("version")==cls.VERSION else int(parse_amount(value)*100)) for key,value in raw_budgets.items()}
++        store.recurring = [Transaction.from_dict(row) for row in (data.get("recurring") or [])]
+         validate_transaction_ids(store.transactions)
+         return store
+ 
+--- a/budgeter/summary.py
++++ b/budgeter/summary.py
+@@ -6,8 +6,8 @@
+ def month_transactions(rows,month):
+     validate_month(month)
+     return [row for row in rows if month_key(row.day)==month]
+-def monthly_summary(rows,month,budgets=None,goals=None):
+-    selected=month_transactions(rows,month)
++def monthly_summary(rows,month,budgets=None,goals=None,recurring=()):
++    selected=month_transactions(list(rows)+list(recurring),month)
+     income_cents=sum(row.amount_cents for row in selected if row.amount_cents>0)
+     expense_cents=sum(row.amount_cents for row in selected if row.amount_cents<0)
+     totals={}

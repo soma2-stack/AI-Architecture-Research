@@ -1,0 +1,1 @@
+Add per-category monthly budget limits and report actual spending against each limit for a requested month. Designer decision D2.1: month intervals include their first day and exclude the first day of the next month. Keep existing behavior unless explicitly changed.

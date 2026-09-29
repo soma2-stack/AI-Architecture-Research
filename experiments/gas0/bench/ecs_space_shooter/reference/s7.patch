@@ -1,0 +1,53 @@
+--- a/spaceecs/combat.py
++++ b/spaceecs/combat.py
+@@ -62,8 +62,9 @@
+     results = []
+     for event in events:
+         target_id = event.target_id
+-        world.entities[target_id]
+-        projectile = world.projectiles[event.projectile_id]
++        projectile = world.projectiles.get(event.projectile_id)
++        if projectile is None or target_id not in world.entities:
++            continue
+         results.append(apply_damage(world, target_id, projectile.damage,
+                                     projectile.owner_id))
+     return results
+--- a/spaceecs/model.py
++++ b/spaceecs/model.py
+@@ -28,6 +28,7 @@
+     vy: float
+     damage: int = 1
+     radius: float = 0.25
++    piercing: bool = False
+ 
+ 
+ @dataclass
+--- /dev/null
++++ b/spaceecs/piercing.py
+@@ -0,0 +1,26 @@
++from .combat import apply_damage
++
++MAX_PIERCING_TARGETS = 3
++
++def enable_piercing(projectile):
++    projectile.piercing = True
++    return projectile
++
++def resolve_piercing(world, projectile_id, events):
++    projectile = world.projectiles.get(int(projectile_id))
++    if projectile is None or not projectile.piercing:
++        return []
++    seen = set()
++    applied = []
++    ordered = sorted(events, key=lambda event: (event.time, event.target_id))
++    for event in ordered:
++        if event.projectile_id != projectile.entity_id:
++            continue
++        if event.target_id in seen or event.target_id not in world.entities:
++            continue
++        if len(seen) >= MAX_PIERCING_TARGETS:
++            break
++        seen.add(event.target_id)
++        applied.append(apply_damage(
++            world, event.target_id, projectile.damage, projectile.owner_id))
++    return applied

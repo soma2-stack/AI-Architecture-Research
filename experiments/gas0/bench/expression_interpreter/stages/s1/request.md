@@ -1,0 +1,1 @@
+Do not edit. Inspect the interpreter and return JSON with exactly q1 through q8: q1 the scanner entry point; q2 the punctuation table; q3 the variable-assignment node; q4 the parser entry point; q5 the evaluator entry point; q6 the base user-facing error class; q7 the built-in function registry; q8 the line-oriented command entry point. Use exact names.

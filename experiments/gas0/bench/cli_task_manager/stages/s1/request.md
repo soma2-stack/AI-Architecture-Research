@@ -1,0 +1,1 @@
+Do not edit. Inspect the task manager and return JSON with exactly q1 through q8: q1 the Task record; q2 the completion field; q3 tag normalization; q4 strict date parser; q5 task-list entry point; q6 persistence schema version; q7 command dispatcher; q8 the text formatter. Use exact names and values.

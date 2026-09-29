@@ -1,0 +1,51 @@
+--- a/spaceecs/ids.py
++++ b/spaceecs/ids.py
+@@ -27,9 +27,5 @@
+     return tuple(sorted(world.entities))
+ 
+ 
+-def smallest_free_id(world):
+-    return min(world.free_ids) if world.free_ids else None
+-
+-
+ def next_id_hint(world):
+     return world.next_entity_id
+--- a/spaceecs/model.py
++++ b/spaceecs/model.py
+@@ -37,17 +37,12 @@
+     entities: dict[int, Entity] = field(default_factory=dict)
+     projectiles: dict[int, Projectile] = field(default_factory=dict)
+     events: list[dict] = field(default_factory=list)
+-    free_ids: list[int] = field(default_factory=list)
+ 
+ 
+ def create_entity(world, x=0, y=0, hp=1, faction="neutral", vx=0, vy=0):
+     """Create an entity, reusing the smallest released ID when available."""
+-    if world.free_ids:
+-        entity_id = min(world.free_ids)
+-        world.free_ids.remove(entity_id)
+-    else:
+-        entity_id = world.next_entity_id
+-        world.next_entity_id += 1
++    entity_id = world.next_entity_id
++    world.next_entity_id += 1
+     entity = Entity(entity_id, float(x), float(y), float(vx), float(vy),
+                     max(1, int(hp)), str(faction))
+     world.entities[entity_id] = entity
+@@ -60,7 +55,6 @@
+     world.projectiles.pop(entity_id, None)
+     if entity is not None:
+         entity.alive = False
+-        world.free_ids.append(entity_id)
+     return entity
+ 
+ 
+@@ -78,8 +72,6 @@
+ def validate_world(world):
+     if len(world.entities) != len(set(world.entities)):
+         raise ValueError("entity identifiers must be unique")
+-    if set(world.entities).intersection(world.free_ids):
+-        raise ValueError("live identifiers cannot also be free")
+     if any(entity.hp < 0 or entity.shield < 0 for entity in world.entities.values()):
+         raise ValueError("health and shield are nonnegative")
+     return True

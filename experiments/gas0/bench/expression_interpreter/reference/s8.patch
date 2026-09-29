@@ -1,0 +1,48 @@
+--- a/expr/cli.py
++++ b/expr/cli.py
+@@ -2,6 +2,7 @@
+ from __future__ import annotations
+ 
+ import argparse
++import json
+ import sys
+ 
+ from .errors import ExpressionError
+@@ -9,7 +10,7 @@
+ from .session import Session
+ 
+ 
+-def run_lines(lines, session: Session | None = None):
++def run_lines(lines, session: Session | None = None, json_errors: bool = False):
+     session = session or Session()
+     for line in lines:
+         if not line.strip() or line.lstrip().startswith("#"):
+@@ -17,21 +18,25 @@
+         try:
+             yield session.execute(line.rstrip("\n"))
+         except ExpressionError as error:
+-            yield diagnostic(line.rstrip("\n"), error)
++            if json_errors:
++                yield json.dumps({"error": error.message, "position": error.position}, sort_keys=True)
++            else:
++                yield diagnostic(line.rstrip("\n"), error)
+ 
+ 
+ def main(argv=None) -> int:
+     parser = argparse.ArgumentParser(description="Evaluate numeric expressions")
+     parser.add_argument("--file", help="read expressions from file")
+     parser.add_argument("--show-vars", action="store_true")
++    parser.add_argument("--json-errors", action="store_true")
+     args = parser.parse_args(argv)
+     session = Session()
+     if args.file:
+         with open(args.file, encoding="utf-8") as handle:
+-            for output in run_lines(handle, session):
++            for output in run_lines(handle, session, args.json_errors):
+                 print(output)
+     else:
+-        for output in run_lines(sys.stdin, session):
++        for output in run_lines(sys.stdin, session, args.json_errors):
+             print(output)
+     if args.show_vars:
+         for name, value in session.variables():

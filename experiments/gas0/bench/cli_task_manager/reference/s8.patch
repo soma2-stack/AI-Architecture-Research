@@ -1,0 +1,50 @@
+--- a/taskapp/cli.py
++++ b/taskapp/cli.py
+@@ -5,6 +5,8 @@
+ from .errors import TaskError
+ from .formatting import format_summary, format_tasks
+ from .query import list_tasks
++from .projects import ProjectRegistry, assign_project, project_tasks
++from .commands import bulk_complete_with_undo, undo_bulk_complete
+ from .store import TaskStore
+ 
+ 
+@@ -13,12 +15,17 @@
+     commands = parser.add_subparsers(dest="command", required=True)
+     create = commands.add_parser("add")
+     create.add_argument("id"); create.add_argument("title")
+-    commands.add_parser("list")
++    listing=commands.add_parser("list")
++    listing.add_argument("--tag"); listing.add_argument("--project"); listing.add_argument("--today",default="2026-01-01"); listing.add_argument("--include-done",action="store_true")
++    project=commands.add_parser("project"); project.add_argument("id"); project.add_argument("name")
++    bulk=commands.add_parser("bulk-done"); bulk.add_argument("ids",nargs="+")
++    commands.add_parser("undo")
+     done = commands.add_parser("done"); done.add_argument("id")
+     reopen = commands.add_parser("reopen"); reopen.add_argument("id")
+     rename = commands.add_parser("rename"); rename.add_argument("id"); rename.add_argument("title")
+     commands.add_parser("summary")
+     args = parser.parse_args(argv)
++    if not hasattr(store,"_undo_token"): store._undo_token=None
+     try:
+         if args.command == "add":
+             task = add_task(store.tasks, args.id, args.title)
+@@ -29,8 +36,18 @@
+             reopen_task(store.tasks, args.id); store.save(); return "open"
+         if args.command == "rename":
+             update_title(store.tasks, args.id, args.title); store.save(); return "updated"
++        if args.command == "project":
++            if args.id in store.projects: return "error: duplicate project id"
++            store.projects[args.id]=args.name; store.save(); return args.id
++        if args.command == "bulk-done":
++            store._undo_token=bulk_complete_with_undo(store.tasks,args.ids); store.save(); return "done"
++        if args.command == "undo":
++            if store._undo_token is None: return "error: no batch to undo"
++            undo_bulk_complete(store._undo_token); store._undo_token=None; store.save(); return "undone"
+         if args.command == "list":
+-            return format_tasks(list_tasks(store.tasks))
++            rows=list_tasks(store.tasks,tag=args.tag,include_done=args.include_done)
++            if args.project: rows=project_tasks(rows,args.project,args.today)
++            return format_tasks(rows,args.today)
+         return format_summary(store.tasks)
+     except TaskError as exc:
+         return f"error: {exc}"

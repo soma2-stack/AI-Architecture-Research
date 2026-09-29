@@ -1,0 +1,35 @@
+--- a/spaceecs/combat.py
++++ b/spaceecs/combat.py
+@@ -8,8 +8,9 @@
+     if entity is None or not entity.alive:
+         return 0
+     incoming = max(0, int(amount))
+-    absorbed = 0
+-    dealt = min(entity.hp, incoming)
++    absorbed = min(entity.shield, incoming)
++    entity.shield -= absorbed
++    dealt = min(entity.hp, incoming - absorbed)
+     entity.hp -= dealt
+     if entity.hp <= 0:
+         entity.hp = 0
+--- a/spaceecs/model.py
++++ b/spaceecs/model.py
+@@ -13,6 +13,7 @@
+     hp: int = 1
+     faction: str = "neutral"
+     alive: bool = True
++    shield: int = 0
+ 
+ 
+ @dataclass
+@@ -79,8 +80,8 @@
+         raise ValueError("entity identifiers must be unique")
+     if set(world.entities).intersection(world.free_ids):
+         raise ValueError("live identifiers cannot also be free")
+-    if any(entity.hp < 0 for entity in world.entities.values()):
+-        raise ValueError("health is nonnegative")
++    if any(entity.hp < 0 or entity.shield < 0 for entity in world.entities.values()):
++        raise ValueError("health and shield are nonnegative")
+     return True
+ 
+ 

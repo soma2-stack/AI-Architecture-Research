@@ -1,0 +1,1 @@
+The empty-room victory report crashes after the last enemy is removed. Diagnose and fix the runtime failure. Also implement the cleansing-charm interaction deferred in Stage 3: it removes poison from the player, heals 1 HP, and consumes the charm.

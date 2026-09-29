@@ -1,0 +1,1 @@
+Add persistent poison status effects that tick once at the end of each turn. Designer decision D3.1: poison cannot reduce a living actor below 1 HP. Defer a cleansing-charm interaction until Stage 7; do not implement it yet.

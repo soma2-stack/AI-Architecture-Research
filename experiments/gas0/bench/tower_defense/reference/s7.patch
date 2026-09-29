@@ -1,0 +1,29 @@
+--- a/td/economy.py
++++ b/td/economy.py
+@@ -51,6 +51,15 @@
+     return True
+ 
+ 
++def sell_tower(game, tower_id):
++    tower = tower_by_id(game, tower_id)
++    if tower is None:
++        return 0
++    amount = int(tower.cost * 0.75)
++    game.towers.remove(tower)
++    game.money += amount
++    return amount
++
+ def refund(game, amount):
+     amount = max(0, int(amount))
+     game.money += amount
+--- a/td/game.py
++++ b/td/game.py
+@@ -17,7 +17,7 @@
+ 
+ def summary(game):
+     enemies = living_enemies(game)
+-    most_advanced = max(enemy.progress for enemy in enemies)
++    most_advanced = max((enemy.progress for enemy in enemies), default=0)
+     return {
+         "wave": game.wave,
+         "lives": game.lives,

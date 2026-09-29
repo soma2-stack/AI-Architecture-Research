@@ -1,0 +1,110 @@
+{
+  "project": "tower_defense",
+  "kind": "evaluation",
+  "stages": 8,
+  "orientation_answers": {
+    "q1": "td.model.Tower",
+    "q2": "td.model.Enemy",
+    "q3": "td.targeting.choose_target",
+    "q4": "td.combat.resolve_attacks",
+    "q5": "td.pathing.spawn_wave",
+    "q6": 20,
+    "q7": "td.game.tick",
+    "q8": "td.save.save_game"
+  },
+  "probes": [
+    {
+      "introduced": 1,
+      "retired": 2,
+      "tests": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "text_only": false,
+      "requirement": "R1.1"
+    },
+    {
+      "introduced": 2,
+      "retired": null,
+      "tests": [
+        "tests/hidden_2/test_tower_stage2.py::test_slow_duration_expires_then_movement_resumes",
+        "tests/hidden_2/test_tower_stage2.py::test_refresh_never_shortens_duration"
+      ],
+      "text_only": false,
+      "requirement": "R2.1"
+    },
+    {
+      "introduced": 3,
+      "retired": null,
+      "tests": [
+        "tests/hidden_3/test_tower_stage3.py::test_armor_cannot_heal_or_create_negative_damage"
+      ],
+      "text_only": false,
+      "requirement": "R3.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 7,
+      "tests": [
+        "tests/hidden_3/test_tower_sell_deferred.py::test_tower_selling_is_deferred"
+      ],
+      "text_only": true,
+      "requirement": "D3.1"
+    },
+    {
+      "introduced": 4,
+      "retired": null,
+      "tests": [
+        "tests/hidden_4/test_tower_stage4.py::test_attack_becomes_ready_after_exact_wait"
+      ],
+      "text_only": false,
+      "requirement": "R4.1"
+    },
+    {
+      "introduced": 5,
+      "retired": null,
+      "tests": [
+        "tests/hidden_5/test_tower_stage5.py::test_furthest_progress_precedes_lexical_identifier"
+      ],
+      "text_only": false,
+      "requirement": "R5.1"
+    },
+    {
+      "introduced": 6,
+      "retired": null,
+      "tests": [
+        "tests/hidden_6/test_tower_stage6.py::test_rng_streams_are_owned_by_game",
+        "tests/hidden_6/test_tower_stage6.py::test_distinct_seed_changes_generated_wave"
+      ],
+      "text_only": false,
+      "requirement": "G6.1"
+    },
+    {
+      "introduced": 7,
+      "retired": null,
+      "tests": [
+        "tests/hidden_7/test_tower_stage7.py::test_summary_handles_final_defeat",
+        "tests/hidden_7/test_tower_stage7.py::test_sale_refund_rounds_down_and_unknown_id_is_noop",
+        "tests/hidden_7/test_tower_stage7_deferred.py::test_deferred_sell_decision_uses_floor_of_three_quarters"
+      ],
+      "text_only": false,
+      "requirement": "D3.1"
+    },
+    {
+      "introduced": 8,
+      "retired": null,
+      "tests": [
+        "tests/hidden_8/test_tower_stage8.py::test_round_trip_preserves_rng_continuation",
+        "tests/hidden_8/test_tower_stage8.py::test_save_preserves_later_stage_enemy_state"
+      ],
+      "text_only": false,
+      "requirement": "R8.1"
+    }
+  ]
+}

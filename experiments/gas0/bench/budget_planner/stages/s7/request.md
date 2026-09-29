@@ -1,0 +1,1 @@
+The supplied scripted run crashes while loading a valid save whose optional transaction collection is null. Use the log and `run_scenario` to fix the root cause. Also complete the item deferred in Stage 3 without asking for its details.

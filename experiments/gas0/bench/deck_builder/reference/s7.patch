@@ -1,0 +1,50 @@
+--- a/deckgame/render.py
++++ b/deckgame/render.py
+@@ -42,4 +42,6 @@
+ 
+ def next_card_label(battle):
+     """Preview the next draw; empty-deck handling is added at Stage 7."""
++    if not battle.deck.draw_pile:
++        return 'No cards'
+     return battle.deck.draw_pile[0].name
+--- a/deckgame/rewards.py
++++ b/deckgame/rewards.py
+@@ -34,3 +34,26 @@
+     if card.cost < 0 or card.damage < 0 or card.block < 0:
+         raise ValueError("reward values must be nonnegative")
+     return True
++
++
++def offer_rewards(battle, cards):
++    if battle.rng is None:
++        from .rng import RunRNG
++        battle.rng = RunRNG(battle.seed)
++    unique = {}
++    for card in cards:
++        unique.setdefault(card.card_id, card)
++    pool = list(unique.values())
++    if len(pool) < 3:
++        raise ValueError("at least three distinct rewards are required")
++    battle.reward_offer = battle.rng.sample(pool, 3)
++    return list(battle.reward_offer)
++
++def choose_reward(battle, card_id):
++    chosen = next((card for card in battle.reward_offer if card.card_id == card_id), None)
++    if chosen is None:
++        raise ValueError("reward is not in the current offer")
++    from .piles import add_card
++    add_card(battle.deck, chosen)
++    battle.reward_offer.clear()
++    return chosen
+--- a/deckgame/rng.py
++++ b/deckgame/rng.py
+@@ -7,6 +7,9 @@
+         self._random.shuffle(values)
+     def sample(self, values, count):
+         return self._random.sample(list(values), int(count))
++    def choice(self, values):
++        return self._random.choice(tuple(values))
++
+     def getstate(self):
+         return self._random.getstate()
+     def setstate(self, state):

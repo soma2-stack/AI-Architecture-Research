@@ -1,0 +1,11 @@
+--- a/taskapp/store.py
++++ b/taskapp/store.py
+@@ -9,7 +9,7 @@
+ 
+ def include_due_date(row):
+     """Central serialization choice, kept explicit for schema changes."""
+-    return not bool(row.get("project_id"))
++    return True
+ 
+ 
+ class TaskStore:

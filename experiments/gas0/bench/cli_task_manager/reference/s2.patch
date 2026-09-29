@@ -1,0 +1,33 @@
+--- a/taskapp/query.py
++++ b/taskapp/query.py
+@@ -2,7 +2,7 @@
+ from .dates import date_sort_key
+ 
+ 
+-def list_tasks(tasks, tag=None, include_done=True):
++def list_tasks(tasks, tag=None, include_done=False):
+     rows = list(tasks)
+     if tag is not None:
+         wanted = str(tag).casefold()
+--- a/tests/test_storage_cli.py
++++ b/tests/test_storage_cli.py
+@@ -42,7 +42,7 @@
+     store=TaskStore(tmp_path/"tasks.json")
+     assert dispatch(store,["add","t1","Write tests"])=="t1"
+     assert dispatch(store,["done","t1"])=="done"
+-    assert "[x] t1" in dispatch(store,["list"])
++    assert dispatch(store,["list"])=="(no tasks)"
+ 
+ 
+ def test_cli_summary_and_unknown_errors(tmp_path):
+--- a/tests/test_tasks.py
++++ b/tests/test_tasks.py
+@@ -50,7 +50,7 @@
+ 
+ 
+ def test_listing_is_stable_and_open_first():
+-    assert [r.task_id for r in list_tasks(sample())] == ["t2","t1"]
++    assert [r.task_id for r in list_tasks(sample(),include_done=True)] == ["t2","t1"]
+ 
+ 
+ def test_search_is_case_insensitive_and_empty_safe():

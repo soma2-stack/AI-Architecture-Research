@@ -1,0 +1,40 @@
+--- a/deckgame/combat.py
++++ b/deckgame/combat.py
+@@ -37,6 +37,8 @@
+ 
+ def end_enemy_turn(battle):
+     """Resolve enemy action and start the next player turn."""
++    from .status import tick_poison
++    tick_poison(battle)
+     suffered = enemy_attack(battle)
+     battle.block = 0
+     battle.turn += 1
+--- a/deckgame/model.py
++++ b/deckgame/model.py
+@@ -32,6 +32,7 @@
+     turn: int = 1
+     deck: Deck = field(default_factory=Deck)
+     events: list[dict] = field(default_factory=list)
++    poison: int = 0
+ 
+ 
+ def starter_cards():
+--- /dev/null
++++ b/deckgame/status.py
+@@ -0,0 +1,16 @@
++def apply_poison(battle, amount):
++    battle.poison = max(0, battle.poison + int(amount))
++    return battle.poison
++
++def tick_poison(battle):
++    amount = max(0, int(battle.poison))
++    if amount == 0 or battle.enemy_hp <= 0:
++        return 0
++    dealt = min(amount, battle.enemy_hp)
++    battle.enemy_hp -= dealt
++    battle.poison = max(0, battle.poison - 1)
++    battle.events.append({"kind": "poison", "amount": dealt})
++    return dealt
++
++def poison_summary(battle):
++    return {"amount": battle.poison, "active": battle.poison > 0}

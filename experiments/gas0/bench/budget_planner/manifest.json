@@ -1,0 +1,122 @@
+{
+  "project": "budget_planner",
+  "kind": "calibration",
+  "stages": 8,
+  "orientation_answers": {
+    "q1": "budgeter.amounts.parse_amount",
+    "q2": [
+      "transaction_id",
+      "day",
+      "amount",
+      "category",
+      "description",
+      "recurring"
+    ],
+    "q3": "YYYY-MM-DD",
+    "q4": "budgeter.summary.monthly_summary",
+    "q5": "budgeter.model.normalize_category",
+    "q6": 1,
+    "q7": "budgeter.csv_io.import_csv",
+    "q8": "summary"
+  },
+  "probes": [
+    {
+      "introduced": 1,
+      "retired": 2,
+      "tests": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "text_only": false,
+      "requirement": "R1.1"
+    },
+    {
+      "introduced": 2,
+      "retired": null,
+      "tests": [
+        "tests/hidden_2/test_stage2.py::test_month_boundary_decision"
+      ],
+      "text_only": true,
+      "requirement": "R2.1"
+    },
+    {
+      "introduced": 2,
+      "retired": 5,
+      "tests": [
+        "tests/hidden_2/test_stage2.py::test_budget_decimal_payload_contract"
+      ],
+      "text_only": false,
+      "requirement": "R2.2"
+    },
+    {
+      "introduced": 3,
+      "retired": null,
+      "tests": [
+        "tests/hidden_3/test_stage3.py::test_refund_reduces_actual_category_spend"
+      ],
+      "text_only": true,
+      "requirement": "R3.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 7,
+      "tests": [
+        "tests/hidden_3/test_stage3_deferred.py::test_recurring_expansion_is_still_deferred"
+      ],
+      "text_only": true,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 4,
+      "retired": null,
+      "tests": [
+        "tests/hidden_4/test_stage4.py::test_zero_record_between_nonzero_records_keeps_order"
+      ],
+      "text_only": false,
+      "requirement": "R4.1"
+    },
+    {
+      "introduced": 5,
+      "retired": null,
+      "tests": [
+        "tests/hidden_5/test_stage5.py::test_v1_migration_and_exact_cents"
+      ],
+      "text_only": false,
+      "requirement": "R5.1"
+    },
+    {
+      "introduced": 6,
+      "retired": null,
+      "tests": [
+        "tests/hidden_6/test_stage6.py::test_budget_and_goal_state_use_integer_cents"
+      ],
+      "text_only": false,
+      "requirement": "G6.1"
+    },
+    {
+      "introduced": 7,
+      "retired": null,
+      "tests": [
+        "tests/hidden_7/test_stage7.py::test_recurrence_ids_are_stable_and_bounded",
+        "tests/hidden_7/test_stage7.py::test_deferred_expansion_exists"
+      ],
+      "text_only": true,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 8,
+      "retired": null,
+      "tests": [
+        "tests/hidden_8/test_stage8.py::test_recurring_round_trip_preserves_ids_and_cents"
+      ],
+      "text_only": false,
+      "requirement": "R8.1"
+    }
+  ]
+}

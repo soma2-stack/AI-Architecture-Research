@@ -1,0 +1,35 @@
+--- a/expr/parser.py
++++ b/expr/parser.py
+@@ -74,7 +74,7 @@
+ 
+     def multiplicative(self):
+         node = self.unary()
+-        while self.current.kind in {"STAR", "SLASH", "PERCENT"}:
++        while self.current.kind in {"STAR", "SLASH", "PERCENT", "FLOOR_SLASH"}:
+             operator = self.advance()
+             node = Binary(operator.kind, node, self.unary(), operator.position)
+         return node
+--- a/expr/runtime.py
++++ b/expr/runtime.py
+@@ -62,7 +62,11 @@
+         elif node.operator == "SLASH":
+             if right == 0:
+                 raise EvalError("division by zero", node.position)
+-            result = float(int(left / right))
++            result = left / right
++        elif node.operator == "FLOOR_SLASH":
++            if right == 0:
++                raise EvalError("division by zero", node.position)
++            result = left // right
+         elif node.operator == "PERCENT":
+             if right == 0:
+                 raise EvalError("modulo by zero", node.position)
+--- a/expr/token.py
++++ b/expr/token.py
+@@ -19,5 +19,6 @@
+     "%": "PERCENT", "(": "LPAREN", ")": "RPAREN",
+     "=": "EQUAL", ",": "COMMA", ";": "SEMICOLON",
+     "==": "EQ", "!=": "NE", "<": "LT", "<=": "LE",
++    "//": "FLOOR_SLASH",
+     ">": "GT", ">=": "GE",
+ }

@@ -1,0 +1,11 @@
+--- a/spaceecs/collision.py
++++ b/spaceecs/collision.py
+@@ -37,7 +37,7 @@
+     events = []
+     for projectile_id in sorted(world.projectiles):
+         events.extend(detect_projectile_hits(world, projectile_id))
+-    return events
++    return sorted(events, key=lambda event: (event.projectile_id, event.target_id))
+ 
+ 
+ def event_payload(event):

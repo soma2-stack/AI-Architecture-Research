@@ -1,0 +1,27 @@
+--- a/rogue/inventory.py
++++ b/rogue/inventory.py
+@@ -28,3 +28,13 @@
+     return any(item.kind=="key" and (key_id is None or item.item_id==key_id) for item in player.inventory)
+ 
+ def inventory_weight(items): return sum(1+item.power//5 for item in items)
++
++
++def use_tonic(player,item_id):
++    item=next((row for row in player.inventory if row.item_id==item_id),None)
++    if item is None: raise KeyError(item_id)
++    if item.kind!="tonic": raise InvalidAction("item is not a tonic")
++    player.max_hp+=2
++    player.hp=min(player.max_hp,player.hp+2)
++    player.inventory.remove(item)
++    return player.max_hp,player.hp
+--- a/rogue/model.py
++++ b/rogue/model.py
+@@ -58,7 +58,7 @@
+     kind:str
+     power:int=0
+     def __post_init__(self):
+-        if not self.item_id or self.kind not in {"potion","key","weapon"}: raise ValueError("invalid item")
++        if not self.item_id or self.kind not in {"potion","key","weapon","tonic"}: raise ValueError("invalid item")
+         if self.power<0: raise ValueError("item power cannot be negative")
+ 
+ def actor_at(actors,position): return next((a for a in actors if a.position==position and a.alive),None)

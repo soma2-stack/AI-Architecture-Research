@@ -1,0 +1,67 @@
+{
+  "status": "PRE-DECLARED BEFORE MODEL SELECTION RUNS",
+  "purpose": "Select and freeze one open-weight 7B-9B Q4_K_M coding/instruct model for GAS-0. This screening is separate from the C0-C4 dev pilot.",
+  "allowed_projects": ["dev_arena", "budget_planner"],
+  "prohibited_projects": [
+    "roguelike",
+    "platformer",
+    "tower_defense",
+    "deck_builder",
+    "ecs_space_shooter",
+    "cli_task_manager",
+    "expression_interpreter"
+  ],
+  "condition": "C0",
+  "seeds": [1],
+  "episodes_per_candidate": 2,
+  "candidates_in_fixed_order": [
+    {
+      "name": "Qwen2.5-Coder-7B-Instruct Q4_K_M",
+      "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF",
+      "revision": "13fb94bfda8c8cf22497dc57b78f391a9acb426a",
+      "file": "qwen2.5-coder-7b-instruct-q4_k_m.gguf",
+      "sha256": "509287f78cb4d4cf6b3843734733b914b2c158e43e22a7f4bf5e963800894d3c",
+      "parameters": 7610000000
+    },
+    {
+      "name": "Qwen3-8B Q4_K_M",
+      "repo": "Qwen/Qwen3-8B-GGUF",
+      "revision": "7c41481f57cb95916b40956ab2f0b139b296d974",
+      "file": "Qwen3-8B-Q4_K_M.gguf",
+      "sha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+      "parameters": 8200000000
+    },
+    {
+      "name": "Hermes-3-Llama-3.1-8B Q4_K_M",
+      "repo": "NousResearch/Hermes-3-Llama-3.1-8B-GGUF",
+      "revision": "9b9801172edf5be2e12b540085cf5d63b24e467c",
+      "file": "Hermes-3-Llama-3.1-8B.Q4_K_M.gguf",
+      "sha256": "d4403ce5a6e930f4c2509456388c20d633a15ff08dd52ef3b142ff1810ec3553",
+      "parameters": 8030000000,
+      "chat_template_source": "ggml-org/llama.cpp commit 4e7481175, models/templates/NousResearch-Hermes-3-Llama-3.1-8B-tool_use.jinja",
+      "chat_template_sha256": "7ce09d55d3690e06c70b5c07228cc7e8c99c43a23cdc027762be4011efcdea6c"
+    }
+  ],
+  "primary_selection_metric": "Arithmetic mean of RPS across dev_arena and budget_planner, one seed each. RPS is the arithmetic mean of cumulative requirement completion (CR) over the project's eight stages.",
+  "tie_break": "If primary scores are exactly equal, prefer fewer format errors across the two episodes; if still equal, use the fixed candidate order above.",
+  "calibration_gate": "The selected model's budget_planner mean CR/RPS must lie in [0.20, 0.80]. If it does not, record the gate failure; do not tune or alter projects in this screening pass.",
+  "resource_settings": {
+    "usable_context_tokens_per_sequence": 16384,
+    "llama_cpp_ctx_size": 16384,
+    "parallel_sequences": 1,
+    "max_model_calls_per_stage": 30,
+    "max_generated_tokens_per_call": 1024,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "seed": 1,
+    "max_test_executions_per_stage": 40,
+    "stage_wall_limit_seconds": 1200
+  },
+  "stop_rule": "After recording the selected model and freezing configuration/analysis plan, stop. Do not run any C0-C4 pilot or evaluation-project episode without a new owner instruction.",
+  "predeclared_extension": {
+    "date": "2026-09-29",
+    "reason": "The first candidate completed but generated no parseable tool calls (240/240 errors in each permitted episode). The second candidate's dev episode aborted after it emitted malformed tool-call JSON that caused llama.cpp to reject the next request with HTTP 500. Neither produced an eligible complete selection record.",
+    "new_candidate_rationale": "Hermes 3 is an 8B instruct model with a pinned Q4_K_M GGUF and an official llama.cpp tool-use Jinja template. This extension adds no evaluation-project data and leaves condition, metric, seed, resource limits, and ranking unchanged.",
+    "eligibility": "A model must complete both C0 episodes without an uncaught harness/server error and use structured tool calls. Caught model/tool errors remain counted in the ordinary episode metrics; no numerical tool-error threshold is added."
+  }
+}

@@ -1,0 +1,1 @@
+Integrate recurring transactions with CSV import/export, versioned JSON save/load, monthly summaries, category budgets, and savings goals. Round-trip then report must preserve results and must not expand a recurring row twice.

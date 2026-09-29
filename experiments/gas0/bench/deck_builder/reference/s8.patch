@@ -1,0 +1,34 @@
+--- a/deckgame/save.py
++++ b/deckgame/save.py
+@@ -19,6 +19,10 @@
+         "enemy_hp": battle.enemy_hp,
+         "enemy_intent": battle.enemy_intent,
+         "turn": battle.turn,
++        "poison": battle.poison,
++        "seed": battle.seed,
++        "rng_state": repr(battle.rng.getstate()) if battle.rng else None,
++        "offer": [card_row(card) for card in battle.reward_offer],
+         "draw": [card_row(card) for card in battle.deck.draw_pile],
+         "hand": [card_row(card) for card in battle.deck.hand],
+         "discard": [card_row(card) for card in battle.deck.discard_pile],
+@@ -34,8 +38,18 @@
+                      row["block"], row["kind"]) for row in data[name]]
+ 
+     deck = Deck(cards("draw"), cards("hand"), cards("discard"), cards("exhaust"))
+-    return Battle(data["hp"], data["max_hp"], data["block"], data["energy"],
+-                  data["enemy_hp"], data["enemy_intent"], data["turn"], deck)
++    battle = Battle(data["hp"], data["max_hp"], data["block"], data["energy"],
++                    data["enemy_hp"], data["enemy_intent"], data["turn"], deck,
++                    poison=data.get("poison", 0), seed=data.get("seed", 0))
++    from .model import Card
++    battle.reward_offer = [Card(row["id"], row["name"], row["cost"], row["damage"],
++                                row["block"], row["kind"]) for row in data.get("offer", [])]
++    if data.get("rng_state") is not None:
++        import ast
++        from .rng import RunRNG
++        battle.rng = RunRNG(battle.seed)
++        battle.rng.setstate(ast.literal_eval(data["rng_state"]))
++    return battle
+ 
+ 
+ def canonical_save(battle):

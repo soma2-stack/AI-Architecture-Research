@@ -1,0 +1,38 @@
+--- /dev/null
++++ b/budgeter/recurrence.py
+@@ -0,0 +1,24 @@
++from calendar import monthrange
++from datetime import date
++from .model import Transaction
++
++def _month_shift(day,offset):
++    index=day.year*12+day.month-1+offset
++    year,month=divmod(index,12); month+=1
++    return date(year,month,min(day.day,monthrange(year,month)[1]))
++
++def expand_recurring(template,start_month,end_month):
++    sy,sm=map(int,start_month.split("-")); first=date(sy,sm,1)
++    if end_month:
++        ey,em=map(int,end_month.split("-")); last=date(ey,em,1)
++    else: last=date(first.year+1,first.month,1)
++    source=date.fromisoformat(template.day); output=[]; offset=0
++    while offset<24:
++        day=_month_shift(source,offset); month=date(day.year,day.month,1)
++        if month<first: offset+=1; continue
++        if month>last: break
++        amount=template.amount
++        output.append(Transaction(f"{template.transaction_id}:{day:%Y-%m}",day.isoformat(),
++                                  amount,template.category,template.description,"monthly"))
++        offset+=1
++    return output
+--- a/budgeter/store.py
++++ b/budgeter/store.py
+@@ -66,7 +66,7 @@
+         if data.get("version") not in {1, 2, cls.VERSION}:
+             raise StorageError("unsupported budget schema")
+         store = cls(path)
+-        store.transactions = [Transaction.from_dict(row) for row in data.get("transactions", [])
++        store.transactions = [Transaction.from_dict(row) for row in (data.get("transactions") or [])
+                               if _keep_transaction(row)]
+         store.goals = [SavingsGoal.from_dict(row) for row in data.get("goals", [])]
+         store.metadata = dict(data.get("metadata", {}))

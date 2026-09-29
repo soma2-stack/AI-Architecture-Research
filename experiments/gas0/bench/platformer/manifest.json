@@ -1,0 +1,120 @@
+{
+  "project": "platformer",
+  "kind": "evaluation",
+  "stages": 8,
+  "orientation_answers": {
+    "q1": "platformer.model.Player",
+    "q2": "platformer.geometry.overlap",
+    "q3": "platformer.physics.step_body",
+    "q4": "platformer.collision.resolve_landing",
+    "q5": "platformer.level.parse_level",
+    "q6": "platformer.checkpoint.capture",
+    "q7": "platformer.world.tick",
+    "q8": "platformer.render.render_level"
+  },
+  "probes": [
+    {
+      "introduced": 1,
+      "retired": 2,
+      "tests": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "text_only": false,
+      "requirement": "R1.1"
+    },
+    {
+      "introduced": 2,
+      "retired": null,
+      "tests": [
+        "tests/hidden_2/test_stage2.py::test_left_dash_preserves_negative_vertical_velocity",
+        "tests/hidden_2/test_stage2.py::test_zero_direction_does_not_start_dash",
+        "tests/hidden_2/test_stage2.py::test_dash_duration_counts_down_without_changing_vertical_speed"
+      ],
+      "text_only": false,
+      "requirement": "R2.1"
+    },
+    {
+      "introduced": 2,
+      "retired": 5,
+      "tests": [
+        "tests/hidden_2/test_stage2_legacy.py::test_closed_edge_contact_counts_as_collision_in_legacy_geometry"
+      ],
+      "text_only": true,
+      "requirement": "R2.2"
+    },
+    {
+      "introduced": 3,
+      "retired": null,
+      "tests": [
+        "tests/hidden_3/test_stage3.py::test_plate_reports_only_transition_edges",
+        "tests/hidden_3/test_stage3.py::test_plate_weight_is_positive_for_small_players"
+      ],
+      "text_only": false,
+      "requirement": "R3.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 7,
+      "tests": [
+        "tests/hidden_3/test_one_way_deferred.py::test_one_way_platform_support_is_deferred"
+      ],
+      "text_only": true,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 4,
+      "retired": null,
+      "tests": [
+        "tests/hidden_4/test_stage4.py::test_vertical_and_horizontal_carrier_motion_apply_once"
+      ],
+      "text_only": false,
+      "requirement": "R4.1"
+    },
+    {
+      "introduced": 5,
+      "retired": null,
+      "tests": [
+        "tests/hidden_5/test_stage5.py::test_positive_area_still_collides_but_corner_contact_does_not"
+      ],
+      "text_only": false,
+      "requirement": "R5.1"
+    },
+    {
+      "introduced": 6,
+      "retired": null,
+      "tests": [
+        "tests/hidden_6/test_stage6.py::test_world_updates_quantize_to_same_fixed_state_each_run",
+        "tests/hidden_6/test_stage6.py::test_fixed_division_by_zero_is_explicit"
+      ],
+      "text_only": false,
+      "requirement": "G6.1"
+    },
+    {
+      "introduced": 7,
+      "retired": null,
+      "tests": [
+        "tests/hidden_7/test_stage7.py::test_waypoint_selector_is_safe_for_empty_and_nonempty_routes",
+        "tests/hidden_7/test_stage7.py::test_one_way_platform_allows_ascending_body_to_pass_through",
+        "tests/hidden_7/test_one_way_deferred_stage7.py::test_deferred_one_way_platform_catches_from_above_but_not_below"
+      ],
+      "text_only": false,
+      "requirement": "R3.2"
+    },
+    {
+      "introduced": 8,
+      "retired": null,
+      "tests": [
+        "tests/hidden_8/test_stage8.py::test_full_round_trip_preserves_fixed_counter_route_checkpoint_and_one_way"
+      ],
+      "text_only": false,
+      "requirement": "R8.1"
+    }
+  ]
+}

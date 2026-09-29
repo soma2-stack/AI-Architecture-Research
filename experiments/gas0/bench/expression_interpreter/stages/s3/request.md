@@ -1,0 +1,1 @@
+Add expression-bodied user functions using `fn name(arg1,arg2)=expression`. Parameters are evaluated left-to-right and bound in a fresh local scope; caller variables must not be overwritten. Defer short-circuit `and` / `or` until a later stage. Keep built-ins and top-level assignments working.

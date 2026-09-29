@@ -1,0 +1,1 @@
+Do not edit. Inspect the game and return JSON with exactly q1 through q8: q1 the player record; q2 the map class; q3 the movement function; q4 combat attack function; q5 potion use entry point; q6 save schema version; q7 deterministic RNG class; q8 text renderer. Use exact identifiers and values.

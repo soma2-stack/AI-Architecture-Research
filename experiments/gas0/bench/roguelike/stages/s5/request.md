@@ -1,0 +1,1 @@
+Replace flat attack damage with typed physical, fire, and poison damage packets. Apply a matching resistance before health loss, preserve nonnegative damage and defeat reporting, and keep the existing default attack physical.

@@ -1,0 +1,158 @@
+{
+  "date": "2026-09-29",
+  "status": "STOPPED_AT_MODEL_SELECTION_NO_ELIGIBLE_CANDIDATE",
+  "plan": "analysis/model_selection_plan.json",
+  "selection_scope": {
+    "projects": ["dev_arena", "budget_planner"],
+    "condition": "C0",
+    "seed": 1,
+    "evaluation_projects_used": false,
+    "official_pilot_run": false
+  },
+  "common_runtime": {
+    "engine": "llama.cpp CUDA 13.4 release b11193 / 0.5.0-dev",
+    "engine_commit": "4e7481175",
+    "server_sha256": "eba08aa1a6ad397e8954874ca58f62271cf15ab45a85d6f1f59176a47cabd6c2",
+    "usable_context_tokens_per_sequence": 16384,
+    "ctx_size": 16384,
+    "parallel": 1,
+    "gpu_layers": 99,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "seed": 1,
+    "max_calls_per_stage": 30,
+    "max_completion_tokens_per_call": 1024,
+    "max_test_executions_per_stage": 40,
+    "stage_wall_limit_seconds": 1200,
+    "gpu": "NVIDIA GeForce RTX 3060 12 GB"
+  },
+  "candidates": [
+    {
+      "name": "Qwen2.5-Coder-7B-Instruct Q4_K_M",
+      "repo": "Qwen/Qwen2.5-Coder-7B-Instruct-GGUF",
+      "revision": "13fb94bfda8c8cf22497dc57b78f391a9acb426a",
+      "file": "qwen2.5-coder-7b-instruct-q4_k_m.gguf",
+      "sha256": "509287f78cb4d4cf6b3843734733b914b2c158e43e22a7f4bf5e963800894d3c",
+      "episodes": {
+        "dev_arena": {
+          "rps": 0.08229166666666667,
+          "final_cr": 0.0,
+          "requirement_retention": 0.2,
+          "model_calls": 240,
+          "format_errors": 240,
+          "tool_calls": 0,
+          "test_executions": 0,
+          "prompt_tokens": 1376403,
+          "completion_tokens": 5307,
+          "peak_context_tokens": 10399,
+          "gpu_seconds_upper_bound": 115.902,
+          "wall_seconds": 148.063,
+          "episode_complete": true
+        },
+        "budget_planner": {
+          "rps": 0.10208333333333333,
+          "final_cr": 0.0,
+          "requirement_retention": 0.1875,
+          "model_calls": 240,
+          "format_errors": 240,
+          "tool_calls": 0,
+          "test_executions": 0,
+          "prompt_tokens": 1751192,
+          "completion_tokens": 8448,
+          "peak_context_tokens": 13535,
+          "gpu_seconds_upper_bound": 189.809,
+          "wall_seconds": 228.577,
+          "episode_complete": true
+        }
+      },
+      "mean_rps": 0.0921875,
+      "calibration_gate": "FAIL: budget_planner RPS 0.1021 is below 0.20",
+      "selection_verdict": "INELIGIBLE: no parseable structured tool calls in either episode (480/480 format errors)"
+    },
+    {
+      "name": "Qwen3-8B Q4_K_M",
+      "repo": "Qwen/Qwen3-8B-GGUF",
+      "revision": "7c41481f57cb95916b40956ab2f0b139b296d974",
+      "file": "Qwen3-8B-Q4_K_M.gguf",
+      "sha256": "d98cdcbd03e17ce47681435b5150e34c1417f50b5c0019dd560e4882c5745785",
+      "episodes": {
+        "dev_arena": {
+          "rps": null,
+          "episode_complete": false,
+          "completed_stages": 3,
+          "failed_stage": 4,
+          "partial_model_calls": 70,
+          "partial_format_errors": 18,
+          "partial_prompt_tokens": 284596,
+          "partial_completion_tokens": 40855,
+          "partial_peak_context_tokens": 8019,
+          "partial_gpu_seconds_upper_bound": 816.901,
+          "failure": "At stage 4, malformed tool-call JSON was retained in conversation history; the next llama.cpp /apply-template request failed HTTP 500 while parsing the malformed tool call arguments.",
+          "episode_complete": false
+        },
+        "budget_planner": {
+          "not_run": true,
+          "reason": "Fixed-order selection stopped after the dev episode had an uncaught server error; no calibration episode was attempted."
+        }
+      },
+      "mean_rps": null,
+      "calibration_gate": "NOT EVALUATED",
+      "selection_verdict": "INELIGIBLE: uncaught model/server interaction error; incomplete candidate record"
+    },
+    {
+      "name": "Hermes-3-Llama-3.1-8B Q4_K_M",
+      "repo": "NousResearch/Hermes-3-Llama-3.1-8B-GGUF",
+      "revision": "9b9801172edf5be2e12b540085cf5d63b24e467c",
+      "file": "Hermes-3-Llama-3.1-8B.Q4_K_M.gguf",
+      "sha256": "d4403ce5a6e930f4c2509456388c20d633a15ff08dd52ef3b142ff1810ec3553",
+      "chat_template": {
+        "source": "ggml-org/llama.cpp commit 4e7481175, models/templates/NousResearch-Hermes-3-Llama-3.1-8B-tool_use.jinja",
+        "sha256": "7ce09d55d3690e06c70b5c07228cc7e8c99c43a23cdc027762be4011efcdea6c"
+      },
+      "episodes": {
+        "dev_arena": {
+          "rps": 0.08229166666666667,
+          "final_cr": 0.0,
+          "requirement_retention": 0.2,
+          "model_calls": 240,
+          "format_errors": 239,
+          "tool_calls": 240,
+          "test_executions": 0,
+          "prompt_tokens": 1823891,
+          "completion_tokens": 8395,
+          "peak_context_tokens": 13830,
+          "gpu_seconds_upper_bound": 210.878,
+          "wall_seconds": 249.142,
+          "episode_complete": true
+        },
+        "budget_planner": {
+          "rps": 0.10208333333333333,
+          "final_cr": 0.0,
+          "requirement_retention": 0.1875,
+          "model_calls": 240,
+          "format_errors": 232,
+          "tool_calls": 240,
+          "test_executions": 0,
+          "prompt_tokens": 1733557,
+          "completion_tokens": 7617,
+          "peak_context_tokens": 12987,
+          "gpu_seconds_upper_bound": 192.894,
+          "wall_seconds": 232.391,
+          "episode_complete": true
+        }
+      },
+      "mean_rps": 0.0921875,
+      "calibration_gate": "FAIL: budget_planner RPS 0.1021 is below 0.20",
+      "selection_verdict": "INELIGIBLE: 471/480 calls produced format/tool-following errors; usable stage completion absent"
+    }
+  ],
+  "screening_resource_totals": {
+    "gpu_seconds_upper_bound": 1526.384,
+    "gpu_hours_upper_bound": 0.4239955556,
+    "model_calls": 1030,
+    "test_executions": 0,
+    "evaluation_project_episodes": 0,
+    "dev_pilot_episodes": 0
+  },
+  "conclusion": "No model was frozen. Qwen2.5 and Hermes both missed the predeclared budget_planner calibration floor; Qwen2.5 also failed structured tool use, and Hermes had pervasive tool-following errors. Qwen3's dev episode aborted before a comparable selection score due to malformed tool-call JSON causing an uncaught llama.cpp server error. Stop at model selection; do not run C0-C4 pilot or evaluation projects under this result. A future selection attempt requires an owner-approved/runtime-compatible model-selection continuation, not an implicit protocol change."
+}

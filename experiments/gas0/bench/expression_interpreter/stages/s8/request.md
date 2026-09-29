@@ -1,0 +1,1 @@
+Add `--json-errors` to the command-line program. In this mode each language error is one deterministic JSON object containing `error` and `position`; successful outputs remain unchanged. Preserve text diagnostics as the default and integrate the flag with batch and stdin operation.

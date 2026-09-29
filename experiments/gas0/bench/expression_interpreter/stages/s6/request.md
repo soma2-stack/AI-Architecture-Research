@@ -1,0 +1,1 @@
+Persistent global constraint G6.1: user source is evaluated only as the interpreter's whitelisted AST; never delegate source execution to Python `eval` or `exec`. Validate every parsed program before evaluation and preserve the constraint for function bodies and later grammar additions.

@@ -1,0 +1,1 @@
+Persistent global constraint G6.1: authoritative World frame integration uses signed fixed-point integer state, not floating accumulation. Convert to display numbers only at API/render boundaries; keep repeated updates deterministic.

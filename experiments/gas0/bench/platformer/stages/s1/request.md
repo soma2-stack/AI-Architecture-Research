@@ -1,0 +1,1 @@
+Do not edit. Inspect the platformer and return JSON with exactly q1 through q8: q1 the Player type; q2 the rectangle overlap function; q3 fixed-step body integrator; q4 solid landing resolver; q5 ASCII level parser; q6 checkpoint capture function; q7 World frame update; q8 text renderer. Use exact identifiers.

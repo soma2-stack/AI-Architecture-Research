@@ -78,7 +78,7 @@
       "introduced": 4,
       "retired": null,
       "tests": [
-        "tests/hidden_4/test_stage4.py::test_paths_do_not_cross_interior_walls"
+        "tests/hidden_4/test_stage4.py::test_same_position_path_is_nonempty_and_deterministic"
       ],
       "text_only": false,
       "requirement": "R4.1"

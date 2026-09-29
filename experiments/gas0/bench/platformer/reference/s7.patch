@@ -1,0 +1,38 @@
+--- /dev/null
++++ b/platformer/one_way.py
+@@ -0,0 +1,24 @@
++"""One-way platforms only catch downward crossings from above."""
++from dataclasses import dataclass
++from .geometry import Rect
++from .model import Vec2
++
++@dataclass(frozen=True)
++class OneWayPlatform:
++    platform_id:str
++    rect:tuple[float,float,float,float]
++    def __post_init__(self):
++        if not self.platform_id or self.rect[2]<=self.rect[0] or self.rect[3]<=self.rect[1]:
++            raise ValueError("invalid one-way platform")
++
++def can_land(body,platform,previous_bottom):
++    left,top,right,bottom=body.bounds(); pl,pt,pr,pb=platform.rect
++    return (body.velocity.y>=0 and previous_bottom<=pt<=bottom and right>pl and left<pr)
++
++def land(body,platform,previous_bottom):
++    if not can_land(body,platform,previous_bottom): return False
++    body.position=Vec2(body.position.x,platform.rect[1]-body.height)
++    body.velocity=Vec2(body.velocity.x,0); body.on_ground=True
++    return True
++
++def blocks_from_below(body,platform): return False
+--- a/platformer/world.py
++++ b/platformer/world.py
+@@ -20,7 +20,7 @@
+                 "vx":self.player.velocity.x,"vy":self.player.velocity.y,"grounded":self.player.on_ground,
+                 "score":self.player.score,"lives":self.player.lives}
+ 
+-def first_waypoint(route): return route[0]
++def first_waypoint(route): return route[0] if route else None
+ 
+ def tick(world,dt=1/60):
+     world.tick_count+=1; previous_bottom=world.player.position.y+world.player.height

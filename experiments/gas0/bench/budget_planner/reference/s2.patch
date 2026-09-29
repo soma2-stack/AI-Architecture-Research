@@ -1,0 +1,100 @@
+--- a/budgeter/__init__.py
++++ b/budgeter/__init__.py
+@@ -2,4 +2,5 @@
+ from .model import Transaction, SavingsGoal
+ from .store import BudgetStore
+ from .summary import monthly_summary
+-__all__ = ["Transaction", "SavingsGoal", "BudgetStore", "monthly_summary"]
++from .budgets import CategoryBudgets
++__all__ = ["Transaction", "SavingsGoal", "BudgetStore", "monthly_summary", "CategoryBudgets"]
+--- /dev/null
++++ b/budgeter/budgets.py
+@@ -0,0 +1,34 @@
++from decimal import Decimal
++from .amounts import nonnegative, parse_amount
++from .dates import validate_month
++from .model import normalize_category
++
++class CategoryBudgets:
++    def __init__(self, limits=None):
++        self.limits = {key: parse_amount(value) for key, value in (limits or {}).items()}
++
++    def set_limit(self, category, month, amount):
++        validate_month(month)
++        value = nonnegative(parse_amount(amount))
++        self.limits[(normalize_category(category), month)] = value
++        return value
++
++    def get_limit(self, category, month):
++        validate_month(month)
++        return self.limits.get((normalize_category(category), month), Decimal("0.00"))
++
++    def payload(self):
++        return {f"{category}|{month}": str(value)
++                for (category, month), value in sorted(self.limits.items())}
++
++    @classmethod
++    def from_payload(cls, payload):
++        values = {}
++        for key, value in payload.items():
++            category, month = key.split("|", 1)
++            values[(category, month)] = value
++        return cls(values)
++
++    def categories(self, month):
++        validate_month(month)
++        return sorted(category for category, key_month in self.limits if key_month == month)
+--- a/budgeter/store.py
++++ b/budgeter/store.py
+@@ -20,6 +20,7 @@
+         self.path = Path(path)
+         self.transactions: list[Transaction] = []
+         self.goals: list[SavingsGoal] = []
++        self.budgets: dict = {}
+         self.metadata: dict = {}
+ 
+     def add(self, row: Transaction) -> None:
+@@ -49,6 +50,7 @@
+         return {"version": self.VERSION,
+                 "transactions": [row.to_dict() for row in self.transactions],
+                 "goals": [vars(goal) for goal in self.goals],
++                "budgets": dict(self.budgets),
+                 "metadata": dict(self.metadata)}
+ 
+     def save(self) -> None:
+@@ -67,6 +69,7 @@
+                               if _keep_transaction(row)]
+         store.goals = [SavingsGoal(**row) for row in data.get("goals", [])]
+         store.metadata = dict(data.get("metadata", {}))
++        store.budgets = dict(data.get("budgets", {}))
+         validate_transaction_ids(store.transactions)
+         return store
+ 
+--- a/budgeter/summary.py
++++ b/budgeter/summary.py
+@@ -8,7 +8,7 @@
+     validate_month(month)
+     return [row for row in rows if month_key(row.day) == month]
+ 
+-def monthly_summary(rows, month: str) -> dict:
++def monthly_summary(rows, month: str, budgets=None) -> dict:
+     """Return total, income, expenses, and category amounts."""
+     selected = month_transactions(rows, month)
+     income = add_amounts(row.amount for row in selected if row.amount > 0)
+@@ -16,9 +16,15 @@
+     categories = {}
+     for row in selected:
+         categories[row.category] = categories.get(row.category, Decimal("0.00")) + row.amount
++    limits = budgets or {}
++    if hasattr(limits, "payload"):
++        limits = limits.payload()
++    status = {name: {"actual": amount,
++                     "limit": Decimal(limits.get(f"{name}|{month}", "0.00"))}
++              for name, amount in sorted(categories.items())}
+     return {"month": month, "income": income, "expenses": expenses,
+             "net": income + expenses, "categories": dict(sorted(categories.items())),
+-            "count": len(selected)}
++            "budget_status": status, "count": len(selected)}
+ 
+ def largest_expenses(rows, month: str, limit: int = 5):
+     selected = [row for row in month_transactions(rows, month) if row.amount < 0]

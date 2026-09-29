@@ -1,0 +1,1 @@
+Replace transaction storage and persisted transaction amounts with integer cents. Keep decimal-formatted CLI and CSV output and migrate version-1 saves. Leave budget and savings-goal arithmetic unchanged for now.

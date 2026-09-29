@@ -1,0 +1,36 @@
+--- /dev/null
++++ b/platformer/save.py
+@@ -0,0 +1,33 @@
++"""Deterministic JSON checkpoint integration for the headless platformer."""
++import json
++from pathlib import Path
++from .checkpoint import CheckpointManager
++from .fixed import SCALE
++from .model import Player,Vec2,Platform,Waypoint
++from .world import World
++
++VERSION=1
++def payload(world,checkpoints=None,one_way=()):
++    p=world.player
++    return {"version":VERSION,"player":{"id":p.body_id,"position":[p.position.x,p.position.y],
++        "velocity":[p.velocity.x,p.velocity.y],"width":p.width,"height":p.height,"on_ground":p.on_ground,
++        "lives":p.lives,"score":p.score,"dash_ticks":p.dash_ticks},
++        "platforms":[{"id":x.platform_id,"rect":list(x.rect),"moving":x.moving} for x in world.platforms],
++        "tick":world.tick_count,"coins":sorted(world.coins),"fixed_updates":world.fixed_updates,
++        "fixed_scale":SCALE,"route":[{"x":w.x,"y":w.y,"dwell":w.dwell} for w in world.route],
++        "checkpoints":(checkpoints or CheckpointManager()).payload(),
++        "one_way":[{"id":x.platform_id,"rect":list(x.rect)} for x in one_way]}
++
++def save(path,world,checkpoints=None,one_way=()):
++    Path(path).write_text(json.dumps(payload(world,checkpoints,one_way),sort_keys=True,indent=2),encoding="utf-8")
++
++def load(path):
++    data=json.loads(Path(path).read_text(encoding="utf-8"))
++    if data.get("version")!=VERSION: raise ValueError("unsupported save version")
++    row=data["player"]; p=Player(row["id"],Vec2(*row["position"]),Vec2(*row["velocity"]),
++        row["width"],row["height"],row["on_ground"],row["lives"],row["score"],row.get("dash_ticks",0))
++    platforms=[Platform(x["id"],tuple(x["rect"]),x.get("moving",False)) for x in data["platforms"]]
++    world=World(p,platforms,tick_count=data["tick"],coins=set(data["coins"]),
++                route=[Waypoint(**w) for w in data["route"]],
++                fixed_updates=data.get("fixed_updates",0))
++    return world,CheckpointManager.from_payload(data.get("checkpoints",{})),data.get("one_way",[])

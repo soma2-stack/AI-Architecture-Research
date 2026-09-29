@@ -1,0 +1,36 @@
+--- a/spaceecs/collision.py
++++ b/spaceecs/collision.py
+@@ -16,6 +16,18 @@
+     return distance(projectile.x, projectile.y, entity.x, entity.y) <= projectile.radius
+ 
+ 
++def segment_hit_time(projectile, entity):
++    dx = projectile.x - projectile.previous_x
++    dy = projectile.y - projectile.previous_y
++    length_sq = dx * dx + dy * dy
++    if length_sq == 0:
++        return 0.0 if overlap(projectile, entity) else None
++    t = ((entity.x - projectile.previous_x) * dx + (entity.y - projectile.previous_y) * dy) / length_sq
++    t = max(0.0, min(1.0, t))
++    px = projectile.previous_x + t * dx
++    py = projectile.previous_y + t * dy
++    return t if distance(px, py, entity.x, entity.y) <= projectile.radius else None
++
+ def detect_projectile_hits(world, projectile_id):
+     projectile = world.projectiles.get(int(projectile_id))
+     if projectile is None:
+@@ -28,9 +40,11 @@
+             continue
+         if entity.faction in {"projectile", "neutral"}:
+             continue
+-        if overlap(projectile, entity):
+-            events.append(CollisionEvent(projectile.entity_id, entity.entity_id))
+-    return events
++        hit_time = segment_hit_time(projectile, entity)
++        if hit_time is not None:
++            events.append(CollisionEvent(projectile.entity_id, entity.entity_id, hit_time))
++    events.sort(key=lambda event: (event.time, event.target_id))
++    return events[:1]
+ 
+ 
+ def detect_all_hits(world):

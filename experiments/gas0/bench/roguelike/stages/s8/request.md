@@ -1,0 +1,1 @@
+Integrate typed damage, status effects, inventory, turn state, and the world's RNG stream with versioned save/load. A save/load round trip must preserve poison duration, tonic/charm inventory, damage-related actor state, RNG continuation, and deterministic next loot result.

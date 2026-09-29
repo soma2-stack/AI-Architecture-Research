@@ -1,0 +1,12 @@
+--- a/rogue/combat.py
++++ b/rogue/combat.py
+@@ -13,8 +13,7 @@
+ 
+ def poison_tick_amount(damage):
+     """Central tick calculation so effects and combat use one rule."""
+-    value=max(0,int(damage))
+-    return value*2 if value>3 else value
++    return max(0,int(damage))
+ 
+ def attack(source:Actor,target:Actor,power=1):
+     if not source.alive: raise InvalidAction("dead actor cannot attack")

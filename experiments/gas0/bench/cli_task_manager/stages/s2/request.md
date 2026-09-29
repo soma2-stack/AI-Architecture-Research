@@ -1,0 +1,1 @@
+Change task listing so completed tasks are hidden by default, including when a tag filter is present. Add an explicit `include_done` option to show them. Keep ordering stable and preserve all other filters.

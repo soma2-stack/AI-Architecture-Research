@@ -1,0 +1,30 @@
+--- a/taskapp/commands.py
++++ b/taskapp/commands.py
+@@ -65,3 +65,16 @@
+         raise MissingTask(task_id)
+     tasks.remove(task)
+     return task
++
++
++def bulk_complete_with_undo(tasks, task_ids):
++    """Complete a batch and return an undo token that restores each prior state."""
++    wanted=set(task_ids); selected=[task for task in tasks if task.task_id in wanted]
++    if len(selected)!=len(wanted): raise MissingTask("one or more tasks do not exist")
++    prior=[(task,task.completed) for task in selected]
++    for task,_ in prior: task.completed=True
++    return prior
++
++def undo_bulk_complete(token):
++    for task,was_completed in token: task.completed=was_completed
++    return len(token)
+--- a/taskapp/store.py
++++ b/taskapp/store.py
+@@ -56,7 +56,7 @@
+         store = cls(path)
+         store.tasks = [Task.from_dict(row) for row in data.get("tasks", [])]
+         store.preferences = dict(data.get("preferences", {}))
+-        store.projects = dict(data.get("projects", {}))
++        store.projects = dict(data.get("projects") or {})
+         if not ids_are_unique(store.tasks):
+             raise StorageError("duplicate task id")
+         return store

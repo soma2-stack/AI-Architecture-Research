@@ -1,0 +1,34 @@
+--- a/rogue/rng.py
++++ b/rogue/rng.py
+@@ -16,3 +16,12 @@
+ def choose_spawn(rng,points): return rng.choice(points)
+ def deterministic_order(rng,values): return tuple(rng.shuffle(values))
+ def clamped_chance(value): return max(0.0,min(1.0,float(value)))
++
++
++def world_loot_roll(world,chance=0.25):
++    """Consume exactly one draw from this world's retained random stream."""
++    world.random_draws+=1
++    return loot_roll(world.rng,chance)
++
++def roll_enemy_drop(world,enemy_id,chance=0.25):
++    return {"enemy_id":enemy_id,"dropped":world_loot_roll(world,chance),"draw":world.random_draws}
+--- a/rogue/world.py
++++ b/rogue/world.py
+@@ -5,6 +5,7 @@
+ from .grid import Grid
+ from .model import Enemy,Player,Point,actor_at
+ from .effects import StatusBook
++from .rng import SeededRNG,loot_roll
+ 
+ @dataclass
+ class World:
+@@ -14,6 +15,8 @@
+     turn:int=0
+     messages:list[str]=field(default_factory=list)
+     statuses:StatusBook=field(default_factory=StatusBook)
++    rng:SeededRNG=field(default_factory=lambda:SeededRNG(0))
++    random_draws:int=0
+     def __post_init__(self):
+         if not self.grid.walkable(self.player.position): raise ValueError("player must start on walkable tile")
+     @property

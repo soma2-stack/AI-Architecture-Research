@@ -1,0 +1,11 @@
+--- a/deckgame/piles.py
++++ b/deckgame/piles.py
+@@ -49,7 +49,7 @@
+     if deck.draw_pile or not deck.discard_pile:
+         return 0
+     count = len(deck.discard_pile)
+-    deck.draw_pile.extend(deck.discard_pile)
++    deck.draw_pile.extend(deck.discard_pile + deck.exhaust_pile)
+     deck.discard_pile.clear()
+     return count
+ 

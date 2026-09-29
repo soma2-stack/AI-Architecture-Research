@@ -1,0 +1,54 @@
+--- /dev/null
++++ b/rogue/effects.py
+@@ -0,0 +1,33 @@
++"""Compact turn-based status effect ledger."""
++from dataclasses import dataclass
++from .combat import poison_tick_amount
++
++@dataclass
++class Poison:
++    remaining:int
++    damage:int
++    def __post_init__(self):
++        if self.remaining<0 or self.damage<0: raise ValueError("invalid poison")
++
++class StatusBook:
++    def __init__(self): self.effects={}
++    def apply_poison(self,actor_id,turns,damage):
++        self.effects[actor_id]=Poison(int(turns),int(damage)); return self.effects[actor_id]
++    def get(self,actor_id): return self.effects.get(actor_id)
++    def remove(self,actor_id): return self.effects.pop(actor_id,None)
++    def payload(self):
++        return {key:{"remaining":value.remaining,"damage":value.damage} for key,value in sorted(self.effects.items())}
++    @classmethod
++    def from_payload(cls,data):
++        book=cls(); book.effects={key:Poison(**row) for key,row in data.items()}; return book
++
++def tick_poison(actor,book):
++    effect=book.get(actor.actor_id)
++    if effect is None or effect.remaining==0 or not actor.alive: return 0
++    amount=poison_tick_amount(effect.damage)
++    applied=min(amount,max(0,actor.hp-1))
++    actor.take_damage(applied); effect.remaining-=1
++    if effect.remaining==0: book.remove(actor.actor_id)
++    return applied
++
++def status_names(book,actor_id): return ("poison",) if book.get(actor_id) else ()
+--- a/rogue/world.py
++++ b/rogue/world.py
+@@ -4,6 +4,7 @@
+ from .errors import InvalidAction
+ from .grid import Grid
+ from .model import Enemy,Player,Point,actor_at
++from .effects import StatusBook
+ 
+ @dataclass
+ class World:
+@@ -12,6 +13,7 @@
+     enemies:list[Enemy]=field(default_factory=list)
+     turn:int=0
+     messages:list[str]=field(default_factory=list)
++    statuses:StatusBook=field(default_factory=StatusBook)
+     def __post_init__(self):
+         if not self.grid.walkable(self.player.position): raise ValueError("player must start on walkable tile")
+     @property

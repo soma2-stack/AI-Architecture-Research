@@ -1,0 +1,35 @@
+--- /dev/null
++++ b/taskapp/atomic.py
+@@ -0,0 +1,12 @@
++"""Crash-safe replacement for small JSON state files."""
++import os
++from pathlib import Path
++
++def atomic_write_text(path,text):
++    destination=Path(path); destination.parent.mkdir(parents=True,exist_ok=True)
++    temporary=destination.with_name(destination.name+".tmp")
++    try:
++        temporary.write_text(text,encoding="utf-8")
++        os.replace(temporary,destination)
++    finally:
++        if temporary.exists(): temporary.unlink()
+--- a/taskapp/store.py
++++ b/taskapp/store.py
+@@ -1,6 +1,7 @@
+ """Version-one JSON persistence for tasks and small user preferences."""
+ from __future__ import annotations
+ import json
++from .atomic import atomic_write_text
+ from pathlib import Path
+ from .errors import StorageError
+ from .ids import ids_are_unique
+@@ -44,8 +45,7 @@
+     def save(self):
+         try:
+             self.path.parent.mkdir(parents=True, exist_ok=True)
+-            self.path.write_text(json.dumps(self.payload(), sort_keys=True, indent=2),
+-                                 encoding="utf-8")
++            atomic_write_text(self.path, json.dumps(self.payload(), sort_keys=True, indent=2))
+         except (OSError, TypeError, ValueError) as exc:
+             raise StorageError("could not save task list") from exc
+ 

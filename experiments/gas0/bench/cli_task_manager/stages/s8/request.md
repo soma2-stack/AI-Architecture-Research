@@ -1,0 +1,1 @@
+Integrate projects, tags, due dates, status, bulk completion, and undo into the CLI and persisted state. Add project creation and filtered listing; due-date ordering must remain deterministic. Round-trip and report must preserve all fields and must not mark unrelated tasks complete.

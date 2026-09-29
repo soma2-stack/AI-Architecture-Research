@@ -1,0 +1,116 @@
+{
+  "project": "ecs_space_shooter",
+  "kind": "evaluation",
+  "stages": 8,
+  "orientation_answers": {
+    "q1": "spaceecs.model.Entity",
+    "q2": "spaceecs.model.World",
+    "q3": "spaceecs.model.create_entity",
+    "q4": "spaceecs.collision.CollisionEvent",
+    "q5": "spaceecs.spatial.nearby",
+    "q6": "spaceecs.projectiles.spawn_projectile",
+    "q7": "spaceecs.game.tick",
+    "q8": "spaceecs.save.save_world"
+  },
+  "probes": [
+    {
+      "introduced": 1,
+      "retired": 2,
+      "tests": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "text_only": false,
+      "requirement": "R1.1"
+    },
+    {
+      "introduced": 2,
+      "retired": null,
+      "tests": [
+        "tests/hidden_2/test_ecs_stage2.py::test_excess_hit_spills_from_shield_to_health"
+      ],
+      "text_only": false,
+      "requirement": "R2.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 5,
+      "tests": [
+        "tests/hidden_3/test_ecs_stage3.py::test_target_ties_ignore_component_table_order"
+      ],
+      "text_only": false,
+      "requirement": "R3.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 7,
+      "tests": [
+        "tests/hidden_3/test_ecs_piercing_deferred.py::test_piercing_is_deferred"
+      ],
+      "text_only": true,
+      "requirement": "D3.1"
+    },
+    {
+      "introduced": 4,
+      "retired": null,
+      "tests": [
+        "tests/hidden_4/test_ecs_stage4.py::test_wide_query_keeps_exact_max_cell"
+      ],
+      "text_only": false,
+      "requirement": "R4.1"
+    },
+    {
+      "introduced": 5,
+      "retired": null,
+      "tests": [
+        "tests/hidden_5/test_ecs_stage5.py::test_nearest_swept_target_wins",
+        "tests/hidden_5/test_ecs_stage5.py::test_equal_time_swept_hit_uses_target_id"
+      ],
+      "text_only": false,
+      "requirement": "R5.1"
+    },
+    {
+      "introduced": 3,
+      "retired": 5,
+      "tests": [
+        "tests/hidden_3/test_ecs_stage3_all_hits.py::test_point_collision_reports_all_overlapping_targets"
+      ],
+      "text_only": false,
+      "requirement": "R3.3"
+    },
+    {
+      "introduced": 6,
+      "retired": null,
+      "tests": [
+        "tests/hidden_6/test_ecs_stage6.py::test_ids_strictly_increase_across_removal"
+      ],
+      "text_only": false,
+      "requirement": "G6.1"
+    },
+    {
+      "introduced": 7,
+      "retired": null,
+      "tests": [
+        "tests/hidden_7/test_ecs_stage7_audit.py::test_resolve_event_skips_removed_target",
+        "tests/hidden_7/test_ecs_piercing_deferred_stage7.py::test_deferred_piercing_limit_is_enforced"
+      ],
+      "text_only": false,
+      "requirement": "D3.1"
+    },
+    {
+      "introduced": 8,
+      "retired": null,
+      "tests": [
+        "tests/hidden_8/test_ecs_stage8.py::test_round_trip_preserves_shield_and_piercing"
+      ],
+      "text_only": false,
+      "requirement": "R8.1"
+    }
+  ]
+}
