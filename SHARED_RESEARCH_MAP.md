@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **GAS-0 benchmark complete and validated; IBM Granite 3.3 8B Instruct Q6_K passed memory/context but failed the first structured-tool preflight under the current llama.cpp/GGUF template, so it was not benchmark-screened or frozen; no C0–C4 pilot has run; continue model selection only with a new runtime-compatible candidate; Phase 2 remains unauthorized** |
+| **Current phase** | **GAS-0 benchmark complete and validated; Granite Q6 failed structured-tool shape, and Ministral 8B Q6 failed the one-tool-per-response preflight despite valid structured calls; neither was benchmark-screened or frozen; next model-selection candidates should prioritize llama.cpp-native single-tool formats such as Command R7B / Llama 3.1 / Hermes 2 Pro; no C0–C4 pilot has run; Phase 2 remains unauthorized** |
 
 ---
 
@@ -1119,7 +1119,7 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 
 **Perplexity:** wait.
 
-**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Granite Q6 memory/context compatibility is at `3982834`, and its structured-tool preflight failure is at `5f73b3b`: the GGUF-provided Granite template returned a content-level `function_call` object with no OpenAI `tool_calls`, while the runtime reported `supports_tool_calls=false`. Granite is ineligible under the current runtime/template. Next, preflight the next owner-approved runtime-compatible 7–9B candidate before any benchmark episode. Do not run C0–C4 or any evaluation-project model episode yet.
+**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Granite preflight failed at `5f73b3b`; Ministral 8B Q6 then failed at `f12c531` because it emitted three structured calls in one assistant response while GAS-0 requires exactly one. Next, preflight only owner-approved candidates with documented llama.cpp-native tool formats (priority: Command R7B, then Llama 3.1 8B, then Hermes 2 Pro Llama-3 8B). Do not run C0–C4 or any evaluation-project model episode yet.
 
 **Cursor / Gemini:** wait.
 
