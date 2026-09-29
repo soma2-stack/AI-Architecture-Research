@@ -31,6 +31,13 @@ no model-selection episodes ran. Details are in
 `analysis/granite_runtime_compatibility.json` and
 `analysis/granite_tool_preflight.json`. Granite is not selected or frozen.
 
+**Ministral follow-up (2026-09-29):** Q6_K loaded at a 16,384-token single-slot
+context, with all 37 transformer layers on CUDA and 2,420 MiB VRAM free. Its
+first synthetic response contained three structured calls in one message;
+`agent_loop._one_action` rejected the message because it requires exactly one.
+The preflight stopped, so no dev/calibration model-selection episodes ran.
+See `analysis/ministral_preflight.json`. Ministral is not selected or frozen.
+
 ## VPS quality/validity review (Claude lane, 2026-09-29; base `61fb988`)
 
 This was a targeted review of the harness in response to a Perplexity audit. The C0–C4 definitions, benchmark, metrics, verdicts, budgets, model-selection rules and Phase 2 authorization are all unchanged. No GPU was used and no model was run.
