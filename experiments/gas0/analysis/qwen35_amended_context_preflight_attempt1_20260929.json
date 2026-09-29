@@ -1,0 +1,24 @@
+{
+  "model": "Qwen3.5-9B Q6_K",
+  "synthetic_only": true,
+  "assembler_policy_sha256": "A0779B00CE6CF19DA7E1BDABB2E2A232449F6928F079DAC7FC1796F0BD8C36A5",
+  "parallel_tool_calls": false,
+  "context_tokens_per_sequence": 16384,
+  "template_renders_tools": true,
+  "condition_sequences": {
+    "C0": {
+      "initial_assemble_roles": [
+        "system",
+        "user",
+        "assistant"
+      ],
+      "initial_assemble_tokens": 1267,
+      "ledger_present": false,
+      "plan_present": true
+    }
+  },
+  "http_500": false,
+  "apply_template_failure": false,
+  "failure": "AssertionError: C0 turn 1: expected undo_last_edit {}; got declare_stage_done {'summary': 'synthetic protocol check completed successfully'}",
+  "eligible": false
+}

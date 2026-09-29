@@ -19,6 +19,16 @@ episodes but had 471 format/tool-following errors across 480 calls and missed
 the calibration RPS floor. See `analysis/model_selection.json` for exact
 artifacts, scores, and resource counts. No `frozen_config.json` was created.
 
+The owner-authorized post-amendment C0 screen tried Qwen3.5 and Ornith, after
+both passed synthetic actual-context tool checks. Qwen3.5 completed dev_arena
+at RPS 0.6495 but Budget Planner aborted before a final RPS; Ornith aborted in
+dev_arena before a complete RPS. Both emitted malformed long `edit_file`
+arguments at the unchanged 1,024-token cap, after which llama.cpp returned
+HTTP 500 while re-rendering tool history. Neither model is eligible, so no
+model was frozen. Details and raw stage logs are in
+`analysis/model_selection_amended_20260929.json` and
+`analysis/model_selection_amended_20260929/`.
+
 The C0-C4 dev pilot was not run. The full evaluation matrix was not run. GAS-0
 Phase 2 remains unauthorized. Screens before the context serialization
 amendment are labeled `PRE-CONTEXT-SERIALIZATION-AMENDMENT`; their RPS values
@@ -147,7 +157,7 @@ This was a targeted review of the harness in response to a Perplexity audit. The
 3. History trimming pops single messages, so a `tool` result can start the history without its assistant call. Some chat templates may reject this. Check it during model selection; the trimming is shared by all cells.
 4. `_fit` assumes non-decreasing token counts; this was not violated in any test.
 
-## Model selection continuation — 2026-09-29
+## Pre-amendment model selection continuation — 2026-09-29
 
 The authorized continuation used only C0 on `dev_arena` and `budget_planner`, seed 1. Synthetic tool preflights used no benchmark content. Every loaded model had a verified 16,384-token single sequence and all transformer layers on the RTX 3060. `parallel_tool_calls=false` was sent with the existing OpenAI tool schemas to enforce the existing one-action contract. Detailed pinned model hashes, preflight outcomes, and episode measurements are in `analysis/model_selection_continuation_20260929.json` and its linked records. Raw transcripts are retained under `%LOCALAPPDATA%/GAS0/model-selection-runs/20260929`.
 
@@ -163,4 +173,33 @@ The authorized continuation used only C0 on `dev_arena` and `budget_planner`, se
 | Qwen3-VL 8B Instruct Q6_K | Passed 6/6 | Dev RPS 0.0823; calibration aborted on malformed tool arguments and HTTP 500 |
 | Ornith 1.0 9B Q6_K | Passed 6/6 | Same post-request system-message template error as Qwen3.5 |
 
-No model passed selection. `frozen_config.json` was not created, no C0–C4 pilot ran, and Phase 2 remains unauthorized. The post-request `LATEST PLAN` system message is part of the current context assembly. Reordering it could make additional templates usable but changes the frozen prompt organization; that requires an explicit protocol decision before further screening. The calibration interval remains [0.20, 0.80].
+No model passed that pre-amendment selection. `frozen_config.json` was not created, no C0–C4 pilot ran, and Phase 2 remains unauthorized. At the time, the post-request `LATEST PLAN` system message caused template rejection. The owner later authorized the common serialization amendment documented above. These pre-amendment scores remain preserved and must not be compared numerically with amended screens. The calibration interval remains [0.20, 0.80].
+
+## Post-amendment model-selection screen — 2026-09-29
+
+The owner-authorized serialization amendment was committed before these episodes as
+`aaaf80a`. The unit suite passed 30/30. Both models passed an amended synthetic
+preflight using actual `assemble()` output for C0 with a plan and C4 with a
+synthetic ledger plus plan. Each condition completed six single structured
+tool-call turns, including five successful mock actions and recovery after an
+ordinary mock tool error. The checks used no benchmark text.
+
+| Candidate | Device / context check | Synthetic check | C0 selection outcome |
+|---|---|---|---|
+| Qwen3.5-9B Q6_K | 16,384 context, parallel 1, about 3.7 GiB free under load | Pass for C0 and C4 | Dev Arena RPS 0.649495; 163 model calls, 15 format errors, 20 test executions, peak context 16,379. Budget Planner stopped during Stage 7 after malformed long `edit_file` JSON reached 1,024 completion tokens and the next `/apply-template` returned HTTP 500. No final calibration RPS. |
+| Ornith-1.0-9B Q6_K | 16,384 context, parallel 1, about 3.8 GiB free under load | Pass for C0 and C4 | Dev Arena stopped during Stage 2 after malformed long `edit_file` JSON reached 1,024 completion tokens and the next `/apply-template` returned HTTP 500. No complete dev RPS; Budget Planner was not run. |
+
+The malformed tool calls were caused by model output truncation at the frozen
+reply limit; the follow-up server errors occurred while the template replayed
+the incomplete tool-call history. This is a structured-tool reliability
+failure, not a post-user system-role failure. The [machine-readable screen
+record](analysis/model_selection_amended_20260929.json) includes model/GGUF
+revisions and hashes, active Ornith template hash, per-stage counts, context
+and memory observations, and partial outcomes. Raw model/tool logs and stage
+scores are preserved in `analysis/model_selection_amended_20260929/`.
+
+No candidate is eligible. No `frozen_config.json` was created; no C0–C4 pilot,
+evaluation-project model call, training, or Phase 2 run occurred. The Qwen3.5
+and Ornith selection inference upper bounds total 3,622.825 seconds (1.006
+hours), excluding synthetic preflight inference because its per-call wall time
+was not captured. Stop model selection at this point pending owner direction.

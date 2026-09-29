@@ -1,0 +1,68 @@
+{
+  "RPS": 0.6494949494949495,
+  "final": 0.8181818181818182,
+  "regressions": [
+    {
+      "first_green": 2,
+      "red_stage": 6,
+      "test": "tests/hidden_2/test_stage2_poison.py::test_poison_never_kills_or_uses_shield"
+    }
+  ],
+  "requirement_retention": 0.6,
+  "resources": {
+    "completion_tokens": 31097,
+    "estimated_flops": 32593212000000000,
+    "format_errors": 15,
+    "gpu_seconds_upper_bound": 1656.9090000003343,
+    "hidden_test_seconds": 12.954000000143424,
+    "model_calls": 163,
+    "peak_context_tokens": 16379,
+    "prompt_tokens": 1779637,
+    "test_executions": 20,
+    "tool_calls": 163,
+    "visible_test_seconds": 32.141999999876134,
+    "wall_seconds": 2476.5319999997737
+  },
+  "stages": [
+    {
+      "CR": 0,
+      "SC": 0,
+      "stage": 1
+    },
+    {
+      "CR": 1,
+      "SC": 1,
+      "stage": 2
+    },
+    {
+      "CR": 0.6,
+      "SC": 0.3333333333333333,
+      "stage": 3
+    },
+    {
+      "CR": 0.8333333333333334,
+      "SC": 1,
+      "stage": 4
+    },
+    {
+      "CR": 0.6666666666666666,
+      "SC": 0,
+      "stage": 5
+    },
+    {
+      "CR": 0.5,
+      "SC": 0.5,
+      "stage": 6
+    },
+    {
+      "CR": 0.7777777777777778,
+      "SC": 1,
+      "stage": 7
+    },
+    {
+      "CR": 0.8181818181818182,
+      "SC": 1,
+      "stage": 8
+    }
+  ]
+}

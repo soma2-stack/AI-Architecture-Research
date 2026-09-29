@@ -1,0 +1,79 @@
+{
+  "model": "Qwen3.5-9B Q6_K",
+  "condition": "C0",
+  "seed": 1,
+  "parallel_tool_calls": false,
+  "projects": {
+    "dev_arena": {
+      "RPS": 0.6494949494949495,
+      "final": 0.8181818181818182,
+      "stages": [
+        {
+          "stage": 1,
+          "SC": 0,
+          "CR": 0
+        },
+        {
+          "stage": 2,
+          "SC": 1,
+          "CR": 1
+        },
+        {
+          "stage": 3,
+          "SC": 0.3333333333333333,
+          "CR": 0.6
+        },
+        {
+          "stage": 4,
+          "SC": 1,
+          "CR": 0.8333333333333334
+        },
+        {
+          "stage": 5,
+          "SC": 0,
+          "CR": 0.6666666666666666
+        },
+        {
+          "stage": 6,
+          "SC": 0.5,
+          "CR": 0.5
+        },
+        {
+          "stage": 7,
+          "SC": 1,
+          "CR": 0.7777777777777778
+        },
+        {
+          "stage": 8,
+          "SC": 1,
+          "CR": 0.8181818181818182
+        }
+      ],
+      "regressions": [
+        {
+          "test": "tests/hidden_2/test_stage2_poison.py::test_poison_never_kills_or_uses_shield",
+          "first_green": 2,
+          "red_stage": 6
+        }
+      ],
+      "requirement_retention": 0.6,
+      "resources": {
+        "model_calls": 163,
+        "prompt_tokens": 1779637,
+        "completion_tokens": 31097,
+        "peak_context_tokens": 16379,
+        "estimated_flops": 32593212000000000,
+        "gpu_seconds_upper_bound": 1656.9090000003343,
+        "test_executions": 20,
+        "visible_test_seconds": 32.141999999876134,
+        "hidden_test_seconds": 12.954000000143424,
+        "tool_calls": 163,
+        "wall_seconds": 2476.5319999997737,
+        "format_errors": 15
+      },
+      "episode_wall_elapsed_seconds": 2477.530999999959
+    }
+  },
+  "uncaught_error": "HTTPError: HTTP Error 500: Internal Server Error",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\coler\\AppData\\Local\\GAS0\\qwen35_amended_selection.py\", line 15, in <module>\n    metrics=run_episode(root/'experiments'/'gas0'/'bench'/project,'C0',1,client,out,9_000_000_000)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\gas0\\harness\\agent_loop.py\", line 123, in run_episode\n    prompt = assemble(SYSTEM, request, history, view, schemas,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\gas0\\harness\\context.py\", line 34, in assemble\n    while count_tokens(fixed + past, tools) > WINDOW - REPLY and past:\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\gas0\\harness\\llm_client.py\", line 47, in count_tokens\n    rendered = self._post(\"/apply-template\", {\"messages\": value,\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\gas0\\harness\\llm_client.py\", line 41, in _post\n    with urlopen(req, timeout=self.timeout) as response:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\urllib\\request.py\", line 216, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\urllib\\request.py\", line 525, in open\n    response = meth(req, response)\n               ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\urllib\\request.py\", line 634, in http_response\n    response = self.parent.error(\n               ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\urllib\\request.py\", line 563, in error\n    return self._call_chain(*args)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\urllib\\request.py\", line 496, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\urllib\\request.py\", line 643, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 500: Internal Server Error\n"
+}

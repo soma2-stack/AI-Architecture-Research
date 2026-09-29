@@ -1110,8 +1110,8 @@ The final plasticity review found a real loss-of-current-task learnability pheno
 - Supported new architectures: **0**
 - New computational primitives: **0**
 - Anomaly-first survivors: **0**
-- Active compute authorization: **one owner-authorized context serialization amendment, synthetic compatibility check, and if compatible C0 selection on dev_arena + budget_planner only; no evaluation projects; pilot only after a qualifying model is frozen; no Phase 2**
-- Active experiment: **post-amendment model selection**, starting with Qwen3.5 9B Q6_K and then Ornith 1.0 9B Q6_K only if needed
+- Active compute authorization: The owner-authorized context serialization amendment and bounded Qwen3.5/Ornith C0 selection screens are complete. No additional candidate is authorized by the current prompt. No evaluation-project model episodes, pilot, or Phase 2 runs have occurred.
+- Active experiment: None. The two-candidate post-amendment model-selection screen ended without an eligible model.
 
 Do not start another broad anomaly survey, another property-pair survey, or a rescue experiment on any of the three closed anomalies.
 
@@ -1119,7 +1119,7 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 
 **Perplexity:** wait.
 
-**Codex:** The owner-authorized context serialization amendment combines current request, optional ledger, and optional plan into one user message after the system message. The full harness/unit validation passes 30/30. Earlier model screens are preserved and labeled `PRE-CONTEXT-SERIALIZATION-AMENDMENT`; their RPS is not comparable with amended screens. Next, run the synthetic actual-assembler/template compatibility check for Qwen3.5 9B, then screen only dev_arena and budget_planner if it passes. Test Ornith 1.0 9B only if Qwen3.5 fails selection. No model is frozen and no C0–C4 pilot has run.
+**Codex:** The context serialization amendment was committed as `aaaf80a` after the full harness/unit suite passed 30/30. Amended actual-assembler C0/C4 synthetic checks passed for Qwen3.5 9B and Ornith 1.0 9B. Qwen3.5 completed dev_arena at RPS 0.6495 but Budget Planner aborted during Stage 7 after malformed tool JSON reached the unchanged 1,024-token limit and `/apply-template` returned HTTP 500 replaying history. Ornith aborted in dev_arena Stage 2 for the same model-output/truncation failure; Budget Planner was not run. Neither is eligible, no model is frozen, and no dev pilot or Phase 2 episode ran. Results and partial stage logs are in `experiments/gas0/analysis/model_selection_amended_20260929.json` and `experiments/gas0/analysis/model_selection_amended_20260929/`. Stop pending owner direction before testing another model or changing the protocol.
 
 **Cursor / Gemini:** wait.
 
@@ -1145,7 +1145,7 @@ GAS-0 is now the active non-novelty synthesis lane.
 
 Claude designed **Verified Project State (VPS)**: a typed persistent project ledger (S), a harness-enforced regression gate (V), and verification-gated coupling (K). The key experiment compares baseline, S-only, V-only, S+V uncoupled, and S+V coupled on a small long-horizon game-development benchmark.
 
-VPS harness implementation and review are complete, and all nine GAS-Bench projects pass the full benchmark validator. Model selection on dev+calibration has screened the initial Qwen2.5-Coder, Qwen3-8B, and Hermes-3 models plus a 2026-09-29 continuation with Command R7B, Meta Llama 3.1, Hermes 2 Pro, Qwen2.5 Instruct, Functionary Small, Mistral 7B v0.3, Qwen3.5 9B, Qwen3-VL 8B, and Ornith 9B. None was eligible. Qwen2.5 Instruct passed synthetic tools but its budget-planner RPS was 0.1021, below the frozen 0.20 floor. Several other models failed structured tool use or their native template rejected the harness's post-request `LATEST PLAN` system message. Exact outcomes are in `experiments/gas0/analysis/model_selection_continuation_20260929.json`. No model was frozen and no C0-C4 pilot ran. Next: owner decision on a documented common context-order correction or stopping GAS-0 at model-selection failure; no scientific condition was silently changed.
+VPS harness implementation and review are complete, and all nine GAS-Bench projects pass the full benchmark validator. Model selection on dev+calibration has screened the initial Qwen2.5-Coder, Qwen3-8B, and Hermes-3 models plus the 2026-09-29 candidate continuations. The owner-authorized common context serialization amendment removed the post-user-system template conflict, but the amended Qwen3.5 and Ornith C0 screens both failed when long tool-call JSON hit the unchanged 1,024-token cap; subsequent history rendering returned HTTP 500. Qwen3.5's dev_arena RPS was 0.6495, but Budget Planner did not finish; Ornith did not finish dev_arena and its budget screen was not run. Neither candidate is eligible, and the fixed approved list is exhausted. Exact amended results and partial stage records are in `experiments/gas0/analysis/model_selection_amended_20260929.json`. No model was frozen and no C0-C4 pilot ran. Next: wait for owner direction before any new candidate or protocol change.
 
 The official 105-episode primary matrix remains unauthorized until the owner explicitly says **GAS-0 Phase 2**.
 
