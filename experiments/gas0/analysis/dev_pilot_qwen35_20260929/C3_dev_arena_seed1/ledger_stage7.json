@@ -1,0 +1,68 @@
+{
+  "checkpoint": null,
+  "event": 5,
+  "failures": [],
+  "requirements": [
+    {
+      "id": "R2.1",
+      "kind": "feature",
+      "note": "",
+      "stage": 2,
+      "status": "OPEN",
+      "superseded_by": null,
+      "symbols": [],
+      "tests": [],
+      "text": "Shield value for actors: physical direct damage consumes shield before HP, poison bypasses shield",
+      "updated_event": 1
+    },
+    {
+      "id": "R3.1",
+      "kind": "feature",
+      "note": "",
+      "stage": 3,
+      "status": "OPEN",
+      "superseded_by": null,
+      "symbols": [],
+      "tests": [],
+      "text": "shield_tonic inventory item that increases shield and is consumed on use",
+      "updated_event": 2
+    },
+    {
+      "id": "R4.1",
+      "kind": "feature",
+      "note": "",
+      "stage": 4,
+      "status": "OPEN",
+      "superseded_by": null,
+      "symbols": [],
+      "tests": [],
+      "text": "Path edge case: when start == destination and start is walkable, return [start] instead of empty route",
+      "updated_event": 3
+    },
+    {
+      "id": "R6.1",
+      "kind": "constraint",
+      "note": "",
+      "stage": 6,
+      "status": "OPEN",
+      "superseded_by": null,
+      "symbols": [],
+      "tests": [],
+      "text": "R6.1: every game event, from every mechanic, must receive a unique monotonically increasing sequence number when appended. Use one shared World event-emission path; do not manually append game events in subsystems.",
+      "updated_event": 4
+    },
+    {
+      "id": "R7.1",
+      "kind": "feature",
+      "note": "",
+      "stage": 7,
+      "status": "OPEN",
+      "superseded_by": null,
+      "symbols": [],
+      "tests": [],
+      "text": "Shield value for actors: physical direct damage consumes shield before HP, poison bypasses shield",
+      "updated_event": 5
+    }
+  ],
+  "tasks": []
+}

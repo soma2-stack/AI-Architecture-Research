@@ -1,0 +1,85 @@
+{
+  "checkpoint": null,
+  "event": 34,
+  "failures": [
+    {
+      "count": 34,
+      "event": 34,
+      "id": "X1",
+      "message_head": "tests\\test_basics.py:1: in <module>\n    from arena import Arena\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @dataclass\n     ^^^^",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 3 ++-\n 1 file changed, 2 insertions(+), 1 deletion(-)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_basics.py"
+    },
+    {
+      "count": 34,
+      "event": 34,
+      "id": "X2",
+      "message_head": "tests\\test_more.py:1: in <module>\n    from arena import Arena\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @dataclass\n     ^^^^^^",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 3 ++-\n 1 file changed, 2 insertions(+), 1 deletion(-)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py"
+    },
+    {
+      "count": 34,
+      "event": 34,
+      "id": "X3",
+      "message_head": "tests\\test_stage2.py:2: in <module>\n    from arena.model import Actor, Point\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @datacl",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 3 ++-\n 1 file changed, 2 insertions(+), 1 deletion(-)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_stage2.py"
+    },
+    {
+      "count": 18,
+      "event": 34,
+      "id": "X4",
+      "message_head": "tests\\test_stage3.py:2: in <module>\n    from arena.inventory import Bag, use\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @datacl",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 18 ++++++++++++++----\n 1 file changed, 14 insertions(+), 4 deletions(-)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2",
+        "tests.test_stage3"
+      ],
+      "test": "tests/test_stage3.py"
+    }
+  ],
+  "requirements": [],
+  "tasks": []
+}

@@ -258,3 +258,51 @@ fix yet. Audit details are in
 `analysis/tool_format_recovery_audit_20260929.json`. The next authorized step
 is a synthetic malformed-call recovery against the Qwen3.5 template; only if
 that passes may the frozen C0 dev/calibration selection be rerun from scratch.
+
+## Owner-authorized Qwen3.5 DEV pilot — 2026-09-29
+
+The frozen Qwen3.5-9B Q6_K setup was run on `dev_arena`, seed 1, for C0–C4.
+Two generic harness defects were repaired between attempts: C1's empty ledger
+file is now initialized for audit snapshots (`93763d8`), and a green no-op
+edit no longer attempts an empty Git commit (`7218d4f`). Validation passed
+after each repair (41 tests, then 44 tests). These changes did not add model
+information or calls.
+
+| Cell | Status | RPS | Mean stage completion | Final CR | Retention | Calls | Tests | Raw format errors / recovered |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| C0 | Complete | 0.166888 | 0.229167 | 0.454545 | 0.266667 | 119 | 12 | 10 / 10 |
+| C1 | Complete | 0.673706 | 0.562500 | 0.909091 | 1.000000 | 148 | 20 | 3 / 3 |
+| C2 | Complete | 0.275063 | 0.229167 | 0.272727 | 0.600000 | 56 | 16 | 7 / 7 |
+| C3 | Complete | 0.556534 | 0.583333 | 0.727273 | 0.666667 | 127 | 49 | 2 / 2 |
+| C4 | Incomplete: Stage 8 assembly timeout | — | — | — | — | 195 | 87* | 9 / 9 |
+
+`*` C4's 87 test executions consist of 86 across its seven scored stages and
+one Stage-8 start check before context assembly failed. C4 had an earlier
+separate abort (127 calls, 56 tests, 7 malformed-call recoveries). C1 also had
+an earlier abort (30 calls, 0 tests, 1 malformed-call recovery). The final
+machine-readable audit distinguishes all attempts in
+`analysis/dev_pilot_qwen35_20260929/pilot_analysis.json`; raw scores and JSONL
+transcripts are preserved by attempt directory.
+
+The common C0-relative observations are C1 +0.506818 RPS, C2 +0.108176, and
+C3 +0.389646. C4−C0, C4−C3, and C4−max(C1,C2) are unavailable because C4 did
+not produce a full episode. This one-seed dev pilot supports no statistical
+synergy claim.
+
+Across completed and aborted attempts: 802 model calls, 8,788,852 prompt
+tokens, 183,709 completion tokens, 240 test executions, peak context 16,365,
+and 9,167.583 seconds (2.54655 hours) of conservative GPU-time upper bound.
+That leaves 1,632.417 seconds under the 3-hour pilot cap, insufficient for a
+clean C4 restart. No evaluation project or Phase 2 run occurred. The largest
+runtime issue was a local tokenizer `/apply-template` connection timeout while
+assembling C4 Stage 8; no HTTP 500 occurred in the pilot.
+
+**Protocol validity issue:** only 15 of 39 attempted stages began with the
+required `plan` action. The agent loop checks the plan requirement only on
+call 1; after a malformed first call is repaired, it accepts a non-plan call.
+Raw audit rows show the shortfall in every cell. This is a frozen-rule
+enforcement defect, not grounds to reinterpret results or silently change the
+pilot. Together with incomplete C4, it means GAS-0 is **not technically ready
+for the official matrix**. Do not restart C4 or run evaluation projects
+without owner direction. The pilot and analysis script are descriptive
+artifacts only.

@@ -1,0 +1,62 @@
+{
+  "RPS": 0.16688762626262627,
+  "final": 0.45454545454545453,
+  "regressions": [],
+  "requirement_retention": 0.26666666666666666,
+  "resources": {
+    "completion_tokens": 24258,
+    "estimated_flops": 21094398000000000,
+    "format_errors": 10,
+    "gpu_seconds_upper_bound": 1181.574999999255,
+    "hidden_test_seconds": 14.216999999829568,
+    "model_calls": 119,
+    "peak_context_tokens": 15760,
+    "prompt_tokens": 1147653,
+    "test_executions": 12,
+    "tool_calls": 119,
+    "visible_test_seconds": 22.297999999835156,
+    "wall_seconds": 1372.1730000001844
+  },
+  "stages": [
+    {
+      "CR": 0,
+      "SC": 0,
+      "stage": 1
+    },
+    {
+      "CR": 0,
+      "SC": 0,
+      "stage": 2
+    },
+    {
+      "CR": 0.2,
+      "SC": 0.3333333333333333,
+      "stage": 3
+    },
+    {
+      "CR": 0.16666666666666666,
+      "SC": 0,
+      "stage": 4
+    },
+    {
+      "CR": 0.16666666666666666,
+      "SC": 0,
+      "stage": 5
+    },
+    {
+      "CR": 0.125,
+      "SC": 0,
+      "stage": 6
+    },
+    {
+      "CR": 0.2222222222222222,
+      "SC": 0.5,
+      "stage": 7
+    },
+    {
+      "CR": 0.45454545454545453,
+      "SC": 1,
+      "stage": 8
+    }
+  ]
+}

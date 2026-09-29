@@ -1,0 +1,611 @@
+{
+  "aborted_attempts": [
+    {
+      "attempt_index": 1,
+      "cell": "C1",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\coler\\\\OneDrive\\\\Desktop\\\\ai new\\\\experiments\\\\gas0\\\\analysis\\\\dev_pilot_qwen35_20260929\\\\C1_dev_arena_seed1\\\\.gas\\\\ledger.json'",
+      "format_error_events": 1,
+      "format_error_recoveries": 1,
+      "gpu_seconds_upper_bound": 238.5659999998752,
+      "model_calls": 30
+    },
+    {
+      "attempt_index": 2,
+      "cell": "C4",
+      "error": "CalledProcessError: Command '['git', '-c', 'user.name=GAS0', '-c', 'user.email=gas0@local', 'commit', '-m', 'green checkpoint']' returned non-zero exit status 1.",
+      "format_error_events": 7,
+      "format_error_recoveries": 7,
+      "gpu_seconds_upper_bound": 1780.7349999998696,
+      "model_calls": 127
+    },
+    {
+      "attempt_index": "final",
+      "cell": "C4",
+      "error": "URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>",
+      "format_error_events": 9,
+      "format_error_recoveries": 9,
+      "gpu_seconds_upper_bound": 2841.3219999996945,
+      "model_calls": 195
+    }
+  ],
+  "all_five_cells_complete": false,
+  "cells": {
+    "C0": {
+      "RPS": 0.16688762626262627,
+      "agent_loop_error_count_scored": 10,
+      "completion_tokens": 24258,
+      "failure_event_count": 10,
+      "final_CR": 0.45454545454545453,
+      "first_action_plan_pass_stages": [
+        2
+      ],
+      "first_action_plan_total_stages": 8,
+      "first_action_plan_violations": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "format_error_events_in_raw_logs": 10,
+      "format_error_recoveries": 10,
+      "gpu_seconds_upper_bound_logged": 1181.574999999255,
+      "harness_or_runtime_error": null,
+      "mean_stage_completion": 0.22916666666666666,
+      "model_calls_logged": 119,
+      "peak_context_tokens": 15760,
+      "prompt_tokens": 1147653,
+      "regressions": [],
+      "repeated_failure_limitations": "Identical normalized diff-hunk recurrence is not derivable from the JSONL schema.",
+      "repeated_failure_test_ids_observed": [
+        "tests/test_stage4.py::test_path_to_current_tile_contains_that_tile",
+        "tests/test_stage5.py::test_piercing_bypasses_shield",
+        "tests/test_stage6.py::test_event_sequence",
+        "tests/test_stage6_static.py::test_no_raw_event_append_outside_world"
+      ],
+      "requirement_retention": 0.26666666666666666,
+      "scored_stages": 8,
+      "stage_metrics": [
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 1,
+          "test_executions": 0
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 2,
+          "calls": 21,
+          "done": true,
+          "stage": 2,
+          "test_executions": 3
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 3,
+          "test_executions": 0
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 4,
+          "test_executions": 0
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 5,
+          "test_executions": 0
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 6,
+          "test_executions": 0
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 2,
+          "calls": 30,
+          "done": false,
+          "stage": 7,
+          "test_executions": 5
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 8,
+          "test_executions": 4
+        }
+      ],
+      "status": "complete",
+      "test_executions_scored": 12,
+      "wall_seconds": 1373.25
+    },
+    "C1": {
+      "RPS": 0.673705808080808,
+      "agent_loop_error_count_scored": 7,
+      "completion_tokens": 27109,
+      "failure_event_count": 6,
+      "final_CR": 0.9090909090909091,
+      "first_action_plan_pass_stages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "first_action_plan_total_stages": 8,
+      "first_action_plan_violations": [
+        1,
+        7
+      ],
+      "format_error_events_in_raw_logs": 3,
+      "format_error_recoveries": 3,
+      "gpu_seconds_upper_bound_logged": 1485.5490000003483,
+      "harness_or_runtime_error": null,
+      "mean_stage_completion": 0.5625,
+      "model_calls_logged": 148,
+      "peak_context_tokens": 16147,
+      "prompt_tokens": 1701273,
+      "regressions": [],
+      "repeated_failure_limitations": "Identical normalized diff-hunk recurrence is not derivable from the JSONL schema.",
+      "repeated_failure_test_ids_observed": [],
+      "requirement_retention": 1,
+      "scored_stages": 8,
+      "stage_metrics": [
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 1,
+          "test_executions": 0
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 21,
+          "done": true,
+          "stage": 2,
+          "test_executions": 3
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 15,
+          "done": true,
+          "stage": 3,
+          "test_executions": 4
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 5,
+          "done": true,
+          "stage": 4,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 2,
+          "done": true,
+          "stage": 5,
+          "test_executions": 0
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 6,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 2,
+          "calls": 15,
+          "done": true,
+          "stage": 7,
+          "test_executions": 3
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 2,
+          "calls": 30,
+          "done": false,
+          "stage": 8,
+          "test_executions": 8
+        }
+      ],
+      "status": "complete",
+      "test_executions_scored": 20,
+      "wall_seconds": 2060.875
+    },
+    "C2": {
+      "RPS": 0.2750631313131313,
+      "agent_loop_error_count_scored": 7,
+      "completion_tokens": 10101,
+      "failure_event_count": 2,
+      "final_CR": 0.2727272727272727,
+      "first_action_plan_pass_stages": [
+        2
+      ],
+      "first_action_plan_total_stages": 8,
+      "first_action_plan_violations": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "format_error_events_in_raw_logs": 7,
+      "format_error_recoveries": 7,
+      "gpu_seconds_upper_bound_logged": 397.8159999997588,
+      "harness_or_runtime_error": null,
+      "mean_stage_completion": 0.22916666666666666,
+      "model_calls_logged": 56,
+      "peak_context_tokens": 8529,
+      "prompt_tokens": 324385,
+      "regressions": [],
+      "repeated_failure_limitations": "Identical normalized diff-hunk recurrence is not derivable from the JSONL schema.",
+      "repeated_failure_test_ids_observed": [],
+      "requirement_retention": 0.6,
+      "scored_stages": 8,
+      "stage_metrics": [
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 1,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 14,
+          "done": true,
+          "stage": 2,
+          "test_executions": 9
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 3,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 4,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 5,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 6,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 7,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 8,
+          "test_executions": 1
+        }
+      ],
+      "status": "complete",
+      "test_executions_scored": 16,
+      "wall_seconds": 433.68799999996554
+    },
+    "C3": {
+      "RPS": 0.5565340909090909,
+      "agent_loop_error_count_scored": 4,
+      "completion_tokens": 22543,
+      "failure_event_count": 20,
+      "final_CR": 0.7272727272727273,
+      "first_action_plan_pass_stages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "first_action_plan_total_stages": 8,
+      "first_action_plan_violations": [
+        1,
+        5
+      ],
+      "format_error_events_in_raw_logs": 2,
+      "format_error_recoveries": 2,
+      "gpu_seconds_upper_bound_logged": 1242.020000000135,
+      "harness_or_runtime_error": null,
+      "mean_stage_completion": 0.5833333333333334,
+      "model_calls_logged": 127,
+      "peak_context_tokens": 15953,
+      "prompt_tokens": 1348874,
+      "regressions": [],
+      "repeated_failure_limitations": "Identical normalized diff-hunk recurrence is not derivable from the JSONL schema.",
+      "repeated_failure_test_ids_observed": [
+        "tests/test_stage5.py::test_piercing_bypasses_shield",
+        "tests/test_stage6.py::test_event_sequence",
+        "tests/test_stage6_static.py::test_no_raw_event_append_outside_world"
+      ],
+      "requirement_retention": 0.6666666666666666,
+      "scored_stages": 8,
+      "stage_metrics": [
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 1,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 25,
+          "done": true,
+          "stage": 2,
+          "test_executions": 11
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 15,
+          "done": true,
+          "stage": 3,
+          "test_executions": 6
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 9,
+          "done": true,
+          "stage": 4,
+          "test_executions": 4
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 2,
+          "done": true,
+          "stage": 5,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 27,
+          "done": true,
+          "stage": 6,
+          "test_executions": 17
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 7,
+          "done": true,
+          "stage": 7,
+          "test_executions": 3
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 0,
+          "calls": 12,
+          "done": true,
+          "stage": 8,
+          "test_executions": 6
+        }
+      ],
+      "status": "complete",
+      "test_executions_scored": 49,
+      "wall_seconds": 1486.686999999918
+    },
+    "C4": {
+      "RPS": null,
+      "agent_loop_error_count_scored": 14,
+      "completion_tokens": 55501,
+      "failure_event_count": 40,
+      "final_CR": null,
+      "first_action_plan_pass_stages": [
+        2
+      ],
+      "first_action_plan_total_stages": 7,
+      "first_action_plan_violations": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "format_error_events_in_raw_logs": 9,
+      "format_error_recoveries": 9,
+      "gpu_seconds_upper_bound_logged": 2841.3219999996945,
+      "harness_or_runtime_error": "URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>",
+      "mean_stage_completion": null,
+      "model_calls_logged": 195,
+      "peak_context_tokens": 16365,
+      "prompt_tokens": 2553877,
+      "regressions": null,
+      "repeated_failure_limitations": "Identical normalized diff-hunk recurrence is not derivable from the JSONL schema.",
+      "repeated_failure_test_ids_observed": [
+        "tests/test_basics.py::test_combat_death_event",
+        "tests/test_stage2.py::test_shield_absorbs_direct_hit"
+      ],
+      "requirement_retention": null,
+      "scored_stages": 7,
+      "stage_metrics": [
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 1,
+          "test_executions": 1
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 30,
+          "done": false,
+          "stage": 2,
+          "test_executions": 17
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 2,
+          "calls": 30,
+          "done": false,
+          "stage": 3,
+          "test_executions": 19
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 4,
+          "calls": 30,
+          "done": false,
+          "stage": 4,
+          "test_executions": 12
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 2,
+          "calls": 27,
+          "done": false,
+          "stage": 5,
+          "test_executions": 16
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 1,
+          "calls": 25,
+          "done": false,
+          "stage": 6,
+          "test_executions": 13
+        },
+        {
+          "CR": null,
+          "SC": null,
+          "agent_loop_errors": 3,
+          "calls": 23,
+          "done": false,
+          "stage": 7,
+          "test_executions": 8
+        }
+      ],
+      "status": "aborted",
+      "test_executions_scored": 86,
+      "wall_seconds": 6328.454000000027
+    }
+  },
+  "contrasts": {
+    "C1_minus_C0": 0.5068181818181818,
+    "C2_minus_C0": 0.10817550505050505,
+    "C3_minus_C0": 0.38964646464646463,
+    "C4_minus_C0": null,
+    "C4_minus_C3": null,
+    "C4_minus_max_C1_C2": null
+  },
+  "cumulative_gpu_seconds_upper_bound_including_aborts": 9167.582999998936,
+  "error_count_semantics": "stage*_score.json format_errors is the agent-loop errors counter; code increments it for both structured-call validation failures and valid tool execution exceptions. format_error_events_in_raw_logs counts only entries actually logged as the format_error tool.",
+  "evaluation_projects_used": false,
+  "frozen_config_sha256": "ae3844d7d29670d737c90484dbd777fc7db0256ff0ec4268310332ce3652b229",
+  "frozen_model_commit": "87959946ef828f83254653c76294cef982e70bb1",
+  "gpu_cap_seconds": 10800,
+  "interpretation": "One-seed pilot diagnostics only; no statistical synergy claim.",
+  "partial_test_executions_by_aborted_attempt": {
+    "C1:aborted_attempt_1": 0,
+    "C4:aborted_attempt_2": 4,
+    "C4:final_aborted_attempt": 1
+  },
+  "phase_2_run": false,
+  "plan_rule_detail": "Harness enforces plan only when calls == 1. If the first response is invalid/non-plan, a later valid non-plan action proceeds; first tool events show the bypass.",
+  "protocol": "GAS-0 Candidate A / one-seed dev_arena pilot",
+  "readiness": "NOT READY. C4 remained incomplete after a local llama.cpp connection timeout. A complete C4 restart exceeds the remaining GPU cap. The frozen plan-first rule was also bypassed after invalid first actions in multiple stages.",
+  "seed": 1
+}
