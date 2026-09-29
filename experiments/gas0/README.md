@@ -402,3 +402,23 @@ bound plus a 60 s reservation stays within the cap. The largest pilot call took
   - C4 still has no complete episode.
   - All five earlier cells ran under the pre-fix loop. The design's rule is to re-run affected episodes in all cells after a fix.
   - Any further pilot work needs an owner decision on budget. A post-fix C0–C4 re-pilot, estimated from the pre-fix per-cell costs, would take about 2–2.5 GPU-hours.
+
+## Post-fix full DEV pilot — 2026-09-29 (owner-authorized new GPU budget)
+
+**Cap-guard fix (before any model call).**
+- The C4 rerun guard reserved a fixed 60 s before each request, and a 75.7 s request overshot the cap by 12.8 s.
+- `analysis/gpu_cap.py` now reserves the worst case of one request: the unchanged 300 s client timeout plus 5 s of response slack.
+- llama.cpp answers a non-streaming chat request with nothing until it is finished, so the socket timeout ends any longer request.
+- Every started request, including a failed one, is charged its measured duration.
+- `validate/test_gpu_cap.py` adds 26 CPU/mock tests:
+  - reservation arithmetic;
+  - refusal without contacting the server;
+  - the recorded overshoot case, which is now refused;
+  - 20 randomized runs with durations beyond the timeout that never exceed the cap;
+  - failed-request charging;
+  - a real `LlamaClient` against a silent local HTTP server, cut off at its timeout.
+- Full suite: 89 passed. Harness, conditions, prompts and budgets are unchanged; the guard lives only in the runner layer.
+
+**Budget.** The owner authorized a new budget without naming an amount. This pilot uses its own 3-GPU-hour cap (10,800 s charged), the design's DEV-pilot size, accounted separately from the exhausted pre-fix pilot.
+
+**Runner.** `analysis/run_qwen35_postfix_pilot.py` runs C0–C4 fresh from Stage 1 into `analysis/dev_pilot_qwen35_postfix_20260929/`, with its own `postfix_pilot_summary.json`. No pre-fix score is reused, no old C4 attempt is resumed, and every earlier pilot directory stays read-only.
