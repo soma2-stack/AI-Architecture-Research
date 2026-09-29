@@ -9,7 +9,14 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-28, session 25
+# Resume Pointer (read this first in a new session) — updated 2026-09-29, session 26
+
+- **Current:** the GAS-0 VPS quality/validity review is done (Part AS). The harness fixes are merged on the Claude branch on top of `61fb988`, with 24/24 harness tests passing and dev validation unchanged.
+- **Scientific design unchanged.**
+- **Open for the owner:** the persistence of rollback lessons (see Part AS).
+- **Next:** the owner or Codex continue the benchmark implementation (calibration + 7 evaluation projects), then model selection. No GPU, no Phase 2.
+
+# Resume Pointer as of session 25 (historical; superseded by the block above)
 
 - **Governing files:**
   - `AGENTS.md` (unchanged; last touched `a03ce6e`);
@@ -4891,6 +4898,27 @@ Frozen and pushed at `000f237` before the rerun.
 
   Its informative output is the calibration record (Stages 0–1) and a precisely characterized search-seeding failure.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
+
+---
+
+# Part AS — GAS-0 VPS quality/validity review (session 26, 2026-09-29; CPU tests only)
+
+- **Scope:** a targeted review of the GAS-0 harness at `61fb988`, in response to a Perplexity audit.
+- **Record:** `experiments/gas0/README.md`, section "VPS quality/validity review".
+- **Confirmed and fixed:**
+  - A1 — `tb_symbols` were always empty (pytest's frame format) and never matched the file edit scope;
+  - A2 — `# req:` tag bleed between tests;
+  - A3 — deferred OPEN/CLAIMED items with tests disappeared from the ledger view;
+  - A4 — O(n) tokenizer calls per ledger render, now O(log n) with an identical result;
+  - B1, reframed — one uncollectable test file made pytest run zero tests: a legitimate test-first edit was rolled back, and GREEN could be declared with zero tests;
+  - B3 — tool schemas double-counted, more so in the ledger cells;
+  - B4 — "C4" named in an error;
+  - rollback wrongly downgraded VERIFIED to REGRESSED.
+- **Design error corrected:** my own handoff's `--ctx-size 16384 --parallel 4` would give 4,096 tokens per slot. It now reads `--ctx-size 65536`, and a `check_context` guard enforces it.
+- **Rejected / intentional:** B2, VPS-03, 04, 06, 08, 10, 13, 14.
+- **Unchanged:** C0–C4 definitions, metrics, verdicts and budgets.
+- **Open (owner):** rollback-originated failure records auto-resolve at the next gate run under the frozen "green again" rule. That limits C4's persistent-lesson effect.
+- **Tests:** 24/24 harness tests pass; dev benchmark validation unchanged.
 
 ---
 

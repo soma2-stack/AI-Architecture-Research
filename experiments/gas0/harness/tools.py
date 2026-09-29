@@ -138,7 +138,7 @@ class ToolRunner:
         if name == "declare_stage_done":
             return {"done": True, "summary": args["summary"]}
         if not self.condition.ledger or not self.ledger:
-            raise ValueError("ledger tool unavailable in this condition")
+            raise ValueError("unknown tool")
         if name == "ledger_add":
             return self.ledger.add(args["kind"], args["text"], stage)
         if name == "ledger_link":
