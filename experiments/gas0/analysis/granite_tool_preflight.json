@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-29",
+  "status": "FAIL_STOP_BEFORE_MODEL_SELECTION",
+  "purpose": "Non-benchmark structured-tool preflight using synthetic tasks only.",
+  "model": {
+    "repository": "ibm-granite/granite-3.3-8b-instruct-GGUF",
+    "revision": "e40e9dd739c7be00fa965c16ce167088190ce114",
+    "filename": "granite-3.3-8b-instruct-Q6_K.gguf",
+    "sha256": "b0fe6e279cf247a8119ca744286f53ce22890d871e26c3af38e12f5f9008b2bb"
+  },
+  "runtime": {
+    "engine": "llama.cpp 0.5.0-dev (build 11193, commit 4e7481175)",
+    "server_binary_sha256": "eba08aa1a6ad397e8954874ca58f62271cf15ab45a85d6f1f59176a47cabd6c2",
+    "tool_mode": "OpenAI-compatible tools; tool_choice=auto",
+    "template_mode": "GGUF-provided Granite template with --jinja",
+    "context_tokens_per_slot": 16384,
+    "parallel_slots": 1,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "seed": 1,
+    "max_completion_tokens": 1024,
+    "schemas": "harness.tools.tool_schemas(False), 11 current C0 schemas"
+  },
+  "synthetic_preflight": {
+    "benchmark_content_used": false,
+    "model_selection_episodes_run": 0,
+    "first_case": "no-argument undo_last_edit call",
+    "result": "FAIL",
+    "calls_attempted": 1,
+    "valid_structured_tool_calls": 0,
+    "format_or_tool_shape_errors": 1,
+    "message_role": "assistant",
+    "message_content": "Code-fenced JSON with a function_call object naming undo_last_edit and empty arguments.",
+    "message_tool_calls": 0,
+    "one_action_result": "Rejected: expected exactly one tool call; got zero in message.tool_calls.",
+    "prompt_tokens": 1290,
+    "completion_tokens": 34,
+    "context_tokens_observed": 1324,
+    "llama_logged_prompt_eval_seconds": 1.09795,
+    "llama_logged_decode_seconds": 0.84183,
+    "array_arguments_tested": false,
+    "string_arguments_tested": false,
+    "tool_result_continuation_tested": false,
+    "sequential_tool_turns_tested": false,
+    "tool_error_recovery_tested": false,
+    "apply_template_error_observed": false,
+    "http_500_observed": false
+  },
+  "diagnosis": {
+    "primary": "LLAMA_CPP_TEMPLATE_STRUCTURED_TOOL_COMPATIBILITY",
+    "evidence": [
+      "The request with the current 11 OpenAI-compatible schemas completed and produced an assistant message, but it did not contain the tool_calls array required by harness.agent_loop._one_action.",
+      "The assistant instead emitted code-fenced content containing a legacy-looking function_call object.",
+      "The Granite template capability report from the Q6 runtime check advertised supports_tools=true but supports_tool_calls=false."
+    ],
+    "generic_harness_bug": false,
+    "model_capability_vs_template_not_disambiguated": true,
+    "follow_up_changes_made": false
+  },
+  "decision": "STOP. Do not run dev_arena or budget_planner model-selection episodes, do not alter the harness or scientific conditions, and do not try another quantization/model automatically.",
+  "gpu_usage": "One synthetic inference; llama.cpp logged 1.94 seconds total prompt/decode time. No per-process GPU-seconds counter was available. No benchmark tests or project files were accessed."
+}

@@ -22,13 +22,14 @@ artifacts, scores, and resource counts. No `frozen_config.json` was created.
 The C0-C4 dev pilot was not run. The full evaluation matrix was not run. GAS-0
 Phase 2 remains unauthorized.
 
-**Follow-up runtime compatibility check (2026-09-29):** IBM Granite 3.3 8B
-Instruct Q6_K loaded with one 16,384-token sequence on the RTX 3060; llama.cpp
-placed all 41 transformer layers on CUDA, with 1,623 MiB VRAM remaining under
-the observed desktop load. Exact revision, GGUF filename/hash, buffer sizes,
-and runtime settings are recorded in `analysis/granite_runtime_compatibility.json`.
-This was a memory/context check only; Granite has not been benchmark-screened,
-selected, or frozen for GAS-0.
+**Follow-up Granite check (2026-09-29):** Q6_K passed the memory/context check
+(one 16,384-token sequence, all 41 layers on CUDA, 1,623 MiB VRAM free), but
+failed the first synthetic tool preflight. The assistant returned code-fenced
+JSON in `content` rather than one OpenAI `tool_calls` entry, which
+`agent_loop._one_action` correctly rejects. The preflight stopped immediately;
+no model-selection episodes ran. Details are in
+`analysis/granite_runtime_compatibility.json` and
+`analysis/granite_tool_preflight.json`. Granite is not selected or frozen.
 
 ## VPS quality/validity review (Claude lane, 2026-09-29; base `61fb988`)
 
