@@ -366,3 +366,39 @@ and does not modify `pilot_summary.json`. The unchanged 3-GPU-hour pilot cap is
 enforced during the episode: a model call starts only if the cumulative upper
 bound plus a 60 s reservation stays within the cap. The largest pilot call took
 36.7 s.
+
+**Clean C4 rerun result (2026-09-29): stopped at the pilot GPU cap. It is incomplete, and no RPS is available.**
+- **Server.** The pinned llama.cpp b11193 binary (SHA-256 `EBA08AA1…`) was started with `-m Qwen3.5-9B-Q6_K.gguf --jinja -c 16384 --parallel 1 -ngl 99 -b 512 -ub 128 -fa on --host 127.0.0.1 --port 8088`.
+  - The GGUF SHA-256 `91898433…` matched.
+  - The runner verified the 16,384-token slot, the active template hash, and the context and agent-loop hashes.
+  - The earlier pilot launch line was not recorded. These flags reproduce the batch, ubatch and flash-attention values shown in the earlier Qwen3.5 server logs.
+- **Stages.** Stages 1–3 were scored, and Stage 4 stopped after 29 calls. The 30th Stage-4 call was refused by the cap guard (`stopped_at_gpu_cap`).
+- **Resources (this run):**
+  - 119 model calls;
+  - 1,327,383 prompt tokens and 27,062 completion tokens;
+  - peak context 16,368;
+  - 1,645.223 s GPU upper bound;
+  - 41 test executions: 25 in scored stages plus 16 in partial Stage 4;
+  - 2,243 s wall time.
+- **Cumulative pilot GPU upper bound: 10,812.806 s. This is 12.806 s over the 10,800 s cap.**
+  - The guard allowed the last call with 72.8 s remaining. That Stage-4 call took 75.7 s.
+  - The server log shows a full 13,610-token prompt re-evaluation (prefix-cache miss) at about 185 tok/s. The other 92 prefills of more than 5,000 tokens in this run ran at 1,019–1,382 tok/s (median 1,259). The slowdown is unexplained.
+  - The 60 s reservation, sized from the pre-fix maximum of 36.7 s, did not cover this outlier. A strict cap needs a larger reservation or a per-request timeout.
+- **Plan-first behavior (verified from the raw logs).** In all 4 attempted stages:
+  - call 1 was a valid non-plan action and was rejected;
+  - call 2 was an accepted `plan`, so the first executed action was `plan` in 4 of 4 stages;
+  - no stage looped on rejections, and no malformed call occurred before a plan.
+- **Stage outcomes (descriptive only):**
+  - every scored stage used all 30 calls without `declare_stage_done`;
+  - Stage 1 was spent reading files, and no orientation answers were submitted;
+  - Stages 2–4 contained repeated `REGRESSION_ROLLBACK` edit cycles;
+  - hidden-test pass counts for Stages 1–3 (24/24, 23/26, 24/30) equal those of the preserved pre-fix C4 attempt.
+
+  One partial seed supports no treatment or synergy claim.
+- **Records.** `analysis/dev_pilot_qwen35_20260929/c4_postfix_summary.json` and `C4_dev_arena_seed1_clean_after_plan_first_fix/` (JSONL, stage scores, ledger snapshots; the workspace is untracked like the other attempts). `pilot_summary.json` and all earlier attempt directories are unchanged.
+- **Status.** The official matrix is still not authorized and not run. No evaluation project or Phase 2 work occurred.
+- **Pilot state.**
+  - The pilot GPU budget is exhausted.
+  - C4 still has no complete episode.
+  - All five earlier cells ran under the pre-fix loop. The design's rule is to re-run affected episodes in all cells after a fix.
+  - Any further pilot work needs an owner decision on budget. A post-fix C0–C4 re-pilot, estimated from the pre-fix per-cell costs, would take about 2–2.5 GPU-hours.

@@ -4940,7 +4940,15 @@ Frozen and pushed at `000f237` before the rerun.
   - every pre-fix DEV pilot cell ran under the defective loop, so the C0–C3 pilot numbers are not directly comparable with a post-fix C4;
   - the design's pre-registration rule says episodes affected by a fix are re-run for all cells;
   - no synergy or treatment effect is claimed from the pilot.
-- **Readiness:** see `experiments/gas0/README.md` for the clean-C4 outcome. Whether to re-run C0–C3 under the fixed loop, extend the pilot GPU budget, or proceed is the owner's decision.
+- **Clean C4 rerun (verified):**
+  - it stopped at the 3-GPU-hour pilot cap after scoring Stages 1–3; Stage 4 was partial; no RPS;
+  - 119 calls and 1,645.2 s GPU;
+  - the cumulative pilot total is 10,812.8 s, **12.8 s over the cap**. One 75.7 s call (a prefix-cache miss at slow prefill) exceeded the 60 s pre-call reservation;
+  - plan-first was satisfied in 4 of 4 stages: a rejected non-plan call 1, then an accepted plan on call 2.
+- **Readiness (interpretation):**
+  - the harness defect is fixed;
+  - the pilot is not complete: no complete C4 episode, and C0–C3 ran pre-fix;
+  - the owner decides whether to fund a post-fix re-pilot (about 2–2.5 GPU-h estimated) before any official matrix.
 
 # Part AS — GAS-0 VPS quality/validity review (session 26, 2026-09-29; CPU tests only)
 

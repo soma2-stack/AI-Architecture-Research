@@ -1,0 +1,71 @@
+{
+  "agent_loop_sha256": "3fa6ccbf16e12799a6ad502dc035594a15adb2a3de917d2b89ed1ee9ae2ebb05",
+  "cell": "C4",
+  "evaluation_projects_used": false,
+  "finished_utc": "2026-09-29T23:41:07.325589+00:00",
+  "frozen_config_sha256": "cb840a5b7e7e37417546b1350c6422d00ebd067328140661ede29ec1f3698263",
+  "gpu_cap_seconds": 10800,
+  "per_call_reservation_seconds": 60.0,
+  "phase_2_run": false,
+  "pilot_gpu_seconds_after": 10812.805999999517,
+  "pilot_gpu_seconds_before": 9167.582999998936,
+  "project": "dev_arena",
+  "protocol": "GAS-0 Candidate A / one-seed dev_arena pilot: clean post-fix C4 rerun from Stage 1",
+  "reason": "plan-first enforcement fix; pre-fix C4 attempts are preserved and not resumed",
+  "result": {
+    "episode_wall_elapsed_seconds": 2243.2810000000754,
+    "error": "pilot GPU cap: 10812.806s used of 10800s; next call needs a 60s reservation",
+    "plan_first_audit": {
+      "attempted_stages": 4,
+      "stages": {
+        "1": {
+          "calls_before_accepted_plan": 2,
+          "first_call_was_plan": false,
+          "first_executed_action": "plan",
+          "malformed_calls_before_plan": 0,
+          "non_plan_actions_rejected_before_plan": 1
+        },
+        "2": {
+          "calls_before_accepted_plan": 2,
+          "first_call_was_plan": false,
+          "first_executed_action": "plan",
+          "malformed_calls_before_plan": 0,
+          "non_plan_actions_rejected_before_plan": 1
+        },
+        "3": {
+          "calls_before_accepted_plan": 2,
+          "first_call_was_plan": false,
+          "first_executed_action": "plan",
+          "malformed_calls_before_plan": 0,
+          "non_plan_actions_rejected_before_plan": 1
+        },
+        "4": {
+          "calls_before_accepted_plan": 2,
+          "first_call_was_plan": false,
+          "first_executed_action": "plan",
+          "malformed_calls_before_plan": 0,
+          "non_plan_actions_rejected_before_plan": 1
+        }
+      },
+      "stages_whose_first_executed_action_is_plan": 4,
+      "stages_with_executed_actions": 4
+    },
+    "run_resources": {
+      "completion_tokens": 27062,
+      "gpu_seconds_upper_bound": 1645.2230000005802,
+      "model_calls": 119,
+      "peak_context_tokens": 16368,
+      "prompt_tokens": 1327383,
+      "test_executions_scored_stages": 25
+    },
+    "scored_stages": [
+      1,
+      2,
+      3
+    ],
+    "status": "stopped_at_gpu_cap"
+  },
+  "seed": 1,
+  "started_utc": "2026-09-29T23:03:44.045681+00:00",
+  "tools_sha256": "b281f0d47b20628b53db30408b3a3dbed06d7db826207926f72725a5a9eac392"
+}
