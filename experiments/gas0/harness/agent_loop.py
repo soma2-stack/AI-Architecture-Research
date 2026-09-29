@@ -101,9 +101,11 @@ def run_episode(project: Path, cell: str, seed: int, llm, out: Path,
         runner.protected_paths |= {p.resolve() for p in (workspace / "tests").rglob("test_*.py")}
         stage_start = time.monotonic()
         runner.test_executions = 0
+        runner.test_cpu_seconds = 0.0
         if gate:
-            gate.stage_start()
+            initial_gate = gate.stage_start()
             runner.test_executions += 1
+            runner.test_cpu_seconds += initial_gate["seconds"]
         calls, errors, done, done_summary = 0, 0, False, ""
         stage_log = out / f"stage{stage}.jsonl"
         while calls < 30 and time.monotonic() - stage_start < 1200:
@@ -161,6 +163,7 @@ def run_episode(project: Path, cell: str, seed: int, llm, out: Path,
             })
         record = {"stage": stage, "calls": calls, "format_errors": errors,
                   "test_executions": runner.test_executions, "wall_seconds": time.monotonic()-stage_start,
+                  "visible_test_seconds": runner.test_cpu_seconds,
                   "done": done, **hidden}
         stages.append(record)
         (out / f"stage{stage}_score.json").write_text(json.dumps(record, indent=2, sort_keys=True))
@@ -180,6 +183,10 @@ def run_episode(project: Path, cell: str, seed: int, llm, out: Path,
         "estimated_flops": 2 * model_parameters * sum(u["prompt_tokens"] + u["completion_tokens"] for u in usage_rows),
         "gpu_seconds_upper_bound": total_gpu,
         "test_executions": sum(r["test_executions"] for r in stages),
+        "visible_test_seconds": sum(r["visible_test_seconds"] for r in stages),
+        "hidden_test_seconds": sum(r["test_seconds"] for r in stages),
+        "tool_calls": sum(len((out / f"stage{k}.jsonl").read_text().splitlines()) // 2
+                          for k in range(1, 9)),
         "wall_seconds": sum(r["wall_seconds"] for r in stages),
         "format_errors": sum(r["format_errors"] for r in stages),
     }

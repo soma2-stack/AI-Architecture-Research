@@ -20,10 +20,17 @@ class LlamaClient:
 
     def count_tokens(self, value, tools=None):
         if isinstance(value, str):
-            text = value
-        else:
-            text = json.dumps({"messages": value, "tools": tools or []}, ensure_ascii=False)
-        return len(self._post("/tokenize", {"content": text})["tokens"])
+            return len(self._post("/tokenize", {"content": value})["tokens"])
+        rendered = self._post("/apply-template", {"messages": value,
+                                                   "tools": tools or []})["prompt"]
+        count = len(self._post("/tokenize", {"content": rendered})["tokens"])
+        # The server version may omit tool schemas from /apply-template while
+        # including them in /v1/chat/completions. Double counting is safe;
+        # undercounting could silently truncate a sequence.
+        if tools and json.dumps(tools, ensure_ascii=False) not in rendered:
+            count += len(self._post("/tokenize", {
+                "content": json.dumps(tools, ensure_ascii=False)})["tokens"])
+        return count
 
     def chat(self, messages, tools, seed, max_tokens=1024):
         start = time.monotonic()

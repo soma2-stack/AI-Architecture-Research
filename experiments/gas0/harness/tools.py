@@ -26,6 +26,7 @@ class ToolRunner:
         self.ledger = ledger
         self.gate = gate
         self.test_executions = 0
+        self.test_cpu_seconds = 0.0
         self.history = []
         self.edit_scope = []
         self.plan = ""
@@ -42,7 +43,9 @@ class ToolRunner:
         if self.test_executions >= 40:
             raise RuntimeError("stage test-execution cap reached")
         self.test_executions += 1
-        return run_visible(self.root, selector)
+        result = run_visible(self.root, selector)
+        self.test_cpu_seconds += result["seconds"]
+        return result
 
     def run(self, name: str, args: dict, stage: int):
         if name in {"read_file", "edit_file", "create_file", "delete_file"}:
@@ -68,7 +71,7 @@ class ToolRunner:
             for p in self.root.rglob("*"):
                 if not p.is_file() or ".git" in p.parts or ".gas" in p.parts:
                     continue
-                if not fnmatch.fnmatch(str(p.relative_to(self.root)), glob):
+                if not fnmatch.fnmatch(p.relative_to(self.root).as_posix(), glob):
                     continue
                 try:
                     for n, line in enumerate(p.read_text().splitlines(), 1):
@@ -155,6 +158,7 @@ class ToolRunner:
             return "edit accepted; tests voluntary"
         self.test_executions += 1
         event = self.gate.after_edit()
+        self.test_cpu_seconds += event["result"]["seconds"]
         if event["event"] == "REGRESSION_ROLLBACK":
             self.last_edit = None
         summary = {"event": event["event"], "failed": event["result"]["failed"],

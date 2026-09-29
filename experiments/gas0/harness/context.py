@@ -32,7 +32,9 @@ def assemble(system: str, request: str, history: list[dict], ledger_view: str,
     past = elide(history)
     while count_tokens(fixed + past, tools) > WINDOW - REPLY and past:
         past.pop(0)
-    prompt = fixed + past
+    prompt = fixed + [{k: v for k, v in m.items()
+                       if k in {"role", "content", "tool_calls", "tool_call_id"}}
+                      for m in past]
     if count_tokens(prompt, tools) > WINDOW - REPLY:
         raise ValueError("fixed context exceeds usable budget")
     return prompt
