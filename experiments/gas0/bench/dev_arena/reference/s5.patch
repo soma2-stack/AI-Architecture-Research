@@ -1,0 +1,33 @@
+--- a/arena/combat.py
++++ b/arena/combat.py
+@@ -5,14 +5,14 @@
+ from .rng import Dice
+ 
+ 
+-def strike(world: World, attacker: Actor, defender: Actor, dice: Dice) -> int:
++def strike(world: World, attacker: Actor, defender: Actor, dice: Dice, kind: str = "physical") -> int:
+     if not attacker.alive or not defender.alive:
+         return 0
+     if attacker.pos.manhattan(defender.pos) != 1:
+         raise ValueError("target not adjacent")
+     amount = attacker.attack + dice.randint(0, 1)
+-    dealt = defender.receive(amount)
+-    world.events.append(Event("hit", attacker.actor_id, defender.actor_id, dealt))
++    dealt = defender.receive(amount, kind)
++    world.events.append(Event("hit", attacker.actor_id, defender.actor_id, dealt, kind))
+     if not defender.alive:
+         world.events.append(Event("death", defender.actor_id, attacker.actor_id))
+     return dealt
+--- a/arena/model.py
++++ b/arena/model.py
+@@ -60,7 +60,9 @@
+     def receive(self, amount: int, kind: str = "physical") -> int:
+         if amount < 0:
+             raise ValueError("negative damage")
+-        if kind != "poison":
++        if kind not in {"physical", "piercing", "poison"}:
++            raise ValueError("unknown damage type")
++        if kind == "physical":
+             absorbed = min(self.shield, amount)
+             self.shield -= absorbed
+             amount -= absorbed

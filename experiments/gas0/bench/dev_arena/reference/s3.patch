@@ -1,0 +1,15 @@
+--- a/arena/inventory.py
++++ b/arena/inventory.py
+@@ -50,6 +50,12 @@
+ 
+ def use(world: World, actor: Actor, bag: Bag, item_id: str) -> int:
+     item = bag.remove(item_id)
++    if item.kind == "shield_tonic":
++        old = actor.shield
++        actor.shield = min(5, actor.shield + item.power)
++        gained = actor.shield - old
++        world.events.append(Event("shield", actor.actor_id, amount=gained))
++        return gained
+     if item.kind != "potion":
+         bag.add(item)
+         raise ValueError("item is not usable")

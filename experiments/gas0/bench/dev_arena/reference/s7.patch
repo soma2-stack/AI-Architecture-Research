@@ -1,0 +1,13 @@
+--- a/arena/inventory.py
++++ b/arena/inventory.py
+@@ -50,6 +50,10 @@
+ 
+ def use(world: World, actor: Actor, bag: Bag, item_id: str) -> int:
+     item = bag.remove(item_id)
++    if item.kind == "antidote":
++        removed = int(actor.statuses.pop("poison", None) is not None)
++        world.emit(Event("cure", actor.actor_id, amount=removed))
++        return removed
+     if item.kind == "shield_tonic":
+         old = actor.shield
+         actor.shield = min(5, actor.shield + item.power)

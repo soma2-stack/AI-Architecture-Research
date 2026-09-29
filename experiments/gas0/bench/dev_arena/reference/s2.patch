@@ -1,0 +1,44 @@
+--- a/arena/combat.py
++++ b/arena/combat.py
+@@ -32,7 +32,7 @@
+         return
+     for name in list(actor.statuses):
+         if name == "poison":
+-            damage = actor.receive(1)
++            damage = actor.receive(1 if actor.hp > 1 else 0, "poison")
+             world.events.append(Event("poison_tick", actor.actor_id, amount=damage))
+             if not actor.alive:
+                 world.events.append(Event("death", actor.actor_id))
+--- a/arena/model.py
++++ b/arena/model.py
+@@ -33,6 +33,7 @@
+     attack: int
+     faction: str
+     glyph: str
++    shield: int = 0
+     alive: bool = True
+     statuses: dict[str, int] = field(default_factory=dict)
+ 
+@@ -41,6 +42,7 @@
+             raise ValueError("invalid actor statistics")
+         self.hp = min(self.hp, self.max_hp)
+         self.alive = self.hp > 0
++        self.shield = max(0, self.shield)
+ 
+     def move_to(self, point: Point):
+         if not self.alive:
+@@ -55,9 +57,13 @@
+         self.alive = self.hp > 0
+         return self.hp - old
+ 
+-    def receive(self, amount: int) -> int:
++    def receive(self, amount: int, kind: str = "physical") -> int:
+         if amount < 0:
+             raise ValueError("negative damage")
++        if kind != "poison":
++            absorbed = min(self.shield, amount)
++            self.shield -= absorbed
++            amount -= absorbed
+         dealt = min(self.hp, amount)
+         self.hp -= dealt
+         self.alive = self.hp > 0

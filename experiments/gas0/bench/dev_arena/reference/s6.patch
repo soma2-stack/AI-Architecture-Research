@@ -1,0 +1,141 @@
+--- a/arena/combat.py
++++ b/arena/combat.py
+@@ -12,9 +12,9 @@
+         raise ValueError("target not adjacent")
+     amount = attacker.attack + dice.randint(0, 1)
+     dealt = defender.receive(amount, kind)
+-    world.events.append(Event("hit", attacker.actor_id, defender.actor_id, dealt, kind))
++    world.emit(Event("hit", attacker.actor_id, defender.actor_id, dealt, kind))
+     if not defender.alive:
+-        world.events.append(Event("death", defender.actor_id, attacker.actor_id))
++        world.emit(Event("death", defender.actor_id, attacker.actor_id))
+     return dealt
+ 
+ 
+@@ -24,7 +24,7 @@
+     if duration < 1:
+         raise ValueError("status duration must be positive")
+     actor.statuses[name] = max(actor.statuses.get(name, 0), duration)
+-    world.events.append(Event("status", actor.actor_id, detail=name))
++    world.emit(Event("status", actor.actor_id, detail=name))
+ 
+ 
+ def tick_status(world: World, actor: Actor):
+@@ -33,9 +33,9 @@
+     for name in list(actor.statuses):
+         if name == "poison":
+             damage = actor.receive(1 if actor.hp > 1 else 0, "poison")
+-            world.events.append(Event("poison_tick", actor.actor_id, amount=damage))
++            world.emit(Event("poison_tick", actor.actor_id, amount=damage))
+             if not actor.alive:
+-                world.events.append(Event("death", actor.actor_id))
++                world.emit(Event("death", actor.actor_id))
+         actor.statuses[name] -= 1
+         if actor.statuses[name] <= 0:
+             del actor.statuses[name]
+--- a/arena/game.py
++++ b/arena/game.py
+@@ -33,17 +33,17 @@
+         actor = self.world.actors[actor_id]
+         destination = actor.pos.shift(dx, dy)
+         if not self.world.walkable(destination):
+-            self.world.events.append(Event("bump_wall", actor_id))
++            self.world.emit(Event("bump_wall", actor_id))
+             return False
+         target = self.world.actor_at(destination)
+         if target:
+             if target.faction != actor.faction:
+                 strike(self.world, actor, target, self.dice)
+                 return True
+-            self.world.events.append(Event("bump_actor", actor_id, target.actor_id))
++            self.world.emit(Event("bump_actor", actor_id, target.actor_id))
+             return False
+         actor.move_to(destination)
+-        self.world.events.append(Event("move", actor_id))
++        self.world.emit(Event("move", actor_id))
+         return True
+ 
+     def player_pickup(self, actor_id: str):
+@@ -61,7 +61,7 @@
+                 strike(self.world, actor, self.world.actors[target], self.dice)
+             elif action == "move":
+                 actor.move_to(target)
+-                self.world.events.append(Event("move", actor.actor_id))
++                self.world.emit(Event("move", actor.actor_id))
+ 
+     def tick(self):
+         for actor in self.world.actors.values():
+--- a/arena/inventory.py
++++ b/arena/inventory.py
+@@ -44,7 +44,7 @@
+     bag.add(item)
+     if not stack:
+         world.items.pop(actor.pos, None)
+-    world.events.append(Event("pickup", actor.actor_id, detail=item.item_id))
++    world.emit(Event("pickup", actor.actor_id, detail=item.item_id))
+     return item
+ 
+ 
+@@ -54,11 +54,11 @@
+         old = actor.shield
+         actor.shield = min(5, actor.shield + item.power)
+         gained = actor.shield - old
+-        world.events.append(Event("shield", actor.actor_id, amount=gained))
++        world.emit(Event("shield", actor.actor_id, amount=gained))
+         return gained
+     if item.kind != "potion":
+         bag.add(item)
+         raise ValueError("item is not usable")
+     healed = actor.heal(item.power)
+-    world.events.append(Event("heal", actor.actor_id, amount=healed))
++    world.emit(Event("heal", actor.actor_id, amount=healed))
+     return healed
+--- a/arena/model.py
++++ b/arena/model.py
+@@ -86,6 +86,7 @@
+     target: str | None = None
+     amount: int = 0
+     detail: str = ""
++    seq: int = 0
+ 
+ 
+ @dataclass
+@@ -96,6 +97,7 @@
+     actors: dict[str, Actor] = field(default_factory=dict)
+     items: dict[Point, list[Item]] = field(default_factory=dict)
+     turn: int = 0
++    event_seq: int = 0
+     events: list[Event] = field(default_factory=list)
+ 
+     def in_bounds(self, p: Point) -> bool:
+@@ -119,6 +121,11 @@
+             raise ValueError("blocked item placement")
+         self.items.setdefault(p, []).append(item)
+ 
++    def emit(self, event: Event):
++        self.event_seq += 1
++        event.seq = self.event_seq
++        self.events.append(event)
++
+     def clear_events(self):
+         prior = list(self.events)
+         self.events.clear()
+--- a/arena/save.py
++++ b/arena/save.py
+@@ -27,6 +27,7 @@
+                        "items": [vars(item) for item in bag.items]}
+                  for aid, bag in sorted(bags.items())},
+         "turn": world.turn,
++        "event_seq": world.event_seq,
+         "events": [vars(event) for event in world.events],
+     }
+ 
+@@ -47,6 +48,8 @@
+             for aid, row in data["bags"].items()}
+     world.turn = data["turn"]
+     world.events = [Event(**event) for event in data["events"]]
++    world.event_seq = max(data.get("event_seq", 0),
++                          max((event.seq for event in world.events), default=0))
+     return world, bags
+ 
+ 

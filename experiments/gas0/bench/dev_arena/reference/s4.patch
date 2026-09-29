@@ -1,0 +1,11 @@
+--- a/arena/model.py
++++ b/arena/model.py
+@@ -100,7 +100,7 @@
+         return 0 <= p.x < self.width and 0 <= p.y < self.height
+ 
+     def walkable(self, p: Point) -> bool:
+-        return self.in_bounds(p)
++        return self.in_bounds(p) and p not in self.walls
+ 
+     def actor_at(self, p: Point) -> Actor | None:
+         return next((a for a in self.actors.values() if a.alive and a.pos == p), None)
