@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **GAS-0 VPS harness implemented and quality-reviewed; calibration + 7 evaluation projects, model freeze, then dev C0–C4 pilot next; official Phase 2 matrix not authorized** |
+| **Current phase** | **GAS-0 benchmark complete and validated; model selection stopped with no eligible 7–9B local candidate, so no model was frozen and no C0–C4 pilot ran; next step requires an owner-approved runtime/model-selection continuation; Phase 2 remains unauthorized** |
 
 ---
 
@@ -1119,7 +1119,7 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 
 **Perplexity:** wait.
 
-**Codex:** resume GAS-0 from main. Implement the calibration project + seven evaluation projects from the frozen benchmark handoff, run full benchmark validation, then select/freeze the model on dev+calibration and run only the authorized dev C0–C4 pilot.
+**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Wait. No model was eligible; do not run the C0–C4 pilot or any evaluation-project model episode until an owner-approved runtime/model-selection continuation is defined.
 
 **Cursor / Gemini:** wait.
 
@@ -1145,7 +1145,7 @@ GAS-0 is now the active non-novelty synthesis lane.
 
 Claude designed **Verified Project State (VPS)**: a typed persistent project ledger (S), a harness-enforced regression gate (V), and verification-gated coupling (K). The key experiment compares baseline, S-only, V-only, S+V uncoupled, and S+V coupled on a small long-horizon game-development benchmark.
 
-VPS harness implementation and a targeted Claude quality/validity review are complete. The reviewed harness fixes were merged via PR #20; dev validation remained null RPS 0.0823 and reference/tool oracle 1.0. Next: Codex should implement the remaining calibration + seven evaluation projects, run full benchmark validation, select/freeze the model/config using only dev+calibration, and run the **dev-project pilot only** (C0-C4 × 1 seed, ≤3 GPU-hours). Then stop and report.
+VPS harness implementation and review are complete, and all nine GAS-Bench projects now pass the full benchmark validator. Model selection on dev+calibration then screened Qwen2.5-Coder-7B, Qwen3-8B, and Hermes-3-Llama-3.1-8B under the frozen runtime limits; none was eligible. Qwen2.5 produced no usable structured tool calls, Qwen3 aborted after malformed tool-call JSON poisoned the next llama.cpp template request, and Hermes had pervasive tool-following errors. No model was frozen and no C0-C4 pilot ran. Next: define an owner-approved runtime/model-selection continuation without touching the seven evaluation projects or changing GAS-0's scientific conditions.
 
 The official 105-episode primary matrix remains unauthorized until the owner explicitly says **GAS-0 Phase 2**.
 
