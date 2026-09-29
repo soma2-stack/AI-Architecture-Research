@@ -1087,7 +1087,7 @@ Reopening for calibration does not erase the negative result. It asks a narrower
 | Learned dependency / truth-maintenance seam | Killed as pipeline |
 | **Supported new architecture found** | **0** |
 | **New computational primitive found** | **0** |
-| **Current phase** | **GAS-0 benchmark complete and validated; model selection stopped with no eligible 7–9B local candidate, so no model was frozen and no C0–C4 pilot ran; next step requires an owner-approved runtime/model-selection continuation; Phase 2 remains unauthorized** |
+| **Current phase** | **GAS-0 benchmark complete and validated; IBM Granite 3.3 8B Instruct Q6_K passed the 16,384-token RTX 3060 runtime/memory compatibility check, but has not yet been tool-preflighted or benchmark-screened; no model is frozen and no C0–C4 pilot has run; Phase 2 remains unauthorized** |
 
 ---
 
@@ -1110,8 +1110,8 @@ The final plasticity review found a real loss-of-current-task learnability pheno
 - Supported new architectures: **0**
 - New computational primitives: **0**
 - Anomaly-first survivors: **0**
-- Active compute authorization: **none**
-- Active experiment: **none**
+- Active compute authorization: **model-selection continuation only (dev_arena + budget_planner; no evaluation projects, no C0–C4 pilot yet)**
+- Active experiment: **Granite 3.3 8B Instruct Q6_K tool/runtime preflight and model-selection screen**
 
 Do not start another broad anomaly survey, another property-pair survey, or a rescue experiment on any of the three closed anomalies.
 
@@ -1119,7 +1119,7 @@ Do not start another broad anomaly survey, another property-pair survey, or a re
 
 **Perplexity:** wait.
 
-**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Wait. No model was eligible; do not run the C0–C4 pilot or any evaluation-project model episode until an owner-approved runtime/model-selection continuation is defined.
+**Codex:** GAS-Bench implementation/validation and the first model-selection screen are complete at `af63fcb`. Granite 3.3 8B Instruct Q6_K runtime compatibility is recorded at `3982834`: 16,384-token slot, 41/41 layers on CUDA, ~1.6 GiB VRAM free. Next, run the non-benchmark structured-tool preflight, then—only if it passes—the existing C0 model-selection screen on dev_arena + budget_planner. Do not run C0–C4 or any evaluation-project model episode yet.
 
 **Cursor / Gemini:** wait.
 
