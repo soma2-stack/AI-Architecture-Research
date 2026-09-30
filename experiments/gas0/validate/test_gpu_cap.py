@@ -141,3 +141,16 @@ def test_real_client_timeout_bounds_a_silent_request():
     finally:
         server.shutdown()
         server.server_close()
+
+
+def test_no_cumulative_cap_still_charges_and_times_out():
+    clock = FakeClock()
+    inner = TimedFakeClient(clock, [100.0] * 200 + [1_000.0])
+    capped = CappedClient(inner, None, used_before=50_000, clock=clock)
+    for _ in range(200):
+        capped.chat([], [], 1)
+    assert capped.spent == 20_000 and capped.remaining() == float("inf")
+    with pytest.raises(socket.timeout):
+        capped.chat([], [], 1)
+    assert capped.failed_seconds == 300
+    assert capped.stats()["cap_seconds"] is None

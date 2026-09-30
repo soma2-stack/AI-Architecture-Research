@@ -10,6 +10,10 @@ is charged its measured duration, including requests that fail.
 
 The earlier guard (`run_qwen35_c4_postfix.py`) reserved a fixed 60 s. A 75.7 s
 request then overshot the cap by 12.8 s.
+
+`cap_seconds=None` means no cumulative cap. The owner lifted the post-fix
+pilot's 3-hour cap during C1. The per-request timeout and the charging stay
+in force either way.
 """
 from __future__ import annotations
 
@@ -25,12 +29,12 @@ class PilotBudgetExhausted(RuntimeError):
 class CappedClient:
     """Forwards to the frozen client; refuses a request whose worst case could cross the cap."""
 
-    def __init__(self, inner, cap_seconds: float, used_before: float = 0.0, clock=time.monotonic):
+    def __init__(self, inner, cap_seconds: float | None, used_before: float = 0.0, clock=time.monotonic):
         timeout = getattr(inner, "timeout", None)
         if not isinstance(timeout, (int, float)) or timeout <= 0:
             raise ValueError("client needs a positive per-request timeout")
         self.inner = inner
-        self.cap = float(cap_seconds)
+        self.cap = None if cap_seconds is None else float(cap_seconds)
         self.used_before = float(used_before)
         self.clock = clock
         self.reservation = float(timeout) + RESPONSE_SLACK_SECONDS
@@ -40,6 +44,8 @@ class CappedClient:
         self.failed_seconds = 0.0
 
     def remaining(self) -> float:
+        if self.cap is None:
+            return float("inf")
         return self.cap - self.used_before - self.spent
 
     def check_context(self, minimum=16384):
@@ -51,7 +57,7 @@ class CappedClient:
     def chat(self, messages, tools, seed, max_tokens=1024):
         if self.reservation > self.remaining():
             raise PilotBudgetExhausted(
-                f"GPU cap: {self.used_before + self.spent:.3f}s used of {self.cap:.0f}s; "
+                f"GPU cap: {self.used_before + self.spent:.3f}s used of {self.cap}s; "
                 f"the next request needs a {self.reservation:.0f}s worst-case reservation")
         start = self.clock()
         try:

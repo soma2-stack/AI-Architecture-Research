@@ -4,8 +4,11 @@ Invoke once per cell, C0 through C4, in order. Every cell starts from Stage 1
 in a new directory under `dev_pilot_qwen35_postfix_20260929/`. The pre-fix
 pilot directories and summaries are read-only history.
 
-The owner authorized a new GPU budget. This pilot uses its own 3-GPU-hour cap,
-the design's DEV-pilot size, enforced per request by `gpu_cap.CappedClient`.
+The owner authorized a new GPU budget. The pilot started with its own
+3-GPU-hour cap, the design's DEV-pilot size. During C1 the owner revoked that
+cumulative cap (see `BUDGET_AMENDMENT`). From C2 on, no cumulative cap
+applies. The per-request timeout, GPU-time charging, and the pre-cell disk and
+GPU-temperature checks remain in force.
 
 An aborted cell may be rerun only with an explicit retry reason. The aborted
 attempt is kept in `aborted_attempts` and its directory is kept.
@@ -14,6 +17,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
+import subprocess
 import sys
 import time
 import traceback
@@ -35,7 +40,21 @@ from analysis.run_qwen35_dev_pilot import _format_recovery  # noqa: E402
 CELLS = ("C0", "C1", "C2", "C3", "C4")
 RUN_ROOT = GAS / "analysis" / "dev_pilot_qwen35_postfix_20260929"
 SUMMARY = RUN_ROOT / "postfix_pilot_summary.json"
-GPU_CAP_SECONDS = 3 * 3600
+ORIGINAL_GPU_CAP_SECONDS = 3 * 3600
+GPU_CAP_SECONDS = None  # lifted by the owner during C1; see BUDGET_AMENDMENT
+BUDGET_AMENDMENT = {
+    "type": "resource-budget amendment during the post-fix pilot",
+    "authorized_by": "owner (explicit chat instruction)",
+    "made_during_cell": "C1",
+    "change": "3-hour cumulative GPU-time cap revoked; C0-C4 are to finish",
+    "original_gpu_cap_seconds": ORIGINAL_GPU_CAP_SECONDS,
+    "unchanged": "experimental conditions, scoring, model configuration, benchmark content, cell behavior, "
+                 "per-request timeout and hung-request protection, failure aborts",
+    "cells_run_before_amendment_took_effect": "C0 complete; C1 was running under the original cap, "
+                                              "which it did not reach; C1 was not restarted",
+}
+MIN_FREE_DISK_BYTES = 5 * 1024 ** 3
+MAX_START_GPU_TEMPERATURE_C = 85
 MODEL_ALIAS = "qwen3.5-9b-q6k"
 REQUEST_TIMEOUT_SECONDS = 300  # unchanged client timeout; bounds each request
 
@@ -47,6 +66,20 @@ def _write(path: Path, value: dict) -> None:
 
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _hardware_check() -> dict:
+    """Refuse to start a cell on low disk or a hot GPU. Neither check affects cell behavior."""
+    free = shutil.disk_usage(GAS).free
+    if free < MIN_FREE_DISK_BYTES:
+        raise RuntimeError(f"disk safety: only {free / 1024 ** 3:.1f} GiB free")
+    query = subprocess.run(["nvidia-smi", "--query-gpu=temperature.gpu,memory.used,memory.total",
+                            "--format=csv,noheader,nounits"], capture_output=True, text=True, timeout=30)
+    temperature, used, total = (int(x) for x in query.stdout.strip().splitlines()[0].split(","))
+    if temperature >= MAX_START_GPU_TEMPERATURE_C:
+        raise RuntimeError(f"GPU temperature safety: {temperature} C")
+    return {"disk_free_gib": round(free / 1024 ** 3, 1), "gpu_temperature_c": temperature,
+            "gpu_memory_used_mib": used, "gpu_memory_total_mib": total}
 
 
 def _charged(row: dict) -> float:
@@ -80,6 +113,12 @@ def main() -> int:
         "cells": {}, "aborted_attempts": [],
         "evaluation_projects_used": False, "phase_2_run": False,
     }
+    amendments = summary.setdefault("resource_budget_amendments", [])
+    if GPU_CAP_SECONDS is None and not amendments:
+        amendments.append({**BUDGET_AMENDMENT, "recorded_utc": datetime.now(timezone.utc).isoformat(),
+                           "first_cell_run_without_cap": cell})
+        summary["gpu_cap_seconds"] = None
+        summary["original_gpu_cap_seconds"] = ORIGINAL_GPU_CAP_SECONDS
     if cell in summary["cells"]:
         prior = summary["cells"][cell]
         if not retry_reason or prior.get("status") != "aborted":
@@ -98,6 +137,7 @@ def main() -> int:
     if out.exists():
         raise FileExistsError(f"refusing to overwrite pilot episode: {out}")
 
+    hardware_at_start = _hardware_check()
     inner = LlamaClient("http://127.0.0.1:8088", MODEL_ALIAS, timeout=REQUEST_TIMEOUT_SECONDS)
     if inner.check_context(16384) != frozen["runtime"]["server_context_tokens"]:
         raise RuntimeError("effective sequence context differs from frozen value")
@@ -133,6 +173,7 @@ def main() -> int:
     result["scored_stages"] = sorted(int(p.stem[5:-6]) for p in out.glob("stage*_score.json"))
     result["plan_first_audit"] = _plan_first_audit(out)
     result["gpu_cap"] = client.stats()
+    result["hardware_at_start"] = hardware_at_start
     if retry_reason:
         result["retry_reason"] = retry_reason
     summary["cells"][cell] = result

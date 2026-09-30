@@ -422,3 +422,14 @@ bound plus a 60 s reservation stays within the cap. The largest pilot call took
 **Budget.** The owner authorized a new budget without naming an amount. This pilot uses its own 3-GPU-hour cap (10,800 s charged), the design's DEV-pilot size, accounted separately from the exhausted pre-fix pilot.
 
 **Runner.** `analysis/run_qwen35_postfix_pilot.py` runs C0–C4 fresh from Stage 1 into `analysis/dev_pilot_qwen35_postfix_20260929/`, with its own `postfix_pilot_summary.json`. No pre-fix score is reused, no old C4 attempt is resumed, and every earlier pilot directory stays read-only.
+
+**Resource-budget amendment during the post-fix pilot (owner, during C1).**
+- The owner explicitly revoked the post-fix pilot's 3-hour cumulative GPU-time cap while C1 was running, and instructed that C0–C4 finish.
+- C0 had already completed, charged 1,136.2 s.
+- C1 was not restarted. Its process keeps the original cap in memory, and it was far below that cap when the amendment was made.
+- From C2 on, `run_qwen35_postfix_pilot.py` runs with `GPU_CAP_SECONDS = None` and records the amendment in `postfix_pilot_summary.json` under `resource_budget_amendments`.
+- Unchanged:
+  - experimental conditions, scoring, model configuration, benchmark content and cell behavior;
+  - the 300 s per-request timeout (hung-request protection), GPU-time charging, and clean aborts on infrastructure failures (HTTP/CUDA errors abort the cell).
+- Added: a pre-cell safety check that refuses to start a cell with less than 5 GiB of free disk or a GPU temperature of 85 °C or more. An external monitor also watches the GPU temperature during cells.
+- `gpu_cap.CappedClient` accepts `cap_seconds=None`. A test covers charging and timeouts without a cumulative cap (27 cap tests).
