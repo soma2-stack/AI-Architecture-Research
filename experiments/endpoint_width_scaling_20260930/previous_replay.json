@@ -1,0 +1,70 @@
+{
+  "old_files_unchanged": true,
+  "hashes": {
+    ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+    "artifact_hashes.json": "4760d850f27dd97215d2e4515edb79917a2af4f2b2c3770a269f00ff5702f582",
+    "certificate_deep_9502100_full.json": "e189376d57a9515f12b397a55c0f8744f5ba756bea1f29c0f84165acf95b11d6",
+    "certificate_deep_9502100_local_base.json": "0cd880534d1a403c95bc1de116d3cdb0438ff658a0c54ff2b8cbb99cdefee5eb",
+    "certificate_dense_9502100_full.json": "a4f22a8ea1811029aebf315b122c398caee44c183f01b075f83b6f6f812a6bd8",
+    "certificate_independent_9502100_full.json": "5d7d36b5260805cf74056e95f029cac24e0f03c6f753a3ef21fc501e1f500cfa",
+    "certificate_shared_linear_9502100_shared_rank4.json": "1d340826aae68adca0f3fd0563bc3a12aa5d8d3c2548c9a3d921adc5f70761ca",
+    "config.json": "9b01559b9d6d69ca1b62f997c6f28bcd65ebce49e1e4a1eab6d52980958e3dac",
+    "core.py": "a43504f8d3f7566c88d30cb56eeea40b63f762bfa413af9dedbf8bd1b5881c93",
+    "cpu_ledger.jsonl": "237405683adab437a3562fec9f641aeab7c45671d81175a649e523e34d14ff9d",
+    "finalize.py": "7900ece9b986a5bc6ce025538baf50da014bcb8f57ded1ee075e4eb6ffc013f1",
+    "interval.py": "29eb3e29794236866047f6f738752012e73ef30a10a3522c8837c05173dbe8f1",
+    "PREREGISTRATION.md": "6c2c918a4a6fb63df407178283b604bcc5c676e94fc85f6a4f5470b2dd6d76e6",
+    "provenance.json": "02925455dede6f3007d36cb2a88dca7232722d67d5087d9965ad565424926d19",
+    "raw.jsonl": "2e0c403060d92b92e03ed10e7c99319a36e641f4abea222477c8513988525c49",
+    "REPORT.md": "1ac80b67dd8435e4241c445280e654768c332b6be3affd72513402ebcdd9b79c",
+    "resources.json": "5309a88f62858d2fcb66949debf1d40285b47603481e71297d0451a1ef199eac",
+    "result.json": "25639b1dfb65bb44da3c3aac565406c1da5f729de931f4db867e1e9879d2b61e",
+    "run.py": "5453b29acc7ca45f99fad286bc0461aff8f71f540b4f480d125158c97fd2eab9",
+    "test_audit.py": "7fda193a25415caec73a9a4066002aee2d9aab6cef30501f2b28ebc64196e2c3",
+    "validation.json": "11260c92ca373e5ac239a991ab83d381a0e9a1e7f096510c64e702d8fb1c9069",
+    "verification.json": "1c36fd396904c490be5835d0cc38139386c9f9bda8019c913045576479e66e1b",
+    "verify.py": "d891794070d6db9be34a945092edec56ed235bbea39a70f5bd74c7495c50ed46"
+  },
+  "certificates": [
+    {
+      "file": "C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\endpoint_certificate_20260930\\certificate_deep_9502100_full.json",
+      "verified": true,
+      "size": 64,
+      "label": "full",
+      "fraction_residual_bound": "2021459504001663458840120758989095739467464949756826837642919067504601521284778306809085/199791907220223502808422222706762643567910281130558153654986045416023791284464999687699590596063486154228923591770023865308670443474450259602571264",
+      "binary_residual_bound": "1.0117824751397367e-59"
+    },
+    {
+      "file": "C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\endpoint_certificate_20260930\\certificate_deep_9502100_local_base.json",
+      "verified": true,
+      "size": 44,
+      "label": "local_base",
+      "fraction_residual_bound": "101819862099515304634828595916547018604387751367153936392347813152459273637430609264413/204586912993508866875824356051724947013540127877691549342705710506008362275292159680204380770369009821930417757972504438076078534117837065833032974336",
+      "binary_residual_bound": "4.976851188069192e-64"
+    },
+    {
+      "file": "C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\endpoint_certificate_20260930\\certificate_dense_9502100_full.json",
+      "verified": true,
+      "size": 22,
+      "label": "full",
+      "fraction_residual_bound": "1038935301225991151396755696735473853447730593155978535247280983649307489626772395565/104748499452676539840422070298483172870932545473378073263465323779076281484949585756264642954428933028828373892081922272294952209468332577706512882860032",
+      "binary_residual_bound": "9.918378846995924e-69"
+    },
+    {
+      "file": "C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\endpoint_certificate_20260930\\certificate_independent_9502100_full.json",
+      "verified": true,
+      "size": 10,
+      "label": "full",
+      "fraction_residual_bound": "573339361261886036342979162147447592003023550788971113271774771274743080939011335997/13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084096",
+      "binary_residual_bound": "4.276160310899835e-71"
+    },
+    {
+      "file": "C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\endpoint_certificate_20260930\\certificate_shared_linear_9502100_shared_rank4.json",
+      "verified": true,
+      "size": 4,
+      "label": "shared_rank4",
+      "fraction_residual_bound": "3/463168356949264781694283940034751631413079938662562256157830336031652518559744",
+      "binary_residual_bound": "6.477126416320833e-78"
+    }
+  ]
+}
