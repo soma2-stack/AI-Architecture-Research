@@ -1,0 +1,22 @@
+{
+  "target": 3,
+  "verdict": "KILLED \u2014 KNOWN FINITE-STATE RULE INDUCTION",
+  "cross_task_successes": 10,
+  "official_seeds": [
+    9203100,
+    9203101,
+    9203102,
+    9203103,
+    9203104,
+    9203105,
+    9203106,
+    9203107,
+    9203108,
+    9203109
+  ],
+  "all_lengths_min_accuracy": 1.0,
+  "exact_equivalence_count": 40,
+  "known_runs": 40,
+  "neural_training_runs": 40,
+  "scope": "Finite-state transductions with prefix supervision; no claim about unrestricted algorithm induction."
+}

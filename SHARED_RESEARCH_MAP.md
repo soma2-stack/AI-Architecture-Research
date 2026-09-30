@@ -4,6 +4,34 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Latest finalized architecture-research state — Target Validation TV-20260929
+
+Owner-authorized CPU-only validation followed AMS v9's V0-SCOPE stop. Three
+bounded targets were tested sequentially, each protocol/config committed before
+official evaluation. **ALL TARGETS KILLED — NEW TARGET DISCOVERY REQUIRED.**
+
+1. **Attribute strict continual confounding:** MLP/DeepSets joint and cumulative
+   accuracy100% in5/5 seeds after equal-budget final-union fitting; propositional
+   induction also100%. One Transformer seed's12.30pp gap does not survive ordinary
+   substitution. Not a refutation of the published pixel-based ConCon experiment.
+2. **Finite retention/plasticity:** eight fixed conditional linear heads,
+   136 parameters/544 weight bytes, retain100%, zero forgetting and match fresh
+   first-exposure learning in5/5 seeds. No replay, growing state or boundary flag;
+   fixed context-specific capacity is disclosed. Not an unbounded-task solution.
+3. **Finite-state cross-task induction:** the same passive GSM-RPNI algorithm
+   learns parity, carries, S3 composition and modulo5 sum in10/10 seeds;100%
+   exact accuracy at every length4–64 and exact learned/teacher equivalence for
+   all40 fits. Known state tracking closes this bounded residual. Neural
+   underfitting is preserved and is not architecture-discovery evidence.
+
+Measured CPU951.203125s plus40s conservative charges; shared ledger total
+19,697.859125s (~5.47163h). Peak sampled RSS~350MiB; one CPU worker/thread.
+No GPU/CUDA/llama.cpp and no GAS-0 changes. T2 GRU prose/code width discrepancy
+(8 versus7) is explicitly recorded; decisive head results are unaffected.
+Details: `experiments/target_validation_20260929/REPORT.md`, `summary.json`,
+raw JSONL/configs, and Codex AR-152. **No AMS v10 prepared or executed. Stop.**
+Earlier research/GAS records below remain historical and unchanged.
+
 ---
 
 ## 1. Mission

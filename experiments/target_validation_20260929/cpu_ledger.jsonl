@@ -9,3 +9,6 @@
 {"job": "t2_official", "status": "COMPLETE", "cpu_seconds": 575.265625, "wall_seconds": 587.3937045360217, "peak_rss_bytes": 322453504, "device": "cpu", "timestamp_utc": "2026-09-30T03:49:45Z"}
 {"job": "automated_validation", "status": "PASS", "cpu_seconds": 4.6875, "wall_seconds": 5.064198699546978, "peak_rss_bytes": 304140288, "device": "cpu", "timestamp_utc": "2026-09-30T03:50:53Z"}
 {"job": "t3_dev", "status": "PASS", "cpu_seconds": 4.546875, "wall_seconds": 4.906678453087807, "peak_rss_bytes": 217968640, "device": "cpu", "timestamp_utc": "2026-09-30T03:50:59Z"}
+{"job": "t3_official", "status": "COMPLETE", "cpu_seconds": 137.984375, "wall_seconds": 151.54915941494983, "peak_rss_bytes": 366960640, "device": "cpu", "timestamp_utc": "2026-09-30T03:54:04Z"}
+{"job":"final_documentation_and_shared_ledger_administration","status":"COMPLETE","cpu_seconds":10,"wall_seconds":null,"peak_rss_bytes":null,"accounting":"conservative upper-bound administrative charge, not measured CPU","device":"cpu"}
+{"job": "final_stored_result_analysis", "status": "COMPLETE", "cpu_seconds": 2.1875, "wall_seconds": 2.3623789488337934, "peak_rss_bytes": 200290304, "device": "cpu", "timestamp_utc": "2026-09-30T03:54:49Z"}

@@ -959,8 +959,134 @@
    "wall_seconds": 4.295,
    "note": "post-hoc non-gating: planted state and dt at wrong decisions",
    "utc": "2026-09-28T21:34:13Z"
+  },
+  {
+   "stage": "target_validation_20260929/automated_validation",
+   "cpu_seconds": 3.859375,
+   "wall_seconds": 5.456282019848004,
+   "peak_rss_bytes": 286629888,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:28:36Z",
+   "target_validation_entry_id": "270688324cdd3a19943c0b81412f37bb2b1c899c5bc6f07dde0aaaaab1c49f9c"
+  },
+  {
+   "stage": "target_validation_20260929/initial_probe_and_pre_meter_dev_failure",
+   "cpu_seconds": 10,
+   "wall_seconds": null,
+   "peak_rss_bytes": null,
+   "note": "conservative upper-bound charge, not measured CPU",
+   "utc": null,
+   "target_validation_entry_id": "8520cca4b4fb3ec39bdedf07cab2718dfa953b740b62e39176dd7ed7077a9aa9"
+  },
+  {
+   "stage": "target_validation_20260929/automated_validation",
+   "cpu_seconds": 3.796875,
+   "wall_seconds": 3.9406039635650814,
+   "peak_rss_bytes": 285851648,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:29:18Z",
+   "target_validation_entry_id": "319408fa679e908eaaac692bf315abd406660cc48a311cabfd76c3538ccd956f"
+  },
+  {
+   "stage": "target_validation_20260929/t1_dev",
+   "cpu_seconds": 4.953125,
+   "wall_seconds": 5.126482405234128,
+   "peak_rss_bytes": 289538048,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:29:23Z",
+   "target_validation_entry_id": "ac330dae9fccf5dd2d74dd3aee0fe9729ba9ad95d3eee3e838d3e73498a7fb49"
+  },
+  {
+   "stage": "target_validation_20260929/t1_official",
+   "cpu_seconds": 202.265625,
+   "wall_seconds": 204.62391285272315,
+   "peak_rss_bytes": 295165952,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:33:11Z",
+   "target_validation_entry_id": "c3ae156fc88812ad7ace6afba44d41716b543f1d3916266d38077897e99a2c91"
+  },
+  {
+   "stage": "target_validation_20260929/automated_validation",
+   "cpu_seconds": 3.953125,
+   "wall_seconds": 4.160207599634305,
+   "peak_rss_bytes": 282390528,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:39:14Z",
+   "target_validation_entry_id": "1546e625845fc5752716dd27e7457c7330ff204b093f776f7f6a405ffe71ccd2"
+  },
+  {
+   "stage": "target_validation_20260929/t2_dev",
+   "cpu_seconds": 7.703125,
+   "wall_seconds": 7.958130399580114,
+   "peak_rss_bytes": 305012736,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:39:22Z",
+   "target_validation_entry_id": "edd243ae328f3546a861de0069888e2fe46163c630571a98456e62408a9011a2"
+  },
+  {
+   "stage": "target_validation_20260929/dependency_installation_source_inspection_and_t1_analysis",
+   "cpu_seconds": 20,
+   "wall_seconds": null,
+   "peak_rss_bytes": null,
+   "note": "conservative upper-bound administrative charge, not measured CPU",
+   "utc": null,
+   "target_validation_entry_id": "79ad4fa70a49d220c78dbfa7ddac2929b62a0091542dbcc5675bdd7184fab6ba"
+  },
+  {
+   "stage": "target_validation_20260929/t2_official",
+   "cpu_seconds": 575.265625,
+   "wall_seconds": 587.3937045360217,
+   "peak_rss_bytes": 322453504,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:49:45Z",
+   "target_validation_entry_id": "dce430d6e7b1e86d4790cc53e272727e6234a91eef7fb211dd96f428b995fb12"
+  },
+  {
+   "stage": "target_validation_20260929/automated_validation",
+   "cpu_seconds": 4.6875,
+   "wall_seconds": 5.064198699546978,
+   "peak_rss_bytes": 304140288,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:50:53Z",
+   "target_validation_entry_id": "509445c289b9b55d7c9f8a47f0f80f3f7000e8bd83b4a867066ddcb7652a31d5"
+  },
+  {
+   "stage": "target_validation_20260929/t3_dev",
+   "cpu_seconds": 4.546875,
+   "wall_seconds": 4.906678453087807,
+   "peak_rss_bytes": 217968640,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:50:59Z",
+   "target_validation_entry_id": "b144e741d4a4a7661d4c2c07600c369926d781c6377f6da15bdd5f5492bb5ed3"
+  },
+  {
+   "stage": "target_validation_20260929/t3_official",
+   "cpu_seconds": 137.984375,
+   "wall_seconds": 151.54915941494983,
+   "peak_rss_bytes": 366960640,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:54:04Z",
+   "target_validation_entry_id": "3bda2953a8076c2c40d2d6b561a44079b30fc77c9a7e13e65873357b1d88a471"
+  },
+  {
+   "stage": "target_validation_20260929/final_documentation_and_shared_ledger_administration",
+   "cpu_seconds": 10,
+   "wall_seconds": null,
+   "peak_rss_bytes": null,
+   "note": "conservative upper-bound administrative charge, not measured CPU",
+   "utc": null,
+   "target_validation_entry_id": "7290d53303edb03a39e59502b9340e2b208ddc8c47a0cde2375944794dc081e2"
+  },
+  {
+   "stage": "target_validation_20260929/final_stored_result_analysis",
+   "cpu_seconds": 2.1875,
+   "wall_seconds": 2.3623789488337934,
+   "peak_rss_bytes": 200290304,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T03:54:49Z",
+   "target_validation_entry_id": "e5d552ea69c2359ef0b5f78ea10ab1483a5e89705a7303b8015e81ac6ff2fce0"
   }
  ],
- "total_cpu_seconds": 18706.656,
- "total_cpu_hours": 5.19629
+ "total_cpu_seconds": 19697.859125,
+ "total_cpu_hours": 5.471627534722222
 }
