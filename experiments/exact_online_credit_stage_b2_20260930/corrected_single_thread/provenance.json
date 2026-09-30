@@ -1,0 +1,37 @@
+{
+  "hardware": {
+    "torch": "2.13.0+cpu",
+    "cuda_build": null,
+    "threads": 1,
+    "free_ram": 27307393024,
+    "device": "cpu",
+    "dtype": "float64",
+    "BLAS_pools": [
+      {
+        "dll": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "symbol": "scipy_openblas_get_num_threads",
+        "threads": 1
+      },
+      {
+        "dll": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "symbol": "scipy_openblas_get_num_threads64_",
+        "threads": 1
+      }
+    ]
+  },
+  "commit": "8271f748bd183230d286c50958a14a13e0e26288",
+  "config_sha256": "cd6c9102a6e423b4e3a4eedd4909b6074792f699fb6e8b86d45937635315b36b",
+  "source_hashes": {
+    "analyze.py": "21f48692e323e52f519499835f00fa3f38ebf659be8b0fb05aa611528b7847e8",
+    "check_prior_artifacts.py": "338528cef06fdb856282c9eb5fc2b1f3d5d59878e6faf31cb366c02fa3b46677",
+    "compression.py": "9128b826283b371ebecd197328fae195affe787f5efcded4fe1f6b24b0e58f38",
+    "core.py": "f0840e5af8350bd16b1cf3d92d72fe2246a03903f7152fa0530cdab3de6ca5ac",
+    "finalize.py": "7a43e2bc0d83b332404c7461ecd90d5a11974bbd2a5a485cae1a36da1ba7bed4",
+    "pools.py": "3edcc8643fdf0690c8ab3543599cb3fb1cc6463e1da0b87ea61589c63895f105",
+    "run.py": "49657b3211f845e0308357a08f2fe1d98e21fbef42f5b6f842e147525d2ab851",
+    "structures.py": "3e02fc5386fc7e33f4552b95043032284e56759555fef367bd26122bd395ce66",
+    "test_compression.py": "bede2418a2550023cb88a08bd7602197bc5cd3d706e533eaa2e69b130f93be1e",
+    "test_stage_b_controls.py": "b58e057c5c8cfe80e443667809179fc5bc29a2181a0e213451a554735073beec"
+  },
+  "Stage_B_source_commit": "ab56ca44dbf69a5cec7a2c8cecb7dd9a74f76e09"
+}

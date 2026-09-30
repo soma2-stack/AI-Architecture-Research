@@ -29,3 +29,7 @@ retained instead of gigabytes of derived family samples. Analysis/plots are adde
 after measurement. STOP after B2; no Stage C or AMS v10.
 
 Completed: **STAGE B2 — INCONCLUSIVE**. See REPORT.md/summary.json. Stop; Stage C not authorized.
+
+## Authoritative final B2 status
+
+**STAGE B2 — INCONCLUSIVE**. Use corrected_single_thread/REPORT.md and summary.json.160 compression cases repeated;91/160 family repetitions before frozen1000s cumulative start cutoff.32 tests passed. Total measured17.0935 CPU-min including original/repair, peak802,123,776 bytes. Original records above remain nonconforming runtime. Stop; no Stage C.

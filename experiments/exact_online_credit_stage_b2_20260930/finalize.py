@@ -1,4 +1,5 @@
 """Final descriptive record and append-only shared CPU ledger update."""
+import argparse
 import hashlib
 import json
 import os
@@ -8,6 +9,9 @@ import core as c
 import analyze
 
 def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--corrected',action='store_true');args=parser.parse_args()
+    base=c.ROOT
+    if args.corrected:c.ROOT=base/'corrected_single_thread'
     meter=c.Meter('Stage-B2 final audit and documentation')
     rows=analyze.load('raw.jsonl');families=analyze.load('family.jsonl');s=json.loads((c.ROOT/'summary.json').read_text())
     precision=json.loads((c.ROOT/'precision.json').read_text())
@@ -43,7 +47,7 @@ def main():
             for i,count in enumerate(c.CFG['family_sample_counts']):
                 v=[f['checkpoints'][i]['centered']['ranks']['1e-08'] for f in found]
                 values.append(str(min(v)) if min(v)==max(v) else f'{min(v)}–{max(v)}')
-            curves.append(f"|{case}|{n}|{'|'.join(values)}|")
+            curves.append(f"|{case}|{n}|{len(found)}|{'|'.join(values)}|")
     onlinegroup={}
     for method in ('packed_exact','online_svd','online_local_residual','shared_exact','unfused_kronecker_history'):
         selected=[m for r in rows for m in r['online'] if m['method']==method]
@@ -53,13 +57,17 @@ def main():
                              'runtime_over_inference_range':[min(m['inclusive_to_inference'] for m in selected),max(m['inclusive_to_inference'] for m in selected)]}
     s['online_methods']=onlinegroup
     s['precision_matrix_error']=precision['matrix_discrepancy']
-    s['source_correctness_revisions']=['Pre-official rank lookup notation fixed; first29/31, second31/31. Both runs charged. No official measurement invalidated.']
+    s['source_correctness_revisions']=['Pre-official rank lookup notation fixed; first29/31, second31/31. Both runs charged.',
+        'Post-run BLAS import ordering correction. Original runtime nonconforming and all artifacts preserved.32 tests passed including real BLAS pool counts. Same frozen config, thresholds/seeds, cumulative CPU and start-stop gates.']
     meter.finish()
-    ledger=analyze.load('cpu_ledger.jsonl');reserve={'cpu_seconds':10.,'wall_seconds':0.,'note':'Conservative administrative estimate, not measured numerical CPU'}
+    ledger=analyze.load('cpu_ledger.jsonl')
+    if args.corrected:ledger=[json.loads(l) for l in (base/'cpu_ledger.jsonl').read_text().splitlines()]+ledger
+    reserve={'cpu_seconds':10.,'wall_seconds':0.,'note':'Conservative repair/administrative estimate, not measured numerical CPU'}
     resources={'measured_cpu_seconds':sum(r['cpu_seconds'] for r in ledger),'cpu_minutes':sum(r['cpu_seconds'] for r in ledger)/60,
-               'charged_cpu_seconds':sum(r['cpu_seconds'] for r in ledger)+10.,'job_wall_seconds':sum(r['wall_seconds'] for r in ledger),
+               'charged_cpu_seconds':sum(r['cpu_seconds'] for r in ledger)+(20. if args.corrected else 10.),'job_wall_seconds':sum(r['wall_seconds'] for r in ledger),
                'peak_rss_bytes':max(r['peak_rss_bytes'] for r in ledger),'worker_count':1,'threads':1,'GPU_CUDA_used':False,
-               'wall_scope':'Sum of sequential numerical job lifetimes; human/tool/documentation gaps excluded',
+               'original_attempt_BLAS_pool_threads':24,'corrected_attempt_BLAS_pool_threads':1,
+               'wall_scope':'Sum of sequential numerical job lifetimes INCLUDING original nonconforming attempt and repair; human/tool/documentation gaps excluded',
                'RAM_scope':'RSS sampled every20ms after imports; process-wide including audit and family buffers'}
     assert resources['measured_cpu_seconds']<1800
     s['resources']=resources
@@ -83,11 +91,18 @@ No training/optimizer, architecture invention, learning benchmark, AMS v10 or GA
 Setup/source freeze {s['source_freeze']}.160 selected width8/16, T32/128,5-seed cases,
 {s['family_count']} fixed-parameter family collections ×128 inputs =
 {s['family_recurrences']:,} family sensitivity calculations. This is a focused8-case
-compression audit, not a repeat of460-case Stage B. All31 tests passed before
-official results (20 copied B controls +11 B2 checks). Earlier development key-format
+compression audit, not a repeat of460-case Stage B. All{s['tests_passed']} tests passed before
+this attempt (20 copied B controls +12 B2 checks). Earlier development key-format
 failure preserved and corrected before freeze; no reference/numerical repair afterward.
-Stage A/B files unchanged. {s['reference_provenance_matches']} B2 final matrices also
-match Stage-B archived theta/inputs/S byte-for-byte; newly added n16 configurations
+Stage A/B files unchanged. Corrected primary results are in corrected_single_thread/;
+original outputs in its parent are preserved as NONCONFORMING RUNTIME. Import
+ordering allowed NumPy/SciPy to initialize24-thread BLAS before the limit. This
+was fixed before the corrected run; actual both-pool thread counts1 in provenance.
+All frozen scientific settings unchanged. The1000s family-start cutoff and1800s
+CPU cap include previous work; missing corrected families are not silently replaced
+by original data. Status.json records whether family repetition completed.
+{s['reference_provenance_matches']} B2 final matrices also
+match Stage-B archived theta/inputs/S elementwise; newly added n16 configurations
 receive the same independent BPTT checks.
 The original optional lookup expected bare NPZ names, but B's ZIP contains a
 matrices/ prefix, so raw metadata incorrectly says unavailable. Post-run read-only
@@ -175,10 +190,11 @@ still do not establish an algebraic minimum among all possible representations.
 
 ## Family dimension: incremental fixed-theta evidence
 
-Centered numerical family ranks at relative1e-8, T32, min–max across5 theta seeds:
+Centered numerical family ranks at relative1e-8, T32, min–max across the listed
+number of theta seeds. Missing cases are explicit in summary.json; no imputation.
 
-|Case|Width|8 samples|16|32|64|128|
-|---|---|---|---|---|---|---|
+|Case|Width|Seeds|8 samples|16|32|64|128|
+|---|---|---|---|---|---|---|---|
 {chr(10).join(curves)}
 
 T128 and every cutoff/uncentered spectrum are in family_growth.csv/family.jsonl.
@@ -210,15 +226,17 @@ No claim that a dense matrix must be independently retained entry-by-entry.
 ## Resources, artifacts and stop
 
 Measured {resources['measured_cpu_seconds']:.6f} CPU-s = {resources['cpu_minutes']:.4f}
-CPU-min, below hard30min; +10s administrative estimate charged separately.
+CPU-min INCLUDING original attempt and repair, below hard30min;
++20s combined original/repair administrative estimates charged separately.
 Summed job wall {resources['job_wall_seconds']:.3f}s (excludes writing/tool gaps).
 Peak sampled RSS {resources['peak_rss_bytes']:,} bytes
-({resources['peak_rss_bytes']/1048576:.2f}MiB); one worker/thread. CPU-only
+({resources['peak_rss_bytes']/1048576:.2f}MiB); one worker throughout, one numerical
+thread in the corrected run (original BLAS pools24; total resources include it). CPU-only
 Torch2.13.0+cpu, CUDA build=None, CUDA_VISIBLE_DEVICES=-1, deterministic float64.
 **No GPU/CUDA, GAS-0/model-server, Ollama/llama.cpp or local LLM workload.**
 
 config.json/PREREGISTRATION.md; core.py/structures.py copies; compression.py/run.py;
-31 tests; provenance.json; raw.jsonl; precision.json; family.jsonl (all spectra and
+{s['tests_passed']} tests; provenance.json; raw.jsonl; precision.json; family.jsonl (all spectra and
 128 per-family stream/input/S digests); summary.json; CPU ledger; six CSV tables;
 manifest.csv and160-snapshot matrices.zip. Analysis family buffers count as process
 RAM, not an alleged online-method state. Main reference S/audit masks/trajectories
@@ -227,10 +245,10 @@ reconstruction counted separately. RSS is sampled, not a complete allocator cens
 **Stop after B2. No Stage C, learning, scale-up or AMS v10.**
 '''
     (c.ROOT/'REPORT.md').write_text(report,encoding='utf-8')
-    readme=(c.ROOT/'README.md').read_text()
+    readme=(c.ROOT/'README.md').read_text() if (c.ROOT/'README.md').exists() else '# Corrected single-thread Stage-B2 results\n\nScientific config identical to first freeze; runtime fix at8271f74. See parent RUNTIME_CORRECTION.md.\n'
     if '\nCompleted:' not in readme:
         (c.ROOT/'README.md').write_text(readme+f"\nCompleted: **{s['classification']}**. See REPORT.md/summary.json. Stop; Stage C not authorized.\n",encoding='utf-8')
-    path=c.ROOT.parents[1]/'experiments/automated_mechanism_search/runs/cpu_ledger.json'
+    path=base.parents[1]/'experiments/automated_mechanism_search/runs/cpu_ledger.json'
     lock=path.with_name('.exact_online_credit_stage_b2.lock')
     with lock.open('x') as f:f.write(str(os.getpid()))
     try:

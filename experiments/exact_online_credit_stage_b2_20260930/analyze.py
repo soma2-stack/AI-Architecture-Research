@@ -1,4 +1,5 @@
 """Post-measurement tables, no recurrence or parameter updates."""
+import argparse
 import csv
 import hashlib
 import json
@@ -15,7 +16,11 @@ def csvfile(name,rows):
 def best(r,tol=1e-8):return min((p for p in r['compression'] if p['passes'] and p['tolerance']==tol),key=lambda p:p['stored_numbers'])
 
 def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--corrected',action='store_true');args=parser.parse_args()
+    base=c.ROOT
+    if args.corrected:c.ROOT=base/'corrected_single_thread'
     meter=c.Meter('Stage-B2 post-run analysis and archive preservation')
+    if args.corrected:meter.prior+=sum(json.loads(l)['cpu_seconds'] for l in (base/'cpu_ledger.jsonl').read_text().splitlines())
     try:
         rows=load('raw.jsonl');families=load('family.jsonl');status=json.loads((c.ROOT/'status.json').read_text())
         buckets=defaultdict(list)
@@ -63,7 +68,9 @@ def main():
             counts=[best(r,t)['stored_numbers'] for t in c.CFG['reconstruction_tolerances']]
             if min(counts)<=4*r['P']<max(counts):size_crossings.append({'id':r['id'],'counts':counts,'gate4P':4*r['P']})
         summary={'classification':status['classification'],'main_count':len(rows),'family_count':len(families),
-                 'family_recurrences':len(families)*128,'tests_passed':31,'reference_max_relative_error':max(g['relative_error'] for g in group_errors),
+                 'family_complete':status['family_complete'],
+                 'family_missing_case_ids':sorted({r['id'] for r in rows}-{f['id'] for f in families}),
+                 'family_recurrences':len(families)*128,'tests_passed':32 if args.corrected else 31,'reference_max_relative_error':max(g['relative_error'] for g in group_errors),
                  'reference_max_absolute_error':max(g['maximum_absolute_error'] for g in group_errors),
                  'online_max_group_relative_error':max(g['relative_error'] for g in online_errors),
                  'online_max_group_absolute_error':max(g['maximum_absolute_error'] for g in online_errors),

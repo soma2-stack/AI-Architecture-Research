@@ -1,18 +1,25 @@
 """Post-run optional artifact comparison; original raw results are never rewritten."""
+import os
+for _key in ('OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS'):os.environ[_key]='1'
+import argparse
 import csv
 import hashlib
 import io
 import json
 import zipfile
+from pathlib import Path
 import numpy as np
 import core as c
 import analyze
 import run
 
 def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--corrected',action='store_true');args=parser.parse_args()
+    base=c.ROOT
+    if args.corrected:c.ROOT=base/'corrected_single_thread'
     meter=c.Meter('B2 optional Stage-B archive provenance correction')
     try:
-        old=c.ROOT.parent/'exact_online_credit_stage_b_20260930';records=[]
+        old=Path(__file__).resolve().parent.parent/'exact_online_credit_stage_b_20260930';records=[]
         with zipfile.ZipFile(old/'matrices.zip') as prior:
             by_name={entry.split('/')[-1]:entry for entry in prior.namelist()}
             for z in analyze.load('raw.jsonl'):

@@ -4,6 +4,26 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Latest derivative audit — Exact Online Credit Stage B2 (2026-09-30)
+
+**STAGE B2 — INCONCLUSIVE.** Corrected primary record:
+`experiments/exact_online_credit_stage_b2_20260930/corrected_single_thread/REPORT.md`.
+160 selected compression cases (width8/16,T32/128,5 seeds),32 tests passed;
+BPTT/RTRL relative9.139e-16, all intended-exact online groups3.007e-14.
+Known independent/shared-linear controls compress; tested hard SVD/QR/block/
+Kronecker/local-plus-residual forms remain large or expensive. No lower bound.
+60-digit slice check agrees; SVD algorithms agree, cutoff rank intervals remain.
+Family growth still sample-limited (51/51 corrected hard families reach127 with
+128 centered samples);91/160 corrected collections completed,69 missing listed.
+First complete attempt had24-thread BLAS pools despite1-thread Torch; preserved
+as nonconforming runtime. Generic import-order repair8271f74 verified actual
+both pools1; frozen config/equations/seeds/tolerances/budgets unchanged. Repetition
+stopped at unchanged1000s cumulative family-start cutoff. All work measured
+17.0935 CPU-min, +20s administrative estimates, peak~764.96MiB;
+shared ledger21,921.531s. GPU/CUDA/GAS-0 untouched; no training/Stage C/AMS v10.
+**STOP — Stage B2 inconclusive.** Resolve exact-structure/family uncertainty under
+owner review before considering any Stage-C learning experiment. See Codex AR-156.
+
 ## Latest derivative audit — Exact Online Credit Stage B (2026-09-30)
 
 **STAGE B — INCONCLUSIVE.** Authorized CPU-only frozen-parameter sweep:

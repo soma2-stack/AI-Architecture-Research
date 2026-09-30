@@ -1275,8 +1275,136 @@
    "note": "Conservative estimate for small unmetered inspection/Git/documentation processes, not measured numerical CPU",
    "utc": "2026-09-30T17:03:38.994288+00:00",
    "exact_stage_b_entry_id": "8112c32a2c5a674aa7a38a995b88101c1661258f963bc4f1515433b0af1cedda"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 4.203125,
+   "wall_seconds": 4.955357551574707,
+   "note": "Measured whole process: Stage-B2 development validation including copied Stage-B controls",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "2bce0a3bbd0151c702fff64f852df577a08acbd7780b1c63a22acb1eeab224d7"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 4.015625,
+   "wall_seconds": 4.277941703796387,
+   "note": "Measured whole process: Stage-B2 development validation including copied Stage-B controls",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "ef6e0bddc5d34d3c40da6882d2437af24e5daa23b3ee94f711f4e9109c1510ea"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 673.15625,
+   "wall_seconds": 540.0663509368896,
+   "note": "Measured whole process: Stage-B2 measured main, precision and family audit",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "7f8f4762eb861bf23a85b1dc1a1576951f517943a41ed2c41a743675057afeb7"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 3.59375,
+   "wall_seconds": 4.598886966705322,
+   "note": "Measured whole process: Stage-B2 post-run analysis and archive preservation",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "6318ce04a400399d044d7012626ef927128d60f498a7b742c9bee055a3f9d565"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 3.296875,
+   "wall_seconds": 3.5560460090637207,
+   "note": "Measured whole process: B2 read-only archive-path diagnosis",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "606f957f1d7e5d53f6f203893d5f190f83518722e498041e07b4bf49a57bdb7a"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 3.796875,
+   "wall_seconds": 3.962756633758545,
+   "note": "Measured whole process: B2 optional Stage-B archive provenance correction",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "0355315335659ee18287ae2ed0f24c2fcc4844e61822685ee229050e2c773a9c"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 3.34375,
+   "wall_seconds": 3.5599944591522217,
+   "note": "Measured whole process: Stage-B2 final audit and documentation",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "0ac74e597b34c57c36616a7f8e926a9da2d1fde057f77a3fc620ad7c9503e964"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 3.5,
+   "wall_seconds": 3.7629497051239014,
+   "note": "Measured whole process: Stage-B2 final audit and documentation",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "d5e3c001958d021cb57a82d124b535079b371f99e784dd391235f71fea7ef6a2"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 10.0,
+   "wall_seconds": 0.0,
+   "note": "Conservative administrative estimate, not measured numerical CPU",
+   "utc": "2026-09-30T17:48:50.558006+00:00",
+   "exact_stage_b2_entry_id": "6309f75f4df7e691f2f52626195d503561e6788a7ef1b303a80578b67b4032fd"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 3.578125,
+   "wall_seconds": 3.8252029418945312,
+   "note": "Measured whole process: B2 BLAS thread-pool audit",
+   "utc": "2026-09-30T18:02:01.949837+00:00",
+   "exact_stage_b2_entry_id": "b8c6accaee453cd805ca83fb85720cf3064e52c1dfa3d49542734894c9c67a24"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 4.15625,
+   "wall_seconds": 4.3444883823394775,
+   "note": "Measured whole process: Stage-B2 development validation including copied Stage-B controls",
+   "utc": "2026-09-30T18:02:01.949837+00:00",
+   "exact_stage_b2_entry_id": "71ea8690c6119973907db947d63b28855947884e39761659752391935520bdb4"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 304.53125,
+   "wall_seconds": 314.50117564201355,
+   "note": "Measured whole process: Stage-B2 measured main, precision and family audit",
+   "utc": "2026-09-30T18:02:01.949837+00:00",
+   "exact_stage_b2_entry_id": "f3f095b00432ce137a87161908b222de7530cb3c5e21669b8a98681e09323085"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 5.125,
+   "wall_seconds": 6.538667678833008,
+   "note": "Measured whole process: Stage-B2 post-run analysis and archive preservation",
+   "utc": "2026-09-30T18:02:01.949837+00:00",
+   "exact_stage_b2_entry_id": "142a67ce272cecc9e1e7ea9b1c8b9bd73e8c66505c9df3811abb7b75f784955d"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 5.140625,
+   "wall_seconds": 5.8800976276397705,
+   "note": "Measured whole process: B2 optional Stage-B archive provenance correction",
+   "utc": "2026-09-30T18:02:01.949837+00:00",
+   "exact_stage_b2_entry_id": "d1f6e7704fd64163261d3c9a59e337bd8d6baa8de830ce89e70478b909abe389"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 4.171875,
+   "wall_seconds": 4.481935501098633,
+   "note": "Measured whole process: Stage-B2 final audit and documentation",
+   "utc": "2026-09-30T18:02:01.949837+00:00",
+   "exact_stage_b2_entry_id": "dd8965d4e0b115777eea6ec086ed4644b4df2bddb20b52a713442fbf0fb995e0"
+  },
+  {
+   "stage": "exact_online_credit_stage_b2",
+   "cpu_seconds": 10.0,
+   "wall_seconds": 0.0,
+   "note": "Conservative repair/administrative estimate, not measured numerical CPU",
+   "utc": "2026-09-30T18:02:01.949837+00:00",
+   "exact_stage_b2_entry_id": "b4cfed087fbf744bea47429866beaedd8659b363a1722502918f06ee9cf66b96"
   }
  ],
- "total_cpu_seconds": 20875.921625000003,
- "total_cpu_hours": 5.798867118055556
+ "total_cpu_seconds": 21921.531000000003,
+ "total_cpu_hours": 6.089314166666667
 }
