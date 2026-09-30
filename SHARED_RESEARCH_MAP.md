@@ -4,7 +4,26 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest derivative audit — Endpoint width scaling (2026-09-30)
+## Latest mathematical audit — Arbitrary-width accessibility (2026-09-30)
+
+**ARBITRARY-WIDTH ACCESSIBILITY PROVED**, as a written mathematical proof draft
+awaiting independent verification; not a formally verified/peer-reviewed theorem.
+experiments/augmented_accessibility_proof_20260930/PROOF.md and REPORT.md; AR-159.
+Dense tanh recurrence with independently differentiated R/W/b: P=2n²+n,
+d=2n³+n²+n. Invertible R/W and every R-inverse entry nonzero suffice for full
+endpoint rank at every n>=2 with a conservative horizon4d. Explicit rational
+family R=I-11^T/(n+1), W=I, b=0. Real coupled injection terms generate all
+parameter-sensitivity columns in a three-prefix pullback module; a separate
+rank-increment lemma yields ONE forward history. No global onto-R^d
+diffeomorphism theorem is assumed. Suitable width-extension histories give a
+finite-order nonzero leading Schur coefficient, without a computed formula.
+47 exact symbolic checks pass,1.28125 measured CPU-s +20s administration estimate;
+peak71.871MiB. Independent zeros/linear invariant remain controls. Old results
+remain preserved below. No numerical width sweep, GPU/GAS-0/learning/observability.
+**STOP: independent mathematical proof audit next.** No memory lower bound,
+learning advantage, architecture discovery, Stage C or AMS v10 follows.
+
+## Previous derivative audit — Endpoint width scaling (2026-09-30)
 
 **WIDTH SCALING — MULTI-WIDTH EVIDENCE FOUND.** Frozen84c1365;
 experiments/endpoint_width_scaling_20260930/REPORT.md and PROOF_ATTEMPT.md.

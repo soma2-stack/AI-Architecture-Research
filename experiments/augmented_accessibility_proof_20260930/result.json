@@ -1,0 +1,25 @@
+{
+  "classification": "ARBITRARY-WIDTH ACCESSIBILITY PROVED",
+  "proof_status": "Written mathematical proof; independent review required; exact algebra checks are not formal proof verification",
+  "parameter_count": "2*n**2+n",
+  "endpoint_dimension": "2*n**3+n**2+n",
+  "sufficient_horizon": "4*(2*n**3+n**2+n)",
+  "module_prefix_length": 3,
+  "assumptions": [
+    "R invertible",
+    "W invertible",
+    "All entries of inverse R nonzero",
+    "n inputs in nonempty open set"
+  ],
+  "checks_passed": 47,
+  "measured_cpu_seconds": 1.28125,
+  "administrative_estimate_seconds": 20,
+  "charged_cpu_seconds": 21.28125,
+  "measured_check_wall_seconds": 1.323450299911201,
+  "peak_working_set_bytes": 75362304,
+  "gpu_used": false,
+  "cuda_used": false,
+  "stop": true,
+  "next_action": "Independent mathematical proof verification",
+  "shared_cpu_total_seconds": 23126.015375000003
+}

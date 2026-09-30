@@ -1507,8 +1507,24 @@
    "note": "Conservative development/administrative estimate, not measured numerical CPU",
    "utc": "2026-09-30T21:56:38.956342+00:00",
    "width_scaling_entry_id": "endpoint_width_scaling_20260930_administration"
+  },
+  {
+   "stage": "augmented_accessibility_proof",
+   "cpu_seconds": 1.28125,
+   "wall_seconds": 1.323450299911201,
+   "note": "Exact symbolic proof identity checks; no endpoint sweep",
+   "utc": "2026-09-30T22:46:46.009455+00:00",
+   "proof_entry_id": "augmented_accessibility_proof_20260930_checks"
+  },
+  {
+   "stage": "augmented_accessibility_proof",
+   "cpu_seconds": 20,
+   "wall_seconds": 0,
+   "note": "Conservative administrative CPU estimate; reasoning wall time not metered",
+   "utc": "2026-09-30T22:46:46.009455+00:00",
+   "proof_entry_id": "augmented_accessibility_proof_20260930_administration"
   }
  ],
- "total_cpu_seconds": 23104.734125000003,
- "total_cpu_hours": 6.417981701388889
+ "total_cpu_seconds": 23126.015375000003,
+ "total_cpu_hours": 6.423893159722223
 }

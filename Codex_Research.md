@@ -6,6 +6,15 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Arbitrary-width accessibility resume — proof developed (2026-09-30)
+
+- **Lens/stage:** owner-authorized bounded mathematical attack; **ARBITRARY-WIDTH ACCESSIBILITY PROVED**, as a written proof draft requiring independent mathematical verification. No new architecture, numerical width sweep, learning, observability, Stage C or AMS v10.
+- **Theorem:** dense tanh h'=tanh(Rh+Wx+b), all R/W/b parameter directions, P=2n²+n. If R/W are invertible and every R-inverse entry is nonzero, forward endpoint rank d=n+nP=2n³+n²+n is attainable for every n>=2 at finite horizon T<=4d (padding gives4d). Explicit all-width rational family R=I-11^T/(n+1), W=I, b=0. This does not prove the minimum horizon P+1 or a memory lower bound.
+- **Mechanism of proof:** true coupled parameter injections yield full W columns by second pullback, full R/h directions by third, and all bias directions by distinct inverse-gate Laurent coefficients. The resulting M3 pointwise span is n+n³+n³+n². A separate forward rank-increment lemma constructs ONE actual history, resolving the union-of-histories pitfall. Global-diffeomorphism assumption fails for tanh ontoR^d; the proof uses only nonsingular one-step differentials.
+- **Induction/invariants:** suitable inputs in an explicit n->n+1 coupling family imply a finite-order nonzero Schur determinant coefficient; no explicit value/order or determinant recurrence. Full span excludes global C1 first integrals and reachable analytic identities under theorem conditions. Independent structural zeros and shared-linear bias invariant remain valid controls. Exceptional parameter slices and deep-stack arbitrary-width proof are not covered.
+- **Checks/resources:**47 exact SymPy identities/checks at n2/n3 passed; freeze f614fd0. Measured1.28125CPU-s,1.32345 wall-s, peak75,362,304bytes;20s administration estimate separately. No GPU/CUDA/ML/model server/GAS-0 operation. Previous certificate artifacts unchanged. PROOF.md, AUDIT.md, REPORT.md and checks_result.json under experiments/augmented_accessibility_proof_20260930/; AR-159.
+- **Exact next action:**STOP. Independent mathematical audit of coefficient extraction, bias projection and single-history rank increment. Do not begin observability, learning, Stage C or AMS v10.
+
 ### Endpoint width scaling resume — multi-width evidence (2026-09-30)
 
 - **Lens/stage:** owner-authorized CPU-only mathematical width extension, frozen84c1365. **WIDTH SCALING — MULTI-WIDTH EVIDENCE FOUND.** No arbitrary-width proof or architecture/learning claim.
@@ -6147,3 +6156,64 @@ nonzero Schur-complement coefficient. Inspect applicable classical system-theory
 results rather than infer induction from three widths. No further numerical
 sweep, observability experiment, Stage C, learning experiment or AMS v10 started.
 **STOP after this width-scaling audit.**
+
+---
+
+## AR-159 — Arbitrary-width accessibility of the exact tanh sensitivity lift
+
+**Classification: ARBITRARY-WIDTH ACCESSIBILITY PROVED.** This is a written
+mathematical proof with exact algebra checks; independent mathematical review
+is the next step. No architecture or learning claim is made.
+
+The full argument is self-contained in
+`experiments/augmented_accessibility_proof_20260930/PROOF.md`. Sufficient generic
+conditions are invertible R/W and no zero entries in R^{-1}. The explicit
+family R=I-11^T/(n+1), W=I, b=0 covers every n>=2. With all dense R/W/b
+directions independently differentiated, P=2n²+n, d=2n³+n²+n; a finite horizon
+4d suffices for full endpoint rank. This proves the cubic independently
+reachable coordinate count for the specified fully actuated recurrence,
+without asserting that the shortest counting horizon P+1 always works.
+
+The proof does not reuse the earlier insufficient propagation-algebra argument.
+The actual sensitivity source deltaR*h+deltaW*u+deltab is retained. Exact
+control fields and their first pullback separate cosh², sinh2 and u*sinh2
+coefficients, yielding vertical W directions. Two further pullbacks and
+invertible R parameter covectors yield every R direction. Bias reachability
+uses the identity injection Q'=I+RGQ; inverse-gate monomials distinguish its
+constant coefficients from gate-ratio terms even when Q is singular.
+
+The resulting local module spans n+n³+n³+n² directions. A separate
+rank-increment lemma appends a prefix of at most3 steps and a final input
+variation outside the existing derivative image, so rank increases along ONE
+history. After at most d such increments, full endpoint rank is attained.
+This avoids combining ranks from incompatible input histories.
+
+Jakubczyk--Sontag's control-variation notation is useful, but their default
+global-diffeomorphism hypothesis is not satisfied by tanh onto allR^d.
+The independent elementary lemma uses only the everywhere nonsingular
+augmented one-step differential. Fixed-width analytic genericity now follows
+for each arbitrary width through an all-width existence argument, not through
+extrapolation from n2/n3/n4 certificates.
+
+The n->n+1 Schur issue has an existence resolution for an explicit coupling
+family: suitable common histories keep an old minor invertible at epsilon0
+and a full minor nontrivial elsewhere. Analyticity gives a finite-order
+nonzero leading Schur determinant coefficient. No coefficient formula,
+order, recursive determinant, or minimal-horizon induction was found.
+There is no generic global C1 first integral or reachable analytic identity
+under the theorem conditions. Independent owner zeros and the shared-linear
+bias invariant survive as controls; singular/exceptional parameter cases are
+not swept into the theorem.
+
+47 exact symbolic checks pass at n2/n3; config frozen f614fd0 before checks.
+Measured1.28125 CPU-s (0.0213542min),1.3234503 wall-s, peak75,362,304bytes;
+20s administration estimate separately recorded. No ML framework, CUDA/GPU,
+model server, GAS-0, Stage C, observability, training or AMS v10 operation.
+Old experiment artifacts are unchanged. PROOF.md, AUDIT.md, REPORT.md,
+config.json, checks.py and checks_result.json preserve the result and checks.
+
+**Limitations / exact next action:** independent mathematical verification of
+the coefficient-extraction, bias-projection and single-history rank-increment
+steps. No finite-precision nP-word bound, future-loss observability, useful
+learning result, deep-stack all-width theorem or discovered architecture follows.
+Stop after the proof audit; do not run the next research phase automatically.
