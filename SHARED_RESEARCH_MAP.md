@@ -4,6 +4,22 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Latest derivative audit — Exact Online Credit Stage A (2026-09-30)
+
+**STAGE A VALID — STRUCTURAL DIFFERENCE OBSERVED.** Isolated CPU-only,
+frozen-parameter audit;60 width8 cases, depths1/2/3, horizons32/128, five seeds.
+Exact RTRL agrees with BPTT below1.069e-15 relative group error; compact diagonal
+single-layer rule is exact. Current-time deep local eligibility misses lower-layer
+temporal credit:2-layer earliest33.54–45.09% error;3-layer earliest52.75–69.87%,
+middle25.86–45.54%; final-layer gradients remain exact. Significant exact
+diagonal-stack sensitivity entries80/800/2160, with block-triangular support.
+Known chain-rule dependencies explain this result; no new architecture, lower
+bound, learning advantage or AMS justification. Scratch-lifetime accounting defect
+fixed before a preserved rerun;15 tests passed. Measured53.843750 CPU-s,
+63.843750s charged with administrative reserve; no GPU/GAS-0 operation.
+See experiments/exact_online_credit_stage_a_20260930/REPORT.md and Codex AR-154.
+**Stopped: owner review required for Stage B; nothing beyond Stage A executed.**
+
 ## Latest finalized target discovery — Path-dependent feature revision (2026-09-30)
 
 **TARGET KILLED — ORDINARY METHODS CLOSE THE GAP.** Frozen CPU fixture at

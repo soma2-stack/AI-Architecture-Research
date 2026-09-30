@@ -1,0 +1,392 @@
+{
+  "classification": "STAGE A VALID \u2014 STRUCTURAL DIFFERENCE OBSERVED",
+  "cases": 60,
+  "method_records": 150,
+  "timing_repeats": 3,
+  "maximum_exact_relative_error": 1.0689667128657002e-15,
+  "maximum_exact_absolute_error": 2.7755575615628914e-16,
+  "single_layer_local_max_relative_error": 7.491488514009501e-16,
+  "single_layer_local_max_absolute_error": 2.220446049250313e-16,
+  "nondegenerate_groups": 1200,
+  "degenerate_groups": 0,
+  "maximum_trajectory_error": 0.0,
+  "maximum_absolute_state": 0.3381747773083806,
+  "local_layer_results": [
+    {
+      "depth": 2,
+      "layer": 1,
+      "relative_error_min": 0.33535323780317317,
+      "relative_error_mean": 0.3786852933821734,
+      "relative_error_max": 0.4509381702114638,
+      "maximum_absolute_error": 0.12226812356223565,
+      "gradient_norm_min": 0.23646672291765375,
+      "gradient_norm_max": 0.46609512181146295,
+      "cosine_min": 0.9596543898836065,
+      "cases_exceeding_1e_4": 10
+    },
+    {
+      "depth": 2,
+      "layer": 2,
+      "relative_error_min": 1.1284846411116952e-16,
+      "relative_error_mean": 2.56888491364846e-16,
+      "relative_error_max": 3.602032625283913e-16,
+      "maximum_absolute_error": 1.6653345369377348e-16,
+      "gradient_norm_min": 0.3744403757923705,
+      "gradient_norm_max": 0.676317003204933,
+      "cosine_min": 0.9999999999999997,
+      "cases_exceeding_1e_4": 0
+    },
+    {
+      "depth": 3,
+      "layer": 1,
+      "relative_error_min": 0.5275296207714395,
+      "relative_error_mean": 0.6221115198171668,
+      "relative_error_max": 0.6986700999823522,
+      "maximum_absolute_error": 0.13295070459687186,
+      "gradient_norm_min": 0.06604996675628914,
+      "gradient_norm_max": 0.30595249430823246,
+      "cosine_min": 0.9539489947905051,
+      "cases_exceeding_1e_4": 10
+    },
+    {
+      "depth": 3,
+      "layer": 2,
+      "relative_error_min": 0.2586036896106384,
+      "relative_error_mean": 0.38554818877952113,
+      "relative_error_max": 0.4554092921762582,
+      "maximum_absolute_error": 0.10518487812025137,
+      "gradient_norm_min": 0.09030893654230386,
+      "gradient_norm_max": 0.4515213140498063,
+      "cosine_min": 0.9882311915112041,
+      "cases_exceeding_1e_4": 10
+    },
+    {
+      "depth": 3,
+      "layer": 3,
+      "relative_error_min": 1.7490097735845507e-16,
+      "relative_error_mean": 2.764832533725554e-16,
+      "relative_error_max": 4.390086676641933e-16,
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "gradient_norm_min": 0.14160591209041454,
+      "gradient_norm_max": 0.6413558072205965,
+      "cosine_min": 0.9999999999999999,
+      "cases_exceeding_1e_4": 0
+    }
+  ],
+  "resource_table": [
+    {
+      "kind": "dense",
+      "depth": 1,
+      "method": "G0",
+      "P": 136,
+      "state_width": 8,
+      "persistent_derivative_scalars_min": 521,
+      "persistent_derivative_scalars_max": 2057,
+      "peak_explicit_derivative_scalars_max": 2193,
+      "median_inference_microseconds_per_step": 20.61093755401089,
+      "median_gradient_microseconds_per_step": 63.22421859294991,
+      "median_gradient_to_inference_ratio": 3.0863585834758336,
+      "median_total_to_inference_ratio": 4.701065538275095
+    },
+    {
+      "kind": "dense",
+      "depth": 1,
+      "method": "G1",
+      "P": 136,
+      "state_width": 8,
+      "persistent_derivative_scalars_min": 1088,
+      "persistent_derivative_scalars_max": 1088,
+      "peak_explicit_derivative_scalars_max": 10064,
+      "median_inference_microseconds_per_step": 20.61093755401089,
+      "median_gradient_microseconds_per_step": 182.24218729301356,
+      "median_gradient_to_inference_ratio": 8.99376142695031,
+      "median_total_to_inference_ratio": 9.059547593671216
+    },
+    {
+      "kind": "dense",
+      "depth": 2,
+      "method": "G0",
+      "P": 272,
+      "state_width": 16,
+      "persistent_derivative_scalars_min": 1289,
+      "persistent_derivative_scalars_max": 5129,
+      "peak_explicit_derivative_scalars_max": 5401,
+      "median_inference_microseconds_per_step": 39.41914064853336,
+      "median_gradient_microseconds_per_step": 137.3281247651903,
+      "median_gradient_to_inference_ratio": 3.4563276959767144,
+      "median_total_to_inference_ratio": 5.245927956765109
+    },
+    {
+      "kind": "dense",
+      "depth": 2,
+      "method": "G1",
+      "P": 272,
+      "state_width": 16,
+      "persistent_derivative_scalars_min": 4352,
+      "persistent_derivative_scalars_max": 4352,
+      "peak_explicit_derivative_scalars_max": 31248,
+      "median_inference_microseconds_per_step": 39.41914064853336,
+      "median_gradient_microseconds_per_step": 408.2933583049453,
+      "median_gradient_to_inference_ratio": 10.418545333666625,
+      "median_total_to_inference_ratio": 10.478517194550857
+    },
+    {
+      "kind": "dense",
+      "depth": 3,
+      "method": "G0",
+      "P": 408,
+      "state_width": 24,
+      "persistent_derivative_scalars_min": 2057,
+      "persistent_derivative_scalars_max": 8201,
+      "peak_explicit_derivative_scalars_max": 8609,
+      "median_inference_microseconds_per_step": 60.11406367179006,
+      "median_gradient_microseconds_per_step": 213.1187497980136,
+      "median_gradient_to_inference_ratio": 3.5458217904936222,
+      "median_total_to_inference_ratio": 5.29068001089866
+    },
+    {
+      "kind": "dense",
+      "depth": 3,
+      "method": "G1",
+      "P": 408,
+      "state_width": 24,
+      "persistent_derivative_scalars_min": 9792,
+      "persistent_derivative_scalars_max": 9792,
+      "peak_explicit_derivative_scalars_max": 63440,
+      "median_inference_microseconds_per_step": 60.11406367179006,
+      "median_gradient_microseconds_per_step": 646.7355492532079,
+      "median_gradient_to_inference_ratio": 10.607199305709724,
+      "median_total_to_inference_ratio": 10.647064174823836
+    },
+    {
+      "kind": "independent",
+      "depth": 1,
+      "method": "G0",
+      "P": 80,
+      "state_width": 8,
+      "persistent_derivative_scalars_min": 521,
+      "persistent_derivative_scalars_max": 2057,
+      "peak_explicit_derivative_scalars_max": 2137,
+      "median_inference_microseconds_per_step": 22.257812815951183,
+      "median_gradient_microseconds_per_step": 62.8218745077902,
+      "median_gradient_to_inference_ratio": 2.9157069133759705,
+      "median_total_to_inference_ratio": 4.444462244029794
+    },
+    {
+      "kind": "independent",
+      "depth": 1,
+      "method": "G1",
+      "P": 80,
+      "state_width": 8,
+      "persistent_derivative_scalars_min": 640,
+      "persistent_derivative_scalars_max": 640,
+      "peak_explicit_derivative_scalars_max": 6032,
+      "median_inference_microseconds_per_step": 22.257812815951183,
+      "median_gradient_microseconds_per_step": 200.8191436289053,
+      "median_gradient_to_inference_ratio": 9.189040571627501,
+      "median_total_to_inference_ratio": 9.264942208213832
+    },
+    {
+      "kind": "independent",
+      "depth": 1,
+      "method": "G2",
+      "P": 80,
+      "state_width": 8,
+      "persistent_derivative_scalars_min": 80,
+      "persistent_derivative_scalars_max": 80,
+      "peak_explicit_derivative_scalars_max": 768,
+      "median_inference_microseconds_per_step": 22.257812815951183,
+      "median_gradient_microseconds_per_step": 36.21562973421533,
+      "median_gradient_to_inference_ratio": 1.6643067683732837,
+      "median_total_to_inference_ratio": 2.668538650092478
+    },
+    {
+      "kind": "independent",
+      "depth": 2,
+      "method": "G0",
+      "P": 160,
+      "state_width": 16,
+      "persistent_derivative_scalars_min": 1289,
+      "persistent_derivative_scalars_max": 5129,
+      "peak_explicit_derivative_scalars_max": 5289,
+      "median_inference_microseconds_per_step": 39.06523397745332,
+      "median_gradient_microseconds_per_step": 130.89921867504017,
+      "median_gradient_to_inference_ratio": 3.2462171842253804,
+      "median_total_to_inference_ratio": 4.921322801596972
+    },
+    {
+      "kind": "independent",
+      "depth": 2,
+      "method": "G1",
+      "P": 160,
+      "state_width": 16,
+      "persistent_derivative_scalars_min": 2560,
+      "persistent_derivative_scalars_max": 2560,
+      "peak_explicit_derivative_scalars_max": 18704,
+      "median_inference_microseconds_per_step": 39.06523397745332,
+      "median_gradient_microseconds_per_step": 417.29062650119886,
+      "median_gradient_to_inference_ratio": 10.681188755466284,
+      "median_total_to_inference_ratio": 10.732183697429019
+    },
+    {
+      "kind": "independent",
+      "depth": 2,
+      "method": "G3",
+      "P": 160,
+      "state_width": 16,
+      "persistent_derivative_scalars_min": 160,
+      "persistent_derivative_scalars_max": 160,
+      "peak_explicit_derivative_scalars_max": 1136,
+      "median_inference_microseconds_per_step": 39.06523397745332,
+      "median_gradient_microseconds_per_step": 74.71133085346082,
+      "median_gradient_to_inference_ratio": 1.9054527842224145,
+      "median_total_to_inference_ratio": 2.968927661203799
+    },
+    {
+      "kind": "independent",
+      "depth": 3,
+      "method": "G0",
+      "P": 240,
+      "state_width": 24,
+      "persistent_derivative_scalars_min": 2057,
+      "persistent_derivative_scalars_max": 8201,
+      "peak_explicit_derivative_scalars_max": 8441,
+      "median_inference_microseconds_per_step": 56.45156215905445,
+      "median_gradient_microseconds_per_step": 205.97929733412457,
+      "median_gradient_to_inference_ratio": 3.6974130479813176,
+      "median_total_to_inference_ratio": 5.489327226487433
+    },
+    {
+      "kind": "independent",
+      "depth": 3,
+      "method": "G1",
+      "P": 240,
+      "state_width": 24,
+      "persistent_derivative_scalars_min": 5760,
+      "persistent_derivative_scalars_max": 5760,
+      "peak_explicit_derivative_scalars_max": 37904,
+      "median_inference_microseconds_per_step": 56.45156215905445,
+      "median_gradient_microseconds_per_step": 648.5062490355631,
+      "median_gradient_to_inference_ratio": 11.464491142711008,
+      "median_total_to_inference_ratio": 11.49688685458213
+    },
+    {
+      "kind": "independent",
+      "depth": 3,
+      "method": "G3",
+      "P": 240,
+      "state_width": 24,
+      "persistent_derivative_scalars_min": 240,
+      "persistent_derivative_scalars_max": 240,
+      "peak_explicit_derivative_scalars_max": 1504,
+      "median_inference_microseconds_per_step": 56.45156215905445,
+      "median_gradient_microseconds_per_step": 112.9640695580747,
+      "median_gradient_to_inference_ratio": 2.0521209438498023,
+      "median_total_to_inference_ratio": 3.122804633685983
+    }
+  ],
+  "support_table": [
+    {
+      "depth": 1,
+      "nonzero_counts": [
+        80
+      ],
+      "fraction_min": 0.125,
+      "fraction_max": 0.125,
+      "lower_to_upper_nonzero_every_case": true
+    },
+    {
+      "depth": 2,
+      "nonzero_counts": [
+        800
+      ],
+      "fraction_min": 0.3125,
+      "fraction_max": 0.3125,
+      "lower_to_upper_nonzero_every_case": true
+    },
+    {
+      "depth": 3,
+      "nonzero_counts": [
+        2160
+      ],
+      "fraction_min": 0.375,
+      "fraction_max": 0.375,
+      "lower_to_upper_nonzero_every_case": true
+    }
+  ],
+  "optional_controls": "SnAp-1, SnAp-2, UORO deferred; not executed",
+  "gpu_cuda_used": false,
+  "parameter_updates": 0,
+  "recommendation": "Owner review for Stage B; do not execute without new authorization",
+  "resources": {
+    "cpu_seconds": 53.84375,
+    "job_wall_seconds": 24.072322400053963,
+    "peak_rss_bytes": 298541056,
+    "ledger": [
+      {
+        "job": "development unit validation",
+        "cpu_seconds": 3.859375,
+        "wall_seconds": 0.056330200051888824,
+        "peak_rss_bytes": 289374208,
+        "gpu_used": false,
+        "cuda_build": null
+      },
+      {
+        "job": "development unit validation",
+        "cpu_seconds": 3.6875,
+        "wall_seconds": 0.05227590003050864,
+        "peak_rss_bytes": 289480704,
+        "gpu_used": false,
+        "cuda_build": null
+      },
+      {
+        "job": "official Stage-A sweep",
+        "cpu_seconds": 15.359375,
+        "wall_seconds": 11.88647710008081,
+        "peak_rss_bytes": 298070016,
+        "gpu_used": false,
+        "cuda_build": null
+      },
+      {
+        "job": "post-run aggregation",
+        "cpu_seconds": 4.109375,
+        "wall_seconds": 0.019617400015704334,
+        "peak_rss_bytes": 283557888,
+        "gpu_used": false,
+        "cuda_build": null
+      },
+      {
+        "job": "development unit validation",
+        "cpu_seconds": 3.796875,
+        "wall_seconds": 0.05347209994215518,
+        "peak_rss_bytes": 289820672,
+        "gpu_used": false,
+        "cuda_build": null
+      },
+      {
+        "job": "development unit validation",
+        "cpu_seconds": 3.796875,
+        "wall_seconds": 0.0548472999362275,
+        "peak_rss_bytes": 289714176,
+        "gpu_used": false,
+        "cuda_build": null
+      },
+      {
+        "job": "official Stage-A sweep",
+        "cpu_seconds": 15.671875,
+        "wall_seconds": 11.937253599986434,
+        "peak_rss_bytes": 298541056,
+        "gpu_used": false,
+        "cuda_build": null
+      },
+      {
+        "job": "post-run aggregation",
+        "cpu_seconds": 3.5625,
+        "wall_seconds": 0.012048800010234118,
+        "peak_rss_bytes": 284135424,
+        "gpu_used": false,
+        "cuda_build": null
+      }
+    ]
+  }
+}

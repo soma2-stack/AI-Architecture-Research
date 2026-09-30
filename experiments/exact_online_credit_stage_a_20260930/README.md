@@ -15,3 +15,12 @@ inventories are conservative bounds; trajectory storage is separate audit data.
 
 Stage B/C and mechanism searches are not authorized. Final artifacts will be
 raw.jsonl, status.json, provenance.json, cpu_ledger.jsonl, summary.json and REPORT.md.
+
+## Final status
+
+**STAGE A VALID — STRUCTURAL DIFFERENCE OBSERVED.** All60 cases passed exact
+reference gates. All15 final tests passed; the added test verifies scratch-buffer
+lifetime. One resource-accounting defect was corrected and the original sweep
+preserved (CORRECTIONS.md). See REPORT.md, layer_metrics.csv and resources.csv.
+Measured53.843750 CPU-seconds; sampled peak284.71MiB. Owner review for Stage B;
+no further experiment has run.

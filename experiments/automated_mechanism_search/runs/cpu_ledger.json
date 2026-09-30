@@ -1139,8 +1139,80 @@
    "note": "Measured whole Python-process CPU; local append-only record",
    "utc": "2026-09-30T12:42:51Z",
    "feature_revision_entry_id": "3193fb2cc10aba97a67a2a9fc2b9f698d294c8bd3ab07da6d6772df61844a549"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 3.859375,
+   "wall_seconds": 0.056330200051888824,
+   "note": "Measured whole-process CPU; wall after imports: development unit validation",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "a795240bcbacff79c6e203b55e38ae9d0c6cb071eacd4a6c31b0fa70f1078c09"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 3.6875,
+   "wall_seconds": 0.05227590003050864,
+   "note": "Measured whole-process CPU; wall after imports: development unit validation",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "328002f02233a33cf361527e08c8b4e950338e1fc83e9759615d8a2cc420b982"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 15.359375,
+   "wall_seconds": 11.88647710008081,
+   "note": "Measured whole-process CPU; wall after imports: official Stage-A sweep",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "12d6f13483c85f64b6236c8e978526901d4e47e81a096620f74421b210283bef"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 4.109375,
+   "wall_seconds": 0.019617400015704334,
+   "note": "Measured whole-process CPU; wall after imports: post-run aggregation",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "25da9b54148686ea2d9733c4804152ec694e8eaaab32c1d1780150758e8eba99"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 3.796875,
+   "wall_seconds": 0.05347209994215518,
+   "note": "Measured whole-process CPU; wall after imports: development unit validation",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "cd42bb85995fa114b4f5aee6cf0117de7621eac5a6e9398f79e15deb02e9d893"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 3.796875,
+   "wall_seconds": 0.0548472999362275,
+   "note": "Measured whole-process CPU; wall after imports: development unit validation",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "e6ce72af0d90081b96995b09c89689288b864f74578df444b1fc60ddc7e5949b"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 15.671875,
+   "wall_seconds": 11.937253599986434,
+   "note": "Measured whole-process CPU; wall after imports: official Stage-A sweep",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "ffb5985d2833d56cd065b9dccfff5714e57d5a94f5f609fd9111f2f96f299215"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 3.5625,
+   "wall_seconds": 0.012048800010234118,
+   "note": "Measured whole-process CPU; wall after imports: post-run aggregation",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "08c0756f774d249ffe4a3baf5041007bab4a1e29cdc9c79e11d07c29cbeeee55"
+  },
+  {
+   "stage": "exact_online_credit_stage_a",
+   "cpu_seconds": 10.0,
+   "wall_seconds": 0.0,
+   "note": "Conservative estimate, not measured",
+   "utc": "2026-09-30T15:58:17.518766+00:00",
+   "exact_stage_a_entry_id": "2bc2908643d6e7e57c5a34fe46d3e7fc8bc050edef705ab7da9cbaafa7014504"
   }
  ],
- "total_cpu_seconds": 20501.74975,
- "total_cpu_hours": 5.694930486111111
+ "total_cpu_seconds": 20565.593500000003,
+ "total_cpu_hours": 5.7126648611111115
 }

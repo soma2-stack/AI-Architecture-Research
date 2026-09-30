@@ -6,6 +6,15 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Exact Online Credit Stage-A resume — complete (2026-09-30)
+
+- **Lens/stage:** frozen-parameter CPU derivative-equivalence audit, width8, depths1/2/3, horizons32/128, five seeds9401100–04. **STAGE A VALID — STRUCTURAL DIFFERENCE OBSERVED.** No architecture candidate, training or parameter update.
+- **Verified:**60 cases/150 method records, three timing repeats. BPTT/exact RTRL maximum group relative error1.069e-15, absolute2.776e-16; compact single-independent rule relative7.491e-16. Identical trajectories. All15 final unit tests passed.
+- **Deep local rule:**2-layer earliest error33.54–45.09%;3-layer earliest52.75–69.87%, middle25.86–45.54%; top gradients exact. These are omitted temporal chain-rule paths, not evidence of an unknown mechanism.
+- **State/support:**independent full sensitivity640/2560/5760 scalars vs compact80/160/240; exact significant entries80/800/2160. Cross-layer support expands but remains block triangular. No proof that other compact exact representations fail, no lower bound or novelty claim.
+- **Validity correction/resources:**scratch A/B and direct-partial variables initially survived between steps; first sweep preserved, lifetimes corrected/weak-reference tested, rerun after commitfd4e157. Measured53.843750 CPU-s including tests, both sweeps and analysis;10s administrative estimate;63.843750s charged. Post-import job wall24.072322s, sampled peak298,541,056-byte RSS. CPU-only Torch, no CUDA/GPU/model-server/GAS-0 operation. Shared cumulative ledger20,565.5935s (~5.71266h).
+- **Artifacts/exact next action:**experiments/exact_online_credit_stage_a_20260930/REPORT.md, raw records, frozen protocol/config, tests, summary, resource CSVs, provenance and corrections; AR-154. **Stop. Owner review for Stage B**, including whether known exact structured sensitivity representations close the intended residual. No Stage B/C, AMS v10, or mechanism search authorized/executed.
+
 ### Path-dependent feature-revision resume — closed (2026-09-30)
 
 - **Lens/stage:** owner-authorized CPU-only candidate-discovery screen, separate from GAS-0. Frozen at deb9e6b before five official seeds9301100–04. **TARGET KILLED — ORDINARY METHODS CLOSE THE GAP.**
@@ -5597,3 +5606,48 @@ The full bounded source/collision review, formal discriminator, access limits, s
 **Resources / audit.**13 automated tests passed before unlocking.140 official predictor trials,225,500 predictor updates /57,728,000 sampled exposures;540 probes with100 updates each. Measured CPU783.890625s plus20s conservative administration; charged803.890625s. Metered Python-job wall838.664411s, peak RSS344,891,392bytes. One CPU worker/thread, explicit CPU tensors, CPU-only Torch2.13.0+cpu; no GPU/CUDA/llama.cpp. Shared ledger mirrored without replacing prior entries, total20,501.74975s. All248 model snapshots preserved with SHA-256 manifest and29,247,054-byte archive. Cosmetic joint progress lines printed a zero placeholder because there is no train_joint_accuracy field; actual A/B/C raw metrics and mean-BCE selection are correct. No execution failure/rerun or official protocol repair.
 
 **Exact next action:** stop and report this bounded kill. There is no surviving failure to replicate on a second generator and no scientific basis here for AMS v10. Do not infer a new architecture or propose another benchmark automatically.
+
+## AR-154 — Exact online credit Stage-A frozen-parameter derivative audit
+
+**Verified classification: STAGE A VALID — STRUCTURAL DIFFERENCE OBSERVED.**
+Owner authorized Stage A only. Setup92ee1a5 was committed before official
+measurement. Storage-lifetime fixes23c09c8/fd4e157 were committed before the
+corrected sweep; the first sweep remains in pre_resource_lifetime_fix/.
+
+The transparent cells are dense tanh recurrence and diagonal tanh recurrence,
+with dense W*tanh(lower-current-state) spatial mixing when stacked. Analytic
+full RTRL includes all within-time and cross-time chain-rule dependencies.
+The compact local rule stores exact own-cell eligibilities but substitutes
+current-time spatial propagation for global cross-layer temporal credit.
+It is an explicit approximation in the deep case, not a claim about every
+published LRU or structured online-gradient algorithm.
+
+60 cases,150 records, three timing repeats, five preregistered official seeds.
+BPTT/RTRL and single-layer local derivatives agree within1.069e-15 relative,
+2.776e-16 absolute; all trajectories identical, no parameter updates, NaN/Inf
+or degenerate gradient groups.15 tests passed. Deep local lower-layer gradients
+have26–70% relative error despite cosines as high as roughly.99; top-layer
+parameters are exact. Every tested early/middle layer exceeds the descriptive
+threshold at both horizons for all seeds. Full per-parameter norms/errors are
+preserved, not averaged away.
+
+Exact diagonal-stack significant sensitivity counts80/800/2160 vs local stored
+eligibility80/160/240. Full matrix stores640/2560/5760; sparse/block triangular
+structure still exists, so these data do not establish a dense-memory lower
+bound or rule out known exact factorizations. This is ordinary chain-rule
+nonclosure of the tested cheap deep rule, not a supported architecture candidate.
+Small instrumented Python runtime ratios are not optimized or asymptotic evidence.
+
+Measured53.843750 CPU-s, including every numerical process, both sweeps and
+aggregation;10s conservative administrative estimate,63.843750s total charged.
+Post-import numerical-job wall24.072322s, sampled298,541,056-byte peak RSS.
+CPU-only Torch2.13.0+cpu/float64, one thread; no CUDA/GPU/LLM/server/GAS-0 operation.
+Autograd transient allocation census is incomplete; sampled process RAM and saved
+tape inventory are disclosed. Scratch inventories are conservative bounds.
+
+**Exact next action: stop and request owner review for Stage B.** First review
+whether known exact structured sensitivity representations close the intended
+residual. No Stage B/C, width/horizon expansion, training, AMS v10 or mechanism
+search. Optional SnAp/UORO deferred. All definitions, raw outputs, provenance,
+resource accounting, validity notes and code are under
+experiments/exact_online_credit_stage_a_20260930/.
