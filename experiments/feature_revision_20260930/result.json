@@ -1,0 +1,418 @@
+{
+  "decision": "TARGET KILLED \u2014 ORDINARY METHODS CLOSE THE GAP",
+  "winning_control": "optimizer_reset",
+  "gate_results": [
+    {
+      "control": "continuous",
+      "model": "mlp2",
+      "satisfies_numeric_gate": true,
+      "eligible_stop_repair": false,
+      "killed": false,
+      "checks": [
+        {
+          "seed": 9301100,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 1.0,
+              "gap_pp": 0.0
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99853515625,
+              "scratch_cf": 0.99853515625,
+              "gap_pp": 0.0
+            }
+          }
+        },
+        {
+          "seed": 9301101,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": -0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 0.9990234375,
+              "gap_pp": 0.0
+            }
+          }
+        },
+        {
+          "seed": 9301102,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99951171875,
+              "scratch_cf": 1.0,
+              "gap_pp": 0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99951171875,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": 0.0
+            }
+          }
+        },
+        {
+          "seed": 9301103,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": -0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99951171875,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": 0.0
+            }
+          }
+        },
+        {
+          "seed": 9301104,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.998046875,
+              "scratch_cf": 0.9990234375,
+              "gap_pp": 0.09765625
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99755859375,
+              "scratch_cf": 0.99658203125,
+              "gap_pp": -0.09765625
+            }
+          }
+        }
+      ]
+    },
+    {
+      "control": "continuous",
+      "model": "mlp4",
+      "satisfies_numeric_gate": true,
+      "eligible_stop_repair": false,
+      "killed": false,
+      "checks": [
+        {
+          "seed": 9301100,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99951171875,
+              "scratch_cf": 0.9990234375,
+              "gap_pp": -0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 0.99462890625,
+              "gap_pp": -0.439453125
+            }
+          }
+        },
+        {
+          "seed": 9301101,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 1.0,
+              "gap_pp": 0.09765625
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99755859375,
+              "scratch_cf": 0.99609375,
+              "gap_pp": -0.146484375
+            }
+          }
+        },
+        {
+          "seed": 9301102,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": 0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99853515625,
+              "scratch_cf": 0.99658203125,
+              "gap_pp": -0.1953125
+            }
+          }
+        },
+        {
+          "seed": 9301103,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": -0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99951171875,
+              "scratch_cf": 0.99853515625,
+              "gap_pp": -0.09765625
+            }
+          }
+        },
+        {
+          "seed": 9301104,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9970703125,
+              "scratch_cf": 0.9970703125,
+              "gap_pp": 0.0
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99755859375,
+              "scratch_cf": 0.9951171875,
+              "gap_pp": -0.244140625
+            }
+          }
+        }
+      ]
+    },
+    {
+      "control": "optimizer_reset",
+      "model": "mlp2",
+      "satisfies_numeric_gate": true,
+      "eligible_stop_repair": true,
+      "killed": true,
+      "checks": [
+        {
+          "seed": 9301100,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 1.0,
+              "gap_pp": 0.0
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9970703125,
+              "scratch_cf": 0.99853515625,
+              "gap_pp": 0.146484375
+            }
+          }
+        },
+        {
+          "seed": 9301101,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": -0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99853515625,
+              "scratch_cf": 0.9990234375,
+              "gap_pp": 0.048828125
+            }
+          }
+        },
+        {
+          "seed": 9301102,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99951171875,
+              "scratch_cf": 1.0,
+              "gap_pp": 0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": -0.048828125
+            }
+          }
+        },
+        {
+          "seed": 9301103,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": -0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": -0.048828125
+            }
+          }
+        },
+        {
+          "seed": 9301104,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 0.9990234375,
+              "gap_pp": 0.0
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9970703125,
+              "scratch_cf": 0.99658203125,
+              "gap_pp": -0.048828125
+            }
+          }
+        }
+      ]
+    },
+    {
+      "control": "optimizer_reset",
+      "model": "mlp4",
+      "satisfies_numeric_gate": true,
+      "eligible_stop_repair": true,
+      "killed": true,
+      "checks": [
+        {
+          "seed": 9301100,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 1.0,
+              "scratch_cf": 0.9990234375,
+              "gap_pp": -0.09765625
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 0.99462890625,
+              "gap_pp": -0.439453125
+            }
+          }
+        },
+        {
+          "seed": 9301101,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.998046875,
+              "scratch_cf": 1.0,
+              "gap_pp": 0.1953125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 0.99609375,
+              "gap_pp": -0.29296875
+            }
+          }
+        },
+        {
+          "seed": 9301102,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99853515625,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": 0.09765625
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99609375,
+              "scratch_cf": 0.99658203125,
+              "gap_pp": 0.048828125
+            }
+          }
+        },
+        {
+          "seed": 9301103,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9990234375,
+              "scratch_cf": 0.99951171875,
+              "gap_pp": 0.048828125
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.99853515625,
+              "scratch_cf": 0.99853515625,
+              "gap_pp": 0.0
+            }
+          }
+        },
+        {
+          "seed": 9301104,
+          "passed": true,
+          "phases": {
+            "B": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9970703125,
+              "scratch_cf": 0.9970703125,
+              "gap_pp": 0.0
+            },
+            "C": {
+              "train_accuracy": 1.0,
+              "warm_cf": 0.9970703125,
+              "scratch_cf": 0.9951171875,
+              "gap_pp": -0.1953125
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "not_run_controls": [
+    "sgdm",
+    "lbfgs",
+    "layernorm",
+    "weight_decay",
+    "spectral",
+    "head_reset",
+    "last_layer",
+    "reinit_0",
+    "reinit_1",
+    "reinit_2",
+    "reinit_3",
+    "feature_sieve"
+  ],
+  "expanded_models_run": false,
+  "second_generator_justified": false
+}

@@ -4,7 +4,26 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest finalized architecture-research state — Target Validation TV-20260929
+## Latest finalized target discovery — Path-dependent feature revision (2026-09-30)
+
+**TARGET KILLED — ORDINARY METHODS CLOSE THE GAP.** Frozen CPU fixture at
+deb9e6b:64D observations, depth3 invertible nonlinear core, linear shortcut,
+three reversal phases, no task/phase IDs or conditional heads. Both MLPs passed
+scratch validity; optimizer reset achieved100% B/C train accuracy and <2pp
+warm/scratch CF gaps on5/5 seeds for both models (largest positive gap0.1953pp).
+Continuous AdamW also closed the gap. Core information was strongly decodable
+at every hidden layer; no architecture-search target was validated.
+
+Important scope: this generator was nearly linearly decodable, and earlyA already
+gave the MLPs>95% CF accuracy. It does not close all hard feature-revision problems.
+Mandatory stop preceded other repairs, expanded architectures, ten seeds,
+second-generator replication or AMS v10. No GPU/CUDA/llama.cpp or GAS-0 operation.
+Measured CPU783.890625s plus20s conservative charges; peak RSS~329MiB. Shared
+ledger20,501.74975s (~5.69493h).13 tests passed. Full records/checkpoints:
+`experiments/feature_revision_20260930/REPORT.md`, `summary.json`, raw JSONL and
+Codex AR-153. **Stop.** Previous records below remain preserved.
+
+## Previous finalized architecture-research state — Target Validation TV-20260929
 
 Owner-authorized CPU-only validation followed AMS v9's V0-SCOPE stop. Three
 bounded targets were tested sequentially, each protocol/config committed before

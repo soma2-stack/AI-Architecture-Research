@@ -1,3 +1,6 @@
 {"job": "unit_validation", "status": "PASS", "cpu_seconds": 2.96875, "wall_seconds": 4.505831872695126, "peak_rss_bytes": 237776896, "device": "cpu", "timestamp_utc": "2026-09-30T12:24:27Z"}
 {"job": "dev", "status": "PASS", "cpu_seconds": 20.171875, "wall_seconds": 22.268509392743, "peak_rss_bytes": 327581696, "device": "cpu", "timestamp_utc": "2026-09-30T12:25:26Z"}
 {"job": "unit_validation", "status": "PASS", "cpu_seconds": 5.375, "wall_seconds": 6.160768679575995, "peak_rss_bytes": 312418304, "device": "cpu", "timestamp_utc": "2026-09-30T12:27:02Z"}
+{"job": "official", "status": "KILLED", "cpu_seconds": 751.796875, "wall_seconds": 801.2798113540048, "peak_rss_bytes": 344891392, "device": "cpu", "timestamp_utc": "2026-09-30T12:41:11Z"}
+{"job":"literature_and_documentation_administration","status":"COMPLETE","cpu_seconds":20,"wall_seconds":null,"peak_rss_bytes":null,"accounting":"Conservative upper-bound local administrative CPU charge; not measured","device":"cpu"}
+{"job": "stored_result_analysis_and_archiving", "status": "COMPLETE", "cpu_seconds": 3.578125, "wall_seconds": 4.4494892043294385, "peak_rss_bytes": 206290944, "device": "cpu", "timestamp_utc": "2026-09-30T12:42:51Z"}

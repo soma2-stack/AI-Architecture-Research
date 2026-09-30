@@ -1085,8 +1085,62 @@
    "note": "Measured whole Python-process CPU; local append-only record",
    "utc": "2026-09-30T03:54:49Z",
    "target_validation_entry_id": "e5d552ea69c2359ef0b5f78ea10ab1483a5e89705a7303b8015e81ac6ff2fce0"
+  },
+  {
+   "stage": "feature_revision_20260930/unit_validation",
+   "cpu_seconds": 2.96875,
+   "wall_seconds": 4.505831872695126,
+   "peak_rss_bytes": 237776896,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T12:24:27Z",
+   "feature_revision_entry_id": "77dc807d9ea0cb3fb9116348f229adfef9c4bcefd9359772a41c3ac34c367e05"
+  },
+  {
+   "stage": "feature_revision_20260930/dev",
+   "cpu_seconds": 20.171875,
+   "wall_seconds": 22.268509392743,
+   "peak_rss_bytes": 327581696,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T12:25:26Z",
+   "feature_revision_entry_id": "349da306fd83b4c15f13821aac27f2d43577d84eb30132f0f4fc7368fda1c33f"
+  },
+  {
+   "stage": "feature_revision_20260930/unit_validation",
+   "cpu_seconds": 5.375,
+   "wall_seconds": 6.160768679575995,
+   "peak_rss_bytes": 312418304,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T12:27:02Z",
+   "feature_revision_entry_id": "46d1b0b44cc407d6d0ff609e981422c5014b2b870830ed59342b1203b388060e"
+  },
+  {
+   "stage": "feature_revision_20260930/official",
+   "cpu_seconds": 751.796875,
+   "wall_seconds": 801.2798113540048,
+   "peak_rss_bytes": 344891392,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T12:41:11Z",
+   "feature_revision_entry_id": "7c43dc446e8e9ef4c323afbbc9e0f9a8ffa321196f3c5d7c38e75f5b55bc7327"
+  },
+  {
+   "stage": "feature_revision_20260930/literature_and_documentation_administration",
+   "cpu_seconds": 20,
+   "wall_seconds": null,
+   "peak_rss_bytes": null,
+   "note": "Conservative upper-bound local administrative CPU charge; not measured",
+   "utc": null,
+   "feature_revision_entry_id": "5b0f01b8770a373b47121cf668b1497b85baffd95a799a233103fe424a33fadf"
+  },
+  {
+   "stage": "feature_revision_20260930/stored_result_analysis_and_archiving",
+   "cpu_seconds": 3.578125,
+   "wall_seconds": 4.4494892043294385,
+   "peak_rss_bytes": 206290944,
+   "note": "Measured whole Python-process CPU; local append-only record",
+   "utc": "2026-09-30T12:42:51Z",
+   "feature_revision_entry_id": "3193fb2cc10aba97a67a2a9fc2b9f698d294c8bd3ab07da6d6772df61844a549"
   }
  ],
- "total_cpu_seconds": 19697.859125,
- "total_cpu_hours": 5.471627534722222
+ "total_cpu_seconds": 20501.74975,
+ "total_cpu_hours": 5.694930486111111
 }
