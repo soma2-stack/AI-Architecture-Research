@@ -1,0 +1,9 @@
+{
+  "development_suite": {"tests":16,"passed":15,"skipped":1,"skip_reason":"Saved new certificate did not exist before official collection"},
+  "final_suite": {"tests":17,"passed":17,"skipped":0,"command":"python experiments/endpoint_width_scaling_20260930/test_audit.py"},
+  "previous_certificate_replays":5,
+  "new_certificate_replays":8,
+  "test_only_changes_after_freeze":"Locate the new certificate filenames; add augmented-step determinant-factorization test",
+  "verification_runtime_change":"Activate existing per-row/per-step budget guard during replay; no derivative/certificate/config change",
+  "no_protocol_threshold_or_model_changes":true
+}

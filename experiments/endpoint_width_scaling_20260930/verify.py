@@ -36,6 +36,7 @@ def verify(data):
 
 if __name__=='__main__':
     meter=c.Meter('Independent certificate replay/Fraction verification')
+    c.ACTIVE_METER=meter
     try:
         records=[]
         for path in sorted(c.ROOT.glob('certificate_*.json')):

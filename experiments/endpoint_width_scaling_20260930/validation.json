@@ -1,0 +1,242 @@
+{
+  "tests_passed": 17,
+  "official_group_checks": [
+    {
+      "case": "dense",
+      "width": 3,
+      "parameters_frozen": true,
+      "groups": [
+        {
+          "layer": 1,
+          "group": "R",
+          "relative": 2.346523349703457e-16,
+          "max_absolute": 8.326672684688674e-17
+        },
+        {
+          "layer": 1,
+          "group": "W",
+          "relative": 2.0010866964420764e-16,
+          "max_absolute": 5.551115123125783e-17
+        },
+        {
+          "layer": 1,
+          "group": "b",
+          "relative": 1.9937729830055066e-16,
+          "max_absolute": 4.440892098500626e-16
+        }
+      ]
+    },
+    {
+      "case": "dense",
+      "width": 4,
+      "parameters_frozen": true,
+      "groups": [
+        {
+          "layer": 1,
+          "group": "R",
+          "relative": 3.5365201374915525e-16,
+          "max_absolute": 4.440892098500626e-16
+        },
+        {
+          "layer": 1,
+          "group": "W",
+          "relative": 3.185576762539851e-16,
+          "max_absolute": 1.6653345369377348e-16
+        },
+        {
+          "layer": 1,
+          "group": "b",
+          "relative": 4.4352007399151124e-16,
+          "max_absolute": 1.1102230246251565e-15
+        }
+      ]
+    },
+    {
+      "case": "independent",
+      "width": 2,
+      "parameters_frozen": true,
+      "groups": [
+        {
+          "layer": 1,
+          "group": "R",
+          "relative": 0.0,
+          "max_absolute": 0.0
+        },
+        {
+          "layer": 1,
+          "group": "W",
+          "relative": 1.233913398425232e-16,
+          "max_absolute": 1.1102230246251565e-16
+        },
+        {
+          "layer": 1,
+          "group": "b",
+          "relative": 1.0412930121273521e-16,
+          "max_absolute": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "case": "shared_linear",
+      "width": 2,
+      "parameters_frozen": true,
+      "groups": [
+        {
+          "layer": 1,
+          "group": "R",
+          "relative": 0.0,
+          "max_absolute": 0.0
+        },
+        {
+          "layer": 1,
+          "group": "W",
+          "relative": 0.0,
+          "max_absolute": 0.0
+        },
+        {
+          "layer": 1,
+          "group": "b",
+          "relative": 0.0,
+          "max_absolute": 0.0
+        }
+      ]
+    },
+    {
+      "case": "independent",
+      "width": 4,
+      "parameters_frozen": true,
+      "groups": [
+        {
+          "layer": 1,
+          "group": "R",
+          "relative": 2.865436764580314e-16,
+          "max_absolute": 1.1102230246251565e-16
+        },
+        {
+          "layer": 1,
+          "group": "W",
+          "relative": 1.6817436773056965e-16,
+          "max_absolute": 1.1102230246251565e-16
+        },
+        {
+          "layer": 1,
+          "group": "b",
+          "relative": 1.1781939792300383e-16,
+          "max_absolute": 4.440892098500626e-16
+        }
+      ]
+    },
+    {
+      "case": "shared_linear",
+      "width": 4,
+      "parameters_frozen": true,
+      "groups": [
+        {
+          "layer": 1,
+          "group": "R",
+          "relative": 1.3062941980917977e-16,
+          "max_absolute": 5.551115123125783e-17
+        },
+        {
+          "layer": 1,
+          "group": "W",
+          "relative": 4.5131334636632455e-17,
+          "max_absolute": 2.7755575615628914e-17
+        },
+        {
+          "layer": 1,
+          "group": "b",
+          "relative": 0.0,
+          "max_absolute": 0.0
+        }
+      ]
+    },
+    {
+      "case": "deep",
+      "width": 3,
+      "parameters_frozen": true,
+      "groups": [
+        {
+          "layer": 1,
+          "group": "R",
+          "relative": 2.0706910109645596e-16,
+          "max_absolute": 8.326672684688674e-17
+        },
+        {
+          "layer": 1,
+          "group": "W",
+          "relative": 3.9637626947902144e-16,
+          "max_absolute": 2.7755575615628914e-16
+        },
+        {
+          "layer": 1,
+          "group": "b",
+          "relative": 3.8050523144940675e-16,
+          "max_absolute": 1.1102230246251565e-15
+        },
+        {
+          "layer": 2,
+          "group": "R",
+          "relative": 3.1803577112003715e-16,
+          "max_absolute": 1.1102230246251565e-16
+        },
+        {
+          "layer": 2,
+          "group": "W",
+          "relative": 4.0022824794284873e-16,
+          "max_absolute": 1.6653345369377348e-16
+        },
+        {
+          "layer": 2,
+          "group": "b",
+          "relative": 4.1612874748153745e-16,
+          "max_absolute": 8.881784197001252e-16
+        }
+      ]
+    }
+  ],
+  "second_precision_conditioning": [
+    {
+      "width": 2,
+      "precision": 100,
+      "determinant": "-5.279276836839014245730820206572664421324334121035e-58",
+      "smallest_singular_value": "0.0000009864938334941959721070205679332368549556390523622028329478129362000152",
+      "condition_number": "1636676.324958770795282824029461482425894068573318701485183917394886508",
+      "source": "old certified point"
+    },
+    {
+      "width": 4,
+      "precision": 180,
+      "smallest_singular_value": "0.000000000000000000706820924660695758987604647645602313471258488357862920590087258352782418286344875391585925",
+      "condition_number": "3233617862142829449.22625504325341960840873545498509219972699915056813248761698505863575924",
+      "smin_relative_difference_100_vs_180": "2.58712556991289027048759279642e-71"
+    }
+  ],
+  "R_determinants_exact": [
+    {
+      "width": 2,
+      "R_determinant_exact": "27/128"
+    },
+    {
+      "width": 3,
+      "R_determinant_exact": "161/2048"
+    },
+    {
+      "width": 4,
+      "R_determinant_exact": "921/32768"
+    }
+  ],
+  "old_artifacts_unchanged": true,
+  "hardware": {
+    "device": "cpu",
+    "torch": "2.13.0+cpu",
+    "cuda_build": null,
+    "dtype": "float64",
+    "BLAS_pools": [
+      {
+        "library": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "threads": 1
+      }
+    ]
+  }
+}

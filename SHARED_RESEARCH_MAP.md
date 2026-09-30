@@ -4,6 +4,23 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Latest derivative audit — Endpoint width scaling (2026-09-30)
+
+**WIDTH SCALING — MULTI-WIDTH EVIDENCE FOUND.** Frozen84c1365;
+experiments/endpoint_width_scaling_20260930/REPORT.md and PROOF_ATTEMPT.md.
+Previous5 certificates replay unchanged. Dense tanh full endpoint ranks22,66,148
+at widths2,3,4 and first count-feasible horizons11,22,37. P=2n²+n;
+allowed d=2n³+n²+n. New maximal minors rigorously384-bit interval-certified,
+independent exact Fraction replay;17 tests. No arbitrary-width construction:
+nonzero width-extension Schur-complement coefficient is still missing.
+Shared-linear n4 rank8; independent n4 endpoint28 full, known compact O(P).
+Width3 depth2: P42, state6, T65, inputhistory195, supported endpoint195. Certified full minor195 and local-base minor132. Local E126 plus state6 gives132; cross C63 raises total195. Both are evaluated at the SAME input. Exact cross-layer rank increase is63 if both certificates pass; no upper-parameter/lower-state coordinates were included (63 structural zeros). E is dense-block local eligibility, not scalar diagonal traces.
+Real full rank is not numerical robustness: n4 smin~7.07e-19,kappa~3.23e18,
+100/180-digit agreement. Genericity is fixed width/T, not a theorem for all n.
+Measured18.457292CPU-min +20s estimates; peak430.324MiB.
+No GPU/CUDA/GAS-0, training, observability, Stage C or AMS v10.
+**STOP — independent audit / bounded accessibility proof next.** Codex AR-158.
+
 ## Latest derivative audit — Endpoint certificate (2026-09-30)
 
 **ENDPOINT CERTIFICATE — FULL-DIMENSION WITNESS FOUND.** Frozen9c08a86;

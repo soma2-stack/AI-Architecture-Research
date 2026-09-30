@@ -54,8 +54,9 @@ class Tests(unittest.TestCase):
     def test_saved_certificate_rejection(self):
         import json,copy
         from verify import verify
-        path=c.ROOT/'certificate_shared_linear_9502100_shared_rank4.json'
-        if not path.exists():self.skipTest('Official certificates not collected yet')
+        paths=sorted(c.ROOT.glob('certificate_shared_linear_*.json'))
+        if not paths:self.skipTest('Official certificates not collected yet')
+        path=paths[0]
         data=json.loads(path.read_text());self.assertTrue(verify(data)['verified'])
         broken=copy.deepcopy(data);broken['preconditioner']=[['0']*4 for _ in range(4)]
         with self.assertRaises(AssertionError):verify(broken)
@@ -93,6 +94,22 @@ class Tests(unittest.TestCase):
     def test_CPU(self):
         h=c.hardware();self.assertIsNone(torch.version.cuda);self.assertEqual(h['device'],'cpu')
         self.assertEqual(torch.get_default_dtype(),torch.float64)
+    def test_augmented_step_determinant_factorization(self):
+        for n in (2,3):
+            m=c.Model('dense',n);R=torch.zeros(n,n);W=torch.zeros(n,n);b=torch.zeros(n)
+            for p,(_,i,name,j) in enumerate(m.meta):
+                if name=='R':R[i,j]=float(m.params[p])
+                if name=='W':W[i,j]=float(m.params[p])
+                if name=='b':b[i]=float(m.params[p])
+            x=torch.tensor([.1]*n);z=torch.linspace(-.1,.1,m.dimension)
+            def step(zz):
+                h=zz[:n];S=zz[n:].reshape(n,m.P);new=torch.tanh(R@h+W@x+b)
+                G=torch.diag(1-new**2);direct=torch.zeros(n,m.P)
+                for p,(_,i,name,j) in enumerate(m.meta):direct[i,p]=h[j] if name=='R' else x[j] if name=='W' else 1
+                return torch.cat([new,(G@(R@S+direct)).reshape(-1)])
+            A=torch.diag(1-torch.tanh(R@z[:n]+W@x+b)**2)@R
+            actual=torch.linalg.det(torch.autograd.functional.jacobian(step,z));expected=torch.linalg.det(A)**(m.P+1)
+            self.assertLess(abs(float(actual/expected-1)),1e-12)
     def test_width_counts_and_cross_structure(self):
         for n in (2,3,4):
             for case in ('dense','deep','independent','shared_linear'):

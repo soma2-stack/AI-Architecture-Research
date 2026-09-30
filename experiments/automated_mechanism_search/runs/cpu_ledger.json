@@ -1451,8 +1451,64 @@
    "note": "Conservative administrative estimate, not measured numerical CPU",
    "utc": "2026-09-30T20:40:21.984351+00:00",
    "endpoint_entry_id": "endpoint_certificate_20260930_administrative_estimate"
+  },
+  {
+   "stage": "endpoint_width_scaling",
+   "cpu_seconds": 19.171875,
+   "wall_seconds": 20.49920964241028,
+   "note": "Measured whole process: Read-only replay of five previous width2 certificates",
+   "utc": "2026-09-30T21:56:38.956342+00:00",
+   "width_scaling_entry_id": "697ae28eab113047948543165c290dcae361d1653333621b3569e894870c47fa"
+  },
+  {
+   "stage": "endpoint_width_scaling",
+   "cpu_seconds": 57.4375,
+   "wall_seconds": 60.39477324485779,
+   "note": "Measured whole process: Endpoint development unit checks",
+   "utc": "2026-09-30T21:56:38.956342+00:00",
+   "width_scaling_entry_id": "cc9fea81c6d708ef0d21d138df520c831fde1c869dacb303dc25e6dc5aed6ae7"
+  },
+  {
+   "stage": "endpoint_width_scaling",
+   "cpu_seconds": 521.09375,
+   "wall_seconds": 534.7097148895264,
+   "note": "Measured whole process: Official width scaling witnesses and interval certification",
+   "utc": "2026-09-30T21:56:38.956342+00:00",
+   "width_scaling_entry_id": "e76c7bff76bd57fec5cf8431ce1a9ad2b31287e9481b18d323407acb1a1fa1f2"
+  },
+  {
+   "stage": "endpoint_width_scaling",
+   "cpu_seconds": 363.421875,
+   "wall_seconds": 368.15555357933044,
+   "note": "Measured whole process: Independent certificate replay/Fraction verification",
+   "utc": "2026-09-30T21:56:38.956342+00:00",
+   "width_scaling_entry_id": "ac0e54607c9b18d50a1de9fdb68370117404eb29b8a443e659a8bba05555d167"
+  },
+  {
+   "stage": "endpoint_width_scaling",
+   "cpu_seconds": 24.5,
+   "wall_seconds": 24.72687077522278,
+   "note": "Measured whole process: Endpoint development unit checks",
+   "utc": "2026-09-30T21:56:38.956342+00:00",
+   "width_scaling_entry_id": "27985642c0c2bb7e0e105753aef0e92d1158d8ded38dc78ba484bd556614992e"
+  },
+  {
+   "stage": "endpoint_width_scaling",
+   "cpu_seconds": 121.8125,
+   "wall_seconds": 126.00674748420715,
+   "note": "Measured whole process: Width scaling final conditioning/group audit and documentation",
+   "utc": "2026-09-30T21:56:38.956342+00:00",
+   "width_scaling_entry_id": "bec89037c3a0c290467590f583413509be46c52ce861e3bd765f9fb5409029aa"
+  },
+  {
+   "stage": "endpoint_width_scaling",
+   "cpu_seconds": 20,
+   "wall_seconds": 0,
+   "note": "Conservative development/administrative estimate, not measured numerical CPU",
+   "utc": "2026-09-30T21:56:38.956342+00:00",
+   "width_scaling_entry_id": "endpoint_width_scaling_20260930_administration"
   }
  ],
- "total_cpu_seconds": 21977.296625000003,
- "total_cpu_hours": 6.104804618055557
+ "total_cpu_seconds": 23104.734125000003,
+ "total_cpu_hours": 6.417981701388889
 }
