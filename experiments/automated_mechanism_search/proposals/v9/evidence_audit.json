@@ -1,0 +1,143 @@
+{
+  "status": "DOCUMENTATION_ONLY_NO_EXPERIMENT",
+  "audited_repository_base": "c91f4af14238415db75fbdc39c1769c637d92191",
+  "sources": [
+    {
+      "path": "experiments/automated_mechanism_search/runs/stage2_v8/counts.json",
+      "sha256": "4e411a311c58393a7ea0e625b4d5cb81f100de5e842d9b494d8d7d0044e6320d"
+    },
+    {
+      "path": "experiments/automated_mechanism_search/runs/stage2_v8_confirm/confirmation.json",
+      "sha256": "f1cc9707908b787e3b39c2e9a6fd8ac7b02a47daf6d1efef85a77768addeae77"
+    },
+    {
+      "path": "experiments/omd_t1/pilot_controls/results/pilot_result.json",
+      "sha256": "464e03bc42cc074f236d9ab2be0dd7492846fcf621783627eb801cb74206916d"
+    },
+    {
+      "path": "experiments/automated_mechanism_search/runs/cpu_ledger.json",
+      "sha256": "1672a72bb0813f32eda376978cf8f604b242ec31d492edcbe0e69d4ef86f75de"
+    }
+  ],
+  "v8": {
+    "counts": {
+      "generated": 4413,
+      "invalid": 45,
+      "dup_syntactic": 1245,
+      "dup_behavioral": 976,
+      "probe_nonfinite": 0,
+      "pure_rule": 76,
+      "no_signal": 101,
+      "REDISCOVERY": 0,
+      "REDISCOVERY_inert": 9,
+      "sanity_evaluated": 1961,
+      "sanity_fail": 761,
+      "tier1_evaluated": 1200,
+      "tier1_unstable": 0,
+      "tier1_error": 0,
+      "defect": 2
+    },
+    "stop": "G_MAX",
+    "archive_occupancy": "42/56",
+    "rediscovery_total_as_reported": 85,
+    "rediscovery_total_caution": "76 pure rules plus 9 inert cases; not 85 proven architecture equivalents",
+    "confirmation_candidates": 42,
+    "stable": 42,
+    "q_failed": 42,
+    "constraint_failed": 34,
+    "adamw_gate_failed": 32,
+    "paired_wins_failed": 29,
+    "max_q": 0.06288490448517423,
+    "eligible": 0,
+    "stage3_evaluated": 0,
+    "failure_flags_overlap": true,
+    "absence_of_stage3": "No mechanism-removal or optimizer-change conclusion is supported",
+    "P03974": [
+      {
+        "task": "Cstar",
+        "stable": true,
+        "penalty": 0.0513615032668351,
+        "m_P": 0.21328193588289363,
+        "m_G": 0.4000920208977337,
+        "G": "SGD",
+        "e_confirm": 0.0,
+        "q_confirm": -0.0513615032668351,
+        "constraint_ok": false,
+        "adamw_gate": true,
+        "paired_wins": 8,
+        "seed_metric": [
+          0.21069397130367742,
+          0.2228321372804537,
+          0.12522823445966258,
+          0.4042726007592424,
+          0.12617663458258827,
+          0.13458589864671375,
+          0.34484414472543046,
+          0.13762186530538045
+        ],
+        "G_seed_metric": [
+          0.3296305583177035,
+          0.38316190719825216,
+          0.37778867303103925,
+          0.5283787426512554,
+          0.37993044341482307,
+          0.33182704946750974,
+          0.5132991713672679,
+          0.35671962173401883
+        ],
+        "return_ok_count": 5,
+        "eligible": false,
+        "pid": "P03974",
+        "cell": "(2, 0, 0)",
+        "descriptor": [
+          2,
+          0,
+          0
+        ],
+        "q_fast": 0.34167267208412805,
+        "fast_tier1_pass_on_best": false,
+        "family_sim": 0.8095181533134427,
+        "family": "R1_SGD",
+        "lr": 0.1,
+        "diagnostic_half_life": 8.25
+      }
+    ]
+  },
+  "omd": {
+    "verdict": "FAIL — STOPPED AT PHASE A (imitation gate)",
+    "gate_failed": "Phase A: >= 99.5% held-out teacher-forced victim agreement for every (controller, held-out seed)",
+    "pairs_passing": 3,
+    "pairs_total": 36,
+    "held_out_agreement_range_by_control": {
+      "LRU": [
+        0.95918,
+        0.98991
+      ],
+      "LFU": [
+        0.9179,
+        0.99857
+      ],
+      "SIEVE": [
+        0.8519,
+        0.93823
+      ],
+      "TWOQ": [
+        0.83871,
+        0.95744
+      ]
+    },
+    "not_run": [
+      "blinded extraction",
+      "judge",
+      "Phase B",
+      "Phase C"
+    ]
+  },
+  "cpu_ledger": {
+    "entries": 137,
+    "cpu_seconds": 18706.656000000003,
+    "project_cap_hours": 30.0,
+    "new_experimental_cpu_seconds": 0,
+    "note": "Only existing records parsed; no training, benchmark, search or GPU workload launched"
+  }
+}

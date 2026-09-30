@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### AMS mechanism-search resume — v9 documentation only (2026-09-29)
+
+- **Current lens:** evidence-led design of a materially different, conditional temporal-credit search. This task is separate from GAS-0; its files, runtime and results are untouched.
+- **Stage:** AMS v8 and OMD-PILOT-1 record audit complete. A standalone proposed v9 preregistration is at `AUTOMATED_MECHANISM_SEARCH_V9_PROPOSED.md`; the historical root preregistration and v8 config remain unchanged. No implementation, calibration, search, training or GPU execution is authorized by this document-preparation task.
+- **Evidence:** v8 generated 4,413, trained 1,200 at Tier 1, and confirmed 42; all 42 failed q, 34 failed task constraints, 32 failed the AdamW comparison, 29 failed paired wins; none was unstable at confirmation. No Stage-3 ablation or optimizer-change evidence exists. OMD passed only 3/36 imitation pairs and never reached extraction.
+- **Candidate status:** no new mechanism exists and no architecture survives. V9 proposes paired forward/credit-state programs with delayed terminal feedback, stronger known recurrent references, early paired-removal pruning and exact state/FLOP accounting. Different experimental coverage is not proof of an open novelty region. A mandatory prior-art/scope gate may close the proposal before training.
+- **Unresolved:** full-source verification of the recent sparse-transport feedback-density hypothesis; whether known RTRL/eligibility/plasticity organizations already preserve the entire proposed signal and resource property. These are explicit Stage-0 stop gates, not assumptions of novelty.
+- **Resources:** shared search ledger remains 18,706.656 CPU-s (5.1962933 h); proposed v9 allocation is at most 4 CPU-h within the outer 30-hour cap. Current preparation used record inspection and browsing only. No experimental compute or GAS-0 workload was launched.
+- **Exact next action:** commit/push documentation and stop for owner review. A later execution authorization does not waive validity, known-family or scope gates; Stage 4 remains separately unauthorized.
+
 ### Codex resume/status -- 2026-09-29
 
 - **Current lens:** GAS-0 one-seed DEV pilot audit. VPS remains a known-mechanism synthesis and performance study, not a novelty claim.
