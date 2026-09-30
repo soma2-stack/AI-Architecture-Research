@@ -196,6 +196,7 @@ def rtrl(model,x,q,y):
         # During addition, old M, matmul result and new M can coexist.
         peak=max(peak,3*M.numel()+workspace)
         M=A@M+B
+        del A,B  # Jacobian scratch must not remain live between online steps.
         derivative_seconds+=time.perf_counter()-before
         traj.append(h)
     before=time.perf_counter()
@@ -225,6 +226,7 @@ def local(model,x,q,y):
             z=xt if l==0 else torch.tanh(h[(l-1)*model.n:l*model.n])
             direct=torch.cat([prev[rows,None],z.expand(model.n,-1),torch.ones(model.n,1)],dim=1)
             E[l]=(1-h[rows]**2)[:,None]*(r[:,None]*E[l]+direct)
+            del direct  # Eligibility is the only persistent derivative buffer.
         derivative_seconds+=time.perf_counter()-before
         traj.append(h)
     before=time.perf_counter()
