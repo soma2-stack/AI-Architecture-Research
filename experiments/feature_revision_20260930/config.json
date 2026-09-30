@@ -1,0 +1,15 @@
+{
+  "protocol":"PFR-20260930-v1","device":"cpu","workers":1,"threads":1,
+  "phase_cpu_cap_seconds":7200,"project_cpu_cap_seconds":108000,"historical_cpu_seconds":19697.859125,"ram_cap_bytes":2147483648,
+  "development_seeds":[9300900,9300901],"official_seeds":[9301100,9301101,9301102,9301103,9301104],
+  "examples":8192,"observation_dim":64,"core_dim":63,"embedding_depth":3,"embedding_leaky_slope":0.4,"core_margin":[1.5,2.5],
+  "calibration_core_samples":8192,"phase_agreement":{"A":0.98,"B":0.5,"C":0.1},
+  "models":{"logistic":0,"mlp2":2,"mlp4":4},"width":128,"batch":256,
+  "a_max_steps":2000,"a_train_stop_accuracy":0.975,"a_min_steps":100,"correction_steps":1000,"checkpoint_interval":100,
+  "adamw_lrs":[0.001,0.003],"sgdm_lrs":[0.01,0.1],"lbfgs_lrs":[0.1,1.0],"momentum":0.9,"weight_decay_control":0.01,"spectral_lambda":0.1,
+  "eval_examples":2048,"probe_training_examples":2048,"probe_test_examples":1024,"probe_steps":100,"probe_batch":256,"probe_lr":0.01,"probe_width":32,
+  "controls_order":["continuous","optimizer_reset","sgdm","lbfgs","layernorm","weight_decay","spectral","head_reset","last_layer","reinit_0","reinit_1","reinit_2","reinit_3","feature_sieve"],
+  "sieve_interval":10,"sieve_aux_weight":1.0,"sieve_forget_weight":1.0,"sieve_aux_depth":1,
+  "scratch_cf_min":0.95,"scratch_train_min":0.99,"kill_training_min":0.99,"kill_gap_max":0.02,"kill_seeds":4,"survival_gap_min":0.10,
+  "official_requires_committed_protocol_and_development_validity":true
+}

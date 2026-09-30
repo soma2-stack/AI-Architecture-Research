@@ -1,0 +1,334 @@
+{
+  "passed": true,
+  "selected": [
+    {
+      "cf_accuracy": 1.0,
+      "anti_accuracy": 1.0,
+      "bayes_relative_shortcut_reliance": 0.0,
+      "train_A_accuracy": 0.9998779296875,
+      "train_A_bce": 0.0005399411311373115,
+      "train_B_accuracy": 1.0,
+      "train_B_bce": 6.119486897659954e-06,
+      "train_C_accuracy": 1.0,
+      "train_C_bce": 0.0003523278865031898,
+      "seed": 9300900,
+      "model": "mlp2",
+      "control": "continuous",
+      "lr": 0.003,
+      "mode": "B",
+      "phase": "B",
+      "updates": 1000,
+      "sample_exposures": 256000,
+      "closure_calls": 1000,
+      "curve": [
+        {
+          "step": 0,
+          "cf_accuracy": 0.50439453125
+        },
+        {
+          "step": 100,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 200,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 300,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 400,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 500,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 600,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 700,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 800,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 900,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 1000,
+          "cf_accuracy": 1.0
+        }
+      ],
+      "correction_accuracy_auc": 0.9752197265625,
+      "correction_error_aulc": 0.0247802734375,
+      "samples_to_exceed_95_upper": 25600,
+      "samples_to_exceed_95_lower": 0,
+      "parameters": 24961,
+      "persistent_tensor_bytes": 299556,
+      "generator_sha256": "927a1b3fe2638bdcd487d9504919be709fa37f6bef38a09f5c576666e15ae6b2",
+      "training_sha256": {
+        "A": "5a3e8c5b04a6173a7102b670a4e0b1fb47394b0184ff2ad9d6806a9736462184",
+        "B": "75d88deaaa97d7f25cf045f9f009e61453a3caf85bb4fb7242c25b1097a9a667",
+        "C": "2de98e766591ae326f078d2662c1a4adc6d177831bf837b40ad76c64ea51a20c"
+      },
+      "evaluation_sha256": "5dee338e5b48833559cbe38b78efe4afba4d9ff7b1a36aeee782a73bd5fee701",
+      "approx_dense_parameter_operations": 38340096000,
+      "operation_proxy_excludes_normalization_aux_extra_forward": true,
+      "checkpoint": "checkpoints\\dev_9300900_mlp2_continuous_0.003_B_B.pt"
+    },
+    {
+      "cf_accuracy": 0.99951171875,
+      "anti_accuracy": 1.0,
+      "bayes_relative_shortcut_reliance": 0.001953125,
+      "train_A_accuracy": 0.99853515625,
+      "train_A_bce": 0.005239288322627544,
+      "train_B_accuracy": 0.9986572265625,
+      "train_B_bce": 0.004793690051883459,
+      "train_C_accuracy": 1.0,
+      "train_C_bce": 4.9174755076819565e-06,
+      "seed": 9300900,
+      "model": "mlp2",
+      "control": "continuous",
+      "lr": 0.003,
+      "mode": "C",
+      "phase": "C",
+      "updates": 1000,
+      "sample_exposures": 256000,
+      "closure_calls": 1000,
+      "curve": [
+        {
+          "step": 0,
+          "cf_accuracy": 0.50439453125
+        },
+        {
+          "step": 100,
+          "cf_accuracy": 0.998046875
+        },
+        {
+          "step": 200,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 300,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 400,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 500,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 600,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 700,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 800,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 900,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 1000,
+          "cf_accuracy": 0.99951171875
+        }
+      ],
+      "correction_accuracy_auc": 0.974609375,
+      "correction_error_aulc": 0.025390625,
+      "samples_to_exceed_95_upper": 25600,
+      "samples_to_exceed_95_lower": 0,
+      "parameters": 24961,
+      "persistent_tensor_bytes": 299556,
+      "generator_sha256": "927a1b3fe2638bdcd487d9504919be709fa37f6bef38a09f5c576666e15ae6b2",
+      "training_sha256": {
+        "A": "5a3e8c5b04a6173a7102b670a4e0b1fb47394b0184ff2ad9d6806a9736462184",
+        "B": "75d88deaaa97d7f25cf045f9f009e61453a3caf85bb4fb7242c25b1097a9a667",
+        "C": "2de98e766591ae326f078d2662c1a4adc6d177831bf837b40ad76c64ea51a20c"
+      },
+      "evaluation_sha256": "5dee338e5b48833559cbe38b78efe4afba4d9ff7b1a36aeee782a73bd5fee701",
+      "approx_dense_parameter_operations": 38340096000,
+      "operation_proxy_excludes_normalization_aux_extra_forward": true,
+      "checkpoint": "checkpoints\\dev_9300900_mlp2_continuous_0.003_C_C.pt"
+    },
+    {
+      "cf_accuracy": 1.0,
+      "anti_accuracy": 1.0,
+      "bayes_relative_shortcut_reliance": 0.00146484375,
+      "train_A_accuracy": 0.999755859375,
+      "train_A_bce": 0.0033221666235476732,
+      "train_B_accuracy": 1.0,
+      "train_B_bce": 8.46024988732097e-07,
+      "train_C_accuracy": 0.9993896484375,
+      "train_C_bce": 0.0027190144173800945,
+      "seed": 9300900,
+      "model": "mlp4",
+      "control": "continuous",
+      "lr": 0.003,
+      "mode": "B",
+      "phase": "B",
+      "updates": 1000,
+      "sample_exposures": 256000,
+      "closure_calls": 1000,
+      "curve": [
+        {
+          "step": 0,
+          "cf_accuracy": 0.5
+        },
+        {
+          "step": 100,
+          "cf_accuracy": 0.9970703125
+        },
+        {
+          "step": 200,
+          "cf_accuracy": 0.9990234375
+        },
+        {
+          "step": 300,
+          "cf_accuracy": 0.99951171875
+        },
+        {
+          "step": 400,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 500,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 600,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 700,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 800,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 900,
+          "cf_accuracy": 1.0
+        },
+        {
+          "step": 1000,
+          "cf_accuracy": 1.0
+        }
+      ],
+      "correction_accuracy_auc": 0.974560546875,
+      "correction_error_aulc": 0.025439453124999956,
+      "samples_to_exceed_95_upper": 25600,
+      "samples_to_exceed_95_lower": 0,
+      "parameters": 57985,
+      "persistent_tensor_bytes": 695860,
+      "generator_sha256": "927a1b3fe2638bdcd487d9504919be709fa37f6bef38a09f5c576666e15ae6b2",
+      "training_sha256": {
+        "A": "5a3e8c5b04a6173a7102b670a4e0b1fb47394b0184ff2ad9d6806a9736462184",
+        "B": "75d88deaaa97d7f25cf045f9f009e61453a3caf85bb4fb7242c25b1097a9a667",
+        "C": "2de98e766591ae326f078d2662c1a4adc6d177831bf837b40ad76c64ea51a20c"
+      },
+      "evaluation_sha256": "5dee338e5b48833559cbe38b78efe4afba4d9ff7b1a36aeee782a73bd5fee701",
+      "approx_dense_parameter_operations": 89064960000,
+      "operation_proxy_excludes_normalization_aux_extra_forward": true,
+      "checkpoint": "checkpoints\\dev_9300900_mlp4_continuous_0.003_B_B.pt"
+    },
+    {
+      "cf_accuracy": 0.998046875,
+      "anti_accuracy": 1.0,
+      "bayes_relative_shortcut_reliance": 0.00634765625,
+      "train_A_accuracy": 0.9942626953125,
+      "train_A_bce": 0.03517719730734825,
+      "train_B_accuracy": 0.9964599609375,
+      "train_B_bce": 0.024283546954393387,
+      "train_C_accuracy": 1.0,
+      "train_C_bce": 2.625444039949798e-07,
+      "seed": 9300900,
+      "model": "mlp4",
+      "control": "continuous",
+      "lr": 0.003,
+      "mode": "C",
+      "phase": "C",
+      "updates": 1000,
+      "sample_exposures": 256000,
+      "closure_calls": 1000,
+      "curve": [
+        {
+          "step": 0,
+          "cf_accuracy": 0.5
+        },
+        {
+          "step": 100,
+          "cf_accuracy": 0.98876953125
+        },
+        {
+          "step": 200,
+          "cf_accuracy": 0.99755859375
+        },
+        {
+          "step": 300,
+          "cf_accuracy": 0.9970703125
+        },
+        {
+          "step": 400,
+          "cf_accuracy": 0.99755859375
+        },
+        {
+          "step": 500,
+          "cf_accuracy": 0.99755859375
+        },
+        {
+          "step": 600,
+          "cf_accuracy": 0.998046875
+        },
+        {
+          "step": 700,
+          "cf_accuracy": 0.998046875
+        },
+        {
+          "step": 800,
+          "cf_accuracy": 0.998046875
+        },
+        {
+          "step": 900,
+          "cf_accuracy": 0.998046875
+        },
+        {
+          "step": 1000,
+          "cf_accuracy": 0.998046875
+        }
+      ],
+      "correction_accuracy_auc": 0.97197265625,
+      "correction_error_aulc": 0.028027343750000044,
+      "samples_to_exceed_95_upper": 25600,
+      "samples_to_exceed_95_lower": 0,
+      "parameters": 57985,
+      "persistent_tensor_bytes": 695860,
+      "generator_sha256": "927a1b3fe2638bdcd487d9504919be709fa37f6bef38a09f5c576666e15ae6b2",
+      "training_sha256": {
+        "A": "5a3e8c5b04a6173a7102b670a4e0b1fb47394b0184ff2ad9d6806a9736462184",
+        "B": "75d88deaaa97d7f25cf045f9f009e61453a3caf85bb4fb7242c25b1097a9a667",
+        "C": "2de98e766591ae326f078d2662c1a4adc6d177831bf837b40ad76c64ea51a20c"
+      },
+      "evaluation_sha256": "5dee338e5b48833559cbe38b78efe4afba4d9ff7b1a36aeee782a73bd5fee701",
+      "approx_dense_parameter_operations": 89064960000,
+      "operation_proxy_excludes_normalization_aux_extra_forward": true,
+      "checkpoint": "checkpoints\\dev_9300900_mlp4_continuous_0.003_C_C.pt"
+    }
+  ],
+  "gate": "Both MLPs scratch B/C train>=.99 and CF>=.95"
+}
