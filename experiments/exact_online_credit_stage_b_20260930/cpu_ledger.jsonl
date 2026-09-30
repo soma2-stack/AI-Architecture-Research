@@ -1,2 +1,8 @@
 {"job": "development unit validation", "cpu_seconds": 3.828125, "wall_seconds": 4.108971834182739, "post_import_wall_seconds": 0.23964549996890128, "peak_rss_bytes": 292634624, "gpu_used": false}
 {"job": "development unit validation", "cpu_seconds": 3.9375, "wall_seconds": 4.144281387329102, "post_import_wall_seconds": 0.22226650000084192, "peak_rss_bytes": 292560896, "gpu_used": false}
+{"job": "official width8 sweep", "cpu_seconds": 165.046875, "wall_seconds": 167.68175649642944, "post_import_wall_seconds": 163.59460489999037, "peak_rss_bytes": 314040320, "gpu_used": false}
+{"job": "official width16 sweep", "cpu_seconds": 106.3125, "wall_seconds": 108.02735733985901, "post_import_wall_seconds": 104.49425360001624, "peak_rss_bytes": 326017024, "gpu_used": false}
+{"job": "sensitivity family diagnostics", "cpu_seconds": 12.5, "wall_seconds": 12.835837364196777, "post_import_wall_seconds": 8.577288999920711, "peak_rss_bytes": 327475200, "gpu_used": false}
+{"job": "Stage-B analysis", "cpu_seconds": 4.09375, "wall_seconds": 4.338230133056641, "post_import_wall_seconds": 0.4605605999240652, "peak_rss_bytes": 360730624, "gpu_used": false}
+{"job": "artifact preservation and final documentation", "cpu_seconds": 4.609375, "wall_seconds": 6.990171194076538, "post_import_wall_seconds": 2.660402200068347, "peak_rss_bytes": 378658816, "gpu_used": false}
+{"job": "administration reserve", "cpu_seconds": 10.0, "wall_seconds": 0.0, "peak_rss_bytes": 0, "gpu_used": false, "measured": false, "note": "Conservative estimate for small unmetered inspection/Git/documentation processes, not measured numerical CPU"}

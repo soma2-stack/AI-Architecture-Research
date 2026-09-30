@@ -1211,8 +1211,72 @@
    "note": "Conservative estimate, not measured",
    "utc": "2026-09-30T15:58:17.518766+00:00",
    "exact_stage_a_entry_id": "2bc2908643d6e7e57c5a34fe46d3e7fc8bc050edef705ab7da9cbaafa7014504"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 3.828125,
+   "wall_seconds": 4.108971834182739,
+   "note": "Measured full-process CPU/wall: development unit validation",
+   "utc": "2026-09-30T17:03:38.993288+00:00",
+   "exact_stage_b_entry_id": "c6cefd6f90399af4c067594a49cae8e04fd731c302e87b4f0ce4747e8eabc79c"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 3.9375,
+   "wall_seconds": 4.144281387329102,
+   "note": "Measured full-process CPU/wall: development unit validation",
+   "utc": "2026-09-30T17:03:38.994288+00:00",
+   "exact_stage_b_entry_id": "19ab25605a9ec28491a858dd1a0b0dc92403b26d8ac5b3863aef15479c0ea7bf"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 165.046875,
+   "wall_seconds": 167.68175649642944,
+   "note": "Measured full-process CPU/wall: official width8 sweep",
+   "utc": "2026-09-30T17:03:38.994288+00:00",
+   "exact_stage_b_entry_id": "e36cb71faeab37094c4e4b5f0566eb5bd7340e0233f8a3eab3803d66e7f02b0d"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 106.3125,
+   "wall_seconds": 108.02735733985901,
+   "note": "Measured full-process CPU/wall: official width16 sweep",
+   "utc": "2026-09-30T17:03:38.994288+00:00",
+   "exact_stage_b_entry_id": "15dc38fd997b010a7e2819f59586cbf34e2e83423599b638817403ec6044cc66"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 12.5,
+   "wall_seconds": 12.835837364196777,
+   "note": "Measured full-process CPU/wall: sensitivity family diagnostics",
+   "utc": "2026-09-30T17:03:38.994288+00:00",
+   "exact_stage_b_entry_id": "3091371d086974a5e6298925bd5042b13cc860bb047d53ae4431273947c424fb"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 4.09375,
+   "wall_seconds": 4.338230133056641,
+   "note": "Measured full-process CPU/wall: Stage-B analysis",
+   "utc": "2026-09-30T17:03:38.994288+00:00",
+   "exact_stage_b_entry_id": "0768ae5a56c7503c6faf32d72d45924286de57949f790c44acf0d7c8ecf9cbea"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 4.609375,
+   "wall_seconds": 6.990171194076538,
+   "note": "Measured full-process CPU/wall: artifact preservation and final documentation",
+   "utc": "2026-09-30T17:03:38.994288+00:00",
+   "exact_stage_b_entry_id": "7553048e6a731d965f248cacf24c2c2e9d755db4f6786f821e74e79b5b646709"
+  },
+  {
+   "stage": "exact_online_credit_stage_b",
+   "cpu_seconds": 10.0,
+   "wall_seconds": 0.0,
+   "note": "Conservative estimate for small unmetered inspection/Git/documentation processes, not measured numerical CPU",
+   "utc": "2026-09-30T17:03:38.994288+00:00",
+   "exact_stage_b_entry_id": "8112c32a2c5a674aa7a38a995b88101c1661258f963bc4f1515433b0af1cedda"
   }
  ],
- "total_cpu_seconds": 20565.593500000003,
- "total_cpu_hours": 5.7126648611111115
+ "total_cpu_seconds": 20875.921625000003,
+ "total_cpu_hours": 5.798867118055556
 }

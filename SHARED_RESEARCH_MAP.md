@@ -4,7 +4,26 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest derivative audit — Exact Online Credit Stage A (2026-09-30)
+## Latest derivative audit — Exact Online Credit Stage B (2026-09-30)
+
+**STAGE B — INCONCLUSIVE.** Authorized CPU-only frozen-parameter sweep:
+460 width8/16 configurations plus360 input-family diagnostic cases;20 tests.
+Full RTRL vs BPTT max relative2.173e-14, all intended-exact methods<1.274e-12.
+Block size increases support; rank1 already makes temporal dependencies broad;
+nonlinear feedback expands support while readout-only mixing does not. Packed
+exact RTRL/SnAp2 are exact460/460 but retain the expanded closure. Rich depth3
+storage/P grows~1.93x at width16; known shared-linear factors remain compact in
+their restricted positive control. No cheap exact method closes ALL tested cases.
+
+Frozen rank-stability condition fails:3,154/8,800 W-owner slice rank estimates
+depend on numerical cutoff. Input-family span estimates hit sample ceilings7/39.
+Do not label this STRUCTURAL PARETO GAP SURVIVES or infer a universal storage
+bound; support depends on parameterization, and learning usefulness is untested.
+Measured300.328125 CPU-s,310.328125s charged incl reserve; no GPU/server/GAS-0 use.
+Artifacts: experiments/exact_online_credit_stage_b_20260930/REPORT.md and Codex
+AR-155. **Stop; Stage B inconclusive. No Stage C or AMS v10 authorization.**
+
+## Previous derivative audit — Exact Online Credit Stage A (2026-09-30)
 
 **STAGE A VALID — STRUCTURAL DIFFERENCE OBSERVED.** Isolated CPU-only,
 frozen-parameter audit;60 width8 cases, depths1/2/3, horizons32/128, five seeds.

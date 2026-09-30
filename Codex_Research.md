@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Exact Online Credit Stage-B resume — complete, inconclusive (2026-09-30)
+
+- **Lens/stage:** authorized CPU-only frozen sensitivity scaling audit. **STAGE B — INCONCLUSIVE.** Freeze99a6336/2cb4209 before measurement.460 width8/16 sweep configurations,360 fixed-parameter input-family diagnostic cases,2,920 method records;20 development tests passed. No training, parameter updates, GPU or GAS-0 operation.
+- **Verified references:**plain full RTRL vs BPTT max group relative2.173e-14; all intended-exact methods including online SVD max1.273e-12, matrix reconstruction6.852e-15. Within frozen1e-8 gate; trajectories identical, no invalid measured runs.
+- **Support:**n8 single-layer blocks k1/2/4/8 retain80/176/416/1088 significant entries; lowrank r0/1/2/4/8 retain80/768/896/1152/1664. Rank1 already saturates state dependency coverage. Readout-only mixing leaves80; nonlinear feedback expands to1152. Depth reproduces80/800/2160 for diagonal layers; width16 depth3 diagonal14688. Graphs remain block triangular, not arbitrary dense.
+- **Known structure:**packed exact RTRL and SnAp2 pass460/460; SnAp1 passes160/460. SnAp2 is exact because reachability saturates within two transitions, but stores expanded closure. Online SVD factors pass120 cases at growing/full rank; unfused exact Kronecker sums pass20 while retaining32 historical terms. Known shared-linear control exact with17/33 numbers at n8/16. No tested cheap exact representation closes all rich/deep settings.
+- **Why inconclusive:**3,154/8,800 W-owner slice rank estimates depend on cutoffs1e-12/1e-10/1e-8; frozen classification rejects rank instability. Full-S/cross-layer ranks are stable, but family-span ranks7/39 hit sampling caps. Do not promote robust support growth into a universal information/storage requirement; support is parameter-coordinate dependent and no learning usefulness was measured. Same-layer local control drops all cross-layer credit, so its100% early-layer error is not Stage A's milder spatial-rule result.
+- **Resources/artifacts:**measured300.328125 CPU-s (~5.00547min),308.126606s process wall,378,658,816-byte sampled peak RSS;10s administrative estimate,310.328125s charged. Shared ledger20,875.921625s. experiments/exact_online_credit_stage_b_20260930/REPORT.md, frozen config, source/tests, raw JSONL, spectra/CSV tables, hashed matrix archives, provenance. See AR-155.
+- **Exact next action:**STOP. Stage B inconclusive; owner review must resolve rank/compression evidence before any Stage-C consideration. No Stage C, training/capability benchmark, AMS v10 or new architecture claim. Stage A and prior negatives preserved.
+
 ### Exact Online Credit Stage-A resume — complete (2026-09-30)
 
 - **Lens/stage:** frozen-parameter CPU derivative-equivalence audit, width8, depths1/2/3, horizons32/128, five seeds9401100–04. **STAGE A VALID — STRUCTURAL DIFFERENCE OBSERVED.** No architecture candidate, training or parameter update.
@@ -5651,3 +5661,60 @@ residual. No Stage B/C, width/horizon expansion, training, AMS v10 or mechanism
 search. Optional SnAp/UORO deferred. All definitions, raw outputs, provenance,
 resource accounting, validity notes and code are under
 experiments/exact_online_credit_stage_a_20260930/.
+
+## AR-155 — Interaction/sensitivity scaling: frozen Stage-B inconclusive result
+
+**Verified classification: STAGE B — INCONCLUSIVE.** Source/config committed
+99a6336/2cb4209 before official measurement. Owner authorized derivative
+structure only; no optimizer, parameter updates, Stage C or AMS search.
+
+20 tests passed.460 sweep configurations (330 width8,130 width16, including
+20 exact sharing controls),360 input-family reference checks,2,920 method
+records. Full analytic RTRL/BPTT max relative2.173e-14; online SVD/compressed
+intended-exact methods all below1.274e-12; reconstruction below6.853e-15.
+No forward mismatch, nonfinite tensor, immutable-parameter/data violation,
+failed exact gate, GPU/CUDA/local-model-server operation or GAS-0 change.
+
+Single-layer block support equals k*P; n8 k1/2/4/8 counts80/176/416/1088;
+n16 k1/4/16 counts288/1344/8448. Lowrank r1 already produces100% support,
+so additional rank does not progressively increase support fraction. Same-layer
+full sensitivity numerical rank is n even for diagonal recurrence, which
+still has compact exact sparse structure; rank by itself cannot prove storage
+complexity. Recurrence feedback changes support80->1152, readout-only dense
+or nonlinear mixing leaves80. Cross-layer supports are triangular; lower
+parameters influence upper state, not vice versa. Rich depth3 packed storage
+including index numbers per P grows~1.93x from width8 to16, reproducibly.
+
+SnAp2 matches full RTRL460/460 because its graph mask equals transitive closure;
+this is an EXACT known method for these graphs, but it retains the growing
+dependency set. SnAp1 matches160/460 and fails others as expected. Same-layer
+local control discards all cross-layer credit, giving100% early-layer errors;
+this is NOT Stage A's current-time spatial learning-signal rule. Exact matrix
+SVD update passes120 cases but has full-rank factor storage; offline minimum
+Kronecker sums reconstruct but do not prove cheap online closure. Unfused
+online sums pass20 cases and keep32 historical factors, explicitly charged.
+Shared-linear positive controls recover17/33-number exact representations.
+
+**Frozen gate preventing promotion:**3,154 of8,800 W-owner slice rank estimates
+vary across1e-12/1e-10/1e-8 cutoffs. Reference and full/cross-layer ranks stay
+stable; this is interpretation ambiguity, not numerical invalidity. Input-family
+spans reach7 (eight samples) and39 (40 pooled), their maximum sample ranks;
+they do not estimate the actual reachable sensitivity-family dimension.
+Robust fill-in remains a measured fact but cannot be converted into a universal
+information requirement. Parameter-coordinate changes also change support;
+parameter counts/conditioning vary across axes and are explicitly reported.
+No learning advantage or useful computational interaction was measured.
+
+Measured300.328125 CPU-s (5.00547min),308.126606s process wall,
+378,658,816-byte sampled peak RSS.10s conservative administrative reserve;
+310.328125s charged in shared append-only ledger. CPU-only Torch/float64,
+one worker/thread. Hashed matrix archives preserve all460 final sensitivities
+with parameters/data and45 fixed-parameter input-family collections. Full raw
+metrics, singular spectra, every rejected approximation, config, provenance,
+source/tests and seven plot-ready CSV tables are in
+experiments/exact_online_credit_stage_b_20260930/.
+
+**Exact next action: STOP — Stage B inconclusive.** Owner review of rank and
+exact-compression evidence is required before any Stage-C consideration.
+Do not silently relax rank gates, train networks, enlarge a sweep or execute
+AMS v10. Stage A/prior negative evidence and GAS-0 remain untouched.
