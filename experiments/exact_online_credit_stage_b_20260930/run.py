@@ -58,6 +58,7 @@ def measured_case(config,meter):
     Agraph,Bgraph,closure,masks=c.graphs(model)
     result={'id':key(config),**config,'P':model.P,'N':model.N,'full_capacity':model.N*model.P,
             'parameter_hash':before,'input_hash':input_before,'q_hash':c.digest(q),'y':float(y),
+            'parameter_bytes':8*model.P,'fixed_forward_bytes':0 if model.fixed is None else model.fixed.numel()*8,
             'trajectory_hash':c.digest(trajectory),'maximum_state':float(trajectory.abs().max()),
             'graph_closure_values':int(closure.sum()),'snap_masks_values':{k:int(v.sum()) for k,v in masks.items()},
             'audit_graph_metadata_bytes':sum(v.nbytes for v in (Agraph,Bgraph,closure,*masks.values())),
@@ -86,6 +87,13 @@ def measured_case(config,meter):
                     'derivative_to_inference_ratio':float(np.median(derivative_times))/inference_time,
                     'total_to_inference_ratio':float(np.median(times))/inference_time,
                     'all_stored_numbers':value['stored_derivative_scalars']+value.get('index_bytes',0)//8})
+        if name=='RTRL':row['estimated_contraction_operations_per_step']=2*model.N*model.N*model.P+model.N*model.P
+        if name in masks:
+            packed=c.Packed(masks[name])
+            row['estimated_contraction_operations_per_step']=sum(2*len(r)*len(r)*len(col)+len(r)*len(col) for r,col,_ in packed.parts)
+        if name=='online_svd_factor':row['compute_note']='Dense reconstruction/update plus exact SVD each step; SVD FLOPs not estimated; measured runtime includes them'
+        if name=='online_kronecker_sum':row['compute_note']='Every historical left factor propagated each step; update work grows with term count T; measured time includes all terms'
+        row['operation_count_scope']='Sensitivity contraction only when provided; analytic Jacobian construction, indexing and terminal query costs excluded from operation estimate but included in runtime'
         result['methods'].append(row)
     assert c.digest(x)==input_before and c.digest(model.theta)==before
     (c.ROOT/'matrices').mkdir(exist_ok=True)
