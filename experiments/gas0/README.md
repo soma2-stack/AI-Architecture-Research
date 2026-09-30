@@ -562,3 +562,35 @@ Full suite: **108 passed**. `dev_arena` benchmark validation is unchanged: null 
   - All five post-fix DEV pilot episodes are affected. As a same-harness C0–C4 comparison, that pilot is superseded; it is preserved unmodified.
   - A **C4-only smoke run is allowed as mechanism validation only**. It cannot replace C4 in a C0–C4 table, because that would mix harness versions.
   - A same-harness DEV comparison of all cells would require rerunning C0–C4. That is an owner decision; the rule does not require it before Phase 2, because no official episode is affected.
+
+**C4-only mechanism smoke run (2026-09-30).** This is not a comparative result.
+- **Setup:**
+  - `analysis/run_qwen35_c4_feedback_smoke.py`, C4, `dev_arena`, seed 1, from Stage 1 on the fixed harness (`39f1a9f`);
+  - stopped cleanly once Stage 3 was scored, as planned;
+  - same pinned server and flags; 300 s request timeout; pre-start check 30 °C and about 120 GiB free.
+- **Resources:** 72 model calls, 572,108 prompt tokens, 14,042 completion tokens, peak context 13,321, **721.2 s GPU upper bound**, 15 test executions, 750 s wall. No failed or timed-out requests.
+- **Plan-first:** held in 3 of 3 stages (4 rejected non-plan attempts).
+
+| Stages 1–3 | Smoke (fixed) | Prior post-fix C4 | Prior post-fix C3 (reference) |
+|---|---|---|---|
+| Gate events, Stage 2 | 4 GREEN, 2 PROGRESS, 1 ROLLBACK | 9 ROLLBACK | (uncoupled) |
+| Gate events, Stage 3 | 2 GREEN, 2 PROGRESS | 16 ROLLBACK | (uncoupled) |
+| Rollback notices showing an exception | 1/1 | 1/25 | — |
+| Rollbacks caused by the dataclass field-order error | 1 | 24 (Stages 2–3) | — |
+| Valid-JSON notices | 11/11 | 0/25 | — |
+| Ledger failure records showing an exception (end of Stage 3) | 5/5 | 5/15 | — |
+| Max failure-record count (end of Stage 3) | 2 | 24 | — |
+| Hidden pass, Stages 1/2/3 | 24/24, 25/26, 28/30 | 24/24, 23/26, 24/30 | 24/24, 25/26, 28/30 |
+| Stage 3 declared done | yes (12 calls) | no (30 calls) | yes |
+
+- **What the trace shows (Stage 2):**
+  - call 12 made the same field-order edit as the pilot;
+  - the notice now showed `TypeError: non-default argument 'attack' follows default argument`;
+  - the model did not repeat it. Its next working edits reached PROGRESS (an assertion failure) and then a GREEN checkpoint at call 18.
+- **Answers:**
+  1. C4 now sees the actual exception.
+  2. The blind loop is gone: one occurrence, then no repeats.
+  3. C4 progressed past the former failure point, matching C3's hidden results for these stages.
+
+  This is one seed and three stages. It validates the mechanism, not a treatment effect.
+- **Records:** `analysis/dev_smoke_c4_feedback_20260930/` (`smoke_summary.json`, JSONL, stage scores, ledger snapshots; the workspace is untracked). No evaluation project, official experiment or Phase 2 was run, and no earlier artifact was modified.

@@ -4951,6 +4951,14 @@ Frozen and pushed at `000f237` before the rerun.
   - a C4-only fix was rejected because it would create a C4-favoring asymmetry;
   - pre-registration: logged in `harness_amendments[1]`. Affected episodes are re-run for all cells, so the post-fix DEV pilot is superseded as a comparison;
   - the official matrix is unaffected because it has not run.
+- **C4-only smoke run (verified; mechanism only):**
+  - Stages 1–3, 721.2 s GPU, 72 calls;
+  - the recorded field-order `TypeError` appeared once, was shown in the notice, and was not repeated;
+  - Stages 2–3 had 6 GREEN checkpoints and 1 rollback, against 25 rollbacks before;
+  - hidden passes 25/26 and 28/30 (prior C4: 23/26 and 24/30; C3: 25/26 and 28/30);
+  - plan-first held 3/3;
+  - not a treatment-effect claim.
+- **Remaining owner decision:** whether a same-harness C0–C4 DEV rerun is wanted before Phase 2. Pre-registration does not require one for the official matrix, which has not run.
 - **Correction:** Part AU's "count 24" was the Stage-3 snapshot; by Stage 8 the count was 83, and it counts failing gate events, not identical edits. The dataclass import failure caused 54 rollbacks in Stages 2–5.
 
 # Part AU — GAS-0 post-fix DEV pilot (session 27 continued, 2026-09-29/30; owner-authorized GPU run)

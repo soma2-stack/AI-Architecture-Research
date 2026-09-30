@@ -1,0 +1,94 @@
+{
+  "checkpoint": {
+    "commit": "26857bc31fe0b5023da9a70de48d41fae6dfa79c",
+    "green_tests": 25
+  },
+  "event": 11,
+  "failures": [
+    {
+      "count": 1,
+      "event": 1,
+      "id": "X1",
+      "message_head": "tests\\test_basics.py:1: in <module>\n    from arena import Arena\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\n[... omitted ...]\narena\\model.py:27: in <module>\nE   TypeError: non-default argument 'attack' follows default argument",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_basics.py"
+    },
+    {
+      "count": 1,
+      "event": 1,
+      "id": "X2",
+      "message_head": "tests\\test_more.py:1: in <module>\n    from arena import Arena\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\n[... omitted ...]\narena\\model.py:27: in <module>\nE   TypeError: non-default argument 'attack' follows default argument",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py"
+    },
+    {
+      "count": 1,
+      "event": 1,
+      "id": "X3",
+      "message_head": "tests\\test_stage2.py:2: in <module>\n    from arena.model import Actor, Point\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n[... omitted ...]\narena\\model.py:27: in <module>\nE   TypeError: non-default argument 'attack' follows default argument",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_stage2.py"
+    },
+    {
+      "count": 2,
+      "event": 3,
+      "id": "X4",
+      "message_head": "def test_shield_absorbs_direct_hit():\n        a = Actor('a', Point(1,1), 5, 5, 1, 'p', '@', shield=2)\n[... omitted ...]\nE       AssertionError: assert 2 == 0\nE        +  where 2 = receive(2)\nE        +    where receive = Actor(actor_id='a', pos=Point(x=1, y=1), hp=3, ma",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 2 ++\n 1 file changed, 2 insertions(+)",
+      "tb_symbols": [
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_stage2.py::test_shield_absorbs_direct_hit"
+    },
+    {
+      "count": 2,
+      "event": 9,
+      "id": "X5",
+      "message_head": "def test_shield_tonic_consumed():\n        world = bordered_world(7,7)\n[... omitted ...]\nE       AssertionError: assert 0 == 2\nE        +  where 0 = use(World(width=7, height=7, walls={Point(x=4, y=0), Point(x=4, y=6), Point(x=0, y=2), Poi",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/inventory.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_stage3"
+      ],
+      "test": "tests/test_stage3.py::test_shield_tonic_consumed"
+    }
+  ],
+  "requirements": [],
+  "tasks": []
+}
