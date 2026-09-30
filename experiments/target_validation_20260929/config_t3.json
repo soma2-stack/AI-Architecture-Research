@@ -1,0 +1,13 @@
+{
+  "protocol":"TV-20260929-T3-v1","device":"cpu","workers":1,"threads":1,
+  "phase_cpu_cap_seconds":14400,"project_cpu_cap_seconds":108000,
+  "historical_cpu_seconds":18706.656,"ram_cap_bytes":2147483648,
+  "development_seeds":[9200900,9200901,9200902],
+  "official_seeds":[9203100,9203101,9203102,9203103,9203104,9203105,9203106,9203107,9203108,9203109],
+  "tasks":["parity","addition","permutation","modsum"],
+  "train_words":1024,"train_min_length":4,"train_max_length":16,
+  "test_words_per_length":128,"test_max_length":64,"minimum_transition_count":10,
+  "neural_models":["gru","lstm","transformer","relative","universal"],
+  "neural_steps":512,"batch":32,"neural_lrs":[0.003,0.01],
+  "kill_exact_accuracy":0.99,"kill_seeds":9,"aalpy_version":"1.6.2"
+}

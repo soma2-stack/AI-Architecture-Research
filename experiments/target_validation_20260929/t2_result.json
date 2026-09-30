@@ -1,0 +1,48 @@
+{
+  "target": 2,
+  "verdict": "KILLED \u2014 FIXED CONDITIONAL LINEAR CONTROL",
+  "checks": [
+    {
+      "seed": 9202100,
+      "retention_loss": 0,
+      "max_fresh_aulc_ratio": 1.0,
+      "stream_accuracy": 1.0,
+      "joint_accuracy": 1.0,
+      "passed": true
+    },
+    {
+      "seed": 9202101,
+      "retention_loss": 0,
+      "max_fresh_aulc_ratio": 1.0,
+      "stream_accuracy": 1.0,
+      "joint_accuracy": 1.0,
+      "passed": true
+    },
+    {
+      "seed": 9202102,
+      "retention_loss": 0,
+      "max_fresh_aulc_ratio": 1.0,
+      "stream_accuracy": 1.0,
+      "joint_accuracy": 1.0,
+      "passed": true
+    },
+    {
+      "seed": 9202103,
+      "retention_loss": 0,
+      "max_fresh_aulc_ratio": 1.0,
+      "stream_accuracy": 1.0,
+      "joint_accuracy": 1.0,
+      "passed": true
+    },
+    {
+      "seed": 9202104,
+      "retention_loss": 0,
+      "max_fresh_aulc_ratio": 1.0,
+      "stream_accuracy": 1.0,
+      "joint_accuracy": 1.0,
+      "passed": true
+    }
+  ],
+  "training_runs": 150,
+  "remaining_controls": "not run after sufficient known-method kill"
+}
