@@ -1,0 +1,16 @@
+{
+  "protocol":"TV-20260929-T2-v1",
+  "device":"cpu","workers":1,"threads":1,
+  "phase_cpu_cap_seconds":14400,"project_cpu_cap_seconds":108000,
+  "historical_cpu_seconds":18706.656,"ram_cap_bytes":2147483648,
+  "development_seeds":[9200900,9200901,9200902],
+  "official_seeds":[9202100,9202101,9202102,9202103,9202104],
+  "tasks":8,"bits":16,"block_steps":128,"batch":64,
+  "evaluation_examples_per_task":2048,
+  "models":["head","mlp16","mlp32","gru","transformer"],
+  "head_lrs":[0.03,0.1],"neural_lrs":[0.003,0.03],
+  "parameter_cap":2000,"persistent_bytes_cap":32768,
+  "kill_max_retention_loss":0.01,"kill_accuracy":0.98,
+  "kill_oracle_gap":0.01,"kill_adaptation_ratio":1.1,"kill_seeds":4,
+  "official_execution_requires_development_validity":true
+}

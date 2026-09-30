@@ -2,3 +2,7 @@
 {"job":"initial_probe_and_pre_meter_dev_failure","status":"DEVELOPMENT_ERROR","cpu_seconds":10,"wall_seconds":null,"peak_rss_bytes":null,"accounting":"conservative upper-bound charge, not measured CPU","device":"cpu"}
 {"job": "automated_validation", "status": "PASS", "cpu_seconds": 3.796875, "wall_seconds": 3.9406039635650814, "peak_rss_bytes": 285851648, "device": "cpu", "timestamp_utc": "2026-09-30T03:29:18Z"}
 {"job": "t1_dev", "status": "PASS", "cpu_seconds": 4.953125, "wall_seconds": 5.126482405234128, "peak_rss_bytes": 289538048, "device": "cpu", "timestamp_utc": "2026-09-30T03:29:23Z"}
+{"job": "t1_official", "status": "COMPLETE", "cpu_seconds": 202.265625, "wall_seconds": 204.62391285272315, "peak_rss_bytes": 295165952, "device": "cpu", "timestamp_utc": "2026-09-30T03:33:11Z"}
+{"job": "automated_validation", "status": "PASS", "cpu_seconds": 3.953125, "wall_seconds": 4.160207599634305, "peak_rss_bytes": 282390528, "device": "cpu", "timestamp_utc": "2026-09-30T03:39:14Z"}
+{"job": "t2_dev", "status": "PASS", "cpu_seconds": 7.703125, "wall_seconds": 7.958130399580114, "peak_rss_bytes": 305012736, "device": "cpu", "timestamp_utc": "2026-09-30T03:39:22Z"}
+{"job":"dependency_installation_source_inspection_and_t1_analysis","status":"COMPLETE","cpu_seconds":20,"wall_seconds":null,"peak_rss_bytes":null,"accounting":"conservative upper-bound administrative charge, not measured CPU","device":"cpu"}
