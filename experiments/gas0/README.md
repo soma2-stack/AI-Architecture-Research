@@ -476,7 +476,7 @@ Notes on the table:
 - C4 kept essentially the starter code for the whole episode. Exactly 24 hidden tests passed at every stage; the set changed only when a starter test was superseded (Stage 2) and when a "still deferred" probe passed (Stage 3). Its RPS equals the benchmark's null RPS (0.082292).
 - There was no harness error. The gate rolled back 84 of 92 C4 edits; C2 rolled back 1 and C3 rolled back 2.
 - 54 of the C4 rollbacks name a collection failure in `tests/test_basics.py`. The recurring edit inserted `shield: int = 0` before the non-default dataclass field `attack: int` in `arena/model.py`, which raises `TypeError: non-default argument follows default argument` at import.
-- The failure record for that test reached `count 24`: the model repeated essentially the same failing edit 24 times.
+- That `@dataclass` import failure caused 54 rollbacks across Stages 2–5. Its failure record's count was 24 at the end of Stage 3 and 83 by the end of the episode. (Correction, 2026-09-30: the count means "gate events in which the test failed while still unresolved"; it does not count identical edits. An earlier wording said the same edit was repeated 24 times.)
 - The specified C4 channels are:
   - the coupled notice, `json.dumps(summary)[:800]`;
   - the ledger failure record, `message_head[:300]`.
@@ -500,3 +500,65 @@ Notes on the table:
 - The DEV pilot is now **technically complete**: all cells finished, plan-first held, and there were no infrastructure failures.
 - The C4 feedback-truncation finding should be resolved or explicitly accepted by the owner before the official matrix. Otherwise the official C4 cell would test a feedback channel that loses the error cause for a common failure class.
 - No evaluation project, official experiment or Phase 2 was run, and no benchmark or evaluator content was changed. All earlier pilot directories and summaries are unchanged.
+
+## Bounded failure-feedback fix — 2026-09-30 (after the post-fix DEV pilot)
+
+**Where the exception was lost.** The full trace is in `analysis/failure_feedback_fix_audit_20260930.json`.
+- `gate.run_visible` stored each failure as `longrepr[:1200]`, keeping the head only. This is shared by the gate (C2–C4) and by `run_tests` (C0–C4).
+- The C4 notice was `json.dumps(summary)[:800]`. JSON escaping doubles Windows backslashes and turns newlines into `\n`, and a collection error repeats the same traceback for each test file. The slice therefore ended inside the first traceback and produced invalid JSON.
+- The C4 ledger's failure `message_head` was `message[:300]`.
+
+On the recorded pilot failure (dev_arena starter plus `shield: int = 0` inserted before `attack: int`), the longrepr is about 900 characters, and `E   TypeError: non-default argument 'attack' follows default argument` starts near character 780. The 1,200-character cut kept it, which is why C2/C3 saw it. The 800-character notice and the 300-character ledger head lost it.
+
+The same head-only cut also removed exception lines from raw failure texts in C0 (1 text), C1 (2), C2 (6) and C3 (2) during the pilot. The defect is therefore generic, and C4 is where it was most severe.
+
+**Fix (one generic function, unchanged budgets).**
+- `harness/gate.py` adds `bounded_failure_text(text, limit)`:
+  - text within the limit is unchanged;
+  - longer text keeps its beginning (cut at a line boundary), a `[... omitted ...]` marker, the last project frame, and the final exception block. The block is the last pytest `E` lines through the end, capped at half the limit; otherwise the last non-blank line is used;
+  - if the cause is already at the top, plain head truncation is used;
+  - no repair hints are added, and every kept line comes from the failing test's own output.
+- It is applied at all three points:
+  - `run_visible` at 1,200 characters;
+  - `tools.bounded_notice(summary, 800)`, which keeps the C4 notice as valid JSON of at most 800 characters. Failure texts are bounded, and failures that still do not fit are counted in `more_failed`;
+  - the ledger `message_head` at 300 characters.
+
+| Channel | Old (recorded failure) | New |
+|---|---|---|
+| `run_visible` (all cells) | head `[:1200]` (exception kept here; lost in longer tracebacks) | unchanged if ≤ 1,200; otherwise head + project frame + exception |
+| C4 notice (≤ 800) | cut inside the first traceback, invalid JSON, no exception | valid JSON, 704 characters, all three failures show `arena\model.py:27` and the `TypeError` line |
+| C4 ledger head (≤ 300) | first 300 characters of the import chain | first frames + `[... omitted ...]` + `arena\model.py:27: in <module>` + the `TypeError` line (293 characters) |
+
+**Tests.** `validate/test_failure_feedback.py` has 18 tests:
+- long Windows-path tracebacks keep the exception at 1,200, 800 and 300 characters;
+- 500 randomized texts × 4 limits stay bounded and contain only source lines;
+- short failures are byte-identical to before;
+- the cause-at-top case;
+- no added content: notice fields and test ids come only from the summary;
+- the notice drops whole failures before losing causes;
+- a short notice is unchanged;
+- the C4 ledger record keeps the exception, and repeats stay one record with an incrementing count and a stable head;
+- the recorded dataclass failure, reproduced on the real dev_arena starter through `ToolRunner` in C2, C3 and C4. The exception is visible in all three; C2/C3 keep the unchanged `{event, failed, passed}` structure; rollback is restored;
+- a documentation test showing that the old C4 slicing loses this cause.
+
+Full suite: **108 passed**. `dev_arena` benchmark validation is unchanged: null 0.0823, reference 1.0, tool oracle 1.0.
+
+**Experimental-impact classification.**
+- **Affected conditions: all five.**
+  - C0/C1: `run_tests` failure texts over 1,200 characters.
+  - C2/C3: the same, plus raw gate-event texts.
+  - C4: the same, plus every notice over 800 serialized characters and every failure head from text over 300 characters.
+
+  Pilot exposure: raw texts at the 1,200 cut were C0 2/6, C1 6/49, C2 20/30, C3 14/32 and C4 0/6. C4 notices at the 800 cut were 90/92, and C4 heads at the 300 cut were 24/27.
+- **Classification: generic harness bug fix, not a treatment change.**
+  - The same function formats every failure text in every cell within the existing budgets.
+  - It restores the frozen design's intent: the failure-record example is `"message_head": "AssertionError: ..."`, and `run_tests` promises a ≤ 1,200-token summary.
+  - No condition gains a channel, a budget or information beyond the failing visible test's own output.
+  - The size of the change is asymmetric (largest in C4), and that is recorded.
+  - Fixing only C4's channels was rejected: it would leave C2/C3 still losing exceptions while C4 did not, which is a new confound favoring C4.
+- **Pre-registration rule:** "no changes afterwards except bug fixes that apply to all cells, which must be logged; after such a fix, affected episodes are re-run for all cells." The fix qualifies, and it is logged in `frozen_config.json` `harness_amendments[1]` with before/after file hashes. `agent_loop.py` and `context.py` are unchanged.
+- **Consequences:**
+  - No official episode exists yet, so the official matrix would run entirely on the fixed harness.
+  - All five post-fix DEV pilot episodes are affected. As a same-harness C0–C4 comparison, that pilot is superseded; it is preserved unmodified.
+  - A **C4-only smoke run is allowed as mechanism validation only**. It cannot replace C4 in a C0–C4 table, because that would mix harness versions.
+  - A same-harness DEV comparison of all cells would require rerunning C0–C4. That is an owner decision; the rule does not require it before Phase 2, because no official episode is affected.

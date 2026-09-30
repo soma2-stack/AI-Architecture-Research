@@ -9,7 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from .gate import git, run_visible
+from .gate import bounded_failure_text, git, run_visible
 
 
 def _inside(root: Path, name: str) -> Path:
@@ -167,12 +167,35 @@ class ToolRunner:
         summary = {"event": event["event"], "failed": event["result"]["failed"],
                    "passed": len(event["result"]["passed"])}
         if self.condition.coupled:
-            return {"notice": json.dumps(summary)[:800]}
+            return {"notice": bounded_notice(summary, 800)}
         return summary
 
     def _ensure_test_budget(self):
         if self.gate and self.test_executions >= 40:
             raise RuntimeError("stage test-execution cap reached")
+
+
+def bounded_notice(summary: dict, limit: int) -> str:
+    """Serialize a gate summary as valid JSON of at most `limit` characters.
+
+    Slicing the serialized JSON cut the failure texts mid-traceback (and left invalid JSON).
+    Here each failure text is bounded with `bounded_failure_text`, so its exception block is
+    kept. Failures that still do not fit are counted in `more_failed` instead of shown."""
+    text = json.dumps(summary)
+    if len(text) <= limit:
+        return text
+    failed = summary.get("failed") or {}
+    for keep in range(len(failed), -1, -1):
+        shown = dict(list(failed.items())[:keep])
+        extra = {"more_failed": len(failed) - keep} if keep < len(failed) else {}
+        per = limit
+        while per >= 160:  # below this a failure text is too short to show its cause
+            bounded = {test: bounded_failure_text(message, per) for test, message in shown.items()}
+            text = json.dumps({**summary, "failed": bounded, **extra})
+            if len(text) <= limit:
+                return text
+            per = int(per * 0.85)
+    return json.dumps({"event": summary.get("event"), "more_failed": len(failed)})[:limit]
 
 
 def tool_schemas(ledger: bool):

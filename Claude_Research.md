@@ -9,7 +9,17 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-30, session 27 (continued)
+# Resume Pointer (read this first in a new session) — updated 2026-09-30, session 28
+
+- **Current:** the GAS-0 bounded failure-feedback fix is implemented (Part AV).
+  - Root cause: head-only truncation of failure texts (`run_visible[:1200]`, C4 notice `[:800]`, C4 ledger head `[:300]`) dropped the final exception line.
+  - One generic `bounded_failure_text` now keeps the head, the last project frame and the exception within the same budgets.
+  - 18 new tests; 108/108 pass.
+  - It is classified as a generic all-cell bug fix. The post-fix DEV pilot is superseded as a same-harness comparison but preserved.
+  - A C4-only smoke run (Stages 1–3) is allowed as mechanism validation only. Results: `experiments/gas0/README.md`.
+- **Not run:** no evaluation project, no official experiment, no Phase 2.
+
+# Resume Pointer as of 2026-09-30 session 27 (historical; superseded by the block above)
 
 - **Current:** the post-fix GAS-0 DEV pilot (C0–C4, `dev_arena`, seed 1) is complete (Part AU).
   - Every cell ran fresh under the plan-first fix; plan-first held in 40/40 stages.
@@ -4922,6 +4932,27 @@ Frozen and pushed at `000f237` before the rerun.
 
 ---
 
+# Part AV — GAS-0 bounded failure-feedback fix (session 28, 2026-09-30; CPU tests, then a C4-only smoke run)
+
+- **Trace (verified):**
+  - `gate.run_visible` stores `longrepr[:1200]` for every cell (via `run_tests` and the gate);
+  - the C4 notice was `json.dumps(summary)[:800]`, where JSON escaping inflates Windows paths and a collection error repeats per file;
+  - the C4 ledger `message_head` was `message[:300]`;
+  - on the recorded failure (about 900 characters, exception near character 780) the C4 channels lost the `TypeError` and the 1,200 cut kept it;
+  - in the pilot, the 1,200 cut removed exception lines in C0 1, C1 2, C2 6 and C3 2 texts.
+- **Fix:**
+  - `bounded_failure_text(text, limit)`: unchanged if it fits; otherwise head + `[... omitted ...]` + last project frame + final exception block (capped at half the limit);
+  - `bounded_notice(summary, 800)`: valid JSON; failures that do not fit go to `more_failed`;
+  - budgets unchanged; no hints; only source lines are kept.
+- **Tests:** 18, including a reproduction on the real starter through `ToolRunner` in C2/C3/C4. Full suite 108/108; dev benchmark unchanged.
+- **Classification (reasoned from the design):**
+  - a generic bug fix applying to all cells, consistent with the frozen `message_head: "AssertionError: ..."` example;
+  - not a treatment change;
+  - a C4-only fix was rejected because it would create a C4-favoring asymmetry;
+  - pre-registration: logged in `harness_amendments[1]`. Affected episodes are re-run for all cells, so the post-fix DEV pilot is superseded as a comparison;
+  - the official matrix is unaffected because it has not run.
+- **Correction:** Part AU's "count 24" was the Stage-3 snapshot; by Stage 8 the count was 83, and it counts failing gate events, not identical edits. The dataclass import failure caused 54 rollbacks in Stages 2–5.
+
 # Part AU — GAS-0 post-fix DEV pilot (session 27 continued, 2026-09-29/30; owner-authorized GPU run)
 
 - **Cap guard (verified by tests):**
@@ -4943,7 +4974,7 @@ Frozen and pushed at `000f237` before the rerun.
   - 84 of 92 edits were rolled back;
   - the dominant failure was a dataclass field-order `TypeError` at import;
   - the C4 notice and ledger failure record (the frozen "head" truncations) lose the exception line;
-  - one failure record reached count 24;
+  - one failure record reached count 24 by the end of Stage 3 and 83 by the end of the episode. This counts failing gate events, not identical edits. The dataclass import failure caused 54 rollbacks across Stages 2–5;
   - C2/C3 raw events showed the exception each time.
 - **Interpretation (not a result):**
   - on this pilot, C4's compressed feedback channel, not the ledger/gate coupling as such, explains the collapse;

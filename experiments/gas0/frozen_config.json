@@ -100,6 +100,29 @@
       "model_parameters_budgets_conditions_tools_context_policy_changed": false,
       "affected_prior_episodes": "all C0-C4 DEV pilot episodes and model-selection episodes ran under the pre-fix loop; they are preserved unmodified as historical evidence",
       "audit_log_change": "rejected-call JSONL tool rows now carry plan_required (true/false)"
+    },
+    {
+      "date": "2026-09-30",
+      "type": "bug fix applying identically to all cells (HANDOFF pre-registration rule: logged, identical in every cell)",
+      "defect": "failure texts were cut head-only (run_visible longrepr[:1200], C4 notice json[:800], C4 ledger message_head[:300]), so long tracebacks lost their final exception line",
+      "found_by": "post-fix DEV pilot C4 (84/92 rollbacks; dataclass TypeError hidden; failure record count 24)",
+      "fix": "harness/gate.py bounded_failure_text keeps head, last project frame and final exception block within the same bounds; tools.bounded_notice keeps the C4 notice valid JSON <= 800 characters",
+      "budgets_changed": false,
+      "files_sha256_after": {
+        "harness/gate.py": "db5deb50dd58803482913ae98242f5e76267bad9e48e81391fd777a8e3f8c2a9",
+        "harness/ledger.py": "f10b87b113ffc893f8a31194143d7db3e8d6cf1985f1877d2b93d92b789df296",
+        "harness/tools.py": "5a252658fb9639418493fcdbeafb04b82ed5eff8e4c5aa3f0f81092aa9a07b2a"
+      },
+      "agent_loop_and_context_hashes_changed": false,
+      "affected_conditions": [
+        "C0",
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "audit": "analysis/failure_feedback_fix_audit_20260930.json",
+      "affected_prior_episodes": "all post-fix DEV pilot episodes (2026-09-29/30) ran before this fix; preserved unmodified as history"
     }
   ]
 }

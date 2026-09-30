@@ -5,6 +5,8 @@ import json
 import re
 from pathlib import Path
 
+from .gate import bounded_failure_text
+
 STATUSES = {"OPEN", "CLAIMED", "VERIFIED", "REGRESSED", "SUPERSEDED"}
 KINDS = {"feature", "decision", "constraint", "deferred"}
 
@@ -118,7 +120,7 @@ class Ledger:
                     "id": f"X{len(self.data['failures']) + 1}", "event": event,
                     "test": test, "req_ids": [r["id"] for r in self.data["requirements"] if test in r["tests"]],
                     "tb_symbols": symbols, "reverted_diff": diff,
-                    "message_head": message[:300], "count": 1, "resolved": False,
+                    "message_head": bounded_failure_text(message, 300), "count": 1, "resolved": False,
                 })
         for failure in self.data["failures"]:
             if failure["test"] in passed:

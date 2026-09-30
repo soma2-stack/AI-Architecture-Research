@@ -1,0 +1,65 @@
+{
+  "title": "GAS-0 bounded failure-feedback fix: trace, fix, and experimental-impact audit",
+  "date": "2026-09-30",
+  "base_commit": "6f0a457",
+  "trigger": "Post-fix DEV pilot C4 collapsed to the null RPS; 84 of 92 edits rolled back; one dataclass field-order failure record reached count 24.",
+  "trace": {
+    "source": "harness/gate.py run_visible: every failed test or collection error text = pytest longrepr[:1200] (head only). Shared by the gate (C2-C4) and the run_tests tool (C0-C4).",
+    "c2_c3_channel": "harness/tools.py ToolRunner._modified returns {event, failed, passed}; agent_loop stores json.dumps(result)[:4800] in history. The failure texts are the run_visible 1,200-character heads.",
+    "c4_notice_channel": "harness/tools.py ToolRunner._modified (coupled) returned {'notice': json.dumps(summary)[:800]}. JSON escaping doubles every Windows backslash and turns each newline into \\n, and a collection error repeats the same traceback once per test file, so the slice ended inside the first traceback. The result was also invalid JSON.",
+    "c4_ledger_channel": "harness/ledger.py Ledger.gate_event stored failure message_head = message[:300]; Ledger.view renders it in FAILURE lines of the C4 ledger view.",
+    "where_lost_on_recorded_failure": "Reproduced on the dev_arena starter plus the recorded edit (shield: int = 0 inserted before attack: int). The full longrepr is about 900 characters, and the exception line 'E   TypeError: non-default argument 'attack' follows default argument' begins near character 780. run_visible[:1200] keeps it (C2/C3 saw it). The C4 notice slice [:800] loses it (in JSON it starts at character 914). The C4 ledger head [:300] loses it.",
+    "pilot_measurement": {
+      "raw_failure_texts_at_1200_cap": {"C0": "2/6", "C1": "6/49", "C2": "20/30", "C3": "14/32", "C4": "0/6"},
+      "raw_texts_at_cap_without_E_line": {"C0": 1, "C1": 2, "C2": 6, "C3": 2, "C4": 0},
+      "c4_notices_at_800_cap": "90/92",
+      "c4_rollback_notices_without_exception_text": "54/84",
+      "c4_ledger_heads_at_300_cap": "24/27"
+    }
+  },
+  "fix": {
+    "function": "harness/gate.py bounded_failure_text(text, limit)",
+    "rule": "Text within the limit is returned unchanged. Otherwise keep the beginning (cut at a line boundary), an omission marker, the last project frame line (a relative pytest frame path without '..' or site-packages), and the final exception block (the last contiguous pytest 'E' lines through the end, capped at half the limit; if there are no E lines, the last non-blank line). If that block is already at the top, plain head truncation is used. Every kept line comes from the input text; only the marker '[... omitted ...]' is added.",
+    "applied_at": {
+      "run_visible": "bounded_failure_text(longrepr, 1200); same 1,200-character bound",
+      "c4_notice": "tools.bounded_notice(summary, 800): valid JSON of at most 800 characters. Each failure text is bounded; failures that still do not fit are counted as more_failed rather than shown. A failure text is never shrunk below 160 characters.",
+      "c4_ledger_head": "bounded_failure_text(message, 300); same 300-character bound"
+    },
+    "budgets_changed": false,
+    "information_added": "none beyond the failing visible test's own pytest output; no repair hints; no hidden-test data (run_visible only runs the workspace's visible tests)",
+    "files_sha256_before": {
+      "harness/gate.py": "f36a1113b3748eaa46e954effae0a3577cae9bc977f64562aec4b34ca2d5dfae",
+      "harness/ledger.py": "49f337182dd9f8b105b008e3889176772c7392a5d186ef31bd3a96df8c128421",
+      "harness/tools.py": "b281f0d47b20628b53db30408b3a3dbed06d7db826207926f72725a5a9eac392"
+    },
+    "files_sha256_after": {
+      "harness/gate.py": "db5deb50dd58803482913ae98242f5e76267bad9e48e81391fd777a8e3f8c2a9",
+      "harness/ledger.py": "f10b87b113ffc893f8a31194143d7db3e8d6cf1985f1877d2b93d92b789df296",
+      "harness/tools.py": "5a252658fb9639418493fcdbeafb04b82ed5eff8e4c5aa3f0f81092aa9a07b2a"
+    },
+    "unchanged_hashes": {"harness/agent_loop.py": "3fa6ccbf16e12799a6ad502dc035594a15adb2a3de917d2b89ed1ee9ae2ebb05", "harness/context.py": "a0779b00ce6cf19da7e1bdabb2e2a232449f6928f079dac7fc1796f0bd8c36a5"}
+  },
+  "tests": {
+    "file": "validate/test_failure_feedback.py",
+    "count": 18,
+    "full_suite": "108 passed",
+    "dev_arena_benchmark_validation": "null RPS 0.0823, reference 1.0, tool oracle 1.0 (unchanged)"
+  },
+  "experimental_impact": {
+    "affected_conditions": {
+      "C0": "run_tests failure texts longer than 1,200 characters",
+      "C1": "run_tests failure texts longer than 1,200 characters",
+      "C2": "run_tests failure texts and raw gate-event failure texts longer than 1,200 characters",
+      "C3": "run_tests failure texts and raw gate-event failure texts longer than 1,200 characters",
+      "C4": "run_tests failure texts longer than 1,200 characters; every gate notice longer than 800 serialized characters; every failure-record head from a text longer than 300 characters"
+    },
+    "classification": "Generic harness bug fix applying to all cells. One function formats every failure text in every condition with the existing budgets. It restores the frozen design's intent: the design's failure-record example is 'message_head': 'AssertionError: ...' (an exception line, not the first traceback frames), and run_tests promises a <= 1,200-token summary. It is not a treatment change: no condition gains a channel or budget, and C4 receives no information absent from the same failing test's output. The impact is asymmetric in size (largest in C4, whose channels were smallest) and is recorded as such.",
+    "why_not_c4_only": "Fixing only the C4 channels would have left C2/C3 raw events losing exception lines (6/30 and 2/32 texts in the pilot) while C4's did not. That would be a new asymmetry favouring C4, and it would not be a 'bug fix that applies to all cells' as the preregistration requires.",
+    "preregistration_rule": "HANDOFF_Claude_GAS0_design.md, Pre-registration: 'no changes afterwards except bug fixes that apply to all cells, which must be logged; after such a fix, affected episodes are re-run for all cells.'",
+    "rerun_consequence": {
+      "official_matrix": "Not yet run, so no official episode is affected. All official episodes would run on the fixed harness.",
+      "post_fix_dev_pilot_2026_09_29": "All five cells contain failure texts beyond the bounds, so all five episodes are affected. As a same-harness C0-C4 comparison, that pilot is superseded by this fix (it remains preserved history). A same-harness DEV comparison would require rerunning all of C0-C4.",
+      "c4_only_smoke": "Allowed only as a mechanism validation of this fix, with no comparative use. It must not replace C4 in any C0-C4 table, because that would mix harness versions."
+    }
+  }
+}

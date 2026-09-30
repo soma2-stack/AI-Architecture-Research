@@ -57,11 +57,11 @@ def run_visible(workspace: Path, selector: str | None = None):
             raise RuntimeError("pytest JSON report missing: " + proc.stderr[-1000:])
         data = json.loads(report.read_text())
         tests = {t["nodeid"]: t["outcome"] == "passed" for t in data.get("tests", [])}
-        failed = {t["nodeid"]: str(t.get("call", {}).get("longrepr", ""))[:1200]
+        failed = {t["nodeid"]: bounded_failure_text(str(t.get("call", {}).get("longrepr", "")), 1200)
                   for t in data.get("tests", []) if t["outcome"] != "passed"}
         # Collection errors are failures too (keyed by file node id), so a broken test file is
         # reported to the agent and can never be committed as a GREEN checkpoint.
-        failed.update({c["nodeid"]: str(c.get("longrepr", ""))[:1200]
+        failed.update({c["nodeid"]: bounded_failure_text(str(c.get("longrepr", "")), 1200)
                        for c in data.get("collectors", []) if c.get("outcome") == "failed"})
         return {"passed": {k for k, v in tests.items() if v}, "failed": failed,
                 "all": tests, "seconds": elapsed, "returncode": proc.returncode,
@@ -70,6 +70,47 @@ def run_visible(workspace: Path, selector: str | None = None):
 
 _PYTEST_FRAME = re.compile(r"^([^\s:]+\.py):\d+:(?: in ([A-Za-z_][A-Za-z_0-9]*))?", re.M)
 _NATIVE_FRAME = re.compile(r'File "([^"]+\.py)", line \d+, in ([A-Za-z_][A-Za-z_0-9]*)')
+_OMITTED = "[... omitted ...]"
+
+
+def _is_project_frame(line: str) -> bool:
+    """A pytest frame line whose file is relative to the project (not stdlib or site-packages)."""
+    match = _PYTEST_FRAME.match(line)
+    return bool(match) and ".." not in Path(match.group(1)).parts and "site-packages" not in line
+
+
+def bounded_failure_text(text: str, limit: int) -> str:
+    """Fit a failure text into `limit` characters without losing its cause.
+
+    Text within the limit is returned unchanged. Longer text keeps its beginning, the last
+    project frame, and the final exception block (pytest `E` lines through the end, else the
+    last non-blank line). Plain head truncation loses that block whenever long frames or paths
+    come first. Every kept line comes from `text`; nothing is added except an omission marker."""
+    if len(text) <= limit:
+        return text
+    lines = text.splitlines()
+    e_lines = [i for i, line in enumerate(lines) if line.startswith("E ") or line == "E"]
+    if e_lines:
+        start = e_lines[-1]
+        while start > 0 and (lines[start - 1].startswith("E ") or lines[start - 1] == "E"):
+            start -= 1
+    else:
+        start = max((i for i, line in enumerate(lines) if line.strip()), default=len(lines) - 1)
+    if start == 0:  # the cause is already at the top: plain head truncation keeps it
+        return text[:limit - len(_OMITTED) - 1] + "\n" + _OMITTED
+    tail = "\n".join(lines[start:])[: limit // 2]
+    frame = next((line for line in reversed(lines[:start]) if _is_project_frame(line)), "")
+    budget = limit - len(tail) - len(_OMITTED) - 2
+    if frame and len(frame) + 1 <= budget // 2:
+        budget -= len(frame) + 1
+    else:
+        frame = ""
+    head = text[:max(budget, 0)]
+    if "\n" in head:
+        head = head[:head.rindex("\n")]
+    if frame and frame in head:
+        frame = ""
+    return "\n".join(part for part in (head, _OMITTED, frame, tail) if part)
 
 
 def traceback_symbols(message: str, workspace: Path) -> list[str]:
