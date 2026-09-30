@@ -1,0 +1,14 @@
+{
+  "scope": "Proof and exact linear algebra; accepted accessibility theorem is a premise",
+  "primary_model": "Frozen dense tanh recurrence, P=2n^2+n, accessible open augmented endpoint family",
+  "primary_query_contract": "Late arbitrary linear hidden losses, or fixed full-support scalar linear head after one freely chosen admissible recurrent input; exact gradient answers",
+  "comparison": "Same h and theta, different S; identical future input and final loss",
+  "memory_model": "Continuous finite-dimensional exact-real persistent state, including every history-dependent buffer; no replay or external history tape; query chosen after encoding",
+  "hidden_state_contract": "nP bound for sensitivity at fixed h; n+nP total only if exact forward h also recoverable",
+  "checks": "Exact rational/symbolic continuation identities, quotient ranks, restricted-head counterexample, owner-local control and archived deep matrix determinants",
+  "hard_cpu_seconds": 2700,
+  "threads": 1,
+  "device": "CPU; pure symbolic/rational algebra; no ML framework",
+  "prohibited": ["GPU/CUDA", "GAS-0 changes", "Stage C", "AMS v10", "Architecture invention", "Learning experiments"],
+  "stop": "After mathematical report, research state and commit/push"
+}
