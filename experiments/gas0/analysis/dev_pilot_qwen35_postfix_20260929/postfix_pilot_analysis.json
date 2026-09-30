@@ -1,0 +1,482 @@
+{
+  "aborted_attempts": [],
+  "cells": {
+    "C0": {
+      "RPS": 0.39611742424242424,
+      "completion_tokens": 19931,
+      "declared_done_stages": 6,
+      "episode_wall_seconds": 1188.234000000055,
+      "final_CR": 0.7272727272727273,
+      "gpu_cap_charged_seconds": 1136.170999999391,
+      "gpu_seconds_upper_bound": 1136.170999999391,
+      "harness_format_errors": 23,
+      "malformed_calls": 3,
+      "malformed_recovered_next_call": 2,
+      "mean_stage_completion": 0.4583333333333333,
+      "model_calls": 133,
+      "peak_context_tokens": 15793,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "malformed_calls": 3,
+        "malformed_recovered_next_call": 2,
+        "plan_first_enforced_every_stage": true,
+        "plan_first_rejections": 18,
+        "stages": {
+          "1": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "2": {
+            "accepted_plan_at_call": 3,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 2
+          },
+          "3": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "4": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "5": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "6": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "7": {
+            "accepted_plan_at_call": 15,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 14
+          },
+          "8": {
+            "accepted_plan_at_call": 3,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          }
+        },
+        "stages_first_executed_plan": 8,
+        "stages_plan_on_first_call": 4,
+        "stages_without_accepted_plan": []
+      },
+      "plan_first_rejections": 18,
+      "prompt_tokens": 1252635,
+      "requirement_retention": 0.26666666666666666,
+      "status": "complete",
+      "test_executions": 11
+    },
+    "C1": {
+      "RPS": 0.3775568181818182,
+      "completion_tokens": 55312,
+      "declared_done_stages": 0,
+      "episode_wall_seconds": 6902.640000000014,
+      "final_CR": 0.5454545454545454,
+      "gpu_cap_charged_seconds": 3227.1779999994906,
+      "gpu_seconds_upper_bound": 3227.1779999994906,
+      "harness_format_errors": 34,
+      "malformed_calls": 14,
+      "malformed_recovered_next_call": 11,
+      "mean_stage_completion": 0.2708333333333333,
+      "model_calls": 216,
+      "peak_context_tokens": 16375,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "malformed_calls": 14,
+        "malformed_recovered_next_call": 11,
+        "plan_first_enforced_every_stage": true,
+        "plan_first_rejections": 16,
+        "stages": {
+          "1": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "2": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "3": {
+            "accepted_plan_at_call": 7,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 6
+          },
+          "4": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "5": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "6": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "7": {
+            "accepted_plan_at_call": 3,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 2
+          },
+          "8": {
+            "accepted_plan_at_call": 4,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 3
+          }
+        },
+        "stages_first_executed_plan": 8,
+        "stages_plan_on_first_call": 0,
+        "stages_without_accepted_plan": []
+      },
+      "plan_first_rejections": 16,
+      "prompt_tokens": 2775411,
+      "requirement_retention": 0.26666666666666666,
+      "status": "complete",
+      "test_executions": 18
+    },
+    "C2": {
+      "RPS": 0.704955808080808,
+      "completion_tokens": 20493,
+      "declared_done_stages": 6,
+      "episode_wall_seconds": 2396.6720000000205,
+      "final_CR": 0.9090909090909091,
+      "gpu_cap_charged_seconds": 1502.9090000003343,
+      "gpu_seconds_upper_bound": 1502.9090000003343,
+      "harness_format_errors": 10,
+      "malformed_calls": 1,
+      "malformed_recovered_next_call": 1,
+      "mean_stage_completion": 0.6875,
+      "model_calls": 159,
+      "peak_context_tokens": 15868,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "malformed_calls": 1,
+        "malformed_recovered_next_call": 1,
+        "plan_first_enforced_every_stage": true,
+        "plan_first_rejections": 4,
+        "stages": {
+          "1": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "2": {
+            "accepted_plan_at_call": 3,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 2
+          },
+          "3": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "4": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "5": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "6": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "7": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "8": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          }
+        },
+        "stages_first_executed_plan": 8,
+        "stages_plan_on_first_call": 4,
+        "stages_without_accepted_plan": []
+      },
+      "plan_first_rejections": 4,
+      "prompt_tokens": 1702149,
+      "requirement_retention": 1,
+      "status": "complete",
+      "test_executions": 52
+    },
+    "C3": {
+      "RPS": 0.5357007575757575,
+      "completion_tokens": 29948,
+      "declared_done_stages": 7,
+      "episode_wall_seconds": 3041.234999999986,
+      "final_CR": 0.7272727272727273,
+      "gpu_cap_charged_seconds": 1927.7360000000335,
+      "gpu_seconds_upper_bound": 1927.7360000000335,
+      "harness_format_errors": 11,
+      "malformed_calls": 3,
+      "malformed_recovered_next_call": 1,
+      "mean_stage_completion": 0.4583333333333333,
+      "model_calls": 158,
+      "peak_context_tokens": 16027,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "malformed_calls": 3,
+        "malformed_recovered_next_call": 1,
+        "plan_first_enforced_every_stage": true,
+        "plan_first_rejections": 5,
+        "stages": {
+          "1": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "2": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "3": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "4": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "5": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "6": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "7": {
+            "accepted_plan_at_call": 3,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 2
+          },
+          "8": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          }
+        },
+        "stages_first_executed_plan": 8,
+        "stages_plan_on_first_call": 4,
+        "stages_without_accepted_plan": []
+      },
+      "plan_first_rejections": 5,
+      "prompt_tokens": 1872697,
+      "requirement_retention": 0.6666666666666666,
+      "status": "complete",
+      "test_executions": 58
+    },
+    "C4": {
+      "RPS": 0.08229166666666667,
+      "completion_tokens": 45371,
+      "declared_done_stages": 0,
+      "episode_wall_seconds": 6877.656000000075,
+      "final_CR": 0,
+      "gpu_cap_charged_seconds": 3044.5059999999357,
+      "gpu_seconds_upper_bound": 3044.5059999999357,
+      "harness_format_errors": 13,
+      "malformed_calls": 1,
+      "malformed_recovered_next_call": 1,
+      "mean_stage_completion": 0.041666666666666664,
+      "model_calls": 223,
+      "peak_context_tokens": 16236,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "malformed_calls": 1,
+        "malformed_recovered_next_call": 1,
+        "plan_first_enforced_every_stage": true,
+        "plan_first_rejections": 11,
+        "stages": {
+          "1": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "2": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "3": {
+            "accepted_plan_at_call": 3,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 2
+          },
+          "4": {
+            "accepted_plan_at_call": 3,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 2
+          },
+          "5": {
+            "accepted_plan_at_call": 1,
+            "first_call_plan": true,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 0
+          },
+          "6": {
+            "accepted_plan_at_call": 4,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 3
+          },
+          "7": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          },
+          "8": {
+            "accepted_plan_at_call": 2,
+            "first_call_plan": false,
+            "first_executed_action": "plan",
+            "non_plan_executed_before_plan": 0,
+            "plan_rejections": 1
+          }
+        },
+        "stages_first_executed_plan": 8,
+        "stages_plan_on_first_call": 1,
+        "stages_without_accepted_plan": []
+      },
+      "plan_first_rejections": 11,
+      "prompt_tokens": 2915857,
+      "requirement_retention": 0.2,
+      "status": "complete",
+      "test_executions": 102
+    }
+  },
+  "cumulative_charged_gpu_seconds": 10838.499999999185,
+  "descriptive_differences": {
+    "RPS": {
+      "C1-C0": -0.018560606060606055,
+      "C2-C0": 0.3088383838383838,
+      "C3-C0": 0.13958333333333328,
+      "C4-C0": -0.3138257575757576,
+      "C4-C3": -0.4534090909090909,
+      "C4-max(C1,C2)": -0.6226641414141414
+    },
+    "final_CR": {
+      "C1-C0": -0.18181818181818188,
+      "C2-C0": 0.18181818181818177,
+      "C3-C0": 0.0,
+      "C4-C0": -0.7272727272727273,
+      "C4-C3": -0.7272727272727273,
+      "C4-max(C1,C2)": -0.9090909090909091
+    },
+    "mean_stage_completion": {
+      "C1-C0": -0.1875,
+      "C2-C0": 0.22916666666666669,
+      "C3-C0": 0.0,
+      "C4-C0": -0.41666666666666663,
+      "C4-C3": -0.41666666666666663,
+      "C4-max(C1,C2)": -0.6458333333333334
+    },
+    "requirement_retention": {
+      "C1-C0": 0.0,
+      "C2-C0": 0.7333333333333334,
+      "C3-C0": 0.39999999999999997,
+      "C4-C0": -0.06666666666666665,
+      "C4-C3": -0.4666666666666666,
+      "C4-max(C1,C2)": -0.8
+    }
+  },
+  "gpu_cap_seconds": null,
+  "note": "one seed, one DEV project: descriptive only; no significance, synergy or improvement claim"
+}

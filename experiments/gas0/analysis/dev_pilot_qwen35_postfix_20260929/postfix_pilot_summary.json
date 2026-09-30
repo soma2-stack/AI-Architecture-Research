@@ -1,0 +1,828 @@
+{
+  "aborted_attempts": [],
+  "agent_loop_sha256": "3fa6ccbf16e12799a6ad502dc035594a15adb2a3de917d2b89ed1ee9ae2ebb05",
+  "cell_order": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "cells": {
+    "C0": {
+      "RPS": 0.39611742424242424,
+      "declared_done_stages": 6,
+      "directory": "C0_dev_arena_seed1",
+      "episode_wall_elapsed_seconds": 1188.234000000055,
+      "final": 0.7272727272727273,
+      "format_error_recovery": {
+        "malformed_call_records": 21,
+        "recovered_on_next_call": 6
+      },
+      "gpu_cap": {
+        "cap_seconds": 10800.0,
+        "charged_seconds": 1136.170999999391,
+        "completed_requests": 133,
+        "failed_request_seconds": 0.0,
+        "failed_requests": 0,
+        "reservation_seconds": 305.0,
+        "used_before_seconds": 0.0
+      },
+      "mean_stage_completion": 0.4583333333333333,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "stages": {
+          "1": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "2": {
+            "calls_before_accepted_plan": 3,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 2
+          },
+          "3": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "4": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "5": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "6": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "7": {
+            "calls_before_accepted_plan": 15,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 14
+          },
+          "8": {
+            "calls_before_accepted_plan": 3,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 1,
+            "non_plan_actions_rejected_before_plan": 1
+          }
+        },
+        "stages_whose_first_executed_action_is_plan": 8,
+        "stages_with_executed_actions": 8
+      },
+      "regressions": [],
+      "requirement_retention": 0.26666666666666666,
+      "resources": {
+        "completion_tokens": 19931,
+        "estimated_flops": 22906188000000000,
+        "format_errors": 23,
+        "gpu_seconds_upper_bound": 1136.170999999391,
+        "hidden_test_seconds": 7.329000000143424,
+        "model_calls": 133,
+        "peak_context_tokens": 15793,
+        "prompt_tokens": 1252635,
+        "test_executions": 11,
+        "tool_calls": 133,
+        "visible_test_seconds": 9.281000000075437,
+        "wall_seconds": 1187.030000000028
+      },
+      "scored_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stages": [
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 1
+        },
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 2
+        },
+        {
+          "CR": 0.4,
+          "SC": 0.6666666666666666,
+          "stage": 3
+        },
+        {
+          "CR": 0.5,
+          "SC": 1,
+          "stage": 4
+        },
+        {
+          "CR": 0.5,
+          "SC": 0,
+          "stage": 5
+        },
+        {
+          "CR": 0.375,
+          "SC": 0,
+          "stage": 6
+        },
+        {
+          "CR": 0.6666666666666666,
+          "SC": 1,
+          "stage": 7
+        },
+        {
+          "CR": 0.7272727272727273,
+          "SC": 1,
+          "stage": 8
+        }
+      ],
+      "started_utc": "2026-09-29T23:57:13.918616+00:00",
+      "status": "complete"
+    },
+    "C1": {
+      "RPS": 0.3775568181818182,
+      "declared_done_stages": 0,
+      "directory": "C1_dev_arena_seed1",
+      "episode_wall_elapsed_seconds": 6902.640000000014,
+      "final": 0.5454545454545454,
+      "format_error_recovery": {
+        "malformed_call_records": 30,
+        "recovered_on_next_call": 19
+      },
+      "gpu_cap": {
+        "cap_seconds": 10800.0,
+        "charged_seconds": 3227.1779999994906,
+        "completed_requests": 216,
+        "failed_request_seconds": 0.0,
+        "failed_requests": 0,
+        "reservation_seconds": 305.0,
+        "used_before_seconds": 1136.170999999391
+      },
+      "mean_stage_completion": 0.2708333333333333,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "stages": {
+          "1": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "2": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "3": {
+            "calls_before_accepted_plan": 7,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 6
+          },
+          "4": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "5": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "6": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "7": {
+            "calls_before_accepted_plan": 3,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 2
+          },
+          "8": {
+            "calls_before_accepted_plan": 4,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 3
+          }
+        },
+        "stages_whose_first_executed_action_is_plan": 8,
+        "stages_with_executed_actions": 8
+      },
+      "regressions": [],
+      "requirement_retention": 0.26666666666666666,
+      "resources": {
+        "completion_tokens": 55312,
+        "estimated_flops": 50953014000000000,
+        "format_errors": 34,
+        "gpu_seconds_upper_bound": 3227.1779999994906,
+        "hidden_test_seconds": 7.7350000001024455,
+        "model_calls": 216,
+        "peak_context_tokens": 16375,
+        "prompt_tokens": 2775411,
+        "test_executions": 18,
+        "tool_calls": 216,
+        "visible_test_seconds": 16.249999999883585,
+        "wall_seconds": 6901.219000000157
+      },
+      "scored_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stages": [
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 1
+        },
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 2
+        },
+        {
+          "CR": 0.6,
+          "SC": 0.6666666666666666,
+          "stage": 3
+        },
+        {
+          "CR": 0.6666666666666666,
+          "SC": 1,
+          "stage": 4
+        },
+        {
+          "CR": 0.5,
+          "SC": 0,
+          "stage": 5
+        },
+        {
+          "CR": 0.375,
+          "SC": 0,
+          "stage": 6
+        },
+        {
+          "CR": 0.3333333333333333,
+          "SC": 0,
+          "stage": 7
+        },
+        {
+          "CR": 0.5454545454545454,
+          "SC": 0.5,
+          "stage": 8
+        }
+      ],
+      "started_utc": "2026-09-30T00:17:02.410112+00:00",
+      "status": "complete"
+    },
+    "C2": {
+      "RPS": 0.704955808080808,
+      "declared_done_stages": 6,
+      "directory": "C2_dev_arena_seed1",
+      "episode_wall_elapsed_seconds": 2396.6720000000205,
+      "final": 0.9090909090909091,
+      "format_error_recovery": {
+        "malformed_call_records": 5,
+        "recovered_on_next_call": 4
+      },
+      "gpu_cap": {
+        "cap_seconds": null,
+        "charged_seconds": 1502.9090000003343,
+        "completed_requests": 159,
+        "failed_request_seconds": 0.0,
+        "failed_requests": 0,
+        "reservation_seconds": 305.0,
+        "used_before_seconds": 4363.3489999988815
+      },
+      "hardware_at_start": {
+        "disk_free_gib": 120.6,
+        "gpu_memory_total_mib": 12288,
+        "gpu_memory_used_mib": 8373,
+        "gpu_temperature_c": 43
+      },
+      "mean_stage_completion": 0.6875,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "stages": {
+          "1": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "2": {
+            "calls_before_accepted_plan": 3,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 2
+          },
+          "3": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 1,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "4": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "5": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "6": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "7": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "8": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          }
+        },
+        "stages_whose_first_executed_action_is_plan": 8,
+        "stages_with_executed_actions": 8
+      },
+      "regressions": [],
+      "requirement_retention": 1,
+      "resources": {
+        "completion_tokens": 20493,
+        "estimated_flops": 31007556000000000,
+        "format_errors": 10,
+        "gpu_seconds_upper_bound": 1502.9090000003343,
+        "hidden_test_seconds": 7.373000000137836,
+        "model_calls": 159,
+        "peak_context_tokens": 15868,
+        "prompt_tokens": 1702149,
+        "test_executions": 52,
+        "tool_calls": 159,
+        "visible_test_seconds": 44.99800000002142,
+        "wall_seconds": 2395.4220000000205
+      },
+      "scored_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stages": [
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 1
+        },
+        {
+          "CR": 0.5,
+          "SC": 0.5,
+          "stage": 2
+        },
+        {
+          "CR": 0.8,
+          "SC": 1,
+          "stage": 3
+        },
+        {
+          "CR": 0.8333333333333334,
+          "SC": 1,
+          "stage": 4
+        },
+        {
+          "CR": 0.8333333333333334,
+          "SC": 0,
+          "stage": 5
+        },
+        {
+          "CR": 0.875,
+          "SC": 1,
+          "stage": 6
+        },
+        {
+          "CR": 0.8888888888888888,
+          "SC": 1,
+          "stage": 7
+        },
+        {
+          "CR": 0.9090909090909091,
+          "SC": 1,
+          "stage": 8
+        }
+      ],
+      "started_utc": "2026-09-30T02:12:05.356879+00:00",
+      "status": "complete"
+    },
+    "C3": {
+      "RPS": 0.5357007575757575,
+      "declared_done_stages": 7,
+      "directory": "C3_dev_arena_seed1",
+      "episode_wall_elapsed_seconds": 3041.234999999986,
+      "final": 0.7272727272727273,
+      "format_error_recovery": {
+        "malformed_call_records": 8,
+        "recovered_on_next_call": 5
+      },
+      "gpu_cap": {
+        "cap_seconds": null,
+        "charged_seconds": 1927.7360000000335,
+        "completed_requests": 158,
+        "failed_request_seconds": 0.0,
+        "failed_requests": 0,
+        "reservation_seconds": 305.0,
+        "used_before_seconds": 5866.257999999216
+      },
+      "hardware_at_start": {
+        "disk_free_gib": 120.9,
+        "gpu_memory_total_mib": 12288,
+        "gpu_memory_used_mib": 8226,
+        "gpu_temperature_c": 43
+      },
+      "mean_stage_completion": 0.4583333333333333,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "stages": {
+          "1": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "2": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "3": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "4": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "5": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "6": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "7": {
+            "calls_before_accepted_plan": 3,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 2
+          },
+          "8": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          }
+        },
+        "stages_whose_first_executed_action_is_plan": 8,
+        "stages_with_executed_actions": 8
+      },
+      "regressions": [],
+      "requirement_retention": 0.6666666666666666,
+      "resources": {
+        "completion_tokens": 29948,
+        "estimated_flops": 34247610000000000,
+        "format_errors": 11,
+        "gpu_seconds_upper_bound": 1927.7360000000335,
+        "hidden_test_seconds": 7.577000000164844,
+        "model_calls": 158,
+        "peak_context_tokens": 16027,
+        "prompt_tokens": 1872697,
+        "test_executions": 58,
+        "tool_calls": 158,
+        "visible_test_seconds": 53.6830000000773,
+        "wall_seconds": 3039.810999999987
+      },
+      "scored_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stages": [
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 1
+        },
+        {
+          "CR": 0.5,
+          "SC": 0.5,
+          "stage": 2
+        },
+        {
+          "CR": 0.6,
+          "SC": 0.6666666666666666,
+          "stage": 3
+        },
+        {
+          "CR": 0.5,
+          "SC": 0,
+          "stage": 4
+        },
+        {
+          "CR": 0.6666666666666666,
+          "SC": 0,
+          "stage": 5
+        },
+        {
+          "CR": 0.625,
+          "SC": 0.5,
+          "stage": 6
+        },
+        {
+          "CR": 0.6666666666666666,
+          "SC": 1,
+          "stage": 7
+        },
+        {
+          "CR": 0.7272727272727273,
+          "SC": 1,
+          "stage": 8
+        }
+      ],
+      "started_utc": "2026-09-30T02:52:02.358452+00:00",
+      "status": "complete"
+    },
+    "C4": {
+      "RPS": 0.08229166666666667,
+      "declared_done_stages": 0,
+      "directory": "C4_dev_arena_seed1",
+      "episode_wall_elapsed_seconds": 6877.656000000075,
+      "final": 0,
+      "format_error_recovery": {
+        "malformed_call_records": 12,
+        "recovered_on_next_call": 8
+      },
+      "gpu_cap": {
+        "cap_seconds": null,
+        "charged_seconds": 3044.5059999999357,
+        "completed_requests": 223,
+        "failed_request_seconds": 0.0,
+        "failed_requests": 0,
+        "reservation_seconds": 305.0,
+        "used_before_seconds": 7793.993999999249
+      },
+      "hardware_at_start": {
+        "disk_free_gib": 120.7,
+        "gpu_memory_total_mib": 12288,
+        "gpu_memory_used_mib": 8168,
+        "gpu_temperature_c": 42
+      },
+      "mean_stage_completion": 0.041666666666666664,
+      "plan_first_audit": {
+        "attempted_stages": 8,
+        "stages": {
+          "1": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "2": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "3": {
+            "calls_before_accepted_plan": 3,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 2
+          },
+          "4": {
+            "calls_before_accepted_plan": 3,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 2
+          },
+          "5": {
+            "calls_before_accepted_plan": 1,
+            "first_call_was_plan": true,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 0
+          },
+          "6": {
+            "calls_before_accepted_plan": 4,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 3
+          },
+          "7": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          },
+          "8": {
+            "calls_before_accepted_plan": 2,
+            "first_call_was_plan": false,
+            "first_executed_action": "plan",
+            "malformed_calls_before_plan": 0,
+            "non_plan_actions_rejected_before_plan": 1
+          }
+        },
+        "stages_whose_first_executed_action_is_plan": 8,
+        "stages_with_executed_actions": 8
+      },
+      "regressions": [],
+      "requirement_retention": 0.2,
+      "resources": {
+        "completion_tokens": 45371,
+        "estimated_flops": 53302104000000000,
+        "format_errors": 13,
+        "gpu_seconds_upper_bound": 3044.5059999999357,
+        "hidden_test_seconds": 7.296999999904074,
+        "model_calls": 223,
+        "peak_context_tokens": 16236,
+        "prompt_tokens": 2915857,
+        "test_executions": 102,
+        "tool_calls": 223,
+        "visible_test_seconds": 98.63800000050105,
+        "wall_seconds": 6876.438000000082
+      },
+      "scored_stages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stages": [
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 1
+        },
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 2
+        },
+        {
+          "CR": 0.2,
+          "SC": 0.3333333333333333,
+          "stage": 3
+        },
+        {
+          "CR": 0.16666666666666666,
+          "SC": 0,
+          "stage": 4
+        },
+        {
+          "CR": 0.16666666666666666,
+          "SC": 0,
+          "stage": 5
+        },
+        {
+          "CR": 0.125,
+          "SC": 0,
+          "stage": 6
+        },
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 7
+        },
+        {
+          "CR": 0,
+          "SC": 0,
+          "stage": 8
+        }
+      ],
+      "started_utc": "2026-09-30T03:42:43.913995+00:00",
+      "status": "complete"
+    }
+  },
+  "cumulative_charged_gpu_seconds": 10838.499999999185,
+  "evaluation_projects_used": false,
+  "frozen_config_sha256": "cb840a5b7e7e37417546b1350c6422d00ebd067328140661ede29ec1f3698263",
+  "gpu_cap_basis": "new owner-authorized budget; design DEV-pilot size (3 GPU-hours), separate from the exhausted pre-fix pilot",
+  "gpu_cap_seconds": null,
+  "original_gpu_cap_seconds": 10800,
+  "phase_2_run": false,
+  "plan_first_fix_commit": "9650008b9c793db25fda233d7742c5ec0abd09a9",
+  "project": "dev_arena",
+  "protocol": "GAS-0 Candidate A / one-seed dev_arena DEV pilot, post plan-first fix",
+  "request_timeout_seconds": 300,
+  "resource_budget_amendments": [
+    {
+      "authorized_by": "owner (explicit chat instruction)",
+      "cells_run_before_amendment_took_effect": "C0 complete; C1 was running under the original cap, which it did not reach; C1 was not restarted",
+      "change": "3-hour cumulative GPU-time cap revoked; C0-C4 are to finish",
+      "first_cell_run_without_cap": "C2",
+      "made_during_cell": "C1",
+      "original_gpu_cap_seconds": 10800,
+      "recorded_utc": "2026-09-30T02:12:05.306372+00:00",
+      "type": "resource-budget amendment during the post-fix pilot",
+      "unchanged": "experimental conditions, scoring, model configuration, benchmark content, cell behavior, per-request timeout and hung-request protection, failure aborts"
+    }
+  ],
+  "seed": 1,
+  "tools_sha256": "b281f0d47b20628b53db30408b3a3dbed06d7db826207926f72725a5a9eac392",
+  "updated_utc": "2026-09-30T05:37:21.572520+00:00"
+}

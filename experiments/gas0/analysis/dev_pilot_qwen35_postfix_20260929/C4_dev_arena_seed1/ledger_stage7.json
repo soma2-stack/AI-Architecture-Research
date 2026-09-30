@@ -1,0 +1,458 @@
+{
+  "checkpoint": null,
+  "event": 82,
+  "failures": [
+    {
+      "count": 75,
+      "event": 81,
+      "id": "X1",
+      "message_head": "tests\\test_basics.py:1: in <module>\n    from arena import Arena\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @dataclass\n     ^^^^",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_basics.py"
+    },
+    {
+      "count": 75,
+      "event": 81,
+      "id": "X2",
+      "message_head": "tests\\test_more.py:1: in <module>\n    from arena import Arena\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @dataclass\n     ^^^^^^",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py"
+    },
+    {
+      "count": 75,
+      "event": 81,
+      "id": "X3",
+      "message_head": "tests\\test_stage2.py:2: in <module>\n    from arena.model import Actor, Point\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @datacl",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_stage2.py"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X4",
+      "message_head": "def test_move():\n        game = Arena(1, bordered_world(7, 7))\n>       hero = game.add_player()\n               ^^^^^^^^^^^^^^^^^\n\ntests\\test_basics.py:27: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <arena.game.Arena object at 0x0000021D5C050D90>, actor_i",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_basics.py::test_move"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X5",
+      "message_head": "def test_combat_death_event():\n        game = Arena(1, bordered_world(7, 7))\n>       game.add_player()\n\ntests\\test_basics.py:34: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <arena.game.Arena object at 0x0000021D5BE1FD10>, actor_id = 'hero'\npos = Point(x=1",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_basics.py::test_combat_death_event"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X6",
+      "message_head": "def test_save_round_trip():\n        game = Arena(1, bordered_world(7, 7))\n>       game.add_player()\n\ntests\\test_basics.py:49: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <arena.game.Arena object at 0x0000021D5C061C50>, actor_id = 'hero'\npos = Point(x=1, y",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_basics.py::test_save_round_trip"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X7",
+      "message_head": "def test_world_rejects_occupied_spawn():\n        world = bordered_world(7, 7)\n>       world.add_actor(Actor(\"a\", Point(1, 1), 2, 2, 1, \"p\", \"@\"))\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Actor.__init__() missing 2 required positional arguments: 'faction' ",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py::test_world_rejects_occupied_spawn"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X8",
+      "message_head": "def test_pickup_one_item():\n        world = bordered_world(7, 7)\n>       hero = Actor(\"hero\", Point(1, 1), 4, 4, 1, \"p\", \"@\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Actor.__init__() missing 2 required positional arguments: 'faction' and 'glyph'\n\ntests\\test_mo",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py::test_pickup_one_item"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X9",
+      "message_head": "def test_potion_heals_no_more_than_max():\n        world = bordered_world(7, 7)\n>       hero = Actor(\"hero\", Point(1, 1), 3, 5, 1, \"p\", \"@\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Actor.__init__() missing 2 required positional arguments: 'faction' and 'glyph'\n",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py::test_potion_heals_no_more_than_max"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X10",
+      "message_head": "def test_status_expires():\n        world = bordered_world(7, 7)\n>       hero = Actor(\"hero\", Point(1, 1), 5, 5, 1, \"p\", \"@\")\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Actor.__init__() missing 2 required positional arguments: 'faction' and 'glyph'\n\ntests\\test_mor",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py::test_status_expires"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X11",
+      "message_head": "def test_hud_pure_render():\n        game = Arena(1, bordered_world(7, 7))\n>       game.add_player()\n\ntests\\test_more.py:108: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <arena.game.Arena object at 0x0000021D5BD55B90>, actor_id = 'hero'\npos = Point(x=1, y=",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py::test_hud_pure_render"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X12",
+      "message_head": "def test_save_is_deterministic():\n        game = Arena(1, bordered_world(7, 7))\n>       game.add_player()\n\ntests\\test_more.py:116: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <arena.game.Arena object at 0x0000021D5BD90390>, actor_id = 'hero'\npos = Point(x",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py::test_save_is_deterministic"
+    },
+    {
+      "count": 1,
+      "event": 7,
+      "id": "X13",
+      "message_head": "def test_enemy_moves_toward_player():\n        game = Arena(1, bordered_world(7, 7))\n>       game.add_player()\n\ntests\\test_more.py:124: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <arena.game.Arena object at 0x0000021D5BE16AD0>, actor_id = 'hero'\npos = Poi",
+      "req_ids": [],
+      "resolved": true,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_more.py::test_enemy_moves_toward_player"
+    },
+    {
+      "count": 7,
+      "event": 82,
+      "id": "X14",
+      "message_head": "def test_shield_absorbs_direct_hit():\n>       a = Actor('a', Point(1,1), 5, 5, 1, 'p', '@', shield=2)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Actor.__init__() got multiple values for argument 'shield'\n\ntests\\test_stage2.py:5: TypeError",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 5 +++++\n 1 file changed, 5 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.game",
+        "tests.test_more",
+        "tests.test_stage2"
+      ],
+      "test": "tests/test_stage2.py::test_shield_absorbs_direct_hit"
+    },
+    {
+      "count": 67,
+      "event": 81,
+      "id": "X15",
+      "message_head": "tests\\test_stage3.py:2: in <module>\n    from arena.inventory import Bag, use\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @datacl",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 2 ++\n 1 file changed, 2 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2",
+        "tests.test_stage3"
+      ],
+      "test": "tests/test_stage3.py"
+    },
+    {
+      "count": 6,
+      "event": 82,
+      "id": "X16",
+      "message_head": "def test_shield_tonic_consumed():\n        world = bordered_world(7,7)\n>       actor = Actor('a', Point(1,1), 5, 5, 1, 'p', '@', shield=1)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Actor.__init__() got an unexpected keyword argument 'shield'\n\ntests\\test_st",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/path.py | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)",
+      "tb_symbols": [
+        "tests.test_stage2",
+        "tests.test_stage3"
+      ],
+      "test": "tests/test_stage3.py::test_shield_tonic_consumed"
+    },
+    {
+      "count": 51,
+      "event": 81,
+      "id": "X17",
+      "message_head": "tests\\test_stage4.py:2: in <module>\n    from arena.mapgen import bordered_world\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @dat",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 2 ++\n arena/path.py  | 2 +-\n 2 files changed, 3 insertions(+), 1 deletion(-)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4"
+      ],
+      "test": "tests/test_stage4.py"
+    },
+    {
+      "count": 41,
+      "event": 81,
+      "id": "X18",
+      "message_head": "tests\\test_stage5.py:2: in <module>\n    from arena.model import Actor, Point\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @datacl",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 2 ++\n 1 file changed, 2 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5"
+      ],
+      "test": "tests/test_stage5.py"
+    },
+    {
+      "count": 25,
+      "event": 82,
+      "id": "X19",
+      "message_head": "def test_no_raw_event_append_outside_world():\n        root = Path(__file__).resolve().parents[1] / 'arena'\n        for path in root.glob('*.py'):\n            if path.name == 'model.py':\n                continue\n            tree = ast.parse(path.read_text())\n            for node in ast.walk(tree):\n  ",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 2 ++\n 1 file changed, 2 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5",
+        "tests.test_stage6"
+      ],
+      "test": "tests/test_stage6_static.py::test_no_raw_event_append_outside_world"
+    },
+    {
+      "count": 21,
+      "event": 81,
+      "id": "X20",
+      "message_head": "tests\\test_stage6.py:2: in <module>\n    from arena.mapgen import bordered_world\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @dat",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 2 ++\n 1 file changed, 2 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5",
+        "tests.test_stage6"
+      ],
+      "test": "tests/test_stage6.py"
+    },
+    {
+      "count": 4,
+      "event": 82,
+      "id": "X21",
+      "message_head": "def test_path_to_current_tile_contains_that_tile():\n        w=bordered_world(7,7); current=Point(2,2)\n>       assert shortest_path(w,current,current)==[current]\nE       assert [] == [Point(x=2, y=2)]\nE         \nE         Right contains one more item: Point(x=2, y=2)\nE         Use -v to get more diff",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 1 +\n 1 file changed, 1 insertion(+)",
+      "tb_symbols": [
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5",
+        "tests.test_stage6"
+      ],
+      "test": "tests/test_stage4.py::test_path_to_current_tile_contains_that_tile"
+    },
+    {
+      "count": 4,
+      "event": 82,
+      "id": "X22",
+      "message_head": "def test_piercing_bypasses_shield():\n>       a = Actor('a', Point(1,1), 4, 4, 1, 'p', '@', shield=3)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Actor.__init__() got an unexpected keyword argument 'shield'\n\ntests\\test_stage5.py:5: TypeError",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 1 +\n 1 file changed, 1 insertion(+)",
+      "tb_symbols": [
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5",
+        "tests.test_stage6"
+      ],
+      "test": "tests/test_stage5.py::test_piercing_bypasses_shield"
+    },
+    {
+      "count": 4,
+      "event": 82,
+      "id": "X23",
+      "message_head": "def test_event_sequence():\n        w = bordered_world(7,7)\n>       w.emit(Event('a','hero')); w.emit(Event('b','hero'))\n        ^^^^^^\nE       AttributeError: 'World' object has no attribute 'emit'\n\ntests\\test_stage6.py:7: AttributeError",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 1 +\n 1 file changed, 1 insertion(+)",
+      "tb_symbols": [
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5",
+        "tests.test_stage6"
+      ],
+      "test": "tests/test_stage6.py::test_event_sequence"
+    },
+    {
+      "count": 10,
+      "event": 81,
+      "id": "X24",
+      "message_head": "tests\\test_stage7.py:2: in <module>\n    from arena.inventory import Bag, use\narena\\__init__.py:3: in <module>\n    from .game import Arena\narena\\game.py:4: in <module>\n    from . import ai\narena\\ai.py:4: in <module>\n    from .model import Actor, Point, World\narena\\model.py:27: in <module>\n    @datacl",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "arena/model.py | 2 ++\n 1 file changed, 2 insertions(+)",
+      "tb_symbols": [
+        "tests.test_basics",
+        "arena.__init__",
+        "arena.game",
+        "arena.ai",
+        "arena.model",
+        "tests.test_more",
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5",
+        "tests.test_stage6",
+        "tests.test_stage7"
+      ],
+      "test": "tests/test_stage7.py"
+    },
+    {
+      "count": 2,
+      "event": 82,
+      "id": "X25",
+      "message_head": "def test_antidote_stops_poison():\n        w=bordered_world(7,7); a=Actor('a',Point(1,1),2,5,1,'p','@')\n        a.statuses['poison']=2\n        bag=Bag(items=[Item('ant','antidote')])\n>       use(w,a,bag,'ant')\n\ntests\\test_stage7.py:10: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ",
+      "req_ids": [],
+      "resolved": false,
+      "reverted_diff": "",
+      "tb_symbols": [
+        "tests.test_stage2",
+        "tests.test_stage3",
+        "tests.test_stage4",
+        "tests.test_stage5",
+        "tests.test_stage6",
+        "tests.test_stage7",
+        "arena.inventory"
+      ],
+      "test": "tests/test_stage7.py::test_antidote_stops_poison"
+    }
+  ],
+  "requirements": [],
+  "tasks": []
+}

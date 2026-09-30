@@ -9,7 +9,18 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-29, session 27
+# Resume Pointer (read this first in a new session) — updated 2026-09-30, session 27 (continued)
+
+- **Current:** the post-fix GAS-0 DEV pilot (C0–C4, `dev_arena`, seed 1) is complete (Part AU).
+  - Every cell ran fresh under the plan-first fix; plan-first held in 40/40 stages.
+  - RPS: C0 0.396, C1 0.378, C2 0.705, C3 0.536, C4 0.082 (= null). One seed; descriptive only.
+  - Details: `experiments/gas0/README.md`, "Post-fix DEV pilot results".
+- **Owner decision needed before any official matrix:**
+  - C4's specified compressed feedback (an 800-char notice and a 300-char failure `message_head`) hid the exception line of an import-time dataclass error that caused 54 of 84 C4 rollbacks.
+  - Whether to amend it is a treatment change.
+- **Not run:** no evaluation project, no official experiment, no Phase 2.
+
+# Resume Pointer as of session 27 (historical; superseded by the block above)
 
 - **Current:** the GAS-0 plan-first enforcement fix is done (Part AT).
   - Root cause: plan-first was checked only on model call 1, so a repaired call 2 bypassed it.
@@ -4910,6 +4921,35 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AU — GAS-0 post-fix DEV pilot (session 27 continued, 2026-09-29/30; owner-authorized GPU run)
+
+- **Cap guard (verified by tests):**
+  - the fixed 60 s reservation is replaced by a worst-case reservation: the 300 s request timeout plus 5 s;
+  - failed requests are charged;
+  - 27 CPU/mock tests, including a real client against a silent HTTP server;
+  - full suite 90/90.
+- **Budget:**
+  - the pilot started with a fresh 3-GPU-hour cap;
+  - the owner explicitly lifted the cumulative cap during C1. This is recorded as a resource-budget amendment; C1 was not restarted;
+  - total charged: 10,838.5 s (3.011 h). No request failed or timed out; the longest took 40.4 s.
+- **Results (verified; one seed, descriptive):**
+  - RPS: C0 0.396, C1 0.378, C2 0.705, C3 0.536, C4 0.082;
+  - final CR: 0.727, 0.545, 0.909, 0.727, 0.000.
+
+  The full table and differences are in the GAS-0 README and `postfix_pilot_analysis.json`.
+- **Plan-first audit (verified):** 40/40 stages executed a plan first. 54 non-plan attempts were rejected, and a plan was produced on call 1 in only 13 of 40 stages.
+- **C4 mechanism (verified):**
+  - 84 of 92 edits were rolled back;
+  - the dominant failure was a dataclass field-order `TypeError` at import;
+  - the C4 notice and ledger failure record (the frozen "head" truncations) lose the exception line;
+  - one failure record reached count 24;
+  - C2/C3 raw events showed the exception each time.
+- **Interpretation (not a result):**
+  - on this pilot, C4's compressed feedback channel, not the ledger/gate coupling as such, explains the collapse;
+  - pre-fix vs post-fix cell RPS swings (C1 0.674 → 0.378, C2 0.275 → 0.705) show that one-seed run-to-run variance is large;
+  - no synergy claim.
+- **Readiness:** the pilot is technically complete and its cells are mutually comparable. The C4 feedback-truncation issue should be resolved or accepted by the owner before the official matrix.
 
 # Part AT — GAS-0 plan-first enforcement fix (session 27, 2026-09-29; CPU tests, then the owner-authorized clean C4 DEV rerun)
 

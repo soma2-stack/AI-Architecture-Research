@@ -433,3 +433,70 @@ bound plus a 60 s reservation stays within the cap. The largest pilot call took
   - the 300 s per-request timeout (hung-request protection), GPU-time charging, and clean aborts on infrastructure failures (HTTP/CUDA errors abort the cell).
 - Added: a pre-cell safety check that refuses to start a cell with less than 5 GiB of free disk or a GPU temperature of 85 °C or more. An external monitor also watches the GPU temperature during cells.
 - `gpu_cap.CappedClient` accepts `cap_seconds=None`. A test covers charging and timeouts without a cumulative cap (27 cap tests).
+
+### Post-fix DEV pilot results (complete; `dev_arena`, seed 1; 2026-09-29/30)
+
+**Scope and provenance.**
+- All five cells ran fresh from Stage 1 under the corrected plan-first harness (`agent_loop.py` SHA-256 `3fa6ccbf…`), consecutively, with no retries or aborted attempts.
+- The pinned server settings are recorded in the C4 rerun notes above.
+- Records:
+  - `analysis/dev_pilot_qwen35_postfix_20260929/postfix_pilot_summary.json` (per-cell results, cap statistics, budget amendment);
+  - `postfix_pilot_analysis.json` (table, differences, per-stage plan-first audit; produced by `analysis/analyze_postfix_pilot.py`);
+  - per-cell JSONL transcripts, stage scores and ledger snapshots.
+
+| Cell | RPS | Mean SC | Final CR | Retention | Done stages | Calls | Tests | Format errors (plan-first rejections / malformed, recovered next call) | Prompt tok | Completion tok | Peak ctx | GPU s (upper bound) | Wall s |
+|---|---:|---:|---:|---:|---:|---:|---:|---|---:|---:|---:|---:|---:|
+| C0 | 0.396117 | 0.458333 | 0.727273 | 0.266667 | 6 | 133 | 11 | 23 (18 / 3, 2) | 1,252,635 | 19,931 | 15,793 | 1,136.2 | 1,188.2 |
+| C1 | 0.377557 | 0.270833 | 0.545455 | 0.266667 | 0 | 216 | 18 | 34 (16 / 14, 11) | 2,775,411 | 55,312 | 16,375 | 3,227.2 | 6,902.6 |
+| C2 | 0.704956 | 0.687500 | 0.909091 | 1.000000 | 6 | 159 | 52 | 10 (4 / 1, 1) | 1,702,149 | 20,493 | 15,868 | 1,502.9 | 2,396.7 |
+| C3 | 0.535701 | 0.458333 | 0.727273 | 0.666667 | 7 | 158 | 58 | 11 (5 / 3, 1) | 1,872,697 | 29,948 | 16,027 | 1,927.7 | 3,041.2 |
+| C4 | 0.082292 | 0.041667 | 0.000000 | 0.200000 | 0 | 223 | 102 | 13 (11 / 1, 1) | 2,915,857 | 45,371 | 16,236 | 3,044.5 | 6,877.7 |
+| **Total** | | | | | | **889** | **241** | 91 (54 / 22, 16) | **10,518,749** | **171,055** | 16,375 | **10,838.5** | **20,406.4** |
+
+Notes on the table:
+- The harness format-error counter also counts ordinary tool-execution errors, so it exceeds the plan-first-rejection plus malformed-call totals.
+- "Tests" means visible-test executions, including gate runs.
+- The GPU figure is the sum of per-request wall times. It equals the cap guard's charged total, and no request failed or timed out; the longest request took 40.4 s.
+
+**Descriptive differences (one seed; no significance, synergy or improvement claim).**
+
+| Metric | C1−C0 | C2−C0 | C3−C0 | C4−C0 | C4−C3 | C4−max(C1,C2) |
+|---|---:|---:|---:|---:|---:|---:|
+| RPS | −0.018561 | +0.308838 | +0.139583 | −0.313826 | −0.453409 | −0.622664 |
+| Mean SC | −0.187500 | +0.229167 | 0.000000 | −0.416667 | −0.416667 | −0.645833 |
+| Final CR | −0.181818 | +0.181818 | 0.000000 | −0.727273 | −0.727273 | −0.909091 |
+| Retention | 0.000000 | +0.733333 | +0.400000 | −0.066667 | −0.466667 | −0.800000 |
+
+**Plan-first audit (verified from the raw JSONL).**
+- 40 of 40 attempted stages (8 in every cell) executed `plan` before any other action.
+- No stage executed a non-plan action before an accepted plan, and every stage eventually accepted a plan.
+- The model produced a valid plan on call 1 in 13 of 40 stages (C0 4, C1 0, C2 4, C3 4, C4 1). The other 27 stages had 54 rejected non-plan attempts before planning.
+
+**C4 outcome and a treatment-implementation validity concern (verified; owner decision).**
+- C4 kept essentially the starter code for the whole episode. Exactly 24 hidden tests passed at every stage; the set changed only when a starter test was superseded (Stage 2) and when a "still deferred" probe passed (Stage 3). Its RPS equals the benchmark's null RPS (0.082292).
+- There was no harness error. The gate rolled back 84 of 92 C4 edits; C2 rolled back 1 and C3 rolled back 2.
+- 54 of the C4 rollbacks name a collection failure in `tests/test_basics.py`. The recurring edit inserted `shield: int = 0` before the non-default dataclass field `attack: int` in `arena/model.py`, which raises `TypeError: non-default argument follows default argument` at import.
+- The failure record for that test reached `count 24`: the model repeated essentially the same failing edit 24 times.
+- The specified C4 channels are:
+  - the coupled notice, `json.dumps(summary)[:800]`;
+  - the ledger failure record, `message_head[:300]`.
+
+  Both show only the head of the import-chain traceback, which here is padded with long absolute stdlib paths. The exception line is cut off: 54 of 84 C4 rollback notices contain no exception text at all.
+- In C2/C3 the uncoupled raw event (up to 4,800 characters of history) showed the exception in every rollback (1 of 1 and 2 of 2).
+- The harness implements the frozen "≤ 300-token notice / message head" design faithfully, so this is not an infrastructure failure, and it was not changed.
+- It does mean that, on this pilot, C4's compressed feedback systematically hides the cause of import-time errors. Whether to amend it (for example, including the final exception line) is a treatment change for the owner to decide. It would require re-running at least C4, and under the pre-registration rule the affected cells.
+
+**Budget and safety.**
+- The original 3-hour cumulative cap was explicitly lifted by the owner during C1. The amendment is recorded in the summary (`resource_budget_amendments`); the record was written when C2 started, the first cell run without the cap.
+- Total charged GPU time: 10,838.5 s (3.011 h). C4 crossed the original 10,800 s level after the cap was lifted. Under the original cap, the guard would have stopped C4 at Stage 7, call 18.
+- The per-request timeout (300 s + 5 s reservation) stayed active, and no request hit it.
+- Pre-cell checks (C2–C4) saw 42–43 °C and about 120 GiB of free disk. The external temperature monitor never reached 85 °C.
+- The local model server was stopped after C4.
+
+**Comparability and readiness.**
+- All five post-fix cells ran under one harness version, one model and server configuration, one seed and one project. That makes them directly comparable with each other as a single descriptive DEV observation.
+- They are not comparable with the pre-fix pilot.
+- The same cells differed greatly between the pre-fix and post-fix runs (for example C1 0.674 → 0.378 and C2 0.275 → 0.705). The single-seed signal is dominated by run-to-run variation.
+- The DEV pilot is now **technically complete**: all cells finished, plan-first held, and there were no infrastructure failures.
+- The C4 feedback-truncation finding should be resolved or explicitly accepted by the owner before the official matrix. Otherwise the official C4 cell would test a feedback channel that loses the error cause for a common failure class.
+- No evaluation project, official experiment or Phase 2 was run, and no benchmark or evaluator content was changed. All earlier pilot directories and summaries are unchanged.
