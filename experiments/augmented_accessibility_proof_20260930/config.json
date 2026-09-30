@@ -1,0 +1,13 @@
+{
+  "purpose": "Bounded arbitrary-width proof/counterexample attack; no endpoint sweep",
+  "recurrence": "h'=tanh(Rh+Wx+b), S'=diag(sech^2(Rh+Wx+b))(RS+deltaR*h+deltaW*x+deltab)",
+  "parameters": "All R,W,b entries independently differentiated; fixed along trajectories",
+  "claim_to_check": "Forward control-pullback module spans n+n(2n^2+n) directions",
+  "sufficient_assumptions": ["R invertible", "W invertible", "Every entry of R inverse nonzero", "Inputs in any nonempty open subset of R^n"],
+  "explicit_family": "R=I-ones/(n+1), W=I, b=0",
+  "checks": "Exact rational/symbolic algebra at n=2 and n=3; no numerical width extension",
+  "hard_cpu_seconds": 2700,
+  "device": "CPU; pure symbolic algebra; no ML framework or model server",
+  "prohibited": ["GAS-0 changes", "GPU/CUDA", "Stage C", "AMS v10", "Learning experiments", "Observability experiments"],
+  "stop": "After proof audit, documentation and commit/push"
+}
