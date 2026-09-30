@@ -1,3 +1,6 @@
+import os
+os.environ['CUDA_VISIBLE_DEVICES']='-1'
+for _key in ('OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS'):os.environ[_key]='1'
 import hashlib
 import unittest
 import numpy as np
@@ -76,6 +79,11 @@ class CompressionTests(unittest.TestCase):
         self.assertFalse(c.CFG['stage_c_authorized']);self.assertFalse(c.CFG['parameter_updates'])
     def test_no_ceiling_promotion(self):
         self.assertEqual(comp.classify([],[],False),'STAGE B2 — INCONCLUSIVE')
+    def test_actual_BLAS_pools(self):
+        import psutil
+        from pools import thread_pools
+        pools=thread_pools(psutil.Process());self.assertEqual(len(pools),2)
+        self.assertTrue(all(p['threads']==1 for p in pools),pools)
 
 if __name__=='__main__':
     meter=c.Meter('Stage-B2 development validation including copied Stage-B controls')

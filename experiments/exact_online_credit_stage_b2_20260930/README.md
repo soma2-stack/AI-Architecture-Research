@@ -1,5 +1,11 @@
 # Exact Online Credit Stage B2
 
+**Runtime correction:** the original attempt below used24-thread BLAS pools
+despite single-thread Torch. Preserve its outputs; do not use its timings as
+conforming evidence. See RUNTIME_CORRECTION.md. Corrected measurements use
+`python experiments/exact_online_credit_stage_b2_20260930/run.py --corrected`
+and write corrected_single_thread/.32 tests now pass, including actual pool checks.
+
 Frozen-parameter CPU compression audit; unrelated to GAS-0. Read PREREGISTRATION.md
 and config.json. core.py/structures.py are byte-identical copies from Stage B;
 test_stage_b_controls.py is its copied validation. No previous experiment is edited.
@@ -21,3 +27,5 @@ against BPTT; previous Stage-B NPZ compared where available. Main matrices retai
 Raw JSONL includes rejected/large factors; family spectra and reproducible hashes
 retained instead of gigabytes of derived family samples. Analysis/plots are added
 after measurement. STOP after B2; no Stage C or AMS v10.
+
+Completed: **STAGE B2 — INCONCLUSIVE**. See REPORT.md/summary.json. Stop; Stage C not authorized.

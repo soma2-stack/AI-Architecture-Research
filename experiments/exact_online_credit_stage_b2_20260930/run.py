@@ -1,4 +1,8 @@
 """Small B2 sweep, fail-closed exactness and CPU accounting, no optimizer."""
+import os
+os.environ['CUDA_VISIBLE_DEVICES']='-1'
+for _key in ('OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS'):os.environ[_key]='1'
+import argparse
 import csv
 import hashlib
 import io
@@ -6,6 +10,7 @@ import json
 import subprocess
 import time
 import zipfile
+from pathlib import Path
 import numpy as np
 import scipy.linalg as la
 import torch
@@ -42,8 +47,9 @@ def exact_gate(m,value,full,ref,theta_hash):
 def old_provenance(m,z,S,x):
     axis='positive' if m.linear_shared else 'mix' if m.mode=='feedback' else m.family
     key=f"n{m.n}_{axis}{m.interaction}_d{m.depth}_{m.mode}_T{z['T']}_s{z['seed']}.npz"
-    old=c.ROOT.parent/'exact_online_credit_stage_b_20260930'
+    old=Path(__file__).resolve().parent.parent/'exact_online_credit_stage_b_20260930'
     with zipfile.ZipFile(old/'matrices.zip') as archive:
+        key='matrices/'+key
         if key not in archive.namelist():return {'available':False}
         blob=archive.read(key)
     with np.load(io.BytesIO(blob)) as saved:
@@ -166,12 +172,20 @@ def high_precision(meter):
     (c.ROOT/'precision.json').write_text(json.dumps(row,indent=2));return row
 
 def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--corrected',action='store_true');args=parser.parse_args()
+    base=c.ROOT
+    if args.corrected:c.ROOT=base/'corrected_single_thread'
     meter=c.Meter('Stage-B2 measured main, precision and family audit')
+    if args.corrected:meter.prior+=sum(json.loads(l)['cpu_seconds'] for l in (base/'cpu_ledger.jsonl').read_text().splitlines())
     try:
         hardware=c.hardware();repo=c.ROOT.parents[1]
+        from pools import thread_pools
+        hardware['BLAS_pools']=thread_pools(meter.process)
+        assert all(p['threads']==1 for p in hardware['BLAS_pools']),'Nonconforming BLAS threads'
+        repo=base.parents[1]
         provenance={'hardware':hardware,'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip(),
                     'config_sha256':hashlib.sha256((c.ROOT/'config.json').read_bytes()).hexdigest(),
-                    'source_hashes':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in c.ROOT.glob('*.py')},
+                    'source_hashes':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in base.glob('*.py')},
                     'Stage_B_source_commit':'ab56ca44dbf69a5cec7a2c8cecb7dd9a74f76e09'}
         (c.ROOT/'provenance.json').write_text(json.dumps(provenance,indent=2))
         rows=main_sweep(meter);precision=high_precision(meter);families,complete=family_sweep(meter)
