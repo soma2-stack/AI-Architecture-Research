@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "result": {
+    "accuracy": 1.0,
+    "environment_accuracy": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "union_accuracy": 1.0,
+    "union_bce": 2.6961528419633396e-05,
+    "counterfactual_flip_rate": 0.0,
+    "seed": 9200900,
+    "model": "mlp",
+    "schedule": "joint",
+    "control": "base",
+    "lr": 0.03,
+    "transition_metrics": [
+      {
+        "accuracy": 1.0,
+        "environment_accuracy": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "union_accuracy": 1.0,
+        "union_bce": 0.003644735785201192,
+        "counterfactual_flip_rate": 0.0
+      },
+      {
+        "accuracy": 1.0,
+        "environment_accuracy": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "union_accuracy": 1.0,
+        "union_bce": 0.00019346445333212614,
+        "counterfactual_flip_rate": 0.0
+      },
+      {
+        "accuracy": 1.0,
+        "environment_accuracy": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "union_accuracy": 1.0,
+        "union_bce": 9.60269317147322e-05,
+        "counterfactual_flip_rate": 0.0
+      }
+    ],
+    "parameters": 1601,
+    "persistent_bytes": 19508,
+    "steps": 960,
+    "training_examples": 61440,
+    "approximate_dense_training_flops": 590192640,
+    "flop_note": "Dense parameter proxy; Transformer attention/nonlinear overhead not included; CPU measured separately",
+    "cpu_seconds": 0.515625,
+    "wall_seconds": 0.5351976999081671,
+    "dataset_sha256": "859bc35973ae9755f7ff50aba403867c58c3fd04f13d796adb39a93774aa1b6f"
+  },
+  "rule": {
+    "seed": 9200900,
+    "model": "propositional_enumeration",
+    "accuracy": 1.0,
+    "joint_cumulative_gap_pp": 0,
+    "zero_error_distinct_rules": 1,
+    "selected_rule": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "stage_accuracy": [
+      0.5,
+      1.0,
+      1.0
+    ],
+    "parameters": 0,
+    "persistent_bytes": 400,
+    "approx_comparisons": 38400,
+    "training_examples": 768,
+    "dataset_sha256": "859bc35973ae9755f7ff50aba403867c58c3fd04f13d796adb39a93774aa1b6f"
+  }
+}
