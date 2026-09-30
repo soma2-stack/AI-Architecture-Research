@@ -1,0 +1,27 @@
+{
+  "hardware": {
+    "device": "cpu",
+    "torch": "2.13.0+cpu",
+    "cuda_build": null,
+    "dtype": "float64",
+    "BLAS_pools": [
+      {
+        "library": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "threads": 1
+      },
+      {
+        "library": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "threads": 1
+      }
+    ]
+  },
+  "commit": "9c08a86e2beea607a142746198186c8dc9cc3e23",
+  "hashes": {
+    "core.py": "a43504f8d3f7566c88d30cb56eeea40b63f762bfa413af9dedbf8bd1b5881c93",
+    "interval.py": "29eb3e29794236866047f6f738752012e73ef30a10a3522c8837c05173dbe8f1",
+    "run.py": "5453b29acc7ca45f99fad286bc0461aff8f71f540b4f480d125158c97fd2eab9",
+    "test_audit.py": "257357308a5e1d88fec910a9861911fce62fb6816dee2dba99294e5aed06f2fa",
+    "verify.py": "d891794070d6db9be34a945092edec56ed235bbea39a70f5bd74c7495c50ed46"
+  },
+  "config_sha256": "9b01559b9d6d69ca1b62f997c6f28bcd65ebce49e1e4a1eab6d52980958e3dac"
+}

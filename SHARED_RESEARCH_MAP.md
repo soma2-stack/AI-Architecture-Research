@@ -4,6 +4,26 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Latest derivative audit — Endpoint certificate (2026-09-30)
+
+**ENDPOINT CERTIFICATE — FULL-DIMENSION WITNESS FOUND.** Frozen9c08a86;
+experiments/endpoint_certificate_20260930/REPORT.md and verification.json.
+Width2, real tanh, fixed rational parameters, continuous inputs. Dense P10/T11
+endpoint22 has certified22x22 minor; deep2 P20/T32 supported endpoint64 has
+certified64x64 minor. At the same deep point local `(h,E)` rank44 rises to64
+with20 cross-layer sensitivities. E is40 dense-block eligibility coordinates.
+Independent compact control rank10; shared-linear rank4 matches exact factor
+invariant. Five outward256-bit interval certificates independently replayed with
+exact Fraction residual bounds<1;13 tests. RTRL/BPTT max2.971e-16. One frozen
+seed9502100 suffices for this existential witness; no seed robustness claim.
+Local open-set result, **not** universal/asymptotic lower bound, useful-learning
+claim or new architecture. Numerical deep SVD cutoff ranks28–62 versus certified64
+also warn that tiny directions need explicit precision assumptions in any bound.
+Measured0.762760 CPU-min, +10s administrative estimate; peak306.293MiB.
+GPU/CUDA/GAS-0 untouched; all earlier inconclusive/negative artifacts preserved.
+**STOP — independent certificate audit / bounded proof development next.**
+No Stage C, AMS v10 or learning experiment authorization. See Codex AR-157.
+
 ## Latest derivative audit — Exact Online Credit Stage B2 (2026-09-30)
 
 **STAGE B2 — INCONCLUSIVE.** Corrected primary record:

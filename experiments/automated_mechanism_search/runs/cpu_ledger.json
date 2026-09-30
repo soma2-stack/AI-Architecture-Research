@@ -1403,8 +1403,56 @@
    "note": "Conservative repair/administrative estimate, not measured numerical CPU",
    "utc": "2026-09-30T18:02:01.949837+00:00",
    "exact_stage_b2_entry_id": "b4cfed087fbf744bea47429866beaedd8659b363a1722502918f06ee9cf66b96"
+  },
+  {
+   "stage": "endpoint_certificate",
+   "cpu_seconds": 4.0625,
+   "wall_seconds": 6.363081693649292,
+   "note": "Measured whole process: Endpoint development unit checks",
+   "utc": "2026-09-30T20:40:21.984351+00:00",
+   "endpoint_entry_id": "bd0854ed2b55b18360aaf72b78970f8c9453ae98898cb6aa68850b1fe04f6a6d"
+  },
+  {
+   "stage": "endpoint_certificate",
+   "cpu_seconds": 16.5625,
+   "wall_seconds": 17.417859077453613,
+   "note": "Measured whole process: Endpoint official witnesses and interval certification",
+   "utc": "2026-09-30T20:40:21.984351+00:00",
+   "endpoint_entry_id": "8a3f34b9c8dfc10115ff527bebc3019dfe010da76113f113e31c614b0b551272"
+  },
+  {
+   "stage": "endpoint_certificate",
+   "cpu_seconds": 12.796875,
+   "wall_seconds": 13.0031578540802,
+   "note": "Measured whole process: Independent certificate replay/Fraction verification",
+   "utc": "2026-09-30T20:40:21.984351+00:00",
+   "endpoint_entry_id": "5605e97e0efab9b71321c54ed7dbd48d8eb53f0f5869e782c39f6c32553ecc0f"
+  },
+  {
+   "stage": "endpoint_certificate",
+   "cpu_seconds": 3.84375,
+   "wall_seconds": 3.943331718444824,
+   "note": "Measured whole process: Endpoint development unit checks",
+   "utc": "2026-09-30T20:40:21.984351+00:00",
+   "endpoint_entry_id": "3589604a07650c052faf9a3f32fe25c5ead6bb470dc489c93b14e462ac1d0425"
+  },
+  {
+   "stage": "endpoint_certificate",
+   "cpu_seconds": 8.5,
+   "wall_seconds": 8.63784646987915,
+   "note": "Measured whole process: Endpoint final group validation and documentation",
+   "utc": "2026-09-30T20:40:21.984351+00:00",
+   "endpoint_entry_id": "ed95c9e1ab65138315c7ea4abbb9d40be7ec648581705b0930ff372966c41dde"
+  },
+  {
+   "stage": "endpoint_certificate",
+   "cpu_seconds": 10,
+   "wall_seconds": 0,
+   "note": "Conservative administrative estimate, not measured numerical CPU",
+   "utc": "2026-09-30T20:40:21.984351+00:00",
+   "endpoint_entry_id": "endpoint_certificate_20260930_administrative_estimate"
   }
  ],
- "total_cpu_seconds": 21921.531000000003,
- "total_cpu_hours": 6.089314166666667
+ "total_cpu_seconds": 21977.296625000003,
+ "total_cpu_hours": 6.104804618055557
 }

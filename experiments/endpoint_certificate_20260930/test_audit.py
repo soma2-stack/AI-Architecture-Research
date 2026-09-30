@@ -26,10 +26,39 @@ class Tests(unittest.TestCase):
             self.assertTrue(all(S[i,p]==0 for i in range(m.N) for p in range(m.P) if (i,p) not in m.support))
     def test_shared_exact_factors(self):
         m=c.Model('shared_linear');X=c.inputs(3,5);F,J,S=c.jets(m,X)
+        ex=np.zeros(2);eh=np.zeros(2);h=np.zeros(2)
+        W=np.array([[.5,.125],[-.0625,.4375]]);b=np.array([1/64,-2/64])
+        for row in X:
+            ex=.35*ex+np.array(row,dtype=float);eh=.35*eh+h
+            h=.35*h+W@np.array(row,dtype=float)+b
+        self.assertLess(c.relative(F[:2],W@ex+b*sum(.35**i for i in range(5))),1e-12)
         eb=sum(.35**i for i in range(5))
         for p,(layer,owner,name,j) in enumerate(m.meta):
-            if name=='b':self.assertAlmostEqual(S[owner,p],eb)
+            expected=eb if name=='b' else eh[owner] if name=='R' else ex[j]
+            self.assertAlmostEqual(S[owner,p],expected)
         self.assertEqual(np.linalg.matrix_rank(J,tol=1e-10),4)
+    def test_independent_compact_rule(self):
+        m=c.Model('independent');X=c.inputs(c.CFG['development_seed'],5)
+        h=np.zeros(2);eligibility=np.zeros(m.P)
+        for row in X:
+            x=np.array(row,dtype=float);old=h.copy();z=np.zeros(2)
+            for p,(_,owner,name,j) in enumerate(m.meta):
+                z[owner]+=float(m.params[p])*(old[j] if name=='R' else x[j] if name=='W' else 1)
+            h=np.tanh(z)
+            for p,(_,owner,name,j) in enumerate(m.meta):
+                r=float(m.params[owner]);direct=old[j] if name=='R' else x[j] if name=='W' else 1
+                eligibility[p]=(1-h[owner]**2)*(r*eligibility[p]+direct)
+        F,_,S=c.jets(m,X)
+        self.assertLess(c.relative(h,F[:2]),1e-12)
+        for p,(_,owner,_,_) in enumerate(m.meta):self.assertAlmostEqual(eligibility[p],S[owner,p])
+    def test_saved_certificate_rejection(self):
+        import json,copy
+        from verify import verify
+        path=c.ROOT/'certificate_shared_linear_9502100_shared_rank4.json'
+        if not path.exists():self.skipTest('Official certificates not collected yet')
+        data=json.loads(path.read_text());self.assertTrue(verify(data)['verified'])
+        broken=copy.deepcopy(data);broken['preconditioner']=[['0']*4 for _ in range(4)]
+        with self.assertRaises(AssertionError):verify(broken)
     def test_high_precision(self):
         mp.mp.dps=100;m=c.Model('dense');X=c.inputs(8,3)
         f,j,_=c.jets(m,X);F,J,_=c.jets(m,X,'mp')
