@@ -8,7 +8,10 @@ lifetime. Exactness and trajectories were valid, but resource accounting needed
 repair. Explicitly release A/B and direct after their use. This changes no model,
 derivative formula, seed, gate or numerical computation. Preserve the first
 sweep in pre_resource_lifetime_fix/. Commit the correction before rerunning
-the official sweep; use only the corrected sweep for final resource conclusions.
+   the official sweep; use only the corrected sweep for final resource conclusions.
+   Add a weak-reference unit test proving A/B are released before the next step.
+   Double the analytic scratch inventory bound to cover overlap during Python
+   per-layer variable rebinding. Persistent storage counts remain exact.
 
 2. Meter wall_seconds is timed after Python/Torch imports; CPU seconds includes
 imports. Label it post-import job wall rather than full launch-to-exit wall.

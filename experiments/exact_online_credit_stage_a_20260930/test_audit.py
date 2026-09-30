@@ -1,4 +1,5 @@
 import unittest
+import weakref
 import torch
 import audit as a
 
@@ -78,6 +79,20 @@ class Tests(unittest.TestCase):
         aa,bb=torch.autograd.functional.jacobian(lambda hp,theta:m.step(hp,x[0],theta),(prev,m.theta))
         self.assertLess(float((A-aa).abs().max()),1e-14)
         self.assertLess(float((B-bb).abs().max()),1e-14)
+    def test_rtrl_scratch_not_persistent(self):
+        original=a.jacobians
+        references=[]
+        def checked(*args):
+            self.assertTrue(all(ref() is None for ref in references))
+            result=original(*args)
+            references[:]=[weakref.ref(result[1]),weakref.ref(result[2])]
+            return result
+        a.jacobians=checked
+        try:
+            m=a.Model('independent',2,self.seed,3)
+            a.rtrl(m,*a.data(self.seed,7,3))
+            self.assertTrue(all(ref() is None for ref in references))
+        finally:a.jacobians=original
 
 if __name__=='__main__':
     meter=a.Meter('development unit validation')

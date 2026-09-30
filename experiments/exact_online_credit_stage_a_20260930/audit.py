@@ -184,7 +184,8 @@ def jacobians(model,prev,x):
         # Inventory: global A/B, direct n*P, D vector, recurrence matrix,
         # current spatial J and the largest matmul result n*max(N,P).
         max_workspace=max(max_workspace,A.numel()+B.numel()+direct.numel()+d.numel()+recurrence.numel()+J.numel()+n*max(N,P))
-    return h,A,B,max_workspace
+    # Include overlap when Python rebinds per-layer scratch temporaries.
+    return h,A,B,2*max_workspace
 
 def rtrl(model,x,q,y):
     start=time.perf_counter(); derivative_seconds=0.
