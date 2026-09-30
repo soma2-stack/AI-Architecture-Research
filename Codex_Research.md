@@ -6,15 +6,15 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
-### AMS mechanism-search resume — v9 documentation only (2026-09-29)
+### AMS mechanism-search resume — v9 stopped at V0-SCOPE (2026-09-29)
 
-- **Current lens:** evidence-led design of a materially different, conditional temporal-credit search. This task is separate from GAS-0; its files, runtime and results are untouched.
-- **Stage:** AMS v8 and OMD-PILOT-1 record audit complete. A standalone proposed v9 preregistration is at `AUTOMATED_MECHANISM_SEARCH_V9_PROPOSED.md`; the historical root preregistration and v8 config remain unchanged. No implementation, calibration, search, training or GPU execution is authorized by this document-preparation task.
+- **Current lens:** hostile primary-source and formal review of the frozen temporal-credit search. This task is separate from GAS-0; its files, runtime and results are untouched.
+- **Stage:** owner authorized Stages 0–3; mandatory V0-SCOPE failed as **INSUFFICIENT SCIENTIFIC JUSTIFICATION**. Stopped before implementation, numerical validation or search. The preregistration remains unchanged; its proposal-time authorization notice is historical and the later owner authorization is recorded in the scope report.
 - **Evidence:** v8 generated 4,413, trained 1,200 at Tier 1, and confirmed 42; all 42 failed q, 34 failed task constraints, 32 failed the AdamW comparison, 29 failed paired wins; none was unstable at confirmation. No Stage-3 ablation or optimizer-change evidence exists. OMD passed only 3/36 imitation pairs and never reached extraction.
-- **Candidate status:** no new mechanism exists and no architecture survives. V9 proposes paired forward/credit-state programs with delayed terminal feedback, stronger known recurrent references, early paired-removal pruning and exact state/FLOP accounting. Different experimental coverage is not proof of an open novelty region. A mandatory prior-art/scope gate may close the proposal before training.
-- **Unresolved:** full-source verification of the recent sparse-transport feedback-density hypothesis; whether known RTRL/eligibility/plasticity organizations already preserve the entire proposed signal and resource property. These are explicit Stage-0 stop gates, not assumptions of novelty.
-- **Resources:** shared search ledger remains 18,706.656 CPU-s (5.1962933 h); proposed v9 allocation is at most 4 CPU-h within the outer 30-hour cap. Current preparation used record inspection and browsing only. No experimental compute or GAS-0 workload was launched.
-- **Exact next action:** commit/push documentation and stop for owner review. A later execution authorization does not waive validity, known-family or scope gates; Stage 4 remains separately unauthorized.
+- **Candidate status:** zero generated, trained or promoted programs; zero survivors. Full S1 v2 inspection found no successful sparse-feedback task control for its causal explanation. For fixed parameters within each sequence, exact RTRL's chain-rule recurrence does not require intermediate errors. The motivation gate fails; this does not prove every possible program equivalent to prior art.
+- **Unresolved:** finite-precision, approximation and conditioning effects remain possible scientific questions, but no supported architecture exception was established. Do not reinterpret this as an empirical Stage-1 failure or a complete closure of temporal-credit research.
+- **Resources:** shared search ledger remains 18,706.656 CPU-s (5.1962933 h). Numerical CPU/wall time and training steps were zero; no worker RAM measurement applies. Literature/administrative CPU, wall and RAM were not instrumented and are not claimed as measured zero. No CUDA, GPU, llama.cpp or GAS-0 workload was launched.
+- **Artifacts / next action:** `experiments/automated_mechanism_search_v9/runs/v0_scope/REPORT.md` and `result.json`, plus AR-151 below. Commit/push the scope result and stop. No Stage 4 recommendation; changing the scientific rationale requires another owner-reviewed decision.
 
 ### Codex resume/status -- 2026-09-29
 
@@ -5535,3 +5535,13 @@ Perplexity's proposed four-way functionally matched comparison cannot cleanly va
 ### Final classification and phase decision
 
 **KILLED — ORDINARY KNOWN DYNAMICS.** This does not mean all future-learnability outcomes can yet be predicted prospectively from a small diagnostic panel. A narrow unresolved scientific question is whether task-aligned tangent spectrum, optimizer state and higher-order gate transitions together predict finite-budget new-task loss across architectures without hidden task-specific fitting. That question concerns ordinary gradient-learning theory and carries no present architecture-candidate status. **Recommendation A: stop anomaly-first research** rather than opening another broad survey or experiment on this anomaly. The other two retained anomalies were closed in AR-148 and AR-149. **ANOMALY-FIRST PHASE COMPLETE — 0 SURVIVORS.**
+
+## AR-151 — AMS v9 authorized execution stopped at mandatory V0-SCOPE
+
+The owner authorized CPU-only Stages 0–3 exactly under `AUTOMATED_MECHANISM_SEARCH_V9_PROPOSED.md`. At repository c642ffbfec063623e200d044d575ee874a39a671, fetched origin/main and checked governance, shared state, the frozen design and existing CPU ledger. No implementation or numerical experiment was launched.
+
+**Verified source result:** full inspection of [S1 v2](https://arxiv.org/pdf/2603.15195v2), particularly Section 4.4/Table 7, did not supply a successful sparse-feedback learning control. The frozen motivation's claimed continuous-error requirement is also not a prerequisite of the fixed-parameter RTRL chain rule. Its sensitivity recursion contains local derivatives and prior sensitivities, not an intermediate error term; terminal feedback suffices to contract the resulting derivative. Floating-point conditioning and approximate-gradient variance remain separate questions.
+
+**Verdict:** `INSUFFICIENT SCIENTIFIC JUSTIFICATION`, the explicit alternative stop in Section 2. This is a design-scope failure, not a numerical validity failure, and not proof that every expression in the grammar is prior art. Known trace/plasticity/RTRL references occupy the generic organization; the proposed new rationale did not justify reopening it. Do not repair the frozen scientific premise or begin training after this stop.
+
+The full bounded source/collision review, formal discriminator, access limits, stage table and resource disclosures are in [V0-SCOPE report](experiments/automated_mechanism_search_v9/runs/v0_scope/REPORT.md); [machine-readable result](experiments/automated_mechanism_search_v9/runs/v0_scope/result.json) records zero generated/trained/promoted programs and all numerical stages unrun. Experimental CPU/wall are zero, worker RAM is inapplicable; browsing/administrative resource usage was not instrumented. Shared experimental ledger and GAS-0 are unchanged. No candidate warrants independent review or Stage 4. Stop for owner review.

@@ -1,0 +1,57 @@
+{
+  "protocol": "AMS-v9",
+  "stage": "V0-SCOPE",
+  "verdict": "INSUFFICIENT SCIENTIFIC JUSTIFICATION",
+  "stop_required": true,
+  "reviewed_commit": "c642ffbfec063623e200d044d575ee874a39a671",
+  "preregistration_sha256": "4396a5849d775a5c026b134d9d006a9d43980772c95782ee2c7c4f6701ed3ab4",
+  "report": "REPORT.md",
+  "reason_codes": [
+    "MOTIVATING_SPARSE_FEEDBACK_COMPARISON_HAS_NO_SUCCESSFUL_TASK_CONTROL",
+    "FIXED_PARAMETER_RTRL_RECURRENCE_DOES_NOT_REQUIRE_INTERMEDIATE_ERRORS",
+    "NO_SUPPORTED_ARCHITECTURE_EXCEPTION_TO_EXISTING_SCOPE_CLOSURES"
+  ],
+  "not_claimed": [
+    "every_possible_grammar_program_is_known",
+    "all_temporal_credit_research_is_closed",
+    "numerical_calibration_failed",
+    "all_S1_results_are_invalid"
+  ],
+  "stages": {
+    "V0_SCOPE": "FAILED",
+    "stage0_implementation": "NOT_RUN",
+    "stage1": "NOT_RUN",
+    "stage2": "NOT_RUN",
+    "stage3": "NOT_RUN",
+    "stage4": "NOT_AUTHORIZED"
+  },
+  "counts": {
+    "generated": 0,
+    "trained": 0,
+    "numerically_rejected": 0,
+    "empirically_classified_rediscoveries": 0,
+    "promoted": 0,
+    "survivors": 0,
+    "design_scope_rejections": 1,
+    "training_steps": 0
+  },
+  "official_seeds_consumed": [],
+  "resources": {
+    "experimental_cpu_seconds": 0,
+    "experimental_wall_seconds": 0,
+    "numerical_worker_peak_ram_bytes": null,
+    "literature_administrative_cpu_seconds": null,
+    "literature_administrative_wall_seconds": null,
+    "literature_administrative_peak_ram_bytes": null,
+    "administrative_accounting_note": "Not instrumented; no numerical process launched. Null values do not mean measured zero.",
+    "shared_experiment_ledger_seconds_before": 18706.656,
+    "shared_experiment_ledger_unchanged": true,
+    "gpu_used": false,
+    "cuda_initialized": false,
+    "llama_cpp_used": false
+  },
+  "scientific_settings_modified": false,
+  "gas0_touched": false,
+  "independent_candidate_review_recommended": false,
+  "stage4_recommended": false
+}
