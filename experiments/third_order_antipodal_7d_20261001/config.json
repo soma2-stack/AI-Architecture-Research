@@ -1,0 +1,40 @@
+{
+  "n": 4,
+  "T": 37,
+  "r": 7,
+  "P": 24,
+  "epsilon": "1/1000",
+  "search_workers": 2,
+  "seeds": [
+    271071,
+    271072
+  ],
+  "maxfev": 500,
+  "worker_cpu_limit": 400,
+  "total_cpu_limit": 2400,
+  "precisions": [
+    192,
+    256
+  ],
+  "initial_hidden_grid": [
+    0.005,
+    0.01,
+    0.02,
+    0.04,
+    0.08,
+    0.16
+  ],
+  "normal_padding": "51/50",
+  "amplitude_dyadic_bits": 20,
+  "basis_dyadic_bits": 128,
+  "8d_scales": [
+    0.5,
+    0.75,
+    1.0,
+    1.25
+  ],
+  "numpy": "2.4.6",
+  "torch": "2.13.0+cpu",
+  "accepted_method": "experiments/third_order_antipodal_20261001",
+  "accepted_by_owner_report": "6D THIRD-ORDER CERTIFICATE VERIFIED (Claude review)"
+}

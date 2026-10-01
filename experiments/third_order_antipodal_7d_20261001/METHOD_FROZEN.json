@@ -1,0 +1,34 @@
+{
+  "parent_commit": "e2245ed5f59dd9714ffb4df239f36616ba5af354",
+  "local_sha256": {
+    "bases.json": "7b442df57b63ce03069f2e3d98843a832f003deff5aafd58a1256a033ef9052e",
+    "bootstrap.py": "873811103711ca94bde6f773271e352ebc5b501d7a80a0f639fc68dca9a18c03",
+    "bootstrap_resources.json": "cb92be7eba6f458ea18924290deff52c3b519eef95674182fe212065f7140c06",
+    "checks.py": "6e91b42d6f01aa982706ea76dfd331ce2eaa7a6d69294bce89437c9754f93c06",
+    "choose.py": "2058ed341270ec4613b8e1066129de43046f6523fa2a922982ddfdf3900c54ec",
+    "common.py": "6541d74e619eba4e1d5cdeceb4691ca99d180590ae41c1263337ae0bc92041df",
+    "config.json": "39feac0ddfb0804c3d5654a1d8629a316c7f32131faf2412b2257b2f10d15101",
+    "DEVELOPMENT_REPAIRS.md": "48d1132aaf792f1cf20767b6ac38b941c74420f63cdbfceece8967990119399a",
+    "PREREGISTRATION.md": "1466676b969200fe4df8ea1a8c6e210b20ed0bf5de116ea49cf57c5efa67a765",
+    "run.py": "fa784a62bab877568db4b6e138676628247cc25243d1f2c9ed5a8eacf9acf2d1",
+    "search.py": "6706d2f85a5f03af201b6a2906a9d3e4bfe5368cbdd44934b6e9e4f10842e699",
+    "tests.json": "0bf005fc9dac609eaa5bfadf303420a5dea1976c46040ad21e61f551eae0a581",
+    "tests.py": "ed618475a2dfaf5ad6ef0a213bb9408a56f32d5fcf9cc1cf2b64bc07441c495e"
+  },
+  "source_sha256": {
+    "experiments/third_order_antipodal_20261001/kernel.py": "c2483d3585dccb36b7dfba945c1a0cb2964a59f440161a7663c594bd4d928578",
+    "experiments/third_order_antipodal_20261001/tests.py": "7bbf9eb80145ba60fce833feaa84436f24a61acd6513f38afa64f6fefa6c805a",
+    "experiments/third_order_antipodal_20261001/PROOF.md": "9aaeb88db9cdb64880cd5be275aafaee02e8aa8f627f78fd907169d3d518efb6",
+    "experiments/antipodal_robust_dimension_20261001/antipodal_kernel.py": "283067e505584b101e8635987b3935cc180e50fec553b586576bc9fdc05faa48",
+    "experiments/antipodal_robust_dimension_20261001/screen_proxy.py": "fe59c6b3a783d2f5523e975a3d5090ddc7fa91948fb26918e5f477adf16ba34f",
+    "experiments/antipodal_robust_dimension_20261001/stage2_proxy/screen_proxy3.py": "c42fb9b14ba04205a9d62c565ecf6d264438f227c7533c84fab0f3ae65894dc7",
+    "experiments/robust_witness_search_20261001/cpu_jets.py": "cb4a98b7961d7141e173472e1cbcddf3dc7cd1e0d24164556a6882b8d724e23e",
+    "experiments/robust_witness_search_20261001/interval.py": "34ac4a8aacd2eae3c5890c32030e0e568096058320acb1e5dacae2f7024b7f8c",
+    "experiments/robust_witness_search_20261001/certificate_kernel.py": "2e89ffb63414e17e6ebfec14e9d85ca058aecaf26ace42686383e6ebeb6dcd9a",
+    "experiments/robust_witness_search_20261001/config.json": "fa65fb34f2dc3a5b33fda2f39210ca57a69d872f2ad7ee9377ee12f1e130b289",
+    "experiments/robust_certificate_tightness_20261001/inputs.json": "c0ca622ad1d5460499988cde7758d4aa4ac373582a51a8ec745320d97c1339d5",
+    "experiments/antipodal_robust_dimension_20261001/stage2_proxy/outputs/independent_n4_confirmation_query_r7_s1.json": "52648aae6b7157d63254a599bdb0fa3ccbbc463c00490d3342d8ee000df55373",
+    "experiments/antipodal_robust_dimension_20261001/stage2_proxy/outputs/independent_n4_confirmation_query_r7_s2.json": "8d01daf1a7c32e2d5f939f8acd6d4db68aa2be714759681ec437c7614680f0ca"
+  },
+  "prospective": "no new search scores or official certificate yet"
+}
