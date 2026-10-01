@@ -37,6 +37,10 @@ def run_one(w,index,meter):
     recipe=w['recipe'];n=w['n'];r=recipe['r'];L=[[Q(x) for x in row] for row in w['L']]
     args=(r,Q(float(recipe['a0'])),recipe['profile'],Q(float(recipe['hidden_factor'])),L,True)
     base=base_for(w,192,meter);captured={};fn=e.curvature
+    aa=[args[1] if args[2]=='equal' else args[1]*x/base['sigma'][0] for x in base['sigma'][:r]]
+    amplitudes=[args[1]*args[3]]*n+aa
+    history_radii=[sum((x.absq()*amp for x,amp in zip(row,amplitudes)),Q(0)) for row in base['BI']]
+    assert max(history_radii)<=1,'Frozen certificate box exceeds preregistered archived local input domain'
     def wrapped(*a):
         HH,HS=fn(*a);captured.update(HH=HH,HS=HS);return HH,HS
     e.curvature=wrapped
@@ -46,6 +50,7 @@ def run_one(w,index,meter):
     np.savez_compressed(directory/f'curvature_{index}_192.npz',**captured)
     row={'index':index,'n':n,'case':w['case'],'role':w['role'],'history_sha256':w['history_sha256'],
          'recipe_frozen':{k:recipe[k] for k in ('r','a0','profile','hidden_factor')},'result':result,'verified_256':False}
+    row['maximum_history_coordinate_radius']=str(max(history_radii))
     (directory/f'candidate_{index}_192.json').write_text(json.dumps(row,indent=2)+'\n',encoding='utf-8')
     if result['valid'] and int(result['states'])>1:
         high=base_for(w,256,meter)
