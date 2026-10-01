@@ -1571,8 +1571,24 @@
    "utc": "2026-10-01T02:05:50.746899+00:00",
    "note": "5s failed pre-meter import estimate +20s administrative estimate; distinct from measured CPU",
    "anisotropic_entry_id": "anisotropic_robust_packing_20260930_estimate"
+  },
+  {
+   "stage": "anisotropic_clean_replay",
+   "cpu_seconds": 29.15625,
+   "wall_seconds": 12.093121799873188,
+   "utc": "2026-10-01T02:44:50.395831+00:00",
+   "note": "CPU-only frozen width-3 fresh interval/curvature replay, failed/successful tests, final checks; wall sum excludes imports",
+   "clean_replay_entry_id": "anisotropic_robust_packing_replay_20261001_measured"
+  },
+  {
+   "stage": "anisotropic_clean_replay",
+   "cpu_seconds": 15,
+   "wall_seconds": 0,
+   "utc": "2026-10-01T02:44:50.395831+00:00",
+   "note": "Conservative source-pinning and administrative estimate, not measured certificate CPU",
+   "clean_replay_entry_id": "anisotropic_robust_packing_replay_20261001_estimate"
   }
  ],
- "total_cpu_seconds": 24320.999750000003,
- "total_cpu_hours": 6.755833263888889
+ "total_cpu_seconds": 24365.156000000003,
+ "total_cpu_hours": 6.76809888888889
 }

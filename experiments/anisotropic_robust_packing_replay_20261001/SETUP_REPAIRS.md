@@ -15,3 +15,15 @@ separately in `tests_attempt1.json`. Both executions remain in the CPU ledger.
 These are isolation-wrapper repairs, not changes to the frozen mathematics,
 axes, amplitudes, constants, interval formulas, or certificate conditions.
 No official certificate run had begun when these repairs were made.
+
+After both official replays passed, the documentation writer initially used
+Windows' default cp1252 decoding on the UTF-8 proof-insertion text. It stopped
+before shared-state/ledger edits. Explicit UTF-8 decoding repaired the writer.
+The generated bounds were not rerun or changed; administrative compute is
+included in the separately labeled estimate.
+
+The initial unified patch used Windows CRLF output against the committed LF
+proof. A read-only apply check exposed this formatting mismatch. The patch
+is now saved as UTF-8 bytes with LF; its source remains the unchanged committed
+proof. This was a documentation serialization issue, not a mathematical or
+numerical discrepancy.

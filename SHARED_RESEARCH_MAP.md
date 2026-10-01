@@ -4,7 +4,26 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Anisotropic robust packing (2026-09-30)
+## Latest mathematical audit — Clean width-3 two-axis replay (2026-10-01)
+
+**CLEAN REPLAY VERIFIED — TWO-AXIS CERTIFICATE REPRODUCED.** Source1e4bf42
+preserved. Isolated experiments/anisotropic_robust_packing_replay_20261001/;
+freeze8622551, validated execution50d566d; AR-163. Owner reports three prior
+mathematical reviews. This execution recomputes the endpoint Jacobian and all
+normal-normal/normal-tangent/tangent-tangent bounds from frozen inputs, using
+shared reviewed source but no cached bounds. At192bits every reported original
+field reproduces exactly;256bits verify original K/rho/mu and all4356 intervals
+are nested. eta_h0.060253012714867084,eta0.30423690175351176; exact simultaneous
+rectangle has N2/2,4states,2bits at unchanged diagnostic epsilon1e-3. Residual
+sensitivity coordinates are included in query duality.17 tests pass; separate
+100-digit scalar mixed derivatives cross-check the kernel.54 original files
+unchanged; documentation-only patch addresses equal normal widths,
+preconditioner nonsingularity and explicit mean-value forcing. Measured
+29.15625CPU-s, peak284.191406MiB;15s estimate separate. GPU0/CUDA/GAS-0/server
+untouched. Shared CPU total6.768099h. **STOP for owner
+review of replay/formalization.** No new architecture or learning conclusion.
+
+## Previous mathematical audit — Anisotropic robust packing (2026-09-30)
 
 **ONLY A FEW ROBUST DIRECTIONS SURVIVE.** Owner-authorized continuation at
 epsilon1e-3 in unchanged prior normalized gradient units; a research diagnostic.

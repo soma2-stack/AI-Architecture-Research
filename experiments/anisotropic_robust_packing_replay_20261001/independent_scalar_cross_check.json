@@ -1,0 +1,24 @@
+{
+  "method": "mpmath.diff of separately written scalar forward recurrence",
+  "digits": 100,
+  "checks": [
+    {
+      "state": 0,
+      "parameter": 0,
+      "history_coordinate": 0,
+      "absolute_difference": "3.40636787200652057592804297299784707859727739e-107"
+    },
+    {
+      "state": 1,
+      "parameter": 9,
+      "history_coordinate": 32,
+      "absolute_difference": "2.18007543808417316859394750271862213030225753e-106"
+    },
+    {
+      "state": 2,
+      "parameter": 20,
+      "history_coordinate": 65,
+      "absolute_difference": "1.78591779887855465971216179422709524914360937e-102"
+    }
+  ]
+}

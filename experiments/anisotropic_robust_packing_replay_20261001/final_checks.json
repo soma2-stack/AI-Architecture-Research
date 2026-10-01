@@ -1,0 +1,182 @@
+{
+  "original_192_comparison": {
+    "eta_hidden": {
+      "equal": true
+    },
+    "eta_sensitivity": {
+      "equal": true
+    },
+    "rho_i": {
+      "equal": true
+    },
+    "mu_i": {
+      "equal": true
+    },
+    "directional_curvature_F": {
+      "equal": true
+    },
+    "projected_curvature": {
+      "equal": true
+    },
+    "scaled_jacobian_residual_upper": {
+      "equal": true
+    },
+    "hidden_jacobian_residual_upper": {
+      "equal": true
+    },
+    "hidden_forcing_upper": {
+      "equal": true
+    },
+    "normal_first_derivative_upper": {
+      "equal": true
+    },
+    "K_hidden": {
+      "equal": true
+    },
+    "K_selected": {
+      "equal": true
+    },
+    "selected_projection": {
+      "equal": true
+    },
+    "N_i": {
+      "equal": true
+    },
+    "states": {
+      "equal": true
+    },
+    "bits": {
+      "equal": true
+    }
+  },
+  "precision_192_256_comparison": {
+    "eta_hidden": true,
+    "eta_sensitivity": true,
+    "rho_i": true,
+    "mu_i": false,
+    "directional_curvature_F": true,
+    "projected_curvature": true,
+    "scaled_jacobian_residual_upper": true,
+    "hidden_jacobian_residual_upper": true,
+    "hidden_forcing_upper": true,
+    "normal_first_derivative_upper": true,
+    "K_hidden": true,
+    "K_selected": true,
+    "selected_projection": true,
+    "N_i": true,
+    "states": true,
+    "bits": true
+  },
+  "mu_256_minus_mu_192_exact": [
+    "3195042086355025361/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+    "13499340172040369357/115792089237316195423570985008687907853269984665640564039457584007913129639936"
+  ],
+  "endpoint_interval_count": 4356,
+  "endpoint_intervals_256_contained_in_192": 4356,
+  "raw_HH_HS_exactly_equal_between_precisions": true,
+  "independent_original_witness_mixed_curvature_checks": [
+    {
+      "state": 0,
+      "parameter": 0,
+      "axis_pair": [
+        0,
+        0
+      ],
+      "actual_center_value": "-0.003769440490132282967622534868850550020448106355637217059139970612075435",
+      "complete_box_majorant": 0.009780213448342987,
+      "method": "independent scalar forward recurrence + mpmath.diff at 100 digits; numerical supporting check"
+    },
+    {
+      "state": 1,
+      "parameter": 10,
+      "axis_pair": [
+        0,
+        3
+      ],
+      "actual_center_value": "-0.001104081282208577598552418928999785637886920832453484611462432023828449",
+      "complete_box_majorant": 0.0040861833991694746,
+      "method": "independent scalar forward recurrence + mpmath.diff at 100 digits; numerical supporting check"
+    },
+    {
+      "state": 2,
+      "parameter": 20,
+      "axis_pair": [
+        3,
+        4
+      ],
+      "actual_center_value": "-0.0001459937085679678704693342954354781641626864712180705970913918322306804",
+      "complete_box_majorant": 0.0006216445445627881,
+      "method": "independent scalar forward recurrence + mpmath.diff at 100 digits; numerical supporting check"
+    },
+    {
+      "state": 0,
+      "parameter": 9,
+      "axis_pair": [
+        4,
+        4
+      ],
+      "actual_center_value": "-0.000490306315760105158813008501641649008192316401101233470194649382278477",
+      "complete_box_majorant": 0.013842142045121854,
+      "method": "independent scalar forward recurrence + mpmath.diff at 100 digits; numerical supporting check"
+    }
+  ],
+  "original_directory_unchanged": {
+    "analysis.py": true,
+    "attempts_frame.jsonl": true,
+    "attempts_svd.jsonl": true,
+    "attempts_svd_initial_interval_bug.jsonl": true,
+    "basis_dense_n2.json": true,
+    "basis_dense_n3.json": true,
+    "basis_dense_n4.json": true,
+    "basis_independent_n2.json": true,
+    "basis_independent_n3.json": true,
+    "basis_independent_n4.json": true,
+    "certificate_frame_dense_n2.json": true,
+    "certificate_frame_dense_n3.json": true,
+    "certificate_frame_dense_n4.json": true,
+    "certificate_frame_independent_n2.json": true,
+    "certificate_frame_independent_n3.json": true,
+    "certificate_frame_independent_n4.json": true,
+    "certificate_svd_dense_n2.json": true,
+    "certificate_svd_dense_n3.json": true,
+    "certificate_svd_dense_n4.json": true,
+    "certificate_svd_independent_n2.json": true,
+    "certificate_svd_independent_n3.json": true,
+    "certificate_svd_independent_n4.json": true,
+    "config.json": true,
+    "cpu_ledger.jsonl": true,
+    "directional_audit.json": true,
+    "engine.py": true,
+    "final_checks.json": true,
+    "final_checks.py": true,
+    "finish_records.py": true,
+    "freeze_primary.py": true,
+    "hardware.json": true,
+    "interval.py": true,
+    "PREREGISTRATION.md": true,
+    "PRIMARY_FROZEN.json": true,
+    "PROOF.md": true,
+    "README.md": true,
+    "reconstruct.py": true,
+    "reconstruction_checks.json": true,
+    "REPORT.md": true,
+    "resources.json": true,
+    "results_frame.json": true,
+    "results_svd.json": true,
+    "RUNTIME_CORRECTION.md": true,
+    "source_hashes.json": true,
+    "spectra.csv": true,
+    "summary.json": true,
+    "tests.json": true,
+    "test_engine.py": true,
+    "verification_frame.json": true,
+    "verification_svd.json": true,
+    "verify.py": true,
+    "weak_axis_certificates.json": true,
+    "weak_certificates.py": true,
+    "weak_direction_diagnostics.json": true
+  },
+  "frozen_snapshots_hash_verified": true,
+  "independence_scope": "New clean processes recompute all bounds; reviewed interval/jet/kernel source is shared, scalar differentiation cross-check is a separately written path.",
+  "classification": "CLEAN REPLAY VERIFIED \u2014 TWO-AXIS CERTIFICATE REPRODUCED"
+}

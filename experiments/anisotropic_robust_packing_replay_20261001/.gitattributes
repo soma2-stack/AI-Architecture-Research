@@ -1,0 +1,5 @@
+# Byte-preserving snapshots and hashed frozen inputs, including Windows clones.
+frozen_sources/* -text
+inputs.json -text
+input_manifest.json -text
+*.patch -text whitespace=-blank-at-eol,-blank-at-eof
