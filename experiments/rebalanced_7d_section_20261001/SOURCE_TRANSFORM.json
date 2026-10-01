@@ -1,0 +1,25 @@
+{
+  "accepted_kernel_sha256": "c2483d3585dccb36b7dfba945c1a0cb2964a59f440161a7663c594bd4d928578",
+  "kernel_replacements": [
+    [
+      "        pre=[sum((RI[i][j]*hh[j]+WI[i][j]*xx[j] for j in range(n)),b[i]) for i in range(n)]",
+      "        # Exact signed affine input combination, before interval absolute values.\n        affine=[[sum((WI[i][j]*base['BI'][t*n+j][k] for j in range(n)),I(0)) for k in range(s)] for i in range(n)]\n        inputcenter=[sum((WI[i][j]*base['X'][t][j] for j in range(n)),I(0)) for i in range(n)]\n        inputrad=[sum((v.absq()*amps[k] for k,v in enumerate(row)),Q(0)) for row in affine]\n        pre=[sum((RI[i][j]*hh[j] for j in range(n)),b[i])+inputcenter[i]+I(-I(inputrad[i]).hi,I(inputrad[i]).hi,True) for i in range(n)]"
+    ],
+    [
+      "        ax=upadd(left(R,hx),left(W,u)); ax2=left(R,h2); ax3=left(R,h3)",
+      "        ax=upadd(left(R,hx),np.array([[uq(v.absq()) for v in row] for row in affine])); ax2=left(R,h2); ax3=left(R,h3)"
+    ]
+  ],
+  "proxy_source_sha256": "c42fb9b14ba04205a9d62c565ecf6d264438f227c7533c84fab0f3ae65894dc7",
+  "proxy_replacements": [
+    [
+      "ax = Ra @ hx + Wa @ u;",
+      "ax = Ra @ hx + np.abs(ep.W @ Bs[t*n:(t+1)*n]);"
+    ],
+    [
+      "nl = np.tanh(Rp @ hl + Rm @ hh + Wp @ lo[t] + Wm @ hi[t] + ep.b); nh = np.tanh(Rp @ hh + Rm @ hl + Wp @ hi[t] + Wm @ lo[t] + ep.b)",
+      "inputrad = (np.abs(ep.W @ Bs[t*n:(t+1)*n])*amps[None,:]).sum(1); center=ep.W @ ep.X[t]; nl = np.tanh(Rp @ hl + Rm @ hh + center-inputrad + ep.b); nh = np.tanh(Rp @ hh + Rm @ hl + center+inputrad + ep.b)"
+    ]
+  ],
+  "proof": "PROOF_AFFINE.md"
+}

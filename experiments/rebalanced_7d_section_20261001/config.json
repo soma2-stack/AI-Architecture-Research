@@ -1,0 +1,36 @@
+{
+  "n": 4,
+  "T": 37,
+  "P": 24,
+  "r": 7,
+  "epsilon": "1/1000",
+  "seeds": [
+    302701,
+    302702
+  ],
+  "bases": [
+    "original",
+    "plus",
+    "minus"
+  ],
+  "maxfev": 800,
+  "worker_cpu_limit": 320,
+  "total_cpu_limit": 2400,
+  "normal_grid": [
+    0.005,
+    0.008,
+    0.012,
+    0.02,
+    0.04,
+    0.08,
+    0.16
+  ],
+  "precision_bits": [
+    192,
+    256
+  ],
+  "numpy": "2.4.6",
+  "torch": "2.13.0+cpu",
+  "device": "cpu",
+  "workers": 2
+}
