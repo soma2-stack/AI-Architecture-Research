@@ -1,0 +1,34 @@
+{
+ "id": "independent_n3_confirmation_query_r2_s1",
+ "candidate": {
+  "id": "independent_n3_confirmation_query_r2_s1",
+  "name": "independent_n3_confirmation",
+  "basis": "query",
+  "r": 2,
+  "seed": 1,
+  "chart": "independent_n3_confirmation_query_r2",
+  "a": [
+   "276959/1048576",
+   "262383/524288"
+  ],
+  "ah": "597/65536",
+  "proxy_score": 6.828120269601406
+ },
+ "result_192": {
+  "valid": false,
+  "r": 2,
+  "a_i": [
+   "276959/1048576",
+   "262383/524288"
+  ],
+  "a_hidden": "597/65536",
+  "max_raw_history_radius": "309481463374778929655445814590822433326171605477615085846647353/3291009114642412084309938365114701009965471731267159726697218048",
+  "bits": 192,
+  "eta_hidden": 0.05287343984521777,
+  "reason": "hidden_section_box_inclusion"
+ },
+ "seconds_192": 0.19036650657653809,
+ "runner": "certify_official_repair.py",
+ "certified_dimension": null,
+ "seconds_total": 0.19036650657653809
+}

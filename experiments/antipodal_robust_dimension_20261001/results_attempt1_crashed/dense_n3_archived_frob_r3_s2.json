@@ -1,0 +1,20 @@
+{
+ "id": "dense_n3_archived_frob_r3_s2",
+ "candidate": {
+  "id": "dense_n3_archived_frob_r3_s2",
+  "name": "dense_n3_archived",
+  "basis": "frob",
+  "r": 3,
+  "seed": 2,
+  "chart": "dense_n3_archived_frob_r3",
+  "a": [
+   "46745/524288",
+   "56473/524288",
+   "131911/1048576"
+  ],
+  "ah": "2269/1048576",
+  "proxy_score": 1.0730033047839422
+ },
+ "error": "Traceback (most recent call last):\n  File \"C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\antipodal_robust_dimension_20261001\\certify_official.py\", line 22, in <module>\n    out, cap = k.certify_antipodal(base, aa, ah, L); row['result_192'] = out; row['seconds_192'] = time.time()-t0\n    ^^^^^^^^\nValueError: too many values to unpack (expected 2)\n",
+ "seconds_total": 0.24988698959350586
+}

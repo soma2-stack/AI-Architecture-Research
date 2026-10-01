@@ -1,0 +1,36 @@
+{
+ "id": "dense_n3_archived_query_r3_s1",
+ "candidate": {
+  "id": "dense_n3_archived_query_r3_s1",
+  "name": "dense_n3_archived",
+  "basis": "query",
+  "r": 3,
+  "seed": 1,
+  "chart": "dense_n3_archived_query_r3",
+  "a": [
+   "93185/1048576",
+   "112737/1048576",
+   "65899/524288"
+  ],
+  "ah": "1133/524288",
+  "proxy_score": 1.0704051659177674
+ },
+ "result_192": {
+  "valid": false,
+  "r": 3,
+  "a_i": [
+   "93185/1048576",
+   "112737/1048576",
+   "65899/524288"
+  ],
+  "a_hidden": "1133/524288",
+  "max_raw_history_radius": "59256328040915462295968207975422701080827164382949969307306809/1645504557321206042154969182557350504982735865633579863348609024",
+  "bits": 192,
+  "eta_hidden": 0.027404731735445786,
+  "reason": "hidden_section_box_inclusion"
+ },
+ "seconds_192": 0.2643857002258301,
+ "runner": "certify_official_repair.py",
+ "certified_dimension": null,
+ "seconds_total": 0.2643857002258301
+}

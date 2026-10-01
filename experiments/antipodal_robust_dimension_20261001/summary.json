@@ -1,0 +1,253 @@
+{
+ "certified_candidates": 19,
+ "total_candidates": 67,
+ "endpoints": {
+  "independent_n4_confirmation": {
+   "prior_certified_dimension": 4,
+   "attempted": 17,
+   "failures": {
+    "hidden_section_box_inclusion": 10,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "antipodal_certified_dimension": 5,
+   "best_id": "independent_n4_confirmation_query_r5_s1",
+   "weakest_beta_192": "149687405103729732061261227774374698821383493671809008621682541818649573/113078212145816597093331040047546785012958969400039613319782796882727665664",
+   "weakest_beta_256": "2761245253006187325281146705362964371929967698488701790352816966569346098341695492685155023/2085924839766513752338888384931203236916703635113918720651407820138886450957656787131798913024",
+   "weakest_beta_over_eps": 1.3237510769157268,
+   "beta_i_256": [
+    0.0013238034701547059,
+    0.0013237510769157268,
+    0.0013237750349027319,
+    0.0013237753389975348,
+    0.0013237772665568093
+   ],
+   "eta_hidden": 0.018406259647980656,
+   "row_sums": [
+    0.5325761130144436,
+    0.25025205019193447,
+    0.4074175036815656,
+    0.41298860747894617,
+    0.3416937482699909
+   ],
+   "max_raw_history_radius": 0.07657969455581314,
+   "a_i": [
+    "15507/524288",
+    "23671/524288",
+    "23355/262144",
+    "49881/524288",
+    "329059/1048576"
+   ],
+   "a_hidden": "4015/1048576",
+   "basis": "query",
+   "corner_states": 32,
+   "strongest_lower_bound": 5
+  },
+  "independent_n4_archived": {
+   "prior_certified_dimension": 2,
+   "attempted": 4,
+   "failures": {
+    "hidden_section_box_inclusion": 4,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "strongest_lower_bound": 2
+  },
+  "independent_n3_confirmation": {
+   "prior_certified_dimension": 3,
+   "attempted": 8,
+   "failures": {
+    "hidden_section_box_inclusion": 6,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "antipodal_certified_dimension": 3,
+   "best_id": "independent_n3_confirmation_query_r3_s2",
+   "weakest_beta_192": "117740485058095482227313492742041983793015265192834302304635335021381139/28269553036454149273332760011886696253239742350009903329945699220681916416",
+   "weakest_beta_256": "135745537186319428055397969640555065660292910170913697441932335571244543760584372282983265/32592575621351777380295131014550050576823494298654980010178247189670100796213387298934358016",
+   "weakest_beta_over_eps": 4.164922059654314,
+   "beta_i_256": [
+    0.004164922440353458,
+    0.00416492285771706,
+    0.004164922059654314
+   ],
+   "eta_hidden": 0.038970475325962865,
+   "row_sums": [
+    0.40507021592646264,
+    0.33598835897738744,
+    0.42785901862484416
+   ],
+   "max_raw_history_radius": 0.09834366410500711,
+   "a_i": [
+    "42335/262144",
+    "78677/262144",
+    "434113/1048576"
+   ],
+   "a_hidden": "6151/1048576",
+   "basis": "query",
+   "corner_states": 8,
+   "strongest_lower_bound": 3
+  },
+  "independent_n3_archived": {
+   "prior_certified_dimension": 3,
+   "attempted": 8,
+   "failures": {
+    "hidden_section_box_inclusion": 5,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "antipodal_certified_dimension": 3,
+   "best_id": "independent_n3_archived_query_r3_s1",
+   "weakest_beta_192": "375157984492361123151680165274811337406008250356122890535475161356616425/113078212145816597093331040047546785012958969400039613319782796882727665664",
+   "weakest_beta_256": "3460221663569641208212868471681318064436687677698732236311263100139173361597140302239181175/1042962419883256876169444192465601618458351817556959360325703910069443225478828393565899456512",
+   "weakest_beta_over_eps": 3.3176858509983114,
+   "beta_i_256": [
+    0.003317700699391787,
+    0.0033176858509983112,
+    0.0033176932305303145
+   ],
+   "eta_hidden": 0.04268334130601072,
+   "row_sums": [
+    0.5056542708662174,
+    0.2802351751345716,
+    0.4064049861406886
+   ],
+   "max_raw_history_radius": 0.08064541088927213,
+   "a_i": [
+    "87577/524288",
+    "117035/524288",
+    "347347/1048576"
+   ],
+   "a_hidden": "3379/524288",
+   "basis": "query",
+   "corner_states": 8,
+   "strongest_lower_bound": 3
+  },
+  "dense_n4_confirmation": {
+   "prior_certified_dimension": 3,
+   "attempted": 12,
+   "failures": {
+    "hidden_section_box_inclusion": 9,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "antipodal_certified_dimension": 4,
+   "best_id": "dense_n4_confirmation_frob_r4_s2",
+   "weakest_beta_192": "67472100636333347878678034378561632555170597836340130630211007558671817/56539106072908298546665520023773392506479484700019806659891398441363832832",
+   "weakest_beta_256": "2489281145108033302949352218100056409678618066552986871150232507833969457028517750646147941/2085924839766513752338888384931203236916703635113918720651407820138886450957656787131798913024",
+   "weakest_beta_over_eps": 1.1933704885487,
+   "beta_i_256": [
+    0.0011933873896322904,
+    0.0011933704885487,
+    0.0011933749163845645,
+    0.0011933779337202867
+   ],
+   "eta_hidden": 0.02939382081322885,
+   "row_sums": [
+    0.38031599813568456,
+    0.3589894444395961,
+    0.35914109411875295,
+    0.3555822589211499
+   ],
+   "max_raw_history_radius": 0.03537295334314524,
+   "a_i": [
+    "45775/524288",
+    "99089/1048576",
+    "50811/524288",
+    "29493/262144"
+   ],
+   "a_hidden": "613/262144",
+   "basis": "frob",
+   "corner_states": 16,
+   "strongest_lower_bound": 4
+  },
+  "dense_n4_archived": {
+   "prior_certified_dimension": 1,
+   "attempted": 2,
+   "failures": {
+    "hidden_section_box_inclusion": 2,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "strongest_lower_bound": 1
+  },
+  "dense_n3_confirmation": {
+   "prior_certified_dimension": 3,
+   "attempted": 8,
+   "failures": {
+    "hidden_section_box_inclusion": 5,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "antipodal_certified_dimension": 3,
+   "best_id": "dense_n3_confirmation_frob_r3_s1",
+   "weakest_beta_192": "210508134668703866348263039187332930931391038650394842220481992154048865/113078212145816597093331040047546785012958969400039613319782796882727665664",
+   "weakest_beta_256": "3883189685667565252287329824966758538584799419741869871646590814671998856997231650798476327/2085924839766513752338888384931203236916703635113918720651407820138886450957656787131798913024",
+   "weakest_beta_over_eps": 1.8616153428146658,
+   "beta_i_256": [
+    0.0018616153428146658,
+    0.0018616345198678036,
+    0.0018616313769861692
+   ],
+   "eta_hidden": 0.03160327134500466,
+   "row_sums": [
+    0.3553798974246923,
+    0.3490366176560072,
+    0.3526412397724768
+   ],
+   "max_raw_history_radius": 0.054778943931928996,
+   "a_i": [
+    "17341/131072",
+    "173639/1048576",
+    "195907/1048576"
+   ],
+   "a_hidden": "3737/1048576",
+   "basis": "frob",
+   "corner_states": 8,
+   "strongest_lower_bound": 3
+  },
+  "dense_n3_archived": {
+   "prior_certified_dimension": 2,
+   "attempted": 8,
+   "failures": {
+    "hidden_section_box_inclusion": 7,
+    "hidden_jacobian_dominance": 0,
+    "outside fixed local domain": 0,
+    "face<=eps": 0
+   },
+   "antipodal_certified_dimension": 3,
+   "best_id": "dense_n3_archived_query_r3_s2",
+   "weakest_beta_192": "15129887965726023045400419713723156443620807015077955392810026556451525/14134776518227074636666380005943348126619871175004951664972849610340958208",
+   "weakest_beta_256": "558194342335291958421162909061904204128328806992116103611203638286539174089596187973241905/521481209941628438084722096232800809229175908778479680162851955034721612739414196782949728256",
+   "weakest_beta_over_eps": 1.0704016399704468,
+   "beta_i_256": [
+    0.0010704016399704468,
+    0.0010704057985160068,
+    0.00107040800827638
+   ],
+   "eta_hidden": 0.02742539009448787,
+   "row_sums": [
+    0.4283319240967345,
+    0.4123543221713844,
+    0.4321400884815632
+   ],
+   "max_raw_history_radius": 0.036031355582274466,
+   "a_i": [
+    "23309/262144",
+    "112797/1048576",
+    "4121/32768"
+   ],
+   "a_hidden": "1135/524288",
+   "basis": "query",
+   "corner_states": 8,
+   "strongest_lower_bound": 3
+  }
+ }
+}

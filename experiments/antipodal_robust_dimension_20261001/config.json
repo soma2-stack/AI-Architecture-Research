@@ -1,0 +1,55 @@
+{
+  "stage": "ANTIPODAL FACE CERTIFICATE / continuous robust dimension, stage 1",
+  "lane": "Claude (owner-authorized continuation of the robust-dimension question)",
+  "source_commit": "545667d",
+  "epsilon": "1/1000",
+  "endpoints": [
+    "independent_n4_confirmation",
+    "independent_n4_archived",
+    "independent_n3_confirmation",
+    "independent_n3_archived",
+    "dense_n4_confirmation",
+    "dense_n4_archived",
+    "dense_n3_confirmation",
+    "dense_n3_archived"
+  ],
+  "inputs": "experiments/robust_certificate_tightness_20261001/inputs.json (frozen endpoints, parameters, accepted certificates)",
+  "normalization": "unchanged: input SD sqrt(3/32), frozen parameter-group RMS, q=ones/sqrt(n), beta=max(1,||R||F), future preactivations [1/4,3/4]^n",
+  "query_margins": "independent: reviewed support-aware 7/8-gate Cauchy-Schwarz margin; dense: accepted finite-frame dual. No 47/50 gate in the primary result.",
+  "domain": "raw history within +/-1 of the frozen center (accepted local patch)",
+  "contraction_cap_hidden": "3/4 (reviewed)",
+  "screening": {
+    "proxy": "float64 mirror of reviewed kernel with per-axis amplitudes; reproduces the reviewed 4D chart exactly",
+    "bases": [
+      "frob (phi-metric fixed-h SVD)",
+      "query (support/frame query-metric fixed-h SVD)"
+    ],
+    "projection": "metric dual of the basis image directions (c^2-weighted for independent, frame-Gram for dense)",
+    "prefixes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "seeds": [
+      1,
+      2
+    ],
+    "optimizer": "Nelder-Mead on log amplitudes (r tangent + 1 hidden), 6 restarts, maximize min_i beta_i/epsilon",
+    "batches": "prefixes 4-10 (224 jobs) then 2-3 (64 jobs), both completed before this freeze; 288 outputs in screening/"
+  },
+  "candidate_rule": "every screening output with proxy min beta/epsilon >= 1.0, plus the reviewed 4D chart as control",
+  "rationalization": "B and L dyadic 2^-128 (as reviewed setup); amplitudes rounded DOWN to multiples of 2^-20",
+  "precision_bits": [
+    192,
+    256
+  ],
+  "certified_rule": "all beta_i > epsilon at 192 bits AND at 256 bits with the 192-bit rational K/K_h frozen",
+  "workers": "up to 20 single-thread CPU processes",
+  "stop": "after stage-1 certification and report; no new histories, widths, architectures, training or epsilon change"
+}

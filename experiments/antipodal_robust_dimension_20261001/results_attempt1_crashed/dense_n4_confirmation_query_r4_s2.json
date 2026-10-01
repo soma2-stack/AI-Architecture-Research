@@ -1,0 +1,21 @@
+{
+ "id": "dense_n4_confirmation_query_r4_s2",
+ "candidate": {
+  "id": "dense_n4_confirmation_query_r4_s2",
+  "name": "dense_n4_confirmation",
+  "basis": "query",
+  "r": 4,
+  "seed": 2,
+  "chart": "dense_n4_confirmation_query_r4",
+  "a": [
+   "45221/524288",
+   "96255/1048576",
+   "50147/524288",
+   "58541/524288"
+  ],
+  "ah": "1189/524288",
+  "proxy_score": 1.1788941494576235
+ },
+ "error": "Traceback (most recent call last):\n  File \"C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\antipodal_robust_dimension_20261001\\certify_official.py\", line 22, in <module>\n    out, cap = k.certify_antipodal(base, aa, ah, L); row['result_192'] = out; row['seconds_192'] = time.time()-t0\n    ^^^^^^^^\nValueError: too many values to unpack (expected 2)\n",
+ "seconds_total": 0.9892668724060059
+}

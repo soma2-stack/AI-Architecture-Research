@@ -1,0 +1,34 @@
+{
+ "id": "independent_n3_archived_frob_r2_s1",
+ "candidate": {
+  "id": "independent_n3_archived_frob_r2_s1",
+  "name": "independent_n3_archived",
+  "basis": "frob",
+  "r": 2,
+  "seed": 1,
+  "chart": "independent_n3_archived_frob_r2",
+  "a": [
+   "117607/524288",
+   "41265/131072"
+  ],
+  "ah": "4137/524288",
+  "proxy_score": 4.490950118354385
+ },
+ "result_192": {
+  "valid": false,
+  "r": 2,
+  "a_i": [
+   "117607/524288",
+   "41265/131072"
+  ],
+  "a_hidden": "4137/524288",
+  "max_raw_history_radius": "51886694505658870940006448882351597359704804975255980334657817/822752278660603021077484591278675252491367932816789931674304512",
+  "bits": 192,
+  "eta_hidden": 0.047148308051561276,
+  "reason": "hidden_section_box_inclusion"
+ },
+ "seconds_192": 0.16733050346374512,
+ "runner": "certify_official_repair.py",
+ "certified_dimension": null,
+ "seconds_total": 0.16733050346374512
+}
