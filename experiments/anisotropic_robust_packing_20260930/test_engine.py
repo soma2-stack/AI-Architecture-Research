@@ -23,6 +23,15 @@ class Checks(unittest.TestCase):
         a=e.I(Q(7,4)).tanh();lo=Q(a.lo,a.scale);hi=Q(a.hi,a.scale)
         e.I.precision(256);b=e.I(Q(7,4)).tanh()
         self.assertLessEqual(lo,Q(b.lo,b.scale));self.assertGreaterEqual(hi,Q(b.hi,b.scale))
+    def test_wide_tanh_monotonic_range(self):
+        for lo,hi in ((-4,4),(-1,2),(2,8)):
+            box=e.I(lo*e.I.scale,hi*e.I.scale,True).tanh()
+            self.assertGreaterEqual(box.lo,-e.I.scale)
+            self.assertLessEqual(box.hi,e.I.scale)
+            for x in (lo,Q(lo+hi,2),hi):
+                point=e.I(x).tanh()
+                self.assertLessEqual(box.lo,point.lo)
+                self.assertGreaterEqual(box.hi,point.hi)
     def test_interval_inverse(self):
         A=[[e.I(Q(2)),e.I(Q(1))],[e.I(Q(1)),e.I(Q(3))]]
         B=e.inverse(A);M=e.matmul(A,B)

@@ -1,0 +1,68 @@
+{
+  "frozen": true,
+  "epsilon": "1/1000",
+  "source_head": "e41e6099c90426b8914202227ea59ab9abfcca9a",
+  "rows": [
+    {
+      "case": "dense",
+      "n": 2,
+      "r": 1,
+      "robust_dimension": 1,
+      "bits": 1.0
+    },
+    {
+      "case": "independent",
+      "n": 2,
+      "r": 1,
+      "robust_dimension": 1,
+      "bits": 1.0
+    },
+    {
+      "case": "dense",
+      "n": 3,
+      "r": 1,
+      "robust_dimension": 0,
+      "bits": 0.0
+    },
+    {
+      "case": "independent",
+      "n": 3,
+      "r": 1,
+      "robust_dimension": 1,
+      "bits": 1.0
+    },
+    {
+      "case": "dense",
+      "n": 4,
+      "r": 1,
+      "robust_dimension": 0,
+      "bits": 0.0
+    },
+    {
+      "case": "independent",
+      "n": 4,
+      "r": 1,
+      "robust_dimension": 0,
+      "bits": 0.0
+    }
+  ],
+  "sha256": {
+    "config.json": "1650770817920c00fc155ac1aec3bdcf5195fde9a1a6484ea9eb35dd67fd7c39",
+    "results_svd.json": "af0df509100e3ee1553da237f23ff592ab71a183fc9f26a7adbaa47278340486",
+    "verification_svd.json": "00ab0e6fda865a9319705057328e4ed255b55f2b046dff9c14cbb2d3e91f7eed",
+    "engine.py": "fce5400b587b7efc49be735bceb4a3291fe1b3a8254a1105be66597189511a2a",
+    "interval.py": "34ac4a8aacd2eae3c5890c32030e0e568096058320acb1e5dacae2f7024b7f8c",
+    "basis_dense_n2.json": "9d8799b44526500acbd7021264be34dfc6dda4bcda45d1b7606651ab8bf41f1d",
+    "basis_dense_n3.json": "c31f60b955bce8eca1f8433be58363982345d8d206e38de4d9621a04e00b4d42",
+    "basis_dense_n4.json": "0104fc8ee63e35b27b5090fcbc9229358d1c057475cbdec40d55d477c74cb2be",
+    "basis_independent_n2.json": "f89d4747caf3b27e1ea5e9eaa48ea28692905050d4e5b432e55673be34871b37",
+    "basis_independent_n3.json": "4617234d96b76001eadefcb0585e1c094ff0547747613c3e377446d35e2dec7f",
+    "basis_independent_n4.json": "d249af5d09f205d2eeb01a21b1d16ae6eb4a8caa7f3305ccd61a7f23933f99a6",
+    "certificate_svd_dense_n2.json": "32947988ec7290419df914b86df51a3bb34793febf4e18ac82fe1c56336fe358",
+    "certificate_svd_dense_n3.json": "573346643dca71b577735baa575c287f241f27a2f6dafc0351e2df79b9094936",
+    "certificate_svd_dense_n4.json": "13fd4fb79cf55c80c749cd39ed2071f40b192a70c2d3bc9cca331c3bca57cd6a",
+    "certificate_svd_independent_n2.json": "af88ec78ace5c538c7110ce1d7ed38176b97b999c230472b8ca5c647ff34632f",
+    "certificate_svd_independent_n3.json": "3a116cd9124272bf39c0b500b233a2140a5c52abebd1f7a30dd16c3947e3bd54",
+    "certificate_svd_independent_n4.json": "751e40d0f8152aee01dc86a6620b5a94c2a258c02696211c0dcc66e6b2a3f2e6"
+  }
+}

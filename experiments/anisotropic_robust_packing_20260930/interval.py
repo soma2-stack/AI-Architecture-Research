@@ -48,9 +48,11 @@ class I:
     def exp_positive(cls,v):
         assert 0<=v<=4*cls.scale
         x=I(v,v,True);term=I(1);total=I(1);order=cls.bits+32
-        for k in range(1,order+1):term=term*x/k;total+=term
-        nxt=term*x/(order+1)
-        tail=nxt/(1-x/(order+2))
+        for k in range(1,order+1):
+            term=term*x/k;total+=term
+            if k>8 and term.hi<=2:break
+        nxt=term*x/(k+1)
+        tail=nxt/(1-x/(k+2))
         return I(total.lo,total.hi+tail.hi,True)
     @classmethod
     def exp_point(cls,v):
@@ -62,7 +64,13 @@ class I:
         a=self.exp_point(self.lo);b=self.exp_point(self.hi)
         return I(a.lo,b.hi,True)
     def tanh(self):
-        e=(2*self).exp();return (e-1)/(e+1)
+        # tanh is monotone. Evaluate endpoints separately: using the SAME
+        # wide exp interval in numerator and denominator loses correlation
+        # and can falsely enclose values outside [-1,1].
+        a=(I(2*self.lo,2*self.lo,True)).exp()
+        b=(I(2*self.hi,2*self.hi,True)).exp()
+        low=(a-1)/(a+1);high=(b-1)/(b+1)
+        return I(max(-self.scale,low.lo),min(self.scale,high.hi),True)
 
 def matmul(A,B):
     return [[sum((A[i][k]*B[k][j] for k in range(len(B))),I(0))

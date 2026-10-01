@@ -184,7 +184,10 @@ def curvature(base,r,amplitudes):
 def query_margins(base,projectors):
     model=base['model'];n=base['n'];P=model.P
     R=[[Q(0) for _ in range(n)] for _ in range(n)]
+    W=[[Q(0) for _ in range(n)] for _ in range(n)]
     for i,j,p in model.layers[0]['R']:R[i][j]=model.params[p]
+    for i,j,p in model.layers[0]['W']:W[i][j]=model.params[p]
+    inverse(W) # Required to realize each permitted gate vector at fixed h.
     Gamma=[[Q(1,4)*int(i==j)+Q(5,8) for j in range(n)] for i in range(n)]
     C=[[sum(R[k][i]*Gamma[k][j] for k in range(n)) for j in range(n)] for i in range(n)]
     Ci=inverse(C)
@@ -229,8 +232,16 @@ def certify(base,r,a0,profile,hidden_factor,projectors,detail=False):
     HH,HS=curvature(base,r,amplitudes)
     J=[row[:n+r] for row in base['reduced']]
     H0=[row[:n] for row in J[:n]];Ht=[row[n:] for row in J[:n]]
-    Kh=mpinverse(H0);Khabs=abs_array(Kh)
-    E0=residual(Kh,H0)
+    cache=base.setdefault('_center_cache',{})
+    key=(I.bits,r,tuple(tuple(row) for row in projectors))
+    if key not in cache:
+        Kh=mpinverse(H0);Hinv0=inverse(H0)
+        Jp=matmul([[I(x) for x in row] for row in projectors],J[n:])
+        cross=matmul([row[:n] for row in Jp],matmul(Hinv0,Ht))
+        C0=[[Jp[i][n+j]-cross[i][j] for j in range(r)] for i in range(r)]
+        K=mpinverse(C0)
+        cache[key]=(Kh,abs_array(Kh),residual(Kh,H0),K,residual(K,C0),query_margins(base,projectors)[0])
+    Kh,Khabs,E0,K,Ecenter,mu=cache[key]
     variation=upsum(upmul(HH[:,:n,:],np.array([uq(x) for x in amplitudes])[None,None,:]),axis=2)
     Eh=upadd(E0,left(Khabs,variation));eta_h=float(np.max(upsum(Eh,axis=1)))
     if eta_h>=float(Q(CFG['contraction_cap'])):return {'valid':False,'reason':'hidden_jacobian_dominance','eta_h':eta_h}
@@ -256,11 +267,6 @@ def certify(base,r,a0,profile,hidden_factor,projectors,detail=False):
                 upsum(upmul(HS[:,:n,:],np.array([uq(x) for x in amplitudes])[None,None,:]),axis=2))
     fixed_curvature=upadd(contract(HS),left(Snormal,hsecond))
     Pabs=abs_array(projectors);curv=left(Pabs,fixed_curvature)
-    Hinv0=inverse(H0)
-    Jp=matmul([[I(x) for x in row] for row in projectors],J[n:])
-    cross=matmul([row[:n] for row in Jp],matmul(Hinv0,Ht))
-    C0=[[Jp[i][n+j]-cross[i][j] for j in range(r)] for i in range(r)]
-    K=mpinverse(C0);Ecenter=residual(K,C0)
     variation=upsum(upmul(curv,np.array([uq(x) for x in aa])[None,None,:]),axis=2)
     E=upadd(Ecenter,left(abs_array(K),variation))
     ratio=np.array([[uq(aa[k]/aa[j]) for k in range(r)] for j in range(r)])
@@ -270,7 +276,6 @@ def certify(base,r,a0,profile,hidden_factor,projectors,detail=False):
     factors=[(1-Q(eta))*aa[j]/sum(abs(K[j][i])*rho0[i] for i in range(r)) for j in range(r)]
     lam=min(Q(1),Q(CFG['target_fraction_of_contraction_slack'])*min(factors))
     rho=[lam*x for x in rho0]
-    mu,_=query_margins(base,projectors)
     epsilon=Q(CFG['epsilon_primary']);spacing=Q(CFG['strict_spacing_epsilon_multiplier'])*epsilon
     counts=[int((2*x*m)//spacing)+1 for x,m in zip(rho,mu)]
     states=int(np.prod(np.array(counts,dtype=object)));robust=sum(x>1 for x in counts)
