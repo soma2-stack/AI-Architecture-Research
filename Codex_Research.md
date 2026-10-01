@@ -6,6 +6,14 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Near-critical credit phase-diagram resume (2026-10-01)
+
+- **Result:** new author-derived uniform Omega(n) lower at epsilon1e-3, requiring independent review. Explicit dense R=delta I+(a-delta)qq^T, delta=1/(100n), W=I,b=ones/20, independently differentiated P=2n^2+n. A specified finite-net/sign-matrix construction supplies paired bounded inputs and an exact TWO-STEP joint fixed-h ball section; r=floor(floor(n/2)/1000), antipodal half-margin>=83/40000=.002075 for all n>=2000 and a>=1/2. Matrix selection is computable/exhaustive, NOT efficient/closed form, and was not executed.
+- **Accepted upper correction:** bounded Claude review and owner premise establish counted 2Hn recent-state/input encoder, not the redundant H(n^2+2n) store. H=ceil_+(log(kappa_Q C/[epsilon gamma])/[-log(1-gamma)]). Historical proof untouched; its matching-quadratic target under uniform contraction is superseded as impossible. At fixed h k<=min(nP,2Hn); exact h adds n.
+- **Phase diagram:** existential lower Omega(n) in all three requested regimes. General upper O(n) for constant gap (matches worst-case linear for the class containing the explicit family); O(n^2 log n) at gapTheta(1/n); O(n^3) at gapTheta(1/n^2) after exact-storage cap. No quadratic or cubic lower established. Corrected margin ceiling kappa_Q C/gamma *(1-gamma)^(ceil[r/(2n)]-1) excludes fixed-margin cubic sections at gapTheta(1/n), and quadratic/cubic sections at constant gap.
+- **Limitations:** same normalized late scalar-head query used; no privileged adjoint, epsilon change or parameter tying. One slow collective mode suffices for the linear example but does not create a superlinear transition. Large stable rank dilutes the beta-normalized head; gate contraction and coupled sensitivity injection remain obstacles. Not every model with a given gap needs linear memory.
+- **Next theorem:** prove/refute an Omega(n^2) JOINT fixed-h robust section at gamma=c/n under unchanged contract, after independent review of the new linear proof. theory/near_critical_credit_phase_diagram_20261001/PROOF.md and REPORT.md. STOP theory stage; no 9D, architecture, training, new witness or GPU work. All historical/GAS-0/other notebook evidence preserved.
+
 ### General dense robust-width scaling resume (2026-10-01)
 
 - **Stage:** theory only; general fixed-error quadratic-versus-cubic question remains open. No 9D sections, new witnesses, training, architecture or GPU work.

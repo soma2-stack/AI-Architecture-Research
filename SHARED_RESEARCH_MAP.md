@@ -4,7 +4,33 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — General dense robust-width scaling (2026-10-01)
+## Current theory — Near-critical robust credit phase diagram (2026-10-01)
+
+**Linear worst-case robust memory established by a NEW proof requiring
+independent review; quadratic/cubic near-critical transitions remain open.**
+Same epsilon1e-3, group-RMS gradient units and actual permitted late scalar-head
+queries. A specified dense invertible all-width family has an exact two-step
+fixed-h section of r=floor(floor(n/2)/1000)=Omega(n), with uniform antipodal
+half-margin>=.002075. The bounded-spread sign-matrix recipe is computable but
+exhaustive, not an efficient closed formula; no search/experiment was executed.
+
+Owner-accepted bounded review sharpens the previous upper: counted recent
+states/inputs require 2Hn, not the redundant H(n^2+2n) factors. At fixed epsilon:
+constant gap upper O(n), matching the new existential linear lower;
+gapTheta(1/n) upper O(n^2 log n), lower only Omega(n) proved;
+gapTheta(1/n^2) upper O(n^3), lower only Omega(n) proved.
+The improved margin ceiling rules out cubic robust sections at gapTheta(1/n).
+The previous proposed matching-quadratic target under fixed uniform contraction
+is withdrawn as impossible; old proofs/results remain unchanged provenance.
+
+Gap alone is insufficient: slow-mode multiplicity, gate contraction and the
+beta-normalized query strength matter. The new example has one slow collective
+mode and proves no superlinear transition. Next theorem: a jointly separated
+quadratic section at gamma=c/n, after review of the new linear construction.
+Files: theory/near_critical_credit_phase_diagram_20261001/PROOF.md and REPORT.md.
+STOP after theory. No 9D chasing, architecture, training, GPU or GAS-0 work.
+
+## Historical theory — General dense robust-width scaling (2026-10-01)
 
 **General fixed-error quadratic versus cubic scaling remains open.** New
 author-derived proof, requiring independent review: uniformly contractive dense
