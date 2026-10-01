@@ -14,3 +14,13 @@ width are search IDs. The seed, count, objective, source pool and thresholds
 remain unchanged. Rerun both widths/models using the intended search-only
 sample; save a separate retry log. The eight-endpoint primary analysis and
 its outputs were not altered. No diagnostic history is promoted or certified.
+
+## High-precision library index type
+
+The first CPU cross-check reached the scalar curvature calculation but mpmath
+rejected numpy integer indices selected by unravel_index. The original
+high_precision.log and code at b06698b preserve the exception. Convert the
+three selected indices to Python ints; no equation, point, numerical precision,
+threshold or model changes. Repeat only this failed CPU validation phase and
+save high_precision_retry.log. Both attempts are charged. No primary GPU
+geometry or existing certificate is rerun.

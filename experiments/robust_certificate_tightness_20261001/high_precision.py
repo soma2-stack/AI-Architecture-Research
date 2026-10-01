@@ -63,7 +63,7 @@ def curvature_check(case,row):
   ih=np.unravel_index(np.argmax(found['ratio_HH']),found['ratio_HH'].shape)
   iss=np.unravel_index(np.argmax(found['ratio_HS']),found['ratio_HS'].shape)
   family='HS' if found['ratio_HS'][iss]>=found['ratio_HH'][ih] else 'HH'
-  index=iss if family=='HS' else ih;out,j,k=index
+  index=tuple(map(int,iss if family=='HS' else ih));out,j,k=index
   BB=mp.matrix([[q(v)*mp.sqrt(q(Q(3,32))) for v in line[:d]] for line in case['B']])
   yy=mp.matrix([q(float(v)) for v in y]);xx=[[q(v) for v in line] for line in case['X']]
   def value(a,b):
