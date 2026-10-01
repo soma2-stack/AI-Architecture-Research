@@ -4,7 +4,29 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Future-loss observability (2026-09-30)
+## Latest mathematical audit — Quantitative / approximate observability (2026-09-30)
+
+**ROBUST DIMENSION DEPENDS STRONGLY ON SCALE/HORIZON.** Accepted exact
+accessibility/continuous-state results preserved as premises; no reproof.
+experiments/approximate_observability_20260930/PROOF.md and REPORT.md; AR-161.
+Unit adjoints yield operator-norm distinguishability. A fixed-h reachable
+Frobenius ball radius R_K and query-ball margin r_c give conditional deterministic
+bits>=max(0,nP log2[r_c R_K/(4epsilon sqrt(n))]); a continuous real encoding
+needs nP coordinates if epsilon<r_c R_K/sqrt(n), using Borsuk-Ulam.
+New finite-error arguments require independent review. No fixed-error all-width
+Theta(nP) practical memory claim. Contractive future dynamics can preserve exact
+span while making normalized late queries arbitrarily weak.
+Archived dense fixed-h spectra n2/3/4: smallest singular values1.284e-6,
+1.934e-12,7.080e-19; raw axes>=1e-3:10/18/29 of20/63/144. Independent controls
+7/14/23 of8/15/24; both use identical input histories/horizons/W/b/norms.
+Counts depend substantially on thresholds/units; no universal collapse inferred.
+Conservative explicit reachable radii are very small; these are NOT maxima.
+14 final checks pass; failed premeasurement BLAS check preserved and corrected.
+Measured103.40625CPU-s +25s estimate, peak348.296875MiB. CPU only, no GPU,
+GAS-0/model-server/learning/Stage C/AMS v10 operation.
+**STOP: independent review of quantitative patch, packing and encoding models.**
+
+## Previous mathematical audit — Future-loss observability (2026-09-30)
 
 **FULL EXACT OBSERVABILITY — CONTINUOUS STATE LOWER BOUND PROVED** for the
 specified frozen-parameter, late exact-query, continuous discarded-history

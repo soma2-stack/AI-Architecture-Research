@@ -1,0 +1,19 @@
+{
+  "classification": "ROBUST DIMENSION DEPENDS STRONGLY ON SCALE/HORIZON",
+  "peak_ram_bytes": 365215744,
+  "cuda_used": false,
+  "gpu_used": false,
+  "new_training_runs": 0,
+  "numerical_cases": 6,
+  "source_commit": "c0198086d8338a36580c55df740410c76d544716",
+  "freeze_commit": "6aff41c",
+  "implementation_commit": "af999ca",
+  "scope": "Conditional finite-error proof plus archived conditioning diagnostics, not arbitrary-width robust scaling.",
+  "measured_cpu_seconds": 103.40625,
+  "measured_cpu_minutes": 1.7234375,
+  "administrative_estimate_seconds": 25,
+  "charged_cpu_seconds": 128.40625,
+  "post_import_job_wall_seconds": 87.95950509991962,
+  "wall_scope": "Post-import job time only; CPU includes imports. Whole reasoning wall not metered.",
+  "tests_passed": 14
+}

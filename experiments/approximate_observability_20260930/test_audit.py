@@ -73,6 +73,42 @@ class Checks(unittest.TestCase):
         self.assertGreater(mp.mpf(bounds['alpha_lower_formula_value']),0)
         self.assertGreater(mp.mpf(bounds['adjoint_ball_radius_formula_value']),0)
         self.assertGreaterEqual(mp.mpf(bounds['beta']),1)
+    def test_conditioned_family_difference_cancels_center(self):
+        D=mp.matrix([[1,2],[-3,4]])
+        u=mp.matrix([mp.mpf('.6'),mp.mpf('.8')])
+        center=mp.matrix([mp.mpf('.1'),mp.mpf('.2')])
+        radius=mp.mpf('.03')
+        plus=D.T*(center+radius*u)
+        minus=D.T*(center-radius*u)
+        self.assertGreaterEqual(max(mp.norm(plus),mp.norm(minus)),radius*mp.norm(D.T*u))
+    def test_contracting_all_width_family(self):
+        # All-width algebra is in the text; exact rational checks at n2/n3/n4.
+        for n in (2,3,4):
+            A=[[Q(int(i==j))-Q(1,n+1) for j in range(n)] for i in range(n)]
+            inverse=[[Q(int(i==j))+1 for j in range(n)] for i in range(n)]
+            self.assertTrue(all(x!=0 for row in inverse for x in row))
+            for i in range(n):
+                for j in range(n):
+                    self.assertEqual(sum(A[i][k]*inverse[k][j] for k in range(n)),int(i==j))
+    def test_second_precision_and_source_hashes(self):
+        path=a.ROOT/'summary.json'
+        if not path.exists():
+            self.skipTest('Official diagnostics not yet collected')
+        rows=json.loads(path.read_text())
+        dense4=next(x for x in rows if x['case']=='dense' and x['n']==4)
+        self.assertLess(mp.mpf(dense4['second_precision']['max_singular_relative_discrepancy']),mp.mpf('1e-35'))
+        hashes=json.loads((a.ROOT/'source_hashes.json').read_text())
+        for k,v in hashes.items():
+            self.assertEqual(a.hashlib.sha256((a.REPO/k).read_bytes()).hexdigest(),v)
+    def test_per_seed_input_parity(self):
+        path=a.ROOT/'summary.json'
+        if not path.exists():
+            self.skipTest('Official diagnostics not yet collected')
+        rows=json.loads(path.read_text())
+        for n in (2,3,4):
+            pair=[x for x in rows if x['n']==n]
+            self.assertEqual(pair[0]['input_hash'],pair[1]['input_hash'])
+            self.assertEqual(pair[0]['T'],pair[1]['T'])
 
 if __name__=='__main__':
     meter=a.Meter('focused quantitative-observability checks')

@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Quantitative / approximate observability resume — scale dependent (2026-09-30)
+
+- **Lens/stage:** owner-authorized finite-error continuation, accepted accessibility/exact-state results left untouched. **ROBUST DIMENSION DEPENDS STRONGLY ON SCALE/HORIZON.** Conditional finite-error proof draft plus archived-witness diagnostics; no architecture candidate or width-uniform practical bound.
+- **Rigorous conditional results:** unit adjoints give D=operator norm of DeltaS; Frobenius/sqrt(n)<=D<=Frobenius. On fixed-h reachable Frobenius ball radius R_K, conditioned query ball radius r_c, deterministic bits>=max(0,nP log2[r_c R_K/(4epsilon sqrt(n))]). Continuous real encoding still needs nP coordinates if epsilon<r_c R_K/sqrt(n), by Borsuk-Ulam. Finite-bit states and unbounded-precision coordinates are separate models. New arguments need independent review.
+- **Measured conditioning:** dense fixed-h spectra n2/n3/n4 have smallest singular values1.284e-6/1.934e-12/7.080e-19. Raw axes>=1e-3:10/18/29 of20/63/144; matched independent7/14/23 of8/15/24. Relative-parameter/input units:6/9/15 versus4/8/13. At1e-8 the counts are much larger. Full spectra preserved; width4 100/160-digit agreement2.95e-85. These are tangent counts at selected histories, not finite-radius bits or arbitrary-width laws.
+- **Strongest failure:** accepted hypotheses allow contractive R=delta[I-11^T/(n+1)] with delayed unit-head adjoints<=delta^L, so exact span can coexist with arbitrarily weak finite-margin observation. Conservative certified patch radii4.24e-17/3.40e-29/1.36e-43 are sufficient guarantees, NOT maximal patch sizes or proof of global collapse. Query/noise/input/parameter scales remain decisive.
+- **Controls/escapes:** independent supported dimension P_ind=n²+2n; same norms/X/T/W/b, fewer parameters explicitly reported. Low-rank/sketch/stochastic/truncated approaches can exploit weaker contracts; replay/checkpointing changes the model. No approximation benchmark or learning run. GAS-0/GPU/CUDA/model servers/Stage C/AMS v10 untouched.
+- **Checks/resources/artifacts:**14 final checks pass; premeasurement9/10 runtime failure preserved and loaded BLAS limited to1 before official diagnostics. Freeze6aff41c, implementationaf999ca. Measured103.40625CPU-s (1.72344min),25s estimate separately; peak348.296875MiB. experiments/approximate_observability_20260930/REPORT.md and PROOF.md; AR-161.
+- **Exact next action:**STOP. Independent review of the conditional finite-error theorem, especially the explicit reachable patch and finite-bit/continuous-state model distinction. No architecture or learning work starts from this result.
+
 ### Future-loss observability resume — continuous exact-state bound (2026-09-30)
 
 - **Lens/stage:** owner-authorized theoretical continuation from accepted accessibility (owner reports two independent reviews). **FULL EXACT OBSERVABILITY — CONTINUOUS STATE LOWER BOUND PROVED**, for the explicit late exact-query/continuous discarded-history model. New proof still needs independent review; no architecture or practical learner claim.
@@ -6299,3 +6309,60 @@ certificates, independent notebooks and negative results preserved.
 separation/continuous encoding proof, especially the local history section
 and total-versus-auxiliary state accounting. Stop after this task; no
 architecture invention, observability experiments or learning phase started.
+
+## AR-161 — Quantitative / approximate observability (2026-09-30)
+
+**ROBUST DIMENSION DEPENDS STRONGLY ON SCALE/HORIZON.** Owner authorized a
+new finite-error stage using accepted accessibility and exact-memory results
+as premises. Those proofs/certificates remain untouched. Freeze6aff41c,
+implementationaf999ca; complete arguments and measured spectra are in
+experiments/approximate_observability_20260930/PROOF.md and REPORT.md.
+
+**Verified conditional mathematical result, pending review:** fixed-h unit
+adjoints induce exactly the operator metric on sensitivity differences.
+A reachable Frobenius ball radius R_K and adjoint-image ball radius r_c give
+deterministic bit lower bound max(0,nP log2[r_c R_K/(4epsilon sqrt(n))]).
+This follows from a factor-two collision test and volume packing. Separately,
+Borsuk-Ulam forces nP CONTINUOUS real coordinates if
+epsilon<r_c R_K/sqrt(n). Neither statement substitutes infinite precision
+coordinates for bits. Exact rational conservative patch radii are derived
+from archived inverse certificates and a mixed third-derivative/Hessian bound.
+The patch construction includes parameter injections; it does not ignore
+the parameter derivative of the gate.
+
+**Measured fact:** archived dense fixed-h tangent spectra worsen across
+n2/n3/n4; smallest singular values1.284e-6/1.934e-12/7.080e-19. At raw
+threshold1e-3, only10/18/29 of20/63/144 directions exceed it; independent
+controls7/14/23 of8/15/24. At1e-8 dense20/53/79 versus8/15/24. All spectra
+and both normalization conventions are retained. These counts are conditional
+LOCAL diagnostics; no chosen practical gradient tolerance or finite-radius
+advantage is established. Selected witnesses couple width and horizon.
+
+**Hostile reduction:** contractive future dynamics can make a full-span
+query family arbitrarily weak. R=delta[I-11^T/(n+1)] meets the accepted
+qualitative assumptions for everydelta>0, but unit terminal-head adjoints
+after Lsteps are at mostdelta^L. Parameter scaling also changes absolute
+gradient units. The accepted hypotheses therefore cannot supply a uniform
+finite-error practical lower bound by themselves. Conservative reachable
+radii4.24e-17/3.40e-29/1.36e-43 are sufficient guarantees, not maximal sizes.
+No universal robust collapse was proved.
+
+**Scope/escapes:** low-rank snapshot error is governed by singular values
+of S, not by the endpoint Jacobian; sketches/UORO/KF-RTRL can exploit
+probabilistic/average contracts; truncation exploits contraction; replay
+changes the model. A2026 sparse-gradient-transport preprint inspected at
+https://arxiv.org/html/2603.15195v1 reports task-adaptation redundancy under
+continuous error signals, not uniform fixed-parameter gradient correctness.
+No broad approximation algorithm benchmark or training was run.
+
+**Validity/resources:**14 final checks pass. Premeasurement9/10 failure
+caught a loaded multithreaded BLAS pool; native setters enforced frozen1thread
+before measurement. Missing optional threadpoolctl attempt is documented;
+no dependency installed. Measured103.40625CPU-s plus25s conservative estimate,
+peak365,215,744bytes. All prior artifacts and unrelated/staged work preserved;
+GAS-0/GPU/CUDA/model servers/Stage C/AMS v10 unused.
+
+**Interpretation/next action:** a conditional finite-error information bound
+now exists, but useful width-scaling remains open. STOP for independent
+review of the quantitative patch/packing/Borsuk-Ulam arguments and their
+memory assumptions. No architectural claim follows.

@@ -1539,8 +1539,24 @@
    "note": "Conservative administrative CPU estimate; whole research wall time not metered",
    "utc": "2026-10-01T00:02:09.821856+00:00",
    "observability_entry_id": "future_loss_observability_20260930_administration"
+  },
+  {
+   "stage": "quantitative_approximate_observability",
+   "cpu_seconds": 103.40625,
+   "wall_seconds": 87.95950509991962,
+   "note": "CPU-only archived conditioning and focused checks; post-import wall",
+   "utc": "2026-10-01T00:48:41.242462+00:00",
+   "quantitative_observability_entry_id": "approximate_observability_20260930_measured"
+  },
+  {
+   "stage": "quantitative_approximate_observability",
+   "cpu_seconds": 25,
+   "wall_seconds": 0,
+   "note": "Conservative failed optional-import/administrative estimate, not numerical CPU measurement",
+   "utc": "2026-10-01T00:48:41.242462+00:00",
+   "quantitative_observability_entry_id": "approximate_observability_20260930_administration"
   }
  ],
- "total_cpu_seconds": 23147.234125000003,
- "total_cpu_hours": 6.429787256944445
+ "total_cpu_seconds": 23275.640375000003,
+ "total_cpu_hours": 6.465455659722223
 }
