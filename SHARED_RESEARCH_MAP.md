@@ -4,7 +4,35 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Near-critical robust credit phase diagram (2026-10-01)
+## Current theory — Quadratic robust section at gamma=c/n (2026-10-01)
+
+**Omega_c(n^2) joint robust lower DERIVED — INDEPENDENT REVIEW REQUIRED.**
+For every fixed c>0 and sufficiently large n, a specified fully dense tanh
+family with exact contraction gap c/n has r=floor(d l/1000)=Omega_c(n^2)
+continuous section coordinates and uniform antipodal half-margin>.002 at
+unchanged epsilon1e-3, normalized late-query contract and exact fixed h.
+
+Theta(n) slow memory modes rotate the allowed head through d=Theta_c(n)
+orthogonal temporal adjoints while bounded nonlinear source coordinates write
+the real cross-parameter injections. R-group RMS/beta=1/n exactly; the joint
+source-history Frobenius rangeTheta_c(n) offsets this dilution. No loss/head
+rescaling or parameter tying. A finite dense perturbation with a full uniform
+gradient-error bound preserves the lower. Some mixing coefficients are small;
+this is a worst-case existence result in the CURRENT group-RMS contract.
+
+New lower Omega_c(n^2), accepted arbitrary-horizon upper O_c(n^2 log n).
+At the constructed T<=n horizon, upper/lower match Theta_c(n^2). A universal
+subquadratic obstruction is refuted if the new proof survives review. The
+logarithm's arbitrary-history necessity remains open; no other gap regime
+was pursued. Previously accepted constant-gap result is not revisited.
+
+Next: independent hostile review of the exact injection, normalization,
+joint fixed-h and dense-transfer proof, then target uniform arbitrary-horizon
+O_c(n^2) encoding or an Omega(n^2 log n) counterfamily. STOP after theory.
+Files: theory/gamma_c_over_n_quadratic_20261001/PROOF.md and REPORT.md.
+No experiments, matrix search, training, GPU, architecture or GAS-0 work.
+
+## Historical theory — Near-critical robust credit phase diagram (2026-10-01)
 
 **Linear worst-case robust memory established by a NEW proof requiring
 independent review; quadratic/cubic near-critical transitions remain open.**
