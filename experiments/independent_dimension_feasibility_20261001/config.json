@@ -1,0 +1,22 @@
+{
+  "dimensions": [8, 10, 12, 16, 20, 24],
+  "epsilon": 0.001,
+  "bases": ["query_svd", "extend7"],
+  "seeds": [404001, 404002],
+  "balanced_start_ratios": [0.75, 1.5],
+  "spsa_steps": 160,
+  "spsa_learning_rate": 0.12,
+  "spsa_perturbation": 0.08,
+  "face_sobol_points": 32,
+  "face_random_corners": 32,
+  "face_optimization_starts": 3,
+  "face_maxiter_small": 50,
+  "face_maxiter_large": 24,
+  "direct_scales": [0.5, 1, 2, 4],
+  "initial_normal_grid": [0.0001, 0.001, 0.004, 0.016, 0.064, 0.256, 1],
+  "max_binary_refinements": 3,
+  "cpu_limit_seconds": 900,
+  "workers": 1,
+  "device": "cpu",
+  "status": "NUMERICAL DIAGNOSTIC ONLY"
+}
