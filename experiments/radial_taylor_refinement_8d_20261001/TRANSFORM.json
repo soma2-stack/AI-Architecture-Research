@@ -1,0 +1,8 @@
+{
+  "old_gate_block": "        g=np.array([uq(Q(v.hi,I.scale)) for v in gates])\n        f2=np.array([uq((2*hn[i]*gates[i]).absq()) for i in range(n)])\n        f3=np.array([uq((-2*gates[i]*(I(1)-3*hn[i].square())).absq()) for i in range(n)])\n        f4=np.array([uq((8*hn[i]*gates[i]*(I(2)-3*hn[i].square())).absq()) for i in range(n)])",
+  "replacement": "        g,f2,f3,f4=gate_majorants(hn)",
+  "import_added": "from exact_gate import gate_majorants",
+  "original_sha256": "82601731da97a18934daf3d3f49722b7df3cc35017b249f9a8e26a8dfb91ef30",
+  "transformed_sha256": "087a4e509b88c9812bbb469df6412b76d0fdb274b45af35e771b12e43c14e5eb",
+  "all_other_source_text_unchanged": true
+}

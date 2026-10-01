@@ -1,0 +1,14 @@
+{
+  "r": 8,
+  "epsilon": "1/1000",
+  "precisions": [
+    192,
+    256
+  ],
+  "radial_bins": 8,
+  "success_rule": "at least double archived weakest absolute slack; all faces pass both precisions",
+  "cpu_limit_seconds": 1200,
+  "numerical_9d_limit_seconds": 120,
+  "workers": 1,
+  "device": "CPU"
+}

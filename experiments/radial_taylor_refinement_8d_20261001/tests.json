@@ -1,0 +1,204 @@
+{
+  "checks": [
+    {
+      "name": "candidate_byte_exact",
+      "passed": true
+    },
+    {
+      "name": "192_complete_polynomial_roots_1",
+      "passed": true
+    },
+    {
+      "name": "192_complete_polynomial_roots_2",
+      "passed": true
+    },
+    {
+      "name": "192_complete_polynomial_roots_3",
+      "passed": true
+    },
+    {
+      "name": "192_complete_polynomial_roots_4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_1_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_2_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_3_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_4_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_1_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "192_gate_2_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "192_gate_3_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "192_gate_4_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "192_gate_1_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_2_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_3_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "192_gate_4_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "256_complete_polynomial_roots_1",
+      "passed": true
+    },
+    {
+      "name": "256_complete_polynomial_roots_2",
+      "passed": true
+    },
+    {
+      "name": "256_complete_polynomial_roots_3",
+      "passed": true
+    },
+    {
+      "name": "256_complete_polynomial_roots_4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_1_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_2_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_3_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_4_rational_samples_-3/4_3/4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_1_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "256_gate_2_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "256_gate_3_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "256_gate_4_rational_samples_1/4_1/2",
+      "passed": true
+    },
+    {
+      "name": "256_gate_1_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_2_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_3_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "256_gate_4_rational_samples_-7/8_-3/4",
+      "passed": true
+    },
+    {
+      "name": "radial_weights_positive_and_sum",
+      "passed": true
+    },
+    {
+      "name": "constant_radial_bound_recovers_one_sixth",
+      "passed": true
+    },
+    {
+      "name": "prefix_normals_zero",
+      "passed": true
+    },
+    {
+      "name": "fixed_h_identity_0",
+      "passed": true
+    },
+    {
+      "name": "last_step_RTRL_elimination_1",
+      "passed": true
+    },
+    {
+      "name": "fixed_h_identity_1",
+      "passed": true
+    },
+    {
+      "name": "last_step_RTRL_elimination_2",
+      "passed": true
+    },
+    {
+      "name": "fixed_h_identity_2",
+      "passed": true
+    },
+    {
+      "name": "last_step_RTRL_elimination_3",
+      "passed": true
+    },
+    {
+      "name": "direct_frozen_RTRL_section_parity",
+      "passed": true
+    },
+    {
+      "name": "CPU_only",
+      "passed": true
+    },
+    {
+      "name": "all_sources_compile",
+      "passed": true
+    }
+  ],
+  "passed": 45,
+  "CPU_seconds": 3.53125,
+  "wall_seconds": 3.55970119999256,
+  "section_RTRL_errors": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "hardware": {
+    "device": "cpu",
+    "torch": "2.13.0+cpu",
+    "cuda_build": null,
+    "dtype": "float64",
+    "BLAS_pools": [
+      {
+        "library": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "threads": 1
+      }
+    ]
+  }
+}
