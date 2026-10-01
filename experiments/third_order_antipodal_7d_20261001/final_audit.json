@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "candidate freeze hashes",
+      "passed": true
+    },
+    {
+      "name": "same prospectively frozen basis",
+      "passed": true
+    },
+    {
+      "name": "exact tangent down-rounding",
+      "passed": true
+    },
+    {
+      "name": "exact normal up-rounding",
+      "passed": true
+    },
+    {
+      "name": "same bound arrays",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision HH",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision HH3",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision HS",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision HS3",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision y2",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision y3",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision fixed3",
+      "passed": true
+    },
+    {
+      "name": "identical cross-precision selected3",
+      "passed": true
+    },
+    {
+      "name": "CPU only",
+      "passed": true
+    }
+  ],
+  "cpu_seconds": 3.640625,
+  "wall_seconds": 3.872261799988337,
+  "peak_working_set_bytes": 307269632
+}

@@ -4,6 +4,32 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Current mathematical stage — Prospective 7D third-order attempt (2026-10-01)
+
+Owner reports independent Claude acceptance: **6D THIRD-ORDER CERTIFICATE VERIFIED**.
+That lower bound remains accepted. The NEW prospectively preregistered 7D attempt
+is **FAIL**, not a proof that 7D is impossible. Only independent n4 confirmation,
+T37/P24, unchanged endpoint/epsilon1e-3/normalization/query family/fixed-h.
+Method freeze fde381a before all new selection scores, winner freeze50af2c9 before
+official bounds; both pushed prospectively. Accepted third-order kernel unchanged.
+2024 numerical evaluations/14 invalid across two fixed bases and two seeds; one
+winner only, no post-failure tuning/replacement. Hidden section passes;
+all seven sufficient face margins fail. Weakestface5 beta0.000798880700104566;
+face7 beta0.000798914081765574. Face2's frozen certified linear/query range is
+already belowepsilon even without cubic penalty; remaining faces lose slack to
+joint third-order bounds. No intrinsic dimension ceiling established.
+Fresh192/256 regeneration agrees (all eight bound arrays identical;
+maxbeta difference7.42593e-57). 12 development+40 arithmetic+14 final checks pass.
+Pre-official8D diagnostic only: minproxy0.40336 at halfscale, other scales fail
+numerical hidden inclusion; no8D certificate. MeasuredCPU7.448698min plus5s
+allowance, largest process330.53125MiB, GPU/CUDA0. Historical evidence unchanged;
+no GAS-0, architecture, training, Stage C, AMS or width5 work.
+Report: experiments/third_order_antipodal_7d_20261001/REPORT.md.
+**STOP.** Single recommended next step: separately preregister direct high-precision
+antipodal separation on this frozen7D section to distinguish real geometric limits
+from conservative certification, before attempting8D. Sections below preserve
+historical state/authorization as written.
+
 ## Latest mathematical certificate — Third-order antipodal (2026-10-01)
 
 **6D RIGOROUSLY CERTIFIED — INDEPENDENT REVIEW REQUIRED.** One frozen existing

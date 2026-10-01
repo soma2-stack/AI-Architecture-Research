@@ -6,6 +6,17 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Prospective 7D third-order resume (2026-10-01)
+
+- **Owner premise:** Claude independently returned `6D THIRD-ORDER CERTIFICATE VERIFIED`; accepted 6D method/result retained. Earlier resume entries below are historical, not current authorization.
+- **Result: FAIL for the preregistered 7D attempt.** Independent n4 confirmation/T37/P24 only, unchanged endpoint, fixed-h, epsilon1/1000, metric, support-aware queries and continuous encoding. Accepted kernel used byte-for-byte. No new witness or architecture.
+- **Prospective freezes:** method/bases/rules fde381a committed and pushed before numerical selection; one winner freeze50af2c9 committed/pushed before official bounds. Two fixed bases x two seeds, 2024 numerical calls/14 invalid; best top proxy0.7989734, skip-leading0.5654353. No post-official tuning or replacement.
+- **Exact bottleneck:** hidden eta0.0515968074 and inclusion pass. All seven face beta inequalities fail; firstface1, weakestface5 beta0.000798880700104566 <epsilon. Seventh beta0.000798914081765574. Face2 linear margin0.000925499565 already belowepsilon without cubic loss; other faces lose slack to third-order bounds. This is an amplitude/query-range plus remainder tradeoff, NOT a proven true-dimension ceiling.
+- **Validation:**12 development tests,40 exact consistency checks,14 frozen-input/full-array checks pass. Fresh192/256 jets/bounds same candidate; all eight mixed/implicit arrays identical; maxbeta difference7.42593e-57. Old archive/accepted6D artifacts unchanged. Pre-freeze module-name collision and post-result diagnostic-field clarification preserved.
+- **8D diagnostic:**four pre-official fixed-scale probes only. Half-scale minbeta/epsilon0.4033644; other three fail numerical hidden inclusion. No8D certificate or proof of impossibility.
+- **Resources:**446.921875 measuredCPU-s (7.448698min),5s separate allowance; about4.6min computation wall excluding Git/gaps,330.53125MiB largest process peak; conservative combined worker-parent sum about980.79MiB. CPU-only, at most2 single-thread workers, GPU/CUDA0. GAS-0/AGENTS/other notebooks untouched.
+- **Exact next action:**STOP. Recommend a separately preregistered direct high-precision antipodal-separation audit of this frozen7D section to separate actual geometry from conservative majorants before any8D attempt. experiments/third_order_antipodal_7d_20261001/REPORT.md. No architecture, learning, Stage C or AMS.
+
 ### Third-order antipodal resume (2026-10-01)
 
 - **Result:**6D RIGOROUSLY CERTIFIED — INDEPENDENT REVIEW REQUIRED. Independent n4 confirmation/T37 only, same epsilon1/1000/normalized metric/model/history. One archived r6 proxy candidate selected and frozen before official certification; no new witness or tuning.
