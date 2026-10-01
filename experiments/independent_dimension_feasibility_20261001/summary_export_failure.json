@@ -1,0 +1,6 @@
+{
+  "stage": "documentation export after all numerical runs",
+  "failure": "Python SyntaxError: unterminated string literal in summarize.py; mathematical triple-prime text closed the report's triple-single-quoted string",
+  "repair": "Replace report-only Phi_i triple-prime notation with Phi_i^(3)",
+  "scientific_impact": "None. Failed before any code execution; no frozen method, numerical output, or historical evidence changed."
+}

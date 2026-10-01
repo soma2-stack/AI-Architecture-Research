@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Cheap numerical 8D–24D feasibility resume (2026-10-01)
+
+- **Numerical result:** highest promising screened joint dimension 10D; lowest failing tested dimension 11D. Approximate transition 10–11D applies only to the tested Cartesian sections. No new dimension proved, no global upper bound; accepted 7D certificate remains unchanged.
+- **Scope:** same independent width-4 confirmation endpoint/T37/P24, epsilon 1e-3, normalized gradient units and permitted support-aware scalar-head queries. Requested 8/10/12/16/20/24 completed plus one 11D binary refinement. Last-input normal coordinates permit explicit fixed-h compensation; realized inputs stay fixed for parameter derivatives. No interval kernel or certification.
+- **Actual found weakest ratios to 2epsilon:** 8D 3.92886, 10D 1.88526, 11D 0.874865, 12D 0.689274, 16D 0.0878731, 20D 0.00256856, 24D 0.000287885. Numerical sampled/optimized minima are upper estimates of true face infima, not uniform proofs. Fixed-h sampled lifts valid throughout.
+- **Bottleneck:** rebalanced 11D/12D fail on face 1, not the newly added direction. Higher dimensions have increasingly weak tails. Small 8D numerical third-order proxy passes by about 2.45%; 10D actual geometry is promising but existing global majorants fail. No certificate attempted.
+- **Provenance/limits:** prospective primary freeze bc7bc61; primary results and separately prospective direct refinement freeze 4c10ea5. Secondary 11D/12D validation exposed optimization-pool overfitting; no retuning from counterexamples. All 111 primary records and historical certificate hashes preserved. Two bases are effectively sign-equivalent, limiting basis coverage; other geometries may do better. 60/90-digit selected pair checks agree within 3.5e-18. One report-only string syntax error recorded and repaired.
+- **Resources/checks:** measured 145.890625 CPU-s (2.43151 min), 147.227974 s summed computation wall, 104.30469 MiB peak RAM; separate 15 CPU-s setup/import/Git allowance. One CPU thread, GPU/CUDA/own VRAM zero. Numerical calibration, finite differences and ten final provenance/precision/usage/resource checks pass. GAS-0, AGENTS and other notebooks untouched.
+- **Exact next action:** STOP. Recommend separately authorized prospective 8D certification at the frozen proxy candidate; numerical screen alone does not prove it. No new search, architecture, learning or higher-dimension certification automatically. Report: experiments/independent_dimension_feasibility_20261001/REPORT.md.
+
 ### Clean-room second 7D interval implementation resume (2026-10-01)
 
 - **Result:** SECOND INTERVAL IMPLEMENTATION AGREES. Frozen independent n4 confirmation/T37/P24/r7, epsilon1/1000, same central endpoint/axes/amplitudes/metric/query/fixed-h. Fresh outward192/256 runs PASS; continuous k>=7 retained, not7bits or a maximum dimension. No8D, witness search, architecture or learning.

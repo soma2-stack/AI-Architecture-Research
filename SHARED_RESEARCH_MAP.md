@@ -4,7 +4,42 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current verification — Clean-room second 7D interval implementation (2026-10-01)
+## Current diagnostic — Cheap numerical joint-dimension screen (2026-10-01)
+
+**Highest promising screened dimension: 10D; lowest failing tested dimension:
+11D.** This is an approximate transition for tested Cartesian sections, NOT
+a robust-dimension upper bound. Prior 7D remains the rigorously certified
+result. No new interval certification or architecture work occurred.
+
+Same independent width-4 confirmation/T37/P24 endpoint, normalized metric,
+support-aware permitted queries and epsilon 1e-3. Requested dimensions
+8/10/12/16/20/24 plus 11D binary refinement completed. Sampled fixed-h lifts
+all valid. Found worst query-separation ratios to 2epsilon: 3.92886, 1.88526,
+0.874865 (11D), 0.689274 (12D), 0.0878731, 0.00256856 and 0.000287885.
+Positive found minima are not uniform guarantees. 11D/12D fail on an old
+strong face under joint amplitude competition, not their newest direction.
+
+Numerical third-order proxy makes 8D a plausible certificate prospect with
+only 2.45% slack. 10D actual geometry is promising but the current global
+majorants fail; do not confuse these two distinct candidate sections.
+The two proposed bases are effectively identical up to sign, so different
+bases/non-Cartesian sections remain an important unresolved escape route.
+
+Primary prospective freeze bc7bc61; primary results plus separate direct
+refinement rules frozen 4c10ea5 before secondary scores. That refinement was
+explicitly post-primary; fresh attacks exposed optimization-pool overfitting.
+No feedback retuning. All primary and historical evidence preserved.
+Selected pair checks at 60/90 decimal digits agree within 3.5e-18; these are
+numerical cross-checks, not certificates. Ten final checks pass. Measured
+CPU 2.43151 min, peak RAM 104.30469 MiB, GPU/CUDA zero; setup allowance 15 s
+separate. GAS-0 and AGENTS untouched.
+
+**STOP.** Suggested next owner-authorized task: prospectively certify the
+frozen 8D proxy section. This screen itself authorizes no certification.
+Report: experiments/independent_dimension_feasibility_20261001/REPORT.md.
+Earlier entries below preserve historical state and authorization.
+
+## Historical verification — Clean-room second 7D interval implementation (2026-10-01)
 
 **SECOND INTERVAL IMPLEMENTATION AGREES.** Same frozen independent n4
 confirmation/T37/P24, seven axes/amplitudes/preconditioners, normalized metric,
