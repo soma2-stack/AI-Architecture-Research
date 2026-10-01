@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": [
+    "All primary-frozen byte hashes unchanged by secondary work",
+    "svd: six original certificates verified at 256 bits; counts replay exactly",
+    "frame: six original certificates verified at 256 bits; counts replay exactly",
+    "All five prior source/certificate hashes unchanged",
+    "Width/horizon/parameter/allowed-coordinate accounting; both width4 precision checks",
+    "Fifteen grid points independently reconstructed; nontrivial pairs >2epsilon",
+    "Weak-axis global-majorant certificates valid and majorant unchanged within each case",
+    "Primary epsilon unchanged; measured CPU inside frozen45-minute cap"
+  ],
+  "artifact_checks": 8,
+  "unit_tests": {
+    "tests": 12,
+    "passed": true,
+    "failures": 0,
+    "errors": 0
+  },
+  "reconstruction_points": 15
+}

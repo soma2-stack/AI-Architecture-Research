@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Anisotropic robust packing resume — few certified directions (2026-09-30)
+
+- **Lens/stage:** owner-authorized anisotropic/product-entropy continuation. **ONLY A FEW ROBUST DIRECTIONS SURVIVE.** Accepted accessibility, observability, exact-state and isotropic finite-error results preserved as premises. No new witness, width, architecture, training, Stage C or AMS v10.
+- **Frozen metric/data:** epsilon exactly1e-3, research diagnostic only; same input-SD/relative-parameter/fixed-head normalization. Archived dense/independent n2/3/4 at matched T11/22/37. Primary freeze72fa7aa; primary SVD evidence verified/pushed86efe2f before secondary query-frame work. No epsilon/witness tuning.
+- **Certified result:** primary dense robust dimensions1/0/0 and bits1/0/0; independent1/1/0 and bits1/1/0. Declared secondary projection, same SVD history axes and physical error metric: dense1/2/1 directions,2/2/1bits; independent1/1/0 directions,1/1/0bits. Selected dense observable half-ranges0.0034995;0.0016481/0.0013252;0.0017260. Independent0.0012039;0.0013766;0.0006794 (last contributes0bits). These are sufficient LOWER certificates, not maximal robust dimensions or a practical scaling law.
+- **Mechanism of certificate:** directional/mixed third-order sensitivity majorants plus implicit normal correction hold h exactly fixed. Rational scaled contractions certify a projection PRODUCT with a CURVED full-S lift, not a flat full-tensor SVD box. Joint finite-head dual inequalities observe projection differences despite residual coordinates. Integer-safe strict spacing gives product states. Twelve original regions/margins replay at256bits; both width4 spectra agree at100/160digits. New proof/implementation require independent audit.
+- **Strongest failure attack:** old sufficient isotropic bits remain0. Removing just the weakest dense direction improves old-method common radii~77/52/206x, but even top1 has0bits under unchanged global curvature. Directional curvature and query alignment matter in addition to weak tails. Exact dimension20/63/144 is not robust dimension; true uncertified geometry remains unresolved. At secondary1e-2 all bounds0; at1e-4 frozen secondary dense charts give5.044/7.700/4.087bits but only1/2/1directions.
+- **Checks/resources:**12 unit tests,8 artifact checks,12 higher-precision certificate replays;15 numerically reconstructed grid points with nontrivial query distances>2epsilon. Initial interval dependency overflow preserved/corrected,172.9375CPU-s charged; two postprocessing errors documented. Total measured1020.359375CPU-s (17.005990min), process-wall sum1045.818513s,25s estimates separately, peak417.296875MiB. CPU only/one BLAS thread; GPU/CUDA/GAS-0/model servers untouched. Shared ledger6.755833CPU-hours. experiments/anisotropic_robust_packing_20260930/REPORT.md and PROOF.md; AR-162.
+- **Unresolved/exact next action:**STOP. Independent hostile review/replay of the width3 two-axis fixed-h contraction and joint query-duality product certificate. No architecture or learning work follows automatically.
+
 ### Quantitative / approximate observability resume — scale dependent (2026-09-30)
 
 - **Lens/stage:** owner-authorized finite-error continuation, accepted accessibility/exact-state results left untouched. **ROBUST DIMENSION DEPENDS STRONGLY ON SCALE/HORIZON.** Conditional finite-error proof draft plus archived-witness diagnostics; no architecture candidate or width-uniform practical bound.
@@ -6366,3 +6376,112 @@ GAS-0/GPU/CUDA/model servers/Stage C/AMS v10 unused.
 now exists, but useful width-scaling remains open. STOP for independent
 review of the quantitative patch/packing/Borsuk-Ulam arguments and their
 memory assumptions. No architectural claim follows.
+
+## AR-162 — Anisotropic robust packing / product entropy (2026-09-30)
+
+**Classification:** ONLY A FEW ROBUST DIRECTIONS SURVIVE.
+
+**Question and authorization:** replace the weakest-direction round-ball
+certificate with directional/mixed-curvature product certification at the
+EXISTING witnesses. Accepted accessibility/observability/exact-state/isotropic
+finite-error theorems were not reproved. No architecture, new width, training,
+Stage C, AMS v10, GAS-0 or model-server work. CPU was best for n<=4 arbitrary
+precision/interval/rational verification; no GPU workload was launched.
+
+**Freeze:** experiments/anisotropic_robust_packing_20260930/config.json and
+PREREGISTRATION.md, commit72fa7aa. Primary epsilon1e-3 in identical previous
+secondary normalization: input SDsqrt(3/32), reference R/W/b group RMS,
+q=ones/sqrt(n), beta=max(1,Frobenius R), future preactivations[1/4,3/4]^n.
+Same dense/independent archived histories, n2/3/4 at matched T11/22/37.
+Primary SVD evidence was192-bit-certified,256-bit-replayed and pushed86efe2f
+BEFORE the declared secondary query-frame projection and error curves.
+
+### Certified counts and scope
+
+| n / T | Dense P / exact fiber | Primary dense directions / bits | Secondary dense directions / bits | Independent P / fiber | Primary independent directions / bits | Secondary independent directions / bits |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2 / 11 | 10 / 20 | 1 / 1 | 1 / 2 | 8 / 8 | 1 / 1 | 1 / 1 |
+| 3 / 22 | 21 / 63 | 0 / 0 | 2 / 2 | 15 / 15 | 1 / 1 | 1 / 1 |
+| 4 / 37 | 36 / 144 | 0 / 0 | 1 / 1 | 24 / 24 | 0 / 0 | 0 / 0 |
+
+These are sufficient local LOWER certificates. Nothing proves the unretained
+coordinates physically negligible or the reported counts maximal. Tangent
+counts6/9/15 versus4/8/13 at sigma>=1e-3 are not finite-error memory dimensions.
+The finite-state bound is only1–2bits at the declared research scale, not a
+practical GPU/optimizer memory requirement or arbitrary-width robust law.
+
+### New certificate argument
+
+Dyadic SVD/QR history axes plus normal coordinates parameterize a history box.
+All directional and mixed derivatives of h and S are enclosed, including the
+third tanh derivative and actual coupled parameter injections. A rational
+preconditioned contraction and nonnegative Neumann inverse construct an exact
+constant-h section and bound its first/second derivatives. A SECOND scaled
+contraction proves a product in selected sensitivity PROJECTIONS. The full
+tensor is a CURVED lift, not a flat S0+Udiag(rho) box.
+
+Gamma_q=(1/4)I+(5/8)11^T gives permitted gates7/8 and5/8. R/W invertibility is
+explicitly checked. For tensor projection L_i, coefficient rows of
+(R^T Gamma_q)^-1 L_i give mu_i=1/(sqrt(n)beta sum_j rownorm2). This proves
+D_C>=mu_i abs(delta projection_i) for arbitrary residual coordinates, so many
+axes can change simultaneously. The normal future parameter injection cancels
+at equal h. Strict spacing17epsilon/(8mu_i)>2epsilon/mu_i and exact rational
+floors justify product states; no approximate GPU calculation is a certificate.
+
+Selected dense projection half-ranges rho are0.0159717;0.00893670/0.00715727;
+0.00972588. Corresponding observable half-ranges are0.00349950;
+0.00164813/0.00132522;0.00172601. Positions4;2x2;2 yield bits2;2;1.
+Independent selected observable half-ranges0.00120395;0.00137662;0.000679404
+yield2;2;1 positions, bits1;1;0. All exact fractions, alternate primary/frame
+radii, mixed curvatures and transformation conditions are preserved.
+
+### Hostile conditioning attack
+
+Every old sufficient round-ball bound is0bits at1e-3. Dense archived raw radii
+map to normalized balls1.048e-18/7.509e-31/2.815e-45. Independent same-method
+comparators newly computed here also give0bits; they are not claimed as old
+archived measurements. Removing only the weakest dense axis improves a
+rigorous common-radius comparator~77/52/206x. Removing bottom~5%/~10% helps
+further, but even TOP1 under the UNCHANGED global majorant still gives0bits.
+Thus the weak tail matters, and so do directional curvature and query alignment.
+The separate sigma_min-squared models are numerical counterfactuals, not proofs.
+
+At1e-2 all frozen charts give0bits. At1e-4 the declared secondary dense charts
+give5.044/7.700/4.087bits but still1/2/1directions. Independent secondary gives
+3.459/4/3bits,1/1/1directions. No chart or epsilon was reoptimized for these
+secondary curves. Full spectra at100digits preserved; width4 checked at160.
+Per-axis failure attributions distinguish weak tangent amplitude, declared
+normalization, uniform curvature bounds and query-dual weakness; they are
+diagnostics of the grid, not physical causes. Numerous mixed-curvature proposal
+failures are recorded even though individual attribution assigns no unique D.
+
+### Validation, failures and resources
+
+12 focused unit tests and8 artifact checks pass. All12 original selected
+products and query margins replay at256bits with frozen rational preconditioners.
+15 grid points independently reconstructed and evaluated at100digits; every
+nontrivial pair has actual numerical query separation>2epsilon. This numerical
+check is separate from rigorous existence. All5 archived source hashes remain
+unchanged. New proof and IEEE/dyadic implementation need independent review.
+
+Initial interval tanh dependency blow-up caused an overflow campaign after128
+records. It is preserved,172.9375CPU-s charged, and corrected by monotone
+endpoint evaluation with explicit Taylor-tail bounds. A module-name collision
+and output-only Fraction/mpmath formatting error are also preserved/documented.
+No configuration, threshold, witness or negative result was silently changed.
+
+Total measured1020.359375CPU-s=17.005990min; process-wall sum1045.818513s.
+Failed-import5s and administration20s estimates charged separately; total
+charged1045.359375s, peak437,567,488bytes=417.296875MiB. Single-worker numerical
+jobs/one BLAS thread, inside45CPU-min cap. GPU/CUDA unused; GPU time/allocation0,
+temperature not measured because no stage GPU work. Shared ledger6.755833h.
+
+**Artifacts:** experiments/anisotropic_robust_packing_20260930/REPORT.md,
+PROOF.md, summary.json, certificate_*.json, verification_*.json, spectra.csv,
+directional_audit.json, weak_axis_certificates.json, reconstruction_checks.json,
+resources.json; raw unsuccessful attempts preserved. Commits72fa7aa,
+e41e609,86efe2f plus completion commit containing this entry.
+
+**Single next action:** STOP for independent hostile review/replay of the
+width3 two-axis fixed-h contraction and query-duality product certificate.
+No new architecture or learning experiment follows from this result.

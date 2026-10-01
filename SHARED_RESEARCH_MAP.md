@@ -4,7 +4,34 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Quantitative / approximate observability (2026-09-30)
+## Latest mathematical audit — Anisotropic robust packing (2026-09-30)
+
+**ONLY A FEW ROBUST DIRECTIONS SURVIVE.** Owner-authorized continuation at
+epsilon1e-3 in unchanged prior normalized gradient units; a research diagnostic.
+Same archived n2/3/4 dense/independent witnesses, matched T11/22/37; no search
+for better histories or new widths. Accepted theorems unchanged.
+experiments/anisotropic_robust_packing_20260930/REPORT.md and PROOF.md; AR-162.
+Primary SVD freeze72fa7aa/verified push86efe2f precedes secondary projection.
+Primary dense robust counts1/0/0, bits1/0/0; independent1/1/0, bits1/1/0.
+Declared query-frame secondary, same history axes and metric, certifies dense
+1/2/1 directions and2/2/1bits; independent1/1/0 and1/1/0bits. All old round-ball
+bounds remain0bits. This is not a maximum robust dimension or practical memory
+law. Products are in sensitivity projections with CURVED exact fixed-h lifts;
+joint dual inequalities include unselected residuals. All mixed curvature is
+bounded.12 original certificates replay at256bits; both width4 spectra agree
+at100/160digits. New certificate argument requires independent review.
+Removing the weakest axis improves global-method radii~77/52/206x, but even
+top1 gives0bits with that unchanged global curvature bound. No actual collapse
+of the full reachable region is inferred. At1e-2 all selected packing0; at1e-4
+secondary dense charts give5.044/7.700/4.087bits, still only1/2/1directions.
+12 unit tests/8 artifact checks pass;15 numerical grid reconstructions validate
+separation. Failed interval campaign and two postprocessing errors preserved.
+Measured1020.359375CPU-s (17.005990min),25s estimates separately, peak417.296875MiB.
+No GPU/CUDA/GAS-0/server/training/Stage C/AMS v10 operation. Prior evidence hashes
+unchanged; shared CPU total6.755833h. **STOP: independent hostile review of the
+width3 two-axis fixed-h/product certificate.** No architecture candidate.
+
+## Previous mathematical audit — Quantitative / approximate observability (2026-09-30)
 
 **ROBUST DIMENSION DEPENDS STRONGLY ON SCALE/HORIZON.** Accepted exact
 accessibility/continuous-state results preserved as premises; no reproof.

@@ -72,6 +72,31 @@ class Checks(unittest.TestCase):
         c=e.prior.archived;m=c.Model('independent',2);old=m.serialize()
         c.jets(m,[[Q(1,8),Q(-1,8)]],'mp')
         self.assertEqual(m.serialize(),old)
+    def test_joint_query_duality_with_residual_coordinates(self):
+        m=e.prior.archived.Model('dense',2);base={'model':m,'n':2}
+        L=[[Q((i+1)*(j+2)%7-3,11) for j in range(len(m.support))] for i in range(3)]
+        mu,C=e.query_margins(base,L)
+        delta=np.array([[Q((k+3)*(p+1)%13-6,17) for p in range(m.P)] for k in range(2)],dtype=object)
+        beta=mp.sqrt(max(Q(1),sum(m.params[p]**2 for i,j,p in m.layers[0]['R'])))
+        distances=[]
+        for j in range(2):
+            v=[sum(delta[k,p]*C[k][j] for k in range(2)) for p in range(m.P)]
+            distances.append(mp.sqrt(sum(e.mpq(x)**2 for x in v))/(mp.sqrt(2)*beta))
+        for row,margin in zip(L,mu):
+            projection=sum(value*delta[i,p] for value,(i,p) in zip(row,m.support))
+            self.assertLessEqual(e.mpq(margin)*abs(e.mpq(projection)),max(distances))
+    def test_multivariate_affine_product_positive_control(self):
+        # Exact rational inverse, cross-coordinate output box, no nonlinear
+        # remainder. Verify all target corners map inside the input product.
+        C=[[Q(2),Q(1)],[Q(1),Q(3)]];K=e.inverse(C)
+        a=[Q(1,4),Q(1,8)];rho=[Q(1,10),Q(1,10)]
+        self.assertTrue(all(sum(abs(K[j][i])*rho[i] for i in range(2))<a[j] for j in range(2)))
+        import itertools
+        for sign in itertools.product((-1,1),repeat=2):
+            target=[s*x for s,x in zip(sign,rho)]
+            t=[sum(K[j][i]*target[i] for i in range(2)) for j in range(2)]
+            self.assertTrue(all(abs(x)<=bound for x,bound in zip(t,a)))
+            self.assertEqual([sum(C[j][i]*t[i] for i in range(2)) for j in range(2)],target)
 
 if __name__=='__main__':
     meter=e.Meter('anisotropic certificate development checks')

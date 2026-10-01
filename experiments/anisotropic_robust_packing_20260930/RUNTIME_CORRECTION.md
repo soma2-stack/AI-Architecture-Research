@@ -19,3 +19,14 @@ passed before the corrected campaign. Repeated center inverses are cached
 for runtime efficiency; these are the identical checked rational matrices.
 W invertibility is explicitly checked for realization of the future queries.
 No earlier artifact or GAS-0 file was changed.
+
+After both certificate campaigns and their successful 256-bit replays, the
+postprocessor's first import found an archived verify.py with the same module
+name because the read-only archive loader prepended its directory to sys.path.
+The postprocessor stopped before producing summaries. Explicit file loading
+of this stage's verify.py corrected this generic import collision. No measured
+campaign was rerun or changed; five seconds of unmetered import CPU are charged
+as a separate conservative estimate.
+The next postprocessing attempt stopped on unsupported Fraction/mpmath
+division when formatting an isotropic comparison value. Explicit conversion
+fixed this output-only type error; that metered attempt remains in the ledger.

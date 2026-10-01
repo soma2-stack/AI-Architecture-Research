@@ -1555,8 +1555,24 @@
    "note": "Conservative failed optional-import/administrative estimate, not numerical CPU measurement",
    "utc": "2026-10-01T00:48:41.242462+00:00",
    "quantitative_observability_entry_id": "approximate_observability_20260930_administration"
+  },
+  {
+   "stage": "anisotropic_robust_packing",
+   "cpu_seconds": 1020.359375,
+   "wall_seconds": 1045.8185126781464,
+   "utc": "2026-10-01T02:05:50.746899+00:00",
+   "note": "CPU-only primary/secondary joint certificates, failed campaign, replay and checks; process-wall sum",
+   "anisotropic_entry_id": "anisotropic_robust_packing_20260930_measured"
+  },
+  {
+   "stage": "anisotropic_robust_packing",
+   "cpu_seconds": 25,
+   "wall_seconds": 0,
+   "utc": "2026-10-01T02:05:50.746899+00:00",
+   "note": "5s failed pre-meter import estimate +20s administrative estimate; distinct from measured CPU",
+   "anisotropic_entry_id": "anisotropic_robust_packing_20260930_estimate"
   }
  ],
- "total_cpu_seconds": 23275.640375000003,
- "total_cpu_hours": 6.465455659722223
+ "total_cpu_seconds": 24320.999750000003,
+ "total_cpu_hours": 6.755833263888889
 }

@@ -11,6 +11,8 @@ R/W/b group RMS values. The measured sensitivity is S_phi=S_theta D_theta.
 The future gradient error is the Euclidean norm in these phi coordinates.
 Input-history perturbations use unit input-SD coordinates. No singular value
 or epsilon is rescaled after inspection of results.
+All coordinate/reference normalization constants are evaluated at the frozen
+model, not adapted to individual histories or grid points.
 
 At the archived history X0, QR of J_h and SVD of
 A_fiber=(J_S D_theta) N sigma_x supply normal directions B_h and tangent
@@ -145,3 +147,32 @@ This is a deterministic finite-state/no-replay, worst-case-query bound on
 one local chart in the stated normalized units. It is not a byte/VRAM,
 production-noise, optimizer, learning-advantage, or arbitrary-width result.
 Failure of this sufficient certificate is not nonexistence of a larger region.
+
+## Secondary projections and weak-axis comparator
+
+Only after primary freezing, the finite query frame is used to choose different
+output functionals. Let G=C_tilde C_tilde^T and Gram_ij=<U_i,G U_j> on supported
+tensor entries. Midpoint initialization L_j=G sum_k U_k (Gram^-1)_kj is dyadically
+rationalized. The actual center residual and mixed-curvature checks verify it;
+no numerical Gram identity is assumed exact. The history axes are unchanged.
+The same dual query formula recomputes mu_j for these new L_j. Consequently
+rho_j is a projection half-range, not a silently rescaled physical tolerance.
+
+For the weak-axis comparison only, the accepted global-majorant inverse
+inequalities are applied to H plus the first r selected projections. The raw
+global Hessian majorant, full-history basis infinity norm and output row-norm
+bound are held UNCHANGED as r varies at each witness. A sparse rational SVD
+block preconditioner is checked against the actual interval center; ignored
+off-diagonal and tangent-normal entries are included in its residual eta.
+With inverse norm M and common majorant Lambda, the comparator uses
+a=min(1,(1-eta)/(2M Lambda)), rho=(1-eta)a/(2M), and safe half-range rho/2.
+These are sufficient certified regions, not estimates of the maximal patch.
+No accepted theorem is reproved. The separate sigma_min-squared models are
+explicitly numerical counterfactuals, not interchangeable with these certificates.
+
+General verification background: S. M. Rump, Verification methods: rigorous
+results using floating-point arithmetic, Acta Numerica19 (2010),287-449.
+https://www.tuhh.de/ti3/rump/intlab/ActaNumerica2010.pdf
+This implementation does not use INTLAB and that reference does not verify
+this code. The mathematical conditions and arithmetic assumptions above
+must themselves be independently audited.

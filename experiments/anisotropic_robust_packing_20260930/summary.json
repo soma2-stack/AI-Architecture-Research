@@ -1,0 +1,906 @@
+[
+  {
+    "case": "dense",
+    "n": 2,
+    "T": 11,
+    "P": 10,
+    "D_exact": 20,
+    "primary_D_robust": 1,
+    "primary_bits": 1.0,
+    "secondary_D_robust": 1,
+    "secondary_bits": 2.0,
+    "selected_mode": "frame",
+    "selected_r": 1,
+    "rho_i": [
+      0.01597174743264667
+    ],
+    "mu_i": [
+      0.21910575192203408
+    ],
+    "observable_half_ranges": [
+      0.003499501730738866
+    ],
+    "N_i": [
+      4
+    ],
+    "bits_per_axis": [
+      2.0
+    ],
+    "rho_aspect_ratio": 1.0,
+    "retained_margin_strongest": 0.003499501730738866,
+    "retained_margin_median": 0.003499501730738866,
+    "retained_margin_weakest": 0.003499501730738866,
+    "selected_preconditioner_condition": 1.0,
+    "directional_curvature_F": [
+      [
+        0.17340296256258736
+      ]
+    ],
+    "old_isotropic": {
+      "radius_exact": "5414716878553411172073614366243703471295520853532452532356461213647735847969656747996965937260486273621580454854484214303517774069208015963231138341491974509173538804758572755014336162441895624253144263705869/5164367778567617925628539140009297611067155506129997762960014471778581033580418502990994102594477099539841418822508091145349141301163472232613015788149721846755891665287905034086112208001768039468293231118900088473088289669120",
+      "radius": 1.048476233823771e-18,
+      "query_ball_margin_exact": "30657634207293902067812428026690552381231584668313829201/784637716923335095479473677900958302012794430558004314112",
+      "query_ball_margin": 0.03907234325607799,
+      "old_bits": 0.0,
+      "old_full_dimension_threshold": 2.8967635719077195e-20,
+      "old_certified_effective_dimension_at_primary": 0,
+      "source": "Archived raw ball, mapped by smallest parameter RMS; same normalized units",
+      "label": "CERTIFIED sufficient comparator"
+    },
+    "curves": {
+      "primary_SVD": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            2
+          ],
+          "bits_per_axis": [
+            1.0
+          ],
+          "states": "2",
+          "bits": 1.0,
+          "D_robust": 1
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            13
+          ],
+          "bits_per_axis": [
+            3.700439718141092
+          ],
+          "states": "13",
+          "bits": 3.700439718141092,
+          "D_robust": 1
+        }
+      ],
+      "selected_secondary_frame": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            4
+          ],
+          "bits_per_axis": [
+            2.0
+          ],
+          "states": "4",
+          "bits": 2.0,
+          "D_robust": 1
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            33
+          ],
+          "bits_per_axis": [
+            5.044394119358453
+          ],
+          "states": "33",
+          "bits": 5.044394119358453,
+          "D_robust": 1
+        }
+      ]
+    },
+    "label": "CERTIFIED selected product; spectra separately numerical",
+    "improvement_in_bits": 2.0,
+    "multiplicative_bit_improvement": "Undefined when old bound is zero",
+    "history_frame_gram_defect_exact": "508473384510202182047412679420686156025/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+    "history_frame_condition_upper": "6277101735386680763835789423207666416129919841870885435131/6277101735386680763835789423207666416102355444464034512896",
+    "output_projection_condition_numerical": 1.0,
+    "discarded_failure_counts": {
+      "A": 12,
+      "B": 2,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 4,
+      "H": 0
+    },
+    "proposal_failure_counts": {
+      "hidden_jacobian_dominance": 42,
+      "hidden_section_box_inclusion": 10,
+      "mixed_sensitivity_curvature": 268
+    }
+  },
+  {
+    "case": "independent",
+    "n": 2,
+    "T": 11,
+    "P": 8,
+    "D_exact": 8,
+    "primary_D_robust": 1,
+    "primary_bits": 1.0,
+    "secondary_D_robust": 1,
+    "secondary_bits": 1.0,
+    "selected_mode": "svd",
+    "selected_r": 1,
+    "rho_i": [
+      0.02158333128121114
+    ],
+    "mu_i": [
+      0.055781404571130594
+    ],
+    "observable_half_ranges": [
+      0.0012039485341899768
+    ],
+    "N_i": [
+      2
+    ],
+    "bits_per_axis": [
+      1.0
+    ],
+    "rho_aspect_ratio": 1.0,
+    "retained_margin_strongest": 0.0012039485341899768,
+    "retained_margin_median": 0.0012039485341899768,
+    "retained_margin_weakest": 0.0012039485341899768,
+    "selected_preconditioner_condition": 1.0,
+    "directional_curvature_F": [
+      [
+        0.08352873080998267
+      ]
+    ],
+    "old_isotropic": {
+      "radius_exact": "98402524578508966854277958146578931532467690945108785980410210180484356685331714799870162255383538028758441822989535863729392176499371936221432796655187975260090564952313487491316376713694862926293297202531794505187379313640235198276598373391329658320957787340800000000000000000000000000/875494138888991335527066532148917410649966182195870637650809853798010071914372714559924288569898397914401656651883592080092768774349122082411470857772315932218582329638085697789621730687712131018239822888111108643968402930110344062934346344523300679936427390166595121757049210257421211606556561866413",
+      "radius": 1.123965543657237e-13,
+      "query_ball_margin_exact": "190248842788670830977798211572539716242827815190486162929/6277101735386680763835789423207666416102355444464034512896",
+      "query_ball_margin": 0.030308389254894107,
+      "old_bits": 0.0,
+      "old_full_dimension_threshold": 2.4088006304429074e-15,
+      "old_certified_effective_dimension_at_primary": 0,
+      "source": "New same-global-majorant comparator on supported independent endpoint; not an archived radius",
+      "label": "CERTIFIED sufficient comparator"
+    },
+    "curves": {
+      "primary_SVD": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            2
+          ],
+          "bits_per_axis": [
+            1.0
+          ],
+          "states": "2",
+          "bits": 1.0,
+          "D_robust": 1
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            12
+          ],
+          "bits_per_axis": [
+            3.584962500721156
+          ],
+          "states": "12",
+          "bits": 3.584962500721156,
+          "D_robust": 1
+        }
+      ],
+      "selected_secondary_frame": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            2
+          ],
+          "bits_per_axis": [
+            1.0
+          ],
+          "states": "2",
+          "bits": 1.0,
+          "D_robust": 1
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            11
+          ],
+          "bits_per_axis": [
+            3.4594316186372973
+          ],
+          "states": "11",
+          "bits": 3.4594316186372973,
+          "D_robust": 1
+        }
+      ]
+    },
+    "label": "CERTIFIED selected product; spectra separately numerical",
+    "improvement_in_bits": 1.0,
+    "multiplicative_bit_improvement": "Undefined when old bound is zero",
+    "history_frame_gram_defect_exact": "274920670865381261263075617710597594493/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+    "history_frame_condition_upper": "3138550867693340381917894711603833208066081201662688190837/3138550867693340381917894711603833208051177722232017256448",
+    "output_projection_condition_numerical": 1.0,
+    "discarded_failure_counts": {
+      "A": 2,
+      "B": 1,
+      "C": 2,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 2,
+      "H": 0
+    },
+    "proposal_failure_counts": {
+      "hidden_jacobian_dominance": 2,
+      "hidden_section_box_inclusion": 2,
+      "mixed_sensitivity_curvature": 136
+    }
+  },
+  {
+    "case": "dense",
+    "n": 3,
+    "T": 22,
+    "P": 21,
+    "D_exact": 63,
+    "primary_D_robust": 0,
+    "primary_bits": 0.0,
+    "secondary_D_robust": 2,
+    "secondary_bits": 2.0,
+    "selected_mode": "frame",
+    "selected_r": 2,
+    "rho_i": [
+      0.008936697672956191,
+      0.007157274316691487
+    ],
+    "mu_i": [
+      0.1844230111587496,
+      0.18515681028226835
+    ],
+    "observable_half_ranges": [
+      0.0016481326946619715,
+      0.0013252180827937976
+    ],
+    "N_i": [
+      2,
+      2
+    ],
+    "bits_per_axis": [
+      1.0,
+      1.0
+    ],
+    "rho_aspect_ratio": 1.248617459318963,
+    "retained_margin_strongest": 0.0016481326946619715,
+    "retained_margin_median": 0.0016481326946619715,
+    "retained_margin_weakest": 0.0013252180827937976,
+    "selected_preconditioner_condition": 1.248617459318963,
+    "directional_curvature_F": [
+      [
+        0.07849794684699765,
+        0.07324251992749369
+      ],
+      [
+        0.07324251992749364,
+        0.07233238828172664
+      ]
+    ],
+    "old_isotropic": {
+      "radius_exact": "1329278090712425705333173677315933359480134830945022950943914582877620462163976753971147860056732512268326171744781220831469344623910247380994640688309979524393296097424807664277850624001234504844919410018377678535621366040358424200291750936345925903069285841523985917383589797994384873/1770293550781899504575319549387625676049695563716478301572125514372868308558898526665795192571580510544568633673387895761128488848658670784314603851019907857495482284536329670114038916185633065278648068737618446920877791162000734199957649038107925875057396765436407301960815164214176130782059047984680442354754125824",
+      "radius": 7.508800391467918e-31,
+      "query_ball_margin_exact": "150588015707572484288501449955708249336347369996914088389/6277101735386680763835789423207666416102355444464034512896",
+      "query_ball_margin": 0.02399005497372204,
+      "old_bits": 0.0,
+      "old_full_dimension_threshold": 1.040018764985666e-32,
+      "old_certified_effective_dimension_at_primary": 0,
+      "source": "Archived raw ball, mapped by smallest parameter RMS; same normalized units",
+      "label": "CERTIFIED sufficient comparator"
+    },
+    "curves": {
+      "primary_SVD": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            9
+          ],
+          "bits_per_axis": [
+            3.169925001442312
+          ],
+          "states": "9",
+          "bits": 3.169925001442312,
+          "D_robust": 1
+        }
+      ],
+      "selected_secondary_frame": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1,
+            1
+          ],
+          "bits_per_axis": [
+            0.0,
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            2,
+            2
+          ],
+          "bits_per_axis": [
+            1.0,
+            1.0
+          ],
+          "states": "4",
+          "bits": 2.0,
+          "D_robust": 2
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            16,
+            13
+          ],
+          "bits_per_axis": [
+            4.0,
+            3.700439718141092
+          ],
+          "states": "208",
+          "bits": 7.700439718141092,
+          "D_robust": 2
+        }
+      ]
+    },
+    "label": "CERTIFIED selected product; spectra separately numerical",
+    "improvement_in_bits": 2.0,
+    "multiplicative_bit_improvement": "Undefined when old bound is zero",
+    "history_frame_gram_defect_exact": "789277097491395567985059584454943055747/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+    "history_frame_condition_upper": "6277101735386680763835789423207666416145142241653695730727/6277101735386680763835789423207666416102355444464034512896",
+    "output_projection_condition_numerical": 1.0064739169620223,
+    "discarded_failure_counts": {
+      "A": 50,
+      "B": 1,
+      "C": 6,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 4,
+      "H": 0
+    },
+    "proposal_failure_counts": {
+      "hidden_jacobian_dominance": 58,
+      "hidden_section_box_inclusion": 6,
+      "mixed_sensitivity_curvature": 252
+    }
+  },
+  {
+    "case": "independent",
+    "n": 3,
+    "T": 22,
+    "P": 15,
+    "D_exact": 15,
+    "primary_D_robust": 1,
+    "primary_bits": 1.0,
+    "secondary_D_robust": 1,
+    "secondary_bits": 1.0,
+    "selected_mode": "svd",
+    "selected_r": 1,
+    "rho_i": [
+      0.026149346932545642
+    ],
+    "mu_i": [
+      0.05264440485679323
+    ],
+    "observable_half_ranges": [
+      0.0013766168066576768
+    ],
+    "N_i": [
+      2
+    ],
+    "bits_per_axis": [
+      1.0
+    ],
+    "rho_aspect_ratio": 1.0,
+    "retained_margin_strongest": 0.0013766168066576768,
+    "retained_margin_median": 0.0013766168066576768,
+    "retained_margin_weakest": 0.0013766168066576768,
+    "selected_preconditioner_condition": 1.0,
+    "directional_curvature_F": [
+      [
+        0.1169821599936683
+      ]
+    ],
+    "old_isotropic": {
+      "radius_exact": "189516368689051383685178160212707831451790295389521615031808006548873445118146783422498075140391775366455279540028472598763128397105723809398524662073063551899131281725374290296844510511637444888208737071026840618899592936685568000000000000000000000000000000000000000000000000000000000000000/54092768972779749402848523992442240660777127828668783912584277938992852649822788543752345358375167751904165748437809493749424892483032886803657421371786284844935800589272940565320975431773971972676215234922579957443836742673156113721092080000063538750599177160925015573311589306451469394062297921342015359",
+      "radius": 3.503543491819003e-15,
+      "query_ball_margin_exact": "143421132855576027616498887525000199049937337207647653439/6277101735386680763835789423207666416102355444464034512896",
+      "query_ball_margin": 0.022848304663767097,
+      "old_bits": 0.0,
+      "old_full_dimension_threshold": 4.621690585173881e-17,
+      "old_certified_effective_dimension_at_primary": 0,
+      "source": "New same-global-majorant comparator on supported independent endpoint; not an archived radius",
+      "label": "CERTIFIED sufficient comparator"
+    },
+    "curves": {
+      "primary_SVD": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            2
+          ],
+          "bits_per_axis": [
+            1.0
+          ],
+          "states": "2",
+          "bits": 1.0,
+          "D_robust": 1
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            13
+          ],
+          "bits_per_axis": [
+            3.700439718141092
+          ],
+          "states": "13",
+          "bits": 3.700439718141092,
+          "D_robust": 1
+        }
+      ],
+      "selected_secondary_frame": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            2
+          ],
+          "bits_per_axis": [
+            1.0
+          ],
+          "states": "2",
+          "bits": 1.0,
+          "D_robust": 1
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            16
+          ],
+          "bits_per_axis": [
+            4.0
+          ],
+          "states": "16",
+          "bits": 4.0,
+          "D_robust": 1
+        }
+      ]
+    },
+    "label": "CERTIFIED selected product; spectra separately numerical",
+    "improvement_in_bits": 1.0,
+    "multiplicative_bit_improvement": "Undefined when old bound is zero",
+    "history_frame_gram_defect_exact": "225669823021841004752014350179029698247/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+    "history_frame_condition_upper": "3138550867693340381917894711603833208075644893470487188497/3138550867693340381917894711603833208051177722232017256448",
+    "output_projection_condition_numerical": 1.0,
+    "discarded_failure_counts": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 5,
+      "H": 0
+    },
+    "proposal_failure_counts": {
+      "hidden_jacobian_dominance": 28,
+      "hidden_section_box_inclusion": 6,
+      "mixed_sensitivity_curvature": 152
+    }
+  },
+  {
+    "case": "dense",
+    "n": 4,
+    "T": 37,
+    "P": 36,
+    "D_exact": 144,
+    "primary_D_robust": 0,
+    "primary_bits": 0.0,
+    "secondary_D_robust": 1,
+    "secondary_bits": 1.0,
+    "selected_mode": "frame",
+    "selected_r": 1,
+    "rho_i": [
+      0.00972588197651869
+    ],
+    "mu_i": [
+      0.177465200504678
+    ],
+    "observable_half_ranges": [
+      0.0017260055950477232
+    ],
+    "N_i": [
+      2
+    ],
+    "bits_per_axis": [
+      1.0
+    ],
+    "rho_aspect_ratio": 1.0,
+    "retained_margin_strongest": 0.0017260055950477232,
+    "retained_margin_median": 0.0017260055950477232,
+    "retained_margin_weakest": 0.0017260055950477232,
+    "selected_preconditioner_condition": 1.0,
+    "directional_curvature_F": [
+      [
+        0.16199520975155124
+      ]
+    ],
+    "old_isotropic": {
+      "radius_exact": "942072165577396715137053977646972118965561788491966921818773917272543353153236766134868896779498288614678125756652176670504826987414969822128928102756788922302842843964206639621519556368373499390031057493342798851830110947678610859457183758828814607383195535441276660310433406113672604218050035220482143399334751361994604090411657986048/334666143306903785902816343343948973184883825501226404444192604125715839142570697555952517217614068769243705956715545038212973569016491338132694863368294123723068874235393314420157016447643353323091429319847126364785619454146395384841590548500109863532724513660455944883051405269906372320650708261824859019045121058272727367863593563117145863759059574889248449862073371556686077255",
+      "radius": 2.814961072155645e-45,
+      "query_ball_margin_exact": "49956481376466251122169919642753279707551803655661394751/3138550867693340381917894711603833208051177722232017256448",
+      "query_ball_margin": 0.015917053277897476,
+      "old_bits": 0.0,
+      "old_full_dimension_threshold": 2.2402942680354405e-47,
+      "old_certified_effective_dimension_at_primary": 0,
+      "source": "Archived raw ball, mapped by smallest parameter RMS; same normalized units",
+      "label": "CERTIFIED sufficient comparator"
+    },
+    "curves": {
+      "primary_SVD": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            3
+          ],
+          "bits_per_axis": [
+            1.584962500721156
+          ],
+          "states": "3",
+          "bits": 1.584962500721156,
+          "D_robust": 1
+        }
+      ],
+      "selected_secondary_frame": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            2
+          ],
+          "bits_per_axis": [
+            1.0
+          ],
+          "states": "2",
+          "bits": 1.0,
+          "D_robust": 1
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            17
+          ],
+          "bits_per_axis": [
+            4.087462841250339
+          ],
+          "states": "17",
+          "bits": 4.087462841250339,
+          "D_robust": 1
+        }
+      ]
+    },
+    "label": "CERTIFIED selected product; spectra separately numerical",
+    "improvement_in_bits": 1.0,
+    "multiplicative_bit_improvement": "Undefined when old bound is zero",
+    "history_frame_gram_defect_exact": "880961524091204338495580982980405397067/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+    "history_frame_condition_upper": "3138550867693340381917894711603833208075056232189412876349/3138550867693340381917894711603833208051177722232017256448",
+    "output_projection_condition_numerical": 1.0,
+    "discarded_failure_counts": {
+      "A": 126,
+      "B": 2,
+      "C": 9,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 6,
+      "H": 0
+    },
+    "proposal_failure_counts": {
+      "hidden_jacobian_dominance": 114,
+      "hidden_section_box_inclusion": 8,
+      "mixed_sensitivity_curvature": 199
+    }
+  },
+  {
+    "case": "independent",
+    "n": 4,
+    "T": 37,
+    "P": 24,
+    "D_exact": 24,
+    "primary_D_robust": 0,
+    "primary_bits": 0.0,
+    "secondary_D_robust": 0,
+    "secondary_bits": 0.0,
+    "selected_mode": "svd",
+    "selected_r": 1,
+    "rho_i": [
+      0.019449613113463583
+    ],
+    "mu_i": [
+      0.03493149161686195
+    ],
+    "observable_half_ranges": [
+      0.0006794039974241615
+    ],
+    "N_i": [
+      1
+    ],
+    "bits_per_axis": [
+      0.0
+    ],
+    "rho_aspect_ratio": 1.0,
+    "retained_margin_strongest": 0.0006794039974241615,
+    "retained_margin_median": 0.0006794039974241615,
+    "retained_margin_weakest": 0.0006794039974241615,
+    "selected_preconditioner_condition": 1.0,
+    "directional_curvature_F": [
+      [
+        0.16533145241447905
+      ]
+    ],
+    "old_isotropic": {
+      "radius_exact": "30160286025302204244210622715788678385149332637466666589020982305999445954453071012921970820413270058115496986891157837244742246384499840842229382056023801413980073662556183175434223477132045666826979265536523415742145689797674108627084116025490636320682148015209113663741295826918021449377573451542476654152515584/6020781217097796230397693406932851602033060532260116052084885426235011296657958048568611987469252708862555400938250484096310023466130595213868867500575292885458235286963333974148415256881625463767306028269479264381220736666804184030663083644325284661196311870192586508879505303461427552974612436740300144684900191926746563784459593",
+      "radius": 5.00936422330928e-18,
+      "query_ball_margin_exact": "53855789789136715757138990038804149113212781706070138499/3138550867693340381917894711603833208051177722232017256448",
+      "query_ball_margin": 0.017159444616144683,
+      "old_bits": 0.0,
+      "old_full_dimension_threshold": 4.297895397598611e-20,
+      "old_certified_effective_dimension_at_primary": 0,
+      "source": "New same-global-majorant comparator on supported independent endpoint; not an archived radius",
+      "label": "CERTIFIED sufficient comparator"
+    },
+    "curves": {
+      "primary_SVD": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            7
+          ],
+          "bits_per_axis": [
+            2.807354922057604
+          ],
+          "states": "7",
+          "bits": 2.807354922057604,
+          "D_robust": 1
+        }
+      ],
+      "selected_secondary_frame": [
+        {
+          "epsilon": "1/100",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/1000",
+          "N_i": [
+            1
+          ],
+          "bits_per_axis": [
+            0.0
+          ],
+          "states": "1",
+          "bits": 0.0,
+          "D_robust": 0
+        },
+        {
+          "epsilon": "1/10000",
+          "N_i": [
+            8
+          ],
+          "bits_per_axis": [
+            3.0
+          ],
+          "states": "8",
+          "bits": 3.0,
+          "D_robust": 1
+        }
+      ]
+    },
+    "label": "CERTIFIED selected product; spectra separately numerical",
+    "improvement_in_bits": 0.0,
+    "multiplicative_bit_improvement": "Undefined when old bound is zero",
+    "history_frame_gram_defect_exact": "494232272059220421317814781209079955837/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+    "history_frame_condition_upper": "3138550867693340381917894711603833208077970107385969939095/3138550867693340381917894711603833208051177722232017256448",
+    "output_projection_condition_numerical": 1.0,
+    "discarded_failure_counts": {
+      "A": 4,
+      "B": 4,
+      "C": 7,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 9,
+      "H": 0
+    },
+    "proposal_failure_counts": {
+      "hidden_jacobian_dominance": 90,
+      "hidden_section_box_inclusion": 4,
+      "mixed_sensitivity_curvature": 216
+    }
+  }
+]

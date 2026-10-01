@@ -1,0 +1,192 @@
+[
+  {
+    "case": "dense",
+    "n": 2,
+    "mode": "frame",
+    "points_checked": 4,
+    "passed": true,
+    "minimum_pair_query_distance": 0.0021401708565071324,
+    "details": [
+      {
+        "target": [
+          -0.01597174743264667
+        ],
+        "hidden_residual_100_digits": "3.56645811311875738752168839389e-17",
+        "projection_residual_100_digits": "9.67286785900976293721521938819e-18",
+        "max_scaled_input_coordinate": 0.6137049525381805
+      },
+      {
+        "target": [
+          -0.006273234356841369
+        ],
+        "hidden_residual_100_digits": "3.33031099850871679322799874331e-17",
+        "projection_residual_100_digits": "7.80760508163153187373255707798e-18",
+        "max_scaled_input_coordinate": 0.24089877047471966
+      },
+      {
+        "target": [
+          0.0034252787189639326
+        ],
+        "hidden_residual_100_digits": "2.16146734024975244731374469803e-17",
+        "projection_residual_100_digits": "9.3617039550047027239083093286e-18",
+        "max_scaled_input_coordinate": 0.13146936220633743
+      },
+      {
+        "target": [
+          0.013123791794769234
+        ],
+        "hidden_residual_100_digits": "8.46338932463213599739008262408e-18",
+        "projection_residual_100_digits": "4.85805793741055388975381830369e-18",
+        "max_scaled_input_coordinate": 0.5035274011875637
+      }
+    ],
+    "label": "HIGH-PRECISION NUMERICAL validation, not the rigorous existence certificate"
+  },
+  {
+    "case": "independent",
+    "n": 2,
+    "mode": "svd",
+    "points_checked": 2,
+    "passed": true,
+    "minimum_pair_query_distance": 0.007169700732098909,
+    "details": [
+      {
+        "target": [
+          -0.02158333128121114
+        ],
+        "hidden_residual_100_digits": "2.73719173219648123621048051244e-17",
+        "projection_residual_100_digits": "9.29437821823980491797234105178e-18",
+        "max_scaled_input_coordinate": 0.6322071837323272
+      },
+      {
+        "target": [
+          0.01651180125153588
+        ],
+        "hidden_residual_100_digits": "2.72730448794336974062563594486e-17",
+        "projection_residual_100_digits": "2.77192808958218224639672878645e-18",
+        "max_scaled_input_coordinate": 0.48353662335592973
+      }
+    ],
+    "label": "HIGH-PRECISION NUMERICAL validation, not the rigorous existence certificate"
+  },
+  {
+    "case": "dense",
+    "n": 3,
+    "mode": "frame",
+    "points_checked": 4,
+    "passed": true,
+    "minimum_pair_query_distance": 0.0021586495849410755,
+    "details": [
+      {
+        "target": [
+          -0.008936697672956191,
+          -0.007157274316691487
+        ],
+        "hidden_residual_100_digits": "2.37684808900152918442409121707e-17",
+        "projection_residual_100_digits": "2.85114887262870780828662735848e-17",
+        "max_scaled_input_coordinate": 0.6278199854049668
+      },
+      {
+        "target": [
+          -0.008936697672956191,
+          0.004319484203616106
+        ],
+        "hidden_residual_100_digits": "1.39633818650100860748641601653e-17",
+        "projection_residual_100_digits": "5.34792909919933706942297531316e-17",
+        "max_scaled_input_coordinate": 0.6273782647284152
+      },
+      {
+        "target": [
+          0.0025857256225338696,
+          -0.007157274316691487
+        ],
+        "hidden_residual_100_digits": "2.02670418520416260392837189615e-17",
+        "projection_residual_100_digits": "2.09797622765181659890677509897e-17",
+        "max_scaled_input_coordinate": 0.6263097612255208
+      },
+      {
+        "target": [
+          0.0025857256225338696,
+          0.004319484203616106
+        ],
+        "hidden_residual_100_digits": "1.07736813093130994067062763723e-17",
+        "projection_residual_100_digits": "9.09891499718271441785150585967e-18",
+        "max_scaled_input_coordinate": 0.3777402130356262
+      }
+    ],
+    "label": "HIGH-PRECISION NUMERICAL validation, not the rigorous existence certificate"
+  },
+  {
+    "case": "independent",
+    "n": 3,
+    "mode": "svd",
+    "points_checked": 2,
+    "passed": true,
+    "minimum_pair_query_distance": 0.011337148231929444,
+    "details": [
+      {
+        "target": [
+          -0.026149346932545642
+        ],
+        "hidden_residual_100_digits": "2.404986707879256860220944062e-16",
+        "projection_residual_100_digits": "6.38963043793956173306020667109e-16",
+        "max_scaled_input_coordinate": 0.7427616529900655
+      },
+      {
+        "target": [
+          0.014215816388809489
+        ],
+        "hidden_residual_100_digits": "9.30087098340448132535071134631e-18",
+        "projection_residual_100_digits": "1.69279677592219284020144439306e-17",
+        "max_scaled_input_coordinate": 0.4107361822475801
+      }
+    ],
+    "label": "HIGH-PRECISION NUMERICAL validation, not the rigorous existence certificate"
+  },
+  {
+    "case": "dense",
+    "n": 4,
+    "mode": "frame",
+    "points_checked": 2,
+    "passed": true,
+    "minimum_pair_query_distance": 0.002211516316321849,
+    "details": [
+      {
+        "target": [
+          -0.00972588197651869
+        ],
+        "hidden_residual_100_digits": "5.80258995752750166939492768888e-17",
+        "projection_residual_100_digits": "3.69631988364001592098619874647e-17",
+        "max_scaled_input_coordinate": 0.7370298899827807
+      },
+      {
+        "target": [
+          0.002248296588951586
+        ],
+        "hidden_residual_100_digits": "2.97469174330226708862857201305e-17",
+        "projection_residual_100_digits": "1.70179456595512386972147101504e-17",
+        "max_scaled_input_coordinate": 0.17099945505547154
+      }
+    ],
+    "label": "HIGH-PRECISION NUMERICAL validation, not the rigorous existence certificate"
+  },
+  {
+    "case": "independent",
+    "n": 4,
+    "mode": "svd",
+    "points_checked": 1,
+    "passed": true,
+    "minimum_pair_query_distance": null,
+    "details": [
+      {
+        "target": [
+          -0.019449613113463583
+        ],
+        "hidden_residual_100_digits": "1.01080720297398350130725540069e-16",
+        "projection_residual_100_digits": "1.45271179481933661554302694346e-16",
+        "max_scaled_input_coordinate": 0.6639430956310038
+      }
+    ],
+    "label": "HIGH-PRECISION NUMERICAL validation, not the rigorous existence certificate"
+  }
+]
