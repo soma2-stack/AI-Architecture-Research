@@ -13,6 +13,10 @@ def evaluate_spectra(m,X,meter):
 
 def stage1(s):return np.log1p(s[:,:8]/(17/8*.001)).sum(axis=1)
 
+def initial_pool(pool,phase):
+    mask=pool['confirmation']==(phase=='confirmation')
+    return pool['X'][mask].copy(),np.flatnonzero(mask).astype(str)
+
 def screen(m,X,ids,s,meter,stage):
     limit=CFG['stage2_search_shortlist' if stage=='search' else 'stage2_confirmation_shortlist']
     idx=np.argsort(-stage1(s),kind='stable')[:limit]
@@ -45,9 +49,9 @@ def main(phase):
     meter=Monitor('phase '+phase,gpu=True);outputs=[]
     try:
         for n in CFG['widths']:
-            pool=np.load(ROOT/f'pool_n{n}.npz');mask=pool['confirmation']==(phase=='confirmation');X=pool['X'][mask]
-            ids=np.flatnonzero(mask).astype(str)
+            pool=np.load(ROOT/f'pool_n{n}.npz')
             for case in CFG['models']:
+                X,ids=initial_pool(pool,phase)
                 print('screening',phase,n,case,len(X),flush=True);m=a.model(n,case)
                 s=evaluate_spectra(m,X,meter);initial_count=len(X)
                 if phase=='search':

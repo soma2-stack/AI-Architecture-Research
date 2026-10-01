@@ -16,6 +16,14 @@ class Checks(unittest.TestCase):
             self.assertTrue(np.all(np.abs(p['X'])<=.5))
             h=json.loads((ROOT/'pool_manifest.json').read_text())[str(n)]
             self.assertEqual(hashlib.sha256(p['X'].tobytes()).hexdigest(),h['history_array_sha256'])
+    def test_each_model_starts_from_independent_paired_pool_copy(self):
+        from search import initial_pool
+        pool=np.load(ROOT/'pool_n3.npz');dense,ids=initial_pool(pool,'search')
+        dense[:]=0;dense=np.concatenate([dense,dense[:896]])
+        independent,ids2=initial_pool(pool,'search')
+        self.assertEqual(len(independent),8000)
+        self.assertTrue(np.array_equal(ids,ids2))
+        self.assertTrue(np.array_equal(independent,pool['X'][pool['confirmation']==0]))
     def test_cpu_gpu_jets_all_models(self):
         rng=np.random.default_rng(CFG['development_seed'])
         for n in (2,3,4):
@@ -39,7 +47,7 @@ class Checks(unittest.TestCase):
         queries=m['C']/(np.sqrt(3)*m['beta']);dist=np.linalg.norm(delta.T@queries,axis=0).max()
         self.assertTrue(np.all(mu*np.abs(proj)<=dist))
     def test_fixed_hidden_frames(self):
-        m=a.model(3,'dense');X=np.load(ROOT/'pool_n3.npz')['X'][0];f=a.frame(m,X)
+        m=a.model(3,'dense');X=np.random.default_rng(CFG['development_seed']).uniform(-.5,.5,(22,3));f=a.frame(m,X)
         self.assertLess(np.linalg.norm(f['J'][:3]@f['B'][:,3:]),1e-10)
         L=a.query_projection(m,f['U'][:4]);self.assertTrue(np.all(a.margins(m,L)>0))
     def test_baseline_proxy_valid(self):
