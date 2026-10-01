@@ -1,0 +1,41 @@
+{
+  "epsilon": "1/1000",
+  "widths": [
+    3,
+    4
+  ],
+  "horizons": {
+    "3": 22,
+    "4": 37
+  },
+  "source_commit": "7cb9f3d",
+  "cleanup_commit": "1e17cb8",
+  "seed": 9810101,
+  "raw_history_count_per_width": 32,
+  "curvature_sobol": 512,
+  "packing_sobol": 2048,
+  "max_grid_dimension": 12,
+  "base_grid_dimension": 10,
+  "max_prefix": 16,
+  "amplitudes": [
+    0.125,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "normal_coordinate_cap": 1.0,
+  "history_coordinate_radius": 1.0,
+  "newton_tolerance": 2e-12,
+  "newton_steps": 18,
+  "strict_numerical_separation": 0.00205,
+  "greedy_states_cap": 512,
+  "max_cpu_seconds": 3600,
+  "max_gpu_wall_seconds": 3600,
+  "rss_cap_bytes": 4294967296,
+  "device_allocation_cap_bytes": 4294967296,
+  "workers": 1,
+  "gpu_stop_temperature_c": 86,
+  "gpu_preferred_temperature_c": 80,
+  "normalization": "unchanged sqrt(3/32) input SD and parameter-group RMS, accepted head/beta",
+  "levels": "A old certificates; B numerical finite packings; C failed finite trials and loose rigorous cover"
+}
