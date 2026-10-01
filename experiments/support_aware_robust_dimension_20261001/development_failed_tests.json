@@ -1,0 +1,8 @@
+{
+  "passed": false,
+  "tests": 8,
+  "failures": [
+    "(<__main__.Tests testMethod=test_CPU_and_normalization>, 'Traceback (most recent call last):\\n  File \"C:\\\\Users\\\\coler\\\\OneDrive\\\\Desktop\\\\ai new\\\\experiments\\\\support_aware_robust_dimension_20261001\\\\test_core.py\", line 51, in test_CPU_and_normalization\\n    out=k.c.hardware();self.assertEqual(out[\\'device\\'],\\'cpu\\');self.assertEqual(out[\\'cuda_build\\'],None)\\n        ^^^^^^^^^^^^^^\\n  File \"C:\\\\Users\\\\coler\\\\OneDrive\\\\Desktop\\\\ai new\\\\experiments\\\\robust_witness_search_20261001\\\\cpu_jets.py\", line 59, in hardware\\n    assert all(p[\\'threads\\']==1 for p in pools)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError\\n')",
+    "(<__main__.Tests testMethod=test_neumann_scaled_inverse>, 'Traceback (most recent call last):\\n  File \"C:\\\\Users\\\\coler\\\\OneDrive\\\\Desktop\\\\ai new\\\\experiments\\\\support_aware_robust_dimension_20261001\\\\test_core.py\", line 46, in test_neumann_scaled_inverse\\n    self.assertEqual(k.e.matmul([[k.e.I(Q(int(i==j))-E[i][j]) for j in range(2)] for i in range(2)],[[k.e.I(x) for x in row] for row in Inv])[0][0].lo,k.e.I.scale)\\nAssertionError: 6277101735386680763835789423207666416102355444464034512894 != 6277101735386680763835789423207666416102355444464034512896\\n')"
+  ]
+}
