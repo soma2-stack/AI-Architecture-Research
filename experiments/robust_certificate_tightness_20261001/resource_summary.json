@@ -1,0 +1,13 @@
+{
+  "cpu_seconds": 1340.265625,
+  "cpu_minutes": 22.337760416666665,
+  "gpu_active_wall_upper_seconds": 1365.227849200135,
+  "summed_post_import_job_wall_seconds": 1377.9461206000997,
+  "peak_RAM_bytes": 1318514688,
+  "peak_global_VRAM_bytes": 2102394880,
+  "peak_own_GPU_pool_bytes": 494183936,
+  "peak_GPU_temperature_c": 50,
+  "includes_failed_attempts": true,
+  "administrative_CPU_estimate_seconds": 60,
+  "notes": "GPU-active wall upper bound, not kernel-only time; global VRAM includes existing contexts; own pool excludes driver/library overhead"
+}

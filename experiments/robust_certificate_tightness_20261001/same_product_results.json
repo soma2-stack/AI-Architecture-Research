@@ -1,0 +1,138 @@
+[
+  {
+    "name": "dense_n3_archived",
+    "r": 2,
+    "levels_per_coordinate": 33,
+    "evaluated_points": 1089,
+    "valid_fraction": 1.0,
+    "states": 5,
+    "bits": 2.321928094887362,
+    "min_query": 0.0023047983389367765,
+    "closest_pair": [
+      2,
+      4
+    ],
+    "certified_states": 4,
+    "state_ratio": 1.25,
+    "label": "NUMERICAL packing on SAME accepted product"
+  },
+  {
+    "name": "dense_n3_confirmation",
+    "r": 2,
+    "levels_per_coordinate": 33,
+    "evaluated_points": 1089,
+    "valid_fraction": 1.0,
+    "states": 8,
+    "bits": 3.0,
+    "min_query": 0.0022818134101400805,
+    "closest_pair": [
+      2,
+      7
+    ],
+    "certified_states": 4,
+    "state_ratio": 2.0,
+    "label": "NUMERICAL packing on SAME accepted product"
+  },
+  {
+    "name": "independent_n3_archived",
+    "r": 1,
+    "levels_per_coordinate": 65,
+    "evaluated_points": 65,
+    "valid_fraction": 1.0,
+    "states": 7,
+    "bits": 2.807354922057604,
+    "min_query": 0.002224038092030616,
+    "closest_pair": [
+      1,
+      6
+    ],
+    "certified_states": 2,
+    "state_ratio": 3.5,
+    "label": "NUMERICAL packing on SAME accepted product"
+  },
+  {
+    "name": "independent_n3_confirmation",
+    "r": 1,
+    "levels_per_coordinate": 65,
+    "evaluated_points": 65,
+    "valid_fraction": 1.0,
+    "states": 9,
+    "bits": 3.169925001442312,
+    "min_query": 0.0023556288211305705,
+    "closest_pair": [
+      2,
+      8
+    ],
+    "certified_states": 2,
+    "state_ratio": 4.5,
+    "label": "NUMERICAL packing on SAME accepted product"
+  },
+  {
+    "name": "dense_n4_archived",
+    "r": 1,
+    "levels_per_coordinate": 65,
+    "evaluated_points": 65,
+    "valid_fraction": 1.0,
+    "states": 3,
+    "bits": 1.584962500721156,
+    "min_query": 0.002337894398379241,
+    "closest_pair": [
+      0,
+      2
+    ],
+    "certified_states": 2,
+    "state_ratio": 1.5,
+    "label": "NUMERICAL packing on SAME accepted product"
+  },
+  {
+    "name": "dense_n4_confirmation",
+    "r": 3,
+    "levels_per_coordinate": 17,
+    "evaluated_points": 4913,
+    "valid_fraction": 1.0,
+    "states": 13,
+    "bits": 3.700439718141092,
+    "min_query": 0.002052482060304114,
+    "closest_pair": [
+      2,
+      12
+    ],
+    "certified_states": 8,
+    "state_ratio": 1.625,
+    "label": "NUMERICAL packing on SAME accepted product"
+  },
+  {
+    "name": "independent_n4_archived",
+    "r": 1,
+    "levels_per_coordinate": 65,
+    "evaluated_points": 65,
+    "valid_fraction": 1.0,
+    "states": 5,
+    "bits": 2.321928094887362,
+    "min_query": 0.0022255794753711635,
+    "closest_pair": [
+      2,
+      4
+    ],
+    "certified_states": 1,
+    "state_ratio": 5.0,
+    "label": "NUMERICAL packing on SAME accepted product"
+  },
+  {
+    "name": "independent_n4_confirmation",
+    "r": 2,
+    "levels_per_coordinate": 33,
+    "evaluated_points": 1089,
+    "valid_fraction": 1.0,
+    "states": 67,
+    "bits": 6.066089190457772,
+    "min_query": 0.0020861472650824876,
+    "closest_pair": [
+      24,
+      66
+    ],
+    "certified_states": 6,
+    "state_ratio": 11.166666666666666,
+    "label": "NUMERICAL packing on SAME accepted product"
+  }
+]

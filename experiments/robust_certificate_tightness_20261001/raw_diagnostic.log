@@ -1,0 +1,11 @@
+C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_witness_search_20261001\.venv\Lib\site-packages\cupy\_environment.py:286: UserWarning: CUDA path could not be detected. Set CUDA_PATH environment variable if CuPy fails to load.
+  warnings.warn(
+Traceback (most recent call last):
+{"label": "direct raw history proxy diagnostic", "cpu_seconds": 11.703125, "wall_seconds": 11.746909099980257, "gpu_wall_upper_seconds": 11.74690999998711, "peak_ram_bytes": 695083008, "peak_global_vram_bytes": 1539309568, "peak_our_gpu_pool_bytes": 13454848, "peak_temperature_c": 36, "workers": 1, "gpu_used": true}
+  File "C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_certificate_tightness_20261001\raw_diagnostic.py", line 30, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_certificate_tightness_20261001\raw_diagnostic.py", line 23, in main
+    'spectral_rank':rank[str(j)],'old_primary_shortlist':str(j) in shortlisted,
+                    ~~~~^^^^^^^^
+KeyError: '740'

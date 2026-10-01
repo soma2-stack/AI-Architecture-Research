@@ -4,7 +4,26 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Robust-witness search (2026-10-01)
+## Latest mathematical audit — Robust-certificate tightness (2026-10-01)
+
+**CERTIFICATES ARE HIGHLY CONSERVATIVE — MANY MORE ROBUST DIRECTIONS APPEAR NUMERICALLY. MORE ROBUST-DIMENSION WORK NEEDED.** Existing
+n=3/4 endpoints only, epsilon1e-3, no training or architecture changes. Dense
+numerical complete binary grids: 4,096 states; independent n3:512, n4:4,096.
+Coding dimensions are not intrinsic continuous robust dimensions. At the SAME
+accepted width4 confirmation boxes, numerical states are dense13 versus old8,
+independent67 versus old6. A separate support-aware rigorous query calculation
+proves independent84 states/log2(84)=6.392317bits with unchanged axes/rho/epsilon;
+needs independent review. Old products remain accepted and unmodified. Raw
+independent curvature ratio0.997921 reproduced, projected ratio0.219813; dense
+projected ratios0.021--0.086. No useful upper bound. 15 tests,40 high-precision
+pair checks. Procedural cleanup1e17cb8 preserves historical Small classification
+while recording width-local Moderate eligibility/SPSA lineage limitations.
+CPU22.337760min plus60s estimate; GPU wall upper22.753797min,
+peak50C. GAS-0/AGENTS/other lane notebooks untouched. AR-165 and
+experiments/robust_certificate_tightness_20261001/REPORT.md. **STOP** for independent
+review and targeted same-endpoint certificate tightening; no architecture/AMS.
+
+## Previous mathematical audit — Robust-witness search (2026-10-01)
 
 **ROBUST-WITNESS SEARCH FINDS ONLY SMALL IMPROVEMENT.** Same n2/3/4,T11/22/37,
 model/parameter/normalization/query families,epsilon1e-3. Frozen paired pools:

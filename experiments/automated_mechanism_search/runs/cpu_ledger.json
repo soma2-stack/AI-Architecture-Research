@@ -1603,8 +1603,24 @@
    "utc": "2026-10-01T03:30:32.116301+00:00",
    "note": "Conservative setup/install/git/telemetry/admin CPU estimate, separate from measured Python processes",
    "robust_witness_entry_id": "robust_witness_search_20261001_estimate"
+  },
+  {
+   "stage": "robust_certificate_tightness",
+   "cpu_seconds": 1340.265625,
+   "wall_seconds": 1377.9461206000997,
+   "utc": "2026-10-01",
+   "tightness_entry_id": "robust_certificate_tightness_20261001_measured",
+   "note": "All phases including failed raw/CPU attempts, diagnostics and final tests"
+  },
+  {
+   "stage": "robust_certificate_tightness",
+   "cpu_seconds": 60,
+   "wall_seconds": 0,
+   "utc": "2026-10-01",
+   "tightness_entry_id": "robust_certificate_tightness_20261001_estimate",
+   "note": "Conservative setup/git/documentation administrative CPU estimate"
   }
  ],
- "total_cpu_seconds": 25297.265375000003,
- "total_cpu_hours": 7.027018159722223
+ "total_cpu_seconds": 26697.531000000003,
+ "total_cpu_hours": 7.415980833333334
 }

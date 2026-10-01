@@ -1,0 +1,3179 @@
+{
+  "name": "dense_n3_confirmation",
+  "n": 3,
+  "case": "dense",
+  "kind": "confirmation",
+  "certified_dimension": 2,
+  "certified_bits": 2.0,
+  "accepted_grid": {
+    "valid": true,
+    "residual": 2.0816681711721685e-17,
+    "states": 4,
+    "min_query": 0.004342370234203261,
+    "closest_pair": [
+      0,
+      1
+    ],
+    "certified_dual_at_closest_pair": 0.003316576442399886,
+    "query_slack_ratio": 1.3092929741312118
+  },
+  "curvature": {
+    "label": "NUMERICAL sampled/adversarial maxima, not upper bounds",
+    "raw_ratio_max": 0.8922982119491204,
+    "raw_hessian_ratio_HH_max": 0.518119618332953,
+    "raw_hessian_ratio_HS_max": 0.8922983008109272,
+    "raw_ratio_median_nonzero": 0.09538567309013028,
+    "worst_normalized_box_point": [
+      0.044678082708207445,
+      1.0,
+      -0.030363149922403035,
+      -1.0,
+      -0.3412282457296735
+    ],
+    "amplitudes": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "fixed_section_projected_curvature_actual_max": [
+      [
+        [
+          0.0016383279379932236,
+          0.00035377628917873427
+        ],
+        [
+          0.00035377628917873416,
+          0.0009100744787125651
+        ]
+      ],
+      [
+        [
+          0.00016091058992882232,
+          0.0002848737782189179
+        ],
+        [
+          0.0002848737782189178,
+          0.0008660820921027659
+        ]
+      ]
+    ],
+    "fixed_section_projected_curvature_ratio": [
+      [
+        [
+          0.058712574598764396,
+          0.012637643135922928
+        ],
+        [
+          0.012637643135922937,
+          0.031175290087391568
+        ]
+      ],
+      [
+        [
+          0.006026648107471337,
+          0.010521937963632145
+        ],
+        [
+          0.010521937963632148,
+          0.03045133786719288
+        ]
+      ]
+    ],
+    "projected_curvature_ratio_max": 0.058712574598764396,
+    "actual_preconditioned_jacobian_variation": 0.0024197893705914654,
+    "certified_eta": 0.14647452293514693,
+    "actual_normal_halfwidth_use_fraction": 0.000429268248466282,
+    "fixed_section_success_fraction": 1.0
+  },
+  "products": {
+    "label": "NUMERICAL complete finite vertex grids, not continuous product certificates",
+    "best": {
+      "basis": "rotated_0",
+      "r": 12,
+      "amplitude": 1.0,
+      "points": 4096,
+      "valid_fraction": 1.0,
+      "success": true,
+      "min_query": 0.0026349043042716404,
+      "closest_pair": [
+        1883,
+        1917
+      ]
+    },
+    "trials": [
+      {
+        "basis": "svd",
+        "r": 1,
+        "amplitude": 0.125,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0545245232584932e-12,
+        "success": true,
+        "min_query": 0.0071428411832628914,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 1,
+        "amplitude": 0.25,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.014281708650786732,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 1,
+        "amplitude": 0.5,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.028531679967773765,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 1,
+        "amplitude": 1.0,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 9.020562075079397e-17,
+        "success": true,
+        "min_query": 0.05681112824511052,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 2,
+        "amplitude": 0.125,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.005650677297690111,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 2,
+        "amplitude": 0.25,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.01129293599480285,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 2,
+        "amplitude": 0.5,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.022528583865404378,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 2,
+        "amplitude": 1.0,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.1900203045200897e-15,
+        "success": true,
+        "min_query": 0.04464638430562137,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 3,
+        "amplitude": 0.125,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.005032623645179243,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 3,
+        "amplitude": 0.25,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.010047405878254716,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 3,
+        "amplitude": 0.5,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.019988517940656782,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 3,
+        "amplitude": 1.0,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 9.409140133698202e-15,
+        "success": true,
+        "min_query": 0.03924142717135317,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 4,
+        "amplitude": 0.125,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.0018113606396573869,
+        "closest_pair": [
+          10,
+          11
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 4,
+        "amplitude": 0.25,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": true,
+        "min_query": 0.0035999921797958585,
+        "closest_pair": [
+          10,
+          11
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 4,
+        "amplitude": 0.5,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": true,
+        "min_query": 0.0070759833318848305,
+        "closest_pair": [
+          10,
+          11
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 4,
+        "amplitude": 1.0,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 4.309053114326389e-14,
+        "success": true,
+        "min_query": 0.013455186647026407,
+        "closest_pair": [
+          8,
+          9
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 5,
+        "amplitude": 0.125,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0014110335486639631,
+        "closest_pair": [
+          22,
+          23
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 5,
+        "amplitude": 0.25,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.002802195209318455,
+        "closest_pair": [
+          22,
+          23
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 5,
+        "amplitude": 0.5,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": true,
+        "min_query": 0.005486481859395535,
+        "closest_pair": [
+          22,
+          23
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 5,
+        "amplitude": 1.0,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 9.612102780387488e-14,
+        "success": true,
+        "min_query": 0.010285004475185182,
+        "closest_pair": [
+          22,
+          23
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 6,
+        "amplitude": 0.125,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.001272223236831713,
+        "closest_pair": [
+          46,
+          47
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 6,
+        "amplitude": 0.25,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.002524578601147157,
+        "closest_pair": [
+          46,
+          47
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 6,
+        "amplitude": 0.5,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 6.245004513516506e-17,
+        "success": true,
+        "min_query": 0.004927778444205699,
+        "closest_pair": [
+          46,
+          47
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 6,
+        "amplitude": 1.0,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.558371487409005e-13,
+        "success": true,
+        "min_query": 0.00914123647960599,
+        "closest_pair": [
+          46,
+          47
+        ],
+        "failure": null
+      },
+      {
+        "basis": "svd",
+        "r": 7,
+        "amplitude": 0.125,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": false,
+        "min_query": 0.00019014733243913855,
+        "closest_pair": [
+          88,
+          89
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 7,
+        "amplitude": 0.25,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 2.42861286636753e-17,
+        "success": false,
+        "min_query": 0.0003723553163212593,
+        "closest_pair": [
+          92,
+          93
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 7,
+        "amplitude": 0.5,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 7.632783294297951e-17,
+        "success": false,
+        "min_query": 0.0007071862017524375,
+        "closest_pair": [
+          88,
+          89
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 7,
+        "amplitude": 1.0,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 4.069106163129277e-13,
+        "success": false,
+        "min_query": 0.001213501527354375,
+        "closest_pair": [
+          28,
+          29
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 8,
+        "amplitude": 0.125,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.00014365745843080587,
+        "closest_pair": [
+          188,
+          189
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 8,
+        "amplitude": 0.25,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 0.00027927322341993904,
+        "closest_pair": [
+          184,
+          185
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 8,
+        "amplitude": 0.5,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 9.020562075079397e-17,
+        "success": false,
+        "min_query": 0.0005136480290873966,
+        "closest_pair": [
+          184,
+          185
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 8,
+        "amplitude": 1.0,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 5.183284357279661e-13,
+        "success": false,
+        "min_query": 0.0009161625154022446,
+        "closest_pair": [
+          186,
+          187
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 9,
+        "amplitude": 0.125,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.8233470289175102e-12,
+        "success": false,
+        "min_query": 0.00012263056360493912,
+        "closest_pair": [
+          382,
+          383
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 9,
+        "amplitude": 0.25,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 0.00023965471949259637,
+        "closest_pair": [
+          382,
+          383
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 9,
+        "amplitude": 0.5,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.1796119636642288e-16,
+        "success": false,
+        "min_query": 0.0004503114105649333,
+        "closest_pair": [
+          382,
+          383
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 9,
+        "amplitude": 1.0,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 6.82953693598165e-13,
+        "success": false,
+        "min_query": 0.0007954757148791942,
+        "closest_pair": [
+          374,
+          375
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 10,
+        "amplitude": 0.125,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.7942418384375713e-12,
+        "success": false,
+        "min_query": 1.2993070647701935e-06,
+        "closest_pair": [
+          532,
+          533
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 10,
+        "amplitude": 0.25,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 4.64079236873132e-06,
+        "closest_pair": [
+          134,
+          135
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 10,
+        "amplitude": 0.5,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0122792321330962e-16,
+        "success": false,
+        "min_query": 1.6172378529169124e-05,
+        "closest_pair": [
+          128,
+          129
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "svd",
+        "r": 10,
+        "amplitude": 1.0,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 9.736447759145506e-13,
+        "success": false,
+        "min_query": 0.00012749560575073143,
+        "closest_pair": [
+          164,
+          165
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 1,
+        "amplitude": 0.125,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0470062317136097e-12,
+        "success": true,
+        "min_query": 0.007143380018009933,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 1,
+        "amplitude": 0.25,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 3.469446951953614e-18,
+        "success": true,
+        "min_query": 0.014282770659862477,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 1,
+        "amplitude": 0.5,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.02853367961178092,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 1,
+        "amplitude": 1.0,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 4.85722573273506e-17,
+        "success": true,
+        "min_query": 0.05681416121428729,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 2,
+        "amplitude": 0.125,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.005651493111583541,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 2,
+        "amplitude": 0.25,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.011294485961935297,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 2,
+        "amplitude": 0.5,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.022531339687181035,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 2,
+        "amplitude": 1.0,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.1310397063368782e-15,
+        "success": true,
+        "min_query": 0.0446504283242642,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 3,
+        "amplitude": 0.125,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.005033196085475793,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 3,
+        "amplitude": 0.25,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.010048399412346785,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 3,
+        "amplitude": 0.5,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.01998962600734833,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 3,
+        "amplitude": 1.0,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 9.325873406851315e-15,
+        "success": true,
+        "min_query": 0.03924267635137698,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 4,
+        "amplitude": 0.125,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.0018110937899928766,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 4,
+        "amplitude": 0.25,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.003599989539455742,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 4,
+        "amplitude": 0.5,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.0070789226286508055,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 4,
+        "amplitude": 1.0,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 4.170275236248244e-14,
+        "success": true,
+        "min_query": 0.013452918853902091,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 5,
+        "amplitude": 0.125,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0014099805939115817,
+        "closest_pair": [
+          8,
+          9
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 5,
+        "amplitude": 0.25,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.0028008687665663674,
+        "closest_pair": [
+          8,
+          9
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 5,
+        "amplitude": 0.5,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 6.245004513516506e-17,
+        "success": true,
+        "min_query": 0.00548843332051088,
+        "closest_pair": [
+          8,
+          9
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 5,
+        "amplitude": 1.0,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 9.899372988009247e-14,
+        "success": true,
+        "min_query": 0.010315665993475947,
+        "closest_pair": [
+          8,
+          9
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 6,
+        "amplitude": 0.125,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0012705684038821197,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 6,
+        "amplitude": 0.25,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": true,
+        "min_query": 0.0025219125145879355,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 6,
+        "amplitude": 0.5,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 3.469446951953614e-17,
+        "success": true,
+        "min_query": 0.004925763375163513,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 6,
+        "amplitude": 1.0,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.6198153929281034e-13,
+        "success": true,
+        "min_query": 0.009155465036255516,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": null
+      },
+      {
+        "basis": "query_aligned",
+        "r": 7,
+        "amplitude": 0.125,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.00018240054450903884,
+        "closest_pair": [
+          32,
+          33
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 7,
+        "amplitude": 0.25,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.00036093151720920184,
+        "closest_pair": [
+          32,
+          33
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 7,
+        "amplitude": 0.5,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-16,
+        "success": false,
+        "min_query": 0.0006995614974072843,
+        "closest_pair": [
+          98,
+          99
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 7,
+        "amplitude": 1.0,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 4.680839049697738e-13,
+        "success": false,
+        "min_query": 0.0012409386435692105,
+        "closest_pair": [
+          28,
+          29
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 8,
+        "amplitude": 0.125,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.00013812357846428887,
+        "closest_pair": [
+          66,
+          67
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 8,
+        "amplitude": 0.25,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 0.0002702628011711395,
+        "closest_pair": [
+          66,
+          67
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 8,
+        "amplitude": 0.5,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-16,
+        "success": false,
+        "min_query": 0.0005162882246673749,
+        "closest_pair": [
+          66,
+          67
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 8,
+        "amplitude": 1.0,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 5.973381511648057e-13,
+        "success": false,
+        "min_query": 0.0009548439250783982,
+        "closest_pair": [
+          64,
+          65
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 9,
+        "amplitude": 0.125,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.9060621136990363e-12,
+        "success": false,
+        "min_query": 0.00011914283978403789,
+        "closest_pair": [
+          130,
+          131
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 9,
+        "amplitude": 0.25,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 0.00023494648050563117,
+        "closest_pair": [
+          130,
+          131
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 9,
+        "amplitude": 0.5,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.457167719820518e-16,
+        "success": false,
+        "min_query": 0.0004530118501502171,
+        "closest_pair": [
+          66,
+          67
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 9,
+        "amplitude": 1.0,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 8.053280264874729e-13,
+        "success": false,
+        "min_query": 0.0008204212289721099,
+        "closest_pair": [
+          66,
+          67
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 10,
+        "amplitude": 0.125,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.7843504451775516e-12,
+        "success": false,
+        "min_query": 1.2885658132929315e-06,
+        "closest_pair": [
+          242,
+          243
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 10,
+        "amplitude": 0.25,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 3.745233753523947e-06,
+        "closest_pair": [
+          648,
+          649
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 10,
+        "amplitude": 0.5,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 2.42861286636753e-16,
+        "success": false,
+        "min_query": 1.4011852681898542e-05,
+        "closest_pair": [
+          1016,
+          1017
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "query_aligned",
+        "r": 10,
+        "amplitude": 1.0,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.1091683127517626e-12,
+        "success": false,
+        "min_query": 6.164292662114515e-05,
+        "closest_pair": [
+          888,
+          889
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 1,
+        "amplitude": 0.125,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 4.983340129438574e-14,
+        "success": true,
+        "min_query": 0.005652333789925763,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 1,
+        "amplitude": 0.25,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 1.2504658766787635e-12,
+        "success": true,
+        "min_query": 0.011301313940331813,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 1,
+        "amplitude": 0.5,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.022575862556216453,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 1,
+        "amplitude": 1.0,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.04493962569454588,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 2,
+        "amplitude": 0.125,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.8733365553247339e-13,
+        "success": true,
+        "min_query": 0.0050364056694183375,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 2,
+        "amplitude": 0.25,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.010064687837456638,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 2,
+        "amplitude": 0.5,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.0200743620022939,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 2,
+        "amplitude": 1.0,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": true,
+        "min_query": 0.039755371418516365,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 3,
+        "amplitude": 0.125,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.0050326236451792425,
+        "closest_pair": [
+          1,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 3,
+        "amplitude": 0.25,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.010047405878254714,
+        "closest_pair": [
+          1,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 3,
+        "amplitude": 0.5,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.01998851794065678,
+        "closest_pair": [
+          1,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 3,
+        "amplitude": 1.0,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 9.423017921506016e-15,
+        "success": true,
+        "min_query": 0.03924142717135317,
+        "closest_pair": [
+          5,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 4,
+        "amplitude": 0.125,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.0014132718752078346,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 4,
+        "amplitude": 0.25,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.0028140860096393916,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 4,
+        "amplitude": 0.5,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": true,
+        "min_query": 0.005554286999275169,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 4,
+        "amplitude": 1.0,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.9800133754799276e-14,
+        "success": true,
+        "min_query": 0.010644856846888458,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 5,
+        "amplitude": 0.125,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0012743907437974982,
+        "closest_pair": [
+          14,
+          15
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 5,
+        "amplitude": 0.25,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.0025358013112360277,
+        "closest_pair": [
+          14,
+          15
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 5,
+        "amplitude": 0.5,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.00498958480996372,
+        "closest_pair": [
+          14,
+          15
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 5,
+        "amplitude": 1.0,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 2.608330218478727e-14,
+        "success": true,
+        "min_query": 0.009444134453543047,
+        "closest_pair": [
+          14,
+          15
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 6,
+        "amplitude": 0.125,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.0012722232368317125,
+        "closest_pair": [
+          29,
+          31
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 6,
+        "amplitude": 0.25,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.0025245786011471585,
+        "closest_pair": [
+          29,
+          31
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 6,
+        "amplitude": 0.5,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 3.469446951953614e-17,
+        "success": true,
+        "min_query": 0.004927778444205699,
+        "closest_pair": [
+          29,
+          31
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 6,
+        "amplitude": 1.0,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.5580939316528486e-13,
+        "success": true,
+        "min_query": 0.00914123647960599,
+        "closest_pair": [
+          29,
+          31
+        ],
+        "failure": null
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 7,
+        "amplitude": 0.125,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": false,
+        "min_query": 0.0001439942636355868,
+        "closest_pair": [
+          62,
+          63
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 7,
+        "amplitude": 0.25,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.00028114837053697697,
+        "closest_pair": [
+          62,
+          63
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 7,
+        "amplitude": 0.5,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 5.551115123125783e-17,
+        "success": false,
+        "min_query": 0.0005213474631912368,
+        "closest_pair": [
+          58,
+          59
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 7,
+        "amplitude": 1.0,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0011423074173251e-13,
+        "success": false,
+        "min_query": 0.0009365700341328263,
+        "closest_pair": [
+          58,
+          59
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 8,
+        "amplitude": 0.125,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": false,
+        "min_query": 0.00014365745843080614,
+        "closest_pair": [
+          124,
+          126
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 8,
+        "amplitude": 0.25,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.42861286636753e-17,
+        "success": false,
+        "min_query": 0.0002792732234199397,
+        "closest_pair": [
+          116,
+          118
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 8,
+        "amplitude": 0.5,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 9.020562075079397e-17,
+        "success": false,
+        "min_query": 0.0005136480290873955,
+        "closest_pair": [
+          116,
+          118
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 8,
+        "amplitude": 1.0,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 5.183006801523504e-13,
+        "success": false,
+        "min_query": 0.000916162515402246,
+        "closest_pair": [
+          117,
+          119
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 9,
+        "amplitude": 0.125,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.8233470289175102e-12,
+        "success": false,
+        "min_query": 0.00012263056360493885,
+        "closest_pair": [
+          254,
+          255
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 9,
+        "amplitude": 0.25,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 0.00023965471949259677,
+        "closest_pair": [
+          254,
+          255
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 9,
+        "amplitude": 0.5,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.1796119636642288e-16,
+        "success": false,
+        "min_query": 0.0004503114105649325,
+        "closest_pair": [
+          254,
+          255
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 9,
+        "amplitude": 1.0,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 6.830369603250119e-13,
+        "success": false,
+        "min_query": 0.0007954757148791944,
+        "closest_pair": [
+          238,
+          239
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 10,
+        "amplitude": 0.125,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.8975931936893176e-12,
+        "success": false,
+        "min_query": 7.275567770673977e-07,
+        "closest_pair": [
+          76,
+          77
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 10,
+        "amplitude": 0.25,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 1.968279152905672e-06,
+        "closest_pair": [
+          840,
+          841
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 10,
+        "amplitude": 0.5,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-16,
+        "success": false,
+        "min_query": 1.2763394288802298e-05,
+        "closest_pair": [
+          512,
+          513
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "hessian_aware",
+        "r": 10,
+        "amplitude": 1.0,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 7.870162854750617e-13,
+        "success": false,
+        "min_query": 8.645671464969877e-05,
+        "closest_pair": [
+          512,
+          513
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 1,
+        "amplitude": 0.125,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 4.978968626279112e-13,
+        "success": true,
+        "min_query": 0.005936408427194064,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 1,
+        "amplitude": 0.25,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.011870439372421545,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 1,
+        "amplitude": 0.5,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.023721878982810148,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 1,
+        "amplitude": 1.0,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.047292400467914227,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 2,
+        "amplitude": 0.125,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.1588473236567864e-12,
+        "success": true,
+        "min_query": 0.00520337778873089,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 2,
+        "amplitude": 0.25,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.010400140835318844,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 2,
+        "amplitude": 0.5,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.020756775211103102,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 2,
+        "amplitude": 1.0,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 8.326672684688674e-17,
+        "success": true,
+        "min_query": 0.04120723239748471,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 3,
+        "amplitude": 0.125,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.004240772262091983,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 3,
+        "amplitude": 0.25,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.008470516187702106,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 3,
+        "amplitude": 0.5,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.01687281440098707,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 3,
+        "amplitude": 1.0,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.2108369862318114e-15,
+        "success": true,
+        "min_query": 0.0332460731747698,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 4,
+        "amplitude": 0.125,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0014933568875235967,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 4,
+        "amplitude": 0.25,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.002972300081862652,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 4,
+        "amplitude": 0.5,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.005868057697904062,
+        "closest_pair": [
+          4,
+          5
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 4,
+        "amplitude": 1.0,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 3.750472155061857e-15,
+        "success": true,
+        "min_query": 0.011293768174652975,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 5,
+        "amplitude": 0.125,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.0014901626294265109,
+        "closest_pair": [
+          8,
+          10
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 5,
+        "amplitude": 0.25,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 2.42861286636753e-17,
+        "success": true,
+        "min_query": 0.002956691708904934,
+        "closest_pair": [
+          8,
+          10
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 5,
+        "amplitude": 0.5,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.005784535888115773,
+        "closest_pair": [
+          8,
+          10
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 5,
+        "amplitude": 1.0,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 5.020636684172075e-14,
+        "success": true,
+        "min_query": 0.010822804207463543,
+        "closest_pair": [
+          12,
+          14
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 6,
+        "amplitude": 0.125,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.0014869112384400106,
+        "closest_pair": [
+          17,
+          21
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 6,
+        "amplitude": 0.25,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.0029396757865329357,
+        "closest_pair": [
+          17,
+          21
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 6,
+        "amplitude": 0.5,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 4.85722573273506e-17,
+        "success": true,
+        "min_query": 0.005688292721538619,
+        "closest_pair": [
+          17,
+          21
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 6,
+        "amplitude": 1.0,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.560314377702099e-13,
+        "success": true,
+        "min_query": 0.010295110065391187,
+        "closest_pair": [
+          25,
+          29
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 7,
+        "amplitude": 0.125,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0011869698580408258,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 7,
+        "amplitude": 0.25,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.0023590239423219813,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 7,
+        "amplitude": 0.5,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 7.632783294297951e-17,
+        "success": true,
+        "min_query": 0.004627806419167372,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 7,
+        "amplitude": 1.0,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 2.693470446679669e-13,
+        "success": true,
+        "min_query": 0.008718555237311836,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 8,
+        "amplitude": 0.125,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": false,
+        "min_query": 0.001185568170823046,
+        "closest_pair": [
+          1,
+          3
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 8,
+        "amplitude": 0.25,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": true,
+        "min_query": 0.002350975498518666,
+        "closest_pair": [
+          1,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 8,
+        "amplitude": 0.5,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.3592239273284576e-16,
+        "success": true,
+        "min_query": 0.004578444481532303,
+        "closest_pair": [
+          1,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 8,
+        "amplitude": 1.0,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 8.413374164017995e-13,
+        "success": true,
+        "min_query": 0.008382604585002791,
+        "closest_pair": [
+          65,
+          67
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 9,
+        "amplitude": 0.125,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": false,
+        "min_query": 0.0009632558613654548,
+        "closest_pair": [
+          33,
+          36
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 9,
+        "amplitude": 0.25,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.0019208668213430786,
+        "closest_pair": [
+          35,
+          38
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 9,
+        "amplitude": 0.5,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 4.371503159461554e-16,
+        "success": true,
+        "min_query": 0.0038061589137347233,
+        "closest_pair": [
+          225,
+          228
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 9,
+        "amplitude": 1.0,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 4.589557900391839e-13,
+        "success": true,
+        "min_query": 0.007370804552169841,
+        "closest_pair": [
+          281,
+          284
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 10,
+        "amplitude": 0.125,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": false,
+        "min_query": 0.0007229544588947497,
+        "closest_pair": [
+          71,
+          76
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 10,
+        "amplitude": 0.25,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 2.42861286636753e-17,
+        "success": false,
+        "min_query": 0.0014404707841409795,
+        "closest_pair": [
+          199,
+          204
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_0",
+        "r": 10,
+        "amplitude": 0.5,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 6.869504964868156e-16,
+        "success": true,
+        "min_query": 0.0028445819162892117,
+        "closest_pair": [
+          455,
+          460
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 10,
+        "amplitude": 1.0,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.4237812318018683e-12,
+        "success": true,
+        "min_query": 0.005470558510230106,
+        "closest_pair": [
+          284,
+          287
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_0",
+        "r": 11,
+        "amplitude": 1.0,
+        "points": 2048,
+        "valid_fraction": 1.0,
+        "success": true,
+        "min_query": 0.0027623979776556307,
+        "closest_pair": [
+          941,
+          958
+        ]
+      },
+      {
+        "basis": "rotated_0",
+        "r": 12,
+        "amplitude": 1.0,
+        "points": 4096,
+        "valid_fraction": 1.0,
+        "success": true,
+        "min_query": 0.0026349043042716404,
+        "closest_pair": [
+          1883,
+          1917
+        ]
+      },
+      {
+        "basis": "rotated_1",
+        "r": 1,
+        "amplitude": 0.125,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 4.793387908819113e-13,
+        "success": true,
+        "min_query": 0.006342093638943327,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 1,
+        "amplitude": 0.25,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.012680866736966969,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 1,
+        "amplitude": 0.5,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.02533521998801079,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 1,
+        "amplitude": 1.0,
+        "points": 2,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-18,
+        "success": true,
+        "min_query": 0.0504599475307983,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 2,
+        "amplitude": 0.125,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 9.5290095258882e-13,
+        "success": true,
+        "min_query": 0.005317647527376365,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 2,
+        "amplitude": 0.25,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.010627036184805934,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 2,
+        "amplitude": 0.5,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.02119989702960712,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 2,
+        "amplitude": 1.0,
+        "points": 4,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-17,
+        "success": true,
+        "min_query": 0.04202022829840455,
+        "closest_pair": [
+          0,
+          1
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 3,
+        "amplitude": 0.125,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.004720507399848077,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 3,
+        "amplitude": 0.25,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": true,
+        "min_query": 0.009424413823468087,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 3,
+        "amplitude": 0.5,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.01874830236791154,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 3,
+        "amplitude": 1.0,
+        "points": 8,
+        "valid_fraction": 1.0,
+        "residual_max": 4.541506060107281e-15,
+        "success": true,
+        "min_query": 0.036837654221283246,
+        "closest_pair": [
+          2,
+          3
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 4,
+        "amplitude": 0.125,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.001940561836039375,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 4,
+        "amplitude": 0.25,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": true,
+        "min_query": 0.003866773083180987,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 4,
+        "amplitude": 0.5,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 3.469446951953614e-17,
+        "success": true,
+        "min_query": 0.007649989651597465,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 4,
+        "amplitude": 1.0,
+        "points": 16,
+        "valid_fraction": 1.0,
+        "residual_max": 3.5877550930152324e-14,
+        "success": true,
+        "min_query": 0.014788607617735339,
+        "closest_pair": [
+          6,
+          7
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 5,
+        "amplitude": 0.125,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.0408340855860843e-17,
+        "success": false,
+        "min_query": 0.0019401194170529585,
+        "closest_pair": [
+          12,
+          14
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 5,
+        "amplitude": 0.25,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": true,
+        "min_query": 0.0038635864435790195,
+        "closest_pair": [
+          12,
+          14
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 5,
+        "amplitude": 0.5,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 6.938893903907228e-17,
+        "success": true,
+        "min_query": 0.0076259722490095916,
+        "closest_pair": [
+          12,
+          14
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 5,
+        "amplitude": 1.0,
+        "points": 32,
+        "valid_fraction": 1.0,
+        "residual_max": 2.023069212153672e-13,
+        "success": true,
+        "min_query": 0.014608033610325323,
+        "closest_pair": [
+          12,
+          14
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 6,
+        "amplitude": 0.125,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0018386816790268254,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 6,
+        "amplitude": 0.25,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.734723475976807e-17,
+        "success": true,
+        "min_query": 0.00365517002068357,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 6,
+        "amplitude": 0.5,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 1.5959455978986625e-16,
+        "success": true,
+        "min_query": 0.007184258533380435,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 6,
+        "amplitude": 1.0,
+        "points": 64,
+        "valid_fraction": 1.0,
+        "residual_max": 6.798450691292146e-13,
+        "success": true,
+        "min_query": 0.0136272387036574,
+        "closest_pair": [
+          16,
+          17
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 7,
+        "amplitude": 0.125,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 1.3877787807814457e-17,
+        "success": false,
+        "min_query": 0.0009369723110785792,
+        "closest_pair": [
+          54,
+          55
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 7,
+        "amplitude": 0.25,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.0018650748336901577,
+        "closest_pair": [
+          116,
+          117
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 7,
+        "amplitude": 0.5,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 3.8163916471489756e-16,
+        "success": true,
+        "min_query": 0.003667442095388676,
+        "closest_pair": [
+          116,
+          117
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 7,
+        "amplitude": 1.0,
+        "points": 128,
+        "valid_fraction": 1.0,
+        "residual_max": 1.86197238183361e-12,
+        "success": true,
+        "min_query": 0.006961001891290521,
+        "closest_pair": [
+          116,
+          117
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 8,
+        "amplitude": 0.125,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.0009368184358099754,
+        "closest_pair": [
+          108,
+          110
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 8,
+        "amplitude": 0.25,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.0018647834983922978,
+        "closest_pair": [
+          232,
+          234
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 8,
+        "amplitude": 0.5,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 7.147060721024445e-16,
+        "success": true,
+        "min_query": 0.003664704500314492,
+        "closest_pair": [
+          233,
+          235
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 8,
+        "amplitude": 1.0,
+        "points": 256,
+        "valid_fraction": 1.0,
+        "residual_max": 1.2072391697426355e-12,
+        "success": true,
+        "min_query": 0.0069417409649106376,
+        "closest_pair": [
+          233,
+          235
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 9,
+        "amplitude": 0.125,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 2.0816681711721685e-17,
+        "success": false,
+        "min_query": 0.0005728683752178335,
+        "closest_pair": [
+          218,
+          219
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 9,
+        "amplitude": 0.25,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 2.7755575615628914e-17,
+        "success": false,
+        "min_query": 0.0011354270897523271,
+        "closest_pair": [
+          218,
+          219
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 9,
+        "amplitude": 0.5,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 8.534839501805891e-16,
+        "success": true,
+        "min_query": 0.002212869461505506,
+        "closest_pair": [
+          218,
+          219
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 9,
+        "amplitude": 1.0,
+        "points": 512,
+        "valid_fraction": 1.0,
+        "residual_max": 1.4793964664416848e-12,
+        "success": true,
+        "min_query": 0.004111756713069506,
+        "closest_pair": [
+          138,
+          139
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 10,
+        "amplitude": 0.125,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.6988424555997028e-12,
+        "success": false,
+        "min_query": 0.00042287379017772744,
+        "closest_pair": [
+          293,
+          294
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 10,
+        "amplitude": 0.25,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 3.469446951953614e-17,
+        "success": false,
+        "min_query": 0.0008293939739340851,
+        "closest_pair": [
+          437,
+          438
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 10,
+        "amplitude": 0.5,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 9.08995101411847e-16,
+        "success": false,
+        "min_query": 0.001569584599638687,
+        "closest_pair": [
+          301,
+          302
+        ],
+        "failure": "query_collision"
+      },
+      {
+        "basis": "rotated_1",
+        "r": 10,
+        "amplitude": 1.0,
+        "points": 1024,
+        "valid_fraction": 1.0,
+        "residual_max": 1.5649842532994285e-12,
+        "success": true,
+        "min_query": 0.0026223287404504116,
+        "closest_pair": [
+          269,
+          270
+        ],
+        "failure": null
+      },
+      {
+        "basis": "rotated_1",
+        "r": 11,
+        "amplitude": 1.0,
+        "points": 2048,
+        "valid_fraction": 1.0,
+        "success": true,
+        "min_query": 0.002570705435482356,
+        "closest_pair": [
+          603,
+          605
+        ]
+      },
+      {
+        "basis": "rotated_1",
+        "r": 12,
+        "amplitude": 1.0,
+        "points": 4096,
+        "valid_fraction": 1.0,
+        "success": true,
+        "min_query": 0.0024755048010523016,
+        "closest_pair": [
+          1078,
+          1082
+        ]
+      }
+    ]
+  },
+  "packing": {
+    "label": "NUMERICAL LOWER ESTIMATE, not maximum",
+    "states": 512,
+    "bits": 9.0,
+    "closest_pair": [
+      32,
+      511
+    ],
+    "min_query": 0.012521348658708653,
+    "cap_reached": true,
+    "valid_sobol_fraction": 1.0,
+    "greedy_restart_counts": [
+      512,
+      512,
+      512
+    ],
+    "candidate_points": 6144,
+    "chart_r": 16
+  }
+}

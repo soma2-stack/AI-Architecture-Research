@@ -1,0 +1,30 @@
+{"label": "CPU high precision geometry crosschecks", "cpu_seconds": 0.90625, "wall_seconds": 0.6371565000154078, "gpu_wall_upper_seconds": 0, "peak_ram_bytes": 53133312, "peak_global_vram_bytes": 0, "peak_our_gpu_pool_bytes": 0, "peak_temperature_c": 0, "workers": 1, "gpu_used": false}
+Traceback (most recent call last):
+  File "C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_certificate_tightness_20261001\high_precision.py", line 114, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_certificate_tightness_20261001\high_precision.py", line 109, in main
+    curvature=curvature_check(case,row)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_certificate_tightness_20261001\high_precision.py", line 76, in curvature_check
+    if j==k:actual=mp.diff(lambda a:value(a,mp.mpf(0)),mp.mpf(0),2)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\coler\AppData\Local\Programs\Python\Python311\Lib\site-packages\mpmath\calculus\differentiation.py", line 188, in diff
+    values, norm, workprec = hsteps(ctx, f, x, n, prec, **options)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\coler\AppData\Local\Programs\Python\Python311\Lib\site-packages\mpmath\calculus\differentiation.py", line 61, in hsteps
+    values = [f(x+k*h) for k in steps]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\coler\AppData\Local\Programs\Python\Python311\Lib\site-packages\mpmath\calculus\differentiation.py", line 61, in <listcomp>
+    values = [f(x+k*h) for k in steps]
+              ^^^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_certificate_tightness_20261001\high_precision.py", line 76, in <lambda>
+    if j==k:actual=mp.diff(lambda a:value(a,mp.mpf(0)),mp.mpf(0),2)
+                                    ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\experiments\robust_certificate_tightness_20261001\high_precision.py", line 70, in value
+    delta=yy.copy();delta[j]+=a;delta[k]+=b
+                    ~~~~~^^^
+  File "C:\Users\coler\AppData\Local\Programs\Python\Python311\Lib\site-packages\mpmath\matrices\matrices.py", line 449, in __getitem__
+    if isinstance(key[0],slice) or isinstance(key[1],slice):
+                  ~~~^^^
+IndexError: invalid index to scalar variable.

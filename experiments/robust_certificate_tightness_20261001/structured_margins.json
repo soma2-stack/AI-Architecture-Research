@@ -1,0 +1,77 @@
+[
+  {
+    "name": "independent_n3_archived",
+    "label": "RIGOROUS structural-query diagnostic on unchanged accepted box",
+    "mu_structured": [
+      "32275397673572698336542444395840194355142131889195630040994650481038636609/113078212145816597093331040047546785012958969400039613319782796882727665664"
+    ],
+    "margin_gain": [
+      4.617536046718509
+    ],
+    "counts": [
+      7
+    ],
+    "states": "7",
+    "bits": 2.807354922057604,
+    "robust_dimension": 1,
+    "historical_states": 2,
+    "historical_bits": 1.0
+  },
+  {
+    "name": "independent_n3_confirmation",
+    "label": "RIGOROUS structural-query diagnostic on unchanged accepted box",
+    "mu_structured": [
+      "33386309259363196943326485356754083125735533014398277871954242375738434755957/115792089237316195423570985008687907853269984665640564039457584007913129639936"
+    ],
+    "margin_gain": [
+      4.604284220163218
+    ],
+    "counts": [
+      9
+    ],
+    "states": "9",
+    "bits": 3.169925001442312,
+    "robust_dimension": 1,
+    "historical_states": 2,
+    "historical_bits": 1.0
+  },
+  {
+    "name": "independent_n4_archived",
+    "label": "RIGOROUS structural-query diagnostic on unchanged accepted box",
+    "mu_structured": [
+      "3238100912595912251757817467801164797658043045640951713213063524500799722457/14474011154664524427946373126085988481658748083205070504932198000989141204992"
+    ],
+    "margin_gain": [
+      5.48475117964331
+    ],
+    "counts": [
+      4
+    ],
+    "states": "4",
+    "bits": 2.0,
+    "robust_dimension": 1,
+    "historical_states": 1,
+    "historical_bits": 0.0
+  },
+  {
+    "name": "independent_n4_confirmation",
+    "label": "RIGOROUS structural-query diagnostic on unchanged accepted box",
+    "mu_structured": [
+      "34069610429876876661927312291637933873737957579080536435600530652519079385433/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+      "13559166036697177690590475406018361183042099090322558290298693637675390929525/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+    ],
+    "margin_gain": [
+      5.125616754338503,
+      5.393757751528232
+    ],
+    "counts": [
+      14,
+      6
+    ],
+    "states": "84",
+    "bits": 6.392317422778761,
+    "robust_dimension": 2,
+    "historical_states": 6,
+    "historical_bits": 2.584962500721156
+  }
+]
