@@ -1,0 +1,16 @@
+{
+  "width": 4,
+  "horizon": 37,
+  "parameters": 24,
+  "r": 8,
+  "epsilon": "1/1000",
+  "precisions": [
+    192,
+    256
+  ],
+  "cpu_limit_seconds": 1200,
+  "ram_limit_bytes": 2147483648,
+  "device": "CPU",
+  "workers": 1,
+  "retry_or_fallback": false
+}

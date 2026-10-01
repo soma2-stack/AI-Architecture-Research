@@ -1,0 +1,9 @@
+{
+  "stage": "synthetic tests before official certification or prospective Git freeze",
+  "failure": "ValueError: cannot reshape 16 synthetic scalars into shape (1,2,2,2)",
+  "repair": "Use 8 synthetic scalars, the number required by the declared test shape",
+  "scientific_impact": "None. No official bounds existed. Candidate, interval machinery, amplitudes and protocol unchanged.",
+  "provenance": "Preserve initial source manifest as FROZEN_INITIAL.json, then hash repaired test/driver/report and this record before the official Git freeze",
+  "charged_cpu_seconds": 10,
+  "charge_type": "conservative failed-process/import allowance, not measured CPU time"
+}

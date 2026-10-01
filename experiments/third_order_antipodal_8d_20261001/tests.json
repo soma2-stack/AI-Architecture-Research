@@ -1,0 +1,104 @@
+{
+  "checks": [
+    {
+      "name": "candidate_amplitudes_exact_binary_values",
+      "passed": true
+    },
+    {
+      "name": "normal_amplitude_exact_binary_value",
+      "passed": true
+    },
+    {
+      "name": "eight_tangents_four_normals",
+      "passed": true
+    },
+    {
+      "name": "all_basis_entries_exact_unchanged",
+      "passed": true
+    },
+    {
+      "name": "last_input_normal_chart",
+      "passed": true
+    },
+    {
+      "name": "preconditioners_nonsingular",
+      "passed": true
+    },
+    {
+      "name": "epsilon_unchanged",
+      "passed": true
+    },
+    {
+      "name": "interval_192_sum",
+      "passed": true
+    },
+    {
+      "name": "interval_192_product",
+      "passed": true
+    },
+    {
+      "name": "interval_192_inverse",
+      "passed": true
+    },
+    {
+      "name": "interval_192_sqrt",
+      "passed": true
+    },
+    {
+      "name": "interval_192_tanh_zero",
+      "passed": true
+    },
+    {
+      "name": "interval_256_sum",
+      "passed": true
+    },
+    {
+      "name": "interval_256_product",
+      "passed": true
+    },
+    {
+      "name": "interval_256_inverse",
+      "passed": true
+    },
+    {
+      "name": "interval_256_sqrt",
+      "passed": true
+    },
+    {
+      "name": "interval_256_tanh_zero",
+      "passed": true
+    },
+    {
+      "name": "all_mixed_third_contractions_upward",
+      "passed": true
+    },
+    {
+      "name": "CPU_execution",
+      "passed": true
+    },
+    {
+      "name": "accepted_kernel_byte_identical",
+      "passed": true
+    },
+    {
+      "name": "all_frozen_sources_and_history_preserved",
+      "passed": true
+    }
+  ],
+  "passed": 21,
+  "cpu_seconds": 4.078125,
+  "wall_seconds": 4.263472800026648,
+  "hardware": {
+    "device": "cpu",
+    "torch": "2.13.0+cpu",
+    "cuda_build": null,
+    "dtype": "float64",
+    "BLAS_pools": [
+      {
+        "library": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "threads": 1
+      }
+    ]
+  },
+  "gpu_used": false
+}
