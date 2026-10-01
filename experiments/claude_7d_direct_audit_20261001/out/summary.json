@@ -1,0 +1,364 @@
+{
+ "faces": {
+  "1": {
+   "best_DC": 0.004525505273257433,
+   "ratio_to_2eps": 2.2627526366287167,
+   "certified_2beta": 0.0016043884289256409,
+   "ratio_to_2beta": 2.8207042581875776,
+   "D78_at_best": 0.004212504854714149,
+   "best_z": [
+    1.0,
+    6.628377896935396e-06,
+    -1.8508305306258356e-05,
+    1.4660847377230178e-05,
+    -0.00016598566516376215,
+    -2.7330324472222163e-05,
+    0.0010953247269572036
+   ],
+   "reliable": true,
+   "rounds": [
+    {
+     "escalate": false,
+     "weakest_round": false,
+     "best_value": 0.004525505273257433,
+     "best_method": "B",
+     "best_BD": 0.004525505273257433,
+     "best_C": 0.004525505273257446,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 72.453125
+    }
+   ],
+   "max_y_over_ah": 0.013377353467165532,
+   "max_lift_residual": 5.551115123125783e-17,
+   "newton_failures": 0,
+   "confirm_rel_diff": 1.3453611438293058e-15,
+   "DC_mp50": "0.0045255052732574392415",
+   "confirm_y_over_ah": 0.00023348436398875282,
+   "slack_log_terms": {
+    "gate": 0.07167178538419984,
+    "query_linear_range": 1.436439943741136e-07,
+    "third_order_remainder": 7.154190006513961e-08,
+    "interval_curvature": 0.9653145901467973
+   },
+   "slack_log_total": 1.0369865907168916,
+   "G_ray": 0.00023199228649239953,
+   "M3": 3.714908167188884,
+   "G_face_hat": 0.09089340516322487,
+   "oracle_face_bound": 0.004148849560405377,
+   "mu_min_dphi_face": 0.004149056982687188,
+   "odd_remainder_over_M3_third": 6.233345247135917e-05,
+   "mu_dphi_at_best": 0.004212504249613169
+  },
+  "2": {
+   "best_DC": 0.001988511838480962,
+   "ratio_to_2eps": 0.994255919240481,
+   "certified_2beta": 0.0015990536195092475,
+   "ratio_to_2beta": 1.2435554469344434,
+   "D78_at_best": 0.0018509791211066625,
+   "best_z": [
+    -2.979543202821161e-07,
+    1.0,
+    2.3596600868141455e-06,
+    5.665580303547516e-06,
+    -2.8380288261631825e-06,
+    -8.353561667205724e-06,
+    -1.5227182460473563e-06
+   ],
+   "reliable": true,
+   "rounds": [
+    {
+     "escalate": false,
+     "weakest_round": false,
+     "best_value": 0.0019885118384809627,
+     "best_method": "B",
+     "best_BD": 0.0019885118384809627,
+     "best_C": 0.001988511838480978,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 72.078125
+    },
+    {
+     "escalate": false,
+     "weakest_round": true,
+     "best_value": 0.001988511838480962,
+     "best_method": "B",
+     "best_BD": 0.001988511838480962,
+     "best_C": 0.001988511838480974,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 137.59375
+    }
+   ],
+   "max_y_over_ah": 0.013377353467165532,
+   "max_lift_residual": 5.551115123125783e-17,
+   "newton_failures": 0,
+   "confirm_rel_diff": 1.0814653723065335e-14,
+   "DC_mp50": "0.0019885118384809833487",
+   "confirm_y_over_ah": 0.0009059053711835514,
+   "slack_log_terms": {
+    "gate": 0.07167178538419984,
+    "query_linear_range": 9.468337224922968e-11,
+    "third_order_remainder": 1.2487243325751762e-07,
+    "interval_curvature": 0.14630266232842726
+   },
+   "slack_log_total": 0.21797457267974374,
+   "G_ray": 6.560835208446746e-05,
+   "M3": 0.8166795101350934,
+   "G_face_hat": 0.008286144070369926,
+   "oracle_face_bound": 0.0018484428557180915,
+   "mu_min_dphi_face": 0.0018484506815959253,
+   "odd_remainder_over_M3_third": 7.941808852311468e-05,
+   "mu_dphi_at_best": 0.0018509791209314055
+  },
+  "3": {
+   "best_DC": 0.0025606980574273868,
+   "ratio_to_2eps": 1.2803490287136934,
+   "certified_2beta": 0.001598119524089747,
+   "ratio_to_2beta": 1.6023194878905587,
+   "D78_at_best": 0.002383590858265771,
+   "best_z": [
+    4.79812715963566e-07,
+    -4.878375834988973e-06,
+    1.0,
+    1.1824467999265686e-05,
+    5.254159746649441e-06,
+    -5.52506221213623e-06,
+    -2.589255657317089e-05
+   ],
+   "reliable": true,
+   "rounds": [
+    {
+     "escalate": false,
+     "weakest_round": false,
+     "best_value": 0.0025606980574273868,
+     "best_method": "B",
+     "best_BD": 0.0025606980574273868,
+     "best_C": 0.0025606980574274466,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 60.90625
+    }
+   ],
+   "max_y_over_ah": 0.013377353467165532,
+   "max_lift_residual": 9.992007221626409e-16,
+   "newton_failures": 0,
+   "confirm_rel_diff": 1.5690202614975634e-15,
+   "DC_mp50": "0.0025606980574273907893",
+   "confirm_y_over_ah": 8.236721940122046e-05,
+   "slack_log_terms": {
+    "gate": 0.07167178538419984,
+    "query_linear_range": 3.212354826071255e-10,
+    "third_order_remainder": 6.874352174965311e-09,
+    "interval_curvature": 0.3997804668260279
+   },
+   "slack_log_total": 0.47145225940581537,
+   "G_ray": 2.5222601784946615e-05,
+   "M3": 1.9772135928652126,
+   "G_face_hat": 0.01754171060838749,
+   "oracle_face_bound": 0.002376632121798095,
+   "mu_min_dphi_face": 0.0023767966115293775,
+   "odd_remainder_over_M3_third": 1.2735779247138786e-05,
+   "mu_dphi_at_best": 0.002383590857500077
+  },
+  "4": {
+   "best_DC": 0.002494110944704794,
+   "ratio_to_2eps": 1.247055472352397,
+   "certified_2beta": 0.0015984639648994935,
+   "ratio_to_2beta": 1.5603172792585387,
+   "D78_at_best": 0.0023216091526509592,
+   "best_z": [
+    -2.494814022089048e-07,
+    -1.5541470905792168e-06,
+    7.837964244101468e-06,
+    1.0,
+    -1.887735012047534e-06,
+    -2.756578020890535e-06,
+    2.137598377653917e-05
+   ],
+   "reliable": true,
+   "rounds": [
+    {
+     "escalate": false,
+     "weakest_round": false,
+     "best_value": 0.002494110944704794,
+     "best_method": "B",
+     "best_BD": 0.002494110944704794,
+     "best_C": 0.0024941109447047995,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 61.296875
+    }
+   ],
+   "max_y_over_ah": 0.013377353467165532,
+   "max_lift_residual": 9.992007221626409e-16,
+   "newton_failures": 0,
+   "confirm_rel_diff": 2.8703735327916564e-15,
+   "DC_mp50": "0.0024941109447048010557",
+   "confirm_y_over_ah": 5.822578764995356e-05,
+   "slack_log_terms": {
+    "gate": 0.07167178538419984,
+    "query_linear_range": 2.1538393288790002e-10,
+    "third_order_remainder": 2.9067499476229895e-09,
+    "interval_curvature": 0.3732173962154506
+   },
+   "slack_log_total": 0.4448891847217843,
+   "G_ray": 1.1902524105211752e-05,
+   "M3": 1.8689149796668396,
+   "G_face_hat": 0.02051748707043721,
+   "oracle_face_bound": 0.0023136748042270386,
+   "mu_min_dphi_face": 0.0023140543232624293,
+   "odd_remainder_over_M3_third": 6.359349552667326e-06,
+   "mu_dphi_at_best": 0.002321609152150922
+  },
+  "5": {
+   "best_DC": 0.0023318270274329013,
+   "ratio_to_2eps": 1.1659135137164507,
+   "certified_2beta": 0.001597761400209132,
+   "ratio_to_2beta": 1.4594338223014318,
+   "D78_at_best": 0.0021705493818471103,
+   "best_z": [
+    -2.8733465261614396e-05,
+    5.595401129056776e-06,
+    -1.7016879469080585e-06,
+    -1.086105214692862e-06,
+    1.0,
+    3.2478928611567256e-05,
+    -0.00022916100090501356
+   ],
+   "reliable": true,
+   "rounds": [
+    {
+     "escalate": false,
+     "weakest_round": false,
+     "best_value": 0.0023318270274329013,
+     "best_method": "B",
+     "best_BD": 0.0023318270274329013,
+     "best_C": 0.002331827027432903,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 124.203125
+    }
+   ],
+   "max_y_over_ah": 0.013377353467165532,
+   "max_lift_residual": 5.551115123125783e-17,
+   "newton_failures": 0,
+   "confirm_rel_diff": 1.0731173511745011e-15,
+   "DC_mp50": "0.0023318270274329037971",
+   "confirm_y_over_ah": 0.0007624895196654554,
+   "slack_log_terms": {
+    "gate": 0.07167178538419984,
+    "query_linear_range": 3.123466503288306e-08,
+    "third_order_remainder": 1.2786027396561048e-07,
+    "interval_curvature": 0.3063766230857527
+   },
+   "slack_log_total": 0.37804856756489164,
+   "G_ray": 0.00026202283398557563,
+   "M3": 1.5835368886032835,
+   "G_face_hat": 0.014276351501148197,
+   "oracle_face_bound": 0.002165479017182571,
+   "mu_min_dphi_face": 0.0021655283990628742,
+   "odd_remainder_over_M3_third": 0.0001649823933225927,
+   "mu_dphi_at_best": 0.0021705493140507285
+  },
+  "6": {
+   "best_DC": 0.0024634369147880425,
+   "ratio_to_2eps": 1.2317184573940212,
+   "certified_2beta": 0.0015992389943361412,
+   "ratio_to_2beta": 1.5403807207756572,
+   "D78_at_best": 0.002293056650303535,
+   "best_z": [
+    -5.486852361345829e-06,
+    -2.901050502796535e-05,
+    2.5539521462364893e-05,
+    1.7102075082323585e-05,
+    0.00014518780358062141,
+    1.0,
+    -0.00010248363047427526
+   ],
+   "reliable": true,
+   "rounds": [
+    {
+     "escalate": false,
+     "weakest_round": false,
+     "best_value": 0.0024634369147880425,
+     "best_method": "B",
+     "best_BD": 0.0024634369147880425,
+     "best_C": 0.0024634369147880485,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 72.921875
+    }
+   ],
+   "max_y_over_ah": 0.013377353467165532,
+   "max_lift_residual": 6.938893903907228e-17,
+   "newton_failures": 0,
+   "confirm_rel_diff": 1.7847160578418685e-15,
+   "DC_mp50": "0.0024634369147880468596",
+   "confirm_y_over_ah": 0.0014672947303137236,
+   "slack_log_terms": {
+    "gate": 0.07167178538420005,
+    "query_linear_range": 2.270654505287536e-08,
+    "third_order_remainder": 0.0002304179633371002,
+    "interval_curvature": 0.3601273811002039
+   },
+   "slack_log_total": 0.4320296071542864,
+   "G_ray": 0.0007044569684533374,
+   "M3": 1.8149666546298644,
+   "G_face_hat": 0.022234210618476965,
+   "oracle_face_bound": 0.0022843010701368727,
+   "mu_min_dphi_face": 0.0022848684945119026,
+   "odd_remainder_over_M3_third": 0.00037358689821886146,
+   "mu_dphi_at_best": 0.002293056598236141
+  },
+  "7": {
+   "best_DC": 0.002190560646635941,
+   "ratio_to_2eps": 1.0952803233179704,
+   "certified_2beta": 0.0015978281635311477,
+   "ratio_to_2beta": 1.3709613440502098,
+   "D78_at_best": 0.0020390534981870843,
+   "best_z": [
+    0.006837731214279554,
+    0.00016882393603981314,
+    -0.00037453280777677484,
+    0.0003334189604091356,
+    -0.0006215140383367079,
+    -8.679998012772172e-05,
+    1.0
+   ],
+   "reliable": true,
+   "rounds": [
+    {
+     "escalate": false,
+     "weakest_round": false,
+     "best_value": 0.002190560646635941,
+     "best_method": "B",
+     "best_BD": 0.002190560646635941,
+     "best_C": 0.002190560646635943,
+     "reliable_BD_vs_C": true,
+     "cpu_seconds": 72.140625
+    }
+   ],
+   "max_y_over_ah": 0.013377353467165532,
+   "max_lift_residual": 5.551115123125783e-17,
+   "newton_failures": 0,
+   "confirm_rel_diff": 1.1224298601366378e-15,
+   "DC_mp50": "0.0021905606466359432486",
+   "confirm_y_over_ah": 0.007112130370691195,
+   "slack_log_terms": {
+    "gate": 0.07167178538419984,
+    "query_linear_range": 2.588654069111033e-07,
+    "third_order_remainder": 2.8462367076564126e-06,
+    "interval_curvature": 0.24383731425523333
+   },
+   "slack_log_total": 0.3155122047415477,
+   "G_ray": 0.0081480089023523,
+   "M3": 1.304694261461841,
+   "G_face_hat": 0.014453817334653507,
+   "oracle_face_bound": 0.002036901279139421,
+   "mu_min_dphi_face": 0.002036905832131274,
+   "odd_remainder_over_M3_third": 0.0062320766551734914,
+   "mu_dphi_at_best": 0.002039052970346739
+  }
+ },
+ "actual_weakest_face": 2,
+ "min_DC": 0.001988511838480962,
+ "min_ratio_to_2eps": 0.994255919240481,
+ "all_reliable": true,
+ "all_confirmed": true,
+ "all_lifts_valid": true,
+ "classification": "7D SECTION LOOKS TOO WEAK AT EPSILON"
+}
