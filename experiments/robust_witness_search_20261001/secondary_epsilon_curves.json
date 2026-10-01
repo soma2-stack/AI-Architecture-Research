@@ -1,0 +1,542 @@
+[
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/1000",
+    "robust": 2,
+    "states": "4",
+    "bits_exact": "2",
+    "bits_decimal": 2.0
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/10000",
+    "robust": 2,
+    "states": "304",
+    "bits_exact": "log2(304)",
+    "bits_decimal": 8.247927513443585
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/1000",
+    "robust": 2,
+    "states": "4",
+    "bits_exact": "2",
+    "bits_decimal": 2.0
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/10000",
+    "robust": 2,
+    "states": "304",
+    "bits_exact": "log2(304)",
+    "bits_decimal": 8.247927513443585
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/1000",
+    "robust": 2,
+    "states": "6",
+    "bits_exact": "log2(6)",
+    "bits_decimal": 2.584962500721156
+  },
+  {
+    "n": 2,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/10000",
+    "robust": 2,
+    "states": "396",
+    "bits_exact": "log2(396)",
+    "bits_decimal": 8.62935662007961
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "2",
+    "bits_exact": "1",
+    "bits_decimal": 1.0
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/10000",
+    "robust": 1,
+    "states": "11",
+    "bits_exact": "log2(11)",
+    "bits_decimal": 3.4594316186372973
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "2",
+    "bits_exact": "1",
+    "bits_decimal": 1.0
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/10000",
+    "robust": 1,
+    "states": "11",
+    "bits_exact": "log2(11)",
+    "bits_decimal": 3.4594316186372973
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "2",
+    "bits_exact": "1",
+    "bits_decimal": 1.0
+  },
+  {
+    "n": 2,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/10000",
+    "robust": 1,
+    "states": "12",
+    "bits_exact": "log2(12)",
+    "bits_decimal": 3.584962500721156
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/1000",
+    "robust": 3,
+    "states": "8",
+    "bits_exact": "3",
+    "bits_decimal": 3.0
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/10000",
+    "robust": 3,
+    "states": "2112",
+    "bits_exact": "log2(2112)",
+    "bits_decimal": 11.044394119358454
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/1000",
+    "robust": 3,
+    "states": "8",
+    "bits_exact": "3",
+    "bits_decimal": 3.0
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/10000",
+    "robust": 3,
+    "states": "2112",
+    "bits_exact": "log2(2112)",
+    "bits_decimal": 11.044394119358454
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/1000",
+    "robust": 2,
+    "states": "4",
+    "bits_exact": "2",
+    "bits_decimal": 2.0
+  },
+  {
+    "n": 3,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/10000",
+    "robust": 2,
+    "states": "320",
+    "bits_exact": "log2(320)",
+    "bits_decimal": 8.321928094887362
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "2",
+    "bits_exact": "1",
+    "bits_decimal": 1.0
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/10000",
+    "robust": 1,
+    "states": "18",
+    "bits_exact": "log2(18)",
+    "bits_decimal": 4.169925001442312
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "2",
+    "bits_exact": "1",
+    "bits_decimal": 1.0
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/10000",
+    "robust": 1,
+    "states": "18",
+    "bits_exact": "log2(18)",
+    "bits_decimal": 4.169925001442312
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "2",
+    "bits_exact": "1",
+    "bits_decimal": 1.0
+  },
+  {
+    "n": 3,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/10000",
+    "robust": 1,
+    "states": "18",
+    "bits_exact": "log2(18)",
+    "bits_decimal": 4.169925001442312
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/1000",
+    "robust": 3,
+    "states": "8",
+    "bits_exact": "3",
+    "bits_decimal": 3.0
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "best_search",
+    "epsilon": "1/10000",
+    "robust": 3,
+    "states": "2535",
+    "bits_exact": "log2(2535)",
+    "bits_decimal": 11.307770031890703
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/1000",
+    "robust": 3,
+    "states": "8",
+    "bits_exact": "3",
+    "bits_decimal": 3.0
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "runner_up",
+    "epsilon": "1/10000",
+    "robust": 3,
+    "states": "2366",
+    "bits_exact": "log2(2366)",
+    "bits_decimal": 11.208234358339789
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/1000",
+    "robust": 3,
+    "states": "8",
+    "bits_exact": "3",
+    "bits_decimal": 3.0
+  },
+  {
+    "n": 4,
+    "case": "dense",
+    "role": "untouched_confirmation",
+    "epsilon": "1/10000",
+    "robust": 3,
+    "states": "2366",
+    "bits_exact": "log2(2366)",
+    "bits_decimal": 11.208234358339789
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "3",
+    "bits_exact": "log2(3)",
+    "bits_decimal": 1.584962500721156
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "best_search",
+    "epsilon": "1/10000",
+    "robust": 1,
+    "states": "29",
+    "bits_exact": "log2(29)",
+    "bits_decimal": 4.857980995127572
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/1000",
+    "robust": 1,
+    "states": "3",
+    "bits_exact": "log2(3)",
+    "bits_decimal": 1.584962500721156
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "runner_up",
+    "epsilon": "1/10000",
+    "robust": 2,
+    "states": "168",
+    "bits_exact": "log2(168)",
+    "bits_decimal": 7.392317422778761
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/100",
+    "robust": 0,
+    "states": "1",
+    "bits_exact": "0",
+    "bits_decimal": 0.0
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/1000",
+    "robust": 2,
+    "states": "6",
+    "bits_exact": "log2(6)",
+    "bits_decimal": 2.584962500721156
+  },
+  {
+    "n": 4,
+    "case": "independent",
+    "role": "untouched_confirmation",
+    "epsilon": "1/10000",
+    "robust": 2,
+    "states": "297",
+    "bits_exact": "log2(297)",
+    "bits_decimal": 8.214319120800766
+  }
+]

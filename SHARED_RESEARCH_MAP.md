@@ -4,7 +4,28 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Clean width-3 two-axis replay (2026-10-01)
+## Latest mathematical audit — Robust-witness search (2026-10-01)
+
+**ROBUST-WITNESS SEARCH FINDS ONLY SMALL IMPROVEMENT.** Same n2/3/4,T11/22/37,
+model/parameter/normalization/query families,epsilon1e-3. Frozen paired pools:
+10,000 histories per width,80/20 split;65,376 valid model-history evaluations
+includingmutation/SPSA. Protocol1aa89ef/search sealeddeb3a85;18 winners frozen
+06eccf9 before fresh CPU certification. All18 pass192bits and256bit original
+product/margin checks. Dense search dirs2/3/3,bits2/3/3; confirmation dirs2/2/3,
+bitslog2(6)/2/3. Archive dirs1/2/1,bits2/2/1. Width4 repeats3axes/8states/3bits;
+width3 extra search axis does not repeat in confirmation. Independent n2/n3
+remain1axis/1bit; n4 search1axis/log2(3),confirmation2axes/log2(6),from0 archived
+bits. Gains not unique to dense; exact dimensions are not robust dimensions.
+Initial pool-carryover campaign invalid/preserved and rerun; objective unchanged.
+Unit diagnostic exposure of one confirmation history disclosed; none selected.
+8 numerical/12 machinery checks pass; original evidence preserved. Measured
+CPU872.109375s plus60s estimate; GPU-phase wall upper11.912258min,peak44C,
+RAM784.723MiB; no safety failures. Global ledger7.027018h.
+GAS-0/server/training/Stage C/AMS untouched. AR-164 and
+experiments/robust_witness_search_20261001/REPORT.md. **STOP: independent review
+of new three-axis products/search validity.** No global ceiling or new architecture.
+
+## Previous mathematical audit — Clean width-3 two-axis replay (2026-10-01)
 
 **CLEAN REPLAY VERIFIED — TWO-AXIS CERTIFICATE REPRODUCED.** Source1e4bf42
 preserved. Isolated experiments/anisotropic_robust_packing_replay_20261001/;

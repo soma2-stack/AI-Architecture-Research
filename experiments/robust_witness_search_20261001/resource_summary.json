@@ -1,0 +1,23 @@
+{
+  "measured_cpu_seconds": 872.109375,
+  "measured_cpu_minutes": 14.53515625,
+  "gpu_active_phase_wall_upper_seconds": 714.735485100071,
+  "gpu_active_phase_wall_upper_minutes": 11.912258085001183,
+  "summed_post_import_job_wall_seconds": 961.3312414000975,
+  "peak_ram_bytes": 822841344,
+  "peak_RAM_MiB": 784.72265625,
+  "peak_global_vram_bytes": 1837105152,
+  "peak_global_VRAM_MiB": 1752.0,
+  "peak_CuPy_pool_bytes": 167923200,
+  "peak_CuPy_pool_MiB": 160.14404296875,
+  "peak_gpu_temperature_c": 44,
+  "gpu_note": "phase wall upper bound, not kernel-only time; global VRAM includes owner/other contexts; CuPy pool excludes library/context overhead",
+  "invalid_attempt_cpu_seconds": 254.90625,
+  "invalid_attempt_gpu_wall_upper_seconds": 294.4151240999345,
+  "administrative_CPU_estimate_seconds": 60,
+  "gpu_preflight_estimate_seconds": 2,
+  "workers": 1,
+  "safety_failure": false,
+  "CUDA_used_for_numerical_search": true,
+  "certificate_device": "CPU"
+}

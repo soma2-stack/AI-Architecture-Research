@@ -1587,8 +1587,24 @@
    "utc": "2026-10-01T02:44:50.395831+00:00",
    "note": "Conservative source-pinning and administrative estimate, not measured certificate CPU",
    "clean_replay_entry_id": "anisotropic_robust_packing_replay_20261001_estimate"
+  },
+  {
+   "stage": "robust_witness_search",
+   "cpu_seconds": 872.109375,
+   "wall_seconds": 961.3312414000975,
+   "utc": "2026-10-01T03:30:32.116301+00:00",
+   "note": "GPU numerical discovery, invalid parity campaign, corrected search/confirmation, CPU certificates and checks; summed post-import job wall",
+   "robust_witness_entry_id": "robust_witness_search_20261001_measured"
+  },
+  {
+   "stage": "robust_witness_search",
+   "cpu_seconds": 60,
+   "wall_seconds": 0,
+   "utc": "2026-10-01T03:30:32.116301+00:00",
+   "note": "Conservative setup/install/git/telemetry/admin CPU estimate, separate from measured Python processes",
+   "robust_witness_entry_id": "robust_witness_search_20261001_estimate"
   }
  ],
- "total_cpu_seconds": 24365.156000000003,
- "total_cpu_hours": 6.76809888888889
+ "total_cpu_seconds": 25297.265375000003,
+ "total_cpu_hours": 7.027018159722223
 }
