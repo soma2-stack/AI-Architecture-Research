@@ -1,0 +1,25 @@
+{
+  "stage": "third-order antipodal; one 6D candidate",
+  "source_archive_commit": "1e1b141",
+  "epsilon": "1/1000",
+  "n": 4,
+  "T": 37,
+  "r": 6,
+  "P": 24,
+  "precision_bits": [
+    192,
+    256
+  ],
+  "device": "cpu",
+  "workers": 1,
+  "cpu_budget_seconds": 1200,
+  "ram_limit_bytes": 2147483648,
+  "selection": "maximum existing r6 archived proxy score; no replacement on failure",
+  "hidden_padding": "51/50, rounded upward2^-20; tangent widths rounded downward2^-20",
+  "normalization": "input SD sqrt(3/32), original parameter-group RMS, q=ones/sqrt(n), beta=max(1,||R||F)",
+  "query": "permitted future preactivations[1/4,3/4]^n; support-aware7/8 gate",
+  "torch_version": "2.13.0+cpu",
+  "numpy_version": "2.4.6",
+  "mpmath_version": "1.3.0",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+}

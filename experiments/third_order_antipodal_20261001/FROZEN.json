@@ -1,0 +1,29 @@
+{
+  "parent_commit": "1e1b1417c127f25ce2715df4fe467cd242408404",
+  "meaning": "New method/candidate freeze before any official box evaluation; prior numerical proxy disclosed",
+  "local_sha256": {
+    "candidate.json": "629751f273e8cb59122a0a3c39cd04a483f3ad31da4cd6b4e405bd3a6d547fb9",
+    "config.json": "1a44e9af4a80dc08d046edd20f50fed823275e5c0dd0b412cc2b0e9edc632b0f",
+    "DEVELOPMENT_REPAIRS.md": "e6612c0f3307ef4e7490e40997ea2dcf78aa95eb891eae92a9ee6f618109cd59",
+    "development_tests.json": "3bd65b1a4653c77cff2b92e04c9001aff972ee736d1c959e3b85792ddf40b4cc",
+    "freeze.py": "4310e63056afc6e045d891dafd0ced66416f9657ca111c18525bd87491956f94",
+    "kernel.py": "c2483d3585dccb36b7dfba945c1a0cb2964a59f440161a7663c594bd4d928578",
+    "prepare.py": "ef7109dfa24d7d729875f5be0219e302cdec0212d5394ae06982fd3119a39a21",
+    "PREREGISTRATION.md": "3e9d8d452b9fcaceb6e3f04486c1444f9b1180c8b5d8ad05972bd0ecd5a031fb",
+    "PROOF.md": "9aaeb88db9cdb64880cd5be275aafaee02e8aa8f627f78fd907169d3d518efb6",
+    "run.py": "a2e92ba40654138b7b86c0d196e8dbf33c290100b1a13ddf7df36c253b06fd33",
+    "setup_resources.json": "2576e2f5f918c912855b7884bf40729a0b276e461cad50147d6bd9074f09d026",
+    "tests.py": "7bbf9eb80145ba60fce833feaa84436f24a61acd6513f38afa64f6fefa6c805a"
+  },
+  "source_sha256": {
+    "experiments/antipodal_robust_dimension_20261001/antipodal_kernel.py": "283067e505584b101e8635987b3935cc180e50fec553b586576bc9fdc05faa48",
+    "experiments/antipodal_robust_dimension_20261001/screen_proxy.py": "fe59c6b3a783d2f5523e975a3d5090ddc7fa91948fb26918e5f477adf16ba34f",
+    "experiments/antipodal_robust_dimension_20261001/BYTE_EXACT_ARCHIVE.json": "8f697912d15ddd13de2bc2a558735fc3640e9e5df66a108e60045a8a9da2561b",
+    "experiments/antipodal_robust_dimension_20261001/stage2_proxy/outputs/independent_n4_confirmation_query_r6_s2.json": "08581633a60e159081c0a8d1982e23ab358b0053bcf9e7422e791262f4baca2e",
+    "experiments/robust_witness_search_20261001/cpu_jets.py": "cb4a98b7961d7141e173472e1cbcddf3dc7cd1e0d24164556a6882b8d724e23e",
+    "experiments/robust_witness_search_20261001/interval.py": "34ac4a8aacd2eae3c5890c32030e0e568096058320acb1e5dacae2f7024b7f8c",
+    "experiments/robust_witness_search_20261001/certificate_kernel.py": "2e89ffb63414e17e6ebfec14e9d85ca058aecaf26ace42686383e6ebeb6dcd9a",
+    "experiments/robust_witness_search_20261001/config.json": "fa65fb34f2dc3a5b33fda2f39210ca57a69d872f2ad7ee9377ee12f1e130b289",
+    "experiments/robust_certificate_tightness_20261001/inputs.json": "c0ca622ad1d5460499988cde7758d4aa4ac373582a51a8ec745320d97c1339d5"
+  }
+}
