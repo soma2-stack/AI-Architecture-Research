@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Clean-room second 7D interval implementation resume (2026-10-01)
+
+- **Result:** SECOND INTERVAL IMPLEMENTATION AGREES. Frozen independent n4 confirmation/T37/P24/r7, epsilon1/1000, same central endpoint/axes/amplitudes/metric/query/fixed-h. Fresh outward192/256 runs PASS; continuous k>=7 retained, not7bits or a maximum dimension. No8D, witness search, architecture or learning.
+- **Independence:** derived from accepted PROOF.md/PROOF_AFFINE.md; separate mpmath/libmp interval backend and symmetric Taylor-coefficient convolution instead of copied tightened kernel/binary64 tensor majorants. No old engine/helper imports. Same author knows earlier implementation; this is independent software, not blinded independent authorship. Arithmetic library remains a trusted dependency.
+- **Chronology:** prospective source/input freeze24f0648 pushed before execution; independent output freezef8ce4dd before reference-array inspection. Candidate SHA87895c3f3742b9a97e51eced5f9d1cf0606103290cedac4c2b0b224977c63f82. All49 original source/output hashes intact.
+- **Comparison:** all8 arrays/52,857 entries per precision/105,714 comparisons agree; maxrelative1.69854e-13, zero support matches. Eta_h.04406491233423909, forcing.00801118511715676 below allowance.01375316308262412. All7 beta>epsilon, weakest face7 separation.002622292750840679. Maxbeta192/256 difference1.66419e-58. Exact rational M3/beta and separate100-digit Decimal query checks pass.
+- **Sensitive validation:** two reviewed near-tight entries sampled at all2,048 corners plus center; ratios.9989562147/.9973085634,90/120digit checks agree. Separate nonlinear fixed-h face1 midpoint-antipode check passes. Numerical samples support but do not establish the uniform certificate. Face1 M3 agrees within1.2e-13 absolute, retains~20.5% cubic allowance margin.
+- **Validation/resources:**12 pre-freeze tests+12 final repeated tests,78 comparison checks+10 final preservation checks pass. One JSON numpy-index export bug recorded/repaired without changing frozen mathematics/outputs. Measured124.015625CPU-s (2.066927min),125.946073s summed computation wall,286.0234375MiB monitored peak;1s failed-export charge+30s setup allowance separately. CPUonly/GPU0, one worker. GAS-0/AGENTS/other notebooks untouched.
+- **Exact next action:** STOP. Recommend a separately authorized/preregistered cheap numerical8D–24D section-feasibility screen at the SAME endpoint/metric, not new widths or official certification. No prediction8D will pass. Report: experiments/cleanroom_7d_interval_20261001/REPORT.md.
+
 ### Rebalanced 7D joint-section resume (2026-10-01)
 
 - **Result:**PASS — all seven outward antipodal face inequalities at192/256bits. Independent n4 confirmation/T37/P24, unchanged central history/model/metric/query family/fixed-h and epsilon1e-3. Continuous encoder k>=7; NOT7bits or128 pairwise corner states. No maximum-dimension or architecture claim.

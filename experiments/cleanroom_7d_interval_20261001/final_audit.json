@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "name": "all_8_frozen_method_files_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all_49_original_files_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all_6_frozen_replay_outputs_unchanged",
+      "passed": true
+    },
+    {
+      "name": "arithmetic_library_files_unchanged",
+      "passed": true
+    },
+    {
+      "name": "development_tests.json_passed",
+      "passed": true
+    },
+    {
+      "name": "final_tests.json_passed",
+      "passed": true
+    },
+    {
+      "name": "all_78_comparison_checks_pass",
+      "passed": true
+    },
+    {
+      "name": "exact_hidden_inequalities_pass",
+      "passed": true
+    },
+    {
+      "name": "all_7_strict_antipodal_inequalities_pass",
+      "passed": true
+    },
+    {
+      "name": "resource_ceiling_pass",
+      "passed": true
+    }
+  ],
+  "resources": {
+    "measured_cpu_seconds": 124.015625,
+    "measured_cpu_minutes": 2.0669270833333333,
+    "summed_computation_wall_seconds": 125.94607269996777,
+    "comparison_export_failure_cpu_upper_charge_seconds": 1,
+    "unmeasured_setup_import_git_allowance_cpu_seconds": 30,
+    "peak_measured_ram_bytes": 299917312,
+    "initial_development_peak_RAM": "not monitored; final identical test suite was monitored",
+    "gpu_seconds": 0,
+    "own_VRAM_bytes": 0,
+    "gpu_temperature": "not sampled; no GPU work",
+    "max_worker_count": 1,
+    "resource_ceiling_seconds": 2700,
+    "measurement_scope": "CPU/wall excludes assistant writing and pauses; setup/import/Git allowance separate"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "post-result comparison export bug",
+  "first_failed_operation": "json.dumps(report)",
+  "error": "TypeError: Object of type int64 is not JSON serializable",
+  "cause": "numpy unravel_index indices require Python int conversion",
+  "all_mathematical_checks_completed_before_export": true,
+  "source_sha256": "21c2698e4823d38e78b30d81aade54c9e1608d77af45558ebe1ad6f4876459e5",
+  "effect": "No certificate output, input, bound or threshold changed; checker formatting repair only",
+  "cpu_seconds_charge_upper": 1
+}

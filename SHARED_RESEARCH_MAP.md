@@ -4,7 +4,38 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current mathematical result — Rebalanced joint 7D section (2026-10-01)
+## Current verification — Clean-room second 7D interval implementation (2026-10-01)
+
+**SECOND INTERVAL IMPLEMENTATION AGREES.** Same frozen independent n4
+confirmation/T37/P24, seven axes/amplitudes/preconditioners, normalized metric,
+query family/fixed-h and epsilon1e-3. Fresh192/256 outward replay PASS, retaining
+continuous k>=7. No8D, new witness, architecture or learning was attempted.
+
+Separate mpmath/libmp high-precision interval backend and symmetric Taylor
+polynomial propagation, derived from mathematical proofs; no copied/imported
+tightened kernel or old jet/contraction helper. Same author knew earlier code,
+so this is software implementation independence, not blinded authorship.
+Prospective freeze24f0648 preceded execution; output freezef8ce4dd preceded
+reference-array reading. All49 original sources/outputs remain byte-identical.
+
+All8 arrays/52,857 entries per precision agree, maxrelative1.69854e-13; zero
+support unchanged. Hidden eta.04406491233423909; all7 face inequalities pass,
+weakest separation.002622292750840679>0.002. Beta192/256 difference<=1.66419e-58.
+Exact rational downstream and separate100-digit Decimal query checks pass.
+Near-tight derivative numerical checks at2,048 corners plus center remain
+below bounds (ratios.9989562/.9973086);90/120-digit face1 checks agree.
+Those samples are supporting evidence, not the source of the uniform proof.
+
+12 synthetic tests repeated,78 comparison checks and10 final audits pass.
+A JSON index export bug was recorded and fixed; no frozen output/method changed.
+MeasuredCPU2.066927min, monitored peak286.0234MiB, GPU/CUDA0;1s failed-export
+charge and30s setup allowance separate. GAS-0/AGENTS/other notebooks untouched.
+Recommended next step requires separate authorization: prospectively freeze
+a cheap numerical8D–24D feasibility screen at the same endpoint/metric.
+No assurance of8D feasibility; no larger certification or architecture claim.
+Report: experiments/cleanroom_7d_interval_20261001/REPORT.md.
+
+## Historical mathematical result — Rebalanced joint 7D section (2026-10-01)
 
 **PASS — 7D continuous-encoder lower certificate; independent review required
 for the explicit affine-bound refinement.** Same independent n4 confirmation,
