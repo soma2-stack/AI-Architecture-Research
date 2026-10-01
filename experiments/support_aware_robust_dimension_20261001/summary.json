@@ -1,0 +1,625 @@
+{
+  "classification": "MODERATE ROBUST CONTINUOUS DIMENSION CERTIFIED",
+  "architecture_gate": "MORE ROBUST-DIMENSION WORK NEEDED",
+  "epsilon": "1/1000",
+  "records": [
+    {
+      "case": "independent_n4_confirmation",
+      "n": 4,
+      "T": 37,
+      "historical_states": 6,
+      "accepted_support_aware_states": 84,
+      "accepted_continuous_lower": 2,
+      "continuous_lower": 4,
+      "selected_section_states_17over8": 72,
+      "selected_section_states_strict_entropy": 84,
+      "selected_section_states_lower": 84,
+      "best_known_states_lower": 84,
+      "best_known_bits_lower": 6.392317422778761,
+      "m": 0.000758904930368243,
+      "M": 0.03792071187981293,
+      "antipodal_half_margin": 0.001517809860736486,
+      "r_chart": 4,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "new fixed-center thin section",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 1,
+        "6": 1,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "mixed_sensitivity_curvature": 84,
+        "valid": 96,
+        "hidden_jacobian_dominance": 10,
+        "hidden_section_box_inclusion": 2
+      },
+      "section_only_states_upper": "33362176",
+      "section_only_upper_bits": 24.99171005377434,
+      "ambient_structural_upper": 24,
+      "scale_diagnostic": {
+        "case": "independent_n4_confirmation",
+        "certified_r": 4,
+        "sample_count": 273,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          222,
+          64,
+          12,
+          3
+        ],
+        "bits": [
+          7.794415866350106,
+          6.0,
+          3.584962500721156,
+          1.584962500721156
+        ],
+        "adjacent_loglog_slopes": [
+          1.794415866350106,
+          2.415037499278844,
+          2.0
+        ],
+        "slope_mean": 2.0698177885429834,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.0016123343400741188,
+        "actual_pair_ratio_max": 0.0066612684463847206,
+        "certified_m": 0.000758904930368243,
+        "certified_M": 0.03792071187981293,
+        "fixed_h_projection_residual": 1.3877787807814457e-16,
+        "maximum_box_use_fraction": 0.5212748789340957,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    },
+    {
+      "case": "independent_n4_archived",
+      "n": 4,
+      "T": 37,
+      "historical_states": 1,
+      "accepted_support_aware_states": 4,
+      "accepted_continuous_lower": 1,
+      "continuous_lower": 2,
+      "selected_section_states_17over8": 4,
+      "selected_section_states_strict_entropy": 4,
+      "selected_section_states_lower": 4,
+      "best_known_states_lower": 4,
+      "best_known_bits_lower": 2.0,
+      "m": 0.0008726023019697426,
+      "M": 0.019976960461999493,
+      "antipodal_half_margin": 0.001234046010003593,
+      "r_chart": 2,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "new fixed-center thin section",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "mixed_sensitivity_curvature": 100,
+        "valid": 56,
+        "hidden_jacobian_dominance": 36
+      },
+      "section_only_states_upper": "841",
+      "section_only_upper_bits": 9.715961990255144,
+      "ambient_structural_upper": 24,
+      "scale_diagnostic": {
+        "case": "independent_n4_archived",
+        "certified_r": 2,
+        "sample_count": 261,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          13,
+          4,
+          2,
+          1
+        ],
+        "bits": [
+          3.700439718141092,
+          2.0,
+          1.0,
+          0.0
+        ],
+        "adjacent_loglog_slopes": [
+          1.7004397181410922,
+          1.0,
+          1.0
+        ],
+        "slope_mean": 1.2334799060470307,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.001321678073813768,
+        "actual_pair_ratio_max": 0.002021478277544872,
+        "certified_m": 0.0008726023019697426,
+        "certified_M": 0.019976960461999493,
+        "fixed_h_projection_residual": 3.3306690738754696e-16,
+        "maximum_box_use_fraction": 0.5673363042872795,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    },
+    {
+      "case": "independent_n3_confirmation",
+      "n": 3,
+      "T": 22,
+      "historical_states": 2,
+      "accepted_support_aware_states": 9,
+      "accepted_continuous_lower": 1,
+      "continuous_lower": 3,
+      "selected_section_states_17over8": 12,
+      "selected_section_states_strict_entropy": 12,
+      "selected_section_states_lower": 12,
+      "best_known_states_lower": 12,
+      "best_known_bits_lower": 3.584962500721156,
+      "m": 0.0007304050306895346,
+      "M": 0.020153969574655446,
+      "antipodal_half_margin": 0.0012650986232581789,
+      "r_chart": 3,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "new fixed-center thin section",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "valid": 66,
+        "mixed_sensitivity_curvature": 118,
+        "hidden_jacobian_dominance": 8
+      },
+      "section_only_states_upper": "42875",
+      "section_only_upper_bits": 15.3878490508349,
+      "ambient_structural_upper": 15,
+      "scale_diagnostic": {
+        "case": "independent_n3_confirmation",
+        "certified_r": 3,
+        "sample_count": 265,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          43,
+          13,
+          4,
+          1
+        ],
+        "bits": [
+          5.426264754702098,
+          3.700439718141092,
+          2.0,
+          0.0
+        ],
+        "adjacent_loglog_slopes": [
+          1.7258250365610057,
+          1.7004397181410922,
+          2.0
+        ],
+        "slope_mean": 1.8087549182340326,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.0012624049327345972,
+        "actual_pair_ratio_max": 0.0031348289808163653,
+        "certified_m": 0.0007304050306895346,
+        "certified_M": 0.020153969574655446,
+        "fixed_h_projection_residual": 5.898059818321144e-17,
+        "maximum_box_use_fraction": 0.5398409635395557,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    },
+    {
+      "case": "independent_n3_archived",
+      "n": 3,
+      "T": 22,
+      "historical_states": 2,
+      "accepted_support_aware_states": 7,
+      "accepted_continuous_lower": 1,
+      "continuous_lower": 3,
+      "selected_section_states_17over8": 12,
+      "selected_section_states_strict_entropy": 12,
+      "selected_section_states_lower": 12,
+      "best_known_states_lower": 12,
+      "best_known_bits_lower": 3.584962500721156,
+      "m": 0.0006924372731961654,
+      "M": 0.021264161561631717,
+      "antipodal_half_margin": 0.0011993365382302096,
+      "r_chart": 3,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "new fixed-center thin section",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "valid": 64,
+        "mixed_sensitivity_curvature": 116,
+        "hidden_jacobian_dominance": 10,
+        "hidden_section_box_inclusion": 2
+      },
+      "section_only_states_upper": "50653",
+      "section_only_upper_bits": 15.62836009688685,
+      "ambient_structural_upper": 15,
+      "scale_diagnostic": {
+        "case": "independent_n3_archived",
+        "certified_r": 3,
+        "sample_count": 265,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          43,
+          13,
+          3,
+          1
+        ],
+        "bits": [
+          5.426264754702098,
+          3.700439718141092,
+          1.584962500721156,
+          0.0
+        ],
+        "adjacent_loglog_slopes": [
+          1.7258250365610057,
+          2.115477217419936,
+          1.5849625007211563
+        ],
+        "slope_mean": 1.8087549182340326,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.0012707415507184781,
+        "actual_pair_ratio_max": 0.003039164598004677,
+        "certified_m": 0.0006924372731961654,
+        "certified_M": 0.021264161561631717,
+        "fixed_h_projection_residual": 1.1102230246251565e-16,
+        "maximum_box_use_fraction": 0.5676632621371925,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    },
+    {
+      "case": "dense_n4_confirmation",
+      "n": 4,
+      "T": 37,
+      "historical_states": 8,
+      "accepted_support_aware_states": 8,
+      "accepted_continuous_lower": 3,
+      "continuous_lower": 3,
+      "selected_section_states_17over8": 8,
+      "selected_section_states_strict_entropy": 8,
+      "selected_section_states_lower": 8,
+      "best_known_states_lower": 8,
+      "best_known_bits_lower": 3.0,
+      "m": 0.0007406471035971474,
+      "M": 0.02363842690578596,
+      "antipodal_half_margin": 0.001282838413908989,
+      "r_chart": 3,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "new fixed-center thin section",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "mixed_sensitivity_curvature": 41,
+        "valid": 39,
+        "hidden_jacobian_dominance": 14,
+        "hidden_section_box_inclusion": 2
+      },
+      "section_only_states_upper": "68921",
+      "section_only_upper_bits": 16.07265601385425,
+      "ambient_structural_upper": 144,
+      "scale_diagnostic": {
+        "case": "dense_n4_confirmation",
+        "certified_r": 3,
+        "sample_count": 265,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          42,
+          12,
+          2,
+          1
+        ],
+        "bits": [
+          5.392317422778761,
+          3.584962500721156,
+          1.0,
+          0.0
+        ],
+        "adjacent_loglog_slopes": [
+          1.8073549220576042,
+          2.584962500721156,
+          1.0
+        ],
+        "slope_mean": 1.7974391409262533,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.0017382775405514477,
+        "actual_pair_ratio_max": 0.001991732115849102,
+        "certified_m": 0.0007406471035971474,
+        "certified_M": 0.02363842690578596,
+        "fixed_h_projection_residual": 1.3181053470923132e-12,
+        "maximum_box_use_fraction": 0.5333930301450897,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    },
+    {
+      "case": "dense_n4_archived",
+      "n": 4,
+      "T": 37,
+      "historical_states": 2,
+      "accepted_support_aware_states": 2,
+      "accepted_continuous_lower": 1,
+      "continuous_lower": 1,
+      "selected_section_states_17over8": 2,
+      "selected_section_states_strict_entropy": 2,
+      "selected_section_states_lower": 2,
+      "best_known_states_lower": 2,
+      "best_known_bits_lower": 1.0,
+      "m": 0.0017260055950477234,
+      "M": 0.017136187432001522,
+      "antipodal_half_margin": 0.0017260055950477234,
+      "r_chart": 1,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "new fixed-center thin section",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "hidden_jacobian_dominance": 23,
+        "valid": 26,
+        "mixed_sensitivity_curvature": 45,
+        "hidden_section_box_inclusion": 2
+      },
+      "section_only_states_upper": "18",
+      "section_only_upper_bits": 4.169925001442312,
+      "ambient_structural_upper": 144,
+      "scale_diagnostic": {
+        "case": "dense_n4_archived",
+        "certified_r": 1,
+        "sample_count": 259,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          5,
+          3,
+          2,
+          1
+        ],
+        "bits": [
+          2.321928094887362,
+          1.584962500721156,
+          1.0,
+          0.0
+        ],
+        "adjacent_loglog_slopes": [
+          0.7369655941662062,
+          0.5849625007211562,
+          1.0
+        ],
+        "slope_mean": 0.7739760316291209,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.0023378936387002717,
+        "actual_pair_ratio_max": 0.0023379554882417284,
+        "certified_m": 0.0017260055950477234,
+        "certified_M": 0.017136187432001522,
+        "fixed_h_projection_residual": 1.1102230246251565e-16,
+        "maximum_box_use_fraction": 0.7414675787435211,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    },
+    {
+      "case": "dense_n3_confirmation",
+      "n": 3,
+      "T": 22,
+      "historical_states": 4,
+      "accepted_support_aware_states": 4,
+      "accepted_continuous_lower": 2,
+      "continuous_lower": 3,
+      "selected_section_states_17over8": 4,
+      "selected_section_states_strict_entropy": 8,
+      "selected_section_states_lower": 8,
+      "best_known_states_lower": 8,
+      "best_known_bits_lower": 3.0,
+      "m": 0.0006074183863232394,
+      "M": 0.020104339058741674,
+      "antipodal_half_margin": 0.0010520795065633512,
+      "r_chart": 3,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "new fixed-center thin section",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "valid": 42,
+        "mixed_sensitivity_curvature": 44,
+        "hidden_jacobian_dominance": 8,
+        "hidden_section_box_inclusion": 2
+      },
+      "section_only_states_upper": "42875",
+      "section_only_upper_bits": 15.3878490508349,
+      "ambient_structural_upper": 63,
+      "scale_diagnostic": {
+        "case": "dense_n3_confirmation",
+        "certified_r": 3,
+        "sample_count": 265,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          35,
+          11,
+          2,
+          1
+        ],
+        "bits": [
+          5.129283016944966,
+          3.4594316186372973,
+          1.0,
+          0.0
+        ],
+        "adjacent_loglog_slopes": [
+          1.6698513983076693,
+          2.4594316186372973,
+          1.0
+        ],
+        "slope_mean": 1.7097610056483221,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.0013775738033547263,
+        "actual_pair_ratio_max": 0.0019531084455649548,
+        "certified_m": 0.0006074183863232394,
+        "certified_M": 0.020104339058741674,
+        "fixed_h_projection_residual": 3.469446951953614e-17,
+        "maximum_box_use_fraction": 0.5472923056792204,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    },
+    {
+      "case": "dense_n3_archived",
+      "n": 3,
+      "T": 22,
+      "historical_states": 4,
+      "accepted_support_aware_states": 4,
+      "accepted_continuous_lower": 2,
+      "continuous_lower": 2,
+      "selected_section_states_17over8": 4,
+      "selected_section_states_strict_entropy": 4,
+      "selected_section_states_lower": 4,
+      "best_known_states_lower": 4,
+      "best_known_bits_lower": 2.0,
+      "m": 0.0009370706928945299,
+      "M": 0.019269189326098824,
+      "antipodal_half_margin": 0.0013252180827937976,
+      "r_chart": 2,
+      "amplitude": "1/8",
+      "profile": "equal",
+      "source": "accepted geometry",
+      "prefix_best_continuous_lower": {
+        "1": 1,
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0
+      },
+      "failure_counts": {
+        "mixed_sensitivity_curvature": 56,
+        "valid": 28,
+        "hidden_jacobian_dominance": 10,
+        "hidden_section_box_inclusion": 2
+      },
+      "section_only_states_upper": "784",
+      "section_only_upper_bits": 9.614709844115207,
+      "ambient_structural_upper": 63,
+      "scale_diagnostic": {
+        "case": "dense_n3_archived",
+        "certified_r": 2,
+        "sample_count": 261,
+        "factors": [
+          0.5,
+          1,
+          2,
+          4
+        ],
+        "states": [
+          15,
+          5,
+          2,
+          1
+        ],
+        "bits": [
+          3.9068905956085187,
+          2.321928094887362,
+          1.0,
+          0.0
+        ],
+        "adjacent_loglog_slopes": [
+          1.5849625007211563,
+          1.3219280948873624,
+          1.0
+        ],
+        "slope_mean": 1.3022968652028395,
+        "saturated_at_smallest_spacing": false,
+        "actual_pair_ratio_min": 0.0017349855172396932,
+        "actual_pair_ratio_max": 0.0021581725367517393,
+        "certified_m": 0.0009370706928945299,
+        "certified_M": 0.019269189326098824,
+        "fixed_h_projection_residual": 1.3877787807814457e-16,
+        "maximum_box_use_fraction": 0.6278199854049609,
+        "label": "NUMERICAL finite sampling/greedy diagnostic; slopes are not a dimension proof"
+      }
+    }
+  ],
+  "upper_bound_status": "NO USEFUL ROBUST-DIMENSION UPPER BOUND FOUND",
+  "rigorous": "whole-section residual-safe Lipschitz bounds, epsilon-essential coordinate lower bounds and integer product packing; section-specific entropy upper/lower only",
+  "numerical": "sampled packing slopes/greedy counts and actual pair ratios",
+  "limitation": "maximum true dimension unresolved; failed prefixes cannot prove a ceiling; no architecture comparison"
+}

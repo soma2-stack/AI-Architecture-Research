@@ -1,0 +1,81 @@
+START independent_n4_confirmation
+PREFIX independent_n4_confirmation 1 best essential 2
+PREFIX independent_n4_confirmation 2 best essential 2
+PREFIX independent_n4_confirmation 3 best essential 3
+PREFIX independent_n4_confirmation 4 best essential 4
+PREFIX independent_n4_confirmation 5 best essential 4
+PREFIX independent_n4_confirmation 6 best essential 4
+PREFIX independent_n4_confirmation 7 best essential 4
+PREFIX independent_n4_confirmation 8 best essential 4
+FINAL independent_n4_confirmation 4 min margin 0.001517809860736486
+START independent_n4_archived
+PREFIX independent_n4_archived 1 best essential 1
+PREFIX independent_n4_archived 2 best essential 2
+PREFIX independent_n4_archived 3 best essential 2
+PREFIX independent_n4_archived 4 best essential 2
+PREFIX independent_n4_archived 5 best essential 2
+PREFIX independent_n4_archived 6 best essential 2
+PREFIX independent_n4_archived 7 best essential 2
+PREFIX independent_n4_archived 8 best essential 2
+FINAL independent_n4_archived 2 min margin 0.001234046010003593
+START independent_n3_confirmation
+PREFIX independent_n3_confirmation 1 best essential 1
+PREFIX independent_n3_confirmation 2 best essential 2
+PREFIX independent_n3_confirmation 3 best essential 3
+PREFIX independent_n3_confirmation 4 best essential 3
+PREFIX independent_n3_confirmation 5 best essential 3
+PREFIX independent_n3_confirmation 6 best essential 3
+PREFIX independent_n3_confirmation 7 best essential 3
+PREFIX independent_n3_confirmation 8 best essential 3
+FINAL independent_n3_confirmation 3 min margin 0.0012650986232581789
+START independent_n3_archived
+PREFIX independent_n3_archived 1 best essential 1
+PREFIX independent_n3_archived 2 best essential 2
+PREFIX independent_n3_archived 3 best essential 3
+PREFIX independent_n3_archived 4 best essential 3
+PREFIX independent_n3_archived 5 best essential 3
+PREFIX independent_n3_archived 6 best essential 3
+PREFIX independent_n3_archived 7 best essential 3
+PREFIX independent_n3_archived 8 best essential 3
+FINAL independent_n3_archived 3 min margin 0.0011993365382302096
+START dense_n4_confirmation
+PREFIX dense_n4_confirmation 1 best essential 3
+PREFIX dense_n4_confirmation 2 best essential 3
+PREFIX dense_n4_confirmation 3 best essential 3
+PREFIX dense_n4_confirmation 4 best essential 3
+PREFIX dense_n4_confirmation 5 best essential 3
+PREFIX dense_n4_confirmation 6 best essential 3
+PREFIX dense_n4_confirmation 7 best essential 3
+PREFIX dense_n4_confirmation 8 best essential 3
+FINAL dense_n4_confirmation 3 min margin 0.001282838413908989
+START dense_n4_archived
+PREFIX dense_n4_archived 1 best essential 1
+PREFIX dense_n4_archived 2 best essential 1
+PREFIX dense_n4_archived 3 best essential 1
+PREFIX dense_n4_archived 4 best essential 1
+PREFIX dense_n4_archived 5 best essential 1
+PREFIX dense_n4_archived 6 best essential 1
+PREFIX dense_n4_archived 7 best essential 1
+PREFIX dense_n4_archived 8 best essential 1
+FINAL dense_n4_archived 1 min margin 0.0017260055950477234
+START dense_n3_confirmation
+PREFIX dense_n3_confirmation 1 best essential 2
+PREFIX dense_n3_confirmation 2 best essential 2
+PREFIX dense_n3_confirmation 3 best essential 3
+PREFIX dense_n3_confirmation 4 best essential 3
+PREFIX dense_n3_confirmation 5 best essential 3
+PREFIX dense_n3_confirmation 6 best essential 3
+PREFIX dense_n3_confirmation 7 best essential 3
+PREFIX dense_n3_confirmation 8 best essential 3
+FINAL dense_n3_confirmation 3 min margin 0.0010520795065633512
+START dense_n3_archived
+PREFIX dense_n3_archived 1 best essential 2
+PREFIX dense_n3_archived 2 best essential 2
+PREFIX dense_n3_archived 3 best essential 2
+PREFIX dense_n3_archived 4 best essential 2
+PREFIX dense_n3_archived 5 best essential 2
+PREFIX dense_n3_archived 6 best essential 2
+PREFIX dense_n3_archived 7 best essential 2
+PREFIX dense_n3_archived 8 best essential 2
+FINAL dense_n3_archived 2 min margin 0.0013252180827937976
+RESOURCE {"label": "CPU official continuous dimension intervals", "cpu_seconds": 247.03125, "wall_seconds": 246.07275240006857, "peak_ram_bytes": 341667840, "workers": 1, "gpu_seconds": 0, "gpu_used": false, "peak_own_VRAM_bytes": 0, "gpu_temperature_c": null}

@@ -4,7 +4,25 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Robust-certificate tightness (2026-10-01)
+## Latest mathematical audit — Support-aware robust dimension (2026-10-01)
+
+**MODERATE ROBUST CONTINUOUS DIMENSION CERTIFIED. MORE ROBUST-DIMENSION WORK NEEDED.**
+Owner reports independent audit acceptance of the old support-aware84-state bound.
+New whole-section finite-radius certificate, same epsilon1e-3/frozen histories:
+independent n3 archived/confirmation r3/3,n4 r2/4; dense n3 r2/3,n4 r1/3.
+The r4 independent confirmation section has b_min0.00151781>epsilon, m>=0.000758905,
+M<=0.0379207, with256-bit mixed-bound replay. Its strict product has84states;
+the previously accepted84-state geometry had onlyr2. Cube antipodes/Borsuk-Ulam
+give continuous real-coordinate lower bounds; finite count alone never supplies r.
+1152 trials/417 valid,27 checks; all183 old source hashes preserved.
+No useful ambient upper bound or compression; numerical packing slopes~1--2.4
+around epsilon do not prove a ceiling. CPU4.522656min plus30s estimate,
+peak355.246MiB; GPU/CUDA0, GAS-0/AGENTS untouched.
+Freezef0c231e; AR-166 and experiments/support_aware_robust_dimension_20261001/REPORT.md.
+**STOP** for independent review of the NEW dimension proof/certificate, not a
+repeat review of old results. No architecture, Stage C, AMS or width5.
+
+## Previous mathematical audit — Robust-certificate tightness (2026-10-01)
 
 **CERTIFICATES ARE HIGHLY CONSERVATIVE — MANY MORE ROBUST DIRECTIONS APPEAR NUMERICALLY. MORE ROBUST-DIMENSION WORK NEEDED.** Existing
 n=3/4 endpoints only, epsilon1e-3, no training or architecture changes. Dense

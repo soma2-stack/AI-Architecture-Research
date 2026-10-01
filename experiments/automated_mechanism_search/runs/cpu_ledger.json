@@ -1619,8 +1619,24 @@
    "utc": "2026-10-01",
    "tightness_entry_id": "robust_certificate_tightness_20261001_estimate",
    "note": "Conservative setup/git/documentation administrative CPU estimate"
+  },
+  {
+   "stage": "support_aware_robust_dimension",
+   "cpu_seconds": 271.359375,
+   "wall_seconds": 253.51784760004375,
+   "utc": "2026-10-01",
+   "dimension_entry_id": "support_aware_robust_dimension_20261001_measured",
+   "note": "CPU-only interval, tests and numerical diagnostics; failures included"
+  },
+  {
+   "stage": "support_aware_robust_dimension",
+   "cpu_seconds": 30,
+   "wall_seconds": 0,
+   "utc": "2026-10-01",
+   "dimension_entry_id": "support_aware_robust_dimension_20261001_estimate",
+   "note": "Conservative administrative estimate, separate from measured processes"
   }
  ],
- "total_cpu_seconds": 26697.531000000003,
- "total_cpu_hours": 7.415980833333334
+ "total_cpu_seconds": 26998.890375000003,
+ "total_cpu_hours": 7.499691770833334
 }

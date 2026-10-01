@@ -1,0 +1,25 @@
+test_axiswise_counts_cannot_bypass_mixed_terms (__main__.Checks.test_axiswise_counts_cannot_bypass_mixed_terms) ... ok
+test_cpu_threads (__main__.Checks.test_cpu_threads) ... ok
+test_directional_curvature_against_autodiff (__main__.Checks.test_directional_curvature_against_autodiff) ... ok
+test_frozen_model_parameters (__main__.Checks.test_frozen_model_parameters) ... ok
+test_integer_safe_product_spacing (__main__.Checks.test_integer_safe_product_spacing) ... ok
+test_interval_inverse (__main__.Checks.test_interval_inverse) ... ok
+test_interval_sqrt (__main__.Checks.test_interval_sqrt) ... ok
+test_joint_query_duality_with_residual_coordinates (__main__.Checks.test_joint_query_duality_with_residual_coordinates) ... ok
+test_multivariate_affine_product_positive_control (__main__.Checks.test_multivariate_affine_product_positive_control) ... ok
+test_outward_elementary_arithmetic (__main__.Checks.test_outward_elementary_arithmetic) ... ok
+test_transcendental_cross_precision (__main__.Checks.test_transcendental_cross_precision) ... ok
+test_wide_tanh_monotonic_range (__main__.Checks.test_wide_tanh_monotonic_range) ... ok
+test_256_verification (__main__.Results.test_256_verification) ... ok
+test_all_trials_and_endpoints (__main__.Results.test_all_trials_and_endpoints) ... ok
+test_finite_radius_dimension (__main__.Results.test_finite_radius_dimension) ... ok
+test_frozen_model_and_cpu (__main__.Results.test_frozen_model_and_cpu) ... ok
+test_scale_diagnostic_separation (__main__.Results.test_scale_diagnostic_separation) ... ok
+test_sources_and_freeze (__main__.Results.test_sources_and_freeze) ... ok
+test_strict_corner_and_entropy_counts (__main__.Results.test_strict_corner_and_entropy_counts) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.366s
+
+OK
+RESOURCE {"label": "CPU final results and accepted machinery tests", "cpu_seconds": 3.796875, "wall_seconds": 0.3714981999946758, "peak_ram_bytes": 308875264, "workers": 1, "gpu_seconds": 0, "gpu_used": false, "peak_own_VRAM_bytes": 0, "gpu_temperature_c": null}
