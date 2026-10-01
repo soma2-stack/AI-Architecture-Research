@@ -1,0 +1,31 @@
+{
+  "task": "clean execution of frozen width-3 two-axis certificate; no search",
+  "source_commit": "1e4bf42dfa9f1a312d23b4a752738280d5861a4b",
+  "normal_precision_bits": 192,
+  "verification_bits": 256,
+  "high_precision_digits": 100,
+  "n": 3,
+  "T": 22,
+  "epsilon": "1/1000",
+  "axes": 2,
+  "normal_axes": 3,
+  "amplitudes": [
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8"
+  ],
+  "no_original_J_intervals_or_curvature_used": true,
+  "regenerate_basis_chart": "use frozen rational directions; freshly recompute chart derivatives and independently check QR/SVD basis",
+  "fixed_preconditioners_and_target": "test frozen K, rho, mu, not regenerated replacements",
+  "rounding": "source interval dyadic/Taylor arithmetic and ordered upward IEEE binary64 majorants unchanged",
+  "max_cpu_seconds": 600,
+  "rss_cap_bytes": 2147483648,
+  "workers": 1,
+  "gpu_allowed": false,
+  "stop": "first failed certificate inequality; preserve evidence; no constants or axes adjusted",
+  "classification": "exact regeneration versus outward differences; failure has priority",
+  "comparison_only": "original bounds inspected only for final comparison, not fed to replay",
+  "code_independence": "fresh isolated execution of pinned reviewed interval/jet/curvature source, not an independently authored interval library"
+}

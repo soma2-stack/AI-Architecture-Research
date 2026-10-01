@@ -1,0 +1,125 @@
+{
+  "source_commit": "1e4bf42dfa9f1a312d23b4a752738280d5861a4b",
+  "sources": [
+    {
+      "repository_path": "experiments/anisotropic_robust_packing_20260930/engine.py",
+      "snapshot": "frozen_sources\\engine.py",
+      "sha256": "fce5400b587b7efc49be735bceb4a3291fe1b3a8254a1105be66597189511a2a",
+      "working_copy_matches": true,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/anisotropic_robust_packing_20260930/interval.py",
+      "snapshot": "frozen_sources\\interval.py",
+      "sha256": "34ac4a8aacd2eae3c5890c32030e0e568096058320acb1e5dacae2f7024b7f8c",
+      "working_copy_matches": true,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/anisotropic_robust_packing_20260930/test_engine.py",
+      "snapshot": "frozen_sources\\test_engine.py",
+      "sha256": "4a4b3f042f91f8915dcfefed6294787cec5500277df86ce6f54061f368a6cd8d",
+      "working_copy_matches": true,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/anisotropic_robust_packing_20260930/config.json",
+      "snapshot": "frozen_sources\\config.json",
+      "sha256": "1650770817920c00fc155ac1aec3bdcf5195fde9a1a6484ea9eb35dd67fd7c39",
+      "working_copy_matches": true,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/anisotropic_robust_packing_20260930/PROOF.md",
+      "snapshot": "frozen_sources\\PROOF.md",
+      "sha256": "b2a3b227ed61585770c5d2119779d09cc6f4f9b1416c790f1a600666d0d6f4bf",
+      "working_copy_matches": true,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/anisotropic_robust_packing_20260930/basis_dense_n3.json",
+      "snapshot": "frozen_sources\\basis_dense_n3.json",
+      "sha256": "b047e2a6ab386854badb45a07f82fe6f44ea9802cfe0658c1287755e8b29f97b",
+      "working_copy_matches": false,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/anisotropic_robust_packing_20260930/certificate_frame_dense_n3.json",
+      "snapshot": "frozen_sources\\certificate_frame_dense_n3.json",
+      "sha256": "5199bb8c40ccc6616340e3f0dbb0faadbc9433b1406fac5e04e470d429334cca",
+      "working_copy_matches": false,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/endpoint_width_scaling_20260930/certificate_dense_n3_9602100_full.json",
+      "snapshot": "frozen_sources\\certificate_dense_n3_9602100_full.json",
+      "sha256": "805c15717cab9195ae6631e8b696e91aca0ab6c8054e8f58b0a881504e4a9cf1",
+      "working_copy_matches": true,
+      "working_copy_text_matches": true
+    },
+    {
+      "repository_path": "experiments/endpoint_width_scaling_20260930/core.py",
+      "snapshot": "frozen_sources\\width_core.py",
+      "sha256": "2cd3e06abd5dd72e2b0e20d485993df2aaee6547d82d482c4df96b1816ce9e70",
+      "working_copy_matches": true,
+      "working_copy_text_matches": true
+    }
+  ],
+  "original_directory_hashes": {
+    "analysis.py": "afceeab2ce20fc86d3a3db512ee6a19de50e36d95417b22c9a88b94d671a7ab2",
+    "attempts_frame.jsonl": "3688a08178ee1058d9e4ac5dfe81b8209e3127f1614256fea3e038d13feddd15",
+    "attempts_svd.jsonl": "50fb232c5d06e1546a8a164012a115cc301ba8915703e7c21def7071d68b4159",
+    "attempts_svd_initial_interval_bug.jsonl": "3cd0345abd38a806d6848265039f76c876672254bed69ee902afa62fdfbaa556",
+    "basis_dense_n2.json": "9d8799b44526500acbd7021264be34dfc6dda4bcda45d1b7606651ab8bf41f1d",
+    "basis_dense_n3.json": "c31f60b955bce8eca1f8433be58363982345d8d206e38de4d9621a04e00b4d42",
+    "basis_dense_n4.json": "0104fc8ee63e35b27b5090fcbc9229358d1c057475cbdec40d55d477c74cb2be",
+    "basis_independent_n2.json": "f89d4747caf3b27e1ea5e9eaa48ea28692905050d4e5b432e55673be34871b37",
+    "basis_independent_n3.json": "4617234d96b76001eadefcb0585e1c094ff0547747613c3e377446d35e2dec7f",
+    "basis_independent_n4.json": "d249af5d09f205d2eeb01a21b1d16ae6eb4a8caa7f3305ccd61a7f23933f99a6",
+    "certificate_frame_dense_n2.json": "df0e8a155f4db248ee1132fc52179d9b474b649db0b050818e91894561897ce5",
+    "certificate_frame_dense_n3.json": "a66497db3e28779b4e9987220e3897b2be306c2fde3dc5743120edea5df65af2",
+    "certificate_frame_dense_n4.json": "a31018a1452fa0fdff999bf2c8a0b0b56f782d06d01ba5cdc3a6a2a41a9cd3a8",
+    "certificate_frame_independent_n2.json": "10e6bc4303895b117c13b46f9b1924e337b0c92491bdd2062f296c79dfcee933",
+    "certificate_frame_independent_n3.json": "9d9a3488230c6efcf4af08f709a357fd34923f9a60757566f612da085228d944",
+    "certificate_frame_independent_n4.json": "6d1ab21e1ac9261f1abb6d523298ce30955e52fa8392381c861c537ffa2d58bf",
+    "certificate_svd_dense_n2.json": "32947988ec7290419df914b86df51a3bb34793febf4e18ac82fe1c56336fe358",
+    "certificate_svd_dense_n3.json": "573346643dca71b577735baa575c287f241f27a2f6dafc0351e2df79b9094936",
+    "certificate_svd_dense_n4.json": "13fd4fb79cf55c80c749cd39ed2071f40b192a70c2d3bc9cca331c3bca57cd6a",
+    "certificate_svd_independent_n2.json": "af88ec78ace5c538c7110ce1d7ed38176b97b999c230472b8ca5c647ff34632f",
+    "certificate_svd_independent_n3.json": "3a116cd9124272bf39c0b500b233a2140a5c52abebd1f7a30dd16c3947e3bd54",
+    "certificate_svd_independent_n4.json": "751e40d0f8152aee01dc86a6620b5a94c2a258c02696211c0dcc66e6b2a3f2e6",
+    "config.json": "1650770817920c00fc155ac1aec3bdcf5195fde9a1a6484ea9eb35dd67fd7c39",
+    "cpu_ledger.jsonl": "654ed736dcbdb8af8a72c802169e5cf3d71b764b57d037a97ba340c40f2f6052",
+    "directional_audit.json": "8fd3f1e849bf3d622ae53c6e3369aea29db30184aea409a03bb42fe661204023",
+    "engine.py": "fce5400b587b7efc49be735bceb4a3291fe1b3a8254a1105be66597189511a2a",
+    "final_checks.json": "2aac5bdac920c6322fc9b79bd83e8925be792aa2bebd48277b274aa80582146e",
+    "final_checks.py": "c939d7d8de6f35a0fdfc59e45a5387ca30b0e68c05e0e822f50cb5981fad4637",
+    "finish_records.py": "45ee9266b6b5476a76650d29a20aec0b8ac3d94d3b5196a2d3558d1c8a6cf00e",
+    "freeze_primary.py": "183781de459fa896b77ac7b35569cdbadbeb261ee7e5290e517b75df6f8a30cf",
+    "hardware.json": "50e0db87be926b0771aa6d79cd32951c9cd2d1d02c21ed15e356afea75a45f7c",
+    "interval.py": "34ac4a8aacd2eae3c5890c32030e0e568096058320acb1e5dacae2f7024b7f8c",
+    "PREREGISTRATION.md": "ded98563ee07be61ecdb1e7b03354e1bb68e9d595338133210421c07f8d759cc",
+    "PRIMARY_FROZEN.json": "450d39d5d1e64b52a265ad8f1ed4e7c2beb0b40cd8d1afb582d45879d638281a",
+    "PROOF.md": "b2a3b227ed61585770c5d2119779d09cc6f4f9b1416c790f1a600666d0d6f4bf",
+    "README.md": "35ac23b62b6fe4bba1ea5066836f107ad295613719d1866276852c474ec63e79",
+    "reconstruct.py": "a4c487f3f4a2b6bbae776e6bc8601505aaff6ebcf24d384a4492c39fed36bf61",
+    "reconstruction_checks.json": "99cdaa5379a617628154c235561acea127899778f675f151e94b9c715e928a45",
+    "REPORT.md": "098b6b0ed1e9afd5bc2f7ad54b285e94b57e115497a965de589f2b5eafeff13f",
+    "resources.json": "6dd450300806a50d7ac8e3d939376a73961d29e5cf305d69c2848edeaf6429ea",
+    "results_frame.json": "9fcd16bc384b8ba5fd3b67beebf67aa5c1c04428b88a759ce95c96447729af7d",
+    "results_svd.json": "af0df509100e3ee1553da237f23ff592ab71a183fc9f26a7adbaa47278340486",
+    "RUNTIME_CORRECTION.md": "0307dd123e8dc50e3eaf43ef7f643f05b44f54ce71d1ee14edb2d84b5050281e",
+    "source_hashes.json": "ef7646faf5ea424c418619290ebb0d8e1854f520e9a5d2f4cf5a37554b9045b9",
+    "spectra.csv": "424cbd7842805b2458d2fd050b9c57b1a9f2bfb8239328d88d7934e58f361f11",
+    "summary.json": "7fdc0c818f85f8e5ae3e2f50b24b924e7115c3875b6db4c21dd84d7baf46505e",
+    "tests.json": "fd97fabc7e529a8c6ed5a02d02b3cee24de3dba33411682766d25f57b24dcc2e",
+    "test_engine.py": "4a4b3f042f91f8915dcfefed6294787cec5500277df86ce6f54061f368a6cd8d",
+    "verification_frame.json": "fac971d4a08abffca17c27628c5c6d74347804868d0768570d5fefa246b902ec",
+    "verification_svd.json": "00ab0e6fda865a9319705057328e4ed255b55f2b046dff9c14cbb2d3e91f7eed",
+    "verify.py": "954339324faa4865dc1d06551875e1e3b418f8c6af092d01b70b9f6e5921681a",
+    "weak_axis_certificates.json": "11583b7f6e960dcb422ae415a4ebbce98d4a23e157b40ce9d9e8b6051c1ef84f",
+    "weak_certificates.py": "8842c1358a3f8a5530507ac3b5046fa6c657b11597abe4f4e8ea1c2df8240f0c",
+    "weak_direction_diagnostics.json": "6e1b8f58d446e0cd32b4604ecf27d6ba89c48ec66e0e24447cdb29546e9aa61a"
+  },
+  "inputs_sha256": "04f137b6e4f45c9d4f18cde40accf8e40c4834832f66cf9b4b799d7c1a8b1dab"
+}
