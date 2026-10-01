@@ -6,6 +6,14 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### General dense robust-width scaling resume (2026-10-01)
+
+- **Stage:** theory only; general fixed-error quadratic-versus-cubic question remains open. No 9D sections, new witnesses, training, architecture or GPU work.
+- **New result for independent review:** with uniform ||R||op<=a<1, bounded W/input/bias and the accepted frozen group-RMS units, retain H propagated injection factors costing H(n^2+2n) coordinates. Operator-norm gradient error is <=C_* a^H/(1-a). At fixed epsilon, H is width independent, giving O(n^2) sufficient sensitivity state without past-trajectory replay.
+- **Margin consequence:** every continuous fixed-h r-dimensional antipodal history section has guaranteed half-margin <=C_* a^(ceil[r/(n^2+2n)]-1)/(1-a). Full r=nP therefore collapses exponentially with width in this uniformly contractive class. This does NOT cover ||R||op=1 or a_n approaching one and does not establish a quadratic lower bound.
+- **Bounds/quantifiers:** general dense upper nP=2n^3+n^2; full cubic lower only below an unknown width-dependent epsilon_n. No width-uniform Omega(n^2) lower established. A small-R all-width normalized delayed-head counterfamily permits zero sensitivity memory at fixed epsilon despite full exact accessibility; it defeats universal-over-models conclusions, not existential best-family ones. Independent n4 accepted k>=8 remains unchanged.
+- **Exact next action:** independent hostile review of the factored-tail upper theorem, counted no-replay state and Borsuk-Ulam margin corollary in theory/robust_width_scaling_20261001/THEORY.md. Then seek a jointly separated quadratic section with a width-uniform margin, or a cubic section outside uniform contraction. No experiment automatically authorized. Historical evidence and GAS-0 untouched.
+
 ### Frozen 8D third-order margin refinement resume (2026-10-01)
 
 - **Result:** SUBSTANTIAL IMPROVEMENT at192/256 bits on the byte-identical accepted8D candidate. Same independent n4 confirmation/T37/P24, epsilon1e-3, normalized metric/query/fixed-h and continuous encoder. Weakest separation0.002294334371825969 (face7), slack14.716719%, versus2.445305% before:6.01836x slack. Still k>=8, not a new dimension/bit/hardware/architecture claim.

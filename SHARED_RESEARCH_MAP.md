@@ -4,7 +4,27 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current refinement — SAME frozen8D section, larger formal margin (2026-10-01)
+## Current theory — General dense robust-width scaling (2026-10-01)
+
+**General fixed-error quadratic versus cubic scaling remains open.** New
+author-derived proof, requiring independent review: uniformly contractive dense
+recurrence in bounded, frozen group-RMS units admits an O(n^2) approximate
+online factor encoding at fixed epsilon. Full cubic antipodal sections in
+that class have half-margins bounded by O(a^(2n+O(1))) for uniform a<1.
+No trajectory replay, new witness, training, GPU or architecture work.
+
+This is NOT a general dense O(n^2) upper: ||R||op=1 and near-isometric families
+are outside its assumptions. The general exact-storage upper remains O(n^3).
+A matching width-uniform quadratic lower is unproved; full cubic lower holds
+only below an unknown width-dependent tolerance. A normalized small-R
+counterfamily also prevents a positive universal-over-models robust lower
+for the accepted delayed-head queries. Local independent n4 k>=8 unchanged.
+
+Next: independent review of the factored-tail encoding and margin corollary,
+then a width-uniform jointly separated section construction. No 9D search.
+Files: theory/robust_width_scaling_20261001/THEORY.md and REPORT.md.
+
+## Historical refinement — SAME frozen8D section, larger formal margin (2026-10-01)
 
 **SUBSTANTIAL IMPROVEMENT at192/256 — NEW METHOD REQUIRES INDEPENDENT REVIEW.**
 Same independent n4 confirmation/T37/P24, candidate byte-identical, epsilon1e-3,
