@@ -4,7 +4,43 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current certificate — Frozen 8D third-order antipodal section (2026-10-01)
+## Current refinement — SAME frozen8D section, larger formal margin (2026-10-01)
+
+**SUBSTANTIAL IMPROVEMENT at192/256 — NEW METHOD REQUIRES INDEPENDENT REVIEW.**
+Same independent n4 confirmation/T37/P24, candidate byte-identical, epsilon1e-3,
+normalized metric/permitted queries/fixed-h and continuous encoder. Weakest
+guaranteed separation0.002294334371825969 (face7), slack14.716719%, versus
+accepted2.445305%:6.01836x slack. No new dimension/bit/architecture claim.
+
+Prospective freeze902d449 before official bounds, success required double old
+slack. Exact final-input compensation substituted AFTER constructing sensitivity
+with realized inputs held fixed; signed affine output coefficients combined
+before absolute bounds. Complete polynomial extrema tighten gate intervals,
+eight nested radial boxes integrate the odd Taylor remainder. Mixed terms and
+full section retained. Most gain is exact elimination (slack14.1314%); sharp
+gates/radial integration add smaller gains. Curvature penalties fall54.8--67.6%.
+Original hidden control reproduced exactly; no new hidden-region assumption.
+
+45 synthetic tests,140 final checks and pre9 exact/source gate pass. All53
+array groups/579,712 entries per precision agree bitwise; maxbeta difference
+2.30613e-58;185 historical file hashes intact. One CPU thread, main measured
+2.503906CPUmin, peak306.21094MiB; pre9/publication CPU separately recorded.
+No GPU/CUDA/GAS-0/AGENTS/other notebook work or scientific implementation repairs.
+Publication filename-check false positive corrected with original preserved;
+1CPU-s failed-check allowance separate. Including publication checks, measured
+total150.359375CPU-s; FINAL_AUDIT.json gives the complete accounting.
+
+Conditionally authorized cheap NUMERICAL9D complete: two fixed80-step starts,
+proxy ratios.40910/.33913, actual found ratios.69865/.63392 to2epsilon; valid
+fixed-h samples. Oldface7 is the actual limiter, normal usage low; proxyface9
+linear range already too weak for these allocations. Not a9D impossibility
+or global ceiling. No attack feedback, no rigorous9D or10D. All480 adaptive
+evaluations saved;14 deterministic initial-grid scores not individually saved,
+disclosed in PUBLICATION_NOTES.md. **STOP:** independently audit the new proof/
+implementation before any higher-dimensional certificate. Report:
+experiments/radial_taylor_refinement_8d_20261001/REPORT.md.
+
+## Historical certificate — Frozen 8D third-order antipodal section (2026-10-01)
 
 **PASS at 192 and 256 bits — new 8D certificate needs independent review.**
 Same independent width-4 confirmation/T37/P24 endpoint, epsilon 1e-3,

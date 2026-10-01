@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "name": "all_frozen_local_sources_unchanged",
+      "passed": true
+    },
+    {
+      "name": "dependency_hashes_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all185_historical_files_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all480_adaptive_scores_preserved",
+      "passed": true
+    },
+    {
+      "name": "only_exact_preregistered8D_interval_filenames",
+      "passed": true
+    },
+    {
+      "name": "CPU_budget",
+      "passed": true
+    }
+  ],
+  "passed": 6,
+  "publication_CPU_seconds": 0.078125,
+  "publication_wall_seconds": 0.09236859995871782,
+  "total_measured_CPU_seconds": 150.359375,
+  "peak_RAM_bytes": 321085440,
+  "GPU_seconds": 0,
+  "separate_failed_audit_CPU_charge_seconds": 1,
+  "total_accounted_CPU_seconds": 151.359375
+}

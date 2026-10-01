@@ -1,0 +1,838 @@
+{
+  "checks": [
+    {
+      "name": "all_frozen_source_and_history_hashes",
+      "passed": true
+    },
+    {
+      "name": "both_precision_runs",
+      "passed": true
+    },
+    {
+      "name": "192_eight_exact_radial_weights",
+      "passed": true
+    },
+    {
+      "name": "192_nested_domain",
+      "passed": true
+    },
+    {
+      "name": "192_old_control_passes",
+      "passed": true
+    },
+    {
+      "name": "192_half_remainder_exact",
+      "passed": true
+    },
+    {
+      "name": "192_beta_exact",
+      "passed": true
+    },
+    {
+      "name": "192_substantial_criterion_exact",
+      "passed": true
+    },
+    {
+      "name": "192_all_caps_valid",
+      "passed": true
+    },
+    {
+      "name": "192_no_lost_margin",
+      "passed": true
+    },
+    {
+      "name": "256_eight_exact_radial_weights",
+      "passed": true
+    },
+    {
+      "name": "256_nested_domain",
+      "passed": true
+    },
+    {
+      "name": "256_old_control_passes",
+      "passed": true
+    },
+    {
+      "name": "256_half_remainder_exact",
+      "passed": true
+    },
+    {
+      "name": "256_beta_exact",
+      "passed": true
+    },
+    {
+      "name": "256_substantial_criterion_exact",
+      "passed": true
+    },
+    {
+      "name": "256_all_caps_valid",
+      "passed": true
+    },
+    {
+      "name": "256_no_lost_margin",
+      "passed": true
+    },
+    {
+      "name": "precision_beta_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_y2_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_y2_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_y3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_y3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_fixed3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_fixed3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_selected3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "control_bounds_selected3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "elimination_native_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_1_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_2_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_3_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_4_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_5_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_6_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_7_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_same_array_keys",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HH_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HH_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HH3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HH3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HS_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HS_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HS3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_HS3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_Phi3_finite_and_nonnegative",
+      "passed": true
+    },
+    {
+      "name": "prefix_8_Phi3_precision_agreement",
+      "passed": true
+    },
+    {
+      "name": "decision_consistent",
+      "passed": true
+    },
+    {
+      "name": "nine_is_only_numerical",
+      "passed": true
+    },
+    {
+      "name": "numeric9_CPU_budget",
+      "passed": true
+    },
+    {
+      "name": "overall_CPU_budget",
+      "passed": true
+    },
+    {
+      "name": "RAM_budget",
+      "passed": true
+    }
+  ],
+  "passed": 140,
+  "arrays": {
+    "control_bounds/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "control_bounds/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "control_bounds/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "control_bounds/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "control_bounds/y2": {
+      "entries": 256,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "control_bounds/y3": {
+      "entries": 2048,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "control_bounds/fixed3": {
+      "entries": 12288,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "control_bounds/selected3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "elimination_native/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "elimination_native/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "elimination_native/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "elimination_native/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "elimination_native/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_1/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_1/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_1/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_1/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_1/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_2/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_2/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_2/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_2/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_2/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_3/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_3/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_3/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_3/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_3/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_4/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_4/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_4/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_4/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_4/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_5/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_5/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_5/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_5/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_5/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_6/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_6/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_6/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_6/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_6/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_7/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_7/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_7/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_7/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_7/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_8/HH": {
+      "entries": 576,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_8/HH3": {
+      "entries": 6912,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_8/HS": {
+      "entries": 3456,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_8/HS3": {
+      "entries": 41472,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    },
+    "prefix_8/Phi3": {
+      "entries": 4096,
+      "identical": true,
+      "maximum_absolute_difference": 0.0
+    }
+  },
+  "max_beta_precision_difference": "33850247321594293748018360265899673345580364748215/146783911423364576743092537299333564210980159306769991919205685720763064069663027716481187399048043939495936",
+  "CPU_seconds": 3.34375,
+  "wall_seconds": 3.6880157000850886,
+  "total_CPU_seconds": 150.234375,
+  "peak_RAM_bytes": 321085440,
+  "GPU_seconds": 0
+}
