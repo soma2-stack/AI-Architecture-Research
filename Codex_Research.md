@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Future-loss observability resume — continuous exact-state bound (2026-09-30)
+
+- **Lens/stage:** owner-authorized theoretical continuation from accepted accessibility (owner reports two independent reviews). **FULL EXACT OBSERVABILITY — CONTINUOUS STATE LOWER BOUND PROVED**, for the explicit late exact-query/continuous discarded-history model. New proof still needs independent review; no architecture or practical learner claim.
+- **Separation:** Q=span allowed effective adjoints, dim r. Invisible DeltaS has all columns in Q-perp, dimension(n-r)P; observable quotient rP. Arbitrary linear/smooth losses separate all nP. A fixed full-support scalar linear head after one controllable tanh step has an open adjoint set and full span; any nonzero scalar linear head with horizons1..n also spans Rn under accepted R-inverse/W conditions. Actual future gradient includes B^Tq; it cancels only for same-h sensitivity comparisons.
+- **Lower bound/accounting:** continuous encoding on an open fixed-h sensitivity fiber, late exact answers/no external tape or past replay -> k>=nP by invariance of domain. A local continuous history section covers encoders that remember extra history. Total n+nP requires exact-forward recovery too; immediate linear gradients alone do not observe h. Fixed model constants excluded, every history-dependent buffer counted. RTRL attains h+S persistent coordinate count.
+- **Controls/deep:** owner-local independent recurrence upper state P_ind+n=n²+3n; matching lower bound on open owner fibers, witnessed n2/n4. Saved deep n3 cross C has63 independent observable coordinates at fixed(h,E); arbitrary upper linear losses or a fixed full-support upper head after one future input suffice. Full-state loss family sees189 supported sensitivities; exact-forward total195. Archived R1/W1/R2/W2 determinants nonzero; no certificate replay or new neural run.
+- **Limitations/escapes:** narrow/known loss queries, approximate answers and finite/discrete input families can genuinely shrink statistics; retained-history BPTT/replay and discontinuous packing lie outside the model. No bits/precision/runtime lower bound, learning benefit or conditioning guarantee. GPU/CUDA/GAS-0/Stage C/AMS v10 unused.
+- **Checks/resources:**25 exact algebra checks pass, freeze0bd9a0d. Measured1.21875 CPU-s,1.28545 wall-s; peak123,453,440bytes (117.734375MiB);20s conservative administration estimate separately. Artifacts experiments/future_loss_observability_20260930/PROOF.md, REPORT.md, checks_result.json; AR-160.
+- **Exact next action:**STOP. Independent mathematical review of query separation, local history section and forward-state accounting. No learning, Stage C, AMS v10 or architecture phase starts from this result.
+
 ### Arbitrary-width accessibility resume — proof developed (2026-09-30)
 
 - **Lens/stage:** owner-authorized bounded mathematical attack; **ARBITRARY-WIDTH ACCESSIBILITY PROVED**, as a written proof draft requiring independent mathematical verification. No new architecture, numerical width sweep, learning, observability, Stage C or AMS v10.
@@ -6217,3 +6227,75 @@ the coefficient-extraction, bias-projection and single-history rank-increment
 steps. No finite-precision nP-word bound, future-loss observability, useful
 learning result, deep-stack all-width theorem or discovered architecture follows.
 Stop after the proof audit; do not run the next research phase automatically.
+
+---
+
+## AR-160 — Future-loss observability and continuous exact-state lower bound
+
+**FULL EXACT OBSERVABILITY — CONTINUOUS STATE LOWER BOUND PROVED.** The
+classification is conditional on the stated loss/query and memory contracts.
+Accepted arbitrary-width accessibility is a premise, not reproved or rerun;
+the owner reports two independent reviews of that earlier theorem. The new
+proof in experiments/future_loss_observability_20260930/PROOF.md still warrants
+independent mathematical review.
+
+At fixed theta and h, sensitivity differences are invisible exactly when
+every parameter column lies in the orthogonal complement of the allowed
+adjoint span Q. For dimQ=r this kernel has dimension(n-r)P and the quotient
+has rP observable coordinates. Arbitrary linear or smooth local losses give
+r=n. Future gradient equals S^T J^T q+B^Tq, where B is the direct future
+parameter derivative at fixed starting h; its contribution cancels in the
+equal-h pairwise comparison but is retained in individual answers.
+
+A useful stronger result: even a fixed full-support scalar linear head after
+one freely chosen admissible future input gives an open adjoint set
+R^T diag(gamma)q. Invertible R/W and nonzero preactivations make the gate/input
+map locally invertible. Under the accepted inverse-entry hypothesis, a
+nonzero scalar head with zeros also separates S if query horizons1..n are
+allowed: graph strong connectivity and independent gate monomials give a full
+adjoint span. This is a family of future queries on the SAME endpoint, not
+an inappropriate combination of endpoint ranks. A fixed immediate low-rank
+head can instead leave a genuine quotient; loss families must not be mixed.
+
+A continuous exact encoder on the reachable fixed-h open fiber must be
+injective if it answers every allowed late query. Invariance of domain,
+via zero padding into R^(nP), proves at least nP real coordinates. A local
+inverse-function/history section makes the argument apply to a continuous
+history encoder that retains irrelevant history as well. No replay/external
+tape is allowed and all history-dependent storage counts. Decoder continuity
+is unnecessary. For joint h/S encodings, total n+nP requires exact forward
+recovery or equivalent full-state loss-value answers. Immediate linear
+gradients alone cannot justify charging hidden h again. RTRL attains the
+resulting exact persistent-coordinate count.
+
+Independent recurrence closes exact owner traces in P_ind=n²+2n numbers plus
+h; full-support heads separate its intrinsic trace family. Matching lower
+bounds apply on open owner fibers, certified at n2/n4; the upper bound is
+all-width and no new independent accessibility theorem is assumed.
+The saved deep n3 same-point195/132 evidence yields an open63-dimensional
+cross fiber at fixed(h,E). Upper arbitrary linear losses observe all63;
+a full-support upper scalar head plus one future input also suffices.
+Archived R1/W1/R2/W2 determinants are respectively161/2048,921/8192,
+603/8192,1945/16384. Arbitrary all-state losses observe189 supported
+sensitivities; forward-preserving total195. No upper-head-only195 or
+arbitrary-width deep theorem is claimed.
+
+Known/limited losses, approximation and restricted finite/discrete input
+families genuinely narrow the conclusion. History-tape BPTT, checkpointing
+and replay are valid exact alternatives outside the discarded-history
+contract. Discontinuous real-number packing lies outside continuity; nonlinear
+continuous coordinates and unlimited decoding time alone cannot evade
+injectivity. No bit/finite-precision/runtime bound, conditioning guarantee,
+learning advantage or architecture claim follows.
+
+25 exact algebra checks passed, including parameter injections, restricted
+head negative control, fixed-head adjoint span, owner traces and deep63
+cross dimension. Config frozen0bd9a0d. Measured1.21875CPU-s,1.2854523wall-s,
+peak123,453,440bytes;20s administrative CPU estimate separately. No ML
+framework/GPU/CUDA/model server/GAS-0/Stage C/AMS v10 operation. Prior proof,
+certificates, independent notebooks and negative results preserved.
+
+**Single next action:** independent mathematical review of the new query
+separation/continuous encoding proof, especially the local history section
+and total-versus-auxiliary state accounting. Stop after this task; no
+architecture invention, observability experiments or learning phase started.

@@ -4,7 +4,30 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Arbitrary-width accessibility (2026-09-30)
+## Latest mathematical audit — Future-loss observability (2026-09-30)
+
+**FULL EXACT OBSERVABILITY — CONTINUOUS STATE LOWER BOUND PROVED** for the
+specified frozen-parameter, late exact-query, continuous discarded-history
+model. Prior accessibility accepted as a premise (owner reports two independent
+reviews); it was not rerun. New proof requires independent review.
+experiments/future_loss_observability_20260930/PROOF.md and REPORT.md; AR-160.
+An adjoint-span r sees rP coordinates; invisible differences have columns in
+its orthogonal complement. Full-span losses separate the reachable nP fiber.
+A fixed full-support scalar head after one variable future input already
+has full adjoint span; any nonzero head with allowed horizons1..n also suffices
+under accepted recurrence assumptions. Future gradient includes direct parameter
+injection, which cancels only in equal-h comparisons.
+Invariance of domain gives continuous auxiliary state>=nP; total>=n+nP only
+with exact-forward recovery. A local history section handles arbitrary continuous
+online encoders. Independent owner traces remain P_ind+n quadratic; saved
+width3 deep cross block63 is fully observable, with conditional extra state63.
+25 exact algebra checks pass;1.21875 measuredCPU-s +20s administration estimate,
+peak117.734375MiB. No GPU/GAS-0/learning/Stage C/AMS v10 operation.
+Loss restrictions, approximation and replay remain genuine scope limitations;
+no precision/bit/runtime lower bound or practical architecture conclusion.
+**STOP: independent mathematical review of the new proof next.**
+
+## Previous mathematical audit — Arbitrary-width accessibility (2026-09-30)
 
 **ARBITRARY-WIDTH ACCESSIBILITY PROVED**, as a written mathematical proof draft
 awaiting independent verification; not a formally verified/peer-reviewed theorem.

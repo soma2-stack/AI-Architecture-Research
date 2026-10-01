@@ -1523,8 +1523,24 @@
    "note": "Conservative administrative CPU estimate; reasoning wall time not metered",
    "utc": "2026-09-30T22:46:46.009455+00:00",
    "proof_entry_id": "augmented_accessibility_proof_20260930_administration"
+  },
+  {
+   "stage": "future_loss_observability",
+   "cpu_seconds": 1.21875,
+   "wall_seconds": 1.285452299984172,
+   "note": "Exact symbolic/rational observability algebra checks; no neural run or accessibility replay",
+   "utc": "2026-10-01T00:02:09.821856+00:00",
+   "observability_entry_id": "future_loss_observability_20260930_checks"
+  },
+  {
+   "stage": "future_loss_observability",
+   "cpu_seconds": 20,
+   "wall_seconds": 0,
+   "note": "Conservative administrative CPU estimate; whole research wall time not metered",
+   "utc": "2026-10-01T00:02:09.821856+00:00",
+   "observability_entry_id": "future_loss_observability_20260930_administration"
   }
  ],
- "total_cpu_seconds": 23126.015375000003,
- "total_cpu_hours": 6.423893159722223
+ "total_cpu_seconds": 23147.234125000003,
+ "total_cpu_hours": 6.429787256944445
 }
