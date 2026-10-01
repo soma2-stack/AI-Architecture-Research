@@ -1,0 +1,10 @@
+{
+  "stage": "post-official report export before audit code could execute",
+  "error": "SyntaxError: triple-prime proof notation closed a triple-single-quoted report string",
+  "repair": "Create finalize_fixed.py with exactly one report-text notation replacement; preserve frozen finalize.py byte-exact",
+  "source_sha256": "05046c22778259d2a7202e968b7dac6c469adbbfe9d0ee1191227207ca7b8807",
+  "repaired_sha256": "705c363b2f37288a5d55abb7e8da393342439abbdd55829d1dc591d361c0f8bb",
+  "candidate_or_certificate_changes": false,
+  "charged_CPU_seconds": 1,
+  "charge_type": "separate conservative failed-export charge, not measured"
+}

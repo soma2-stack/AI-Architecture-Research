@@ -4,7 +4,36 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current diagnostic — Cheap numerical joint-dimension screen (2026-10-01)
+## Current certificate — Frozen 8D third-order antipodal section (2026-10-01)
+
+**PASS at 192 and 256 bits — new 8D certificate needs independent review.**
+Same independent width-4 confirmation/T37/P24 endpoint, epsilon 1e-3,
+normalized metric, permitted support-aware query family and exact fixed-h.
+Accepted antipodal/continuous encoding argument yields k>=8, not eight bits,
+256 mutually separated grid states, a maximum dimension or architecture claim.
+
+Prospective freeze dd70f48 pushed before measured bounds. Immutable numerical
+screen query_svd/proxy candidate, not larger direct-geometry section; exact
+binary rational axes/amplitudes retained. Accepted affine-tightened kernel
+byte-identical, no tuning or fallback. Both precision runs regenerate complete
+mixed second/third derivatives, implicit section bounds and eight face margins.
+
+Weakest face 8 guaranteed separation 0.002048906105769395>0.002, slack 2.445305%.
+Face 7 nearly ties at 0.00204908651163035. Hidden eta 0.0275170421; max forcing
+0.0118845758 below 0.0146762821. All eight derivative arrays/71,104 entries per
+precision identical; beta difference <=2.00972e-58. 21 synthetic and 36 final
+checks pass, 239 historical hashes intact. Initial synthetic-test typo and
+report-only syntax repair are disclosed; candidate/mathematics unchanged.
+
+Measured main CPU 1.2625 min, peak RAM 303.9453 MiB; 10s failed-test and 1s
+failed-export charges separate, final publication audit separately recorded.
+One CPU thread; no GPU/CUDA, GAS-0, AGENTS, other notebook, new witness, 9D/10D,
+architecture, Stage C or AMS work. **STOP:** bounded independent review/replay
+of this new 8D certificate before more work. Report:
+experiments/third_order_antipodal_8d_20261001/REPORT.md.
+Earlier entries preserve historical evidence and authorizations.
+
+## Historical diagnostic — Cheap numerical joint-dimension screen (2026-10-01)
 
 **Highest promising screened dimension: 10D; lowest failing tested dimension:
 11D.** This is an approximate transition for tested Cartesian sections, NOT

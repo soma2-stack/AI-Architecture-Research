@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "name": "frozen_local_files_unchanged",
+      "passed": true
+    },
+    {
+      "name": "dependency_chain_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all_239_historical_files_unchanged",
+      "passed": true
+    },
+    {
+      "name": "formatter_only_exact_documented_substitution",
+      "passed": true
+    },
+    {
+      "name": "formatter_hashes_preserved",
+      "passed": true
+    },
+    {
+      "name": "accounted_budget_remains_below_1200_CPU_seconds",
+      "passed": true
+    }
+  ],
+  "passed": 6,
+  "publication_cpu_seconds": 0.09375,
+  "publication_wall_seconds": 0.08183919999282807,
+  "total_measured_CPU_seconds": 75.84375,
+  "failed_process_allowances_CPU_seconds": 11,
+  "total_accounted_CPU_seconds": 86.84375,
+  "peak_ram_bytes": 318709760,
+  "GPU_seconds": 0,
+  "decision": "PASS"
+}

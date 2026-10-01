@@ -6,6 +6,15 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Frozen 8D third-order certification resume (2026-10-01)
+
+- **Result:** PASS at 192 and 256 bits; new 8D rigorous antipodal certificate, independent review required. Same independent width-4 confirmation/T37/P24, epsilon 1/1000, normalized gradient metric, permitted support-aware queries, exact fixed-h and continuous encoder contract. Under accepted theorem k>=8 continuous coordinates; NOT eight bits, 256 grid states or a maximum dimension.
+- **Prospective provenance:** freeze dd70f48 pushed before official results. Select ONLY the completed screen's query_svd/proxy 8D case; exact binary64 amplitudes/basis preserved as rationals. Candidate SHA c83a242f6de829542fcf57c7b98beae6fc90be079d479b169a624e832f27cd0c. No amplitude inflation, tuning, fallback, new witness or 9D/10D work. Reviewed affine-tightened kernel copied byte-exact; full parameter injections and mixed/implicit derivatives retained.
+- **Certificate:** guaranteed face separations 0.002514410727, 0.002069854199, 0.002468251759, 0.002121037676, 0.002409234695, 0.002058137805, 0.002049086512, 0.002048906106. Face 8 limits, slack 4.8906106e-5 / 2.445305%. Hidden eta 0.0275170421; maximum forcing 0.0118845758 < common limit 0.0146762821. Raw local radius 0.0914406597 <1.
+- **Checks:** 21 synthetic tests and 36 exact arithmetic/full-array/resource/provenance checks pass. All eight derivative arrays/71,104 entries per precision bitwise identical; beta precision difference <=2.00972e-58. All 239 historical file hashes preserved. Interval scalars use 192/256 bits, positive tensor majorants reviewed upward binary64; not arbitrary-precision tensors.
+- **Repairs/resources:** pre-official synthetic reshape typo repaired and initial source manifest preserved. Post-official report-string syntax error repaired in a separate formatter, leaving the frozen formatter, candidate, kernel and results unchanged. Measured main compute 75.75 CPU-s (1.2625 min), peak 303.9453 MiB; 10 CPU-s failed-test charge and 1 CPU-s failed-export charge separately, plus final publication audit. One CPU thread; GPU/CUDA/own VRAM zero. GAS-0/AGENTS/other notebooks untouched.
+- **Exact next action:** STOP. Bounded independent hostile audit/replay of this new 8D certificate; no further dimensions or architecture work without owner authorization. Report: experiments/third_order_antipodal_8d_20261001/REPORT.md. Existing 7D evidence untouched.
+
 ### Cheap numerical 8D–24D feasibility resume (2026-10-01)
 
 - **Numerical result:** highest promising screened joint dimension 10D; lowest failing tested dimension 11D. Approximate transition 10–11D applies only to the tested Cartesian sections. No new dimension proved, no global upper bound; accepted 7D certificate remains unchanged.
