@@ -1,0 +1,27 @@
+--- certify_official.py
++++ certify_official_repair.py
+@@ -1,4 +1,4 @@
+-"""Official stage-1 certification of ONE frozen candidate at 192 bits, then 256-bit regeneration (frozen K, K_h)."""
++"""REPAIR runner (see IMPLEMENTATION_REPAIRS.md). Official stage-1 certification of ONE frozen candidate at 192 bits, then 256-bit regeneration (frozen K, K_h)."""
+ import sys, json, hashlib, time, traceback
+ sys.dont_write_bytecode = True
+ from fractions import Fraction as Q
+@@ -19,13 +19,14 @@
+ t0 = time.time(); row = {'id': cid, 'candidate': cand}
+ try:
+     base = k.base_for(case, B, 192, JI(192))
+-    out, cap = k.certify_antipodal(base, aa, ah, L); row['result_192'] = out; row['seconds_192'] = time.time()-t0
+-    np.savez_compressed(ROOT/f'results/curvature_{cid}_192.npz', **cap)
++    ret = k.certify_antipodal(base, aa, ah, L); out, cap = ret if isinstance(ret, tuple) else (ret, None)  # REPAIR: early-return path returns a bare dict
++    row['result_192'] = out; row['seconds_192'] = time.time()-t0; row['runner'] = 'certify_official_repair.py'
++    if cap is not None: np.savez_compressed(ROOT/f'results/curvature_{cid}_192.npz', **cap)
+     if out.get('all_faces_exceed_epsilon'):
+         frozenK = ([[Q(x) for x in r_] for r_ in out['K_hidden']], [[Q(x) for x in r_] for r_ in out['K_selected']])
+         high = k.base_for(case, B, 256, JI(256))
+-        out2, cap2 = k.certify_antipodal(high, aa, ah, L, frozen=frozenK); row['result_256'] = out2
+-        np.savez_compressed(ROOT/f'results/curvature_{cid}_256.npz', **cap2)
++        ret2 = k.certify_antipodal(high, aa, ah, L, frozen=frozenK); out2, cap2 = ret2 if isinstance(ret2, tuple) else (ret2, None); row['result_256'] = out2
++        if cap2 is not None: np.savez_compressed(ROOT/f'results/curvature_{cid}_256.npz', **cap2)
+         row['certified_dimension'] = r if out2.get('all_faces_exceed_epsilon') else None
+     else: row['certified_dimension'] = None
+ except Exception:

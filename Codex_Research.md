@@ -6,6 +6,14 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Antipodal hostile-review resume (2026-10-01)
+
+- **Verdict:** Claude's joint 5D antipodal certificate survives independent hostile review. Same epsilon1e-3: independent n4 confirmation >=5 continuous coordinates, dense n4 confirmation >=4, dense n3 archived >=3. These are epsilon-essential continuous encoding lower bounds, not maximum dimensions or hardware memory claims.
+- **Verification:** four leading candidates regenerated without endpoint caches at192/256bits; all outputs and complete HH/HS mixed-curvature arrays identical.179 exact downstream/selection/repair checks pass.355 frozen hashes and repair hashes verify; all original evidence unchanged. Shared accepted interval engine remains an implementation dependency, explicitly disclosed.
+- **Qualifications:** screening preceded preregistration; hashes do not authenticate chronology; source remains untracked. All-positive face margins imply eta<1 despite PROOF wording; no separate3/4 sensitivity cap/product lift is needed. Dense numerical attack useds1, strongest certificate s2; our interval replay covereds2. Binary grids and found adversarial minima are not continuous-dimension upper/lower proofs beyond the certified argument.
+- **Resources:** fresh replay107.96875CPU-s,109.59778wall-s,313.609375MiBpeak; oneCPUworker,GPU/CUDA0. No GAS-0, architecture, Stage C, AMS or third-order/6D work.
+- **Exact next action:**STOP. Author should freeze/commit accepted evidence with wording/provenance clarifications; any third-order certification requires a separate preregistration and owner authorization. Review: experiments/codex_antipodal_hostile_review_20261001/REPORT.md.
+
 ### Support-aware robust dimension resume (2026-10-01)
 
 - **Stage/classification:** MODERATE ROBUST CONTINUOUS DIMENSION CERTIFIED. Primary epsilon1e-3 unchanged; eight fixed dense/independent n3/T22 and n4/T37 endpoints only. MORE ROBUST-DIMENSION WORK NEEDED.

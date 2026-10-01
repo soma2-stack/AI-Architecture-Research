@@ -6,6 +6,17 @@
 
 ## Latest mathematical audit — Support-aware robust dimension (2026-10-01)
 
+**Independent follow-up review:** Claude's antipodal certificate survives Codex hostile review:
+independent n4 confirmation r>=5, dense n4 confirmation r>=4, dense n3 archived r>=3,
+same epsilon1e-3. Four leading certificates regenerate exactly from fresh endpoint
+jets at192/256bits;179 exact checks pass;355 source hashes verified and original
+evidence unchanged. Post-screen preregistration and uncommitted source provenance
+remain disclosed. PROOF's no-global-contraction wording needs clarification:
+passing margins imply eta<1; the separate3/4 cap and product lift are unnecessary.
+These are continuous-encoder lower bounds, not maxima or architecture claims.
+See experiments/codex_antipodal_hostile_review_20261001/REPORT.md. **STOP**;
+author freeze/clarifications next, no6D third-order implementation authorized here.
+
 **MODERATE ROBUST CONTINUOUS DIMENSION CERTIFIED. MORE ROBUST-DIMENSION WORK NEEDED.**
 Owner reports independent audit acceptance of the old support-aware84-state bound.
 New whole-section finite-radius certificate, same epsilon1e-3/frozen histories:
