@@ -70,6 +70,7 @@ class Model:
         self.dimension=self.N+len(self.support)
     def serialize(self):return [str(p) for p in self.params]
 
+@dataclass
 class Jet:
     h:object
     s:np.ndarray

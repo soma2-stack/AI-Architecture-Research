@@ -39,6 +39,7 @@ if __name__=='__main__':
     meter=r.Meter('clean replay unit tests')
     try:
         result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(__import__(__name__)))
-        r.dump('tests.json',{'tests':result.testsRun,'passed':result.wasSuccessful(),'failures':len(result.failures),'errors':len(result.errors)})
+        attempt=1+len(list(r.ROOT.glob('tests_attempt*.json')))
+        r.dump(f'tests_attempt{attempt}.json',{'tests':result.testsRun,'passed':result.wasSuccessful(),'failures':len(result.failures),'errors':len(result.errors)})
         if not result.wasSuccessful():raise SystemExit(1)
     finally:meter.finish()

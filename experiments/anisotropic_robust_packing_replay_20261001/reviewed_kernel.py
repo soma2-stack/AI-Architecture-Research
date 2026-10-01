@@ -1,3 +1,6 @@
+import os
+os.environ['CUDA_VISIBLE_DEVICES']='-1'
+for key in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.environ[key]='1'
 from fractions import Fraction as Q
 import numpy as np
 import mpmath as mp

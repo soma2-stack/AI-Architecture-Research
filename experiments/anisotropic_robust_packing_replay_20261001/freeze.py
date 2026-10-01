@@ -45,14 +45,14 @@ def main():
     tree=ast.parse(blobs['engine.py'].decode())
     names={'uq','upadd','upmul','upsum','left','abs_array','residual','curvature','query_margins','frame_projection','certify','model_case','dyadic','mpq'}
     chunks=[ast.get_source_segment(blobs['engine.py'].decode(),node) for node in tree.body if isinstance(node,ast.FunctionDef) and node.name in names]
-    header='from fractions import Fraction as Q\nimport numpy as np\nimport mpmath as mp\nfrom replay_interval import I,matmul,inverse\nfrom pathlib import Path\nimport json\nCFG=json.loads((Path(__file__).parent/"inputs.json").read_text())["original_config"]\n'
+    header='import os\nos.environ["CUDA_VISIBLE_DEVICES"]="-1"\nfor key in ("OPENBLAS_NUM_THREADS","OMP_NUM_THREADS","MKL_NUM_THREADS"):os.environ[key]="1"\nfrom fractions import Fraction as Q\nimport numpy as np\nimport mpmath as mp\nfrom replay_interval import I,matmul,inverse\nfrom pathlib import Path\nimport json\nCFG=json.loads((Path(__file__).parent/"inputs.json").read_text())["original_config"]\n'
     # Fix the approximate inverses at their frozen rational values. This does
     # not re-fit K to the newly computed midpoint.
     header+='FROZEN=json.loads((Path(__file__).parent/"inputs.json").read_text())\ndef mpinverse(A):\n    key="K_hidden" if len(A)==3 else "K_selected"\n    return [[Q(x) for x in row] for row in FROZEN[key]]\n'
     (ROOT/'reviewed_kernel.py').write_text(header+'\n\n'.join(chunks)+'\n',encoding='utf-8')
     tree=ast.parse(blobs['width_core.py'].decode())
     names={'Model','Jet','jets','forward','autograd','relative','hardware'}
-    chunks=[ast.get_source_segment(blobs['width_core.py'].decode(),node) for node in tree.body if isinstance(node,(ast.ClassDef,ast.FunctionDef)) and node.name in names]
+    chunks=[('@dataclass\n' if node.name=='Jet' else '')+ast.get_source_segment(blobs['width_core.py'].decode(),node) for node in tree.body if isinstance(node,(ast.ClassDef,ast.FunctionDef)) and node.name in names]
     header='import os\nos.environ["CUDA_VISIBLE_DEVICES"]="-1"\nfor key in ("OPENBLAS_NUM_THREADS","OMP_NUM_THREADS","MKL_NUM_THREADS"):os.environ[key]="1"\nimport numpy as np\nimport mpmath as mp\nimport psutil,shutil\nimport torch\nfrom fractions import Fraction as Q\nfrom dataclasses import dataclass\nfrom pathlib import Path\nfrom replay_interval import I\nROOT=Path(__file__).parent\nACTIVE_METER=None\ntorch.set_num_threads(1)\ntorch.set_num_interop_threads(1)\ntorch.set_default_dtype(torch.float64)\ntorch.use_deterministic_algorithms(True)\n'
     (ROOT/'replay_jets.py').write_text(header+'\n\n'.join(chunks)+'\n',encoding='utf-8')
     prereg={'task':'clean execution of frozen width-3 two-axis certificate; no search',
