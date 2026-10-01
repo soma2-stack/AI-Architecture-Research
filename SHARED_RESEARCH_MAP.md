@@ -4,6 +4,35 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Current mathematical result — Rebalanced joint 7D section (2026-10-01)
+
+**PASS — 7D continuous-encoder lower certificate; independent review required
+for the explicit affine-bound refinement.** Same independent n4 confirmation,
+T37/P24, central history/model, normalized metric/query family/7/8 gate/fixed-h
+and epsilon1e-3. No8D, architecture or learning work. Accepted6D result retained.
+Owner-reported direct audit is archived unchanged as numerical development
+context3685718; old failed7D control remains intact.
+
+New prospective method freeze963e44e before scores; three predeclared bases x
+two seeds,4842 evaluations/224 invalid proposals. Winner original_302702 keeps
+the original basis, rebalances amplitudes, and was frozen/pushed1835b68 before
+official bounds. Exactly two disclosed local bound refinements form W Btilde
+before abs and correlate W x's affine enclosure; accepted third-order and
+implicit formulas/injections/query/topology remain. Original kernel not changed.
+
+All seven beta>epsilon at192/256. Minbeta0.0013111463754203274, guaranteed
+antipodal query distance>=0.002622292750840655; hence continuous k>=7, NOT7bits.
+Axis2 width2.7096x old and now passes with2beta0.0045770301398. Face7 is limiting;
+hidden eta.0440649, forcing.00801119<limit.01375316, history radius.115044<1.
+13 tests+40 arithmetic+15 final audits pass, eight bound arrays identical across
+precisions, maxbeta difference1.32663e-56; all historical controls preserved.
+CPU17.914583min plus5s allowance, peak process329.742MiB, GPU/CUDA0.
+Report: experiments/rebalanced_7d_section_20261001/REPORT.md.
+**STOP:** independent hostile review and clean replay of this new7D certificate,
+especially PROOF_AFFINE.md and parameter-injection retention. No maximum robust
+dimension, practical hardware/learning benefit, architecture or8D claim.
+Entries below remain preserved historical states/authorizations.
+
 ## Current mathematical stage — Prospective 7D third-order attempt (2026-10-01)
 
 Owner reports independent Claude acceptance: **6D THIRD-ORDER CERTIFICATE VERIFIED**.

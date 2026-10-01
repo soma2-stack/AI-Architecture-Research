@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "candidate freeze hashes",
+      "passed": true
+    },
+    {
+      "name": "prospective basis unchanged",
+      "passed": true
+    },
+    {
+      "name": "exact final rounding",
+      "passed": true
+    },
+    {
+      "name": "all historical failed-box evidence unchanged",
+      "passed": true
+    },
+    {
+      "name": "only two predeclared bound substitutions",
+      "passed": true
+    },
+    {
+      "name": "same precision array names",
+      "passed": true
+    },
+    {
+      "name": "same bound HH",
+      "passed": true
+    },
+    {
+      "name": "same bound HH3",
+      "passed": true
+    },
+    {
+      "name": "same bound HS",
+      "passed": true
+    },
+    {
+      "name": "same bound HS3",
+      "passed": true
+    },
+    {
+      "name": "same bound y2",
+      "passed": true
+    },
+    {
+      "name": "same bound y3",
+      "passed": true
+    },
+    {
+      "name": "same bound fixed3",
+      "passed": true
+    },
+    {
+      "name": "same bound selected3",
+      "passed": true
+    },
+    {
+      "name": "CPU only",
+      "passed": true
+    }
+  ],
+  "cpu_seconds": 3.796875,
+  "wall_seconds": 4.089773999992758,
+  "peak_working_set_bytes": 307326976
+}

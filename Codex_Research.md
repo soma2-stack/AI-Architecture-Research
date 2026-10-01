@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Rebalanced 7D joint-section resume (2026-10-01)
+
+- **Result:**PASS — all seven outward antipodal face inequalities at192/256bits. Independent n4 confirmation/T37/P24, unchanged central history/model/metric/query family/fixed-h and epsilon1e-3. Continuous encoder k>=7; NOT7bits or128 pairwise corner states. No maximum-dimension or architecture claim.
+- **Prospective method:**963e44e before numerical scores; exactly two affine-bound refinements |W Btilde| before abs and correlated W x input enclosure in a local accepted-kernel copy. Third-order equations, actual deltaW x/deltaW dx injections, all mixed/implicit terms, 7/8 gate and topology unchanged. PROOF_AFFINE.md/SOURCE_TRANSFORM.json disclose the refinement; independent review still needed.
+- **Selection/provenance:**three fixed bases x two seeds,4842 calls/224 invalid proposals preserved. Winner original_302702, unchanged old basis; maximin proxy1.3111464. Winner freeze1835b68 before official bounds, no retuning/fallback. Pre-existing independent numerical audit archived byte-exact3685718 without altering its context/limitations; old failed7D box/control preserved.
+- **Certificate:**beta faces1..7 =0.00131402165,0.00228851507,0.00131145581,0.00287937694,0.00131115975,0.00131175070,0.00131114638. Minimum query separation>=0.00262229275084>2epsilon. Axis2 amplitude .02366638->.06412601 (2.7096x), no longer limiting. Face7 limits; faces3/5/6 nearly tie. Hidden eta.0440649; maxforce.00801119 < limit.01375316, raw radius.115044<1.
+- **Validation:**13 development tests,40 exact checks,15 final audits pass. Eight mixed/implicit arrays identical192/256; beta difference<=1.32663e-56. Frozen control/accepted6D sources unchanged. Numerical face minima all exceedthreshold, labelled numerical and not used as proof.
+- **Resources:**1074.875CPU-s (17.914583min),5s separate allowance; about10min summed computation wall excluding gaps/Git; largest process329.742MiB, conservative concurrent peak sum981.145MiB. CPU only/max2 single-thread workers; GPU/CUDA/GAS-0/AGENTS/other notebooks untouched. No8D attempt.
+- **Exact next action:**STOP. Independent hostile review/clean replay of experiments/rebalanced_7d_section_20261001/REPORT.md, especially the two affine substitutions, retained parameter injections and joint hidden-section bounds. No architecture, learning, Stage C, AMS or8D work.
+
 ### Prospective 7D third-order resume (2026-10-01)
 
 - **Owner premise:** Claude independently returned `6D THIRD-ORDER CERTIFICATE VERIFIED`; accepted 6D method/result retained. Earlier resume entries below are historical, not current authorization.

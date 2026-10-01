@@ -1,0 +1,333 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "exactly two precisions",
+      "passed": true
+    },
+    {
+      "name": "historical evidence unchanged",
+      "passed": true
+    },
+    {
+      "name": "192 complete hidden section",
+      "passed": true
+    },
+    {
+      "name": "192 domain",
+      "passed": true
+    },
+    {
+      "name": "192 hidden self-mapping",
+      "passed": true
+    },
+    {
+      "name": "192 exact support-aware query 1",
+      "passed": true
+    },
+    {
+      "name": "192 exact face 1 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "192 exact support-aware query 2",
+      "passed": true
+    },
+    {
+      "name": "192 exact face 2 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "192 exact support-aware query 3",
+      "passed": true
+    },
+    {
+      "name": "192 exact face 3 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "192 exact support-aware query 4",
+      "passed": true
+    },
+    {
+      "name": "192 exact face 4 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "192 exact support-aware query 5",
+      "passed": true
+    },
+    {
+      "name": "192 exact face 5 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "192 exact support-aware query 6",
+      "passed": true
+    },
+    {
+      "name": "192 exact face 6 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "192 exact support-aware query 7",
+      "passed": true
+    },
+    {
+      "name": "192 exact face 7 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "192 strict outcome matches faces",
+      "passed": true
+    },
+    {
+      "name": "256 complete hidden section",
+      "passed": true
+    },
+    {
+      "name": "256 domain",
+      "passed": true
+    },
+    {
+      "name": "256 hidden self-mapping",
+      "passed": true
+    },
+    {
+      "name": "256 exact support-aware query 1",
+      "passed": true
+    },
+    {
+      "name": "256 exact face 1 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "256 exact support-aware query 2",
+      "passed": true
+    },
+    {
+      "name": "256 exact face 2 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "256 exact support-aware query 3",
+      "passed": true
+    },
+    {
+      "name": "256 exact face 3 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "256 exact support-aware query 4",
+      "passed": true
+    },
+    {
+      "name": "256 exact face 4 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "256 exact support-aware query 5",
+      "passed": true
+    },
+    {
+      "name": "256 exact face 5 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "256 exact support-aware query 6",
+      "passed": true
+    },
+    {
+      "name": "256 exact face 6 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "256 exact support-aware query 7",
+      "passed": true
+    },
+    {
+      "name": "256 exact face 7 arithmetic",
+      "passed": true
+    },
+    {
+      "name": "256 strict outcome matches faces",
+      "passed": true
+    },
+    {
+      "name": "192/256 same face decisions",
+      "passed": true
+    },
+    {
+      "name": "192/256 beta agreement below 1e-15",
+      "passed": true
+    }
+  ],
+  "faces": [
+    {
+      "precision": 192,
+      "face": 1,
+      "linear_margin": 0.002842993074214876,
+      "third_order_penalty": 0.0015289714238173712,
+      "beta": 0.0013140216503975046,
+      "slack": 0.0003140216503975047,
+      "M3": 3.226820573749615,
+      "mu": 0.002842993074214876,
+      "passes": true
+    },
+    {
+      "precision": 192,
+      "face": 2,
+      "linear_margin": 0.002507717450390719,
+      "third_order_penalty": 0.00021920238049815045,
+      "beta": 0.0022885150698925684,
+      "slack": 0.0012885150698925684,
+      "M3": 0.5244666949157225,
+      "mu": 0.002507717450390719,
+      "passes": true
+    },
+    {
+      "precision": 192,
+      "face": 3,
+      "linear_margin": 0.002039929998682775,
+      "third_order_penalty": 0.0007284741928629703,
+      "beta": 0.0013114558058198048,
+      "slack": 0.00031145580581980463,
+      "M3": 2.1426446789841647,
+      "mu": 0.002039929998682775,
+      "passes": true
+    },
+    {
+      "precision": 192,
+      "face": 4,
+      "linear_margin": 0.0035647702806634518,
+      "third_order_penalty": 0.0006853933370847478,
+      "beta": 0.0028793769435787042,
+      "slack": 0.0018793769435787042,
+      "M3": 1.1536115089422034,
+      "mu": 0.0035647702806634518,
+      "passes": true
+    },
+    {
+      "precision": 192,
+      "face": 5,
+      "linear_margin": 0.0018455807465135353,
+      "third_order_penalty": 0.0005344209937749909,
+      "beta": 0.0013111597527385443,
+      "slack": 0.00031115975273854433,
+      "M3": 1.7374075714147732,
+      "mu": 0.0018455807465135353,
+      "passes": true
+    },
+    {
+      "precision": 192,
+      "face": 6,
+      "linear_margin": 0.0019687292594172535,
+      "third_order_penalty": 0.0006569785642647119,
+      "beta": 0.0013117506951525418,
+      "slack": 0.00031175069515254183,
+      "M3": 2.002241479742659,
+      "mu": 0.0019687292594172535,
+      "passes": true
+    },
+    {
+      "precision": 192,
+      "face": 7,
+      "linear_margin": 0.0016149681061990457,
+      "third_order_penalty": 0.00030382173077871815,
+      "beta": 0.0013111463754203274,
+      "slack": 0.00031114637542032747,
+      "M3": 1.1287717557238446,
+      "mu": 0.0016149681061990457,
+      "passes": true
+    },
+    {
+      "precision": 256,
+      "face": 1,
+      "linear_margin": 0.002842993074214876,
+      "third_order_penalty": 0.0015289714238173712,
+      "beta": 0.0013140216503975046,
+      "slack": 0.0003140216503975047,
+      "M3": 3.226820573749615,
+      "mu": 0.002842993074214876,
+      "passes": true
+    },
+    {
+      "precision": 256,
+      "face": 2,
+      "linear_margin": 0.002507717450390719,
+      "third_order_penalty": 0.00021920238049815045,
+      "beta": 0.0022885150698925684,
+      "slack": 0.0012885150698925684,
+      "M3": 0.5244666949157225,
+      "mu": 0.002507717450390719,
+      "passes": true
+    },
+    {
+      "precision": 256,
+      "face": 3,
+      "linear_margin": 0.002039929998682775,
+      "third_order_penalty": 0.0007284741928629703,
+      "beta": 0.0013114558058198048,
+      "slack": 0.00031145580581980463,
+      "M3": 2.1426446789841647,
+      "mu": 0.002039929998682775,
+      "passes": true
+    },
+    {
+      "precision": 256,
+      "face": 4,
+      "linear_margin": 0.0035647702806634518,
+      "third_order_penalty": 0.0006853933370847478,
+      "beta": 0.0028793769435787042,
+      "slack": 0.0018793769435787042,
+      "M3": 1.1536115089422034,
+      "mu": 0.0035647702806634518,
+      "passes": true
+    },
+    {
+      "precision": 256,
+      "face": 5,
+      "linear_margin": 0.0018455807465135353,
+      "third_order_penalty": 0.0005344209937749909,
+      "beta": 0.0013111597527385443,
+      "slack": 0.00031115975273854433,
+      "M3": 1.7374075714147732,
+      "mu": 0.0018455807465135353,
+      "passes": true
+    },
+    {
+      "precision": 256,
+      "face": 6,
+      "linear_margin": 0.0019687292594172535,
+      "third_order_penalty": 0.0006569785642647119,
+      "beta": 0.0013117506951525418,
+      "slack": 0.00031175069515254183,
+      "M3": 2.002241479742659,
+      "mu": 0.0019687292594172535,
+      "passes": true
+    },
+    {
+      "precision": 256,
+      "face": 7,
+      "linear_margin": 0.0016149681061990457,
+      "third_order_penalty": 0.00030382173077871815,
+      "beta": 0.0013111463754203274,
+      "slack": 0.00031114637542032747,
+      "M3": 1.1287717557238446,
+      "mu": 0.0016149681061990457,
+      "passes": true
+    }
+  ],
+  "beta_precision_differences": [
+    1.2125548604061017e-56,
+    1.0851017878079241e-56,
+    1.326633092263348e-56,
+    1.2978990852693571e-56,
+    9.508276266427585e-57,
+    1.1812176596365306e-56,
+    7.905166349613747e-57
+  ],
+  "cpu_seconds": 3.890625,
+  "wall_seconds": 4.155200700042769,
+  "peak_working_set_bytes": 306970624
+}
