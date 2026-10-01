@@ -7,9 +7,10 @@ def main():
   meter=Monitor('direct raw history proxy diagnostic',True);rows=[]
   try:
     for n in [3,4]:
-      pool=np.load(g.OLD/f'pool_n{n}.npz');eligible=np.flatnonzero(~pool['confirmation'])
+      pool=np.load(g.OLD/f'pool_n{n}.npz');eligible=np.flatnonzero(pool['confirmation']==0)
       rng=np.random.default_rng(g.CFG['seed']+200+n)
       ids=rng.choice(eligible,size=g.CFG['raw_history_count_per_width'],replace=False)
+      assert not np.any(pool['confirmation'][ids])
       for family in ['dense','independent']:
         m=g.legacy.model(n,family);frames=[g.legacy.frame(m,pool['X'][j]) for j in ids]
         recipes=g.legacy.best_recipes(m,frames,meter)

@@ -84,16 +84,18 @@ def main():
   try:
     for case in DATA['cases']:
       meter.check();row=json.loads((ROOT/f"result_{case['name']}.json").read_text());checks=[]
-      for kind in ['accepted_grid','product','packing']:
+      same_rows=json.loads((ROOT/'same_product_results.json').read_text()) if (ROOT/'same_product_results.json').exists() else []
+      same=next((v for v in same_rows if v['name']==case['name']),None)
+      for kind in ['accepted_grid','product','packing']+(['same_product'] if same else []):
         if kind=='product' and row['products']['best'] is None:continue
-        fname={'accepted_grid':'accepted_grid','product':'product','packing':'packing'}[kind]
+        fname={'accepted_grid':'accepted_grid','product':'product','packing':'packing','same_product':'same_product'}[kind]
         archive=np.load(ROOT/f"{fname}_{case['name']}.npz")
-        pair=row['accepted_grid']['closest_pair'] if kind=='accepted_grid' else row['products']['best']['closest_pair'] if kind=='product' else row['packing']['closest_pair']
+        pair=row['accepted_grid']['closest_pair'] if kind=='accepted_grid' else row['products']['best']['closest_pair'] if kind=='product' else same['closest_pair'] if kind=='same_product' else row['packing']['closest_pair']
         hs=[];ss=[];alphas=[]
         for index in pair:
           h,S,a=refine(case,archive['X'][index]);hs.append(h);ss.append(S);alphas.append(mp.norm(a,mp.inf))
         dist=exact_queries(model(case),ss[0]-ss[1]);forwardgap=mp.norm(hs[0]-hs[1],mp.inf)
-        mid=row['accepted_grid']['min_query'] if kind=='accepted_grid' else row['products']['best']['min_query'] if kind=='product' else row['packing']['min_query']
+        mid=row['accepted_grid']['min_query'] if kind=='accepted_grid' else row['products']['best']['min_query'] if kind=='product' else same['min_query'] if kind=='same_product' else row['packing']['min_query']
         checks.append({'kind':kind,'digits':60,'query_distance':mp.nstr(dist,65),'binary64_distance':mid,
           'absolute_difference':float(abs(dist-mid)),'fixed_h_gap':mp.nstr(forwardgap,65),
           'max_normal_refinement':mp.nstr(max(alphas),65),'passes_2epsilon':dist>mp.mpf('.002')})
