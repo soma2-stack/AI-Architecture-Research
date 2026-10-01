@@ -4,7 +4,23 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Latest mathematical audit — Support-aware robust dimension (2026-10-01)
+## Latest mathematical certificate — Third-order antipodal (2026-10-01)
+
+**6D RIGOROUSLY CERTIFIED — INDEPENDENT REVIEW REQUIRED.** One frozen existing
+independent n4 confirmation/T37 endpoint, unchanged epsilon1e-3 and normalized
+gradient/query contract. Odd Taylor cancellation with full outward mixed third
+derivatives/implicit y''' gives minbeta0.001657003876592377>epsilon, hence
+continuous encoding k>=6 via boundary antipodes. This does NOT prove64 corner
+states/6bits. Fresh192/256 generation passes with identical frozen rational
+preconditioners; eight development tests and21 final checks pass. New method
+freeze914b075 before official result; old evidence raw-byte archive1e1b141,
+ignored log preservationc482a73 disclosed as post-result packaging. Measured
+54.015625CPU-s,307.96875MiBpeak; GPU/CUDA0, no training/GAS-0. Full report:
+experiments/third_order_antipodal_20261001/REPORT.md. **STOP** for independent
+hostile review of the NEW proof/kernel/certificate; no architecture, Stage C,
+AMS, width5 or r7 work authorized by this result. No useful upper bound yet.
+
+## Previous mathematical audit — Support-aware robust dimension (2026-10-01)
 
 **Independent follow-up review:** Claude's antipodal certificate survives Codex hostile review:
 independent n4 confirmation r>=5, dense n4 confirmation r>=4, dense n3 archived r>=3,

@@ -6,6 +6,15 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Third-order antipodal resume (2026-10-01)
+
+- **Result:**6D RIGOROUSLY CERTIFIED — INDEPENDENT REVIEW REQUIRED. Independent n4 confirmation/T37 only, same epsilon1/1000/normalized metric/model/history. One archived r6 proxy candidate selected and frozen before official certification; no new witness or tuning.
+- **Method:** odd Taylor cancellation; full outward third derivatives including tanh fourth derivative, all mixed chart coordinates, implicit y''/y''' and s_y y'''. All six beta3>epsilon; minimum0.001657003876592377 gives antipodal query distance>=0.003314007753184754. This yields continuous-encoder k>=6, NOT64 pairwise corner states or6bits.
+- **Validation:**192/256 fresh jets/bounds with same rational preconditioners pass; exact margin precision difference<=1.04e-56. Eight pre-freeze development tests and21 post-result checks pass. Frozen source/method hashes intact. New proof/kernel have not yet had independent hostile review.
+- **Provenance:** stage1 documentation/archive357765a, raw-byte preservation1e1b141, new executable preregistration914b075; ignored historical logs addedc482a73 after official results. No old working artifact changed. Post-screen development history and all packaging/checker repairs disclosed; no retroactive preregistration claim.
+- **Resources:** measured54.015625CPU-s (including preliminary development pass and final checks), summedwall56.443s, peak307.96875MiB; separately60CPU-s administrative estimate. OneCPUworker, GPU/CUDA0, GAS-0/AGENTS/Claude notebook untouched.
+- **Exact next action:**STOP. Independent hostile review/cache-free replay of NEW6D third-order certificate, especially mixed derivatives/implicit compensation/query margin/factor1/6. No r7, architecture, learning, Stage C or AMS. experiments/third_order_antipodal_20261001/REPORT.md.
+
 ### Antipodal hostile-review resume (2026-10-01)
 
 - **Verdict:** Claude's joint 5D antipodal certificate survives independent hostile review. Same epsilon1e-3: independent n4 confirmation >=5 continuous coordinates, dense n4 confirmation >=4, dense n3 archived >=3. These are epsilon-essential continuous encoding lower bounds, not maximum dimensions or hardware memory claims.
