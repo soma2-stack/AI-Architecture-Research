@@ -4,7 +4,44 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current independent verification — Pulse lower and co-rotating profiles (2026-10-02)
+## Current theory — Sustained / weakening fixed-feature credit (2026-10-02)
+
+**SCOPED FINITE-ERROR UPPERS; WHOLE-CLASS LINEAR BOUND STILL OPEN.**
+The owner accepts the moving-spike decomposition/R1 and Grok-reviewed certified
+collisions in the old sustained n200/400/1000 charts. Those charts are dead;
+their historical screen status below is preserved for provenance. Their death
+does NOT upper-bound the class. The joint Omega(n) fixed-feature lower stands.
+
+- New Codex derivations require independent review. Sustained full selected-
+  block damping bounds both old credit and fresh injections. In the latent-
+  cycle subclass, arbitrary time-varying pair gaps give an explicit suffix-
+  product ledger; one NC scalar suffices when its finite-error test passes.
+  For gap delta_n with delta_n sqrt(n)->infinity and enough old-credit decay,
+  the active observable block vanishes asymptotically. Nonuniform NC gates
+  are outside that support decomposition.
+- Extremely weak long tails have a different collapse: the public undamped
+  resolvent approximates the inherited credit with all-query error at most
+  eta+A_n[2n a^L+delta n^2]. Arbitrary aperiodic non-scalar defects<=K/t are
+  consequently harmless at sufficiently late T of order
+  K n^(3/2)/epsilon+n log(sqrt(n)/epsilon). This counts all fresh credit,
+  uses no replay and stores no endpoint credit. It is a class-promise result,
+  not a free selector or a universal encoder.
+- Intermediate weak-gate windows remain open. Neither tangent counts nor
+  moving-spike row geometry bounds their jointly reachable mixed credit.
+  No omega(n) robust section, universal O(n) encoder, or Theta(n) whole-class
+  theorem is established. Fixed-feature Omega(n)--O(n^2) and complete-model
+  Omega_c(n^2)--O_c(n^2 log n) remain unchanged.
+- No numerical experiment/tests/new witness/architecture/training/GPU or
+  other contraction regime. Manual finite-error derivation audit saved;
+  administrative compute/RAM unprofiled. Historical evidence, AGENTS, GAS-0
+  and other lanes preserved.
+
+Proof/report/checks/source hashes: theory/codex_sustained_weak_gate_credit_20261002/.
+Next theorem: a continuous O(n) finite-error width cap OR one joint superlinear
+same-h section for the intermediate weak-gate active recurrence, with actual
+queries and fresh-credit accounting. STOP this stage.
+
+## Historical independent verification — Pulse lower and co-rotating profiles (2026-10-02)
 
 **STRONGER LINEAR LOWER VERIFIED; GENERAL SUPERLINEAR QUESTION STILL OPEN.**
 Codex independently re-derived Claude's bounded-pulse cap and stronger one-pulse

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-02",
+  "recorded_at": "2026-10-02T18:50:06.8867332-04:00",
+  "checkpoint": "ea0ebd7f8a5d362d96c93455a9b2a45bc71fd26a",
+  "remote": "https://github.com/soma2-stack/AI-Architecture-Research",
+  "stage": "Bounded fixed-feature credit-side theory attempt",
+  "original_inputs_read_only": true,
+  "source_records": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+      "bytes": 18440,
+      "tracked_at_checkpoint": true
+    },
+    {
+      "path": "theory/claude_moving_spike_remainder_20261002/THEORY.md",
+      "sha256": "74a5b806dba005527f6cdf13ff2804050aaf15136039cc7ca19ade11c4a42be3",
+      "bytes": 15333,
+      "tracked_at_checkpoint": false
+    },
+    {
+      "path": "theory/claude_moving_spike_remainder_20261002/REPORT.md",
+      "sha256": "6a1e67d8ab0111b6412e5ffe9cabd4e53bd417c181ddc4d00e48c75f54f67f37",
+      "bytes": 14058,
+      "tracked_at_checkpoint": false
+    },
+    {
+      "path": "theory/grok_spike_remainder_review_20261002/REPORT.md",
+      "sha256": "8eedcfdb0a21754393df090b31af654b337d12f1df90f6b22351fe6c70c95889",
+      "bytes": 10671,
+      "tracked_at_checkpoint": false
+    },
+    {
+      "path": "theory/query_visible_operator_dimension_20261002/PROOF.md",
+      "sha256": "5d21eef744714a5c7620f2fda039ffcbc2f5c2f1246ef5b465fab77081838aa4",
+      "bytes": 28826,
+      "tracked_at_checkpoint": true
+    },
+    {
+      "path": "theory/reachable_fixed_feature_width_20261002/PROOF.md",
+      "sha256": "2d8d0b4e27fca8a8f436ded33130446be75c07e844c3c89650293d750e6084cd",
+      "bytes": 22220,
+      "tracked_at_checkpoint": true
+    },
+    {
+      "path": "theory/codex_two_pulse_corotating_20261002/SCOPED_THEORY.md",
+      "sha256": "6f36388e9822a2265288784b176e93a578a04fab760b17f288e617f1f81826d7",
+      "bytes": 11433,
+      "tracked_at_checkpoint": true
+    }
+  ],
+  "epsilon": "1/1000",
+  "c": "1",
+  "gamma": "1/n",
+  "no_experiments": true,
+  "numerical_claims": "None newly generated",
+  "tests": "Manual algebraic derivation checks only",
+  "compute": "No experimental CPU/GPU workload; administrative overhead and peak RSS not instrumented",
+  "status": "Scoped lemmas require independent review; whole-class O(n) unresolved"
+}
