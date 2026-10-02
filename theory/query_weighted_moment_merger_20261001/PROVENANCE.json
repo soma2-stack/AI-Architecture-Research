@@ -1,0 +1,112 @@
+{
+  "title": "Query-weighted moment merger: partial theory result",
+  "research_date": "2026-10-01",
+  "record_created_utc": "2026-10-02T03:30:29.324360+00:00",
+  "parent_commit": "f6e39a18f0c7412a8752d5069b7867d4771b76f2",
+  "status": "PARTIAL THEORETICAL ADVANCE; ARBITRARY APERIODIC QUADRATIC UPPER STILL OPEN",
+  "new_lemma_review_status": "Author-derived; independent hostile mathematical review required",
+  "scope": {
+    "family": "Accepted rotating/dense tanh family",
+    "gamma": "c/n",
+    "primary_epsilon": "1/1000",
+    "units": "unchanged frozen group-RMS parameter weights and normalized permitted late scalar-head query",
+    "all_history_gate_variations_included": true,
+    "history_replay": false,
+    "universal_quadratic_accuracy_proved": false,
+    "logarithmic_robust_lower_proved": false,
+    "general_dense_bounds_changed": false
+  },
+  "source_hashes": [
+    {
+      "path": "AGENTS.md",
+      "working_file_sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+      "parent_git_blob": "0e90094d73c07edd741bb53572d479e8844513a0"
+    },
+    {
+      "path": "theory/gamma_c_over_n_quadratic_20261001/PROOF.md",
+      "working_file_sha256": "e517dcd0475276b4b1b39190d221d3313dba71a2bcb8359f8e250b6978de58f6",
+      "parent_git_blob": "23085b8a9f841d1fb91ca054a21a82015f6fbc1a"
+    },
+    {
+      "path": "theory/arbitrary_horizon_log_gap_20261001/PROOF.md",
+      "working_file_sha256": "234f9e0bc4465db331161f3c1a81597e7012f20b8e07248da601fd6a01af2a6f",
+      "parent_git_blob": "72a1666a8c4fc948f8afc0f5979a2cd0a62250dc"
+    },
+    {
+      "path": "theory/rotating_gate_aggregation_20261001/PROOF.md",
+      "working_file_sha256": "339d1d880f32f448accc0727c97f9f6210f15648bd56b8faaa8888d7bd3a865f",
+      "parent_git_blob": "43b0ed3a03230661963e6dd4ff0fc3158bf4b83d"
+    },
+    {
+      "path": "theory/aperiodic_query_aggregation_20261001/PROOF.md",
+      "working_file_sha256": "a8196736187943162a44fe1804c57a5a2335f15a88179d96317ecc0835c2413d",
+      "parent_git_blob": "7929ab6dbb8d0f4b4e1206addaac7c07dd2afbcb"
+    },
+    {
+      "path": "experiments/aperiodic_gate_spectrum_20261001/REPORT.md",
+      "working_file_sha256": "d76d4942b55a0f2d8047f40f74db509c89bf4fb02a847bafa56c87c0000552df",
+      "parent_git_blob": "131f8ad85a2912fb78b5e12a8b587d86853e24b4"
+    },
+    {
+      "path": "experiments/aperiodic_gate_spectrum_20261001/config.json",
+      "working_file_sha256": "995b704775f6adcfeff252e0512a7c3831c1761643874d692fab4724fcc82f6c",
+      "parent_git_blob": "f18274ddd2355ab50cd78b5d272306e26363f1e8"
+    },
+    {
+      "path": "experiments/aperiodic_gate_spectrum_20261001/FROZEN.json",
+      "working_file_sha256": "9ccda4588b46539f69ab1cbaf05f143e3459b2b16bb725433e982242e9a1074f",
+      "parent_git_blob": "ae4d6615da76ccb0b6811b03579cc8a5add6fe98"
+    },
+    {
+      "path": "experiments/aperiodic_gate_spectrum_20261001/FULL_HISTORY_FROZEN.json",
+      "working_file_sha256": "28a68bb8f39b14206d4be8598050213983975fc97524c4109c1273adc892a412",
+      "parent_git_blob": "af4b5decfd1e41d7c1b5a7566a18653283a4e864"
+    }
+  ],
+  "payload_hashes": [
+    {
+      "path": "theory/query_weighted_moment_merger_20261001/PROOF.md",
+      "sha256": "66b98217018111fbc33ebdb6aa2717e011b812c7e619f221a8c6c48c37f763b6",
+      "bytes": 28113
+    },
+    {
+      "path": "theory/query_weighted_moment_merger_20261001/REPORT.md",
+      "sha256": "ae6ab8cf6b079c4ee05526e2b3ceb2c194b3583587119b6d036fed6cd8516960",
+      "bytes": 9647
+    },
+    {
+      "path": "theory/query_weighted_moment_merger_20261001/.gitattributes",
+      "sha256": "cf11bc12132cd9957cb57bcada9815dc7ef785e787cf199145ff90f8183773b2",
+      "bytes": 69
+    }
+  ],
+  "updated_state_files": [
+    "Codex_Research.md",
+    "SHARED_RESEARCH_MAP.md"
+  ],
+  "manual_math_checks": [
+    "injection parameter-row coupling and frozen normalization",
+    "cyclic feature advance and conjugated transport",
+    "merger sign and mass-weight factors",
+    "PSD covariance and d orbit autocorrelations",
+    "qualified coherent-channel cancellation",
+    "positive loss metric and adjoint rescaling",
+    "telescoping and discounted scalar ledger",
+    "all persistent coordinate counts and continuous updates",
+    "one-packet counterhistory gate/domain/discount/reset indexing",
+    "actual late-query normalization and dense transfer",
+    "exact one-row hybrid repair and remaining scope"
+  ],
+  "verification_limitations": "Manual algebra and proof inspection, not theorem-prover or independent verification. No automated tests or numerical experiments were run.",
+  "resources": {
+    "experimental_cpu_workload_launched": false,
+    "experimental_cpu_time_seconds": null,
+    "cpu_time_note": "Routine document, shell and literature-search overhead unprofiled. No measured experiment.",
+    "gpu_time_seconds": 0,
+    "cuda_used": false,
+    "peak_ram_bytes": null,
+    "ram_note": "Administrative process RAM unprofiled."
+  },
+  "preservation": "Prior proof and experiment artifacts read only; AGENTS and GAS-0 untouched. Unrelated worktree changes excluded from this stage.",
+  "next_step": "Independent hostile review of covariance/error ledger/counterexample before pursuing the uniform constant-packet residual-debt lemma on the repaired noncommuting block."
+}

@@ -4,7 +4,43 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current diagnostic — Aperiodic gate query-visible spectrum (2026-10-01)
+## Current theory — Query-weighted moment merger (2026-10-01)
+
+**PARTIAL THEORETICAL ADVANCE; ARBITRARY APERIODIC QUADRATIC UPPER STILL OPEN.**
+Same accepted rotating/dense family, gamma=c/n, epsilon1e-3, group-RMS units
+and all permitted late queries. The preceding spectra motivate, but do not
+prove, any lemma here. No accepted theorem or historical evidence changed.
+
+New author-derived lemmas, requiring independent review: a mass-weighted packet
+merger has an EXACT centered transport--feature query covariance, determined by
+d cyclic feature autocorrelations. Its fresh-merge residual avoids multiplying
+gate damage by the entire old C/gamma norm. A rescaled adjoint-energy argument
+gives the all-horizon error bound delta_dense+kappa_Q sqrt(z_T), with ONE counted
+recursive scalar z_t=lambda^2 z_(t-1)+nu_t^2 and a loss-weighted covariance norm
+nu_t. Every actual gate/feature variation and future continuation is included.
+
+An explicit continuous no-replay packet encoder costs
+m[k^2+d(2n+1)+1]+l(2n+1)+2 coordinates, plus n if current h is not supplied.
+This is O_m(n^2) STORAGE, not unconditional epsilon accuracy: proving a packet
+count m(c,epsilon) independent of n and horizon that keeps z within its target
+remains open. The scalar ledger is sufficient and may be conservative.
+
+A real aperiodic fixed-h history on the SAME actual family at c=1 defeats the
+specified one-packet decoder by actual permitted-query error>.048 for n>=200.
+An exact p=2n+1 trace for the reference's independent physical e1 mode repairs
+this example up to the already bounded actual dense transfer;
+the hybrid count is m[(k-1)^2+d(2n+1)+1]+(l+1)(2n+1)+2. The remaining gated block
+still lacks a uniform residual-debt bound. This is no logarithmic memory lower.
+
+General Omega_c(n^2) to O_c(n^2 log n) bounds are unchanged. A family-specific
+quadratic merger would additionally need extension to the general dense class.
+Report/proofs/provenance:theory/query_weighted_moment_merger_20261001/.
+Manual algebra/units/count/continuity/domain checks only; no automated tests,
+experiments, training, GPU/CUDA or GAS-0 actions. Routine overhead/RAM unprofiled.
+Next: independent hostile review of covariance, error ledger and the repaired
+method counterexample. STOP this theory stage; no architecture or other gap regime.
+
+## Historical diagnostic — Aperiodic gate query-visible spectrum (2026-10-01)
 
 **NUMERICAL EVIDENCE FAVORS QUADRATIC MERGING ON TESTED HISTORIES; GENERAL LOG GAP OPEN.**
 Authorized numerical diagnostic complete at unchanged c=1, gamma=1/n,
