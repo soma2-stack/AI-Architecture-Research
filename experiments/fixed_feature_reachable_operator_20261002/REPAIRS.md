@@ -15,3 +15,12 @@ carries the earlier CPU/wall/RSS accounting into the same hard budget.
 No threshold, query, width, history, ranking or radius was changed. This is
 an output bookkeeping defect, not evidence for or against operator dimension.
 This repair is committed before collecting further official measurements.
+
+## 2. Supporting cross-check writer
+
+The separately written post-run cross-check encountered the same NumPy bool
+serialization issue when printing its first successful check. Cast the
+combined pass predicate to a Python bool. Preserve crosscheck_execution.log;
+write the rerun to crosscheck_execution_v2.log. No official diagnostic source,
+result, candidate or threshold changed. The supporting check is repeated
+because its output was unsaved, not because the numerical outcome was unwanted.

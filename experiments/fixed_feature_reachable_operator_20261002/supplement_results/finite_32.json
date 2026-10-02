@@ -1,0 +1,2283 @@
+{
+  "selected_case": "n32_driven_coherent_86101",
+  "joint_dimension_tested": 32,
+  "records": [
+    {
+      "kind": "lower_axis",
+      "index": 0,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.011010145394976445,
+      "box_rms_lower": 0.005860076021818111,
+      "all_future_upper": 0.2397494756646405,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10075853110761734,
+      "midpoint_nonlinearity_ratio": 0.07349332062793783
+    },
+    {
+      "kind": "lower_axis",
+      "index": 1,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.006799714900966744,
+      "box_rms_lower": 0.0058620838764176205,
+      "all_future_upper": 0.07355389549965682,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10008715149784725,
+      "midpoint_nonlinearity_ratio": 0.0442416387690984
+    },
+    {
+      "kind": "lower_axis",
+      "index": 2,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.007316662030559347,
+      "box_rms_lower": 0.005037911561125635,
+      "all_future_upper": 0.09381847167839659,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10016591773868137,
+      "midpoint_nonlinearity_ratio": 0.037795847867678665
+    },
+    {
+      "kind": "lower_axis",
+      "index": 3,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.005650985607683584,
+      "box_rms_lower": 0.003934028225684036,
+      "all_future_upper": 0.12199689285941787,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10006710254542345,
+      "midpoint_nonlinearity_ratio": 0.0320897888117398
+    },
+    {
+      "kind": "lower_axis",
+      "index": 4,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.005238209733760751,
+      "box_rms_lower": 0.0037611291188460985,
+      "all_future_upper": 0.14242093375823653,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10020697030942616,
+      "midpoint_nonlinearity_ratio": 0.030691161926416886
+    },
+    {
+      "kind": "lower_axis",
+      "index": 5,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0038604601728692628,
+      "box_rms_lower": 0.0033018997283056854,
+      "all_future_upper": 0.0735548221483176,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10009890095833494,
+      "midpoint_nonlinearity_ratio": 0.04717434443373637
+    },
+    {
+      "kind": "lower_axis",
+      "index": 6,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0034866641112345858,
+      "box_rms_lower": 0.0031664736283873937,
+      "all_future_upper": 0.02726766382607608,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10009357222907243,
+      "midpoint_nonlinearity_ratio": 0.0958814529492443
+    },
+    {
+      "kind": "lower_axis",
+      "index": 7,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003347288537448845,
+      "box_rms_lower": 0.0030469515641336426,
+      "all_future_upper": 0.025926668695439352,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10008249315969689,
+      "midpoint_nonlinearity_ratio": 0.09847834074442349
+    },
+    {
+      "kind": "lower_axis",
+      "index": 8,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.002947526799883212,
+      "box_rms_lower": 0.0026457590837094037,
+      "all_future_upper": 0.02727828957544967,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10006743370798211,
+      "midpoint_nonlinearity_ratio": 0.030077073744123706
+    },
+    {
+      "kind": "lower_axis",
+      "index": 9,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0024699172248657066,
+      "box_rms_lower": 0.002096531103622283,
+      "all_future_upper": 0.050129650534858336,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10014166041537606,
+      "midpoint_nonlinearity_ratio": 0.05201601252172023
+    },
+    {
+      "kind": "lower_axis",
+      "index": 10,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0034909890426725663,
+      "box_rms_lower": 0.0018902970845101374,
+      "all_future_upper": 0.09378312306703346,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10032389725796814,
+      "midpoint_nonlinearity_ratio": 0.03395425453197065
+    },
+    {
+      "kind": "lower_axis",
+      "index": 11,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0019199556790183993,
+      "box_rms_lower": 0.0013152201590517503,
+      "all_future_upper": 0.06259165501120628,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10005744045217166,
+      "midpoint_nonlinearity_ratio": 0.024326235888266337
+    },
+    {
+      "kind": "lower_axis",
+      "index": 12,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0014414905636418,
+      "box_rms_lower": 0.0011911066541977259,
+      "all_future_upper": 0.03712892747657037,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10003944296131011,
+      "midpoint_nonlinearity_ratio": 0.025744170902483293
+    },
+    {
+      "kind": "lower_axis",
+      "index": 13,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0009750775316333452,
+      "box_rms_lower": 0.0009000101379212383,
+      "all_future_upper": 0.004736477824127955,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002205065579137,
+      "midpoint_nonlinearity_ratio": 0.06424167997028155
+    },
+    {
+      "kind": "lower_axis",
+      "index": 14,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0007223232871341347,
+      "box_rms_lower": 0.0006578236016841594,
+      "all_future_upper": 0.006636348516204516,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002209957619618,
+      "midpoint_nonlinearity_ratio": 0.08187687862873722
+    },
+    {
+      "kind": "lower_axis",
+      "index": 15,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0005687118926734159,
+      "box_rms_lower": 0.0004999957872917965,
+      "all_future_upper": 0.00537426071131996,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002167820900314,
+      "midpoint_nonlinearity_ratio": 0.06978688713223842
+    },
+    {
+      "kind": "lower_axis",
+      "index": 16,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0007735605020631545,
+      "box_rms_lower": 0.0004211732783197283,
+      "all_future_upper": 0.029383016850265974,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10008300154293541,
+      "midpoint_nonlinearity_ratio": 0.05453570572057897
+    },
+    {
+      "kind": "lower_axis",
+      "index": 17,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0009830693373480786,
+      "box_rms_lower": 0.00038426009259662295,
+      "all_future_upper": 0.022910013400070095,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10016009743190259,
+      "midpoint_nonlinearity_ratio": 0.5528534934313596
+    },
+    {
+      "kind": "lower_axis",
+      "index": 18,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0008086540339632859,
+      "box_rms_lower": 0.0003735028858150885,
+      "all_future_upper": 0.023795795745236305,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10022775430560575,
+      "midpoint_nonlinearity_ratio": 0.0675153079408917
+    },
+    {
+      "kind": "lower_axis",
+      "index": 19,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.000601703566376699,
+      "box_rms_lower": 0.00035759105482531767,
+      "all_future_upper": 0.017601380328202985,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10003221894261807,
+      "midpoint_nonlinearity_ratio": 0.14463996581184047
+    },
+    {
+      "kind": "lower_axis",
+      "index": 20,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0004118148387775129,
+      "box_rms_lower": 0.0003461646942363756,
+      "all_future_upper": 0.006332350220336448,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10003390981439568,
+      "midpoint_nonlinearity_ratio": 0.16935347876107326
+    },
+    {
+      "kind": "lower_axis",
+      "index": 21,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0004942374350844061,
+      "box_rms_lower": 0.0002921138689233398,
+      "all_future_upper": 0.018674286746183485,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10007485132882168,
+      "midpoint_nonlinearity_ratio": 0.04335567036661616
+    },
+    {
+      "kind": "lower_axis",
+      "index": 22,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0004142865701828703,
+      "box_rms_lower": 0.0002847936059432332,
+      "all_future_upper": 0.012847186869516405,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002823835118446,
+      "midpoint_nonlinearity_ratio": 0.08756110589260419
+    },
+    {
+      "kind": "lower_axis",
+      "index": 23,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00040029387259569836,
+      "box_rms_lower": 0.0002635064231853379,
+      "all_future_upper": 0.01218494252120783,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001512393850749,
+      "midpoint_nonlinearity_ratio": 0.053853174604540706
+    },
+    {
+      "kind": "lower_axis",
+      "index": 24,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00039614623661024805,
+      "box_rms_lower": 0.00024720022457645324,
+      "all_future_upper": 0.01474065377486631,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10004217887007702,
+      "midpoint_nonlinearity_ratio": 0.034398118802608686
+    },
+    {
+      "kind": "lower_axis",
+      "index": 25,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00039390675944928636,
+      "box_rms_lower": 0.0002116768773160808,
+      "all_future_upper": 0.01333099498481393,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10009730015587463,
+      "midpoint_nonlinearity_ratio": 0.08155625400900436
+    },
+    {
+      "kind": "lower_axis",
+      "index": 26,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00036510585527412486,
+      "box_rms_lower": 0.00018280500418103168,
+      "all_future_upper": 0.011604062061410667,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10005328538975362,
+      "midpoint_nonlinearity_ratio": 0.18293119474334205
+    },
+    {
+      "kind": "lower_axis",
+      "index": 27,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0003933368105634895,
+      "box_rms_lower": 0.0001810638673131439,
+      "all_future_upper": 0.012119799388687428,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10007017966527963,
+      "midpoint_nonlinearity_ratio": 0.2396264380202067
+    },
+    {
+      "kind": "lower_axis",
+      "index": 28,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00033848018984279795,
+      "box_rms_lower": 0.00016379375010804436,
+      "all_future_upper": 0.00996346437099033,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002392355206201,
+      "midpoint_nonlinearity_ratio": 0.1605113665490225
+    },
+    {
+      "kind": "lower_axis",
+      "index": 29,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00026699013332673723,
+      "box_rms_lower": 0.00013451700218130626,
+      "all_future_upper": 0.009257850953888305,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10007439662360694,
+      "midpoint_nonlinearity_ratio": 0.04829075359326506
+    },
+    {
+      "kind": "lower_axis",
+      "index": 30,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0002302499421278678,
+      "box_rms_lower": 0.00011468093098931432,
+      "all_future_upper": 0.00680175848176067,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000336659286988,
+      "midpoint_nonlinearity_ratio": 0.2962772391914818
+    },
+    {
+      "kind": "lower_axis",
+      "index": 31,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00019832044538870344,
+      "box_rms_lower": 0.00010341535340620197,
+      "all_future_upper": 0.005292404197067741,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.100016565103509,
+      "midpoint_nonlinearity_ratio": 0.2949877162804041
+    },
+    {
+      "kind": "lower_axis",
+      "index": 32,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00017111949455950577,
+      "box_rms_lower": 9.902379876163335e-05,
+      "all_future_upper": 0.006302925775536072,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000815577626759,
+      "midpoint_nonlinearity_ratio": 0.07908222810937438
+    },
+    {
+      "kind": "lower_axis",
+      "index": 33,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00019764352327088537,
+      "box_rms_lower": 9.378032633362557e-05,
+      "all_future_upper": 0.005555973463289053,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10005459460736964,
+      "midpoint_nonlinearity_ratio": 0.07847426759806146
+    },
+    {
+      "kind": "lower_axis",
+      "index": 34,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0001779705610064059,
+      "box_rms_lower": 8.943279577044587e-05,
+      "all_future_upper": 0.004665201123605198,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001764593592898,
+      "midpoint_nonlinearity_ratio": 0.10550499537605154
+    },
+    {
+      "kind": "lower_axis",
+      "index": 35,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00020997917300505432,
+      "box_rms_lower": 8.641050016169917e-05,
+      "all_future_upper": 0.005695218470351386,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10005850740989801,
+      "midpoint_nonlinearity_ratio": 0.09095809771550402
+    },
+    {
+      "kind": "lower_axis",
+      "index": 36,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0001799028017612552,
+      "box_rms_lower": 6.640579515053767e-05,
+      "all_future_upper": 0.004452822483986847,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10006539486778616,
+      "midpoint_nonlinearity_ratio": 0.045023022488061136
+    },
+    {
+      "kind": "lower_axis",
+      "index": 37,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0001042887042023388,
+      "box_rms_lower": 6.555157912445428e-05,
+      "all_future_upper": 0.0037913645606780432,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000689444202867,
+      "midpoint_nonlinearity_ratio": 0.17613943736424403
+    },
+    {
+      "kind": "lower_axis",
+      "index": 38,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0001273935014563598,
+      "box_rms_lower": 6.130204658543739e-05,
+      "all_future_upper": 0.0035008770524169786,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002183669616858,
+      "midpoint_nonlinearity_ratio": 0.4567362043419068
+    },
+    {
+      "kind": "lower_axis",
+      "index": 39,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00014777184093583325,
+      "box_rms_lower": 5.735485047831664e-05,
+      "all_future_upper": 0.004071435394081847,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10009316843669608,
+      "midpoint_nonlinearity_ratio": 0.048693814214995655
+    },
+    {
+      "kind": "lower_axis",
+      "index": 40,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.00010690967018917696,
+      "box_rms_lower": 5.407313612091914e-05,
+      "all_future_upper": 0.002435972594603815,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000281818095886,
+      "midpoint_nonlinearity_ratio": 0.17455921495035046
+    },
+    {
+      "kind": "lower_axis",
+      "index": 41,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0001300335799875826,
+      "box_rms_lower": 5.32567331731543e-05,
+      "all_future_upper": 0.0032962541259894565,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000127850469357,
+      "midpoint_nonlinearity_ratio": 0.1085776887028792
+    },
+    {
+      "kind": "lower_axis",
+      "index": 42,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 9.571881049167346e-05,
+      "box_rms_lower": 5.0303758294801e-05,
+      "all_future_upper": 0.0024912424003749813,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001249702062841,
+      "midpoint_nonlinearity_ratio": 0.14488501083790464
+    },
+    {
+      "kind": "lower_axis",
+      "index": 43,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 8.539302039052022e-05,
+      "box_rms_lower": 4.725692279409485e-05,
+      "all_future_upper": 0.0022515964495039282,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002702746353433,
+      "midpoint_nonlinearity_ratio": 0.2412676351016249
+    },
+    {
+      "kind": "lower_axis",
+      "index": 44,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 8.650987946851614e-05,
+      "box_rms_lower": 4.6551219992760285e-05,
+      "all_future_upper": 0.0021286406512142147,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001042692733055,
+      "midpoint_nonlinearity_ratio": 0.12185629191169535
+    },
+    {
+      "kind": "lower_axis",
+      "index": 45,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 8.035430711738428e-05,
+      "box_rms_lower": 4.441027301496731e-05,
+      "all_future_upper": 0.0025113478231152384,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001576144742272,
+      "midpoint_nonlinearity_ratio": 0.1604552832620597
+    },
+    {
+      "kind": "lower_axis",
+      "index": 46,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 7.149880275633669e-05,
+      "box_rms_lower": 4.181627525684915e-05,
+      "all_future_upper": 0.001926136059273492,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.1000105016314179,
+      "midpoint_nonlinearity_ratio": 0.12111599891816965
+    },
+    {
+      "kind": "lower_axis",
+      "index": 47,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 8.421916077632284e-05,
+      "box_rms_lower": 3.95126531612261e-05,
+      "all_future_upper": 0.0021163652985171635,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10000958137076187,
+      "midpoint_nonlinearity_ratio": 0.1487734298592524
+    },
+    {
+      "kind": "lower_axis",
+      "index": 48,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 8.000309203990783e-05,
+      "box_rms_lower": 3.89424795331694e-05,
+      "all_future_upper": 0.002414557572248208,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001038374870004,
+      "midpoint_nonlinearity_ratio": 0.0770001627216655
+    },
+    {
+      "kind": "lower_axis",
+      "index": 49,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 6.838253451511882e-05,
+      "box_rms_lower": 3.8645457081452515e-05,
+      "all_future_upper": 0.0019392128142022877,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10000799172870296,
+      "midpoint_nonlinearity_ratio": 0.09332864293719423
+    },
+    {
+      "kind": "lower_axis",
+      "index": 50,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 7.713888699015559e-05,
+      "box_rms_lower": 3.593064882081958e-05,
+      "all_future_upper": 0.002336962732461091,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001806879400472,
+      "midpoint_nonlinearity_ratio": 0.38745166123707403
+    },
+    {
+      "kind": "lower_axis",
+      "index": 51,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 6.634831296078397e-05,
+      "box_rms_lower": 3.576498252890132e-05,
+      "all_future_upper": 0.001802950302254395,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.1000131129633908,
+      "midpoint_nonlinearity_ratio": 0.17865581401625777
+    },
+    {
+      "kind": "lower_axis",
+      "index": 52,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 5.4980355455505354e-05,
+      "box_rms_lower": 3.481762848469329e-05,
+      "all_future_upper": 0.001671096346597903,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.1000054504667794,
+      "midpoint_nonlinearity_ratio": 0.2775081856808909
+    },
+    {
+      "kind": "lower_axis",
+      "index": 53,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 6.79215008497748e-05,
+      "box_rms_lower": 3.360176167912817e-05,
+      "all_future_upper": 0.001982776807982719,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10000879717961415,
+      "midpoint_nonlinearity_ratio": 0.2073575499906139
+    },
+    {
+      "kind": "lower_axis",
+      "index": 54,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 5.806888138097103e-05,
+      "box_rms_lower": 3.258362172986539e-05,
+      "all_future_upper": 0.0015968812404316838,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10000502672613401,
+      "midpoint_nonlinearity_ratio": 0.3255456288949902
+    },
+    {
+      "kind": "lower_axis",
+      "index": 55,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 6.479677447531077e-05,
+      "box_rms_lower": 3.184963245994333e-05,
+      "all_future_upper": 0.0019377474190312217,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10002037381431918,
+      "midpoint_nonlinearity_ratio": 0.08545412541153384
+    },
+    {
+      "kind": "lower_axis",
+      "index": 56,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 5.20007051534173e-05,
+      "box_rms_lower": 3.079893408443086e-05,
+      "all_future_upper": 0.0014343631702464189,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10000763649366204,
+      "midpoint_nonlinearity_ratio": 0.19901963650618698
+    },
+    {
+      "kind": "lower_axis",
+      "index": 57,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 6.458212414194953e-05,
+      "box_rms_lower": 3.0011500178778693e-05,
+      "all_future_upper": 0.0020028955508334364,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001711282098862,
+      "midpoint_nonlinearity_ratio": 0.12866720556819375
+    },
+    {
+      "kind": "lower_axis",
+      "index": 58,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 5.083133884205484e-05,
+      "box_rms_lower": 2.9564260742067054e-05,
+      "all_future_upper": 0.0016556613371547285,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10000955071186526,
+      "midpoint_nonlinearity_ratio": 0.13704361476599308
+    },
+    {
+      "kind": "lower_axis",
+      "index": 59,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 5.872834950997887e-05,
+      "box_rms_lower": 2.8310304825698078e-05,
+      "all_future_upper": 0.0015805089424774032,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10003186697976628,
+      "midpoint_nonlinearity_ratio": 0.25160760744725347
+    },
+    {
+      "kind": "lower_axis",
+      "index": 60,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 5.329458024150307e-05,
+      "box_rms_lower": 2.718554865835589e-05,
+      "all_future_upper": 0.001547412158104168,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10000435304536331,
+      "midpoint_nonlinearity_ratio": 0.16005906313529467
+    },
+    {
+      "kind": "lower_axis",
+      "index": 61,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 4.765982480678192e-05,
+      "box_rms_lower": 2.641543330998077e-05,
+      "all_future_upper": 0.0011465425699051976,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10000642712825467,
+      "midpoint_nonlinearity_ratio": 0.17080657921656933
+    },
+    {
+      "kind": "lower_axis",
+      "index": 62,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 4.492201839360415e-05,
+      "box_rms_lower": 2.492018354376215e-05,
+      "all_future_upper": 0.0013275641694961372,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10001062710054995,
+      "midpoint_nonlinearity_ratio": 0.17248990583436677
+    },
+    {
+      "kind": "lower_axis",
+      "index": 63,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 5.0605583614131056e-05,
+      "box_rms_lower": 2.361196821969536e-05,
+      "all_future_upper": 0.0016139136688324803,
+      "passes_numerically": false,
+      "fails_even_envelope": true,
+      "physical_antipode_input_distance": 0.10001036193080189,
+      "midpoint_nonlinearity_ratio": 0.3645053905736587
+    },
+    {
+      "kind": "upper_axis",
+      "index": 0,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.009885880857246435,
+      "box_rms_lower": 0.004810707187247642,
+      "all_future_upper": 0.3061342705658587,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10192012886858663,
+      "midpoint_nonlinearity_ratio": 0.09436496259980261
+    },
+    {
+      "kind": "upper_axis",
+      "index": 1,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.006226719892079456,
+      "box_rms_lower": 0.0032385703818777777,
+      "all_future_upper": 0.13143925534780432,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10077318143532761,
+      "midpoint_nonlinearity_ratio": 0.05081332873075889
+    },
+    {
+      "kind": "upper_axis",
+      "index": 2,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003740803582722747,
+      "box_rms_lower": 0.0022560350957442775,
+      "all_future_upper": 0.09141918095984257,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10024810899908827,
+      "midpoint_nonlinearity_ratio": 0.044671524681162145
+    },
+    {
+      "kind": "upper_axis",
+      "index": 3,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0025908239652197417,
+      "box_rms_lower": 0.0017581640922746523,
+      "all_future_upper": 0.03260035827115465,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10020938724217493,
+      "midpoint_nonlinearity_ratio": 0.05253919251766334
+    },
+    {
+      "kind": "upper_axis",
+      "index": 4,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.002160586755348349,
+      "box_rms_lower": 0.0015595637896682923,
+      "all_future_upper": 0.026563085236946216,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10013333909493966,
+      "midpoint_nonlinearity_ratio": 0.1960183335741309
+    },
+    {
+      "kind": "upper_axis",
+      "index": 5,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0014917275695420426,
+      "box_rms_lower": 0.0009492324523734337,
+      "all_future_upper": 0.02065731176417312,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10013613239783425,
+      "midpoint_nonlinearity_ratio": 0.40176651762920745
+    },
+    {
+      "kind": "upper_axis",
+      "index": 6,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0015222165750098206,
+      "box_rms_lower": 0.0009422127636171468,
+      "all_future_upper": 0.023446900563553294,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10021731332238565,
+      "midpoint_nonlinearity_ratio": 0.14451980614017362
+    },
+    {
+      "kind": "upper_axis",
+      "index": 7,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.001969584482251754,
+      "box_rms_lower": 0.0015207928016303174,
+      "all_future_upper": 0.021805755150434997,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10012940804181482,
+      "midpoint_nonlinearity_ratio": 0.055611848046418354
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 0,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.002742965422333048,
+      "box_rms_lower": 0.002229090466278587,
+      "all_future_upper": 0.028759546843530173,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002334730316927,
+      "midpoint_nonlinearity_ratio": 0.020390989759292925
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 1,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003941491803431796,
+      "box_rms_lower": 0.0024675757011891125,
+      "all_future_upper": 0.14228094733933644,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10010685851163316,
+      "midpoint_nonlinearity_ratio": 0.0702799409496525
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 2,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0024711428372655823,
+      "box_rms_lower": 0.002177285962720248,
+      "all_future_upper": 0.04122816927969365,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10003652492424805,
+      "midpoint_nonlinearity_ratio": 0.038421119344961785
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 3,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0023741240994751833,
+      "box_rms_lower": 0.0019509083054125125,
+      "all_future_upper": 0.036506012781487435,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002081234986061,
+      "midpoint_nonlinearity_ratio": 0.06589517102920213
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 4,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.004359421127650175,
+      "box_rms_lower": 0.0029246741158634963,
+      "all_future_upper": 0.06984577584757735,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000365978216389,
+      "midpoint_nonlinearity_ratio": 0.06293185164673967
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 5,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003974771611314794,
+      "box_rms_lower": 0.0030462575929307355,
+      "all_future_upper": 0.04627678780775964,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000727195278535,
+      "midpoint_nonlinearity_ratio": 0.06746908856795708
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 6,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.002086391201392477,
+      "box_rms_lower": 0.0016657826682408708,
+      "all_future_upper": 0.060295262538910877,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10003388325390192,
+      "midpoint_nonlinearity_ratio": 0.042010742114017056
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 7,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.004648545800783732,
+      "box_rms_lower": 0.00281782856670161,
+      "all_future_upper": 0.09484487133146184,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10006503137447499,
+      "midpoint_nonlinearity_ratio": 0.07623083500591174
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 8,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0022983887067646214,
+      "box_rms_lower": 0.0019084942638664785,
+      "all_future_upper": 0.02273373115496874,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10001991793575066,
+      "midpoint_nonlinearity_ratio": 0.026988843817667574
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 9,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0031401096441341647,
+      "box_rms_lower": 0.0025780554662042585,
+      "all_future_upper": 0.025113490680047257,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002601229337424,
+      "midpoint_nonlinearity_ratio": 0.04378263619428897
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 10,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003282041596342606,
+      "box_rms_lower": 0.002382687006062085,
+      "all_future_upper": 0.0332470426291519,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.100040480778815,
+      "midpoint_nonlinearity_ratio": 0.08404845103901146
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 11,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003048466366699188,
+      "box_rms_lower": 0.002521213213276536,
+      "all_future_upper": 0.043431431558705866,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10006281277090112,
+      "midpoint_nonlinearity_ratio": 0.04008703697013917
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 12,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003268958708557707,
+      "box_rms_lower": 0.002872655688261127,
+      "all_future_upper": 0.027642031792164987,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10002830082492689,
+      "midpoint_nonlinearity_ratio": 0.05887230656365324
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 13,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.003046957433182455,
+      "box_rms_lower": 0.0020368123369335365,
+      "all_future_upper": 0.08967593821993793,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.1000509019745128,
+      "midpoint_nonlinearity_ratio": 0.036784634304038416
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 14,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.004079937121076694,
+      "box_rms_lower": 0.0030051286326830563,
+      "all_future_upper": 0.06912974409936139,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10005180920522015,
+      "midpoint_nonlinearity_ratio": 0.043942340640594796
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 15,
+      "radius": 0.05,
+      "admissible": true,
+      "box_search_lower": 0.0026515997379832922,
+      "box_rms_lower": 0.001807271873456851,
+      "all_future_upper": 0.08093069904177254,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.10006750824863703,
+      "midpoint_nonlinearity_ratio": 0.042715231381217154
+    },
+    {
+      "kind": "lower_axis",
+      "index": 0,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 1,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 2,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 3,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 4,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 5,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 6,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 7,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 8,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 9,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 10,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 11,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 12,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 13,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 14,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.003555999262602788,
+      "box_rms_lower": 0.003240134825306772,
+      "all_future_upper": 0.031044717495089167,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.502815315572066,
+      "midpoint_nonlinearity_ratio": 0.4293408777583656
+    },
+    {
+      "kind": "lower_axis",
+      "index": 15,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.00281370754068854,
+      "box_rms_lower": 0.0024777117682081456,
+      "all_future_upper": 0.02669428727412541,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.502757730069218,
+      "midpoint_nonlinearity_ratio": 0.3497621712056527
+    },
+    {
+      "kind": "lower_axis",
+      "index": 16,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 17,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 18,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 19,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 20,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 21,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 22,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 23,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 24,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 25,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 26,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 27,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 28,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 29,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 30,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 31,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 32,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 33,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 34,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 35,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 36,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 37,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 38,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 39,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.0007697812310592243,
+      "box_rms_lower": 0.00029105115356859324,
+      "all_future_upper": 0.020593137042219496,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.5120672190663471,
+      "midpoint_nonlinearity_ratio": 0.23489385837930699
+    },
+    {
+      "kind": "lower_axis",
+      "index": 40,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 41,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 42,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 43,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 44,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 45,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 46,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 47,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 48,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 49,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 50,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 51,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 52,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 53,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 54,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 55,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 56,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 57,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 58,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 59,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 60,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 61,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 62,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 63,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.00027475691915274043,
+      "box_rms_lower": 0.00012120213183625583,
+      "all_future_upper": 0.007993691649355126,
+      "passes_numerically": false,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.5013161741872039,
+      "midpoint_nonlinearity_ratio": 1.8129066154677274
+    },
+    {
+      "kind": "upper_axis",
+      "index": 0,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 1,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.016985299023769856,
+      "box_rms_lower": 0.008889352012320707,
+      "all_future_upper": 0.41188196316735354,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.6137422877528911,
+      "midpoint_nonlinearity_ratio": 0.20423596403791286
+    },
+    {
+      "kind": "upper_axis",
+      "index": 2,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.014932672356716385,
+      "box_rms_lower": 0.009656619300845817,
+      "all_future_upper": 0.38452294311971424,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.5339736773818906,
+      "midpoint_nonlinearity_ratio": 0.17060096974901642
+    },
+    {
+      "kind": "upper_axis",
+      "index": 3,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 4,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 5,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 6,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.006756455797208493,
+      "box_rms_lower": 0.0039893051380983785,
+      "all_future_upper": 0.10552882196516498,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.5291048606929037,
+      "midpoint_nonlinearity_ratio": 0.8234086266231816
+    },
+    {
+      "kind": "upper_axis",
+      "index": 7,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 0,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.01474262515221884,
+      "box_rms_lower": 0.009996567181249057,
+      "all_future_upper": 0.33929400030230744,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.5062032257813458,
+      "midpoint_nonlinearity_ratio": 0.3410633640285891
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 1,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 2,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.008316757588904964,
+      "box_rms_lower": 0.007142064543730351,
+      "all_future_upper": 0.15456272479775673,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.5052299855852149,
+      "midpoint_nonlinearity_ratio": 0.22126846298645145
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 3,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 4,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 5,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 6,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 7,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.013499205872631974,
+      "box_rms_lower": 0.010770322238689947,
+      "all_future_upper": 0.24619197838201545,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.5061498937732607,
+      "midpoint_nonlinearity_ratio": 0.159285348212104
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 8,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 9,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 10,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 11,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 12,
+      "radius": 0.25,
+      "admissible": true,
+      "box_search_lower": 0.016210205772875234,
+      "box_rms_lower": 0.010836859262400416,
+      "all_future_upper": 0.3730033165612215,
+      "passes_numerically": true,
+      "fails_even_envelope": false,
+      "physical_antipode_input_distance": 0.504403169338227,
+      "midpoint_nonlinearity_ratio": 0.1841362747970678
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 13,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 14,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 15,
+      "radius": 0.25,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 0,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 1,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 2,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 3,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 4,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 5,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 6,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 7,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 8,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 9,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 10,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 11,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 12,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 13,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 14,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 15,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 16,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 17,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 18,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 19,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 20,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 21,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 22,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 23,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 24,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 25,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 26,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 27,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 28,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 29,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 30,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 31,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 32,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 33,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 34,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 35,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 36,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 37,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 38,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 39,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 40,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 41,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 42,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 43,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 44,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 45,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 46,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 47,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 48,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 49,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 50,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 51,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 52,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 53,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 54,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 55,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 56,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 57,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 58,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 59,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 60,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 61,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 62,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "lower_axis",
+      "index": 63,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 0,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 1,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 2,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 3,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 4,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 5,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 6,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "upper_axis",
+      "index": 7,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 0,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 1,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 2,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 3,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 4,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 5,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 6,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 7,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 8,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 9,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 10,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 11,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 12,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 13,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 14,
+      "radius": 1.0,
+      "admissible": false
+    },
+    {
+      "kind": "joint_sphere",
+      "index": 15,
+      "radius": 1.0,
+      "admissible": false
+    }
+  ]
+}

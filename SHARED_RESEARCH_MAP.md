@@ -4,7 +4,40 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Query-visible operator dimension (2026-10-02)
+## Current diagnostic — Reachable fixed-feature operators (2026-10-02)
+
+**SAMPLED FINITE CORE FAVORS LINEAR GROWTH; FULL DIMENSION STILL UNRESOLVED.**
+Prospective CPU diagnostic63292dd, output-only repair f1935bb; separate
+input-driven coverage supplement ec665ca frozen AFTER primary outcomes,
+BEFORE fresh seeds. Accepted theory/historical evidence untouched.
+
+- Same actual hard rotating/dense family, c1, gamma1/n, epsilon1e-3,
+  group-RMS/permitted late query metric, one fixed source. Exact inverse-realized
+  h=0 endpoints; gate variations included. No ambient operator-ball experiment.
+- Widths16/32/64/96; strongest permitted-query LOWER tangent counts20/69/149/230,
+  all-query envelope counts39/157/614/1264. Lower counts/n over largest three
+  are2.16/2.33/2.40, while counts/(n ln n) decrease. All-four tangent fit favors
+  n ln n slightly; largest-three descriptive exponent1.097. No asymptotic
+  resolution, especially below sufficient proof-width200.
+- Finite radius.05 actual allowed-query axis distinctions10/21/44/61, about.65n.
+  Sampled joint20/32-mode spheres pass16 antipodes each. These are NUMERICAL
+  distinctions, not continuous robust-dimension certificates. One-axis counts
+  and RMS spectra cannot establish whole-sphere separation or worst-case upper.
+- Novelty optimization gives no higher tangent count than strongest ordinary
+  histories. A separately prospective input-driven supplement reaches much
+  stronger gates/hidden states up to.961 but fewer visible directions. Neither
+  sampled result bounds every admissible history.
+- Full selected-group BPTT/FD/query/fixed-h checks pass; all frozen inputs and
+  parameters intact. Approx7.82CPU-min,4.9wall-min, peakRSS1.904GiB, GPU/CUDA0.
+  No GAS-0, training, architecture or other contraction regime operation.
+
+Report/source/archives: experiments/fixed_feature_reachable_operator_20261002/.
+General Omega_c(n²) to O_c(n² ln n) unchanged. Next theorem: uniform finite-radius
+query-width of actually reachable fixed-feature operators, including weak
+mixed tail/joint gate variation, or a robust superlinear countersection.
+STOP this stage; do not treat counted operator directions as an uncounted encoder.
+
+## Historical theory — Query-visible operator dimension (2026-10-02)
 
 **GENERAL APERIODIC LOG GAP OPEN; OPERATOR COUNT ALONE IS INSUFFICIENT.**
 Owner accepts the hostile review of d609d4d: fixed-profile quadratic theorem,
