@@ -1,0 +1,18 @@
+{
+  "source_commit": "cece652477dc50534db26a0c5ab6b55d0e6ce43b",
+  "inputs": {
+    "AGENTS.md": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+    "experiments/aperiodic_gate_spectrum_20261001/run.py": "f74bee8b51bf43d2267f56b8acb3c573d6cc0fa4775335f6ddfab5a45a693e2e",
+    "experiments/aperiodic_gate_spectrum_20261001/config.json": "995b704775f6adcfeff252e0512a7c3831c1761643874d692fab4724fcc82f6c",
+    "experiments/aperiodic_gate_spectrum_20261001/results/model_n16.npz": "dca3e4fbe5effcbff8a69087f57e58e31106da6eb930ea0ddeb8fdec34ad0484",
+    "experiments/aperiodic_gate_spectrum_20261001/results/model_n32.npz": "d43ac5c189eea1534dff688e93d2e61e90bf93bc860eecbf9ea7e4499b97de44",
+    "experiments/aperiodic_gate_spectrum_20261001/results/model_n64.npz": "859cb6fcfa33c01f0fd9127da0964137b2c1c3e3a042525fb80b6e4022de338a",
+    "experiments/aperiodic_gate_spectrum_20261001/results/model_n96.npz": "79ef3085cbbcdc36db1bb791b6d803a239f0f0135e02fa8c479ddce9a4b7e17c",
+    "experiments/fixed_feature_reachable_operator_20261002/config.json": "a3ca82897742ca7d15105679b251d805efcb31ccecaa19f2d7d008884f58e41b",
+    "experiments/fixed_feature_reachable_operator_20261002/PREREGISTRATION.md": "41fa91005c5bfb4b13ea205794b5d262d698ae6c652527cde00b049052b64bd5",
+    "experiments/fixed_feature_reachable_operator_20261002/run.py": "4762be26155fa9e6d064c631550938daeb06f3dbe4f776a9aba538fe34a26d14",
+    "experiments/fixed_feature_reachable_operator_20261002/freeze.py": "1425b2ade0d9be3837bb33a7038bdec42e1c1ff33189bf4c9a04949f28b1e207",
+    "experiments/fixed_feature_reachable_operator_20261002/development_validation.json": "e8fbd65a1802da53e8b84aa3da1fc9f83e47463e26d3f027312ac41a57a7a1f7"
+  },
+  "scope": "CPU-only numerical diagnostic; no theorem or certification"
+}
