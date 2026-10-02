@@ -4,7 +4,50 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Age-preserving transport representation (2026-10-02)
+## Current theory — Query-visible operator dimension (2026-10-02)
+
+**GENERAL APERIODIC LOG GAP OPEN; OPERATOR COUNT ALONE IS INSUFFICIENT.**
+Owner accepts the hostile review of d609d4d: fixed-profile quadratic theorem,
+co-moving identities/counts, fixed-anchor counterexample and period-1 exactness
+verified. Ordinary aperiodic stress misfits .66--1.0 and query errors .10--.13
+reject that representation as general. Basis renewal is not a reduction of
+the general problem. Historical proofs/results/review remain untouched.
+
+New author-derived theory, independent review required:
+
+- Full coupled reference credit already has p=2n+1=O(r) EXACT aggregate
+  operator matrices, M_j'=a G O_* M_j+f_j G, uniform over arbitrary gate
+  histories and horizon. Counting them gives p r^2+(l+1)p=Theta(n^3), plus h
+  if required. This is RTRL regrouped, not a quadratic encoder. Operators
+  themselves cannot be uncounted history-dependent bases.
+- In the actual normalized future-query norm, exact operator invisibility is
+  zero. At c=1, an AMBIENT accumulated-operator Frobenius ball of radius n/4
+  retains r^2 robust coordinates at epsilon1e-3, with half-margin>.004851.
+  This is NOT a recurrent-memory lower: no admissible history lift of that
+  finite radius was proved. Normalization alone does not collapse that envelope.
+- A real prescribed scalar-gate constant-source fixed-h history accumulates
+  strongly visible credit from packets that are individually epsilon-small
+  at sufficiently large n. Pointwise spectral thresholds need the joint
+  coefficient budget; a conservative kernel tolerance is order epsilon/n.
+- Per-history recent kernels admit O(r log r) sufficient retained templates;
+  the counted general window upper remains O(n^2 log n). A public union,
+  one history's kernel collection, and its feature-coupled aggregates have
+  different operator-dimension quantifiers. No actual jointly robust r^2
+  arbitrary-gate operator section or quadratic structured full encoder found.
+- One public source feature direction permits exact selected-block r^2
+  matrix eligibility under arbitrary memory gates. Thus even an actual r^2
+  operator section alone would not establish the extra log; simultaneous
+  independent feature/age geometry is essential.
+
+Same gamma=c/n, epsilon=1e-3, group-RMS and late-query contract. General
+Omega_c(n^2) to O_c(n^2 log n) unchanged. No other regime, architecture,
+learning, experiments, GPU or GAS-0 work. Manual mathematics only.
+Proof/report/hash metadata: theory/query_visible_operator_dimension_20261002/.
+Next theorem: accumulation-aware JOINT query-width and counted continuous
+structure for actually reachable coupled kernels; no smaller equivalent
+reduction is established. STOP this stage and independently review the lemmas.
+
+## Historical theory — Age-preserving transport representation (2026-10-02)
 
 **GENERAL APERIODIC LOG GAP OPEN; CONVEX MERGER REJECTED AS GENERAL SOLUTION.**
 Owner accepts the hostile review of 421544d: centered covariance, query ledger

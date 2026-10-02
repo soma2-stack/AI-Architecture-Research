@@ -1,0 +1,158 @@
+{
+  "title": "Query-visible operator dimension under arbitrary aperiodic gates",
+  "research_date": "2026-10-02",
+  "created_utc": "2026-10-02T12:01:24.7404386Z",
+  "parent_commit": "d609d4d847e88e34cf9938c2f11e22a37b6c1eab",
+  "status": "PARTIAL FINITE-ERROR METRIC RESULTS; ACTUAL APERIODIC MEMORY LOG GAP OPEN",
+  "unchanged_contract": {
+    "gamma": "c/n",
+    "epsilon": "1/1000",
+    "normalization": "frozen group-RMS",
+    "queries": "same permitted normalized late head",
+    "input_domain": "(-1/2,1/2)^n",
+    "family": "accepted rotating/dense tanh",
+    "model_updates": false,
+    "discarded_replay": false
+  },
+  "authoritative_review": "theory/claude_transport_basis_review_20261002/REVIEW.md",
+  "accepted_constraints": [
+    "fixed-profile theorem verified",
+    "co-moving identities and memory counts verified",
+    "fixed-anchor counterexample verified",
+    "period-1 exactness verified",
+    "basis renewal is not a reduction of general problem"
+  ],
+  "new_derivations": [
+    "exact O(r) aggregate operators already exist but explicit storage is cubic",
+    "physical operator query-norm inequalities with no unit-adjoint substitution",
+    "ambient accumulated operator ball has r^2 robust coordinates at c=1; reachability not established",
+    "actual finite accumulation control: individually epsilon-small packets can sum to a large query effect",
+    "joint feature-coupled error and accumulation-adjusted kernel tolerance",
+    "per-history O(r log r) sufficient retained templates; not an online basis encoder",
+    "public-feature-direction selected-block quadratic eligibility for arbitrary actual gates",
+    "finite query-frame plus finite-radius remainder criterion"
+  ],
+  "unresolved": [
+    "actual individual-kernel O(r) query approximation with counted quadratic continuous state",
+    "admissible jointly robust r^2 aperiodic operator section",
+    "joint Omega(n^2 log n) memory lower",
+    "uniform O(n^2) full-credit encoder"
+  ],
+  "mathematical_status": "Author-derived manual proofs require independent hostile review; no numerical certification or new RNN lower claimed",
+  "source_hashes": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+      "bytes": 18440
+    },
+    {
+      "path": "theory/gamma_c_over_n_quadratic_20261001/PROOF.md",
+      "sha256": "e517dcd0475276b4b1b39190d221d3313dba71a2bcb8359f8e250b6978de58f6",
+      "bytes": 18290
+    },
+    {
+      "path": "theory/rotating_gate_aggregation_20261001/PROOF.md",
+      "sha256": "339d1d880f32f448accc0727c97f9f6210f15648bd56b8faaa8888d7bd3a865f",
+      "bytes": 21523
+    },
+    {
+      "path": "theory/aperiodic_query_aggregation_20261001/PROOF.md",
+      "sha256": "a8196736187943162a44fe1804c57a5a2335f15a88179d96317ecc0835c2413d",
+      "bytes": 23271
+    },
+    {
+      "path": "theory/age_preserving_transport_basis_20261002/PROOF.md",
+      "sha256": "e3e27dea7db7c46fb498d4590c9e8a6d9c787c5fe6527ca4e8c3d8d1f5f55500",
+      "bytes": 38755
+    },
+    {
+      "path": "theory/age_preserving_transport_basis_20261002/REPORT.md",
+      "sha256": "7c18dded54cded8bd367aa324f7951d1bb983b08a3c2c5e9567bc862e044ed37",
+      "bytes": 9982
+    },
+    {
+      "path": "theory/age_preserving_transport_basis_20261002/PROVENANCE.json",
+      "sha256": "a79e7927522e0b0657c872b08a40d3497a94bf8cf959a7e9cf08a24796297c66",
+      "bytes": 11088
+    },
+    {
+      "path": "experiments/aperiodic_gate_spectrum_20261001/REPORT.md",
+      "sha256": "d76d4942b55a0f2d8047f40f74db509c89bf4fb02a847bafa56c87c0000552df",
+      "bytes": 14275
+    },
+    {
+      "path": "theory/claude_transport_basis_review_20261002/stress_period1-period1_signsrc-twophase-sparse-dense_64-128_0.0001-1_check.json",
+      "sha256": "66cf4f673620dbdef873d5db14f35f21a61e24b2c315b50cef8eb7984fa2a7cf",
+      "bytes": 10997
+    },
+    {
+      "path": "theory/claude_transport_basis_review_20261002/REVIEW.md",
+      "sha256": "cc2da81fefc6ef39fe1b0e974a617c7bd3049c1d1bfb6069f3b765713b0a8a37",
+      "bytes": 14803
+    },
+    {
+      "path": "theory/claude_transport_basis_review_20261002/identity_check.json",
+      "sha256": "6dfaaba91a78b9a55eae5450f7afc3bdd32d5ab7fc73420fa8a2cb263006ff03",
+      "bytes": 4034
+    },
+    {
+      "path": "theory/claude_transport_basis_review_20261002/f11_200_check.json",
+      "sha256": "51871ed30237751b40e04d0457caacffc5e88ea616545ec70a076122c9104ea0",
+      "bytes": 6730
+    },
+    {
+      "path": "theory/claude_transport_basis_review_20261002/check_basis.py",
+      "sha256": "1700de094d32108dfbf80aa527da566ab501438fc647d95105c299e5b79557db",
+      "bytes": 16751
+    }
+  ],
+  "payload_hashes": [
+    {
+      "path": "theory/query_visible_operator_dimension_20261002/PROOF.md",
+      "sha256": "5d21eef744714a5c7620f2fda039ffcbc2f5c2f1246ef5b465fab77081838aa4",
+      "bytes": 28826
+    },
+    {
+      "path": "theory/query_visible_operator_dimension_20261002/REPORT.md",
+      "sha256": "0f3b4572fcf9e3ce159af1d8e370fd7bb0388c58d4c511dbbd656a305c6dfc17",
+      "bytes": 9176
+    },
+    {
+      "path": "theory/query_visible_operator_dimension_20261002/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "bytes": 8
+    }
+  ],
+  "state_files_updated": [
+    "Codex_Research.md",
+    "SHARED_RESEARCH_MAP.md"
+  ],
+  "references": [
+    {
+      "title": "Pinkus, n-Widths in Approximation Theory (1985)",
+      "url": "https://doi.org/10.1007/978-3-642-69894-1",
+      "scope": "Standard terminology only; local elementary proofs self-contained"
+    }
+  ],
+  "manual_checks": [
+    "actual query normalization and source coupling",
+    "sign-corner norm lower and all-query upper",
+    "aggregate matrix recursion and persistent-state counting",
+    "width and finite-packing proof on ambient domain only",
+    "actual history compensation and accumulation indexing",
+    "tail exponent and per-history quantifiers",
+    "query-frame lower and finite mixed remainder criterion"
+  ],
+  "resources": {
+    "scientific_compute_workload": false,
+    "automated_tests_run": false,
+    "gpu_seconds": 0,
+    "cuda_used": false,
+    "cpu_seconds": null,
+    "wall_seconds": null,
+    "peak_ram_bytes": null,
+    "note": "Theory, documentation, hashes, Git and literature only; administrative overhead unprofiled"
+  },
+  "preservation": "Old proofs, hostile review, AGENTS, other notebooks and GAS-0 untouched; only new theory and authorized own/shared state records changed",
+  "next_step": "Independently review finite-query lemmas, then establish a joint finite-radius query-width estimate with counted continuous structure for actual coupled kernels; no basis-renewal reduction"
+}
