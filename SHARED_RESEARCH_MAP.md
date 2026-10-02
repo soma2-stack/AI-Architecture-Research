@@ -4,7 +4,38 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Aperiodic query-visible aggregation (2026-10-01)
+## Current diagnostic — Aperiodic gate query-visible spectrum (2026-10-01)
+
+**NUMERICAL EVIDENCE FAVORS QUADRATIC MERGING ON TESTED HISTORIES; GENERAL LOG GAP OPEN.**
+Authorized numerical diagnostic complete at unchanged c=1, gamma=1/n,
+epsilon1e-3, group-RMS/late-query contract and accepted hard rotating/dense R.
+No accepted theorem changed; no architecture, learning or GAS-0 work.
+
+Prospective primary ff8aa58:70 source-map cases, widths16--256, random/diffuse/
+greedy aperiodic non-scalar gates plus scalar controls. Query-weighted BOX-RMS
+and continuation-RMS visible counts n^2/8 at all widths>=64; count/n^2 constant,
+count/(n^2 ln n) declining. Strong orbit-lag correlations suggest transported
+moment sharing. Long mixed tails remain; envelope is not actual query visibility.
+The scalable primary is source-only and omits fast source-output responses.
+
+Separately prospective complete-map supplement9e22766 (explicitly after primary
+results):24 fresh-seed cases widths12/16/20/24, all fixed-h input directions,
+all actual dense R/W/b responses. Counts75--83/105--116/143--172/186--214;
+quadratic fits better than n^2 log n, narrow finite-size range only. Complete
+large-width spectra and worst-query ceilings remain unmeasured. Singular counts
+are local unit-input RMS diagnostics, not certified nonlinear robust dimensions.
+
+Numerical FD, independent nested BPTT, direct SVD and frozen-hash checks pass.
+Measured8.66224CPU-min,3.38115activewall-min,1.48844GiB peak; CUDA/GPU0.
+Report:experiments/aperiodic_gate_spectrum_20261001/REPORT.md; raw spectra,
+histories, counts/fits/correlations and separate freeze records preserved.
+
+Next recommended theorem: uniformly merge query-visible transported feature
+moments under unbounded aperiodic gates, including gate-history variation and
+counted recursive state. General Omega_c(n^2) to O_c(n^2 log n) unchanged.
+STOP this diagnostic; no automatic next proof, regime or architecture work.
+
+## Historical theory — Aperiodic query-visible aggregation (2026-10-01)
 
 **GENERAL LOG GAP STILL OPEN; new finite-event theorem/visible-gain obstruction
 require independent review.** Owner accepts the independently reviewed scalar

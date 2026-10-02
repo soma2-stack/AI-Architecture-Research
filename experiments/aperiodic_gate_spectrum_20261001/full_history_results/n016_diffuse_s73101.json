@@ -1,0 +1,59 @@
+{
+  "n": 16,
+  "strategy": "diffuse",
+  "seed": 73101,
+  "c": 1.0,
+  "epsilon": 0.001,
+  "H": 137,
+  "T": 138,
+  "full_input_tangent_dimension": 2192,
+  "P": 528,
+  "visible_count": 113,
+  "count_over_n2": 0.44140625,
+  "count_over_n2logn": 0.15920365197309852,
+  "input_sd_visible_count": 82,
+  "radius_005_linear_count": 68,
+  "top": 0.4093542424469207,
+  "median": 3.178041640871159e-08,
+  "tail": 0.0,
+  "tail_energy_below_epsilon": 1.458127620412193e-05,
+  "negative_gram_eigenvalue": -3.616050869120776e-17,
+  "history": {
+    "history_sha256": "6166c6be1a73664bc89885078ab1e6f7057c01656282655ef90274e2b929e512",
+    "inputs_sha256": "6ba4fa4d48e4a4d3c57a869ebf1eddd332ff078f7a527009598f905cde3a74e0",
+    "max_abs_input": 0.3597071042095247,
+    "fixed_h": 0.0,
+    "min_finite_word_period": 137,
+    "max_gate_coordinate_spread": 0.009928235927567974,
+    "max_gate_rotation_commutator": 0.01421129985238604,
+    "mean_memory_gate_damage": 0.0032510843571092376
+  },
+  "checks": {
+    "input_direction_norm": 0.9999999999999999,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "full_gradient_derivative_error": 7.754393697947938e-12,
+        "expected_norm": 0.026946852897599693,
+        "forward_endpoint_error": 1.5515838457795457e-16
+      },
+      {
+        "step": 3e-06,
+        "full_gradient_derivative_error": 3.0508340674043436e-11,
+        "expected_norm": 0.026946852897599693,
+        "forward_endpoint_error": 1.2566871346510768e-16
+      }
+    ]
+  },
+  "cpu_seconds": 1.734375,
+  "wall_seconds": 0.6669577000429854,
+  "resources": {
+    "cpu_seconds": 5.078125,
+    "wall_seconds": 3.3343447000952438,
+    "peak_rss_bytes": 405053440,
+    "device": "cpu",
+    "gpu_seconds": 0
+  },
+  "metric": "complete dense BOX-RMS fixed-h Jacobian",
+  "limitation": "secondary small-width numerical tangent; not finite-radius robust memory dimension"
+}

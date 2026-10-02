@@ -1,0 +1,186 @@
+{
+  "case": "n200_query_adversarial_pulse_s62102",
+  "n": 200,
+  "c": 1.0,
+  "gamma": 0.0050000000000000044,
+  "epsilon": 0.001,
+  "horizon": 2014,
+  "relevant_window": 2013,
+  "source_tangent_dimension": 201300,
+  "full_parameter_count": 80200,
+  "strategy": "query_adversarial_pulse",
+  "seed": 62102,
+  "beta": 9.95000001256221,
+  "wR": 0.04975000006281105,
+  "wW": 0.07071067811865475,
+  "w_b": 0.05,
+  "dense_perturbation_norm": 2.5861302080966677e-13,
+  "actual_R_sha256": "fcf90aa57fcfa928d517a2de50455e9dde3daaa2a384407aefea59fde0f19375",
+  "history": {
+    "history_sha256": "e4308a8f24556a3cf7091e57434ecb046738a956ec9b36cec34dc8f960d28708",
+    "inputs_sha256": "9fce584a416f752bf9374772ddbf99801e64d3973bd3d93bb80a5dd037a49975",
+    "max_abs_input": 0.3595346042031252,
+    "fixed_h": 0.0,
+    "min_finite_word_period": 2012,
+    "max_gate_coordinate_spread": 0.08998989171360017,
+    "max_gate_rotation_commutator": 0.12725522637619222,
+    "mean_memory_gate_damage": 0.00026275231118556375
+  },
+  "metrics": {
+    "box_rms": {
+      "visible_count": 5000,
+      "temporal_visible_count": 50,
+      "count_over_n2": 0.125,
+      "count_over_n2logn": 0.023592395727219356,
+      "input_sd_visible_count": 5000,
+      "radius_005_linear_visible_count": 0,
+      "count_at_1e2": 0,
+      "count_at_1e4": 5100,
+      "stable_rank_per_source": 37.76707472064239,
+      "top": 0.008213432510535947,
+      "median": 3.39043458506392e-08,
+      "tail": 0.0,
+      "tail_energy_below_epsilon": 9.554108495934649e-06,
+      "epsilon_gap": 60.212722416158535,
+      "negative_gram_eigenvalue": -1.8776555978955373e-21,
+      "correlations_by_lag": {
+        "1": {
+          "mean": 0.01136550513517522,
+          "mean_absolute": 0.01136550513517522
+        },
+        "50": {
+          "mean": 0.9999764640215255,
+          "mean_absolute": 0.9999764640215255
+        },
+        "100": {
+          "mean": 0.9999601117686567,
+          "mean_absolute": 0.9999601117686567
+        },
+        "200": {
+          "mean": 0.9999308897519926,
+          "mean_absolute": 0.9999308897519926
+        },
+        "400": {
+          "mean": 0.9998457905960622,
+          "mean_absolute": 0.9998457905960622
+        }
+      },
+      "query_optimized_modes": [
+        {
+          "index": 0,
+          "rms_singular_value": 0.008213432510535947,
+          "optimized_box_distance": 0.010153219434069006,
+          "ratio_to_epsilon": 10.153219434069007
+        },
+        {
+          "index": 49,
+          "rms_singular_value": 0.006238295803042656,
+          "optimized_box_distance": 0.006790417090044307,
+          "ratio_to_epsilon": 6.790417090044307
+        },
+        {
+          "index": 50,
+          "rms_singular_value": 0.00010360428083498452,
+          "optimized_box_distance": 0.00014488314698492358,
+          "ratio_to_epsilon": 0.14488314698492358
+        },
+        {
+          "index": 100,
+          "rms_singular_value": 5.62030182300202e-06,
+          "optimized_box_distance": 1.4236163169956761e-05,
+          "ratio_to_epsilon": 0.01423616316995676
+        }
+      ]
+    },
+    "continuation_rms": {
+      "visible_count": 5000,
+      "temporal_visible_count": 50,
+      "count_over_n2": 0.125,
+      "count_over_n2logn": 0.023592395727219356,
+      "input_sd_visible_count": 5000,
+      "radius_005_linear_visible_count": 0,
+      "count_at_1e2": 0,
+      "count_at_1e4": 5100,
+      "stable_rank_per_source": 35.506652133554454,
+      "top": 0.007193851917008489,
+      "median": 2.866917548476809e-08,
+      "tail": 0.0,
+      "tail_energy_below_epsilon": 0.0001822569440319357,
+      "epsilon_gap": 36.212069925044425,
+      "negative_gram_eigenvalue": -8.740706354210532e-21,
+      "correlations_by_lag": {
+        "1": {
+          "mean": 0.022384133747787742,
+          "mean_absolute": 0.022384133747787742
+        },
+        "50": {
+          "mean": 0.9997727348569414,
+          "mean_absolute": 0.9997727348569414
+        },
+        "100": {
+          "mean": 0.9996597839419825,
+          "mean_absolute": 0.9996597839419825
+        },
+        "200": {
+          "mean": 0.9996555912217241,
+          "mean_absolute": 0.9996555912217241
+        },
+        "400": {
+          "mean": 0.9994626854359401,
+          "mean_absolute": 0.9994626854359401
+        }
+      }
+    },
+    "all_query_envelope": {
+      "visible_count": 7400,
+      "temporal_visible_count": 74,
+      "count_over_n2": 0.185,
+      "count_over_n2logn": 0.034916745676284645,
+      "input_sd_visible_count": 5300,
+      "radius_005_linear_visible_count": 5000,
+      "count_at_1e2": 5000,
+      "count_at_1e4": 49300,
+      "stable_rank_per_source": 1.9651596861267038,
+      "top": 0.5831922015444809,
+      "median": 5.901069154744093e-06,
+      "tail": 8.015337480832421e-09,
+      "tail_energy_below_epsilon": 0.00013796088990931466,
+      "epsilon_gap": 1.0057073723815557,
+      "negative_gram_eigenvalue": 0.0,
+      "correlations_by_lag": {
+        "1": {
+          "mean": 0.5003950634488893,
+          "mean_absolute": 0.5003950634488893
+        },
+        "50": {
+          "mean": 0.9996649528864596,
+          "mean_absolute": 0.9996649528864596
+        },
+        "100": {
+          "mean": 0.9994923316025435,
+          "mean_absolute": 0.9994923316025435
+        },
+        "200": {
+          "mean": 0.999403892806896,
+          "mean_absolute": 0.999403892806896
+        },
+        "400": {
+          "mean": 0.9993350544321952,
+          "mean_absolute": 0.9993350544321952
+        }
+      }
+    }
+  },
+  "full_dense_crosschecks": [],
+  "cpu_seconds": 6.96875,
+  "wall_seconds": 2.8295722000766546,
+  "resources": {
+    "cpu_seconds": 95.203125,
+    "wall_seconds": 45.82795049995184,
+    "peak_rss_bytes": 806481920,
+    "device": "cpu",
+    "gpu_seconds": 0
+  },
+  "proof_width_condition": true,
+  "limitations": "source-only tangent; memory-output surrogate; finite-width/RMS numerical diagnostic, not robust dimension"
+}

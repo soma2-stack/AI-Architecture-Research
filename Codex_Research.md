@@ -6,6 +6,15 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Aperiodic gate spectrum diagnostic resume (2026-10-01)
+
+- **Current stage:** authorized numerical diagnostic COMPLETE; no new theorem. Accepted gamma=c/n worst-case bounds remain Omega_c(n^2) to O_c(n^2 log n). Fixed c=1, epsilon1e-3, group-RMS/late-query units, accepted hard rotating/dense family; no other gap regime, learning, architecture or GAS-0 work.
+- **Prospective primary:** ff8aa58 pushed before 70 source-map cases, widths16/32/64/96/128/200/256, three fixed seeds/three aperiodic non-scalar strategies plus scalar controls. BOX-RMS and actual continuation-RMS counts are n^2/8 at every width>=64. Sharp cutoff plus weak mixed tail; normalized count/n^2 constant, count/(n^2 ln n) decreases. This is a restricted source-history/memory-output surrogate, NOT the complete input map or exact query supremum.
+- **Complete-map supplement:** separately frozen/pushed9e22766 AFTER primary outcomes, BEFORE its own outcomes; fresh seeds at widths12/16/20/24, all free fixed-h history coordinates and actual dense R/W/b terms. Counts75--83,105--116,143--172,186--214; n^2 fits better than n^2 log n on this narrow finite-size range. It does not validate omitted complete-history directions at large widths. No finite-radius dimension certificate.
+- **Compression interpretation:** n256 adversarial orbit-lag64 column correlation .999980 versus lag1 .00410; large source-map epsilon cutoff gap55.97, tiny tail energy. Quadratic transported-moment merger is more plausible on these samples. Envelope tail counts exceed RMS counts; optimized allowed queries reveal three small-width RMS-tail crossings. RMS is a lower diagnostic, not a changed contract. Unit-input tangent count collapses at radius .05 at large widths, so no robust-memory lower is inferred.
+- **Checks/resources:** 48 primary full-gradient FD checks max1.53134e-5 (declared omission tolerance);48 complete checks max4.02355e-11; nested independent BPTT Jacobian relative2.07822e-16; direct-SVD count replay79; fixed-h error<=1.218e-15. Frozen sources/accepted proofs/AGENTS hashes intact. Measured519.734375CPU-s (8.66224min),202.86921activewall-s, peak1.48844GiB; separate unmeasured10CPU-s setup/repair allowance. GPU/CUDA0. No formal test suite; numerical checks recorded.
+- **Exact next action:** STOP. Recommend a uniform query-seminorm merger theorem for transported feature moments under unbounded aperiodic gates, covering full gate-history variation and counting all recursive state. Evidence motivates that direction but removes no logarithm. Full report/artifacts: experiments/aperiodic_gate_spectrum_20261001/REPORT.md.
+
 ### Aperiodic query-visible aggregation resume (2026-10-01)
 
 - **Current stage:** bounded theoretical attack complete; general arbitrary-aperiodic gamma=c/n log gap remains OPEN, Omega_c(n^2) to O_c(n^2 log n). Owner accepts the bounded independent review of e2e0b79 scalar/periodic results. Same epsilon1e-3, group-RMS and future-query contract; no other regime or architecture.
