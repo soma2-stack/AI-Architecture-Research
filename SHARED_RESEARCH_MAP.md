@@ -4,7 +4,37 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Quadratic robust section at gamma=c/n (2026-10-01)
+## Current theory — Arbitrary-horizon log-gap attack (2026-10-01)
+
+**WORST-CASE LOG GAP REMAINS OPEN; two new encoding lemmas require review.**
+The owner-accepted independent review confirms the quadratic lower at
+gamma=c/n, epsilon1e-3, group-RMS and the same late-query contract. Its
+finite O_c(n)-horizon Theta_c(n^2) conclusion remains separate from arbitrary
+horizons. Previous proof/review evidence is unchanged.
+
+New fully dense near-diagonal analytic family: two histories have identical
+last H state/input transitions but actual normalized query half-separation
+>=sqrt(n)/(20c)*(1-c/n)^(H+1)-O_c(n^-1/2). A suffix-only summary therefore
+needs H>=(n/(2c))*log n-O_(c,epsilon)(n). This is a LOOKBACK lower, not a
+memory-coordinate lower and not an Omega(n^2 log n) robust section.
+
+The SAME family has a continuous, counted P=2n^2+n eligibility encoder for
+ALL histories and ALL permitted future queries: propagate with public
+diagonal R0 but actual states/gates/injections. Uniform query error
+<=kappa_Q*C*||R-R0||op/gamma^2<epsilon for fixed c and large n. Actual forward
+recurrence and all independently differentiated dense parameters remain
+unchanged. No replay/tape or uncounted derivative buffers. Family-specific
+arbitrary-horizon O(n^2) is not a general dense-class upper.
+
+Class bounds still Omega_c(n^2) to O_c(n^2 log n). Old credit can be coherent
+and aggregatable even when a long lookback is necessary; Cayley-Hamilton
+does not compress arbitrary noncommuting G_t R products. No universal
+quadratic encoder or logarithmic robust lower obtained. Next: a uniform
+structured-tail aggregation theorem, after independent review of these
+lemmas. STOP; no other gap regime, architecture, experiment or GAS-0 work.
+Files: theory/arbitrary_horizon_log_gap_20261001/PROOF.md and REPORT.md.
+
+## Historical theory — Quadratic robust section at gamma=c/n (2026-10-01)
 
 **Omega_c(n^2) joint robust lower DERIVED — INDEPENDENT REVIEW REQUIRED.**
 For every fixed c>0 and sufficiently large n, a specified fully dense tanh
