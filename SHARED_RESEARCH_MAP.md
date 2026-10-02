@@ -4,7 +4,36 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Rotating gated aggregation attack (2026-10-01)
+## Current theory — Aperiodic query-visible aggregation (2026-10-01)
+
+**GENERAL LOG GAP STILL OPEN; new finite-event theorem/visible-gain obstruction
+require independent review.** Owner accepts the independently reviewed scalar
+and periodic aggregation results at e2e0b79. Same gamma=c/n, epsilon1e-3,
+group-RMS units and late-query contract; accepted rotating dense family unchanged.
+
+New conditional arbitrary-horizon encoder: any fixed public schedule of b
+non-scalar memory-gate events, arbitrary scalar gating between events and
+arbitrary source histories, needs [(b+1)d+l](2n+1)+2b k^2+b(2n+1)+1 counted
+credit/buffer coordinates, O_b(n^2) for fixed b. All transport matrices are
+included. Events need not be periodic or commute. This does not cover unbounded
+event counts or free continuous detection of history-dependent event times.
+
+New analytic obstruction on the SAME family: constant source history followed
+by one genuine noncommuting coordinate-gate pulse and exact h=0 reset. Mean-
+scalar replacement of its propagator, even keeping its new injection exact,
+has actual permitted normalized query error>.0012897776 at c=1. Reference
+query-difference old-credit gain exceeds n/(40c). Query normalization alone
+therefore does not yield a width-independent old-credit gain. This is an
+estimate/shortcut obstruction, not a memory lower; the b=1 encoder handles it.
+
+No universal O_c(n^2) encoder or jointly robust Omega_c(n^2 log n) counterfamily
+obtained. General bounds unchanged. Missing theorem: uniformly merge transported
+shared feature-moment correlations under unbounded aperiodic gates, with all
+state counted and every permitted late query accurate. Next: independent review
+of theory/aperiodic_query_aggregation_20261001/PROOF.md. STOP this theory stage;
+no other gap regime, architecture, experiment, GPU, training or GAS-0 work.
+
+## Historical theory — Rotating gated aggregation attack (2026-10-01)
 
 **GENERAL LOG GAP OPEN; new conditional theorems/method obstructions need review.**
 Owner accepts the independent log-gap review: suffix lookback is not persistent
