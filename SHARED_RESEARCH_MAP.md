@@ -4,7 +4,49 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Query-weighted moment merger (2026-10-01)
+## Current theory — Age-preserving transport representation (2026-10-02)
+
+**GENERAL APERIODIC LOG GAP OPEN; CONVEX MERGER REJECTED AS GENERAL SOLUTION.**
+Owner accepts the hostile review of 421544d: centered covariance, query ledger
+and counts verified; mass-weighted convex packets/round-robin fail even on a
+period-1 class already handled by Floquet. The old constant-packet ledger target
+was sufficient for one method, not a reduction of the general problem. Old
+future-query heredity additionally requires an actually permitted future prefix.
+Historical proofs/results/review remain untouched.
+
+New author-derived theorem, requiring review: arbitrary scalar modulation of
+one fixed NON-SCALAR profile on the remaining rotating memory block, arbitrary
+source features/gates and protected e1 gates, uses Cayley-Hamilton age coefficients
+exactly for the surrogate at every horizon. One-step delay handles an arbitrary
+terminal reset exactly. Count: 2n^2+3n+k+1, k=floor(n/2), plus n if h not supplied.
+Actual query error<=48/(5*10^8 c^2 sqrt(k)); restricted-class Theta_c(n^2), not
+general arbitrary gate-ratio changes. Epsilon1e-3/group-RMS/future queries unchanged.
+
+Primary general representation examined: one co-moving transport Q with a saved
+generator and feature coefficient matrix. Old decoded credit propagates EXACTLY;
+only fresh injections undergo continuous scalar/ridge refit. Fresh error covariance
+is ||f_t||^2 Rnew_t Rnew_t^T, with no full old-credit norm. Delayed persistent count
+n(2n+1)+(k-1)^2+(k-1)+(2n+1)+2, plus true h if needed. Reviewed ledger gives
+error<=delta_dense+a*kappa_Q*sqrt(z_(T-1)), but no universal small error claim.
+
+New analytic method counterexample: at c=1, n>=200 divisible4, ONE initial
+non-scalar pulse then scalar gates and a terminal reset causes the saved-first-
+generator/fixed-positive-ridge implementation to miss actual permitted queries
+by>.06 at a finite sufficiently long horizon. Frame degeneration suppresses
+new credit in at least n/4-1 stationary modes; old credit is not averaged away.
+The accepted finite-event encoder solves that same class quadratically. This
+does not imply Omega(n^2 log n), and does not exclude adaptive basis renewal.
+
+Smallest remaining obstruction: finite-error query-visible closure/renewal of
+transport AND injector modules with old observable credit preserved, all state
+counted, arbitrary gate ratios and horizon. General Omega_c(n^2) to O_c(n^2 log n)
+unchanged. New commutator/gauge lemmas explain why propagation alone is insufficient.
+Proof/report/source hashes: theory/age_preserving_transport_basis_20261002/.
+Manual mathematical checks only; no tests, experiments, GPU, training or GAS-0.
+Next: independent hostile review of the new age-basis/frame-collapse theorems.
+STOP this stage; no other gamma regime or architecture work.
+
+## Historical theory — Query-weighted moment merger (2026-10-01)
 
 **PARTIAL THEORETICAL ADVANCE; ARBITRARY APERIODIC QUADRATIC UPPER STILL OPEN.**
 Same accepted rotating/dense family, gamma=c/n, epsilon1e-3, group-RMS units
