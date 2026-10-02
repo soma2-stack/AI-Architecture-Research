@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "c": 1,
+  "epsilon": 0.001,
+  "source_amplitude": 0.4,
+  "one_pulse_tau": 0.08,
+  "one_pulse_widths": [200, 256, 400, 601, 1000],
+  "screen_widths": [200, 400, 1000],
+  "model_seed": 0,
+  "screen_seed": 620021,
+  "one_pulse_samples": 24,
+  "section_antipodes": 4,
+  "query_starts": 6,
+  "query_iterations": 3,
+  "threads": 4,
+  "cpu_limit_seconds": 3600,
+  "precision_digits": 80,
+  "device": "cpu",
+  "classification_scope": "Independent verification plus finite-radius numerical joint-section screen, not arbitrary-aperiodic robust-width theorem"
+}

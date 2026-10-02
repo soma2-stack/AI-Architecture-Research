@@ -1,0 +1,120 @@
+{
+  "rows": [
+    {
+      "n": 200,
+      "pair": 0,
+      "reference_legal_query_distance": 0.019229921532564802,
+      "scalar_channel_distance": 2.286822283417842e-16,
+      "active_channel_distance": 0.019229921532564802,
+      "scalar_fraction_of_squared_query_norm": 1.414196658261976e-28,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 200,
+      "pair": 1,
+      "reference_legal_query_distance": 0.02908901494131387,
+      "scalar_channel_distance": 5.734859800929587e-16,
+      "active_channel_distance": 0.029089014941313867,
+      "scalar_fraction_of_squared_query_norm": 3.8867587152670146e-28,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 200,
+      "pair": 2,
+      "reference_legal_query_distance": 0.021305645735038955,
+      "scalar_channel_distance": 8.609536105169192e-16,
+      "active_channel_distance": 0.021305645735038955,
+      "scalar_fraction_of_squared_query_norm": 1.6329395223260067e-27,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 200,
+      "pair": 3,
+      "reference_legal_query_distance": 0.007981243246235094,
+      "scalar_channel_distance": 1.926694986643736e-15,
+      "active_channel_distance": 0.007981243246235094,
+      "scalar_fraction_of_squared_query_norm": 5.827534327501409e-26,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 400,
+      "pair": 0,
+      "reference_legal_query_distance": 0.019889611858396328,
+      "scalar_channel_distance": 1.912839847021783e-16,
+      "active_channel_distance": 0.01988961185839632,
+      "scalar_fraction_of_squared_query_norm": 9.249209236210105e-29,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 400,
+      "pair": 1,
+      "reference_legal_query_distance": 0.01155248570149733,
+      "scalar_channel_distance": 1.8727853289737175e-16,
+      "active_channel_distance": 0.01155248570149733,
+      "scalar_fraction_of_squared_query_norm": 2.627998528551606e-28,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 400,
+      "pair": 2,
+      "reference_legal_query_distance": 0.010239936158832343,
+      "scalar_channel_distance": 2.1441157551319021e-16,
+      "active_channel_distance": 0.010239936158832341,
+      "scalar_fraction_of_squared_query_norm": 4.384317106943594e-28,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 400,
+      "pair": 3,
+      "reference_legal_query_distance": 0.019654562579693342,
+      "scalar_channel_distance": 1.521371792201263e-16,
+      "active_channel_distance": 0.019654562579693342,
+      "scalar_fraction_of_squared_query_norm": 5.991615750080349e-29,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 1000,
+      "pair": 0,
+      "reference_legal_query_distance": 0.013353479665268718,
+      "scalar_channel_distance": 2.508990849301304e-16,
+      "active_channel_distance": 0.01335347966526872,
+      "scalar_fraction_of_squared_query_norm": 3.5302808423145377e-28,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 1000,
+      "pair": 1,
+      "reference_legal_query_distance": 0.009167200280833556,
+      "scalar_channel_distance": 2.7356440339910417e-16,
+      "active_channel_distance": 0.009167200280833558,
+      "scalar_fraction_of_squared_query_norm": 8.90524212345708e-28,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 1000,
+      "pair": 2,
+      "reference_legal_query_distance": 0.009668210373498905,
+      "scalar_channel_distance": 4.717757762704554e-16,
+      "active_channel_distance": 0.009668210373498904,
+      "scalar_fraction_of_squared_query_norm": 2.3811079894496706e-27,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    },
+    {
+      "n": 1000,
+      "pair": 3,
+      "reference_legal_query_distance": 0.0032802456936159635,
+      "scalar_channel_distance": 1.9116141663379863e-16,
+      "active_channel_distance": 0.0032802456936159626,
+      "scalar_fraction_of_squared_query_norm": 3.396156793603924e-27,
+      "scope": "ONE frozen query witness; not worst-query fraction or a robust cap"
+    }
+  ],
+  "resource": {
+    "cpu_seconds": 0.859375,
+    "wall_seconds": 0.6353845000267029,
+    "peak_rss_bytes": 105979904,
+    "gpu_seconds": 0,
+    "cuda_used": false,
+    "max_threads_declared": 4
+  }
+}

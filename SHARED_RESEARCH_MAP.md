@@ -4,7 +4,37 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Finite-radius reachable fixed-feature width (2026-10-02)
+## Current independent verification — Pulse lower and co-rotating profiles (2026-10-02)
+
+**STRONGER LINEAR LOWER VERIFIED; GENERAL SUPERLINEAR QUESTION STILL OPEN.**
+Codex independently re-derived Claude's bounded-pulse cap and stronger one-pulse
+section: m=2floor((floor(n/2)-floor(n/4))/2)-1>=floor(n/4)-2, whole-section
+half-margin>.00161 and physical radius<.44 at unchanged c1/gamma1/n/epsilon.001.
+Independent n200/256/400/601/1000 checks reproduce49/63/99/149/249 directions.
+Two displayed arithmetic claims and the generic stationary-rotated-gate
+heuristic are explicitly rejected/corrected; Claude originals remain untouched.
+
+- New scoped arguments require review: fixed-profile co-rotation/Floquet class
+  has Theta(n) worst-case selected-feature memory. Changing latent-cycle
+  profiles have exact scalar+d-by-d reference credit with all-query dense error.
+  Long sustained even-d sections have constant two-step active dissipation;
+  their active query diameter tends to0 for T>=sqrt(n), so this particular
+  construction cannot give width-uniform superlinear robust growth. Explicit
+  crossover n>=1e12 is deliberately conservative, not a practical prediction.
+-102 frozen finite-radius sections/408 antipodes and a separately frozen
+  numerical adversary do NOT certify omega(n). Some n ln n charts have strong
+  sampled queries in the active block, but full-sphere lower/upper brackets
+  remain open. Weakening gates/short ln n windows evade the scoped obstruction.
+- General fixed-feature Omega(n)--O(n^2) and full-model Omega(n^2)--O(n^2 log n)
+  are unchanged. No architecture or learning inference. CPU only, ~9.3 measured
+  CPU-min; original evidence, notebooks, AGENTS/GAS-0 preserved.
+
+Self-contained proof, independent code/raw data/tests/failure logs/provenance:
+theory/codex_two_pulse_corotating_20261002/. Next: review the new scoped lemma,
+then a finite-radius all-query bound/countersection for its short/weak-gate
+active-block loophole. STOP this stage.
+
+## Historical theory — Finite-radius reachable fixed-feature width (2026-10-02)
 
 **JOINT LINEAR LOWER SECTION; GENERAL LINEAR/SUPERLINEAR GROWTH STILL OPEN.**
 New author-derived theory requires independent hostile review. Accepted theorem

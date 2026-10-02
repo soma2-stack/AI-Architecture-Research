@@ -1,0 +1,19 @@
+test_history_objective_gradient_finite_difference (__main__.ReducedTests.test_history_objective_gradient_finite_difference) ... ok
+test_invariant_block_and_full_numerical_agreement (__main__.ReducedTests.test_invariant_block_and_full_numerical_agreement) ... FAIL
+
+======================================================================
+FAIL: test_invariant_block_and_full_numerical_agreement (__main__.ReducedTests.test_invariant_block_and_full_numerical_agreement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\coler\OneDrive\Desktop\ai new\theory\codex_two_pulse_corotating_20261002\tests_adversary.py", line 18, in test_invariant_block_and_full_numerical_agreement
+    hm, _ = profiles(f, Q, Z, -C, "sustained", "spread")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\theory\codex_two_pulse_corotating_20261002\independent.py", line 299, in profiles
+    assert np.max(abs(rotated)) < .401
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.012s
+
+FAILED (failures=1)

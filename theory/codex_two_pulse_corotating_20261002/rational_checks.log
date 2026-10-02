@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\coler\OneDrive\Desktop\ai new\theory\codex_two_pulse_corotating_20261002\rational_checks.py", line 57, in <module>
+    run()
+  File "C:\Users\coler\OneDrive\Desktop\ai new\theory\codex_two_pulse_corotating_20261002\rational_checks.py", line 47, in run
+    assert all(tests.values()), tests
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: {'sg_exceeds_076783': True, 'derivative_positive_term_below_115': True, 'derivative_subtracted_term_above_157': True, 'm_over_n_exceeds_09502': True, 'sqrt_half_exceeds_070710': True, 'uniform_reference_margin_exceeds_0016181': False, 'atanh_pulse_plus_bias_below_04737': True, 'physical_radius_below_044': True, 'reset_common_leak_below_0025': True, 'cycle_leak_below_0225': True, 'dense_error_bound_below_1e10': True}
