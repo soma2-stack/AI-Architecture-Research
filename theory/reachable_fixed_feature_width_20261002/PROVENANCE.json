@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-02",
+  "source_commit": "31e1a88fa7d0bfff42e2d45e49b0a70da3913b5a",
+  "scope": "Bounded theoretical attempt; no new experiment or witness optimization",
+  "c": 1,
+  "gamma": "1/n",
+  "epsilon": "1e-3",
+  "source_feature": ".4ones_l",
+  "endpoint": "h=0",
+  "query_contract": "Existing group-RMS and actual permitted normalized late queries",
+  "new_claim": "Joint floor(n/8) finite-radius lower for n>=200; general width remains open",
+  "input_radius_bound": "total physical history-input L2 < 0.2, not diagnostic radius 0.05",
+  "new_arguments_status": "Author-derived mathematical proof; independent hostile review required",
+  "experimental_cpu_seconds": 0,
+  "gpu_seconds": 0,
+  "administrative_cpu_time": "not profiled",
+  "peak_ram": "not measured; no numerical workload",
+  "tests": "No automated tests requested or run; manual proof audit in CHECKS.md",
+  "source_hashes": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6"
+    },
+    {
+      "path": "experiments/fixed_feature_reachable_operator_20261002/REPORT.md",
+      "sha256": "33765489514befc5a8fb4976551c98a0dfc533b337eab1c8c0669283d61d378e"
+    },
+    {
+      "path": "experiments/fixed_feature_reachable_operator_20261002/config.json",
+      "sha256": "a3ca82897742ca7d15105679b251d805efcb31ccecaa19f2d7d008884f58e41b"
+    },
+    {
+      "path": "theory/query_visible_operator_dimension_20261002/PROOF.md",
+      "sha256": "5d21eef744714a5c7620f2fda039ffcbc2f5c2f1246ef5b465fab77081838aa4"
+    },
+    {
+      "path": "theory/claude_operator_dimension_review_20261002/REVIEW.md",
+      "sha256": "f9a47ee08785f6649678f357859ca9bc75d0465bed5d7539329570b11edac963"
+    },
+    {
+      "path": "theory/gamma_c_over_n_quadratic_20261001/PROOF.md",
+      "sha256": "e517dcd0475276b4b1b39190d221d3313dba71a2bcb8359f8e250b6978de58f6"
+    },
+    {
+      "path": "theory/rotating_gate_aggregation_20261001/PROOF.md",
+      "sha256": "339d1d880f32f448accc0727c97f9f6210f15648bd56b8faaa8888d7bd3a865f"
+    },
+    {
+      "path": "theory/near_critical_credit_phase_diagram_20261001/PROOF.md",
+      "sha256": "f81a07fc33a5a196a6735a3292afb9664441679e78e47a54e844298de751c72c"
+    },
+    {
+      "path": "theory/aperiodic_query_aggregation_20261001/PROOF.md",
+      "sha256": "a8196736187943162a44fe1804c57a5a2335f15a88179d96317ecc0835c2413d"
+    }
+  ],
+  "payload_hashes": [
+    {
+      "path": "theory/reachable_fixed_feature_width_20261002/PROOF.md",
+      "sha256": "2d8d0b4e27fca8a8f436ded33130446be75c07e844c3c89650293d750e6084cd"
+    },
+    {
+      "path": "theory/reachable_fixed_feature_width_20261002/REPORT.md",
+      "sha256": "eceb9510d729e62ca3067dbad697fa590e46c9a85858384db8a44a082928eda3"
+    },
+    {
+      "path": "theory/reachable_fixed_feature_width_20261002/CHECKS.md",
+      "sha256": "817be56d0014a58c29b926995c62cd78b7a511f4564f0fba4f35acf65a038fe2"
+    }
+  ],
+  "source_hash_check": "All nine recorded source hashes rechecked unchanged before commit"
+}

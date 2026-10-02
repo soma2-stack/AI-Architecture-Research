@@ -4,7 +4,39 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current diagnostic — Reachable fixed-feature operators (2026-10-02)
+## Current theory — Finite-radius reachable fixed-feature width (2026-10-02)
+
+**JOINT LINEAR LOWER SECTION; GENERAL LINEAR/SUPERLINEAR GROWTH STILL OPEN.**
+New author-derived theory requires independent hostile review. Accepted theorem
+files and diagnostic artifacts are unchanged; no experiment or new witness
+search was run.
+
+- Same c1, gamma1/n, epsilon1e-3, actual hard dense rotating model, group-RMS
+  normalization, real permitted late queries, public .4ones source and exact
+  h=0. Tangent counts/finite sampled axes are motivation, not proof premises.
+- For every n>=200, a simultaneous paired-coordinate section has
+  m>=floor(n/8) genuine continuous directions. Physical history-input radius
+  <.2, NOT the numerical radius.05. Its actual selected sensitivity is affine;
+  one legal future query gives whole-section lower Lipschitz constant>.0013
+  and every boundary antipodal distance>.0026>2epsilon. All combinations are
+  admissible, with actual dense leakage and fixed-input differentiation.
+- Fixed-feature lower Omega(n), upper O(n^2): r^2 reference credit entries
+  (plus n forward-state entries while streaming) have all-query error<2e-9.
+  The affine patch is exactly m-dimensional; the arbitrary aperiodic union
+  is NOT proved O(n), O(n polylog n), or robustly superlinear.
+- Finite gate-difference Duhamel plus adjoint-energy telescoping supplies a
+  source-weighted Gram error test, with necessary zero-loss kernel term.
+  Its tail is not uniformly controlled. It is not an encoder or a reduction
+  of the remaining problem. The weak mixed tail remains unclassified.
+- Full accepted Omega_c(n^2) to O_c(n^2 log n) gap is unchanged. Simultaneous
+  multi-feature compatibility/counting is still necessary. No architecture,
+  learning, gamma1/n^2, GPU, model server, or GAS-0 operation.
+
+Proof/report/manual checks/provenance: theory/reachable_fixed_feature_width_20261002/.
+Next action: hostile audit of the joint finite section, then a uniform finite-
+radius worst-query tail bound for multigate innovations. STOP this theory stage.
+
+## Historical diagnostic — Reachable fixed-feature operators (2026-10-02)
 
 **SAMPLED FINITE CORE FAVORS LINEAR GROWTH; FULL DIMENSION STILL UNRESOLVED.**
 Prospective CPU diagnostic63292dd, output-only repair f1935bb; separate
