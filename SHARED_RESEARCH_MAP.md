@@ -4,7 +4,42 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Arbitrary-horizon log-gap attack (2026-10-01)
+## Current theory — Rotating gated aggregation attack (2026-10-01)
+
+**GENERAL LOG GAP OPEN; new conditional theorems/method obstructions need review.**
+Owner accepts the independent log-gap review: suffix lookback is not persistent
+memory. Same gamma=c/n, epsilon1e-3, group-RMS and late queries, now focusing
+on the accepted HARD rotating/dense quadratic family, not near-diagonal R.
+
+New arbitrary-horizon aggregate: scalar memory gates (arbitrarily varying common
+scalar, arbitrary source gates) use cyclic feature moments and source traces,
+(d+l)(2n+1)<=P credit coordinates. Reviewed dense-transfer bound stays below
+epsilon for large n. Accepted quadratic lower lies inside this history class,
+so Theta_c(n^2) holds ON THIS CLASS for arbitrary length. Fixed-period memory
+gates also use O_p(n^2) moments/buffers, even with noncommuting gated products;
+unknown periodic pattern entries are counted. Neither theorem covers arbitrary
+aperiodic gates. Actual model/future queries are unchanged.
+
+New method-specific obstruction: on the SAME rotating model an analytic bounded
+Fourier-source history makes rank-r sensitivity truncation fail at r<=k/2,
+with actual normalized query error>.0011848. Unstructured low-rank factors need
+rankOmega(n) and cubic storage. This is NOT an arbitrary encoder lower; moments
+can decode high-rank matrices from quadratic state. A fixed powers/Krylov basis
+is not closed under admissible gates; full matrix algebra alone proves no robust
+memory lower or joint independent sensitivity section.
+
+New all-history adjoint bounds: squared temporal adjoint energy and total
+query-visible gate defect are O_c(1) in the rotating family, independent of
+horizon. Direct error comparison still couples the defect to C/gamma old credit,
+leaving O_c(n) error instead of epsilon. This is a failed bound, not a universal
+compression obstruction. General class remains Omega_c(n^2) to O_c(n^2 log n).
+
+Next: independently review these lemmas, then an APERIODIC query-weighted moment
+aggregation theorem that avoids the loose old-credit factor. STOP. No other
+gap regime, experiments, architecture, GPU or GAS-0 work. Full derivations:
+theory/rotating_gate_aggregation_20261001/PROOF.md and REPORT.md.
+
+## Historical theory — Arbitrary-horizon log-gap attack (2026-10-01)
 
 **WORST-CASE LOG GAP REMAINS OPEN; two new encoding lemmas require review.**
 The owner-accepted independent review confirms the quadratic lower at
