@@ -1,0 +1,22 @@
+{
+  "timing": "After primary source-only results; before any full-history Jacobian outcomes",
+  "widths": [
+    12,
+    16,
+    20,
+    24
+  ],
+  "seeds": [
+    73101,
+    73102
+  ],
+  "epsilon": 0.001,
+  "c": 1.0,
+  "source_commit": "ff8aa582da0b0225365c556a60e12830841aff02",
+  "inputs": {
+    "full_history.py": "b363a16a65895bfd033c402b1e2ef23903b929036d55ace89e8dfc8aaf5be18d",
+    "FULL_HISTORY_SUPPLEMENT.md": "c03ac9b904dcf7b4bc1889eccc3cd7b1b42ecb7d73d3a4e5496803cb206790c4",
+    "run.py": "f74bee8b51bf43d2267f56b8acb3c573d6cc0fa4775335f6ddfab5a45a693e2e",
+    "config.json": "995b704775f6adcfeff252e0512a7c3831c1761643874d692fab4724fcc82f6c"
+  }
+}
