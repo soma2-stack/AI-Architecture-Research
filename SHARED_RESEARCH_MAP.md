@@ -4,7 +4,42 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
-## Current theory — Sustained / weakening fixed-feature credit (2026-10-02)
+## Current theory — Intermediate weak-gate credit (2026-10-02)
+
+**JOINT LINEAR LOWER IN THE INTERMEDIATE REGIME; GENERAL COMPRESSION OPEN.**
+Owner-accepted Grok review verifies the prior sustained and very-weak-tail
+bounds; they remain scoped premises, not a universal O(n) theorem.
+
+- New Codex derivations require independent review. At c1/gamma1/n/epsilon.001,
+  the canonical N=ceil(4n log n)+1 window has every selected deficit between
+  1/(20n) and1/(4n), with preparation/reset exceptions stated explicitly.
+  Every gate word in that cube has a simultaneous admissible tanh/input lift.
+  Old-credit query error<=.3n^(-37/10); fresh credit remains the bottleneck.
+- A NEW narrow-regime joint section has m>=floor(n/8), uniform physical-input
+  radius<2, exact endpoint0 and every actual permitted-query antipodal
+  half-margin>.00174>.001. Paired stationary eligibilities remain exact
+  through a12n-step weak tail. Its constant-tail subclass is Theta(n); this
+  neither improves the accepted whole-class one-pulse coefficient nor solves
+  arbitrary aperiodic weak gates.
+- An ordered-word expansion gives a uniform finite-error polynomial proxy
+  with all-query error<=epsilon/4 at public order p_n=O(log n+log(1/epsilon)).
+  No matrices or bases are made free: the literal hierarchy costs MORE than
+  r^2 RTRL. Degree is not memory and not a log-factor lower.
+- Remaining concrete object: the reachable chronological polynomial residual
+  H_(n,N,p_n)(D) in the ACTUAL permitted-query norm, with an explicit first-
+  order age/source kernel and controlled higher-order tail. An O(n) causal
+  continuous representation OR a single buffered superlinear same-h section
+  would settle this attempt. Neither is established. General fixed-feature
+  Omega(n)--O(n^2) and full Omega_c(n^2)--O_c(n^2 log n) bounds stay unchanged.
+- No numerical experiment/tests/new spectra, dead-chart revival, architecture,
+  training, GPU, model server, other gap regime or GAS-0 work. Manual symbolic
+  checks and read-only source hashes saved; prior evidence preserved.
+
+Proof/report/checks/provenance: theory/codex_intermediate_gate_credit_20261002/.
+Next: independent audit of the new scoped statements, then the finite-error
+causal width of the mixed weak-gate polynomial, not tangent rank. STOP.
+
+## Historical theory — Sustained / weakening fixed-feature credit (2026-10-02)
 
 **SCOPED FINITE-ERROR UPPERS; WHOLE-CLASS LINEAR BOUND STILL OPEN.**
 The owner accepts the moving-spike decomposition/R1 and Grok-reviewed certified
