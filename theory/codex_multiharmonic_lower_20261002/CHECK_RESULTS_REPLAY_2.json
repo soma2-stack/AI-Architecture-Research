@@ -1,0 +1,62 @@
+{
+  "status": "all independent algebra/contract checks passed",
+  "proof_constant_checks": "exact rational arithmetic passed",
+  "asymptotic_certificate": "analytical proof, not established by numerical checks",
+  "results": [
+    {
+      "n": 200,
+      "F": 2,
+      "N": 4240,
+      "diagnostic_delta": 0.03,
+      "seed": 610201,
+      "exact_eigenvector_error": 1.9869968258640557e-16,
+      "ideal_kernel_formula_error": 1.0896096981628377e-17,
+      "symmetric_kernel_min_eigenvalue": 86.588965362409,
+      "proved_kernel_floor": 5.0,
+      "max_twist_bound_ratio": 0.07698378265248271,
+      "degree_one_physical_l1": [
+        0.1188714533310179,
+        0.059463177196067
+      ],
+      "ideal_l1": [
+        0.11013331702183181,
+        0.053003980169250765
+      ],
+      "odd_order_remainder_after_degree5": 4.51980220596721e-14,
+      "degree7_tail_upper": 4.377940146131517e-09,
+      "legal_one_step_half_distance_lower": 4.25788847960481e-05,
+      "complex_column_dual_lower": 1.4289457130222364e-05,
+      "maximum_gate_defect": 0.019063894736210587
+    },
+    {
+      "n": 400,
+      "F": 2,
+      "N": 9588,
+      "diagnostic_delta": 0.03,
+      "seed": 610202,
+      "exact_eigenvector_error": 1.4283885887765927e-16,
+      "ideal_kernel_formula_error": 1.8763903324156507e-17,
+      "symmetric_kernel_min_eigenvalue": 173.37168172021643,
+      "proved_kernel_floor": 10.0,
+      "max_twist_bound_ratio": 0.08392130037985078,
+      "degree_one_physical_l1": [
+        0.30228247436612443,
+        0.15623641181961262
+      ],
+      "ideal_l1": [
+        0.29683617893886965,
+        0.14531348362254895
+      ],
+      "odd_order_remainder_after_degree5": 1.2243315824535353e-13,
+      "degree7_tail_upper": 8.755880292263035e-09,
+      "legal_one_step_half_distance_lower": 3.4252139587938664e-05,
+      "complex_column_dual_lower": 1.8260000915275927e-05,
+      "maximum_gate_defect": 0.019510042026094413
+    }
+  ],
+  "cpu_seconds": 3.0,
+  "wall_seconds": 3.1380512999603525,
+  "peak_ram_bytes": 37007360,
+  "gpu_seconds": 0,
+  "cuda_used": false
+}

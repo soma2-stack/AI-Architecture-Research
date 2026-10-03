@@ -1,0 +1,67 @@
+{
+  "stage": "independent takeover of joint multi-harmonic lower construction",
+  "date": "2026-10-02",
+  "owner": "Codex",
+  "source_commit": "23e9fa5323a32f208cccce88449eab8586d07146",
+  "claim_status": "new analytical proof internally checked; independent hostile review required",
+  "theorem": {
+    "epsilon": "1/1000 unchanged",
+    "c": 1,
+    "gamma": "1/n",
+    "n0": "10^504",
+    "harmonics": "floor(n^(1/18))",
+    "parameters_per_harmonic": "floor(floor(n/4)/1,000,000)",
+    "dimension": "qF >= n^(19/18)/20,000,000",
+    "amplitude": "10^(-10)/F^3",
+    "antipodal_half_margin": ">9",
+    "history_radius": "<8 delta sqrt(n log n), finite but not width-uniform",
+    "encoding_scope": "continuous no-replay all-admitted-history fixed-feature credit memory; strict polynomial causal width also covered",
+    "not_claimed": ["n^(7/6)", "moderate-width evidence", "uniform history-energy radius", "full-model gap closure", "finite-bit memory", "architecture novelty"]
+  },
+  "source_inputs": [
+    {"path":"AGENTS.md","sha256":"3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6"},
+    {"path":"SHARED_RESEARCH_MAP.md","sha256":"909d12bc629bb0f04fcba3b2c40d9870a85311e6b96df0d527813844ff73c638"},
+    {"path":"Claude_Research.md","sha256":"a63cbfda3e5d3815130b3a6c32a5a4fdb2f0d0612b5946d611627014b31814a1","read_scope":"owner-authorized newest resume/checkpoint excerpt"},
+    {"path":"theory/claude_causal_width_20261002/REPORT.md","sha256":"1e653e20ffb2a2f68faf011eae9b5cafde78d1a8ee950ccf58f746af45b21aa1"},
+    {"path":"theory/claude_causal_width_20261002/harmonic_probe.py","sha256":"e964524c0314bd7bdfe9a2c02c2dafa9bfe1fb4a235e8081ec9299d35acbe3e3","usage":"read to identify the undressed-probe issue; not imported or reused"},
+    {"path":"theory/codex_online_gate_polynomial_20261002/PROOF.md","sha256":"929a8d5367606c7f4a57302f15066c1aa9e4eb0197402c546b9bb53314dac4ad"},
+    {"path":"theory/codex_causal_suffix_width_20261002/PROOF.md","sha256":"8749d575c81d15d3ffdd30caa9c5aa493912d2645367e3bb4414ef28709b6af7"},
+    {"path":"theory/grok_causal_suffix_width_review_20261002/REPORT.md","sha256":"8633e421a4ede6cbd491a8bd0f7fb80fa754c9c133fcc6c6af6f9617dbba451b"}
+  ],
+  "independent_verification": {
+    "script": "checks.py",
+    "imports_claude_code": false,
+    "reads_claude_numeric_outputs": false,
+    "numeric_widths": [200,400],
+    "numeric_amplitude": ".03, algebra check only; not the asymptotic proof amplitude",
+    "seeds": [610201,610202],
+    "runs": ["CHECK_RESULTS.json","CHECK_RESULTS_REPLAY_2.json"],
+    "version_note": "After the first passing run, exact hyperbolic/query rational assertions and non-overwriting output naming were added. Numerical recurrence/check procedure unchanged. Both outputs preserved.",
+    "rank_used_as_memory_lower": false,
+    "proof_by_numerical_midpoint": false,
+    "proof_constants": "exact rational comparisons and analytical inequalities"
+  },
+  "compute": {
+    "cpu_seconds": 5.625,
+    "wall_seconds": 5.812642,
+    "peak_ram_bytes": 37007360,
+    "gpu_seconds": 0,
+    "cuda_used": false,
+    "administrative_shell_time": "unprofiled"
+  },
+  "literature_note": "Author/publisher listings of Vershynin's High-Dimensional Probability were consulted as standard background. PDF fetch failed. No external Kashin or Gaussian-concentration constant is used: the spreading lemma is proved directly in PROOF.md.",
+  "claude_or_grok_files_modified": false,
+  "historical_evidence_modified": false,
+  "shared_map_modified": false,
+  "gas0_touched": false,
+  "artifact_hashes": {
+    "hash_convention": "SHA256 of final working-tree bytes before commit; provenance JSON itself excluded",
+    "CHECK_RESULTS_REPLAY_2.json": "f16c388bd7b8a779f7ce3bf3feadd2895f5a40b33116ce3845f820a4a37e28de",
+    "CHECK_RESULTS.json": "ee12a1464926e2b69b3a4e074401e95f4dd9fc59015e2cbb85b51ae730b0051e",
+    "CHECKS.md": "5234c8c60d7c086369317b7b45eca0b28570792c230a97abc9eadfbc7a569ea0",
+    "checks.py": "50bd6b0231749b7e7c20fd32869275213621506cabd6b9384eb4b8636dd0aa3d",
+    "PROOF.md": "9e200bc328f9de0be107f7b25fe511ad2f9ea235e79ef3b07e725156fa56fe49",
+    "REPORT.md": "ed7c20fa00bab1aaeda07c65cee159eba2bed2b6511875e9196438165e28ff3a"
+  },
+  "next_step": "independent hostile review; stop before any other stage"
+}
