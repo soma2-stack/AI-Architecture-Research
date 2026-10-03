@@ -1,0 +1,8 @@
+2026-10-03: first checks.py execution.
+All mathematical assertions completed before the resource-reporting function.
+The Windows GetProcessMemoryInfo call raised:
+ctypes.ArgumentError: argument 1: OverflowError: int too long to convert
+The cause was a missing ctypes HANDLE argument declaration on the resource
+reporting API. The declaration was added. No proof, test inequality, input,
+threshold, or candidate was changed. No result JSON had been written.
+Command wall time reported by the execution tool: 1.1256693 seconds.

@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "all_frozen_source_hashes_unchanged": true,
+  "frozen_source_count": 25,
+  "legal_spike_checks": [
+    {
+      "n": 200,
+      "legal_spike_value": 0.6540188927521464,
+      "direct_row_discrepancy": 1.1102230246251565e-16,
+      "spike_times_sqrt_n": 9.249223881783202
+    },
+    {
+      "n": 256,
+      "legal_spike_value": 0.656420284670068,
+      "direct_row_discrepancy": 1.1102230246251565e-16,
+      "spike_times_sqrt_n": 10.502724554721087
+    },
+    {
+      "n": 601,
+      "legal_spike_value": 0.6606870742515714,
+      "direct_row_discrepancy": 1.1102230246251565e-16,
+      "spike_times_sqrt_n": 16.196942719536423
+    },
+    {
+      "n": 1000,
+      "legal_spike_value": 0.6626359580091433,
+      "direct_row_discrepancy": 0.0,
+      "spike_times_sqrt_n": 20.95438886836586
+    },
+    {
+      "n": 50000,
+      "legal_spike_value": 0.6646508238644914,
+      "direct_row_discrepancy": 1.3100631690576847e-14,
+      "spike_times_sqrt_n": 148.62044234622422
+    }
+  ],
+  "checks_script_matches_saved_run": true,
+  "important_sources": {
+    "theory/codex_bounded_history_multiharmonic_20261003/PROOF.md": "346101b9b074350ebe53d157099a883feef686c2eadaab3806ab911b9dd10e4b",
+    "theory/codex_bounded_history_multiharmonic_20261003/REPORT.md": "e0aacde5a1d4b56648b8ef5f7ef8a004fdaaed9f5ffd034a6e06c4bd6850d0fe",
+    "theory/codex_energy_credit_tradeoff_20261003/PROOF.md": "028eeaf4aed2c329dda085483829974d2ddde2c0a9a2c5f23b75a3a32d6f9efa",
+    "theory/codex_energy_credit_tradeoff_20261003/REPORT.md": "b5a6652806dfde46276e7f1c21d7eef922b5f276280e81c1619a9920614b36e9",
+    "theory/codex_multiharmonic_lower_20261002/PROOF.md": "018e30761002ac0d088136c6a4b36331cedf01d5fe97d196648211fa73105cac",
+    "theory/codex_multiharmonic_lower_20261002/REPORT.md": "d451baca59030f5bb945e6ce6a336cb1b5c1eb8cf4ecd26afdaf94aa6c396b09",
+    "theory/grok_energy_credit_tradeoff_review_20261003/REPORT.md": "d91b838a27492b0abd096a30be6717ee43519c4b1b26ebb8c7fbad9667031ab1"
+  },
+  "GPU_used": false,
+  "CPU_seconds": 0.0,
+  "wall_seconds": 0.004376800000045478
+}
