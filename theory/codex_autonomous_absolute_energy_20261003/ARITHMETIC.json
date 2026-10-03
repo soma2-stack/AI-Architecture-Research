@@ -1,0 +1,192 @@
+{
+  "checks": [
+    {
+      "name": "reference B_m bound",
+      "pass": true,
+      "detail": "1004797/191880000000"
+    },
+    {
+      "name": "reference gamma square",
+      "pass": true,
+      "detail": "tau<1/700"
+    },
+    {
+      "name": "Phi(B_m) negative",
+      "pass": true,
+      "detail": "-21649/1000000"
+    },
+    {
+      "name": "source/protected positive",
+      "pass": true,
+      "detail": "atanh(1/40)<1/20"
+    },
+    {
+      "name": "dense fixed-point transfer",
+      "pass": true,
+      "detail": "n>=10^6"
+    },
+    {
+      "name": "radial contraction",
+      "pass": true,
+      "detail": "10000/10001"
+    },
+    {
+      "name": "public tail time-l2 constant",
+      "pass": true,
+      "detail": "100020001/200010000"
+    },
+    {
+      "name": "radial time-l2 gain",
+      "pass": true,
+      "detail": "exact"
+    },
+    {
+      "name": "radial pointwise gain",
+      "pass": true,
+      "detail": "10000/sqrt(20001)<71"
+    },
+    {
+      "name": "good transport sum",
+      "pass": true,
+      "detail": "exact"
+    },
+    {
+      "name": "source gain",
+      "pass": true,
+      "detail": "n>=200"
+    },
+    {
+      "name": "local second derivative",
+      "pass": true,
+      "detail": "(4/(3sqrt(3)))^2<1"
+    },
+    {
+      "name": "coarse C_R coefficients",
+      "pass": true,
+      "detail": "bounds C_R/(1+R)^3, every R>=0"
+    },
+    {
+      "name": "logarithm sufficient onset",
+      "pass": true,
+      "detail": "log(10^80)<240<10^4"
+    },
+    {
+      "name": "80/120 decimal agreement n=1000000",
+      "pass": true,
+      "detail": "saved 45-digit scalar values and ceiling counts agree; numerical cross-check only"
+    },
+    {
+      "name": "80/120 decimal agreement n=100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "pass": true,
+      "detail": "saved 45-digit scalar values and ceiling counts agree; numerical cross-check only"
+    },
+    {
+      "name": "80/120 decimal agreement n=1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "pass": true,
+      "detail": "saved 45-digit scalar values and ceiling counts agree; numerical cross-check only"
+    },
+    {
+      "name": "independent selected-row identity n=200",
+      "pass": true,
+      "detail": {
+        "max_error": 4.440892098500626e-16
+      }
+    },
+    {
+      "name": "numerical reference fixed point convergence n=200",
+      "pass": true,
+      "detail": {
+        "iterations": 533,
+        "residual": 9.864584965122254e-13,
+        "min_coordinate": -0.11760216435074086,
+        "scope": "below theorem threshold; NOT an outward certificate"
+      }
+    },
+    {
+      "name": "independent selected-row identity n=2000",
+      "pass": true,
+      "detail": {
+        "max_error": 1.4432899320127035e-15
+      }
+    },
+    {
+      "name": "numerical reference fixed point convergence n=2000",
+      "pass": true,
+      "detail": {
+        "iterations": 3946,
+        "residual": 9.9711016340348e-13,
+        "min_coordinate": -0.0022257110610129443,
+        "scope": "below theorem threshold; NOT an outward certificate"
+      }
+    },
+    {
+      "name": "global secant numeric example z=-.9",
+      "pass": true,
+      "detail": "1.621980605315293272523424891194101259891"
+    },
+    {
+      "name": "global secant numeric example z=-.01",
+      "pass": true,
+      "detail": "1.000100022006144757763976383535020478929"
+    },
+    {
+      "name": "global secant numeric example z=0",
+      "pass": true,
+      "detail": "1.000133365342479035851859197732319524038"
+    },
+    {
+      "name": "global secant numeric example z=.01",
+      "pass": true,
+      "detail": "1.000233395351481870115507640324216659366"
+    },
+    {
+      "name": "global secant numeric example z=.02",
+      "pass": true,
+      "detail": "1.0004001600640256102440976390556222489"
+    },
+    {
+      "name": "global secant numeric example z=.8",
+      "pass": true,
+      "detail": "1.382832847899051423946420580728050402778"
+    }
+  ],
+  "count": 27,
+  "high_precision_values": [
+    {
+      "n": "1000000",
+      "R_abs": "0.25",
+      "L": 115136,
+      "B_R": 62550010000,
+      "H_R": 62550020000,
+      "chi_R": "17.77",
+      "C_R": "44469451582018551.0099960011998399040895609669",
+      "query_error_bound": "196706689209680.449599311869944340107452282274"
+    },
+    {
+      "n": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "R_abs": "1",
+      "L": 967135,
+      "B_R": 1000200010000,
+      "H_R": 1000200020000,
+      "chi_R": "71.02",
+      "C_R": "2841936511481564604.00999900007499749962508749",
+      "query_error_bound": "9.81619764454216800573933536358522144817645092e-21"
+    },
+    {
+      "n": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "R_abs": "1",
+      "L": 10408205,
+      "B_R": 1000200010000,
+      "H_R": 1000200020000,
+      "chi_R": "71.02",
+      "C_R": "2841936511481564604.00999900007499749962508749",
+      "query_error_bound": "1.04708157057773011704062302498024646726948312e-429"
+    }
+  ],
+  "CPU_seconds": 0.171875,
+  "wall_seconds": 0.17153350007720292,
+  "peak_RAM_bytes": 36921344,
+  "GPU_seconds": 0,
+  "CUDA_used": false,
+  "scope": "new analytic inequalities and tiny reference consistency checks, no witness search"
+}

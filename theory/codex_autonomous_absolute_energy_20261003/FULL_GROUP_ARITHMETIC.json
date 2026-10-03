@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "name": "beta_loss lower",
+      "pass": true,
+      "detail": "beta_loss>sqrt(n)/2, n>=200"
+    },
+    {
+      "name": "full-gradient epsilon allocation",
+      "pass": true,
+      "detail": "2.1epsilon/6<epsilon/2"
+    },
+    {
+      "name": "full-gradient onset coefficient",
+      "pass": true,
+      "detail": "two epsilon/12 allocations"
+    },
+    {
+      "name": "W relative term condition",
+      "pass": true,
+      "detail": "n>=8R_abs^2 suffices"
+    },
+    {
+      "name": "80/120 decimal full-gradient agreement",
+      "pass": true,
+      "detail": "1.1002210858485e-28"
+    },
+    {
+      "name": "full-gradient epsilon gate",
+      "pass": true,
+      "detail": "1.1002210858485e-28"
+    }
+  ],
+  "count": 6,
+  "n": "10^80",
+  "R_abs": 1,
+  "full_normalized_query_error_upper": "1.1002210858485e-28",
+  "CPU_seconds": 0.0,
+  "wall_seconds": 0.0006191000575199723,
+  "GPU_seconds": 0,
+  "CUDA_used": false,
+  "scope": "same frozen bounded-energy family only; full-model worst-case gap unchanged"
+}
