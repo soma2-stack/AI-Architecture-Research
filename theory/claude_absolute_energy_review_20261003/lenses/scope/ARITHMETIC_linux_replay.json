@@ -1,0 +1,226 @@
+{
+  "checks": [
+    {
+      "name": "terminal coefficient all n >= 200",
+      "pass": true,
+      "detail": "24974999999/500000000000"
+    },
+    {
+      "name": "width-energy rational constant",
+      "pass": true,
+      "detail": "249001/200000000"
+    },
+    {
+      "name": "frozen local radius",
+      "pass": true,
+      "detail": "accepted 0.00970048, counted only as a local perturbation"
+    },
+    {
+      "name": "80/120 decimal precision scalar agreement n=200",
+      "pass": true,
+      "detail": "all saved 55-digit scalars and ceiling integers agree; numerical cross-check, not an interval certificate"
+    },
+    {
+      "name": "80/120 decimal precision scalar agreement n=256",
+      "pass": true,
+      "detail": "all saved 55-digit scalars and ceiling integers agree; numerical cross-check, not an interval certificate"
+    },
+    {
+      "name": "80/120 decimal precision scalar agreement n=400",
+      "pass": true,
+      "detail": "all saved 55-digit scalars and ceiling integers agree; numerical cross-check, not an interval certificate"
+    },
+    {
+      "name": "80/120 decimal precision scalar agreement n=1000",
+      "pass": true,
+      "detail": "all saved 55-digit scalars and ceiling integers agree; numerical cross-check, not an interval certificate"
+    },
+    {
+      "name": "80/120 decimal precision scalar agreement n=2000",
+      "pass": true,
+      "detail": "all saved 55-digit scalars and ceiling integers agree; numerical cross-check, not an interval certificate"
+    },
+    {
+      "name": "80/120 decimal precision scalar agreement n=1000000",
+      "pass": true,
+      "detail": "all saved 55-digit scalars and ceiling integers agree; numerical cross-check, not an interval certificate"
+    },
+    {
+      "name": "Householder center orthogonality n=200",
+      "pass": true,
+      "detail": {
+        "absolute_error": 4.691802502065912e-13,
+        "expected": 0
+      }
+    },
+    {
+      "name": "direct transition formula vs closed scalar formula n=200",
+      "pass": true,
+      "detail": {
+        "norm_error": 5.684341886080802e-14,
+        "norm": 244.40956036694917,
+        "counted_steps": 4242
+      }
+    },
+    {
+      "name": "bounded matrix perturbation sandwich n=200",
+      "pass": true,
+      "detail": {
+        "norm_change": 6.500044946733397e-11,
+        "bound": 2.611015128259505e-10,
+        "scope": "algebra check; not the archived dense witness"
+      }
+    },
+    {
+      "name": "Householder center orthogonality n=256",
+      "pass": true,
+      "detail": {
+        "absolute_error": 1.021405182655144e-13,
+        "expected": 0
+      }
+    },
+    {
+      "name": "direct transition formula vs closed scalar formula n=256",
+      "pass": true,
+      "detail": {
+        "norm_error": 5.684341886080802e-14,
+        "norm": 320.0330838641929,
+        "counted_steps": 5682
+      }
+    },
+    {
+      "name": "bounded matrix perturbation sandwich n=256",
+      "pass": true,
+      "detail": {
+        "norm_change": 5.1159076974727213e-11,
+        "bound": 2.0856962314475648e-10,
+        "scope": "algebra check; not the archived dense witness"
+      }
+    },
+    {
+      "name": "Householder center orthogonality n=400",
+      "pass": true,
+      "detail": {
+        "absolute_error": 4.218847493575595e-14,
+        "expected": 0
+      }
+    },
+    {
+      "name": "direct transition formula vs closed scalar formula n=400",
+      "pass": true,
+      "detail": {
+        "norm_error": 0.0,
+        "norm": 519.8585315173771,
+        "counted_steps": 9590
+      }
+    },
+    {
+      "name": "bounded matrix perturbation sandwich n=400",
+      "pass": true,
+      "detail": {
+        "norm_change": 3.319655661471188e-11,
+        "bound": 1.3864683101318978e-10,
+        "scope": "algebra check; not the archived dense witness"
+      }
+    }
+  ],
+  "check_count": 18,
+  "rows": [
+    {
+      "n": 200,
+      "N": 4240,
+      "history_length": 4242,
+      "E0": "244.4095603669491726714112291590116261886726924467532709",
+      "dense_norm_enclosure_radius": "0.0000000002611015128259505125305550717196026606243977628020019534",
+      "memory_energy": "532.02479591297179888781988923785518832907775758611789",
+      "source_energy": "59204.00840285240000573116163062172166858304550969520715",
+      "preparation_norm": "3.76979472962153624994542224733942209588727072136560864",
+      "terminal_lower": "0.4994999999858578643762690495119831127579030192143032812",
+      "weak_transition_lower": "-0.2047500163479256429260735987409174616120099659842293318",
+      "weak_window_lower": "0.0",
+      "E0_over_n_sqrt_log_n": "0.5309079269326434973756487779529401804594403729003174162",
+      "C_abs": "0.5331294833993391440567933918333789566539814720019360572"
+    },
+    {
+      "n": 256,
+      "N": 5680,
+      "history_length": 5682,
+      "E0": "320.0330838641929226243267742648538149024222702875429848",
+      "dense_norm_enclosure_radius": "0.000000000208569623144756455061790251013552197904720810248073822",
+      "memory_energy": "906.8573756020334384095568919439648487234628877953829824",
+      "source_energy": "101514.3173920235069769073473568841280656843852388685979",
+      "preparation_norm": "4.265035867194713152454347134667031653231851776015488458",
+      "terminal_lower": "0.565243483201230802317924961957563700778315727689723933",
+      "weak_transition_lower": "-0.1398364351450025832854577569774209824009603356340328191",
+      "weak_window_lower": "0.0",
+      "E0_over_n_sqrt_log_n": "0.5308810057407478731334555085917206822651381038403243528",
+      "C_abs": "0.5331294833993391440567933918333789566539814720019360572"
+    },
+    {
+      "n": 400,
+      "N": 9588,
+      "history_length": 9590,
+      "E0": "519.8585315173770048514662110221796248205433609234554855",
+      "dense_norm_enclosure_radius": "0.0000000001386468310131897677481933576496556142834359091974260035",
+      "memory_energy": "2515.908107210673864483351679234721388520488841803773848",
+      "source_energy": "267736.984684192986833721808786091986222925983812597417",
+      "preparation_norm": "5.331294833993391440567933918333789566539814720019360572",
+      "terminal_lower": "0.7067532277909542506386439399237966147651935197196297996",
+      "weak_transition_lower": "0.0006611153967987568568579332498968853364230968983315903066",
+      "weak_window_lower": "0.06473194184718645746725135334875568877303861843557984513",
+      "E0_over_n_sqrt_log_n": "0.5309561889748045361675994808672155343722158498895656151",
+      "C_abs": "0.5331294833993391440567933918333789566539814720019360572"
+    },
+    {
+      "n": 1000,
+      "N": 27633,
+      "history_length": 27635,
+      "E0": "1396.696899383459219177962956639964304155499975274614652",
+      "dense_norm_enclosure_radius": "0.00000000005950183156844837831012663456177635207007708947143070049",
+      "memory_energy": "21762.23071769797131265601103987368601607076257150134239",
+      "source_energy": "1928999.998029670834472029343084518553913142462404491338",
+      "preparation_norm": "8.429517276654195101490077222315331337335810034461307436",
+      "terminal_lower": "1.117810381950879958170878565265965432678992030556313888",
+      "weak_transition_lower": "0.410780952349882340481897868944720041853654825691700269",
+      "weak_window_lower": "68.28360753620137552452442189021737880944213261639483745",
+      "E0_over_n_sqrt_log_n": "0.5314148635012860220216928057361596656880360065221788635",
+      "C_abs": "0.5331294833993391440567933918333789566539814720019360572"
+    },
+    {
+      "n": 2000,
+      "N": 60809,
+      "history_length": 60811,
+      "E0": "2932.284265626413501233338603039502835371427516187002032",
+      "dense_norm_enclosure_radius": "0.00000000003119961646398878410417628578390336060751015904628785566",
+      "memory_energy": "108481.0631205860189239989574773512708978705642705847868",
+      "source_energy": "8489809.951319649112568548675269689307818469436813084697",
+      "preparation_norm": "11.92113765690267985642920876824194608691221312138298236",
+      "terminal_lower": "1.580980716200734033437346869599855796199345336658554029",
+      "weak_transition_lower": "0.8737274342555102843510152368120292404601420986631399375",
+      "weak_window_lower": "215.4548784845090532490889083387786332267370972952009787",
+      "E0_over_n_sqrt_log_n": "0.5317940754003133146208437518509797214549427851188357732",
+      "C_abs": "0.5331294833993391440567933918333789566539814720019360572"
+    },
+    {
+      "n": 1000000,
+      "N": 55262044,
+      "history_length": 55262046,
+      "E0": "1981332.888941134739199055889490131480634294032685654006",
+      "dense_norm_enclosure_radius": "0.00000000000008410438984645973876289565966319804676480462068250304395",
+      "memory_energy": "68015701864.77100655914336701703828757988216616453260032",
+      "source_energy": "3857664314935.05195995537565510401876671288028442552107",
+      "preparation_norm": "266.5647416996695720283966959166894783269907360009680286",
+      "terminal_lower": "35.35533198825956431456697409679883091575140403606432494",
+      "weak_transition_lower": "34.64819789505598206405892468487563855668986926065360327",
+      "weak_window_lower": "257569.3129096956017220404870210568109226716250676866384",
+      "E0_over_n_sqrt_log_n": "0.5330574029461286273617398203030706559817794090593865136",
+      "C_abs": "0.5331294833993391440567933918333789566539814720019360572"
+    }
+  ],
+  "CPU_seconds": 0.017083715,
+  "wall_seconds": 0.017702104999898438,
+  "peak_RAM_bytes": 38350848,
+  "GPU_seconds": 0,
+  "CUDA_used": false,
+  "scope": "new energy arithmetic only; accepted robust theorem not re-reviewed"
+}

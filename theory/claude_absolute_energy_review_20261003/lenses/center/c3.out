@@ -1,0 +1,16 @@
+b0 - lambda_max - 2 e_max = 24974999999/500000000000 0.049949999998 > 0.0499: True
+sqrt(n/l) <= sqrt(2) (proof uses 2): fine
+0.0499^2/2 = 249001/200000000 == 249001/200000000
+2e8/249001 = 803.20962566415395922
+sharp asymptotic constant 1/b0^2 = 399.99999999999994
+n=200: claimed L_n=0.499500  0.0499*sqrt(n/2)=0.499000  sharpened=0.499500  exact min_h||Rh+b||=0.499500  (R0 memory-block min=0.000000 vs closed 0.000000)  one-step history ||X||=b0 sqrt(n)=0.707107
+      best 2-step zero-endpoint history energy found=0.708455  (>= exact one-step terminal min? True)
+n=400: claimed L_n=0.706753  0.0499*sqrt(n/2)=0.705693  sharpened=0.706753  exact min_h||Rh+b||=0.706753  (R0 memory-block min=0.000000 vs closed 0.000000)  one-step history ||X||=b0 sqrt(n)=1.000000
+      best 2-step zero-endpoint history energy found=1.004044  (>= exact one-step terminal min? True)
+n=1000: claimed L_n=1.117810  0.0499*sqrt(n/2)=1.115798  sharpened=1.123885  exact min_h||Rh+b||=1.123885  (R0 memory-block min=0.116693 vs closed 0.116693)  one-step history ||X||=b0 sqrt(n)=1.581139
+      best 2-step zero-endpoint history energy found=1.596711  (>= exact one-step terminal min? True)
+n=2000: claimed L_n=1.580981  0.0499*sqrt(n/2)=1.577977  sharpened=1.684015  exact min_h||Rh+b||=1.684015  (R0 memory-block min=0.580006 vs closed 0.580006)  one-step history ||X||=b0 sqrt(n)=2.236068
+      best 2-step zero-endpoint history energy found=2.275429  (>= exact one-step terminal min? True)
+n=1e900: D/D_asym-1=-1.0e-50  D/(n^(19/18)/2e7)=5.0  R_family(14)/(C n sqrt log n)-1=-9.476e-51
+n=1e5000: D/D_asym-1=-2.238e-58  D/(n^(19/18)/2e7)=5.0  R_family(14)/(C n sqrt log n)-1=-3.2235e-58
+n=1e50000: D/D_asym-1=-2.2411e-57  D/(n^(19/18)/2e7)=5.0  R_family(14)/(C n sqrt log n)-1=-3.221e-57
