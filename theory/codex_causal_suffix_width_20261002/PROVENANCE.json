@@ -1,0 +1,75 @@
+{
+  "stage": "continuous causal suffix realization, bounded analytic attempt",
+  "date": "2026-10-02",
+  "owner": "Codex",
+  "source_commit": "5b63ea009bb85ee8b8745fda84a22e07a511fc96",
+  "new_claim_status": "analytical derivations with written self-audit; independent review required",
+  "primary_result": "O(n) encoder neither proved nor robustly refuted",
+  "epsilon": "1/1000",
+  "c": 1,
+  "gamma": "1/n",
+  "source_inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6"
+    },
+    {
+      "path": "SHARED_RESEARCH_MAP.md",
+      "sha256": "909d12bc629bb0f04fcba3b2c40d9870a85311e6b96df0d527813844ff73c638"
+    },
+    {
+      "path": "theory/codex_online_gate_polynomial_20261002/PROOF.md",
+      "sha256": "929a8d5367606c7f4a57302f15066c1aa9e4eb0197402c546b9bb53314dac4ad"
+    },
+    {
+      "path": "theory/codex_online_gate_polynomial_20261002/REPORT.md",
+      "sha256": "1dacd984bba0213299dffa1051956b510ba17cbc0a50e91854b39d68e66c34d6"
+    },
+    {
+      "path": "theory/grok_online_gate_polynomial_review_20261002/REPORT.md",
+      "sha256": "1ba4406ca2c88356ecb2d4de232f0ba56c0470444326315d70860b7ae8a9dd25",
+      "repository_status_at_start": "existing local untracked reviewer evidence; not committed by this stage"
+    }
+  ],
+  "accepted_premises": [
+    "triangular mixed-gate recurrence and truncation ledger",
+    "ordinary exact reference r^2 counted-coordinate upper",
+    "joint floor(n/8) robust lower with polynomial half-margin greater than .00149",
+    "remaining-suffix metric and sharp nonexpansiveness",
+    "exact Omega(n log n) prefix is below epsilon/8 and not a robust lower"
+  ],
+  "new_analytic_results": [
+    "closed degree projection and its uniform remaining-suffix tail bound",
+    "universal early-prefix public erasure and one permanent merge",
+    "reference-to-jet all-prefix decoder bound K_n tau_n with K_n less than 21/10",
+    "quadratic counted prefix-statistic encoder with uniform error less than 13epsilon/20",
+    "offline continuous r^2 finite-jet approximation without a proved causal update",
+    "projection absorption sufficient condition and explicit update-compatible width definition"
+  ],
+  "encoding_formalization": {
+    "literal_target": "single-valued finite-jet encoding with exact online update compatibility",
+    "reference_upper": "counted auxiliary continuous statistic of admitted prefix",
+    "factorization": "not proved and not proved impossible",
+    "owner_clarification": "asked asynchronously; an unanswered question is not treated as approval"
+  },
+  "compute": {
+    "new_experiments": 0,
+    "automated_implementation_tests_run": 0,
+    "research_experiment_cpu_seconds": 0,
+    "gpu_seconds": 0,
+    "gpu_cuda_used": false,
+    "administrative_shell_time": "unprofiled",
+    "peak_ram": "unprofiled; no new numerical workload"
+  },
+  "historical_evidence_modified": false,
+  "gas0_touched": false,
+  "shared_map_modified": false,
+  "written_audit": "CHECKS.md",
+  "artifact_hashes": {
+    "hash_convention": "SHA256 of final working-tree bytes before commit; JSON itself excluded",
+    "PROOF.md": "8749d575c81d15d3ffdd30caa9c5aa493912d2645367e3bb4414ef28709b6af7",
+    "REPORT.md": "de4a4152c367855721534326a37cce70c3e3800f57c64f8681180db3228b5c45",
+    "CHECKS.md": "5eb5d083ae0d390eefebd175a8dd83378b77fe261c0b030f97bdf92a557c5989"
+  },
+  "stopping_point": "single causal suffix-width target remains open; no new stage begun"
+}
