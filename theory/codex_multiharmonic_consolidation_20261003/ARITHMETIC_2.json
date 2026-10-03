@@ -1,0 +1,281 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "accepted conservative signal constant",
+      "pass": true,
+      "details": "3/17592186044416000"
+    },
+    {
+      "name": "joint auxiliary amplitude",
+      "pass": true,
+      "details": "An isolated joint component uses delta/F; joint column bound already has F^-5."
+    },
+    {
+      "name": "accepted 19/18: threshold root",
+      "pass": true,
+      "details": "28"
+    },
+    {
+      "name": "accepted 19/18: positive floor",
+      "pass": true,
+      "details": "10000000000000000000000000000"
+    },
+    {
+      "name": "accepted 19/18: floor lower",
+      "pass": true,
+      "details": "For every x>=2: floor(x)>=x/2; x(n) is increasing."
+    },
+    {
+      "name": "accepted 19/18: decimal coefficient",
+      "pass": true,
+      "details": "1"
+    },
+    {
+      "name": "accepted 19/18: leading bound exponent",
+      "pass": true,
+      "details": "28"
+    },
+    {
+      "name": "accepted 19/18: cubic ratio exponent",
+      "pass": true,
+      "details": "-1"
+    },
+    {
+      "name": "accepted 19/18: uniform strict half-margin",
+      "pass": true,
+      "details": {
+        "leading_lower": "10",
+        "cubic_over_leading_upper": "1/1000",
+        "uniform_half_margin_lower": "99897499979/10000000000",
+        "decimal_display_only": 9.9897499979
+      }
+    },
+    {
+      "name": "accepted 19/18: spreading dimension",
+      "pass": true,
+      "details": "n^(1-theta)>=61440*c, increasing with n; implies 2F+1<=d/4096."
+    },
+    {
+      "name": "accepted 19/18: cycle/non-aliasing",
+      "pass": true,
+      "details": "F<n/20<=d/4; h<=d/4096 also implies d-1>2F when d>=2e6."
+    },
+    {
+      "name": "accepted 19/18: spreading floor",
+      "pass": true,
+      "details": "d>=n/5>=2e6; floor(d/1e6)>=d/(2e6)."
+    },
+    {
+      "name": "accepted 19/18: dimension denominator",
+      "pass": true,
+      "details": "qF >= c*n^(1+theta)/20,000,000, with every floor retained."
+    },
+    {
+      "name": "accepted 19/18: gate admissibility",
+      "pass": true,
+      "details": "p>0 and F>=1 imply delta<=1e-10; all words remain in the reviewed gate box."
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: threshold root",
+      "pass": true,
+      "details": "5"
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: positive floor",
+      "pass": true,
+      "details": "10"
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: floor lower",
+      "pass": true,
+      "details": "For every x>=2: floor(x)>=x/2; x(n) is increasing."
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: decimal coefficient",
+      "pass": true,
+      "details": "10000"
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: leading bound exponent",
+      "pass": true,
+      "details": "32"
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: cubic ratio exponent",
+      "pass": true,
+      "details": "-1"
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: uniform strict half-margin",
+      "pass": true,
+      "details": {
+        "leading_lower": "100000",
+        "cubic_over_leading_upper": "1/10000",
+        "uniform_half_margin_lower": "999899997499979/10000000000",
+        "decimal_display_only": 99989.9997499979
+      }
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: spreading dimension",
+      "pass": true,
+      "details": "n^(1-theta)>=61440*c, increasing with n; implies 2F+1<=d/4096."
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: cycle/non-aliasing",
+      "pass": true,
+      "details": "F<n/20<=d/4; h<=d/4096 also implies d-1>2F when d>=2e6."
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: spreading floor",
+      "pass": true,
+      "details": "d>=n/5>=2e6; floor(d/1e6)>=d/(2e6)."
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: dimension denominator",
+      "pass": true,
+      "details": "qF >= c*n^(1+theta)/20,000,000, with every floor retained."
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude: gate admissibility",
+      "pass": true,
+      "details": "p>0 and F>=1 imply delta<=1e-10; all words remain in the reviewed gate box."
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: threshold root",
+      "pass": true,
+      "details": "5"
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: positive floor",
+      "pass": true,
+      "details": "10"
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: floor lower",
+      "pass": true,
+      "details": "For every x>=2: floor(x)>=x/2; x(n) is increasing."
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: decimal coefficient",
+      "pass": true,
+      "details": "10000"
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: leading bound exponent",
+      "pass": true,
+      "details": "30"
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: cubic ratio exponent",
+      "pass": true,
+      "details": "0"
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: uniform strict half-margin",
+      "pass": true,
+      "details": {
+        "leading_lower": "1000",
+        "cubic_over_leading_upper": "1/1000",
+        "uniform_half_margin_lower": "9989997499979/10000000000",
+        "decimal_display_only": 998.9997499979
+      }
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: spreading dimension",
+      "pass": true,
+      "details": "n^(1-theta)>=61440*c, increasing with n; implies 2F+1<=d/4096."
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: cycle/non-aliasing",
+      "pass": true,
+      "details": "F<n/20<=d/4; h<=d/4096 also implies d-1>2F when d>=2e6."
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: spreading floor",
+      "pass": true,
+      "details": "d>=n/5>=2e6; floor(d/1e6)>=d/(2e6)."
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: dimension denominator",
+      "pass": true,
+      "details": "qF >= c*n^(1+theta)/20,000,000, with every floor retained."
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15: gate admissibility",
+      "pass": true,
+      "details": "p>0 and F>=1 imply delta<=1e-10; all words remain in the reviewed gate box."
+    },
+    {
+      "name": "frozen-amplitude boundary",
+      "pass": true,
+      "details": "theta=1/16"
+    },
+    {
+      "name": "amplitude-balanced boundary",
+      "pass": true,
+      "details": "theta=1/15"
+    },
+    {
+      "name": "earlier 7/6 sketch power",
+      "pass": true,
+      "details": "Even balanced amplitude has exponent 1/2-(15/2)/6=-3/4."
+    },
+    {
+      "name": "optimized ledger coefficient squared",
+      "pass": true,
+      "details": "max_delta(A*delta-B*delta^3)=2*A^(3/2)/(3*sqrt(3B)); square checked exactly."
+    },
+    {
+      "name": "review unchanged: theory/grok_multiharmonic_lower_review_20261002/REPORT.md",
+      "pass": true,
+      "details": "a21683015d8a1b26be2dd118588c6635add7b5f19cf9c9dc22ffb69210c326c3"
+    },
+    {
+      "name": "review unchanged: theory/grok_multiharmonic_lower_review_20261002/probe.py",
+      "pass": true,
+      "details": "35d21fc8540d768b2d9cc9f26503da7a4f4fa26aeee3a830bd6aa6fa11fc7560"
+    }
+  ],
+  "cases": [
+    {
+      "name": "accepted 19/18",
+      "n0": "10^504",
+      "theta": "1/18",
+      "c": "1",
+      "delta_power": "3",
+      "dimension_power": "19/18",
+      "dimension_denominator": 20000000,
+      "uniform_half_margin_lower": "99897499979/10000000000",
+      "leading_lower": "10"
+    },
+    {
+      "name": "Grok 17/16 unchanged amplitude",
+      "n0": "10^80",
+      "theta": "1/16",
+      "c": "1/10000",
+      "delta_power": "3",
+      "dimension_power": "17/16",
+      "dimension_denominator": 200000000000,
+      "uniform_half_margin_lower": "999899997499979/10000000000",
+      "leading_lower": "100000"
+    },
+    {
+      "name": "same-ledger amplitude-balanced 16/15",
+      "n0": "10^75",
+      "theta": "1/15",
+      "c": "1/10000",
+      "delta_power": "5/2",
+      "dimension_power": "16/15",
+      "dimension_denominator": 200000000000,
+      "uniform_half_margin_lower": "9989997499979/10000000000",
+      "leading_lower": "1000"
+    }
+  ],
+  "cpu_seconds": 0.0,
+  "wall_seconds": 0.0005853000329807401,
+  "peak_ram_bytes": 18423808,
+  "gpu_used": false,
+  "numerical_experiment": false,
+  "scope": "Exact rational arithmetic plus documented symbolic all-n inequalities; not independent hostile review."
+}

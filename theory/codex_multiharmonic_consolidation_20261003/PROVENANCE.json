@@ -1,0 +1,65 @@
+{
+  "stage": "owner-authorized consolidation and same-ledger exponent analysis",
+  "date": "2026-10-03",
+  "original_source_commit": "d2a431715dce0ecdf5c3d6f373078f6a3ff1ace1",
+  "original_document_hashes": {
+    "PROOF.md": "9e200bc328f9de0be107f7b25fe511ad2f9ea235e79ef3b07e725156fa56fe49",
+    "REPORT.md": "ed7c20fa00bab1aaeda07c65cee159eba2bed2b6511875e9196438165e28ff3a"
+  },
+  "unchanged_historical_outputs": {
+    "CHECKS.md": "5234c8c60d7c086369317b7b45eca0b28570792c230a97abc9eadfbc7a569ea0",
+    "checks.py": "50bd6b0231749b7e7c20fd32869275213621506cabd6b9384eb4b8636dd0aa3d",
+    "CHECK_RESULTS.json": "ee12a1464926e2b69b3a4e074401e95f4dd9fc59015e2cbb85b51ae730b0051e",
+    "CHECK_RESULTS_REPLAY_2.json": "f16c388bd7b8a779f7ce3bf3feadd2895f5a40b33116ce3845f820a4a37e28de"
+  },
+  "unchanged_original_manifest_sha256": "c526831ec28d2400bba2a4a7cbf7a14a77d228be2ad744285d3163a031f63c12",
+  "independent_review_hashes": {
+    "theory/grok_multiharmonic_lower_review_20261002/probe.py": "35d21fc8540d768b2d9cc9f26503da7a4f4fa26aeee3a830bd6aa6fa11fc7560",
+    "theory/grok_multiharmonic_lower_review_20261002/REPORT.md": "a21683015d8a1b26be2dd118588c6635add7b5f19cf9c9dc22ffb69210c326c3"
+  },
+  "perplexity_review_source": "Two conclusions supplied in owner context; no separate saved review documents located. No invented review records.",
+  "claim_status": {
+    "19/18": "accepted by owner following independent hostile reviews; joint proof unchanged; isolated-component normalization corrected",
+    "17/16": "Grok-proposed same-amplitude corollary independently rederived and exact arithmetic checked",
+    "16/15": "NEW internally checked same-construction amplitude-rebalanced corollary; independent hostile review pending",
+    "ceiling": "17/16 with frozen F^-3 law; 16/15 if amplitude rebalancing is allowed; ceiling of estimates, not true-width upper theorem"
+  },
+  "history_contract": "All admitted histories, common h=0; finite radius for each n, no width-uniform bound assumed or proved",
+  "unchanged_full_model_bounds": "Omega_c(n^2) <= d_rob <= O_c(n^2 log n)",
+  "compute": {
+    "arithmetic_cpu_seconds": 0.0,
+    "cpu_measurement_note": "Reported 0 seconds: runs below process CPU clock resolution, not evidence of zero work.",
+    "arithmetic_wall_seconds": 0.001232100068591535,
+    "peak_ram_bytes": 18444288,
+    "gpu_seconds": 0,
+    "cuda_used": false,
+    "new_numerical_experiments": false,
+    "excluded": "Startup, administration/editing, final JSON serialization unprofiled"
+  },
+  "checks": {
+    "runs": [
+      "ARITHMETIC_1.json",
+      "ARITHMETIC_2.json"
+    ],
+    "each_passed": 44,
+    "method": "Exact rational arithmetic plus written symbolic monotone all-n inequalities; finite threshold samples alone are not a proof."
+  },
+  "scope": {
+    "claude_or_grok_files_modified": false,
+    "original_manifest_or_numeric_outputs_modified": false,
+    "AGENTS_modified": false,
+    "shared_map_modified": false,
+    "GAS0_modified": false
+  },
+  "current_artifact_hashes": {
+    "theory/codex_multiharmonic_lower_20261002/PROOF.md": "018e30761002ac0d088136c6a4b36331cedf01d5fe97d196648211fa73105cac",
+    "theory/codex_multiharmonic_lower_20261002/REPORT.md": "d451baca59030f5bb945e6ce6a336cb1b5c1eb8cf4ecd26afdaf94aa6c396b09",
+    "Codex_Research.md": "ab44e6347f08c072ae8d210248016bb93273a6afeaface658f0458d6f1ef60a0",
+    "theory/codex_multiharmonic_consolidation_20261003/arithmetic.py": "6d55c413223231d44a5e4f3271b96a77b2b553e802b367882667998c88778e07",
+    "theory/codex_multiharmonic_consolidation_20261003/ARITHMETIC_1.json": "fa0a07a8b9b9cf8ea6a7787c207d3835520a1ec583c33a3f95496e8e4601a438",
+    "theory/codex_multiharmonic_consolidation_20261003/ARITHMETIC_2.json": "47ba615ea66e866db43605304c8d59772ace080492b23f85d49b6fe66dc0f274",
+    "theory/codex_multiharmonic_consolidation_20261003/REPORT.md": "af41d46544235dd5f540ad7a6d0602300ce7027a9ce93bb5bbca106927ccefb4"
+  },
+  "next_step": "Independently hostile-review only the new amplitude-balanced 16/15 corollary and ledger ceiling; stop here.",
+  "hash_convention": "SHA256 of current working-tree bytes, not Git blob line endings; this manifest excluded. Original hashes refer to archived d2a4317 version."
+}

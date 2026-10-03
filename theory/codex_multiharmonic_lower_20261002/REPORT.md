@@ -1,25 +1,51 @@
-# Joint harmonic lower section: new proof, independent review required
+# Joint harmonic lower section: reviewed theorem and consolidation
 
-Codex, 2026-10-02. Bounded takeover of Claude's unfinished harmonic sketch.
+Codex, original 2026-10-02; consolidation 2026-10-03.
 No architecture, training, new contraction regime or generic compressor.
 Claude/Grok files and all historical evidence are preserved.
 
 ## Outcome
 
-**A conservative omega(n) robust lower is derived:**
+**The original 19/18 theorem is accepted after independent review:**
 
     d_fixed-feature >= floor(d/1,000,000) floor(n^(1/18))
                     >= n^(19/18)/20,000,000,
 
 for n>=10^504, c=1, epsilon=.001, under the unchanged normalized legal-query
-and continuous-encoding contract. This refutes a universal O(n) encoder if
-the new proof survives independent review. It does NOT establish Claude's
+and continuous-encoding contract. This refutes a universal O(n) encoder
+under the all-admitted-history contract. It does NOT establish Claude's
 proposed n^(7/6) exponent or a moderate-width improvement.
 
-The new proof is internally checked, not an independently accepted checkpoint.
+The owner reports two Perplexity reviews and the saved Grok review; the
+accepted JOINT proof is unchanged by the auxiliary correction below. The
+Perplexity results are supplied in the owner's context, not separate saved
+review documents located in this workspace. No review content is invented.
 The accepted historical floor(n/8) lower remains preserved in its original files.
 
-## Requested answers
+## Strongest results after consolidation
+
+| status / public rule | threshold | joint dimension lower | uniform antipodal half-margin |
+|---|---:|---:|---:|
+| accepted original: F=floor(n^(1/18)), delta=10^(-10)/F^3 | 10^504 | n^(19/18)/20,000,000 | >9 |
+| Grok corollary, independently checked here: F=floor(n^(1/16)/10^4), SAME delta | 10^80 | n^(17/16)/(2*10^11) | >=99,989.9997499979>9 |
+| NEW internally checked ledger corollary: F=floor(n^(1/15)/10^4), delta=10^(-10)/F^(5/2) | 10^75 | n^(16/15)/(2*10^11) | >=998.9997499979>9 |
+
+The second row should replace 19/18 as the strongest independently reviewed
+and now independently checked choice. The third row is NOT covered by the
+previous reviews: it follows from the same construction/ledger with an
+explicitly rebalanced public amplitude and needs its own hostile review.
+No new recurrence, witness search, query contract, metric or epsilon is used.
+
+For the unchanged F^-3 amplitude law, the leading term is
+10^(-27)sqrt(n)/F^8 and theta=1/16 is its power ceiling. It is NOT the
+ceiling if amplitude may rebalance within the same ledger. Maximizing
+sqrt(n)[10^(-17)delta/F^5-delta^3] gives a constant times
+sqrt(n)/F^(15/2), with attainable power ceiling theta=1/15.
+PROOF.md sections12A--12C give all constants, floors and size conditions.
+These are ceilings of the conservative proof estimates, not impossibility
+theorems for the actual reachable family.
+
+## Original 19/18 construction: answers with auxiliary normalization corrected
 
 1. **Construction.** Use d=floor(n/4) cycle nodes and harmonics 1,...,F,
    F=floor(n^(1/18)). Each harmonic has q=floor(d/1,000,000) parameters.
@@ -36,13 +62,17 @@ The accepted historical floor(n/8) lower remains preserved in its original files
 
    for physical i=1,...,d-1, with zero defects elsewhere. Its entire ball is
    admitted; preparation is public and the unchanged reset gives h=0.
-2. **Degree-one signal.** For one harmonic with a profile of L1>=rho d,
-   after explicit node/twist corrections,
+2. **Degree-one signal.** For an ISOLATED component f of the joint word,
+   with profile L1>=rho d and amplitude delta/F, after node/twist corrections,
 
-       signal_f >=rho delta sqrt(n)/(200000 f)-delta.
+       signal_f >=rho delta sqrt(n)/(200000 f F)-delta/F.
 
    For sqrt(n)>=400000f/rho this gives
-   `signal_f >=rho delta sqrt(n)/(400000 f)` in the ACTUAL legal-query norm.
+   `signal_f >=rho delta sqrt(n)/(400000 f F)` in the ACTUAL legal-query norm.
+   Omitting F would apply only to a DIFFERENT separately normalized single
+   component of amplitude delta. It must not be substituted into the joint
+   construction. Its full proof already pays delta/F through F^5; the
+   accepted joint theorem is unaffected by correcting the auxiliary display.
    Joint cross-talk is treated by a damped cosine Gram kernel, not assumed
    negligible: its real quadratic form has a lower bound n/40.
 3. **Joint section.** The ball-to-history map is continuous and injective.
@@ -77,10 +107,10 @@ The accepted historical floor(n/8) lower remains preserved in its original files
 8. **Final half-margin.** H_n>9 for all n>=n0. This is much greater than
    epsilon and the buffered 5epsilon/4 polynomial threshold. It is a crude
    sufficient mathematical bound, not a production tolerance claim.
-9. **omega(n).** Yes in the new derivation, pending independent hostile
-   review. This is stronger than the unchanged historical rigorous checkpoint.
-10. **Universal O(n).** Refuted by the new theorem under the stated continuous
-    no-replay memory model if the proof is accepted: qF/n diverges. The lower
+9. **omega(n).** Yes, accepted for the original 19/18 theorem; the 17/16
+   corollary has now been independently checked against the full ledger.
+10. **Universal O(n).** Refuted under the stated continuous
+    no-replay all-admitted-history model: qF/n diverges. The lower
     applies at terminal time, so no special causal update can evade it.
 11. **Failed lemma.** No failure was found in the final revised derivation.
     Several steps of the ORIGINAL sketch were not valid as stated and have
@@ -112,8 +142,10 @@ are exactly h=0. A finite physical history radius is
 
     ||X(y)-X(0)||2 <8delta sqrt(n log n).
 
-It grows with width; a WIDTH-UNIFORM Euclidean history radius has not been
-proved and is not part of this theorem. Individual raw inputs remain inside
+The stated radius allowance is width-dependent; a WIDTH-UNIFORM Euclidean
+history radius has not been proved and is not part of this theorem. A
+diverging upper majorant alone does not prove the actual minimum enclosing
+radius diverges. Individual raw inputs remain inside
 the fixed accepted past cube. The proof is for the stated all-admitted-history
 contract, not a newly restricted uniformly bounded-history-energy model.
 
@@ -150,10 +182,21 @@ model server or GAS-0 process/file was used. Administrative time is unprofiled.
 The measured checking intervals exclude Python/NumPy startup and final output
 serialization; these are not represented as a whole-machine resource total.
 
-New records: PROOF.md, REPORT.md, CHECKS.md, checks.py, both check JSON files,
-and PROVENANCE.json. The Codex resume is updated with provisional status.
-The shared map is not promoted with an unreviewed theorem.
+Original records: PROOF.md, REPORT.md, CHECKS.md, checks.py, both check JSON
+files and PROVENANCE.json. Original document bytes are preserved at commit
+d2a4317; original numerical outputs, CHECKS.md and PROVENANCE.json remain
+unchanged. Their hashes refer to that original version, not this edited
+proof/report. New exact arithmetic, change provenance and checks are stored
+separately in theory/codex_multiharmonic_consolidation_20261003/.
 
-**Single next step:** independent hostile review of the projected saturated
-section, the physical twist estimate, joint harmonic kernel and actual legal
-query bound. Do not optimize the exponent or begin architecture work first.
+Updated reviewed fixed-feature bounds are Omega(n^(17/16))--O(n^2) in the
+ordinary counted-history-statistic contract. The NEW internally derived
+16/15 row would strengthen the lower after review. The literal finite-jet
+causal-width lower also applies, without silently substituting the ordinary
+reference-matrix upper for an exact finite-jet update-compatible quotient.
+The full-model Omega_c(n^2)--O_c(n^2 log n) bounds are unchanged. One feature
+cannot be multiplied across sources without a new JOINT proof.
+
+**Single next step:** independently audit only the amplitude-balanced 16/15
+corollary and the ledger-ceiling calculation. No new direction, experiments,
+architecture invention, learning or contraction regime follows this stage.

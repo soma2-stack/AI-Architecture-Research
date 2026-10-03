@@ -1,8 +1,13 @@
-# A conservative joint multi-harmonic robust lower section
+# Joint multi-harmonic robust lower section
 
-2026-10-02. Codex derivation, internally checked; independent review required.
-This is a new theorem attempt, not a previously accepted project theorem.
-Claude's files and historical results are not modified.
+Original derivation: 2026-10-02. Consolidation: 2026-10-03.
+The owner accepts the original 19/18 joint theorem after independent hostile
+review. Sections 12A--12C independently check Grok's 17/16 corollary and
+analyze the maximum exponent certified by the SAME ledger. The new
+amplitude-balanced 16/15 corollary is internally checked, not yet independently
+reviewed. Original bytes and outputs remain archived at commit d2a4317;
+the dated consolidation record distinguishes these statuses. Claude, Grok
+and Perplexity review evidence is not modified.
 
 ## 1. Statement and scope
 
@@ -27,14 +32,28 @@ The deliberately enormous threshold is a sufficient bound, not an optimized
 onset or a practical claim. No theorem at moderate width is asserted.
 
 Consequently the accepted continuous no-replay memory model needs at least
-D coordinates. In particular its universal O(n) hypothesis is refuted if
-the new derivation is correct. The same antipodal lower applies to the strict
+D coordinates. In particular its universal O(n) hypothesis is refuted under
+the accepted all-admitted-history contract. The same antipodal lower applies to the strict
 finite-jet causal width because the frozen polynomial ledger is included.
 The full-model n^2 versus n^2 log n gap is NOT settled by this one-feature lower.
 
 The history section has a stated finite radius for each n. It does not have
 a width-uniform Euclidean history radius; that stronger condition is not
 claimed. Query/error units are unchanged.
+
+Precisely, for each integer n>=10^504 there exist a fixed public spreading
+matrix B and ONE continuous admitted history embedding of the closed unit
+ball in R^D, with common endpoint h=0, such that EVERY boundary antipodal
+pair has permitted-query half-distance >9>epsilon. Only boundary antipodes
+are claimed separated: pairs approaching the center need not be separated.
+Therefore W^causal_(3epsilon/4)(n)=Omega(n^(19/18))=omega(n), and the same
+coordinate lower holds for the physical epsilon-query encoder.
+
+The unchanged-amplitude corollary in section12A gives D>=n^(17/16)/(2*10^11)
+for n>=10^80. It should replace 19/18 as the strongest independently reviewed
+and independently checked frequency-cap choice. Section12C records a further
+16/15 consequence after explicitly changing ONLY the public amplitude law;
+it is not silently folded into the reviewed theorem.
 
 ## 2. Accepted model, embedding and parameter probe
 
@@ -368,16 +387,24 @@ not a separate upper bound on a query perturbation using a lower coefficient.
 If the intermediate right side is negative the displayed lower holds
 trivially by nonnegativity; at the final threshold it is strongly positive.
 
-For ONE harmonic f and an orthogonal profile with L1>=rho d, the same proof
-gives the more transparent bound
+Auxiliary single-harmonic statement, with its normalization explicit:
+isolate ONE component f of the joint word (6), with an orthogonal profile
+of L1>=rho d. Its amplitude is A_f=delta/F, NOT delta. Applying the
+single-component version of the same argument gives
 
-    signal_f >=rho delta sqrt(n)/(200000 f)-delta.
+    signal_f >=rho delta sqrt(n)/(200000 f F)-delta/F.
 
-In particular if sqrt(n)>=400000f/rho,
-signal_f >=rho delta sqrt(n)/(400000 f). This is a concrete
-amplitude*sqrt(n)/f lower in the actual legal-query geometry, including the
-physical twist errors. An unqualified scalar coefficient from a numerical
-fit is not used as a theorem.
+If sqrt(n)>=400000f/rho, this implies
+
+    signal_f >=rho delta sqrt(n)/(400000 f F).
+
+This statement concerns the isolated component's linear contribution; it
+does NOT justify ignoring the other harmonics in an actual joint column.
+For a separately normalized single-harmonic word of amplitude A_f=delta,
+one may remove F from these two expressions, but that is NOT its amplitude
+inside (6). The joint argument (8)--(17) already includes delta/F and all
+cross-talk, with the complete F^5 denominator in (17). Correcting this
+auxiliary display changes none of the accepted joint 19/18 proof.
 
 ## 10. All nonlinear corrections, including cross-harmonic words
 
@@ -438,7 +465,7 @@ Ledger by source:
 * extra actual-R one-step adjoint perturbation: <2e-9;
 * endpoint/admissibility: exact construction, not an error term.
 
-## 12. Uniform margin, explicit threshold and dimension
+## 12. Original accepted 19/18 margin, threshold and dimension
 
 Use delta=10^(-10)/F^3. Then (19) is bounded below by
 
@@ -464,14 +491,171 @@ Finally q>=d/2,000,000 and F>=n^(1/18)/2, so
 The weakest margin of this conservative proof grows as n^(1/18); the theorem
 only needs the stated width-independent lower 9 beyond n0.
 
+## 12A. Grok's 17/16 corollary: unchanged amplitude law
+
+Set, for EVERY integer n>=10^80,
+
+    F=floor(n^(1/16)/10^4), delta=10^(-10)/F^3,
+    q=floor(floor(n/4)/10^6), D=qF.
+
+Nothing else changes. In particular the physical gate word, projection after
+saturation, L_sat=16sqrt(dF), query family, metric, epsilon, preparation and
+reset are those in sections2--11. Substitution into (19) gives the exact ledger
+
+    H_n >= [10^(-27)sqrt(n)/F^8]*(1-10^(-3)/F)
+                  -10^(-10)/F^3-e,
+    e=epsilon/4+2*10^(-9)=0.000250002.                  (21)
+
+At n>=10^80, x=n^(1/16)/10^4>=10, so F>=10, F<=x and
+F>=x/2. Thus sqrt(n)/F^8>=10^32 and the leading term is at
+least 100,000. The entire odd tail is at most 1/10,000 of that
+leading term, not merely an unspecified lower-order term. Consequently
+
+    H_n >=100,000*(1-1/10,000)-10^(-10)-0.000250002
+         =99,989.9997499979 >9.                        (22)
+
+Every hypothesis is uniform for ALL n above this threshold:
+
+* d>=n/5>=2,000,000; q>=d/(2,000,000).
+* 2F+1<=3n^(1/16)/10^4<=d/4096 follows from
+  n^(15/16)>=61440/10^4, already true at n0 where n^(15/16)=10^75.
+* F<d/4 follows from n^(15/16)>20/10^4. The projection condition
+  and d>=2,000,000 imply d-1>2F. Hence no Fourier aliasing or
+  trigonometric zero-count failure occurs; the spreading/two-net proof applies.
+* F<=n, N>=d, and the finite-Q estimate FNb^N<=5log(n)/n^2
+  are unchanged. The kernel lower is still n/40.
+* At every boundary point ||y_f||>=1/sqrt(F) for some f. With the SAME
+  L_sat this still forces tanh1>3/4 on the required d/1024 coordinates;
+  projection costs F^2 and the joint gate costs 1/F exactly as before.
+* delta<=10^(-13)<1/10, so the entire ball of words is admitted and
+  has its exact coupled tanh lift and common reset h=0.
+* Node/twist, dense-reference, polynomial and actual-query perturbations
+  retain every term of (19); none is deleted or weakened.
+
+The floor losses give
+
+    D >= (n/5)/(2*10^6) * n^(1/16)/(2*10^4)
+      = n^(17/16)/(2*10^11).                           (23)
+
+The denominator is TWO HUNDRED BILLION, not (n^(17/16)/2)*10^11.
+The all-n half-margin and Borsuk-Ulam conclusion follow with the same
+quantifiers as section1. The radius remains <8delta sqrt(n log n), finite
+at each n and not a width-uniform-radius theorem. For example the floor
+bound only supplies <6400 n^(5/16)sqrt(log n), a growing majorant.
+
+## 12B. What exponent ceiling the unchanged amplitude rule supports
+
+For F=floor(c n^theta), fixed c>0 and theta>0, KEEP
+delta=10^(-10)/F^3. The exact expression is (21). Since
+F/(c n^theta)->1, its leading term is asymptotic to
+
+    10^(-27)c^(-8)n^(1/2-8theta).
+
+Here c is ONLY the frequency-cap coefficient. It is not a change to the
+accepted contraction constant, which remains c_contraction=1, gamma=1/n.
+
+The odd-tail/leading ratio is 10^(-3)/F; the twist term delta tends to
+zero. The geometric requirements reduce to d>=2*10^6 and
+2F+1<=d/4096, with Fourier non-aliasing following; they impose no tighter
+asymptotic restriction near theta=1/16. All gates remain admitted.
+
+For a desired strict half-margin m (m=epsilon for physical decoding,
+m=5epsilon/4 for the buffered polynomial argument, or m=9 as here):
+
+* 0<theta<1/16: every fixed c>0 works beyond a finite sufficiently
+  large threshold satisfying the displayed size conditions and (21)>m.
+* theta=1/16: a sufficient and asymptotically strict condition is
+  10^(-27)c^(-8)>m+e, or c<(10^(-27)/(m+e))^(1/8).
+  More explicitly choose an integer F_min so that
+  10^(-27)c^(-8)(1-10^(-3)/F_min)-10^(-10)/F_min^3-e>m,
+  then take n0 with c n0^(1/16)>=F_min and the size conditions.
+  Equality of the limiting constants gives no uniform positive slack;
+  we make no claim at that boundary. If the limit is <m, (21) cannot
+  certify this margin for all sufficiently large n.
+* theta>1/16: (21) tends to -e, so these bounds cannot certify a fixed
+  positive margin, irrespective of the fixed c. This is a limitation of
+  this ledger, NOT an impossibility theorem for the actual section.
+
+Thus 17/16 is the maximal power supported by the UNCHANGED amplitude law.
+The earlier n^(7/6) sketch would require theta=1/6; its leading power here
+is 1/2-8/6=-5/6 and collapses. The paid projection/saturation, joint
+normalization, joint kernel/column selection and odd-tail budget cannot
+be dropped to recover that sketch.
+
+## 12C. Maximum of the same ledger if the amplitude is allowed to rebalance
+
+It would be incorrect to claim that 1/16 is the ceiling of the mathematical
+ledger under EVERY public amplitude choice. This subsection answers that
+qualification within the SAME construction, not a new research direction.
+The original and Grok corollaries above keep their amplitudes unchanged.
+
+Before substituting delta, (19) has signal minus odd-tail
+
+    sqrt(n)[10^(-17)delta/F^5-delta^3].
+
+For ANY positive delta its maximum over delta is
+
+    (2/(3sqrt(3))) 10^(-51/2) sqrt(n)/F^(15/2),         (24)
+
+attained at delta=sqrt(10^(-17)/3)/F^(5/2). This follows by differentiating
+the scalar cubic, or completing its one-positive-critical-point maximum.
+The additional -delta-e cannot improve it. Therefore, when F is of order
+n^theta, theta>1/15 cannot certify fixed positive margin from (19), even
+with an arbitrary n-dependent amplitude. This is ONLY a ceiling of the
+proved conservative estimates, not a robust-width upper bound.
+
+This ledger ceiling is attainable in exponent without sharp optimization:
+use the very conservative public rule
+
+    delta=10^(-10)/F^(5/2),
+    F=floor(n^(1/15)/10^4), n>=10^75.                  (25)
+
+Only the amplitude law and frequency cap change; profiles, gate-word
+formula, normalization, inverse lift and all proofs in sections2--11 stay
+the same. In section10 the statement delta^2 F^5<=10^(-20)/F is replaced
+by delta^2 F^5=10^(-20); this is still enough to pay the entire nonlinear
+tail. No stronger cancellation or query norm is assumed.
+
+Now the leading and cubic terms have the SAME F exponent, and (19) gives
+
+    H_n >=(10^(-27)-10^(-30))sqrt(n)/F^(15/2)-delta-e.
+
+Since n>=10^75 gives n^(1/15)/10^4>=10, F>=10 and F>=n^(1/15)/(2*10^4).
+The upper bound on F gives sqrt(n)/F^(15/2)>=10^30 exactly. Thus
+
+    H_n >=999-10^(-10)-0.000250002
+         =998.9997499979 >9,
+    D=qF>=n^(16/15)/(2*10^11).                         (26)
+
+All-n floor/spreading conditions follow just as in section12A, now using
+n^(14/15)>=61440/10^4; at n0 the left side is 10^70.
+Admissibility follows from delta<=10^(-10)<1/10. Every boundary antipodal
+pair, not merely every axis, inherits the same full nonlinear and dense
+ledger. The radius remains finite per n, with no width-uniform guarantee;
+the old formula now yields <48 n^(1/3)sqrt(log n).
+
+For completeness, at theta=1/15 the explicit rule in (25) works whenever
+(10^(-27)-10^(-30))c^(-15/2)>m+e, with a sufficiently large n0 paying delta
+and the size conditions. For 0<theta<1/15 it eventually works for any fixed
+c>0. In the unrestricted-amplitude ledger envelope, the corresponding
+limiting condition is (2/(3sqrt(3)))10^(-51/2)c^(-15/2)>m+e.
+
+Hence the maximum certifiable exponent is 16/15 if amplitude rebalancing
+is included, versus 17/16 if the archived F^-3 rule is kept. The 16/15
+corollary is NEW internal algebra in this consolidation and has not been
+independently hostile-reviewed. It must not be described as one of the
+already reviewed claims. Even this balance makes theta=1/6 decay as
+n^(-3/4), so it does not establish the earlier 7/6 target.
+
 ## 13. Continuous encoder lower and what is not concluded
 
 Compose any proposed continuous encoder with the ONE joint section on the
 unit sphere S^(D-1). If it has K<D counted coordinates, Borsuk-Ulam gives
 one equal-code antipodal pair. A uniform physical epsilon decoder would then
-bound their gradient-query distance by 2epsilon, contrary to (20). A strict
+bound their gradient-query distance by 2epsilon, contrary to (20), (22) or (26),
+according to the explicitly chosen amplitude/frequency rule. A strict
 finite-jet decoder of error 3epsilon/4 would bound its pair distance by
-3epsilon/2, also contrary to the buffered polynomial half-margin in (20).
+3epsilon/2, also contrary to each buffered polynomial half-margin above.
 The same lower holds for a causal encoder because it must in particular
 work at the terminal time; causal updates are not used to weaken the lower.
 
@@ -480,10 +664,14 @@ claim of a global bi-Lipschitz chart, a bit bound, or an upper bound. There is
 one sphere/ball with all combinations admissible; separately visible axes,
 an ambient operator ball, a tangent rank or a monomial count play no role.
 
-The exponent 19/18 is deliberately conservative. The sketch's n^(7/6)
+The accepted exponent 19/18 remains intact. The independently checked
+17/16 corollary improves it; the newly derived 16/15 amplitude-balanced
+corollary is separately flagged pending independent review. The sketch's n^(7/6)
 exponent and its quoted numeric coefficients are NOT proved. This theorem
 does not settle the full-model n^2--n^2 log n gap: independent source sections
 cannot be multiplied without another joint admissibility/query proof.
 It gives no architecture, training, moderate-width effect, finite-bit/VRAM
-bound or production interpretation of epsilon. The new derivation requires
-independent hostile review before it becomes an accepted project checkpoint.
+bound or production interpretation of epsilon. The accepted historical
+19/18 theorem is no longer provisional; independent review of the new
+16/15 algebra is the single recommended next step before promoting that
+additional corollary to an accepted working checkpoint.
