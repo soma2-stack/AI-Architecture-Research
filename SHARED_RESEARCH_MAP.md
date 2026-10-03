@@ -4,6 +4,28 @@
 **Status:** Cross-lane synthesis authorized by the project owner.  
 **Use:** Read this after `AGENTS.md` and before doing new research. Use the full lane notebooks only when exact evidence, citations, experiment details, or an older chain must be checked.
 
+## Current accepted theory checkpoint (2026-10-03)
+
+Owner-accepted independent hostile reviews establish these SEPARATE results:
+
+- Growing LOCAL radius: fixed-feature Omega(n^(16/15)).
+- Width-independent LOCAL raw-input radius <=.02 about public X_n(0):
+  fixed-feature Omega(n^(19/18)), for every n>=10^900;
+  one admitted continuous same-endpoint section has
+  D>=n^(19/18)/20,000,000 and boundary antipodal half-margin
+  >999.999649997999 at unchanged epsilon=.001.
+- Full-model bounds remain Omega_c(n^2)--O_c(n^2 log n).
+
+The public baseline's absolute norm is NOT bounded uniformly. Local input
+radius is not absolute history energy. History length may grow with width.
+No finite-bit/VRAM, practical-onset, every-RNN, learning or architecture claim.
+Historical pending-review records below and in the source folders are preserved.
+Acceptance is recorded in theory/codex_absolute_history_energy_20261003/STATUS.md;
+new absolute-energy analysis is separate and internally checked, not independently
+reviewed. Older claims of an unresolved universal O(n) fixed-feature bound are
+historical: under the all-admitted/local-radius contracts, superlinear robust
+lower sections now refute that bound. No stronger full-model lower is inferred.
+
 ## Current theory — Intermediate weak-gate credit (2026-10-02)
 
 **JOINT LINEAR LOWER IN THE INTERMEDIATE REGIME; GENERAL COMPRESSION OPEN.**
