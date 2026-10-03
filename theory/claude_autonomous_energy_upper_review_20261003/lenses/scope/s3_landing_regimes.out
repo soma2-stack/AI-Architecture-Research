@@ -1,0 +1,17 @@
+
+=== n=4000: ||R||op=0.999750000000010 a=0.999750000000000 ||R-R0||=1.048e-14 <= 2.500e-15
+actual dense h*: iters=8187 min=0.02369734 argmin=1536 max=0.976853925801 ||h*||/sqrt(n)=0.06269
+  B=   50: ||atanh(h*)-Rz_B-b - R(h*-z_B)||=5.68e-14  ||x||=1.1799e+00  max|x_i|=1.2794e-01  land err=1.63e-14  a^(B+1)||h*||=3.915e+00
+  B=  500: ||atanh(h*)-Rz_B-b - R(h*-z_B)||=2.53e-14  ||x||=3.8978e-01  max|x_i|=2.2734e-02  land err=6.66e-15  a^(B+1)||h*||=3.498e+00
+  B= 3000: ||atanh(h*)-Rz_B-b - R(h*-z_B)||=1.06e-14  ||x||=9.2774e-05  max|x_i|=5.5667e-06  land err=9.30e-16  a^(B+1)||h*||=1.872e+00
+  radial secant (17): max ||h_t-h*||/(kappa||R(h_(t-1)-h*)+x_t||) = 0.999426 (must be <=1)
+  ||G*R||op=0.999189  a(1-m^2)=0.999350
+
+=== n=2106: ||R||op=0.999525166191822 a=0.999525166191833 ||R-R0||=6.624e-14 <= 9.019e-15
+actual dense h*: iters=4956 min=0.00006376 argmin=718 max=0.924529821824 ||h*||/sqrt(n)=0.07365
+  B=   50: ||atanh(h*)-Rz_B-b - R(h*-z_B)||=1.07e-14  ||x||=1.3606e+00  max|x_i|=1.3279e-01  land err=9.58e-16  a^(B+1)||h*||=3.299e+00
+  B=  500: ||atanh(h*)-Rz_B-b - R(h*-z_B)||=1.03e-14  ||x||=2.8547e-01  max|x_i|=4.3257e-02  land err=9.99e-16  a^(B+1)||h*||=2.664e+00
+  B= 3000: ||atanh(h*)-Rz_B-b - R(h*-z_B)||=9.74e-15  ||x||=1.2321e-07  max|x_i|=1.0265e-08  land err=9.92e-16  a^(B+1)||h*||=8.126e-01
+  off-cycle block: count=526 max|h|=6.376e-05 gate min=0.9999999959
+  autonomous transport empirical decay rate per step=0.99952516; 1-1/n=0.99952517; => e-fold memory ~2106 steps; sum_j ||A^j v|| ~ 1099.8
+CPU 225.415895536

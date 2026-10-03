@@ -1,0 +1,13 @@
+n=2000: reduced vs brute max|diff|=1.43e-15; min h*=-0.002226 (off-cycle H=-0.002226)
+n=4000: reduced vs brute max|diff|=4.66e-15; min h*=0.023697 (off-cycle H=0.023697)
+n=8000: reduced vs brute max|diff|=2.33e-14; min h*=0.038432 (off-cycle H=0.038432)
+n, B*, off-cycle H(B*), min cycle, protected z, source s, min coordinate
+      3000  B*=5.664e-06  H=0.014155  min_cycle=0.040976  z=0.5016  s=0.049959  min=0.014155  >=1/50: False
+      5000  B*=1.467e-05  H=0.029694  min_cycle=0.037421  z=0.5018  s=0.049958  min=0.029694  >=1/50: True
+     10000  B*=2.725e-05  H=0.041084  min_cycle=0.041430  z=0.5019  s=0.049958  min=0.041084  >=1/50: True
+     30000  B*=3.660e-05  H=0.047166  min_cycle=0.047166  z=0.5020  s=0.049958  min=0.047166  >=1/50: True
+    100000  B*=3.988e-05  H=0.049049  min_cycle=0.049049  z=0.5021  s=0.049958  min=0.049049  >=1/50: True
+   1000000  B*=4.133e-05  H=0.049821  min_cycle=0.049821  z=0.5021  s=0.049958  min=0.049821  >=1/50: True
+  10000000  B*=4.156e-05  H=0.049929  min_cycle=0.049929  z=0.5021  s=0.049958  min=0.049929  >=1/50: True
+ 100000000  B*=4.161e-05  H=0.049951  min_cycle=0.049951  z=0.5021  s=0.049958  min=0.049951  >=1/50: True
+
