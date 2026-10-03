@@ -1,0 +1,124 @@
+{
+  "purpose": "Exact scalar arithmetic only; supporting verification, not the general proof",
+  "date": "2026-10-02",
+  "method": "Python Fraction; finite exponential sums with rational geometric tail",
+  "facts": [
+    {
+      "name": "log134_lt_4.90",
+      "x": {
+        "numerator": "49",
+        "denominator": "10"
+      },
+      "degree": 24,
+      "exp_lower": {
+        "numerator": "242915099608687032780396392001066402474607805527",
+        "denominator": "1808887468610027520000000000000000000000000000"
+      },
+      "exp_upper": {
+        "numerator": "15819470994717912273484627929649669132641566814803",
+        "denominator": "117801004900220928000000000000000000000000000000"
+      },
+      "boundary": {
+        "numerator": "134",
+        "denominator": "1"
+      },
+      "inequality": "lower_gt",
+      "holds": true
+    },
+    {
+      "name": "log200_lt_5.30",
+      "x": {
+        "numerator": "53",
+        "denominator": "10"
+      },
+      "degree": 24,
+      "exp_lower": {
+        "numerator": "124298653493082054877134139205456839633181071490161",
+        "denominator": "620448401733239439360000000000000000000000000000"
+      },
+      "exp_upper": {
+        "numerator": "643245532159259692563042675915151718029463946927561193",
+        "denominator": "3210820478969514098688000000000000000000000000000000"
+      },
+      "boundary": {
+        "numerator": "200",
+        "denominator": "1"
+      },
+      "inequality": "lower_gt",
+      "holds": true
+    },
+    {
+      "name": "log_1000_over87_gt_2.44",
+      "x": {
+        "numerator": "61",
+        "denominator": "25"
+      },
+      "degree": 24,
+      "exp_lower": {
+        "numerator": "25289742893219342064902654030386795312037684775590517692641",
+        "denominator": "2204275523827588185667991638183593750000000000000000000000"
+      },
+      "exp_upper": {
+        "numerator": "17732926862031182051426818365805562843085424597862899961955131",
+        "denominator": "1545617004207677906379103660583496093750000000000000000000000"
+      },
+      "boundary": {
+        "numerator": "1000",
+        "denominator": "87"
+      },
+      "inequality": "upper_lt",
+      "holds": true
+    },
+    {
+      "name": "u200_lt_4.1",
+      "value": {
+        "numerator": "999",
+        "denominator": "244"
+      },
+      "boundary": {
+        "numerator": "41",
+        "denominator": "10"
+      },
+      "holds": true
+    },
+    {
+      "name": "sqrt200_gt14",
+      "holds": true
+    },
+    {
+      "name": "prefix_error_lt_0.000113",
+      "value": {
+        "numerator": "6273",
+        "denominator": "56000000"
+      },
+      "boundary": {
+        "numerator": "113",
+        "denominator": "1000000"
+      },
+      "holds": true
+    },
+    {
+      "name": "0.000113_lt_epsilon_over8",
+      "epsilon": "1/1000",
+      "holds": true
+    },
+    {
+      "name": "normalized_u_bound_decreasing",
+      "description": "u(n)>1 and 1/(2 log(1/.087))<25/122 for n>=200",
+      "log_derivative_upper": {
+        "numerator": "-291",
+        "denominator": "244"
+      },
+      "holds": true
+    }
+  ],
+  "all_inequalities_hold": true,
+  "resources": {
+    "cpu_seconds": 0.046875,
+    "wall_seconds": 0.04774930002167821,
+    "peak_process_working_set_bytes": 20217856,
+    "gpu_seconds": 0,
+    "cuda_used": false,
+    "scope": "arithmetic calculation only; administration unprofiled"
+  }
+}

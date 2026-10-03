@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-02",
+  "recorded_at": "2026-10-02T20:13:18.8342924-04:00",
+  "checkpoint": "b0a6917d88d36a035872e9b168047ebc260675f3",
+  "remote": "https://github.com/soma2-stack/AI-Architecture-Research",
+  "stage": "Online query-width of truncated chronological mixed gate polynomial",
+  "sources_read_only": true,
+  "sources": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+      "bytes": 18440,
+      "tracked_at_checkpoint": true
+    },
+    {
+      "path": "theory/codex_intermediate_gate_credit_20261002/PROOF.md",
+      "sha256": "6d5e1d089094e6bc715d7221d7843b2f227b7465915e14c74dd70c3d3bcacdc2",
+      "bytes": 21316,
+      "tracked_at_checkpoint": true
+    },
+    {
+      "path": "theory/codex_intermediate_gate_credit_20261002/REPORT.md",
+      "sha256": "bf2a866bac219204ac572efcba2ce254831c55452918f049c65dec97beff3457",
+      "bytes": 6627,
+      "tracked_at_checkpoint": true
+    },
+    {
+      "path": "theory/codex_intermediate_gate_credit_20261002/CHECKS.md",
+      "sha256": "5f3a8a2537819810b849ef9f51fed277a29d76d800fd95c0e51a2f888bb19566",
+      "bytes": 5520,
+      "tracked_at_checkpoint": true
+    },
+    {
+      "path": "theory/grok_intermediate_gate_review_20261002/REPORT.md",
+      "sha256": "50e5d340f60d0b7a59347989148fe0e1c787ab3fe1405b013949d39901663712",
+      "bytes": 8070,
+      "tracked_at_checkpoint": false
+    },
+    {
+      "path": "theory/grok_spike_remainder_review_20261002/REPORT.md",
+      "sha256": "8eedcfdb0a21754393df090b31af654b337d12f1df90f6b22351fe6c70c95889",
+      "bytes": 10671,
+      "tracked_at_checkpoint": false
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "theory/codex_online_gate_polynomial_20261002/PROOF.md",
+      "sha256": "929a8d5367606c7f4a57302f15066c1aa9e4eb0197402c546b9bb53314dac4ad",
+      "bytes": 23976
+    },
+    {
+      "path": "theory/codex_online_gate_polynomial_20261002/REPORT.md",
+      "sha256": "1dacd984bba0213299dffa1051956b510ba17cbc0a50e91854b39d68e66c34d6",
+      "bytes": 7465
+    },
+    {
+      "path": "theory/codex_online_gate_polynomial_20261002/CHECKS.md",
+      "sha256": "0446840a58f688bf21cd61faeeda64fab158e34b97b8d3c19ef62431204bce43",
+      "bytes": 6026
+    },
+    {
+      "path": "theory/codex_online_gate_polynomial_20261002/arithmetic.py",
+      "sha256": "2d60ab89642d63b82df85b51e0cffaaee5ca0be640cf0fbfd64603341d56412e",
+      "bytes": 3768
+    },
+    {
+      "path": "theory/codex_online_gate_polynomial_20261002/ARITHMETIC.json",
+      "sha256": "a79f17a9b4a138f02d6426669dbef7671aab623078c3798069703d60c3a0b6f8",
+      "bytes": 3502
+    }
+  ],
+  "contract": {
+    "c": "1",
+    "gamma": "1/n",
+    "epsilon": "1/1000",
+    "gate_deficit": "[1/(20n),1/(4n)]",
+    "window": "ceil(4n log n)+1",
+    "source": "H=.4 ones_l",
+    "endpoint": "h=0",
+    "normalization": "Unchanged group-RMS",
+    "queries": "Unchanged actual permitted late queries, all lengths; preactivations [1/4,3/4]^n",
+    "truncation": "Frozen public p_n and epsilon/4 ledger, unchanged"
+  },
+  "new_analytic_results": {
+    "E": "Exact polynomial realization requires m p=Omega(n log n) coordinates; NOT robust finite-error",
+    "F": "Its short-prefix family can be discarded with all-suffix worst-query error below .000113<epsilon/8",
+    "B": "Explicit future-suffix pseudometric is nonexpansive; degree/age upper weights derived",
+    "review_status": "Independent verification required"
+  },
+  "finite_error_status": "OPEN; O(n^2) upper and Omega(n) joint lower unchanged; no robust omega(n) section",
+  "implementation_tests": false,
+  "neural_or_numerical_experiments": false,
+  "exact_arithmetic": {
+    "cpu_seconds": 0.046875,
+    "wall_seconds": 0.04774930002167821,
+    "peak_process_working_set_bytes": 20217856,
+    "gpu_seconds": 0,
+    "cuda_used": false,
+    "scope": "arithmetic calculation only; administration unprofiled"
+  },
+  "checks": "Written audit plus 8 exact-rational scalar certificates; all true",
+  "shared_map_update": "Rejected by automatic approval review because new lemmas await independent review; shared map unchanged, no bypass",
+  "preserved": "AGENTS, prior theory and review evidence, other lanes and GAS-0",
+  "next": "Independent review, then finite-error causal realization of explicit triangular system in its all-suffix query metric"
+}
