@@ -1,0 +1,90 @@
+{
+  "base_commit": "f62aa4595733140db321172ad4734304e4d639d9",
+  "stage": "nonzero autonomous endpoint, bounded ABSOLUTE history energy",
+  "accepted_premises": "owner-accepted growing/local radius lower bounds and independently reviewed zero-endpoint infeasibility; no old theorem re-review",
+  "scientific_status": "NEW analytic upper theorems internally checked, independent hostile review needed",
+  "normalization": "epsilon=0.001; unchanged frozen group-RMS and normalized head/preactivation query family",
+  "frozen_source_files": {
+    "AGENTS.md": {
+      "sha256_raw": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+      "sha256_lf": "08f8876af75dd5586f24ebdf5908876d9d1a0f8c6141de570958b57d0f9dc8d8"
+    },
+    "theory/codex_absolute_history_energy_20261003/PROOF.md": {
+      "sha256_raw": "4bee19eb215a552c2c7fc4a82b45c3f71de078f6cff408a1e22e1b23306cb0a1",
+      "sha256_lf": "4bee19eb215a552c2c7fc4a82b45c3f71de078f6cff408a1e22e1b23306cb0a1"
+    },
+    "theory/codex_absolute_history_energy_20261003/REPORT.md": {
+      "sha256_raw": "88558bb2d5f0a28b28555fbe28e999f492bcfddebb7d47a66de5a73e83c9ac8b",
+      "sha256_lf": "88558bb2d5f0a28b28555fbe28e999f492bcfddebb7d47a66de5a73e83c9ac8b"
+    },
+    "theory/codex_bounded_history_multiharmonic_20261003/PROOF.md": {
+      "sha256_raw": "346101b9b074350ebe53d157099a883feef686c2eadaab3806ab911b9dd10e4b",
+      "sha256_lf": "346101b9b074350ebe53d157099a883feef686c2eadaab3806ab911b9dd10e4b"
+    },
+    "theory/codex_bounded_history_multiharmonic_20261003/REPORT.md": {
+      "sha256_raw": "e0aacde5a1d4b56648b8ef5f7ef8a004fdaaed9f5ffd034a6e06c4bd6850d0fe",
+      "sha256_lf": "e0aacde5a1d4b56648b8ef5f7ef8a004fdaaed9f5ffd034a6e06c4bd6850d0fe"
+    },
+    "theory/gamma_c_over_n_quadratic_20261001/PROOF.md": {
+      "sha256_raw": "e517dcd0475276b4b1b39190d221d3313dba71a2bcb8359f8e250b6978de58f6",
+      "sha256_lf": "e517dcd0475276b4b1b39190d221d3313dba71a2bcb8359f8e250b6978de58f6"
+    },
+    "theory/codex_intermediate_gate_credit_20261002/PROOF.md": {
+      "sha256_raw": "6d5e1d089094e6bc715d7221d7843b2f227b7465915e14c74dd70c3d3bcacdc2",
+      "sha256_lf": "6d5e1d089094e6bc715d7221d7843b2f227b7465915e14c74dd70c3d3bcacdc2"
+    },
+    "theory/query_visible_operator_dimension_20261002/PROOF.md": {
+      "sha256_raw": "5d21eef744714a5c7620f2fda039ffcbc2f5c2f1246ef5b465fab77081838aa4",
+      "sha256_lf": "5d21eef744714a5c7620f2fda039ffcbc2f5c2f1246ef5b465fab77081838aa4"
+    },
+    "theory/grok_bounded_history_radius_review_20261003/REPORT.md": {
+      "sha256_raw": "09997d0389261c6588e6436194d6833f64db62aee8faed6a2ec9845e08898b52",
+      "sha256_lf": "09997d0389261c6588e6436194d6833f64db62aee8faed6a2ec9845e08898b52"
+    }
+  },
+  "new_stage_files": {
+    "ARITHMETIC.json": {
+      "sha256_raw": "9fefc8dd32f95abe02e108db8322453ab6f7e94f2b6270a0d35d25f5d9db6e88",
+      "sha256_lf": "df5b66f7999d958ecd816a4bad07598835af1c8d56d7c76321bae5395d06298a"
+    },
+    "arithmetic.py": {
+      "sha256_raw": "3b3d73dfccfc2df4a11c3c57de24440c45b718877dda552429fda478a0fe285c",
+      "sha256_lf": "3b3d73dfccfc2df4a11c3c57de24440c45b718877dda552429fda478a0fe285c"
+    },
+    "CHECKS.md": {
+      "sha256_raw": "14745a1e5b38991fa8bbddf718ec79037811c0a43310771d23d74db3fd78e244",
+      "sha256_lf": "14745a1e5b38991fa8bbddf718ec79037811c0a43310771d23d74db3fd78e244"
+    },
+    "FULL_GROUP_ARITHMETIC.json": {
+      "sha256_raw": "f409edcde7889ec6fe7ba325c46ad220c8a41d87c9e5a90bd314014af61594b5",
+      "sha256_lf": "053b4bd0923129a2812503a32068b525ff6f4e0eaf5cbcc9a26382ae115f62d3"
+    },
+    "full_group_arithmetic.py": {
+      "sha256_raw": "bc0f3bd0748c1f2e078838e5af43d81f7fe50888c6fd3eef63cd5ca307940f3a",
+      "sha256_lf": "bc0f3bd0748c1f2e078838e5af43d81f7fe50888c6fd3eef63cd5ca307940f3a"
+    },
+    "PROOF.md": {
+      "sha256_raw": "7043ae4c9667093e14a3247cbdf7f5b7b2439d02a18728b9607c316adbe79c4a",
+      "sha256_lf": "7043ae4c9667093e14a3247cbdf7f5b7b2439d02a18728b9607c316adbe79c4a"
+    },
+    "REPORT.md": {
+      "sha256_raw": "a8acbe081b4fcf9ab9246fae47036b46b54030495f632821912eab2199b02fb4",
+      "sha256_lf": "a8acbe081b4fcf9ab9246fae47036b46b54030495f632821912eab2199b02fb4"
+    },
+    "ZERO_DECODER_ARITHMETIC.json": {
+      "sha256_raw": "206da89dd270ebd545e453ba2efba893897a8731f03989162860112ec15a207d",
+      "sha256_lf": "6b6558fbbef7677b4951ee05790044361c8284f9b0e220dc490db49801a4d5fc"
+    },
+    "zero_decoder_arithmetic.py": {
+      "sha256_raw": "f8b8c31fc80bb94b15ab4312db1a04c329d26d96d5c6c93bc6b288bda1d3fc61",
+      "sha256_lf": "f8b8c31fc80bb94b15ab4312db1a04c329d26d96d5c6c93bc6b288bda1d3fc61"
+    },
+    "PRESERVATION_AUDIT.json": {
+      "sha256_raw": "82dc8e98747d4a5a35127ac06841689722b47ee6402b1c05083e33dafd59c47c",
+      "sha256_lf": "edd7c7078b1d0c638cfe9c27fa2ff0b77b50ca95eb8043d351031ec5f5e47cca"
+    }
+  },
+  "method_provenance": "ARITHMETIC.json preserves weaker public-template calculation; ZERO_DECODER_ARITHMETIC.json and FULL_GROUP_ARITHMETIC.json independently check the stronger final result; no output overwritten",
+  "hardware": "CPU only, no GPU/CUDA/model server/training",
+  "historical_policy": "old proofs/reports/outputs/reviews and other lane notebooks unchanged"
+}

@@ -1,0 +1,96 @@
+{
+  "count": 10,
+  "checks": [
+    {
+      "name": "log inverse constant",
+      "pass": true,
+      "detail": "log(1+u)>=u/(1+u); L<=10002 log n for n>=10^6"
+    },
+    {
+      "name": "log exponent",
+      "pass": true,
+      "detail": "n^(-9/20)"
+    },
+    {
+      "name": "first onset coefficient",
+      "pass": true,
+      "detail": "allocate epsilon/4 to L term"
+    },
+    {
+      "name": "geometric sum",
+      "pass": true,
+      "detail": "B initial unit terms plus geometric tail gives H=B+10000"
+    },
+    {
+      "name": "energy exponent",
+      "pass": true,
+      "detail": "quadratic bad-step budget versus sqrt(n)"
+    },
+    {
+      "name": "80/120 decimal agreement n=10^6",
+      "pass": true,
+      "detail": "45-digit bounds and integer burn-in/transport counts agree"
+    },
+    {
+      "name": "80/120 decimal agreement n=10^80",
+      "pass": true,
+      "detail": "45-digit bounds and integer burn-in/transport counts agree"
+    },
+    {
+      "name": "epsilon gate n=10^80",
+      "pass": true,
+      "detail": "scalar corroboration of analytic sufficient-onset bound"
+    },
+    {
+      "name": "80/120 decimal agreement n=10^900",
+      "pass": true,
+      "detail": "45-digit bounds and integer burn-in/transport counts agree"
+    },
+    {
+      "name": "epsilon gate n=10^900",
+      "pass": true,
+      "detail": "scalar corroboration of analytic sufficient-onset bound"
+    }
+  ],
+  "values": [
+    {
+      "n": "1000000",
+      "R_abs": "0.25",
+      "L": 115136,
+      "H_R": 62550020000,
+      "selected_group_query_error_upper": "44229624.7188005300765590722821620248081462607",
+      "coarse_query_error_upper": "62550135.136",
+      "epsilon_half": "0.0005",
+      "necessary_energy_for_robust_margin": "0.0",
+      "explicit_sufficient_onset": "1.0e+80"
+    },
+    {
+      "n": "100000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "R_abs": "1",
+      "L": 967135,
+      "H_R": 1000200020000,
+      "selected_group_query_error_upper": "7.07248900552637280488315030404769395462849299e-29",
+      "coarse_query_error_upper": "1.000200987135e-28",
+      "epsilon_half": "0.0005",
+      "necessary_energy_for_robust_margin": "3162277660168.3792319988935444324256376352955",
+      "explicit_sufficient_onset": "1.0e+80"
+    },
+    {
+      "n": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "R_abs": "1",
+      "L": 10408205,
+      "H_R": 1000200020000,
+      "selected_group_query_error_upper": "7.0725557639725593736655122548445113268996862e-439",
+      "coarse_query_error_upper": "1.000210428205e-438",
+      "epsilon_half": "0.0005",
+      "necessary_energy_for_robust_margin": "3.16227766016837933199889354443271853371955514e+217",
+      "explicit_sufficient_onset": "1.0e+80"
+    }
+  ],
+  "CPU_seconds": 0.0,
+  "wall_seconds": 0.0019627000438049436,
+  "peak_RAM_bytes": 21807104,
+  "GPU_seconds": 0,
+  "CUDA_used": false,
+  "scope": "final theorem scalar check, no moderate-width robust claim"
+}
