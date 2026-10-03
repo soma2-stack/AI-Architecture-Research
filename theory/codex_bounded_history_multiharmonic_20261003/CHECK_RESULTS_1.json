@@ -1,0 +1,143 @@
+{
+  "status": "PASS",
+  "exact_checks": [
+    {
+      "name": "constant radius",
+      "pass": true,
+      "detail": "15157/1562500"
+    },
+    {
+      "name": "strict final margin",
+      "pass": true,
+      "detail": "999999649997999/1000000000000"
+    },
+    {
+      "name": "Taylor remainder constant",
+      "pass": true,
+      "detail": "1/[8(1/10)^(3/2)]<4, checked by squaring positive quantities"
+    },
+    {
+      "name": "sqrt5 upper",
+      "pass": true,
+      "detail": "sqrt(5)<3"
+    },
+    {
+      "name": "phi first derivative upper",
+      "pass": true,
+      "detail": "1/[2sqrt(1/10)]<2"
+    },
+    {
+      "name": "Householder first coefficient",
+      "pass": true,
+      "detail": "gamma*||w||<2"
+    },
+    {
+      "name": "Householder cubic coefficient",
+      "pass": true,
+      "detail": "gamma^2*||w||*|w^T P w|<4"
+    },
+    {
+      "name": "small n term absorbed",
+      "pass": true,
+      "detail": "32/sqrt(n)<3 for n>=200"
+    },
+    {
+      "name": "co-moving cosine constant",
+      "pass": true,
+      "detail": "pi*sqrt(5)<8, using pi<22/7 and sqrt5<5/2"
+    },
+    {
+      "name": "radius power",
+      "pass": true,
+      "detail": "node term after log n<=sqrt n"
+    },
+    {
+      "name": "signal power",
+      "pass": true,
+      "detail": "degree-one power"
+    },
+    {
+      "name": "tail power",
+      "pass": true,
+      "detail": "odd tail decays"
+    },
+    {
+      "name": "signal monotonicity",
+      "pass": true,
+      "detail": "positive when log n>9; n0 is much larger"
+    },
+    {
+      "name": "n0 logarithm",
+      "pass": true,
+      "detail": "log(10)<3 gives log(10^900)<2700<10000"
+    },
+    {
+      "name": "n0 leading signal",
+      "pass": true,
+      "detail": "n0^(1/36)=10^25, (log n0)^(1/4)<10; actual leading term strictly >1000"
+    },
+    {
+      "name": "spreading threshold",
+      "pass": true,
+      "detail": "n0^(17/18)=10^850"
+    },
+    {
+      "name": "dimension floor denominator",
+      "pass": true,
+      "detail": "d>=n/5, q>=d/(2e6), F>=n^(1/18)/2"
+    }
+  ],
+  "numerical_checks": [
+    {
+      "n": 200,
+      "F": 2,
+      "seed": 610301,
+      "N": 4240,
+      "diagnostic_delta": 0.03,
+      "cosine_identity_error": 1.5720931501039814e-18,
+      "rank_two_identity_error": 5.311446379230351e-18,
+      "actual_mean_over_bound": 0.43620881550064705,
+      "max_interior_norm_over_bound": 0.011978736027957997,
+      "exactly_accumulated_numeric_radius": 0.021057675714625197,
+      "new_radius_majorant": 2.61577766548489,
+      "old_radius_majorant": 7.812593427449901,
+      "scope": "float64 algebra check only, not a robust certificate or witness search"
+    },
+    {
+      "n": 256,
+      "F": 3,
+      "seed": 610302,
+      "N": 5680,
+      "diagnostic_delta": 0.03,
+      "cosine_identity_error": 7.589415207398531e-19,
+      "rank_two_identity_error": 2.4700689099572513e-18,
+      "actual_mean_over_bound": 0.23022463971678067,
+      "max_interior_norm_over_bound": 0.008077007730720917,
+      "exactly_accumulated_numeric_radius": 0.013100531548461537,
+      "new_radius_majorant": 2.532869308941706,
+      "old_radius_majorant": 9.042508972918846,
+      "scope": "float64 algebra check only, not a robust certificate or witness search"
+    },
+    {
+      "n": 400,
+      "F": 4,
+      "seed": 610303,
+      "N": 9588,
+      "diagnostic_delta": 0.03,
+      "cosine_identity_error": 9.0801931945661e-19,
+      "rank_two_identity_error": 1.4285506347994323e-19,
+      "actual_mean_over_bound": 0.3899972649144399,
+      "max_interior_norm_over_bound": 0.0068301789342038195,
+      "exactly_accumulated_numeric_radius": 0.0088529805862637,
+      "new_radius_majorant": 2.5631684996297937,
+      "old_radius_majorant": 11.749184787267918,
+      "scope": "float64 algebra check only, not a robust certificate or witness search"
+    }
+  ],
+  "cpu_seconds": 0.078125,
+  "wall_seconds": 0.075599699979648,
+  "peak_ram_bytes": 40574976,
+  "gpu_seconds": 0,
+  "cuda_used": false,
+  "proof_basis": "written analytic whole-section bounds, not numerical checks"
+}

@@ -1,0 +1,89 @@
+{
+  "stage": "bounded physical-history LOCAL radius within the existing multiharmonic section",
+  "date": "2026-10-03",
+  "source_commit": "12e8779a8b66c5fe3ce9c15c937deb30c45d242f",
+  "claim_status": "NEW analytic proof internally checked twice; independent hostile review required",
+  "accepted_premise": "16/15 all-admitted-history lower is owner accepted and Grok verified; not re-proved or modified",
+  "source_hashes": {
+    "AGENTS.md": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+    "theory/codex_multiharmonic_lower_20261002/PROOF.md": "018e30761002ac0d088136c6a4b36331cedf01d5fe97d196648211fa73105cac",
+    "theory/codex_multiharmonic_lower_20261002/REPORT.md": "d451baca59030f5bb945e6ce6a336cb1b5c1eb8cf4ecd26afdaf94aa6c396b09",
+    "theory/codex_multiharmonic_consolidation_20261003/REPORT.md": "af41d46544235dd5f540ad7a6d0602300ce7027a9ce93bb5bbca106927ccefb4",
+    "theory/codex_multiharmonic_consolidation_20261003/PROVENANCE.json": "8c47ec8af1625990712a0b004912de14805384ed50974103c6811062d9301257",
+    "theory/grok_multiharmonic_16_15_review_20261003/REPORT.md": "c71c5b4bb745cbdb273a907a08d5d4d703f38ba21981bbbc4324ebde91424546"
+  },
+  "theorem": {
+    "epsilon": "1/1000 unchanged",
+    "gamma": "1/n; c=1 unchanged",
+    "n0": "10^900",
+    "F": "floor(n^(1/18))",
+    "delta": "10^(-4) F/(n log n)^(1/4)",
+    "N": "ceil(4n log n)+1",
+    "dimension": "qF>=n^(19/18)/20,000,000",
+    "history_radius": "<=0.00970048<1/50 uniformly in n and all y",
+    "center": "public zero-defect raw-input history X_n(0), allowed to depend on n and N",
+    "not_absolute_energy": true,
+    "common_endpoint": "h=0 exactly",
+    "antipodal_half_margin": ">999.999649997999>9>epsilon for every boundary antipode",
+    "not_claimed": [
+      "absolute ||X|| bound about zero",
+      "moderate-width robust dimension",
+      "optimal exponent",
+      "finite-bit memory",
+      "full-model gap closure",
+      "architecture novelty"
+    ]
+  },
+  "new_radius_lemma": "delta/F+16sqrt(N)[delta/sqrt(n)+delta^2/F^2+delta/n]",
+  "checks": {
+    "runs": [
+      "CHECK_RESULTS_1.json",
+      "CHECK_RESULTS_2.json"
+    ],
+    "exact_checks_per_run": 17,
+    "fixed_diagnostic_n": [
+      200,
+      256,
+      400
+    ],
+    "fixed_diagnostic_F": [
+      2,
+      3,
+      4
+    ],
+    "seeds": [
+      610301,
+      610302,
+      610303
+    ],
+    "diagnostic_delta": 0.03,
+    "tiny_checks_prove_asymptotic_theorem": false,
+    "proof_basis": "written all-n whole-section analytic inequalities in PROOF.md"
+  },
+  "compute": {
+    "cpu_seconds": 0.15625,
+    "wall_seconds": 0.15335329994559288,
+    "peak_ram_bytes": 40624128,
+    "GPU_seconds": 0,
+    "CUDA_used": false,
+    "BLAS_workers": 1,
+    "excluded": "Python/NumPy startup, administrative shell/editing time and output serialization"
+  },
+  "prior_evidence_hash_check": "previous proof/report/consolidation/output and review hashes match, except owner-authorized Codex resume update",
+  "Claude_Grok_files_modified": false,
+  "old_proofs_or_outputs_modified": false,
+  "AGENTS_modified": false,
+  "shared_map_modified": false,
+  "GAS0_modified": false,
+  "current_artifact_hashes": {
+    "theory/codex_bounded_history_multiharmonic_20261003/CHECK_RESULTS_1.json": "4e44df7342ef9d542c29048c9e0d4a8008fa46e1ec05066d7ca0eebe9899d1bb",
+    "theory/codex_bounded_history_multiharmonic_20261003/CHECK_RESULTS_2.json": "0c302075cdebc3a41f4ed1db49569422dd7006c4332c8b2e9695ba3db0b88d00",
+    "theory/codex_bounded_history_multiharmonic_20261003/CHECKS.md": "ee2be3a7ba42141585ba863ee00d0ace7204f99de34bd02861065417eb74dd02",
+    "theory/codex_bounded_history_multiharmonic_20261003/checks.py": "82b12e8c8bb472088d8fd4753eb59dc564ed546357dea9a59b1113d4b7e6fc47",
+    "theory/codex_bounded_history_multiharmonic_20261003/PROOF.md": "346101b9b074350ebe53d157099a883feef686c2eadaab3806ab911b9dd10e4b",
+    "theory/codex_bounded_history_multiharmonic_20261003/REPORT.md": "e0aacde5a1d4b56648b8ef5f7ef8a004fdaaed9f5ffd034a6e06c4bd6850d0fe"
+  },
+  "updated_Codex_resume_sha256": "6424616d4384988622681dd1ae2d40c626dfc5b32cb9fff8dbf2a7c1a5da4665",
+  "hash_convention": "SHA256 working-tree bytes; manifest itself excluded; Git blob line endings may differ",
+  "next_step": "Hostile-review ONLY the input-transport cancellation/nonlinear-mean radius lemma and constant-radius balance; stop."
+}
