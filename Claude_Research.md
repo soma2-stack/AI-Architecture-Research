@@ -9,7 +9,29 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-30, session 28
+# Resume Pointer (read this first in a new session) — updated 2026-10-04, session 29
+
+- **Current lens:** the owner-assigned corridor theory question: can the accepted donor-to-survivor private-credit mechanism give ONE robust section with D=omega(n) at mT=o(n^(3/2))?
+  - Source branch: `theory/corridor-research-20261003` at `54a915d`.
+  - Output: `theory/claude_multidonor_joint_section_20261004/` (REPORT.md, PROOF.md, checks.py).
+- **Stage:** new derivation complete; independent hostile review required.
+- **Strongest results:**
+  - PROVED: exact scalar-kernel joint transfer operator H_N = sum_s beta_s S_L(s-1)^T + eps_s rho_(s-1)^T;
+  - PROVED: public parameter-side confinement (dim <= 4m+4N+2);
+  - PROVED: cohort factorization V = F~ Jcal;
+  - PROVED: Frobenius / cohort-quadrature legal-query lower bound;
+  - PROVED: parameter caps (D <= c m for c parameters per tuple).
+  - CONDITIONAL (hypothesis H_TM): D <= n/30 + O(mT/sqrt(n)).
+  - HEURISTIC: D <~ (C mT/n)^2 for multi-epoch designs.
+- **Killed/closed:**
+  - multi-donor-into-one-survivor as an omega(n) route (D <= m);
+  - epoch/cohort counting as dimension.
+- **Not proved:** any exponent below 3/4. The constructive threshold and the [1/4,3/4] bracket are unchanged.
+- **Open:** H_TM(b), a nonperturbative bound on J = u^T M along time-varying high sets.
+- **Next action:** prove or refute H_TM(b).
+- Unchanged from session 28: GAS-0 state, no official experiment.
+
+# Resume Pointer as of 2026-09-30 session 28 (historical; superseded by the block above)
 
 - **Current:** the GAS-0 bounded failure-feedback fix is implemented (Part AV).
   - Root cause: head-only truncation of failure texts (`run_visible[:1200]`, C4 notice `[:800]`, C4 ledger head `[:300]`) dropped the final exception line.
