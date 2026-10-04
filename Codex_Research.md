@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Paired suffix-product hostile-review resume (2026-10-03)
+
+- **Current stage:** independent hostile review complete; verdict VERIFIED for the scoped new theorem, owner acceptance not inferred. No architecture/GAS/CreditLab work; no new construction begun.
+- **Reviewed theorem:** any one continuous common-endpoint antipodal section in the accepted PAIRED projected channel satisfies D<=min(mT,m(p-1))<16000mT/sqrt(n), p=max(1,ceil(16000sqrt(mT min(m,T))/n)), epsilon=.001. Hence D=omega(n) requires mT=omega(n^(3/2)).
+- **Load-bearing audit:** strict product monotonicity makes inverse-level codes continuous, including knots; uniform reconstruction error1/p; sharp staggered support factor sqrt(min(m,T)); each legal future gate contracts by sech^2(.25), giving all-horizon coefficient<8/n; dense pair ledger8e-9 is conservative; ceilings and both rectangular regimes checked; Borsuk-Ulam gives a finite-radius section upper.
+- **Strongest attack:** generic quantile plateaus cause genuine discontinuity but are OUTSIDE this legal family. Legal equal-code collisions can differ by .944335 entrywise while their controlled all-future distance stays <.002. No in-scope inequality failed.
+- **Scope:** STATIC test code is not an online encoder. The result bounds paired robust antipodal sections, not arbitrary causal state or full fixed-feature output. Coordinate-time lower is not an energy lower without actual squared cost >=c mT. Unpaired sensitivity remains outside. Global threshold bracket[1/4,3/4] and full-model gap unchanged.
+- **Evidence/resources:** theory/codex_suffix_product_hostile_review_20261003/ contains independent derivation, report, protocol, frozen hashes, separate scripts and58 new PASS records. CPU5.046875s, peak working set69.41MiB, observed max4 process threads, numerical pools1, no workers, GPU/CUDA0. Historical files unchanged.
+- **Exact next action:** STOP this review. After owner disposition, independently characterize unpaired/private credit in the same low-energy corridors. Do not retry a subcritical paired-kernel section or promote this to a global energy/causal theorem.
+
 ### Suffix-product kernel resume (2026-10-03, NEW negative theorem)
 
 - **Current search lens:** the accepted paired moving-corridor product channel, finite-radius joint robust sections at epsilon=.001, actual legal worst future queries; no architecture/GAS/CreditLab work. No old harmonic rerun.
