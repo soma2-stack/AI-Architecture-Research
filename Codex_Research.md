@@ -6,6 +6,17 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Suffix-product kernel resume (2026-10-03, NEW negative theorem)
+
+- **Current search lens:** the accepted paired moving-corridor product channel, finite-radius joint robust sections at epsilon=.001, actual legal worst future queries; no architecture/GAS/CreditLab work. No old harmonic rerun.
+- **Accepted premises:** owner reports Grok VERIFIED the holding-cost folder: full-width D>=nF/1e7 at FULL norm<=4e7 n^(3/4)F^(3/2), half-margin>.9997; autonomous source coefficient improvement; exact common-endpoint corridor with FULL norm<=2sqrt(m(T+2)+1). Old pending-review text below remains historical provenance. Full-model gap and global threshold edge1/4 unchanged.
+- **NEW internally checked theorem, independent review pending:** every robust D-ball section in the accepted PAIRED projected suffix-product channel obeys D<=m(p-1)<16000 mT/sqrt(n), p=max(1,ceil(16000sqrt(mT min(m,T))/n)). Therefore D=omega(n) REQUIRES mT=omega(n^(3/2)); the requested subcritical-budget section is impossible for this kernel. No universal RNN/whole-feature obstruction is asserted.
+- **Proof mechanism:** rows are strictly monotone in(0,1). A continuous STATIC inverse-level-position code gives uniform entry error1/p. Staggered row supports give exact worst-sign norm upper sqrt(min(m,T))*Frobenius. Actual all-future projected coefficient<8/n and dense pair ledger8e-9 yield equal-code distance<=.001+8e-9<.002. Borsuk-Ulam on ONE section supplies the finite-radius dimension bound. No tangent rank, monomial count, RMS replacement or finite packing.
+- **Geometry:** exact log suffixes/inverse, cumulative singular formula and Haar norm(b^2+2)/12 derived. The exponent region mu+rho>1,mu+tau<3/2 is empty for this channel. Any shared-time, Haar/Walsh/monotone/saturated joint code is covered; positive algebraic rank cannot escape the finite-error upper.
+- **Scope:** inverse-level encoding is STATIC, not an online causal update. The corridor energy bound is an UPPER; only near-zero schedules with actual Theta(mT) holding transfer the coordinate-time barrier to an energy barrier. Unpaired private sensitivity remains outside this theorem. Best general constructive exponent remains3/4 with log power3/2; global bracket[1/4,3/4] and full-model Omega_c(n^2)--O_c(n^2 log n) unchanged. No bits/VRAM/practical-width/training inference.
+- **Checks/resources:** theory/codex_suffix_product_kernel_attack_20261003/ has proof/report/failed routes/checks/CPU logs/source hashes.204 checks pass, including192/256-bit agreement and exact integer counts. NumericalCPU2.53125s, peak working set39.26MiB, max observed process threads4, numerical pools1, no workers. GPU/CUDA0. Accepted historical files and pre-existing unrelated dirty work preserved.
+- **Exact next action:** STOP. Hostile-review the NEW all-future coefficient, inverse-level continuity, staggered-support norm and topological width step. If accepted, investigate unpaired private sensitivity channels of these same low-cost corridors; do not retry a subcritical paired-kernel joint code or infer a generic causal-memory upper.
+
 ### Holding-cost attack resume (2026-10-03, NEW partial results)
 
 - **Current search lens:** reduce FULL absolute input energy below exponent3/4 for joint superlinear fixed-feature credit in the frozen dense tanh family. Epsilon=.001, actual permitted queries and unit fixed-feature normalization unchanged; no architecture/GAS/CreditLab work.
