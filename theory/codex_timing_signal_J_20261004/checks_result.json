@@ -1,0 +1,411 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "all numerical pools one and CUDA disabled",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full Householder block is orthogonal",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact u norm identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact u sum identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full row recurrence step 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full row recurrence step 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full row recurrence step 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full row recurrence step 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full row recurrence step 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full row recurrence step 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full row recurrence step 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "warm credit is exact on the fixed zero-sum probe",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "first-switch entry contrast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole donor group symmetry",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole survivor group symmetry",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "first-switch fixed-probe identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite diagnostic satisfies corridor placement",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact aggregate timing balance A step 48",
+      "passed": true,
+      "data": {
+        "error": 0.0
+      }
+    },
+    {
+      "name": "warm reference probe A",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact aggregate timing balance A step 49",
+      "passed": true,
+      "data": {
+        "error": 0.0
+      }
+    },
+    {
+      "name": "exact aggregate timing balance A step 96",
+      "passed": true,
+      "data": {
+        "error": 0.0
+      }
+    },
+    {
+      "name": "exact aggregate timing balance A step 108",
+      "passed": true,
+      "data": {
+        "error": 1.1080546202801855e-16
+      }
+    },
+    {
+      "name": "exact aggregate timing balance B step 48",
+      "passed": true,
+      "data": {
+        "error": 0.0
+      }
+    },
+    {
+      "name": "warm reference probe B",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact aggregate timing balance B step 49",
+      "passed": true,
+      "data": {
+        "error": 2.676624113323589e-19
+      }
+    },
+    {
+      "name": "finite first-switch formula",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact aggregate timing balance B step 96",
+      "passed": true,
+      "data": {
+        "error": 2.5640026126566573e-16
+      }
+    },
+    {
+      "name": "exact aggregate timing balance B step 108",
+      "passed": true,
+      "data": {
+        "error": 7.75272315962916e-17
+      }
+    },
+    {
+      "name": "last-gate trace matching",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact common reference endpoint",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full raw reference energy within accepted upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "real complementary legal query inequality",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "scalar proof ledger n=10^200 bits=192",
+      "passed": true,
+      "data": {
+        "values": {
+          "kappa_fraction": "1.0",
+          "persistent_interval": "99999999999999999999999999999999999999539482",
+          "loss": "3.512e-49",
+          "placement": "4.0e-47",
+          "energy": "0.7905694150420948329997233861081796334299",
+          "total_fraction": "0.9090909090909090909090909090909090909091",
+          "p_argument": "5.059644256269406931198229671092349653951e-21",
+          "complement_fraction": "1.603206412825651302605210420841683366733e-47",
+          "query_pair_lower": "0.040230593568",
+          "scaled_J_lower": "1.0e+47"
+        }
+      }
+    },
+    {
+      "name": "scalar proof ledger n=10^200 bits=256",
+      "passed": true,
+      "data": {
+        "values": {
+          "kappa_fraction": "1.0",
+          "persistent_interval": "99999999999999999999999999999999999999539482",
+          "loss": "3.512e-49",
+          "placement": "4.0e-47",
+          "energy": "0.7905694150420948329997233861081796334299",
+          "total_fraction": "0.9090909090909090909090909090909090909091",
+          "p_argument": "5.059644256269406931198229671092349653951e-21",
+          "complement_fraction": "1.603206412825651302605210420841683366733e-47",
+          "query_pair_lower": "0.040230593568",
+          "scaled_J_lower": "1.0e+47"
+        }
+      }
+    },
+    {
+      "name": "192/256 scalar agreement n=10^200",
+      "passed": true,
+      "data": {
+        "relative_error": "3.67616387217e-58"
+      }
+    },
+    {
+      "name": "scalar proof ledger n=10^204 bits=192",
+      "passed": true,
+      "data": {
+        "values": {
+          "kappa_fraction": "1.0",
+          "persistent_interval": "999999999999999999999999999999999999999530272",
+          "loss": "3.512e-50",
+          "placement": "4.0e-48",
+          "energy": "0.7905694150420948329997233861081796334299",
+          "total_fraction": "0.9090909090909090909090909090909090909091",
+          "p_argument": "1.6e-21",
+          "complement_fraction": "1.603206412825651302605210420841683366733e-48",
+          "query_pair_lower": "0.040230593568",
+          "scaled_J_lower": "1.0e+48"
+        }
+      }
+    },
+    {
+      "name": "scalar proof ledger n=10^204 bits=256",
+      "passed": true,
+      "data": {
+        "values": {
+          "kappa_fraction": "1.0",
+          "persistent_interval": "999999999999999999999999999999999999999530272",
+          "loss": "3.512e-50",
+          "placement": "4.0e-48",
+          "energy": "0.7905694150420948329997233861081796334299",
+          "total_fraction": "0.9090909090909090909090909090909090909091",
+          "p_argument": "1.6e-21",
+          "complement_fraction": "1.603206412825651302605210420841683366733e-48",
+          "query_pair_lower": "0.040230593568",
+          "scaled_J_lower": "1.0e+48"
+        }
+      }
+    },
+    {
+      "name": "192/256 scalar agreement n=10^204",
+      "passed": true,
+      "data": {
+        "relative_error": "2.87872341174e-58"
+      }
+    },
+    {
+      "name": "scalar proof ledger n=10^400 bits=192",
+      "passed": true,
+      "data": {
+        "values": {
+          "kappa_fraction": "1.0",
+          "persistent_interval": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999078965",
+          "loss": "3.512e-99",
+          "placement": "4.0e-97",
+          "energy": "0.7905694150420948329997233861081796334299",
+          "total_fraction": "0.9090909090909090909090909090909090909091",
+          "p_argument": "5.059644256269406931198229671092349653951e-46",
+          "complement_fraction": "1.603206412825651302605210420841683366733e-97",
+          "query_pair_lower": "0.040230593568",
+          "scaled_J_lower": "1.0e+97"
+        }
+      }
+    },
+    {
+      "name": "scalar proof ledger n=10^400 bits=256",
+      "passed": true,
+      "data": {
+        "values": {
+          "kappa_fraction": "1.0",
+          "persistent_interval": "9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999078965",
+          "loss": "3.512e-99",
+          "placement": "4.0e-97",
+          "energy": "0.7905694150420948329997233861081796334299",
+          "total_fraction": "0.9090909090909090909090909090909090909091",
+          "p_argument": "5.059644256269406931198229671092349653951e-46",
+          "complement_fraction": "1.603206412825651302605210420841683366733e-97",
+          "query_pair_lower": "0.040230593568",
+          "scaled_J_lower": "1.0e+97"
+        }
+      }
+    },
+    {
+      "name": "192/256 scalar agreement n=10^400",
+      "passed": true,
+      "data": {
+        "relative_error": "2.68782021024e-58"
+      }
+    }
+  ],
+  "numerical_evidence": [
+    {
+      "width": 65536,
+      "m": 4,
+      "warm": 48,
+      "switch": 48,
+      "tail": 12,
+      "J_B_switch_window": [
+        1.0687686695549058e-05,
+        1.0820913176945071e-05,
+        1.1011780936673577e-05,
+        1.1201719602517719e-05,
+        1.1391127418834174e-05,
+        1.1580039657423515e-05,
+        1.1768478978474857e-05,
+        1.1956460809067637e-05,
+        1.2143996476522501e-05,
+        1.2331094761290816e-05,
+        1.251776275950369e-05,
+        1.2704006408439274e-05,
+        1.2889830802506318e-05,
+        1.3075240421121265e-05,
+        1.3260239267327148e-05,
+        1.3444830982857334e-05,
+        1.3629018916870262e-05,
+        1.3812806187077171e-05,
+        1.3996195723427636e-05,
+        1.4179190299021884e-05,
+        1.4361792555058129e-05,
+        1.4544005025838815e-05,
+        1.472583015183597e-05,
+        1.4907270292573037e-05,
+        1.5088327736372655e-05,
+        1.5269004716056253e-05,
+        1.5449303405239308e-05,
+        1.5629225935950432e-05,
+        1.580877439404396e-05,
+        1.5987950829535466e-05,
+        1.6166757258445268e-05,
+        1.634519566551649e-05,
+        1.65232680086285e-05,
+        1.670097621769153e-05,
+        1.6878322200946777e-05,
+        1.7055307841963755e-05,
+        1.723193500778878e-05,
+        1.7408205541373808e-05,
+        1.7584121272686578e-05,
+        1.7759684010860143e-05,
+        1.7934895550385017e-05,
+        1.8109757670602567e-05,
+        1.8284272136644806e-05,
+        1.845844070006707e-05,
+        1.863226509578605e-05,
+        1.880574705131741e-05,
+        1.8978888278617078e-05,
+        1.915169047718688e-05
+      ],
+      "first_switch_exact": 1.0687686695549332e-05,
+      "J_A_switch_max": 0.0,
+      "query_values": [
+        -8.234311311328236e-11,
+        -1.654832854592664e-10
+      ],
+      "query_witness_lower": 4.157008617299127e-11,
+      "measured_reference_raw_norms": [
+        1.5070380073236271,
+        0.4582694119299928
+      ],
+      "caveat": "Small identity diagnostic, no robust-dimension or asymptotic-margin claim."
+    }
+  ],
+  "cpu_seconds": 2.421875,
+  "wall_seconds": 2.517355800002406,
+  "peak_observed_process_threads": 4,
+  "peak_observed_rss_bytes": 44425216,
+  "library_pools": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "libraries": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "version": "0.3.31.188.0",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "workers": 0,
+  "gpu_cuda_calls": 0,
+  "seed": 20261004,
+  "script_sha256": "69e05e3df67f519a7b32c0e5a5a856329b7ca53fd13f580a3518de55ee6affb3"
+}

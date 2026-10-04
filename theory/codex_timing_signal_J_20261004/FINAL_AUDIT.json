@@ -1,0 +1,110 @@
+{
+  "completed_utc": "2026-10-04T12:43:44.294819+00:00",
+  "source_commit": "b42573f4526db874e19dad0b60b496a8679b906e",
+  "pre_commit_head": "b42573f4526db874e19dad0b60b496a8679b906e",
+  "frozen_sources": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+      "unchanged": true
+    },
+    {
+      "path": "theory/codex_unpaired_corridor_sensitivity_20261003/PROOF.md",
+      "sha256": "cf13203acc5405743896937d3e1a1fd76774b8d1842c8e4d5f11ce3dd139f932",
+      "unchanged": true
+    },
+    {
+      "path": "theory/codex_private_renewal_gamma_20261003/PROOF.md",
+      "sha256": "927c8c8b2d43bde5bbd28c87e17ca5b1f6a2514c658eff2617f9c4c3b7aa3bb8",
+      "unchanged": true
+    },
+    {
+      "path": "theory/grok_private_renewal_gamma_review_20261003/REPORT.md",
+      "sha256": "a94a7e57775742278ccbf45365ea3ef660ae65dc6efc7477050f2db9c8f5af1b",
+      "unchanged": true
+    },
+    {
+      "path": "theory/codex_multi_donor_joint_section_20261003/PROOF.md",
+      "sha256": "f86f09d3df0de7b1de27f53ef176f621925cf469c8158696ab42123b187912e1",
+      "unchanged": true
+    },
+    {
+      "path": "theory/codex_multi_donor_joint_section_20261003/TRANSFER_MATRIX.md",
+      "sha256": "bade87d46bd8aabc36a22a97d99896f7c6078ec49e19a12987fa58a48afb7fd1",
+      "unchanged": true
+    },
+    {
+      "path": "theory/codex_multi_donor_joint_section_20261003/REPORT.md",
+      "sha256": "30b36d2d99d8dcfbba9febcca23927b119076208552d5643f92e7ff32136cf57",
+      "unchanged": true
+    }
+  ],
+  "new_files": [
+    {
+      "path": "CHECKS.md",
+      "sha256": "a4c3025a985d25462de72f568850c4ad670616b0a5dcf82c9e3a3128742ce0af"
+    },
+    {
+      "path": "checks.py",
+      "sha256": "69e05e3df67f519a7b32c0e5a5a856329b7ca53fd13f580a3518de55ee6affb3"
+    },
+    {
+      "path": "checks_result.json",
+      "sha256": "2db05f3ac41e9d1ef568fab01b52ffb520f592a9702c4d0c16dd596ec9340fdd"
+    },
+    {
+      "path": "checks_stdout.log",
+      "sha256": "df6ac46c013153a1bf413bb2bb8b1ed1f77303833f77b5a1a538078ecce62ace"
+    },
+    {
+      "path": "FAILED_ROUTES.md",
+      "sha256": "fcc0f4eaf2a966386e509d9aac1c3c0cddad035bad43e08f1e698df86a002479"
+    },
+    {
+      "path": "finalize.py",
+      "sha256": "9bcd8c97e659381c220f3da1bc69eea8047c1723ecb8a99395f46b53dcf0ae03"
+    },
+    {
+      "path": "NUMERICAL_EVIDENCE.md",
+      "sha256": "becb8692e3573ce45c18bec10121adfd37e5d1053f6cce23c10fd3626b2d8803"
+    },
+    {
+      "path": "PLAN.md",
+      "sha256": "792636bcf13f5ccebe1d6b62cced1b0b38238342f1c4d643adea5a6afd58a1a7"
+    },
+    {
+      "path": "PROOF.md",
+      "sha256": "d4d8592657288755acc3e6e56fa1c1e1c38039a907a34ae263684ca4c7ec5934"
+    },
+    {
+      "path": "REPORT.md",
+      "sha256": "f6ac4e0c98486b07b562fa033530e5553bb4d443e23e66e099ae2e075881f3e7"
+    },
+    {
+      "path": "RESUME_ENTRY.md",
+      "sha256": "3169c6e222dee67001a39cd39c22e5c8d1c733a865755c9141e40d772bb78b97"
+    },
+    {
+      "path": "SOURCE_HASHES.json",
+      "sha256": "a526c84b638e3904b61c6949ded07e3cae3e10f6a8e15fe1e4b801c578d8dde2"
+    }
+  ],
+  "notebook": null,
+  "checked_script_unchanged": true,
+  "checks_passed": 41,
+  "resources": {
+    "cpu_seconds": 2.421875,
+    "wall_seconds": 2.517355800002406,
+    "peak_observed_process_threads": 4,
+    "peak_observed_rss_bytes": 44425216,
+    "gpu_cuda_calls": 0,
+    "workers": 0
+  },
+  "theorem_status": "new derivation internally checked; independent hostile review pending",
+  "latest_Claude_conditional_document": "not located; exact hypothesis requested",
+  "uniform_one_over_survivors_bound": "refuted under the literal entry formulation",
+  "superlinear_section_proved": false,
+  "complete_corridor_closed": false,
+  "global_bracket": "unchanged [1/4,3/4]",
+  "scope": "new folder and additive Codex resume only"
+}

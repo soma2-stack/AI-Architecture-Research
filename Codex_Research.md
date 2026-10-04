@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Changing-survivor timing-row resume (2026-10-04)
+
+- **Current stage:** newest owner-authorized corridor question complete; NEW results internally checked, independent hostile review pending. No architecture/GAS/CreditLab work. Historical accepted results are unchanged.
+- **Exact driver:** J_t=a u^T G_t C M_prev+a(u^T G_t1)J_prev+a(u^T G_t e1)B_prev+u^T G_t. Both Householder terms, fresh forcing and current gate-weighted transported credit survive. Actual dense correction is explicitly charged. J,B alone are not a closed sufficient state.
+- **NEW pointwise-smallness refutation:** warm all tuples high, then lower half. Exact j_D-j_S=c(g_H-g_L)(a kappa+1). At n>=10^200,m~sqrt(n),warm10n^(3/4), at least m centered timing entries >=2e-4 kappa/n throughout ceil(1000logn)+1<=s<=floor(1e-6sqrt(n/m)); actual dense comparison preserves >=1e-4 kappa/n. Thus m_s*max|Delta J| grows as n^(1/4), refuting a uniform O(1/m_s) entry bound even after public subtraction. These entries form ONE shared contrast, not independent dimensions.
+- **Upper and section:** exact ||J_t||<=gamma sqrt(2/k)n(1-a^t)<2.01min(t,n)/sqrt(n). A long switched block, common tail and exact corrections give equal final local codes, exact common endpoint, full norm<8n^(5/8),mT<=11n^(5/4), and only D=1 with actual legal-query half-margin>.014999996. No better superlinear construction/exponent.
+- **Conditional theorem status:** Claude's newest transfer document/hypothesis was not found locally; exact path requested asynchronously. The literal small-entry premise is false, but no unseen integrated/query-weighted theorem is adjudicated. Complete corridor remains OPEN; a positive omega(n) route is unproved. Accepted global bracket[1/4,3/4] and full-model gap unchanged.
+- **Evidence/resources:** theory/codex_timing_signal_J_20261004/ has proof/report/failed routes, independent41 PASS checks, source hashes, log and internal audit. CPU2.421875s, peak42.37MiB, observed4 process threads, pools1, no workers, GPU/CUDA0. Scalar192/256 agreement is a cross-check, not interval certification. Old bad dense bracket is explicitly not reused; accepted pair charge8e-9 preserved.
+- **Exact next action:** STOP this stage. Hostile-review the warm-switch persistence proof. Then attack the finite-radius width of the EXACT cohort-filtered timing matrix on a local-code/bath/donor-mean fiber, charging its coherent large component; do not assume pointwise small J or count its large entries as dimensions.
+
 ### Multi-donor joint-section resume (started 2026-10-03; completed 2026-10-04)
 
 - **Current lens/stage:** joint finite-radius donor/cohort amplification; stage complete. New folder `theory/codex_multi_donor_joint_section_20261003/`. Preserve accepted historical evidence.
