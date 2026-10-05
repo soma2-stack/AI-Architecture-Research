@@ -1,5 +1,17 @@
 # Codex Independent Research Notebook
 
+## Codex resume: shared multi-column spatial writes (2026-10-05)
+
+- **Scope/stage:** requested THEORY-ONLY multi-probe stage complete. The owner-verified single-block spatial-write theorem is a premise and was not reopened. New compensated theorem is author-derived, independent hostile review required. Stronger no-dilution question remains STILL OPEN.
+- **New joint partial result:** n>=10^1000, K>=1, 2<=R<=floor(log2(n)/8), K2^R<=n^(3/16); ONE B^(KR) section, one common survivor support, R shared masks, K simultaneous donor controls per stage, exact common nonzero endpoint, actual pair>.012 and half-margin>.006.
+- **Count/cost:** mT<11sqrt(K)2^R n^(5/4), FULL raw norm<7K^(1/4)2^(R/2)n^(5/8). R2,K=floor(n^(3/16)/4) gives D>=n^(3/16)/3, mT<22n^(43/32), norm<10n^(43/64). These dimensions are SUBLINEAR; no superlinear energy-threshold improvement.
+- **Core proof:** multi-idle chronological cone signs the auxiliary response; entire inherited exceptional front is retained, including GLOBAL front slots predating a fresh write, then bounded uniformly with no K multiplier. Exact trace matching enables stage-wise telescoping; Walsh singleton reads separate R private parameter row vectors. The orthonormal probes are recurrent actions (Ev_k)f_s^T, with the original source feature and normalization.
+- **Scoped failures:** common uniform donors annihilate stationary zero-sum donor contrast differences after trace matching. The partitioned-donor axis read has exact leading joint norm kappa/sqrt(2(K+1)); sqrt(K) longer writes compensate. This does not prove a universal no-dilution obstruction or count probe rank as dimension.
+- **Limits:** D=omega(n) unproved; complete corridor open; accepted Omega(nlogn) at O(n^(3/4)(logn)^(3/2)), bracket[1/4,3/4], full-model gap unchanged. No CURRENT_THEORY, AGENTS, or historical report edits.
+- **Checks:** theory/codex_multicolumn_spatial_write_20261005/ contains proof/report, failed routes, provenance, and 1094 PASS algebra checks. Total serial math CPU36.28125s; final run21.953125s; peak observed process threads4, numerical pools1, RAM22.12MiB, workers0, GPU/CUDA0. Tests are not asymptotic proofs.
+- **Exact next action:** hostile-review multi-idle comparison, K-independent complete-front bound, whole-boundary stage telescope, legal gradient projection, and every-width envelopes. After review, seek a shared stationary/moving-cycle donor code with joint order-kappa gain and no sqrt(K) duration cost. Stop this requested task.
+
+
 ## Codex resume: filtered-timing packing audit (2026-10-05)
 
 - **Stage:** THEORY ONLY; author upper-bound derivation complete, independent review pending. General packing status STILL OPEN. Owner now accepts D=2 in its stated scope; it is not reopened here.

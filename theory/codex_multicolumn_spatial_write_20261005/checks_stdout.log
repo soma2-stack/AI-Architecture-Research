@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "exact_rational_algebra": true,
+  "scalar_values_are_checks_not_proof": true,
+  "cpu_seconds": 21.953125,
+  "wall_seconds": 22.512848299986217,
+  "peak_observed_process_threads": 4,
+  "peak_observed_rss_bytes": 23195648,
+  "gpu_cuda_calls": 0,
+  "workers": 0,
+  "pools": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "script_sha256": "b99f752987d8f58d0accf193e77faf43227dd16ebcaa9393c54be54cc7600109"
+}
+1094 independent algebra checks passed
