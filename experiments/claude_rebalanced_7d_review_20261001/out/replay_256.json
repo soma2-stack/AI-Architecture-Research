@@ -1,0 +1,36 @@
+{
+ "bits": 256,
+ "all_fields_identical": true,
+ "fields": {
+  "M3_upper": true,
+  "all_antipodal_faces_pass": true,
+  "beta3": true,
+  "center_rows_upper": true,
+  "certified_dimension": true,
+  "eta_hidden": true,
+  "hidden_forcing_upper": true,
+  "hidden_residual_upper": true,
+  "mu_tilde": true,
+  "normal_first_derivative_upper": true,
+  "precision_bits": true,
+  "r": true,
+  "radius": true,
+  "reason": true,
+  "valid": true,
+  "weakest_beta": true
+ },
+ "all_arrays_identical": true,
+ "arrays": {
+  "HH": true,
+  "HH3": true,
+  "HS": true,
+  "HS3": true,
+  "fixed3": true,
+  "selected3": true,
+  "y2": true,
+  "y3": true
+ },
+ "pass": true,
+ "certified_dimension": 7,
+ "cpu_seconds": 31.421875
+}

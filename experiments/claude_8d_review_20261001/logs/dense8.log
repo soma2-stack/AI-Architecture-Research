@@ -1,0 +1,3 @@
+C:\Users\coler\OneDrive\Desktop\ai new\experiments\claude_8d_review_20261001\review8d.py:525: UserWarning: The balance properties of Sobol' points require n to be a power of 2.
+  pts = list(qmc.Sobol(m, scramble=True, seed=9900 + face).random(N) * 2 - 1)
+{"face": 8, "points": 20576, "min_D78": 0.0031166078980438758, "argmin_u": [-0.020856086164712906, -0.07421979866921902, -0.149899797514081, -0.20682100392878056, -0.012233451008796692, 0.22156515158712864, 0.043267469853162766], "D78_over_2eps": 1.558303949021938, "D78_over_2beta": 1.5211082095309307, "stats": {"max_lift_residual": 4.163336342344337e-17, "max_y_over_ah": 0.09661575908999594, "lift_evals": 41152, "newton_failures": 0}, "cpu_seconds": 265.234375}
