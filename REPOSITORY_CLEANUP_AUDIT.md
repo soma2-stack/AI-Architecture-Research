@@ -198,7 +198,7 @@ Ahead = commits on remote absent from audited cleanup `501eb37647509504d69f17cc3
 | `preserve/local-theory-20261004` | `74232f2d1d386db45ccd5712fc684da0d82d6733` | 0 / 7 | 0 absent scientific paths; 0 differing theory paths | **CONSOLIDATED** — Full ancestry preserved; retain provenance branches for now. |
 | `theory/corridor-research-20261003` | `c682b271dd7bc98fcded9298da621c63b816ed34` | 0 / 10 | 0 absent scientific paths; 0 differing theory paths | **CONSOLIDATED** — Full ancestry preserved; retain provenance branches for now. |
 
-Unique commit lists, absent paths, differing theory paths and all local branch heads are recorded in the JSON. Differing older theory blobs are not automatically new science. Claude notebook conflicts and omitted branch notebook edits mean source branches should be kept until owner provenance review. Remote main may be stale relative to research, but it remains the protected published baseline.
+Unique commit lists, absent paths, differing theory paths and all local branch heads are recorded in the JSON. Differing older theory blobs are not automatically new science. Claude notebook conflicts and omitted branch notebook edits mean source branches should be kept until owner provenance review. Remote main may be stale relative to research, but it remains the published baseline.
 
 ## Consistency and validation
 
@@ -211,4 +211,4 @@ Unique commit lists, absent paths, differing theory paths and all local branch h
 
 The cleanup branch is for owner review. No merge to main is authorized. Independent scientific review of the pending spatial-write theorem is a separate next task.
 
-Actual pre-push results: [CONSOLIDATION_VALIDATION.json](CONSOLIDATION_VALIDATION.json). All preservation, link, ancestry, original-worktree hash/status, and protected-head checks passed. Git reported two zero-sized garbage/temp entries during object inventory; these were left untouched. No Git garbage collection or pruning was performed.
+Actual pre-push results: [CONSOLIDATION_VALIDATION.json](CONSOLIDATION_VALIDATION.json). All preservation, link, ancestry, original-worktree hash/status, and audited-head checks passed. Git reported two zero-sized garbage/temp entries during object inventory; these were left untouched. No Git garbage collection or pruning was performed.
