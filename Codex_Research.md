@@ -6,6 +6,16 @@ Scope: independent architecture-class exploration. This notebook is the only sha
 
 ## Guardrails and current state
 
+### Single-survivor spatial-write resume (2026-10-04)
+
+- **Stage:** moving-corridor nonuniform-gate theory complete; NEW proof internally checked, hostile review pending. Accepted uniform one-block r1 and disjoint D2 results remain unchanged. Historical proofs/reviews preserved; no architecture/GAS/CreditLab work.
+- **NEW orthogonal mechanism:** a public alternating high/low tuple mask converts one private common-mode contrast into a zero-sum all-support spatial character with finite gain>.24kappa. Restoring all survivor gates high protects it exactly in the reference; a clear interval removes the common/complement residual.
+- **NEW JOINT theorem:** n>=10^200, 2<=R<=floor(log2(n)/8), ONE B^R section on the SAME survivor tuples, all modes overlapping over the full support, actual antipodal half-margin>.0024. Fresh Walsh bits give triangular reads: prior characters retain their old bit and cannot turn into a later single-bit read. Coordinate telescoping and exact trace independence cover ALL boundary combinations, not separate axes.
+- **Count/energy:** m=2^(R+1)floor(sqrt(n)/2^(R+1)); mT<=4*2^R n^(5/4), FULL norm<5*2^(R/2)n^(5/8). R2 has norm<8n^(5/8); maximal R gives D=Theta(log n), mT<=4n^(11/8), norm<5n^(11/16). This does NOT beat3/4 for SUPERLINEAR D. Per-mode credit is Theta(n^(3/4)); its fraction of total credit declines as2^-R.
+- **Scope/negative:** within-tuple PRIVATE balanced output modes still cancel for arbitrary legal tuple gates. A section exclusively witnessed through one fixed parameter probe has D<=n; this is not a complete fixed-feature upper. Reusing bits breaks zero-sum protection, and older writes lose half-gain per later mask; exponential duration cost is paid. Complete corridor remains OPEN, global threshold[1/4,3/4] and full-model gap unchanged.
+- **Evidence/resources:** theory/codex_single_block_spatial_write_20261004/ includes proof/report/failed routes,312 independent PASS records, source hashes and audit. CPU9.0625s, observed4 process threads, pools1, RAM44.41MiB, workers0, GPU/CUDA0.192/256 scalar agreement is not interval certification. No old numerical kernels imported; small-history interval is explicitly an algebra-only subrange.
+- **Next:** STOP this stage. Hostile-review spatial erasure, trace-independence and the joint Walsh telescoping proof. If accepted, attack ONE finite-radius multi-probe spatial-write lemma with uniform legal-query gain and shared subcritical mT budget; do not multiply by column count or claim logarithmic D is superlinear.
+
 ### Changing-survivor timing-row resume (2026-10-04)
 
 - **Current stage:** newest owner-authorized corridor question complete; NEW results internally checked, independent hostile review pending. No architecture/GAS/CreditLab work. Historical accepted results are unchanged.

@@ -1,0 +1,1751 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "thread and GPU policy",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "small identity placement",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh characters orthonormal",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "zero sum character [1]",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact co-moving rotation [1]",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "zero sum character [2]",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact co-moving rotation [2]",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "zero sum character [1, 2]",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact co-moving rotation [1, 2]",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero sum during new mask 12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "old character zero feedback during new mask 12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "exact nonuniform mask character formula",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "older write cannot read as newer single character",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "reusing the same bit breaks zero-sum protection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "within-tuple private annihilation",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "continuous scalar trace correction -1",
+      "passed": true,
+      "data": {
+        "last": 0.9950000000000001
+      }
+    },
+    {
+      "name": "continuous scalar trace correction -0.5",
+      "passed": true,
+      "data": {
+        "last": 0.9949999091015084
+      }
+    },
+    {
+      "name": "continuous scalar trace correction 0",
+      "passed": true,
+      "data": {
+        "last": 0.9949997431029511
+      }
+    },
+    {
+      "name": "continuous scalar trace correction 0.7",
+      "passed": true,
+      "data": {
+        "last": 0.9949991494592788
+      }
+    },
+    {
+      "name": "continuous scalar trace correction 1",
+      "passed": true,
+      "data": {
+        "last": 0.9949985553051935
+      }
+    },
+    {
+      "name": "corrected trace independent of prior control",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 32",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 33",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 34",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 35",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 36",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 37",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 38",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 39",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 40",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 41",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 42",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 43",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 44",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 45",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 46",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 47",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, -1) step 48",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full reference energy identity upper (-1, -1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 32",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 33",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 34",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 35",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 36",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 37",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 38",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 39",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 40",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 41",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 42",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 43",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 44",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 45",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 46",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 47",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, -1) step 48",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full reference energy identity upper (1, -1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 32",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 33",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 34",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 35",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 36",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 37",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 38",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 39",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 40",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 41",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 42",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 43",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 44",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 45",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 46",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 47",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (-1, 1) step 48",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full reference energy identity upper (-1, 1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 32",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 33",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 34",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 35",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 36",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 37",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 38",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 39",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 40",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 41",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 42",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 43",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 44",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 45",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 46",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 47",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (1, 1) step 48",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full reference energy identity upper (1, 1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 32",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 33",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 34",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 35",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 36",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 37",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 38",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 39",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 40",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 41",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 42",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 43",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 44",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 45",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 46",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 47",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "short identity history gate legality (0.2, -0.6) step 48",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full reference energy identity upper (0.2, -0.6)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history common endpoint 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history public scalar traces 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "final direct local probe cancels 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history common endpoint 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history public scalar traces 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "final direct local probe cancels 2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history common endpoint 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history public scalar traces 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "final direct local probe cancels 3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history common endpoint 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "whole history public scalar traces 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "final direct local probe cancels 4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full scalar ledger n10^200 R2 bits192",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "1.0",
+          "incoming_fraction": "1.0666666666666666666666666666667e-46",
+          "mask_drift": "8.7551806246279488736910883525839e-44",
+          "erased_fraction": "6.03e-48",
+          "clear_factor_times_n6": "4.8867938230761382027232035986852e-52",
+          "high_gate_total_fraction": "1.0",
+          "cross_query_error": "1.836e-1150",
+          "pair_signal": "0.0057947373",
+          "timing_fraction": "0.5625",
+          "placement": "3.6e-47",
+          "p_argument": "4.8e-21",
+          "energy_fraction": "0.6"
+        }
+      }
+    },
+    {
+      "name": "full scalar ledger n10^200 R2 bits256",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "1.0",
+          "incoming_fraction": "1.0666666666666666666666666666667e-46",
+          "mask_drift": "8.7551806246279488736910883525839e-44",
+          "erased_fraction": "6.03e-48",
+          "clear_factor_times_n6": "4.8867938230761382027232035986852e-52",
+          "high_gate_total_fraction": "1.0",
+          "cross_query_error": "1.836e-1150",
+          "pair_signal": "0.0057947373",
+          "timing_fraction": "0.5625",
+          "placement": "3.6e-47",
+          "p_argument": "4.8e-21",
+          "energy_fraction": "0.6"
+        }
+      }
+    },
+    {
+      "name": "192/256 ledger agreement n10^200 R2",
+      "passed": true,
+      "data": {
+        "relative_error": "6.52675304947e-55"
+      }
+    },
+    {
+      "name": "full scalar ledger n10^200 R83 bits192",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "0.99999999999999999999999992746445",
+          "incoming_fraction": "1.0666666666666666666666666666667e-46",
+          "mask_drift": "8.7551806246279488736910883525839e-44",
+          "erased_fraction": "6.03e-48",
+          "clear_factor_times_n6": "4.8867938230761382027232035986852e-52",
+          "high_gate_total_fraction": "0.9999999999999999999999997098578",
+          "cross_query_error": "2.45634383732578814233499638986e-1124",
+          "pair_signal": "0.0057947372999999999999999995796755",
+          "timing_fraction": "0.74999999999999999999999992245182",
+          "placement": "1.16056878683004400771792884e-22",
+          "p_argument": "0.0000000086183758537860726380141044637593",
+          "energy_fraction": "0.69282032302755091741097850078438"
+        }
+      }
+    },
+    {
+      "name": "full scalar ledger n10^200 R83 bits256",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "0.99999999999999999999999992746445",
+          "incoming_fraction": "1.0666666666666666666666666666667e-46",
+          "mask_drift": "8.7551806246279488736910883525839e-44",
+          "erased_fraction": "6.03e-48",
+          "clear_factor_times_n6": "4.8867938230761382027232035986852e-52",
+          "high_gate_total_fraction": "0.9999999999999999999999997098578",
+          "cross_query_error": "2.45634383732578814233499638986e-1124",
+          "pair_signal": "0.0057947372999999999999999995796755",
+          "timing_fraction": "0.74999999999999999999999992245182",
+          "placement": "1.16056878683004400771792884e-22",
+          "p_argument": "0.0000000086183758537860726380141044637593",
+          "energy_fraction": "0.69282032302755091741097850078438"
+        }
+      }
+    },
+    {
+      "name": "192/256 ledger agreement n10^200 R83",
+      "passed": true,
+      "data": {
+        "relative_error": "6.52675304947e-55"
+      }
+    },
+    {
+      "name": "full scalar ledger n10^400 R2 bits192",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "1.0",
+          "incoming_fraction": "1.0666666666666666666666666666667e-96",
+          "mask_drift": "1.7510351743449251281233904716494e-93",
+          "erased_fraction": "6.03e-98",
+          "clear_factor_times_n6": "2.3880753869255098726529943275567e-103",
+          "high_gate_total_fraction": "1.0",
+          "cross_query_error": "1.836e-2300",
+          "pair_signal": "0.0057947373",
+          "timing_fraction": "0.5625",
+          "placement": "3.6e-97",
+          "p_argument": "4.8e-46",
+          "energy_fraction": "0.6"
+        }
+      }
+    },
+    {
+      "name": "full scalar ledger n10^400 R2 bits256",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "1.0",
+          "incoming_fraction": "1.0666666666666666666666666666667e-96",
+          "mask_drift": "1.7510351743449251281233904716494e-93",
+          "erased_fraction": "6.03e-98",
+          "clear_factor_times_n6": "2.3880753869255098726529943275567e-103",
+          "high_gate_total_fraction": "1.0",
+          "cross_query_error": "1.836e-2300",
+          "pair_signal": "0.0057947373",
+          "timing_fraction": "0.5625",
+          "placement": "3.6e-97",
+          "p_argument": "4.8e-46",
+          "energy_fraction": "0.6"
+        }
+      }
+    },
+    {
+      "name": "192/256 ledger agreement n10^400 R2",
+      "passed": true,
+      "data": {
+        "relative_error": "1.30535677077e-54"
+      }
+    },
+    {
+      "name": "full scalar ledger n10^400 R166 bits192",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "1.0",
+          "incoming_fraction": "1.0666666666666666666666666666667e-96",
+          "mask_drift": "1.7510351743449251281233904716494e-93",
+          "erased_fraction": "6.03e-98",
+          "clear_factor_times_n6": "2.3880753869255098726529943275567e-103",
+          "high_gate_total_fraction": "1.0",
+          "cross_query_error": "4.75125997887107485651675998481e-2249",
+          "pair_signal": "0.0057947373",
+          "timing_fraction": "0.75",
+          "placement": "1.1224332574701334411804299515261e-47",
+          "p_argument": "2.6802188059576132344235471071967e-21",
+          "energy_fraction": "0.69282032302755091741097853660235"
+        }
+      }
+    },
+    {
+      "name": "full scalar ledger n10^400 R166 bits256",
+      "passed": true,
+      "data": {
+        "values": {
+          "stage_trace_fraction": "1.0",
+          "incoming_fraction": "1.0666666666666666666666666666667e-96",
+          "mask_drift": "1.7510351743449251281233904716494e-93",
+          "erased_fraction": "6.03e-98",
+          "clear_factor_times_n6": "2.3880753869255098726529943275567e-103",
+          "high_gate_total_fraction": "1.0",
+          "cross_query_error": "4.75125997887107485651675998481e-2249",
+          "pair_signal": "0.0057947373",
+          "timing_fraction": "0.75",
+          "placement": "1.1224332574701334411804299515261e-47",
+          "p_argument": "2.6802188059576132344235471071967e-21",
+          "energy_fraction": "0.69282032302755091741097853660235"
+        }
+      }
+    },
+    {
+      "name": "192/256 ledger agreement n10^400 R166",
+      "passed": true,
+      "data": {
+        "relative_error": "1.30535677077e-54"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "width": 65536,
+      "m": 8,
+      "T": 48,
+      "reference_raw_norms": [
+        0.700158501994382,
+        0.7001097102890886,
+        0.7001630232955778,
+        0.7001142319053788,
+        0.7001291480614591
+      ],
+      "short_gate_control_range": [
+        0.995,
+        0.99501
+      ],
+      "caveat": "Short admissible algebra test with a reduced control interval; no robust dimension or theorem-margin claim."
+    }
+  ],
+  "cpu_seconds": 9.0625,
+  "wall_seconds": 9.35461550000764,
+  "peak_observed_process_threads": 4,
+  "peak_observed_rss_bytes": 46567424,
+  "libraries": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "version": "0.3.31.188.0",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "pools": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "workers": 0,
+  "gpu_cuda_calls": 0,
+  "script_sha256": "631fa693fb7421b380a8463bd2816f97039d7b7bc124135cda6c5e5e2c1e82ff"
+}
