@@ -1,5 +1,15 @@
 # Codex Independent Research Notebook
 
+## Codex resume: filtered-timing packing audit (2026-10-05)
+
+- **Stage:** THEORY ONLY; author upper-bound derivation complete, independent review pending. General packing status STILL OPEN. Owner now accepts D=2 in its stated scope; it is not reopened here.
+- **New bound:** complete actual gate-window difference is bounded by a midpoint adjoint-dissipation budget, including all prior credit and Householder renewals. A separate spatial bound retains age-dependent leakage. Fresh-injection windows and gate-write windows are not interchangeable.
+- **Packing verdict:** historical lower-visibility inference is invalid. The old o(sqrt(n)) packet rate follows only with additional complete-output-localization and scalar-packet premises, not established for inherited filtered timing. No unconditional continuous-dimension cap follows from counting disjoint blocks.
+- **Limits:** no spatial-write work, no superlinear construction, no long-corridor closure, no CURRENT_THEORY/historical proof edits. Threshold bracket [1/4,3/4] unchanged.
+- **Evidence:** theory/codex_filtered_timing_packing_repair_20261005/REPORT.md and PROOF.md; one-thread algebra checks, 56 legal-form query samples at n=256; CPU .484s, observed process threads4, peak working set41.5MiB, GPU0. Numerical checks are not asymptotic proofs.
+- **Exact next review/lemma:** attack the midpoint dissipation proof and first-departure leverage bound; sharpen Lambda(t,S)=sup_legal_Q ||P_S Phi_bar(N,t)^T c_Q|| for actual corridor midpoint trajectories, or construct a legal history requiring its age-dependent leakage term. Stop this requested task.
+
+
 ## Codex resume: D=2 chronological repair (2026-10-05)
 
 - **Current scope/stage:** requested THEORY-ONLY repair complete; new derivation is PROVED in the requested author-status file, independent hostile review pending. This is not repository ACCEPTED/VERIFIED. No historical report was changed.
