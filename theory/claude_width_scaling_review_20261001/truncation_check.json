@@ -1,0 +1,882 @@
+[
+ {
+  "n": 3,
+  "a": 0.5,
+  "P": 21,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.7046172201635404,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.2069115095555019,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.16894254010666182,
+    "memory_theory_H(n^2+2n)": 15,
+    "memory_hidden_store_(2H+1)n": 9
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.08272668056615498,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.1350921036675314,
+    "memory_theory_H(n^2+2n)": 30,
+    "memory_hidden_store_(2H+1)n": 15
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 2.7755575615628914e-17,
+    "trunc_err_op": 0.009257734806441494,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.06047127053276067,
+    "memory_theory_H(n^2+2n)": 60,
+    "memory_hidden_store_(2H+1)n": 27
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.00027062246736423107,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 0.028283176873615336,
+    "memory_theory_H(n^2+2n)": 120,
+    "memory_hidden_store_(2H+1)n": 51
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 2.0816681711721685e-17,
+    "trunc_err_op": 7.704791730564243e-06,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 0.01288383714256061,
+    "memory_theory_H(n^2+2n)": 180,
+    "memory_hidden_store_(2H+1)n": 75
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "a": 0.5,
+  "P": 21,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.7317324354412721,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.1889907080456631,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.15431026694639402,
+    "memory_theory_H(n^2+2n)": 15,
+    "memory_hidden_store_(2H+1)n": 9
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.734723475976807e-18,
+    "trunc_err_op": 0.04436385827788947,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.0724458772013179,
+    "memory_theory_H(n^2+2n)": 30,
+    "memory_hidden_store_(2H+1)n": 15
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 2.7755575615628914e-17,
+    "trunc_err_op": 0.003412633542032066,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.022291228952227658,
+    "memory_theory_H(n^2+2n)": 60,
+    "memory_hidden_store_(2H+1)n": 27
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 3.469446951953614e-18,
+    "trunc_err_op": 5.344483354333138e-06,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 0.0005585603053616835,
+    "memory_theory_H(n^2+2n)": 120,
+    "memory_hidden_store_(2H+1)n": 51
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 3.469446951953614e-18,
+    "trunc_err_op": 8.196492441482376e-09,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 1.3706051694735995e-05,
+    "memory_theory_H(n^2+2n)": 180,
+    "memory_hidden_store_(2H+1)n": 75
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "a": 0.8,
+  "P": 21,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.7123327023351772,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.33419879042852857,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.060773462472278376,
+    "memory_theory_H(n^2+2n)": 15,
+    "memory_hidden_store_(2H+1)n": 9
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 5.551115123125783e-17,
+    "trunc_err_op": 0.18712468631044818,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.042535369018476946,
+    "memory_theory_H(n^2+2n)": 30,
+    "memory_hidden_store_(2H+1)n": 15
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.04545182890690927,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.016143232766004278,
+    "memory_theory_H(n^2+2n)": 60,
+    "memory_hidden_store_(2H+1)n": 27
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.01179121358172655,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 0.010224396988258144,
+    "memory_theory_H(n^2+2n)": 120,
+    "memory_hidden_store_(2H+1)n": 51
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.0018974389143883203,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 0.0040168633058734185,
+    "memory_theory_H(n^2+2n)": 180,
+    "memory_hidden_store_(2H+1)n": 75
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "a": 0.8,
+  "P": 21,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.7605428032494685,
+  "BBt_identity_err": 2.220446049250313e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.2821716951925911,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.05131242667436728,
+    "memory_theory_H(n^2+2n)": 15,
+    "memory_hidden_store_(2H+1)n": 9
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 3.469446951953614e-18,
+    "trunc_err_op": 0.10374384600819947,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.023582045000913498,
+    "memory_theory_H(n^2+2n)": 30,
+    "memory_hidden_store_(2H+1)n": 15
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.021626008316770088,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.007680960138527981,
+    "memory_theory_H(n^2+2n)": 60,
+    "memory_hidden_store_(2H+1)n": 27
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.00014371191058499877,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 0.00012461547028876142,
+    "memory_theory_H(n^2+2n)": 120,
+    "memory_hidden_store_(2H+1)n": 51
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 2.7755575615628914e-17,
+    "trunc_err_op": 2.8943777241493025e-06,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 6.127374950155242e-06,
+    "memory_theory_H(n^2+2n)": 180,
+    "memory_hidden_store_(2H+1)n": 75
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "a": 0.5,
+  "P": 78,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.7118697299632504,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.19552839355069934,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.15964826480843686,
+    "memory_theory_H(n^2+2n)": 48,
+    "memory_hidden_store_(2H+1)n": 18
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 6.938893903907228e-18,
+    "trunc_err_op": 0.031252786071928676,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.051035585944390845,
+    "memory_theory_H(n^2+2n)": 96,
+    "memory_hidden_store_(2H+1)n": 30
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.0018252526692869818,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.01192250051041621,
+    "memory_theory_H(n^2+2n)": 192,
+    "memory_hidden_store_(2H+1)n": 54
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 6.938893903907228e-18,
+    "trunc_err_op": 2.3987277822421627e-06,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 0.0002506947881954653,
+    "memory_theory_H(n^2+2n)": 384,
+    "memory_hidden_store_(2H+1)n": 102
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 3.1814383057243657e-09,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 5.319953406067594e-06,
+    "memory_theory_H(n^2+2n)": 576,
+    "memory_hidden_store_(2H+1)n": 150
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "a": 0.5,
+  "P": 78,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.6460974909424851,
+  "BBt_identity_err": 5.551115123125783e-17,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.17537954904388744,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.14319680215898056,
+    "memory_theory_H(n^2+2n)": 48,
+    "memory_hidden_store_(2H+1)n": 18
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.032029794798957296,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.052304435882330594,
+    "memory_theory_H(n^2+2n)": 96,
+    "memory_hidden_store_(2H+1)n": 30
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.0010173052734891968,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.006645010220509396,
+    "memory_theory_H(n^2+2n)": 192,
+    "memory_hidden_store_(2H+1)n": 54
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 6.524295842925745e-07,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 6.818643518348605e-05,
+    "memory_theory_H(n^2+2n)": 384,
+    "memory_hidden_store_(2H+1)n": 102
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 4.2702529923186046e-10,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 7.140652990309442e-07,
+    "memory_theory_H(n^2+2n)": 576,
+    "memory_hidden_store_(2H+1)n": 150
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "a": 0.8,
+  "P": 78,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.7425798493090292,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.31734559007512364,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.057708737618241294,
+    "memory_theory_H(n^2+2n)": 48,
+    "memory_hidden_store_(2H+1)n": 18
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.08699188453652179,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.01977415157418003,
+    "memory_theory_H(n^2+2n)": 96,
+    "memory_hidden_store_(2H+1)n": 30
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.012398462276245841,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.004403590950672048,
+    "memory_theory_H(n^2+2n)": 192,
+    "memory_hidden_store_(2H+1)n": 54
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.00012671408623156116,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 0.00010987631702674575,
+    "memory_theory_H(n^2+2n)": 384,
+    "memory_hidden_store_(2H+1)n": 102
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 6.938893903907228e-18,
+    "trunc_err_op": 1.304135182215622e-06,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 2.76084395635431e-06,
+    "memory_theory_H(n^2+2n)": 576,
+    "memory_hidden_store_(2H+1)n": 150
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "a": 0.8,
+  "P": 78,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.6775169364747182,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.2980559278245814,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.0542009464518428,
+    "memory_theory_H(n^2+2n)": 48,
+    "memory_hidden_store_(2H+1)n": 18
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 2.7755575615628914e-17,
+    "trunc_err_op": 0.0820935444215762,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.0186607084017407,
+    "memory_theory_H(n^2+2n)": 96,
+    "memory_hidden_store_(2H+1)n": 30
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 2.7755575615628914e-17,
+    "trunc_err_op": 0.006156762734861723,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.0021867118728598686,
+    "memory_theory_H(n^2+2n)": 192,
+    "memory_hidden_store_(2H+1)n": 54
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 5.551115123125783e-17,
+    "trunc_err_op": 2.5339467080812354e-05,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 2.1972358409878605e-05,
+    "memory_theory_H(n^2+2n)": 384,
+    "memory_hidden_store_(2H+1)n": 102
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 2.7755575615628914e-17,
+    "trunc_err_op": 8.825906797798718e-08,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 1.868437549599076e-07,
+    "memory_theory_H(n^2+2n)": 576,
+    "memory_hidden_store_(2H+1)n": 150
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "a": 0.5,
+  "P": 300,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.6626590882313248,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.18282945726170705,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.14927962674705564,
+    "memory_theory_H(n^2+2n)": 168,
+    "memory_hidden_store_(2H+1)n": 36
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.05326942190324403,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.08698860170399056,
+    "memory_theory_H(n^2+2n)": 336,
+    "memory_hidden_store_(2H+1)n": 60
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.0022718880144997774,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.014839910368717988,
+    "memory_theory_H(n^2+2n)": 672,
+    "memory_hidden_store_(2H+1)n": 108
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 6.938893903907228e-18,
+    "trunc_err_op": 3.5224786530371967e-06,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 0.00036813974740425895,
+    "memory_theory_H(n^2+2n)": 1344,
+    "memory_hidden_store_(2H+1)n": 204
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 6.289482167368004e-09,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 1.051717772382593e-05,
+    "memory_theory_H(n^2+2n)": 2016,
+    "memory_hidden_store_(2H+1)n": 300
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "a": 0.5,
+  "P": 300,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.6574131796539128,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.23592237837474406,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.19262981530731582,
+    "memory_theory_H(n^2+2n)": 168,
+    "memory_hidden_store_(2H+1)n": 36
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.055413080133962546,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.09048918093610904,
+    "memory_theory_H(n^2+2n)": 336,
+    "memory_hidden_store_(2H+1)n": 60
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.002797928284266954,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.018275991022279576,
+    "memory_theory_H(n^2+2n)": 672,
+    "memory_hidden_store_(2H+1)n": 108
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 5.551115123125783e-17,
+    "trunc_err_op": 1.0875579551128669e-05,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 0.0011366238104453187,
+    "memory_theory_H(n^2+2n)": 1344,
+    "memory_hidden_store_(2H+1)n": 204
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 3.0751327146741904e-08,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 5.142190791537609e-05,
+    "memory_theory_H(n^2+2n)": 2016,
+    "memory_hidden_store_(2H+1)n": 300
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "a": 0.8,
+  "P": 300,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.6876439568669045,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.3247783708553785,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.059060375735286164,
+    "memory_theory_H(n^2+2n)": 168,
+    "memory_hidden_store_(2H+1)n": 36
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.14395438837321547,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.03272231554272473,
+    "memory_theory_H(n^2+2n)": 336,
+    "memory_hidden_store_(2H+1)n": 60
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.014251692417046297,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.005061807050032768,
+    "memory_theory_H(n^2+2n)": 672,
+    "memory_hidden_store_(2H+1)n": 108
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 2.0816681711721685e-17,
+    "trunc_err_op": 0.00010861258094222565,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 9.418013996401794e-05,
+    "memory_theory_H(n^2+2n)": 1344,
+    "memory_hidden_store_(2H+1)n": 204
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 5.551115123125783e-17,
+    "trunc_err_op": 1.0142347230178337e-06,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 2.147126957046931e-06,
+    "memory_theory_H(n^2+2n)": 2016,
+    "memory_hidden_store_(2H+1)n": 300
+   }
+  ]
+ },
+ {
+  "n": 12,
+  "a": 0.8,
+  "P": 300,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.6847510324198083,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.44463807118521936,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.08085665151053295,
+    "memory_theory_H(n^2+2n)": 168,
+    "memory_hidden_store_(2H+1)n": 36
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 2.7755575615628914e-17,
+    "trunc_err_op": 0.1629121808196947,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.03703161707522736,
+    "memory_theory_H(n^2+2n)": 336,
+    "memory_hidden_store_(2H+1)n": 60
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 5.551115123125783e-17,
+    "trunc_err_op": 0.02396621184297087,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.008512135718297455,
+    "memory_theory_H(n^2+2n)": 672,
+    "memory_hidden_store_(2H+1)n": 108
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 5.551115123125783e-17,
+    "trunc_err_op": 0.0006587400918907651,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 0.0005712067010651684,
+    "memory_theory_H(n^2+2n)": 1344,
+    "memory_hidden_store_(2H+1)n": 204
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 5.551115123125783e-17,
+    "trunc_err_op": 1.306432844195914e-05,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 2.7657080887529598e-05,
+    "memory_theory_H(n^2+2n)": 2016,
+    "memory_hidden_store_(2H+1)n": 300
+   }
+  ]
+ },
+ {
+  "n": 24,
+  "a": 0.5,
+  "P": 1176,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.6145609013070625,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.24026949241601103,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.19617921905891322,
+    "memory_theory_H(n^2+2n)": 624,
+    "memory_hidden_store_(2H+1)n": 72
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 6.938893903907228e-18,
+    "trunc_err_op": 0.04857957951832855,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.0793301211592437,
+    "memory_theory_H(n^2+2n)": 1248,
+    "memory_hidden_store_(2H+1)n": 120
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.002943409461140729,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.019226270090333807,
+    "memory_theory_H(n^2+2n)": 2496,
+    "memory_hidden_store_(2H+1)n": 216
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 7.441015615300663e-06,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 0.0007776721674909199,
+    "memory_theory_H(n^2+2n)": 4992,
+    "memory_hidden_store_(2H+1)n": 408
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 2.1262995497900288e-08,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 3.555566207860166e-05,
+    "memory_theory_H(n^2+2n)": 7488,
+    "memory_hidden_store_(2H+1)n": 600
+   }
+  ]
+ },
+ {
+  "n": 24,
+  "a": 0.5,
+  "P": 1176,
+  "C_star": 1.224744871391589,
+  "max_B_op": 0.6261970005840216,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.2139272707667741,
+    "e_H_bound": 1.224744871391589,
+    "ratio_err_to_bound": 0.17467088514827095,
+    "memory_theory_H(n^2+2n)": 624,
+    "memory_hidden_store_(2H+1)n": 72
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.04355648925554272,
+    "e_H_bound": 0.6123724356957945,
+    "ratio_err_to_bound": 0.07112744910873174,
+    "memory_theory_H(n^2+2n)": 1248,
+    "memory_hidden_store_(2H+1)n": 120
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.0024027341105247063,
+    "e_H_bound": 0.15309310892394862,
+    "ratio_err_to_bound": 0.01569459348897475,
+    "memory_theory_H(n^2+2n)": 2496,
+    "memory_hidden_store_(2H+1)n": 216
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 3.862912293483321e-06,
+    "e_H_bound": 0.009568319307746789,
+    "ratio_err_to_bound": 0.00040371899904676,
+    "memory_theory_H(n^2+2n)": 4992,
+    "memory_hidden_store_(2H+1)n": 408
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 4.93913309158217e-09,
+    "e_H_bound": 0.0005980199567341743,
+    "ratio_err_to_bound": 8.259144257584807e-06,
+    "memory_theory_H(n^2+2n)": 7488,
+    "memory_hidden_store_(2H+1)n": 600
+   }
+  ]
+ },
+ {
+  "n": 24,
+  "a": 0.8,
+  "P": 1176,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.6410663872712566,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.4414441038367279,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.08027583416364091,
+    "memory_theory_H(n^2+2n)": 624,
+    "memory_hidden_store_(2H+1)n": 72
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.15251447095120488,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.03466811050149007,
+    "memory_theory_H(n^2+2n)": 1248,
+    "memory_hidden_store_(2H+1)n": 120
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.022600951114907092,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.008027232860712602,
+    "memory_theory_H(n^2+2n)": 2496,
+    "memory_hidden_store_(2H+1)n": 216
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.0003643787403795616,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 0.0003159600892562718,
+    "memory_theory_H(n^2+2n)": 4992,
+    "memory_hidden_store_(2H+1)n": 408
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 6.8497646319680665e-06,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 1.4500898023845988e-05,
+    "memory_theory_H(n^2+2n)": 7488,
+    "memory_hidden_store_(2H+1)n": 600
+   }
+  ]
+ },
+ {
+  "n": 24,
+  "a": 0.8,
+  "P": 1176,
+  "C_star": 1.374772708486752,
+  "max_B_op": 0.6459675793566174,
+  "BBt_identity_err": 1.1102230246251565e-16,
+  "H": [
+   {
+    "H": 1,
+    "factored_vs_hidden_state_store_max_diff": 0.0,
+    "trunc_err_op": 0.3533983096898481,
+    "e_H_bound": 5.499090833947009,
+    "ratio_err_to_bound": 0.06426486129457042,
+    "memory_theory_H(n^2+2n)": 624,
+    "memory_hidden_store_(2H+1)n": 72
+   },
+   {
+    "H": 2,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.12031895283067073,
+    "e_H_bound": 4.399272667157608,
+    "ratio_err_to_bound": 0.027349737543867544,
+    "memory_theory_H(n^2+2n)": 1248,
+    "memory_hidden_store_(2H+1)n": 120
+   },
+   {
+    "H": 4,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.015495668733389282,
+    "e_H_bound": 2.8155345069808693,
+    "ratio_err_to_bound": 0.0055036330384050135,
+    "memory_theory_H(n^2+2n)": 2496,
+    "memory_hidden_store_(2H+1)n": 216
+   },
+   {
+    "H": 8,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 0.000173375732151437,
+    "e_H_bound": 1.1532429340593644,
+    "ratio_err_to_bound": 0.00015033756291153854,
+    "memory_theory_H(n^2+2n)": 4992,
+    "memory_hidden_store_(2H+1)n": 408
+   },
+   {
+    "H": 12,
+    "factored_vs_hidden_state_store_max_diff": 1.3877787807814457e-17,
+    "trunc_err_op": 1.3887148497119747e-06,
+    "e_H_bound": 0.4723683057907157,
+    "ratio_err_to_bound": 2.9398984493410305e-06,
+    "memory_theory_H(n^2+2n)": 7488,
+    "memory_hidden_store_(2H+1)n": 600
+   }
+  ]
+ }
+]

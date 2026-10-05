@@ -1,0 +1,15 @@
+{
+ "seed": 1,
+ "points": 400,
+ "kernel_arrays_identical_to_stored": true,
+ "pre_excess": 3.085628338744729e-13,
+ "h_excess": 3.090797739749893e-13,
+ "dpre_ratio": 1.0,
+ "dh_ratio": 0.9999999999999999,
+ "pre_fill": 1.0000000000010965,
+ "adversarial_pre_excess": 2.139053714679105e-13,
+ "adversarial_pre_fill": 1.0000000000010965,
+ "ax_new_over_old_min": 2.4703282292062326e-23,
+ "ax_new_over_old_max": 1.0,
+ "reading": "excess<=0 means truth inside enclosure; ratios<=1 required; fill = |a-mid|/halfwidth"
+}

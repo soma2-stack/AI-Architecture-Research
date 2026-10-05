@@ -1,0 +1,675 @@
+{
+ "lenses": [
+  {
+   "lens": "fixed-point",
+   "verdict": "THEOREM_HOLDS_WITH_SCOPE_CAVEATS",
+   "first_failed_inequality": "None. Every inequality in PROOF sections 2-3, eqs. (2)-(10), re-derives with the stated constants. I attacked the selected-row identity (2), the reduced system (3)-(4), the B_m bound, the S(B_m) bound (6), the cH^2 bound, Phi(B_m)<0 in (7), Phi(b0)>0 in (8), continuity and the IVT, monotonicity of H, the per-coordinate floor, and the dense transfer (9). None of them fails for n>=10^6.",
+   "findings": [
+    {
+     "item": "(a) Existence, uniqueness, contraction, no periodic orbit",
+     "status": "verified",
+     "statement": "f(h)=tanh(Rh+b0 1) is a contraction with constant ||R||op=a=1-1/n<1 in l2, because tanh is coordinatewise 1-Lipschitz. So h* exists and is unique, and f^p (constant a^p) has no other fixed point, so there is no distinct autonomous periodic orbit. The R0 map is also a contraction, so its fixed point h*_0 is unique.",
+     "evidence": "Banach fixed-point theorem applied to ||f(h)-f(g)||<=||R(h-g)||<=a||h-g||."
+    },
+    {
+     "item": "(a) Dense perturbation, eq. (9)",
+     "status": "verified",
+     "statement": "Comparing fixed points gives ||h*-h*_0||<=||R h*-R0 h*_0||<=a||h*-h*_0||+e||h*_0||, so ||h*-h*_0||<=e n||h*_0||<=4/(1e8 sqrt n). This bound holds for every coordinate. At n>=10^6 it is <=4e-11, so m0-4e-11>1/50. For the archived R=(R0+J/(1e8 n^3))a/||.||, ||R-R0||<=|a-||raw|||+n/(1e8 n^3)<=2/(1e8 n^2), half of e_n.",
+     "evidence": "Analytic derivation. Numerically, the dense-vs-R0 fixed-point shift at n=2000/4000/8000 is 1.7e-13/1.9e-13/1.1e-13, against the bound 1.7e-11/1.4e-11/1.9e-11 computed from the measured ||R-R0||. These shifts are at double-precision noise level because the perturbation is about 1e-15 (fullcheck_out.json)."
+    },
+    {
+     "item": "(b) Selected-row identity (2)",
+     "status": "verified",
+     "statement": "Re-derived from scratch. w^T w=2(1-tau) gives U=I-cH ww^T. With v_0=0: w^T v=-tau S, Pw=e1-tau 1, w^T Pv=v_(d-1)-tau S, w^T Pw=1-2tau. The coefficient on S in rows i>=1 is tau^2[-2cH+cH^2(1-2tau)]=-cH^2 tau^2. This gives J=cH tau v_(d-1)-cH^2 tau^2 S, with the extra cH tau S only in row 1, exactly as in (2). Oe0=e0 and O^T e0=e0, so the protected coordinate is decoupled in both directions.",
+     "evidence": "Structured-matvec check against the closed form with random v (v_0=0): max error 1.1e-15/5.6e-16/4.4e-16 at n=2000/4000/8000. Oe0 and O^T e0 errors are <=8.9e-16."
+    },
+    {
+     "item": "(b) Reduced system (3)-(4) is equivalent to the R0 fixed point",
+     "status": "verified",
+     "statement": "Set B=aJ+b0. Then the off-cycle selected rows give v_i=H(B), the cycle bulk gives v_i=tanh(a v_(i-1)+B), and the head gives v_1=tanh(B+a cH tau S). Phi(B)=0 is exactly the statement B=b0+aJ(v(B)). It is equivalent to a cH tau S=(b0-B)/(cH tau)+a v_(d-1), which turns the head equation into the first line of (3). So every root yields an R0 fixed point. Uniqueness of that fixed point makes every root give the same vector; uniqueness of the root is not needed. The cycle map is an a-contraction in sup norm, and v(B), H(B) are continuous in B.",
+     "evidence": "My own reduced solver (reduced.py) reproduces Codex's archived n=200 and n=2000 minima to about 1e-11 (-0.11760216435, -0.00222571106). It matches brute-force full-R0 iteration to max |diff| 1.7e-15/4.4e-15/2.3e-14 at n=2000/4000/8000, and to 3.6e-12 at n=10^6 (10725 iterations, residual 1e-13)."
+    },
+    {
+     "item": "(b) Constants in (6)-(8)",
+     "status": "verified",
+     "statement": "B_m=(atanh m0-m0)+m0/n<=m0^3/(3(1-m0^2))+m0/10^6=1004797/191880000000~5.24e-6<1e-5. Since 0<B_m<b0, the extra forcing is positive. The cycle stays in [m0,1], and the mean value theorem with tanh'<=1-m0^2 gives a cycle excess <=(1-m0)/m0^2=1560 (the proof states 1600). The dropped term -a cH tau v_(d-1) is negative. k>=500000 gives tau<1/700 and cH^2<1.00287<201/200. The exact upper bound for Phi(B_m) is -21649/1e6. In (8), cH tau^2 r=(1-tau^2)/(1-tau)=1+tau, so Phi(b0)=a cH H(b0)>0. H'(B)=(1-H^2)/(1-a(1-H^2))>0, so B*>B_m implies H(B*)>m0. Protected and source coordinates exceed tanh(b0)=0.04996>m0.",
+     "evidence": "Exact rationals in checks2.py. Numerically at n=10^6: Phi(B_m)=-0.02482 (bound -0.021649), cycle excess at B_m=69.8 (bound 1560), and Phi(b0)=0.502779=a cH H(b0) exactly."
+    },
+    {
+     "item": "(b) Every coordinate, every n>=10^6",
+     "status": "verified",
+     "statement": "Each coordinate class is covered. Protected: z=tanh(az+b0)~0.502. Cycle head: about 1. Cycle bulk and tail: >=H(B*). Off-cycle: =H(B*). Source: >tanh(b0). All exceed m0=1/40 on R0, and are >=1/50 on the dense R after (9). The chain only uses k>=500000, so it holds uniformly for n>=10^6. The proof needs Theorem 1 only through |h*_i|>=m, which Lemma 2 and (17) require, and that is supplied.",
+     "evidence": "Analytic. The minimizing coordinate is always the off-cycle bulk H(B*) (brute-force argmin index = d at n=2000/4000/8000)."
+    },
+    {
+     "item": "(c) Numerical h*_0 structure at large n",
+     "status": "documentation",
+     "statement": "Min h*_0 by n (the minimizer is always the off-cycle bulk H(B*), which equals the decayed cycle tail at large n): 1e4: 0.041084099; 3e4: 0.047166496; 1e5: 0.049049379; 1e6: 0.049820545; 1e7: 0.049929375; 1e8: 0.049950657. Other levels: protected about 0.50192 to 0.50207, cycle head 0.99827 at 1e4 and 1-O(e^-70) at large n, source 0.0499584 (just above tanh(b0)). Asymptotically H=tanh(b0-a cH tau H-a cH^2 Ex/k), where the cycle excess Ex->33.6. So h_off = tanh(b0) - sech^2(b0)[tanh(b0)sqrt(2/n)+67/n] + ..., which tends to tanh(0.05)=0.049958375.",
+     "evidence": "reduced_large.json. The self-consistent formula matches H to 1.6e-15 at n=1e6 and 1e8. The brute-force full-R0 iteration at n=1e6 gives min 0.049820545369907, agreeing with the reduced solver."
+    },
+    {
+     "item": "(c) Width crossings",
+     "status": "scope_caveat",
+     "statement": "min h*_0 is <=0 up to n=2105 (-2.3e-5) and >0 from n=2106 (+6.4e-5) onward. It is <=1/50 up to n=3553 (0.0199949) and >1/50 from n=3554 (0.0200239). The dependence on n has a sawtooth from floor(n/2), floor(n/4): 1045 small downward steps of size <=3.7e-6 in the 2000-4000 scan. Conclusion (5) is false at practical widths n<=3553, and some coordinates are negative for n<=2105. This is outside the stated scope n>=10^6, and CHECKS.md discloses the n=200/2000 negative minima.",
+     "evidence": "Every integer n in 2000..4000 was scanned (scan_2000_4000.json). A 244-width log-spaced scan over [3554, 10^6+3], covering all four residues of n mod 4, has worst min 0.020023 at n=3555, so it stays >1/50."
+    },
+    {
+     "item": "(d) Gate gap and near-criticality at moderate width",
+     "status": "scope_caveat",
+     "statement": "Because O is orthogonal, ||G* R0||op = a(1-min_i h*_i^2) exactly; the numerical match to 1e-15 confirms it. The gap min h*^2 is 4.95e-6 at n=2000, about 4e-9 at n~2106, 5.6e-4 at 4000, 1.48e-3 at 8000, 2.48e-3 at 1e6, with limit tanh^2(b0)=2.496e-3. Near n~2000-2200, about n/4 off-cycle coordinates have |h*|<0.003. There ||G*R||~a=1-1/n, so the autonomous endpoint is near-critical, Lemma 2's effective kappa tends to 1, and the transport budget H_R would become n-scale. The Theorem 4 mechanism therefore gives nothing there. This lies outside the theorem's scope (n>=10^6, where the gap is about 2.5e-3, versus m^2=4e-4 used in the proof). The theorem's own bound is in any case only nontrivial near n~10^80 for R_abs=1.",
+     "evidence": "fullcheck_out.json: normGstarR=0.99949505 vs a(1-min h^2)=0.99949505 at n=2000; 0.99918858 at 4000; 0.99839814 at 8000."
+    },
+    {
+     "item": "Sharpening: reach of the same IVT argument",
+     "status": "sharpening",
+     "statement": "With m0=1/40, the same analytic chain, using exact cH and the 1560 excess, already closes for n>=~126836 rather than 10^6. At n=10^6 it proves h*_0>=0.049028 (largest admissible m0), against the stated m0=1/40. That would allow m~0.049 and kappa~1/(1+6e-4) instead of 10000/10001. The constants are valid but loose, and nothing downstream needs this.",
+     "evidence": "sharpen.py: U(n,m0)<0 from n~126836; largest provable m0 is 0.0490283 (1e6), 0.0498375 (1e7), 0.0499367 (1e8). The numerically true threshold for (5) is n=3554."
+    },
+    {
+     "item": "Reproducibility of arithmetic.py",
+     "status": "documentation",
+     "statement": "arithmetic.py calls ctypes.windll and psapi for peak RAM, so it cannot run on Linux as written; it also refuses to overwrite ARITHMETIC.json. The archived values are consistent with my independent recomputation. This is not a mathematical issue.",
+     "evidence": "arithmetic.py lines ~143-152."
+    }
+   ],
+   "strongest_counterexample_attempt": "I re-derived (2) independently, built a reduced-system solver from scratch, and validated it against brute-force full-R0 iteration at n=2000/4000/8000 and n=10^6 (agreement to <=3.6e-12). I then searched for small or negative coordinates of h* at n>=10^6 (1e6/1e7/1e8, min 0.04982 to 0.04995), probed floor-parity effects in a 244-width parity/log scan up to 1e6, and tested whether the dropped term, the S bound (actual excess 69.8 vs bound 1560), the cH^2 bound or the dense perturbation could reverse the sign of Phi(B_m). Nothing failed. The only failures are at practical widths outside scope: negative coordinates for n<=2105, coordinates below 1/50 for n<=3553, and a near-critical endpoint (||G*R||~1-1/n) around n~2100.",
+   "sharpest_correct_statement": "For every n>=10^6 (and in fact, by the same analytic chain, every n>=~1.27e5), the unique autonomous fixed point of the actual dense R satisfies h*_i>=1/40-4/(1e8 sqrt n)>1/50 in every coordinate. At n=10^6 the same argument certifies h*_i>=0.04903. The minimizing coordinate is the off-cycle selected bulk H(B*)=tanh(b0)-sech^2(b0)[tanh(b0)sqrt(2/n)+~67/n]+..., which tends to tanh(0.05)=0.0499584. Consequently ||G*R||op=a(1-min h*^2)<=a(1-1/2500). Numerically, (5) already holds from n=3554 on. Below n=2106 some coordinates are negative, and near n~2100 the endpoint is near-critical with gap ~1/n. That regime is outside the theorem's scope and is disclosed in CHECKS.md.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/reduced.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/fullcheck.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/scan.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/checks2.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/brute1e6.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/sharpen.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/reduced_large.json",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/fullcheck_out.json",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/scan_2000_4000.json",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/checks2_out.json",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_fixed-point/brute1e6_out.json"
+   ]
+  },
+  {
+   "lens": "contraction",
+   "verdict": "THEOREM_HOLDS_LOOSE",
+   "first_failed_inequality": "None. I re-derived Lemma 2 (16), the radial bound (17), (18)-(22) and (36)-(37) from the model and every one holds with the stated constants. The looseness is real but never invalidates a claim. The large constants enter at (22) (q_g=1-1e-4, while the true gate at h* is 1-H^2 ~ 1-2.5e-3) and at the step (36)->(37), which uses ||xi||<=a/beta, i.e. assumes perfect query-sensitivity alignment that the frozen head/rotation cannot deliver.",
+   "findings": [
+    {
+     "item": "Lemma 2 (16)",
+     "status": "verified",
+     "statement": "For all p,z in (-1,1): (atanh z - atanh p)/(z-p) = int_0^1 1/(1-y_s^2) ds >= int_0^1 (1+y_s^2) ds = 1+(p^2+pz+z^2)/3 >= 1+p^2/4, where y_s=p+s(z-p). The last step holds because min_z (p^2+pz+z^2) = 3p^2/4, attained at z=-p/2. So the lemma actually holds for every p in (-1,1). The hypothesis |p|>=m only makes the constant uniform. The bound is nearly tight at z=-p/2: the slack is 2.2e-8 at p=0.02.",
+     "evidence": "A grid with p in \u00b1[0.02,0.999999] (8002 values) and z in (-1+1e-9,1-1e-9) (20003 values, including +-1e-12 and 0) gives min secant/(1+p^2/4) = 1.000000022 at p=0.02, z=-0.01. At 50 digits, p=0.02 and z=-p/2 give secant 1.000100022006 against 1.0001. Script: wf3_contraction/e1_lemma2.py; output in e1_out.txt."
+    },
+    {
+     "item": "Radial bound (17): domain and what it contracts",
+     "status": "verified",
+     "statement": "Since h*=tanh(Rh*+b) exactly, atanh(h_t)-atanh(h*) = R(h_{t-1}-h*)+x_t =: v_t, coordinate by coordinate, with no approximation. Lemma 2 with p=h*_i>=m (THEOREM 1, all coordinates including protected and source) gives |u_{t,i}|<=kappa|v_{t,i}|, so ||u_t||<=kappa||v_t||<=kappa(a||u_{t-1}||+||x_t||). This holds for ANY h_{t-1} in (-1,1)^n (negative, near 0, near +-1), before burn-in, after arbitrary inputs, and with the dense R (only ||R||=a is used). It contracts ONLY the distance to the single point h*. It does NOT contract differences between two non-fixed trajectories: two nearby states both near 0 separate at the incremental factor of up to a=1-1/n. It also does NOT contract sensitivities; those are controlled only through the good/bad gate classification. The paper states this distinction correctly.",
+     "evidence": "At n=1e6 with the actual dense R and actual h*, I tested wild previous states: uniform(-1,1), within 1e-6 of +1 and of -1, N(0,1e-4), -h*, -h*/2, h*+1e-9 noise. Inputs were x=0, N(0,1e-3), N(0,10), and an exact landing at -h*/2. The worst ratio ||h_t-h*||/(kappa||v_t||) is 0.9976 (attained near h*), and every ratio is <=1. Script: e3_radial.py; output in e3_out.txt."
+    },
+    {
+     "item": "Burn-in (18) and time-l2 deviation (20)",
+     "status": "verified",
+     "statement": "Unrolling y_t<=kappa a y_{t-1}+kappa||x_t|| (nonnegative comparison) gives y_t <= (kappa a)^t sqrt(n) + sum_s kappa(kappa a)^{t-s}||x_s||. Over t>=L_n, the initial term has time-l2 norm <= (m/2)/sqrt(1-kappa^2) = 0.01*10001/sqrt(20001) = 0.7071. Young's inequality (an l1 kernel convolved with l2 inputs) bounds the convolution by ||k||_1 R = [kappa/(1-kappa)] R = 1e4 R. Only the l2 input energy is used; no l1 norm of the inputs appears. Two related steps are also correct: the pointwise bound (23) uses the kernel's l2 norm, 10000/sqrt(20001) = 70.71 < 71, and the pre-burn-in bound R sqrt(t) is Cauchy-Schwarz over a finite window. L_n=ceil(log(100 sqrt n)/log(1.0001)) matches arithmetic.py and gives kappa^{L_n} sqrt(n) <= m/2.",
+     "evidence": "This is a direct derivation; the constants are exact rationals. Numerical runs (n=1e5, started from h_0=0, burn-in counted): tiny forcing with R=0.005 gives sum_{t>=L} ||u||^2 = 2.02, far below the bound 2601. R=0.02 gives 32.3 against 4.04e4. A single pulse with R=0.2 gives 11.07 against 4.0e6. Script: e7_forcing.py; output in e7_out.txt."
+    },
+    {
+     "item": "Bad-step count (21) plus a rigorous sharpening (an energy-to-gate-defect inequality)",
+     "status": "sharpening",
+     "statement": "(21) holds: #bad*(m/2)^2 < sum||u_t||^2 <= (0.7071+1e4R)^2, so #bad < 1e4(1+1e4R)^2 <= B_R. The same argument gives more. Define the number of COORDINATE-steps N_delta = #{(t,i): t>=L_n, |h_{t,i}|<=delta}. For delta<m, each such pair has |u_{t,i}| >= h*_i-delta >= m-delta, so N_delta <= (0.7071+1e4R)^2/(m-delta)^2. In particular, keeping s coordinates at |h|<=delta for tau steps after burn-in requires R >= ((m-delta)sqrt(s tau)-0.7071)/1e4. A construction realises R ~ B* sqrt(s tau) with B*=4.13e-5, so the sqrt(s tau) law is sharp up to a factor of about 20.",
+     "evidence": "Derivation above. For the construction, holding one coordinate at exactly 0 costs |atanh(H)-aH| = B* = 4.163e-5 per step (n->inf limit; 4.133e-5 measured at n=1e6). Holding it at deviation just above m/2 costs 2.05e-5 per step. So the true maximum is about 2.4e9 bad steps per unit energy, against the paper's 1e12. The R^2 exponent is sharp; the constant is about 420x loose."
+    },
+    {
+     "item": "Good-step gate bound, product bound and transport sum (22)",
+     "status": "verified",
+     "statement": "Good step: ||u_t||_2<=m/2 implies ||u_t||_inf<=m/2 implies h_{t,i}>=h*_i-m/2>=m/2, so the gate is <=1-m^2/4=q_g and ||G_tR||<=q_g a. Bad step: ||G_tR||<=a<1. A length-j window after L_n contains at most B_R bad steps, which gives the product bound <= q_g^{max(0,j-B_R)}. The sum is (B_R+1)+q_g/(1-q_g) = B_R+10000 = H_R exactly. No q_g^{-B_R} prefactor arises.",
+     "evidence": "Direct derivation. At n=1e5 the true gate at good steps is <=0.99760 (the max gate observed under tiny forcing), compared with q_g=0.9999. So the good-step rate is conservative by a factor of about 25 (H^2 = 2.5e-3 versus m^2/4 = 1e-4)."
+    },
+    {
+     "item": "Sensitivity bound (36) and THEOREM 4 (37): uniform over arbitrary T",
+     "status": "verified",
+     "statement": "The injection satisfies ||E K h_{t-1,src}|| <= ||K||_F ||h_src|| <= sqrt(l) because |tanh|<1, and h_0=0 makes the first injection zero. With gates <=1 and ||R||=a, ||B_t||<=sqrt(l)t for t<=L_n. For T>L_n, unrolling (1) gives B_T = Pi A B_{L_n} + sum_s (Pi_{t=s+1}^T A_t) G_s inj_s, so ||B_T|| <= sqrt(l)L_n + sqrt(l) sum_j q_g^{max(0,j-B_R)} = sqrt(l)(L_n+H_R). B_R is independent of T, so the bound is uniform over all horizons. (37) then follows from (12)-(13): w_R/beta=1/n and ||A_j||<=a for every legal future gate. The onset (38) and the necessary-energy bound (39) follow arithmetically: L_n<=10002 log n, and at n=1e80, R=1, eps=1e-3, (4H_R/eps)^2 ~ 1.6e31 < 1e80.",
+     "evidence": "Direct derivation. All measured ||B_T K|| (forward mode, actual model) are far below sqrt(l)(L_n+H_R). Examples: 2.06e5 against 1.09e12 at n=1e5, and 1.42e4 against 3.54e12 at n=1e6."
+    },
+    {
+     "item": "Attack: arbitrarily long tiny forcing (amplitude ~R/sqrt(T))",
+     "status": "verified",
+     "statement": "This attack is covered. The time-l2 bound needs only l2 energy; the l1 norm R sqrt(T), which is unbounded, never enters. Tiny forcing can produce many steps that are 'bad' by the norm test, but the steady deviation per step is about R/(H^2 sqrt T), so no gate opens. These steps are bad by norm only and are harmless for transport, so the bound over-charges them.",
+     "evidence": "At n=1e5, R=0.005 over 20000 steps gives 18408 norm-bad steps (B_R=2.6e7), but the maximum gate stays at 0.997599 < q_g. R=0.02 gives 19886 bad steps with maximum gate 0.997613."
+    },
+    {
+     "item": "Attack: single or sparse pulses; how long one O(1)-energy pulse keeps a coordinate near critical",
+     "status": "verified",
+     "statement": "Off-cycle coordinates recover by x -> tanh(a x + B*) with B* = atanh(H)-aH ~ H^3/3 ~ 4.1e-5, and cycle-plateau holes behave the same way in the co-moving frame. Recovery from 0 therefore takes O(H/B*) = O(1/H^2) steps, independent of n. One pulse of any size keeps one coordinate bad (|u|>0.01) for at most about 2590 steps and near-critical (|h|<0.01) for at most about 480 steps. Size beyond about 0.2 does not help, because tanh saturates and recovery from -1 is fast. Spreading the energy over N pulses gives about N*O(1/H^2) bad steps, which is always inside B_R. A late pulse before T is likewise covered: the decoder stores h_T, and a common-endpoint pair must pay for a landing.",
+     "evidence": "Scalar runs at the measured B*,H for n=1e4, 1e5, 1e6 and n->inf: a creation pulse of energy 0.0025 gives 1135-1381 bad steps and 235-375 near-critical steps, converging as n grows (e4_out.txt). Pulse amplitudes 0.2, 0.5, 1, 3 give 2526, 2584, 2589, 2590 bad steps. Full-model pulses at n=1e5: N=1 (R=0.2) gives 1104 bad steps; N=20 gives 12797 (e7_out.txt)."
+    },
+    {
+     "item": "Attack: holes that co-move with the cycle P at zero input cost; dense or Householder spreading",
+     "status": "verified",
+     "statement": "Co-moving holes are not free. A moving zero-hole drifts upward by B* per step, so maintenance costs B*^2 = 1.7e-9 per step, independent of n. Left unmaintained, it recovers in about 1135 bad steps. The cycle is also not a closed loop. Because O = U P U, the uniform selected mode maps onto e_1, giving h*_1 ~ 1 with preactivation ~ sqrt(k)H ~ 35 and a head region of about 1435 elevated coordinates at n=1e6. Every hole and any sensitivity carried around the cycle is erased at the head, so one pass lasts at most d minus about 1435 steps. The radial bound is a norm bound, so rotation or spreading cannot evade it. The 1e8 n^3 dense part and the O(tau) Householder coupling enter only through ||R||=a.",
+     "evidence": "Actual h* at n=1e6: min 0.049821 (>=1/50, consistent with THEOREM 1); cycle head 1.0, 0.7616, 0.6420, ...; plateau H=0.0498205; B*=4.133e-5. Results in e2_out_1e6.txt. In the full-model held-hole runs, every hole step is bad (bad=tau) and the hole costs about 0.005 in total (creation plus landing) plus tau*1.7e-9."
+    },
+    {
+     "item": "Attack: coordinate concentration (1, sqrt n, n^alpha coordinates)",
+     "status": "verified",
+     "statement": "Holding s coordinates costs s times as much per step but does not increase the number of bad TIME steps. For the operator norm: with K spread over s off-cycle holes, ||B_T K|| ~ sigma* sqrt(l) tau, independent of s. For the visible credit: the future query can concentrate on only one cycle coordinate, and the patterned part sees at most ~0.17/sqrt(n) per coordinate. So at fixed energy, s=1 is optimal and sqrt(n)- or n^alpha-coordinate holes are strictly worse. All such schedules are inside B_R and also inside the coordinate-step bound N_delta.",
+     "evidence": "Derivation, plus the off-cycle and cycle numerics below."
+    },
+    {
+     "item": "Is H_R ~ 1e12 R^2 sharp in exponent?",
+     "status": "sharpening",
+     "statement": "Yes for (36). One off-cycle coordinate (a self-loop of weight a) held at 0 for tau steps, at cost about 2H^2 + tau B*^2, gives ||B_T K|| ~ 0.9 sigma* sqrt(l) tau with sigma*=tanh(.05), for K=e_i c^T, while tau <~ n. So ||B_T||op >~ 0.05 sqrt(l) (R^2-2H^2)/B*^2 ~ 2.9e7 sqrt(l) R^2, until it saturates at R ~ B* sqrt(n). Both the R^2 exponent and the sqrt(l) factor of (36) are therefore attained. The constant 1e12 is loose by about 3.4e4.",
+     "evidence": "At n=1e5 (off-cycle, forward-mode s_T), ||s_T|| = 26578 at tau=2000 and 205678 at tau=20000: linear in tau. The baseline is 4613. Files: e5_offcycle_n100000_tau*.json."
+    },
+    {
+     "item": "True scaling of the VISIBLE normalized credit (the Theorem-4 quantity) with R and n",
+     "status": "sharpening",
+     "statement": "The large looseness sits in (36)->(37). The legal L=1 query with q uniform gives beta*xi = R^T G_f q ~ 0.665 e_{d-1}: O(1) visibility on one cycle coordinate. The coherent off-cycle sensitivity is seen only at weight O(1/sqrt n) or less (the uniform query gives about 1/k). Cycle-hole sensitivity is visible but accumulates only incoherently. Heuristic fit for one maintained co-moving hole: credit ~ 0.0235 sqrt(tau/n), with tau ~ R^2/B*^2 and tau <= d minus the head, i.e. ~ 570 R/sqrt(n). The n-exponent n^{-1/2} of delta_0 is right: even the zero-input public baseline credit is ~0.33/sqrt(n). The R-dependence of the true visible credit appears to be ~R rather than R^2, and the constant is loose by about 1e9 or more. Consequence (HEURISTIC): an eps=1e-3 robust pair (difference >2eps) needs only R ~ sqrt(0.005+1.26e-11 n). For R=1, robust pairs should persist up to n ~ 8e10, compared with the proven no-section onset of 1e80. The necessary-energy exponent 1/4 in (39) is valid but likely not sharp; the heuristic exponent is 1/2. None of this contradicts THEOREM 4.",
+     "evidence": "Full actual-model runs from h_0=0 count every input (prefix landing, hole creation, maintenance, exact landing). Both branches end EXACTLY at h* (residual <1e-11) at the same time; the query is L=1 with all future preactivations 1/4 and K uniform over the visited rows. Credit difference at n=1e5, R~0.0694: 6.9e-4 (tau=500), 2.51e-3 (2000), 5.07e-3 (8000), 5.55e-3 (20000; saturation from the tau/n and tau/k leak). At n=1e6, inside the theorem's range, R=0.0705: 8.35e-4 (tau=2000). At n=1e6, R=0.0706: 2.41e-3 (tau=12000), i.e. half-distance 1.2e-3 > eps. The theorem's delta_0 bound at these R is 3.5e6, so it is vacuous there but consistent. Files: SUMMARY_holes.json, e5*_cycle_*.json."
+    },
+    {
+     "item": "Scope of the heuristic constructions",
+     "status": "scope_caveat",
+     "statement": "The hole constructions give LOWER-side evidence for specific K, specific legal queries and specific pairs. They are numerics at n=1e5 and 1e6 plus scaling heuristics, not all-n theorems. I do not establish that they form a positive-dimensional antipodal section in the accepted sense. They show only that the theorem's onset and its n^{1/4} necessary-energy exponent are far from sharp. The theorem itself already labels these as conservative.",
+     "evidence": "PROOF.md lines 545-546 and 566-567 disclaim sharpness and practical onset."
+    },
+    {
+     "item": "Constants and documentation consistency",
+     "status": "documentation",
+     "statement": "Several constants match across files: kappa=10000/10001=1/(1+m^2/4); (18) equals arithmetic.py's log(100 sqrt n)/log(10001/10000); H_R=B_R+10000 is exact; 0.7071<1 and 70.71<71. Two minor clarifications would help readers. First, kappa is the worst case (attained only for h_{t,i} ~ -h*_i/2 with h*_i ~ m). At the actual h* (min 0.0498) the local rate is 1-H^2 ~ 0.9975 and the actual burn-in is about 2500 steps against L_n=115136. Second, 'bad' steps are a norm notion. Most norm-bad steps from spread forcing open no gate, and gate-open coordinate-steps obey the stronger N_delta bound.",
+     "evidence": "e2_out_1e6.txt: the prefix reaches ||z-h*||<1e-3 by B0=2500 at n=1e6 (e5 logs). At h*+1e-9 noise the radial ratio is 0.9976 (e3_out.txt)."
+    }
+   ],
+   "strongest_counterexample_attempt": "I tried to make the transport non-contractive for many steps at fixed absolute energy, in the theorem's own regime (n=1e6, the actual dense R and actual h*, every input counted from h_0=0, both branches ending exactly at h*). I pushed one coordinate to 0 and kept the hole open, either co-moving along the cycle P (moving input -B* per step) or parked on an off-cycle self-loop (row weight a=1-1/n). Each hole step is a bad step, so the attack consumes the bad-step budget as efficiently as is possible here, at about 1.7e-9 energy per step. The off-cycle hole makes ||B_T K|| grow linearly (2.06e5 at tau=20000, n=1e5), which matches the R^2*sqrt(l) form of (36). The cycle hole gives the largest visible credit difference for a legal L=1 query: 2.41e-3 at n=1e6 and R=0.0706. Both stay far inside sqrt(l)(L_n+H_R) and delta_0 (3.5e6 at that R), because B_R ~ 5e9 >> tau. The attack fails to refute the theorem for a structural reason: bad steps are counted from the l2-in-time state energy, which the radial bound controls globally. Neither tiny long forcing, pulses, co-moving holes, Householder/dense spreading nor coordinate concentration can create bad steps beyond about 2.4e9 R^2, and the paper allows 1e12 R^2.",
+   "sharpest_correct_statement": "THEOREM 4 holds as stated for n>=1e6. Lemma 2 holds for every p in (-1,1) with constant 1+p^2/4, nearly tight at z=-p/2. (17) is an exact global one-point (radial) contraction toward h*; it does not contract incremental differences or sensitivities. The time-l2 bound (20) uses only l2 input energy. (21) holds, and in fact the number of coordinate-steps with |h_{t,i}|<=delta after L_n is <= (0.7071+1e4 R)^2/(m-delta)^2. (22) holds with H_R=B_R+1e4 exactly, and ||B_T||op<=sqrt(l)(L_n+H_R) holds uniformly in T. (36) is sharp in its R^2 and sqrt(l) dependence up to a constant of about 3e4, while tau<~n (off-cycle held hole). The final normalized bound (37) has the right n^{-1/2} order, but it is very loose in R and in its constant, because ||xi||<=a/beta ignores that the frozen head and rotation can see a coherent sensitivity only at weight O(n^{-1/2}). Measured visible credit differences scale like ~0.0235 sqrt(tau/n) with tau ~ R^2/B*^2 (B*=4.13e-5): about 2.4e-3 at n=1e6 with R=0.07. Heuristically, therefore, the energy exponent needed for one eps-robust pair is about 1/2, not the proven necessary 1/4, and for R=1 the true onset of no-robust-credit is around n ~ 1e11, not 1e80. These are heuristic sharpness statements and do not contradict the theorem. Scripts are in /tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/model.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/e1_lemma2.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/e2_fixedpoint.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/e3_radial.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/e4_scalar.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/e5_holes.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/e5b_holes_fast.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/e7_forcing.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_contraction/timing.py"
+   ]
+  },
+  {
+   "lens": "query-encoder",
+   "verdict": "THEOREM_HOLDS",
+   "first_failed_inequality": "None. I re-derived (12), (13), (36), (37), (38), (39) and (40)-(43) from the model and none of them fails. The only weakness is looseness: (13) is a valid upper bound, but it is not attained by legal queries.",
+   "findings": [
+    {
+     "item": "(a) past-vs-direct gradient decomposition",
+     "status": "verified",
+     "statement": "The decomposition is exact. Hold all realized raw inputs fixed and write F_j dtheta = dR h_(j-1) + dW x_j + db and Phi(t,s) = A_t...A_(s+1) with A_j = G_j R. Then grad of q^T h_(T+L)/beta equals S_T^* xi_Q plus the sum over j=T+1..T+L of F_j^* G_j Phi(T+L,j)^T q/beta, where xi_Q = Phi(T+L,T)^T q/beta. For j>T we have h_j = tanh(v_j), G_j = sech^2(v_j) and x_j = v_j - R h_(j-1) - b. So xi_Q depends only on (R, v), and the direct part depends only on (R, W, b, h_T, v); h_T enters only through h_T in the R injection and x_(T+1) in the W injection. The same holds for the selected block: past = B_T^* xi_Q restricted to rows 1..k-1 and source columns.",
+     "evidence": "q1_decomposition.py at n=200 with the archived dense R. Past part plus direct part matches full backprop to 2e-17 (R), 9e-17 (W) and 2e-17 (b). xi_Q computed from future gates alone matches the adjoint at h_T to 1.5e-18. Central finite differences with inputs held fixed match the analytic gradient with relative error 9e-10 (R), 1e-8 (W) and 4e-8 (b). B_T^T xi_Q matches the backprop selected-block past gradient to 1e-17."
+    },
+    {
+     "item": "(a) the convention that future raw inputs are held fixed",
+     "status": "verified",
+     "statement": "The accepted files hold realized inputs fixed for parameter derivatives. The alternative, re-solving the control x = v - R'h' - b under perturbed theta, makes h_(T+1..T+L) = tanh(v) independent of theta, so the whole queried gradient (past and direct) vanishes identically. That convention therefore offers no loophole: the upper bound holds trivially under it.",
+     "evidence": "Accepted text: codex_multiharmonic_lower_20261002/PROOF.md:72-73 ('Every sensitivity derivative keeps the particular history's raw inputs fixed'); codex_intermediate_gate_credit_20261002/PROOF.md:106; query_visible_operator_dimension_20261002/PROOF.md:52; arbitrary_horizon_log_gap_20261001/PROOF.md:122. Numerically, the re-solved-control finite-difference derivative is exactly 0.0 for both R and b (q1 output)."
+    },
+    {
+     "item": "(b) query legality via x_future = v - R h - b0 1",
+     "status": "verified",
+     "statement": "(11) gives preactivation R h + x + b = v exactly, at h* and at any h. The accepted contract constrains only future preactivations: codex_intermediate_gate_credit_20261002/PROOF.md:38-43 says 'preactivations in [1/4,3/4]^n. Future inputs are otherwise unrestricted. The past cube (-1/2,1/2)^n is NOT a future-input constraint'; see also codex_multiharmonic_lower_20261002/PROOF.md:374. I found no independent restriction on future inputs.",
+     "evidence": "Measured preactivation error 4.4e-16."
+    },
+    {
+     "item": "(b) magnitude of the legal future input at h*",
+     "status": "documentation",
+     "statement": "PROOF section 4 says only that future inputs 'can grow with width'. Quantitatively, one physical memory coordinate (index 1, the cycle entry with the extra forcing (b0-B)/(cH tau) ~ 0.05 sqrt(k)) is saturated: h*_1 = 1 - O(e^-70). A legal query therefore needs |x_(T+1),1| = Theta(sqrt n), about 34.8 at n = 10^6. This is legal under the accepted contract. Under the older raw-input-box contracts (query_visible_operator_dimension_20261002/PROOF.md:63, box [1/5,9/20] at h=0), the [1/4,3/4]^n preactivation family would be unreachable at h*. THEOREM 4 is unaffected either way, because (12) uses only ||G_j|| <= 1 and ||R||op = a, which hold for every query family.",
+     "evidence": "q2_fixed_point_large_n.py: max|R h*| is 4.94 at n=2e4, 15.75 at n=2e5 and 35.28 at n=1e6 (argmax = coordinate 1), roughly proportional to sqrt(n). The needed |x| is 34.83 at n=1e6."
+    },
+    {
+     "item": "(b) normalization: q, beta_loss, w_R",
+     "status": "verified",
+     "statement": "beta_loss = max(1,||R||F) = ||R||F, since ||R||F >= a sqrt(k) - sqrt(n) e > sqrt(n)/2 > 1. Hence w_R/beta = 1/n exactly, which matches codex_intermediate_gate_credit_20261002/PROOF.md:42-45 (frozen constants, not differentiated). If beta and w_R were differentiated, the extra term would be -l*grad(beta)/beta. That term depends only on h_(T+L) = tanh(v_(T+L)) and R, so it is another public direct term and adds nothing to the past error.",
+     "evidence": "At n=200: beta = 9.95, n*w_R/beta = 1.0000000, beta/(sqrt(n)/2) = 1.407, ||R||op = a = 0.995, ||R-R0||op = 2.6e-13 <= e_n = 1e-12."
+    },
+    {
+     "item": "(b) eq. (13): uniform query bound and amplification",
+     "status": "verified",
+     "statement": "The bound holds: sup_Q w_R ||DeltaB^* xi_Q||_F <= w_R ||DeltaB||op (a^L/beta) <= (a/n)||DeltaB||op, using ||A_j|| <= ||G_j|| ||R|| <= a. It is an upper bound, never an equality, and the text does not claim equality. No query alignment can exceed the operator norm. The structure O^T 1_k = sqrt(k)(e_(d-1) + gamma tau e0 - gamma tau^2 1_k) concentrates what uniform-gate queries see, but this cannot raise the upper bound. Legal queries actually reach only about 11% of (13) at n=200.",
+     "evidence": "Adversarial search in q1: coordinate ascent over gate-box corners (the objective is convex in each g_j), 40 restarts, L=1 and L=2. The best legal ratio w_R||B_T^*xi_Q||/((a/n)||B_T||op) was 0.1131 (L=1) and 0.1046 (L=2). Replacing xi_Q by an unrestricted vector of the same norm gives exactly 1.0, the envelope."
+    },
+    {
+     "item": "(b) metric: nu_n versus the Frobenius group norm",
+     "status": "scope_caveat",
+     "statement": "The accepted nu_n (codex_intermediate_gate_credit_20261002/PROOF.md:46-50; query_visible_operator_dimension_20261002/PROOF.md:96-107) is the normalized gradient's Frobenius norm restricted to K = p H^T/||H|| with a fixed source H = .4*1_l. The new theorem bounds the Frobenius norm of the whole selected r x l block with time-varying true sources. That dominates every fixed-direction restriction K = p u^T, so 'bounds every one-fixed-feature restriction in unchanged units' is correct. Scope note: the accepted fixed-source-H lower families are not in the constant-absolute-energy class at large n. Each step that sets or holds the source at .4 costs raw input of about (atanh(.4) - .05) sqrt(l) ~ 0.374 sqrt(l). The theorem therefore governs a class disjoint from those lower families, as the authors intend (REPORT section 1), and contradicts none of them.",
+     "evidence": "Analytic: the projection of the gradient onto a subspace has norm <= the full Frobenius norm, and w_R is unchanged. The source holding cost follows from tanh^{-1}(.4) = 0.4236."
+    },
+    {
+     "item": "(c) zero-credit encoder versus the accepted continuous no-replay contract",
+     "status": "verified",
+     "statement": "The encoder E_t = h_t, U(E,x) = tanh(RE + x + b) is continuous, causal and uses public weights, with no tape, replay or clock. The decoder is the exact direct part, which is smooth in h_T for fixed Q. This matches the accepted counting rules, and '0 credit coordinates' is meaningful under them: the stored h is used only to compute the exact direct terms, and at a public common endpoint even h is public. Quoted rules: query_weighted_moment_merger_20261001/PROOF.md:47-50 ('All actual future injections are included exactly. The encoder approximates only the past term Z^T c_q. Storing true current h costs n coordinates; if h is supplied, omit those n ... No discarded-history replay or tape'); codex_online_gate_polynomial_20261002/PROOF.md:105-109 ('plus n current hidden-state coordinates while processing actual inputs. Public time, ... model weights are uncounted ... Arithmetic workspace and final output storage are not persistent'); codex_causal_suffix_width_20261002/PROOF.md:383-395 ('Forward h costs another n if raw inputs rather than D are supplied').",
+     "evidence": "Analytic match to the quoted contract text. The decoder's inputs (h_T, Q, public theta) were confirmed numerically: direct parts of two different histories agree to <= 7e-18 when h_T agrees."
+    },
+    {
+     "item": "(d) robust-section consequence",
+     "status": "verified",
+     "statement": "At a common endpoint the direct parts agree, so for any two histories (1/2) sup_Q||g - g'|| <= (1/2)(delta_0 + delta_0) = delta_0. Continuity of the section is not even needed. The project's conventions are: physical epsilon decoder versus half-margin > epsilon (codex_multiharmonic_lower_20261002/PROOF.md:654-655); strict finite-jet decoder 3eps/4; buffered 5eps/4. delta_0 <= eps/2 is strictly below all three thresholds, and delta_0 < eps would already suffice for the > eps convention. Histories of different lengths are fine, because the bound (36) is uniform in T and the direct part is time-invariant. Different endpoints fall outside the section definition. If such sections were allowed, the n-coordinate h-encoder plus Borsuk-Ulam still excludes sections of dimension > n with half-margin > delta_0, but not forward-state distinctions of dimension <= n. The text correctly scopes this to 'FIXED common endpoint'. Nonvacuity: the section 5 landing x_(B+1) = R(h* - z_B) lands exactly at h*.",
+     "evidence": "q1 same-endpoint test: histories of length 60 and 37, the second landed exactly on the first's h_T (error 5.6e-17). Direct-part differences are <= 7e-18 for R, W and b, while past-part differences have norm 0.155."
+    },
+    {
+     "item": "(e) section 13, eqs. (40)-(43)",
+     "status": "verified",
+     "statement": "Term by term: ||S_R|| <= sqrt(n)A_n (injection dR h with ||h|| < sqrt n). ||S_W|| <= R_abs(sqrt L_n + sqrt H_R) (Cauchy, using c_j^2 <= c_j). ||S_b|| <= A_n. delta_R <= a A_n/sqrt n. delta_W <= (1/sqrt n)\u00b7R_abs(...)\u00b7a/beta < 2R_abs(...)/n, using beta > sqrt(n)/2. delta_b <= .05\u00b7A_n\u00b72/sqrt n = A_n/(10 sqrt n). The sum bounds the weighted Euclidean concatenation Z = S D_theta, which matches query_visible_operator_dimension_20261002/PROOF.md:56 (w_W = ||W||F/n = 1/sqrt n, w_b = RMS(b) = .05). For the onset (43): L_n/sqrt n <= eps/12 and H_R/sqrt n <= eps/12 give A_n/sqrt n <= eps/6. n >= 8R^2 gives delta_W <= A_n/sqrt n, because sqrt L + sqrt H <= sqrt(2A_n) and A_n >= 1. The total is <= 2.1 eps/6 = .35 eps.",
+     "evidence": "Explicit derivation. At n=200, beta/(sqrt n/2) = 1.407. FULL_GROUP_ARITHMETIC value 1.10022e-28 at 10^80 reproduced from the formula."
+    },
+    {
+     "item": "(e) a small sharpening of section 13",
+     "status": "sharpening",
+     "statement": "Applying Cauchy to the whole W transport sum gives ||S_W,T|| <= R_abs sqrt(L_n + H_R) instead of R_abs(sqrt L_n + sqrt H_R), up to a factor sqrt 2 better. Separately, on the [1/4,3/4] box every future gate is <= sech^2(1/4) = 0.9400, so ||xi_Q|| <= (0.94a)^L/beta. Neither changes any conclusion.",
+     "evidence": "Analytic: sum_s c_s||x_s|| <= sqrt(sum c_s^2) R_abs with sum_s c_s^2 <= L_n + H_R."
+    },
+    {
+     "item": "(36) re-derived (needed for the uniform-over-query bound)",
+     "status": "verified",
+     "statement": "The bound holds. Radial step: ||u_t|| <= kappa a||u_(t-1)|| + kappa||x_t||. The time-l2 norm over t >= L_n is <= (m/2)/sqrt(1-kappa^2) + (kappa/(1-kappa))R_abs = 0.7071 + 10000R_abs < 1 + 10000R_abs (Young's inequality, l1 x l2). Hence #bad < 10000(1 + 10000R)^2 <= B_R. Transport is <= q_g^max(0, j-B_R) and sums to B_R + 1 + 9999 = H_R. B_T = Phi(T,L_n)B_(L_n) + sum over post-burn-in injections, each injection <= sqrt(l) because |h_src| < 1. So ||B_T|| <= sqrt(l)(L_n + H_R) for every T, including T < L_n.",
+     "evidence": "Explicit derivation. q3_radial.py spot test at n=2e4 (min h*_0 = 0.0458 >= 1/50): the worst ratio ||h_t - h*||/(kappa||R(h_(t-1) - h*) + x_t||) over 300 random states and inputs is 0.9975 <= 1."
+    },
+    {
+     "item": "THEOREM 1 numerical consistency (premise of (17))",
+     "status": "verified",
+     "statement": "The reference autonomous fixed point h*_0, computed directly from the frozen R0 by O(n) fixed-point iteration (residual < 1e-13), has min coordinate 0.049821 at n=10^6, above m = 1/50. The negative small-width minima quoted in REPORT are reproduced to all printed digits. The dense correction (9), <= 4e-8/sqrt n, cannot close the 0.0298 gap. This is numerical support only, not a proof.",
+     "evidence": "q2 output. Min h*_0: n=200: -0.117602164352; n=2000: -0.002225711065; n=2e4: 0.045770; n=2e5: 0.049461; n=1e6: 0.049821 (10696 iterations, 113 s)."
+    },
+    {
+     "item": "Onset and energy arithmetic (37)-(39)",
+     "status": "verified",
+     "statement": "Each step checks out. L_n <= 10002 log n for n >= 10^6, since 10001 log 100 + 1 <= 5001.5 log n once log n >= 9.21. log n <= n^(1/20) for n >= 10^80. L_n/sqrt n <= eps/4 iff n >= (40008/eps)^(20/9). H_R/sqrt n <= eps/4 iff n >= (4H_R/eps)^2, which is 1.6e31 at R=1, eps=1e-3, so n >= 10^80 suffices. For (39): any half-margin > eps requires (L_n + H_R)/sqrt n > eps, which gives R_abs > (sqrt((eps sqrt n - 10002 log n - 10001)/10^4) - 1)/10^4, about sqrt(eps) n^(1/4)/10^6. That is 3.16e12 at n=10^80, matching the JSON.",
+     "evidence": "Hand derivation. ZERO_DECODER_ARITHMETIC.json: L = 967135 and H_R = 1000200020000 at 10^80, recomputed by hand."
+    },
+    {
+     "item": "Reproducibility of the authors' scripts",
+     "status": "documentation",
+     "statement": "arithmetic.py and zero_decoder_arithmetic.py call ctypes.windll (Windows-only) to measure peak RAM, so they cannot be rerun on Linux as written. This is a reproducibility nit, not a mathematical issue. Separately, an untracked file theory/codex_autonomous_absolute_energy_20261003/e5_log_cycle_1e6_2000.txt appeared in the working tree during this review. It was not created by this lens: all my outputs are under scratchpad/wf3_query-encoder/.",
+     "evidence": "Source inspection of the scripts; git status."
+    }
+   ],
+   "strongest_counterexample_attempt": "I tried six ways to refute the claim; none worked.\n(1) Adversarial legal queries at n=200 with the archived dense R. Coordinate ascent over gate-box corners for L=1 and L=2 (40 restarts, convex objective), trying to make the normalized past contribution exceed (a/n)||B_T||op. The best ratio was 0.113, far below 1. No legal query can exceed the operator-norm envelope, since ||G_j R|| <= a.\n(2) The alternative derivative convention (re-solving the future control under perturbed theta). It yields an identically zero gradient, so it gives no loophole.\n(3) Two histories of different lengths (60 and 37) landing exactly on the same h_T. Their direct parts agree to 7e-18 for R, W and b, so no endpoint-dependent leakage exists.\n(4) Checking whether the query family at h* is empty or illegal. At n=10^6 the saturated coordinate 1 has preactivation ~35.3, so legal queries need a future input of ~34.8, which the accepted contract allows ('Future inputs are otherwise unrestricted'). Even under a raw-input-box contract the upper bound survives, because it uses only ||G|| <= 1.\n(5) Probing the premise of (17) at the theorem threshold. min h*_0 = 0.049821 > 1/50 at n=10^6.\n(6) Looking for a missing term in section 13. Each group bound and weight matches the accepted Z = S D_theta, and the sum bounds the concatenated norm.",
+   "sharpest_correct_statement": "Setting: the frozen dense family, n >= 10^6, any finite T, any raw inputs with sum_t ||x_t||^2 <= R_abs^2 (no cube needed), and h_0 = 0.\n\nBound. For every query (any L >= 1 and any future gates in (0,1], so in particular every accepted [1/4,3/4]^n preactivation query, with inputs held fixed and q, beta, w_R frozen), the normalized past contribution of the selected block satisfies\nw_R ||B_T^* xi_Q||_F <= (a^L/n)||B_T||op <= a sqrt(l)(L_n + H_R)/n <= (L_n + H_R)/sqrt n.\nFor the full gradient it is <= a^L[A_n/sqrt n + 2R_abs sqrt(L_n + H_R)/n + A_n/(10 sqrt n)] <= 1.1 A_n/sqrt n + 2R_abs(sqrt L_n + sqrt H_R)/n.\n\nEncoder. The past term is the only history-dependent part. The direct part is an exact function of (public theta, h_T, Q). So the continuous causal no-replay encoder E_t = h_t has error <= delta_0 under the accepted counting (n forward coordinates, 0 credit coordinates), and needs zero private coordinates at a public common endpoint.\n\nConsequence. Any two admissible histories with a common endpoint, of any lengths, have permitted-query half-distance <= delta_0. Once n >= max{10^80, (40008/eps)^(20/9), (4H_R/eps)^2}, or (43) for the full gradient, no section of positive dimension has half-margin > eps/2. This covers the accepted > eps, > 3eps/4 and buffered > 5eps/4 conventions. Any robust direction therefore needs R_abs > (sqrt((eps sqrt n - 10002 log n - 10001)/10^4) - 1)/10^4 = Omega_eps(n^(1/4)).\n\nNot claimed. The bound (13) is a valid but loose envelope (legal queries reach about 11% of it at n=200). The fixed-source-H lower families are not in this energy class. Sections without a common endpoint are excluded only above dimension n.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_query-encoder/q1_decomposition.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_query-encoder/q1_decomposition_out.json",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_query-encoder/q2_fixed_point_large_n.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_query-encoder/q2_out_small.txt",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_query-encoder/q2_out_1e6.txt",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_query-encoder/q3_radial.py"
+   ]
+  },
+  {
+   "lens": "numerical-adversary",
+   "verdict": "THEOREM_HOLDS_LOOSE",
+   "first_failed_inequality": "None. No measured or extrapolated history violates (36)/(37) or the radial bound (17). Measured/bound ratio: at most 5.4e-7 for n=4000..64000 and 7.4e-6 in scope at n=1e6. The extrapolated extremal mechanism stays below 2.9e-5 x delta_0 for every n in [1e6, 1e80].",
+   "findings": [
+    {
+     "item": "Simulator and reduction validity",
+     "status": "verified",
+     "statement": "The independent O(n)-per-step simulator matches the archived dense R recipe. For uniform-source histories, ||B_T||op = sqrt(l)*||M_T||op exactly, where M_T v = sum_s sigma_{s-1} Phi(T,s) G_s E v. The worst-case credit is therefore C=(a/n)sqrt(l)||M_T||op.",
+     "evidence": "Structured R, R^T vs dense harness recipe: max error 1.5e-14 (n=200,400,1000), c=a/||raw|| agrees to 4e-15. Reduced fixed point vs dense zero-input iteration: 3e-13. It reproduces Codex's archived minima: -0.117602164352 (n=200) and -0.002225711065 (n=2000). Brute-force full K-block recursion (1) at n=40, T=60: ||B_T||=2.78235531850825 vs sqrt(l)||M_T||=2.78235531850825. Forward/adjoint consistency 9e-16. Every history keeps source inputs uniform; measured source spread is 0.0 bitwise. Scripts: t0_validate.py, t1_reduction.py."
+    },
+    {
+     "item": "THEOREM 1 (h*_i >= 1/50), numerical side",
+     "status": "verified",
+     "statement": "For the actual dense fixed point, min h* first becomes positive between n=2000 and n=3000. It exceeds 1/50 from about n=3500 and stays there through 1e8, approaching tanh(0.05)=0.0499584. The minimum always sits at the off-cycle selected coordinates. Theorem 1's n>=1e6 threshold is conservative.",
+     "evidence": "fp_scan.json, reduced scalar root with full-map residual <= 1.6e-14. min h* by n: 2000 -0.002226; 3000 0.014155; 4000 0.023697; 8000 0.038432; 16000 0.044675; 32000 0.047337; 64000 0.048597; 1e6 0.0498205; 1e7 0.0499294; 1e8 0.0499507. Protected coordinate ~0.502; source 0.0499584. Contraction gap 1-a*maxgate is 2.48e-3 at 1e6, versus the proof's guaranteed 4e-4."
+    },
+    {
+     "item": "Lemma 2 / radial contraction (17)",
+     "status": "verified",
+     "statement": "The global radial bound ||h_t-h*|| <= kappa||R(h_{t-1}-h*)+x_t|| held on all adversarial single steps. These included holes, saturated states, random states and large inputs. For a hole the true secant factor is H/atanh(H)=0.99981, tighter than kappa=0.99990 but of the same form.",
+     "evidence": "t2_radial.py: 3000 steps at n=4000 (min h*=0.0237>m). Maximum ratio 0.999562 <= kappa=0.999900."
+    },
+    {
+     "item": "Extremal mechanism: off-cycle 'hole' (THEOREM 4 rate check)",
+     "status": "sharpening",
+     "statement": "The best bounded-energy mechanism found does this: drive one off-cycle selected coordinate i to h_i=0, hold it exactly there with x_i=-B* per step, then return it and land exactly at h*. Here B*=atanh(H)-aH, which tends to b0-tanh(b0)=4.1626e-5. That channel carries unit-gate transport a^j for a holding cost of B*^2 per step. This gives sup credit about a*sigma*sqrt(l)*(1-a^Th). In the energy-limited regime this is about (sigma/sqrt2)(R^2-E0)/(B*^2 sqrt n), roughly 2.04e7 R^2/sqrt(n). That has the same n^(-1/2) and R^2 rates as delta_0 = sqrt(l)(L_n+H_R)/n, with no log n factor. The bound is rate-sharp in n and R_abs and loose in its constant by about 3.5e4. The slack decomposes as about 20 (injection bound sqrt(l) vs the actual sigma*sqrt(l), sigma=0.04996) times about 1730 (bad-step budget 1e12 R^2 vs the true unit-transport budget R^2/B*^2 = 5.8e8 R^2).",
+     "evidence": "Full model, Th=2n, abrupt creation from t=1, all inputs counted, exact landing. Sup credit 1.928 (n=4000, R=0.0554), 2.720 (8000, R=0.0631), [3.844, 3.856] (16000, R=0.0673), [5.434, 5.452] (32000, R=0.0695), [7.683, 7.709] (64000, R=0.0711). Log-log slope +0.499; this equals 0.865 x ceiling a*sigma*sqrt(l). Fixed Th=2000 gives 0.878, 0.698, 0.524, 0.382, 0.274 (slope -0.42, tending to -0.5). Formula check at 64000: 0.2744 vs 0.2743 measured. Hole channel share of ||M e_i|| = 0.99993-0.999999. Theorem delta_0 at the same (n,R) is 1.4e7 to 3.4e7. main_n*_*.json."
+    },
+    {
+     "item": "In-scope full-model run, n=1e6",
+     "status": "verified",
+     "statement": "At the theorem's own scope n=1e6, a tiny-energy history keeps sup credit 400 x eps/2. Every input is counted, the history starts at 0 and lands exactly at h*. This does not violate (37): delta_0 is 2.7e4 there. It confirms the epsilon conclusion is purely asymptotic.",
+     "evidence": "exp_ramp.py 1000000 5000 1200 5000 100: burn-in 5000 zero steps, 1200-step ramp to 0, 5000-step hold, 100-step ramp up, exact landing (end error 6.7e-15). Energy 3.688e-5 (R_abs=0.00607): ramp-down 6.48e-6, hold 8.5413e-6 (= Th*B*^2 = 8.5412e-6), ramp-up 2.19e-5, landing 2.5e-12. Sup credit lower 0.200958, upper 0.200962. delta_0(1e6, 0.00607)=27032 (L_n=115136, H_R=38114586); ratio 7.4e-6. Scalar channel at n=1e6 with T=1e6: R=0.0419 gives credit 21.4 (scalar_long_n1000000_T1000000.json)."
+    },
+    {
+     "item": "Max credit vs n and vs R_abs; onset",
+     "status": "scope_caveat",
+     "statement": "For n <= 64000 the maximum credit is the R-independent ceiling a*sigma*sqrt(l)(1-a^T), which grows like sqrt(n). This holds for every R_abs >= about 0.006 (ramped) or 0.071 (abrupt), so R in {1,4,16} give identical maxima, because T_R=R^2/B*^2 >= 5.8e8 is much larger than n. Decay begins only once n exceeds about 5.8e8 R^2. The extrapolated sup credit falls below eps/2=5e-4 for log10 n > 21.2 (R=1), 23.6 (R=4), 26.0 (R=16), 16.6 (R=0.0711). The theorem's own delta_0 < eps/2 holds for log10 n > 30.3 / 32.7 / 35.1, so the stated 10^80 onset is valid. delta_0 beats the trivial ceiling a*sqrt(l) only for n > 1e12 R^2. The theorem is nonvacuous only astronomically, as REPORT disclaims.",
+     "evidence": "extrapolate.py and extrapolate2.py (mpmath, 130 digits, actual B*(n), H(n), sigma(n)). The ramp fixed cost E0 is about 3e-5, as measured in the full model and the scalar optimum. Fitted log-log slope of sup credit is -0.500 in n (1e30 to 1e50) and 2.00 in R (n=1e40). Maximum ratio sup/delta_0 over n in [1e6, 1e80] is 2.876e-5 (R>=1), 2.06e-6 (R=0.003)."
+    },
+    {
+     "item": "Energy necessity R_abs = Omega_eps(n^(1/4))",
+     "status": "sharpening",
+     "statement": "For the quantity actually bounded, sup credit (a/n)||B_T||, the exponent 1/4 is attained. A ramped off-cycle hole gives credit eps once R_abs is about 7.0e-6 n^(1/4), versus the theorem's necessary coefficient sqrt(eps)/1e6=3.2e-8. This is credit magnitude only; no robust antipodal section is claimed or constructed.",
+     "evidence": "R^2 = E0 + sqrt(2) eps B*^2 sqrt(n)/sigma with B*=4.16e-5, sigma=0.04996 (extrapolate.py output)."
+    },
+    {
+     "item": "Legal-query visibility vs the (13) relaxation",
+     "status": "sharpening",
+     "statement": "Permitted queries see far less than (a/n)||B_T||. The uniform head through R^T concentrates the adjoint on cycle coordinate d-L (norm 0.664). Off-cycle coordinates are read only at about 0.34/sqrt(n) per coordinate. For the found mechanisms, legal credit scales as about 0.012 T_R/n (off-cycle spike query) or as sqrt(T_R/n) (co-moving cycle hole). That suggests legal-visible eps credit needs R ~ n^(1/2) rather than n^(1/4). This is a hypothesis, not a proof. Measured legal credits exceed eps at n <= 32000 and decay with n. No O(1) legal credit was found.",
+     "evidence": "Spike query on the saturated hole: 0.01109, 0.01052, 0.01037, 0.01036, 0.01036 (n=4000 to 64000), against sup 1.9 to 7.7. Cycle-hole L1 all-GHI: 0.0106, 0.0093, 0.0084, 0.0079, 0.0077. Vertex ascent over all L=1 gate boxes (t5_query_ascent.py) at n=8000: offhole 0.0236, baseline 0.0227, cyclehole 0.0275. At n=16000: offhole >= 0.0149, baseline >= 0.0136. At n=32000: baseline >= 0.0080. Ascents at 16000 and 32000 were capped at 4 iterations, so those are lower bounds. Extrapolated legal crossovers below eps/2: log10 n of about 10.1 (off-cycle) and 12.1 (cycle), R=1."
+    },
+    {
+     "item": "Other adversarial families (pulses, resonance, random, weak forcing)",
+     "status": "refuted",
+     "statement": "No alternative beat the exact hold per unit energy. These were random sparse pulse trains, rotating P-aligned (resonant) cycle patterns, a uniform off-cycle bias shift, periodic resets, weak periodic pulses, constant forcing, partial-depth holds and an L-BFGS Lagrangian optimum over arbitrary single-channel input sequences from three starts. The optimizer always converged to ramp down, hold near 0, ramp out. Constant forcing helps only when tuned to eta=B* exactly, because of the cubic neutrality.",
+     "evidence": "n=4000 at matched energy 6.5e-6 (t4_random.py): ramped hole 1.806; random sparse 0.6878 and 0.6878; resonant f=0 0.6937; resonant f=3 0.6878; bias shift 0.6938 (baseline is 0.6878). Scalar n=1e6, T=5000 Lagrangian frontier: zT 242.7/260.6/264.3/266.2/267.9 at E=3.3e-5/9.0e-5/1.57e-4/2.67e-4/8.0e-4, versus abrupt hold 268.5 at 4.98e-3. T=1e6: constant forcing eta=1.0 B* gives zT=20706; 1.05 B* gives 148. Periodic reset P=200 gives zT 2111 at E=0.345."
+    },
+    {
+     "item": "Creation cost is not a floor (practical-onset documentation)",
+     "status": "documentation",
+     "statement": "Abrupt hole creation and landing cost about 2H^2=0.005. A ramp over about H/B* steps costs about 5e-6 plus H^2/Nup. Practical-onset or energy-threshold estimates should not assume a fixed O(h*^2) entry cost. THEOREM 4 is unaffected.",
+     "evidence": "Full model n=16000, Th=32000: E=5.63e-5 (R=0.0075), sup credit 3.64, spike legal credit 0.0098. Abrupt version: R=0.0673. Energy split: ramp-down 4.47e-6, hold 3.393e-5 (= B*^2 Th), ramp-up 1.79e-5."
+    },
+    {
+     "item": "Implementation and repository notes",
+     "status": "documentation",
+     "statement": "Three notes. (1) For n >= 3e5, h*_1 rounds to 1.0 in float64 (preactivation about 0.05 sqrt(k), roughly 35). An exact landing written as atanh(h*)-pre then overflows; the proof's form x=R(h*-z_B) in (14) must be used. (2) The baseline credit at h* is about 14/sqrt(n) asymptotically (resolvent 1/h*^2) with no log n. The L_n term in (36) is pure slack. (3) The untracked file theory/codex_autonomous_absolute_energy_20261003/e5_log_cycle_1e6_2000.txt (16:25) contains only a 'cannot open e5_holes.py' error. It is not in PROVENANCE, was not created by this lens, and was left untouched.",
+     "evidence": "exp_ramp.py RuntimeWarning at n=1e6 before the fix; baseline sup credit 0.688, 0.246, 0.135, 0.0867, 0.0586 (n=4000 to 64000); git status."
+    }
+   ],
+   "strongest_counterexample_attempt": "The strongest attempt was a ramped off-cycle hole. One off-cycle selected coordinate i in [d, k-1] is ramped from h*_i to 0 over about H/B* steps and held exactly at 0 with x_i = -[(R h)_i + b0], which costs B*^2 per step (B* about 4.13e-5). It is then ramped back and landed exactly at h* with x = R(h* - h). Because O acts as the identity on off-cycle coordinates, e_i becomes a unit-gate channel with transport a^j, and the past credit approaches the unconditional ceiling a*sigma*sqrt(l).\n\nIn the full model, all inputs counted, starting from h_0=0:\n- sup credit 7.7 at n=64000 (R=0.071);\n- sup credit 3.64 at n=16000 (R=0.0075);\n- sup credit 0.201 in scope at n=1e6 (R=0.0061).\n\nLegal credit stays at about 0.010-0.028 for n <= 32000. None of these exceed (37): the ratios are at most 7.4e-6. Extrapolating with exact actual-model scalars, the credit decays as 2.04e7 R^2/sqrt(n) for n much larger than 5.8e8 R^2, and stays below 2.9e-5 x delta_0 at every n.",
+   "sharpest_correct_statement": "THEOREM 4 holds as stated: (a/n)||B_T||op <= sqrt(l)(L_n+H_R)/n for n >= 1e6 and every finite history with ||X|| <= R_abs. The epsilon onset (n >= 1e80 for R=1, eps=1e-3) is valid.\n\nNumerically, in this frozen family the true supremum of the dropped-credit magnitude is about a*sigma*sqrt(l)*(1-(1-1/n)^{T_R}), with:\n- sigma = tanh(b0) = 0.04996;\n- T_R = (R_abs^2 - E0)/B*^2;\n- B* = atanh(H*) - aH*, which tends to b0 - tanh(b0) = 4.16e-5;\n- E0 about 3e-5.\n\nSo it is about 2.0e7 R_abs^2/sqrt(n) once n is much larger than 5.8e8 R_abs^2. This has the same n^(-1/2) and R_abs^2 rates as the theorem, with no log n factor and a constant about 3.5e4 smaller. The true crossover below eps/2 is at about n = 1.6e21 R_abs^4; the theorem's bound crosses at about 2e30 (R=1). For the sup-norm quantity the n^(1/4) necessary-energy exponent is attained. Credit actually visible to permitted queries is far smaller, at about 1e-2 for n <= 64000, and decays. For the found mechanisms, visible credit of size eps appears to need R_abs ~ n^(1/2); this is a hypothesis, not proved.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/model.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/sim.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/t0_validate.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/t1_reduction.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/t2_radial.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/t3_cyclerow.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/t4_random.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/t5_query_ascent.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/fp_scan.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/exp_main.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/exp_short.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/exp_ramp.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/scalar_oc.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/scalar_long.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/extrapolate.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_numerical-adversary/extrapolate2.py"
+   ]
+  },
+  {
+   "lens": "constants-tradeoff",
+   "verdict": "THEOREM_HOLDS_LOOSE",
+   "first_failed_inequality": "none: no inequality in (18)-(22), (36)-(39), (32)-(34) or (41)-(43) fails. The constants are loose: the stated onset of 10^80 sits about 50 orders of magnitude above the bound's own sharp onset of about 2.0008e30, and L_n<=10002 log n is about 2x loose.",
+   "findings": [
+    {
+     "item": "(a) burn-in L_n, eq (18)",
+     "status": "verified",
+     "statement": "L_n=ceil(log(100 sqrt n)/log(10001/10000)) gives kappa^(L_n) sqrt(n)<=m/2 exactly. L_n is O(log n) uniformly in horizon. It hides no n, sqrt n, log^2 n or R_abs, and it assumes no gate schedule or endpoint. It depends only on h_0=0 and ||h*||<sqrt(n).",
+     "evidence": "log(1/kappa)=log(10001/10000). L_n*log(1/kappa)>=log(100 sqrt n) gives kappa^L sqrt n<=1/100=m/2 (2/m=100). Numerically kappa^L sqrt n = 0.009999011 (n=1e6), 0.009999093 (1e80), 0.009999996 (1e900). Exact form: L_n = 5000.24999583 log n + 46054.0044 + O(1). The only input is the initial radial distance ||h_0-h*||=||h*||<sqrt n, which is public and the same for every history."
+    },
+    {
+     "item": "(a) L_n<=10002 log n (n>=1e6) and L_n+10001<=20004 log n",
+     "status": "verified",
+     "statement": "Both hold, with about a 2x margin.",
+     "evidence": "log(1+u)>=u/(1+u) gives 1/log(1.0001)<=10001, so L_n<=10001 log100+5000.5 log n+1. This is <=10002 log n iff log n>=(10001 log100+1)/5001.5=9.2087, i.e. n>=9984. Values: L=115136 vs 138183 (1e6); 967135 vs 1842436 (1e80); 10408205 vs 20727410 (1e900). The second inequality needs only log n>=10001/10002."
+    },
+    {
+     "item": "(a) time-l2 constant in (20) and gains",
+     "status": "verified",
+     "statement": "m/(2sqrt(1-kappa^2)) = 10001/(100 sqrt 20001) = 0.707160 < 1, kappa/(1-kappa) = 10000 exactly, and the pointwise gain kappa/sqrt(1-kappa^2) = 10000/sqrt(20001) = 70.709 < 71.",
+     "evidence": "||u_t||<=kappa(a||u_{t-1}||+||x_t||) gives ||u_t||<=kappa^t sqrt n + sum_s kappa^(t-s+1)||x_s||. The l2 norm over t>=L of the first term is <= kappa^L sqrt n/sqrt(1-kappa^2) <= (m/2)/sqrt(1-kappa^2). Young's inequality bounds the second by (kappa/(1-kappa))R_abs, and Minkowski combines them. Squared constant = 100020001/200010000 exactly (Fraction)."
+    },
+    {
+     "item": "(a) B_R and H_R, eqs (21)-(22)",
+     "status": "verified",
+     "statement": "#bad < 10000(1+10000R)^2 <= B_R. H_R = B_R+10000 is an exact geometric sum.",
+     "evidence": "A bad step has ||u_t||^2>(m/2)^2=1e-4, so N*1e-4 < sum||u_t||^2 < (1+10000R)^2 (strict, because 0.7072<1). H: the B_R+1 terms j=0..B_R each contribute 1, the tail sums q/(1-q)=9999, total B_R+10000 (checked exactly for several B). A good step has h_t,i>=h*_i-m/2>=m/2, so G<=1-m^2/4=q_g and ||G R||<=q_g a. Transport over length j has <=B_R bad factors (each <=a<=1)."
+    },
+    {
+     "item": "(36)/(37) zero-credit bound, re-derived",
+     "status": "verified",
+     "statement": "||B_T||op<=sqrt(l)(L_n+H_R) at every horizon. delta_0 = sqrt(l)(L_n+H_R)/n <= (L_n+H_R)/sqrt n (the factor a from (13) is dropped, which is conservative).",
+     "evidence": "For t<=L, ||B_t||<=||G R|| ||B_{t-1}||+sqrt(l) <= sqrt(l)t, since B_1=0 because h_0=0. Unroll after L: ||Phi(T,L)||<=1, each injection ||G_s E K h_src||<=||K||_F sqrt(l) since |h|<1, and the sum over transport lengths is <=H_R. Then (12)-(13): w_R/beta=1/n and ||xi_Q||<=a/beta. Also l=ceil(n/2)<=n."
+    },
+    {
+     "item": "(b) exact integers and onset terms for R_abs=1, eps=1e-3",
+     "status": "verified",
+     "statement": "B_R=1000200010000 and H_R=1000200020000. (40008/eps)^(20/9)=7.828e16 and (4H_R/eps)^2=1.6006e31, so max{...}=1e80 and (38) holds as a sufficient onset.",
+     "evidence": "The derivation of (38): L/sqrt n <= 10002 log n/sqrt n <= 10002 n^(-9/20) <= eps/4 iff n >= (40008/eps)^(20/9), and H/sqrt n <= eps/4 iff n >= (4H/eps)^2. The step log n<=n^(1/20) at 1e80 holds because log(1e80)=184.21<240<1e4, and n^(1/20)/log n is increasing for log n>20. At n=1e80: L/sqrt n=9.67e-35 <= 1.84e-34 <= 1.0002e-32 <= eps/4, and H/sqrt n=1.0002e-28."
+    },
+    {
+     "item": "(b) REPORT table values",
+     "status": "verified",
+     "statement": "delta_0(1e80,1)=7.07248900552637e-29 and delta_0(1e900,1)=7.07255576397256e-439 match REPORT's 7.0724890055e-29 and 7.0725557640e-439. Including the factor a changes nothing at this precision.",
+     "evidence": "Independent mpmath evaluation at 200 digits: sqrt(n-n//2)(L+H)/n with L=967135 (1e80) and L=10408205 (1e900). The coarse values 1.000200987135e-28 and 1.000210428205e-438 also match ZERO_DECODER_ARITHMETIC.json."
+    },
+    {
+     "item": "(b) sharp onset of THIS bound",
+     "status": "sharpening",
+     "statement": "For R_abs=1 and eps=1e-3, the smallest n with sqrt(l)(L_n+H_R)/n<=eps/2 is n* = 2*10^6*(L*+H_R)^2 = 2000801740040285928830658000000 (about 2.0008e30, L*=394927). There delta_0 = eps/2 exactly, n*-1 fails, and every n>=n* satisfies the bound. The stated 10^80 is correct but about 50 orders of magnitude loose.",
+     "evidence": "onset.py does an integer bisection with mp at 80 digits. Alternative targets: coarse (L+H)/sqrt n gives 4.0016e30. The weaker requirement delta_0<=eps, which already kills any half-margin>eps section, gives 5.002e29. Including the factor a moves n* down by 2. For n>=n*: L is constant until the next jump at 2.00082e30 and sqrt(ceil(n/2))/n is strictly decreasing (shown for both parities). At that jump d0=0.00049999753<eps/2, and after it the smooth majorant sqrt((n+1)/2)(x(n)+1+H)/n is decreasing."
+    },
+    {
+     "item": "(b) monotonicity of delta_0 in n",
+     "status": "documentation",
+     "statement": "delta_0(n) is NOT monotone. For R=1 and n beyond about (L+H)/2 = 5e11, every unit jump of L_n raises delta_0 by a relative ~1e-12, while it falls by ~1e-4 between jumps. This is harmless: (38) is proved through monotone majorants, and no re-crossing occurs after n*.",
+     "evidence": "Relative change at the L-jump near 1e13: +9.998e-13. Near 1e11: -9.0e-12 (still decreasing). Near 1e30: +9.998e-13. PROOF never asserts monotonicity of delta_0 itself."
+    },
+    {
+     "item": "(c) energy tradeoff (39)",
+     "status": "verified",
+     "statement": "Re-derived from (37), H_R<=10000(1+10000R)^2+10001 and L_n<=10002 log n. The n^(1/4) comes only from the H_R term, which is quadratic in R through the Chebyshev bad-step count, set against eps sqrt n. The log term is subtracted inside the square root and has relative size o(1), so there is no hidden log factor. The leading coefficient is exactly sqrt(eps)/10^6.",
+     "evidence": "R_req/n^(1/4) = 2.987e-8 (1e20), 3.16196e-8 (1e30), 3.162276660e-8 (1e40), and 3.16227766017e-8 from 1e80 on, against sqrt(eps)/1e6 = 3.16227766017e-8. Setting R=R_req(n) makes (10002 log n+X+10001)/(eps sqrt n)=1.000 exactly (self-consistency). (39) is non-vacuous only for n > ~1.74e17 (log n>39.70)."
+    },
+    {
+     "item": "(c) logical status of (39)",
+     "status": "scope_caveat",
+     "statement": "(39) is a rigorous NECESSARY condition for any half-margin>eps antipodal section, given Theorem 4, since such a section needs delta_0>eps. It is not sufficient, and the exponent 1/4 is a limitation of the bound (Chebyshev l2-to-count step plus the worst-case injection sqrt(l)), not a proven threshold. The text says this ('conservative, not sharp'). The 'fixed R_abs' wording in Theorem 4 is not used in the proof, so applying (39) with R=R(n) is legitimate.",
+     "evidence": "Every constant in (20)-(22) and (36)-(37) is explicit in R and valid for any R>0 and n>=1e6. No step requires R to be bounded independently of n. Section 5 (nonemptiness) is the only place where R enters as a constraint on construction."
+    },
+    {
+     "item": "(c) superseded (32)-(34) and the n^(1/6)/(log n)^(5/6) claim",
+     "status": "verified",
+     "statement": "C_R<=10^19(1+R)^3 holds. In fact max C_R/(1+R)^3 is about 2.8406e18 over R in [0,10] and up to 1e11. (33) and (34) are correctly derived. The (34) requirement is asymptotically (eps/1e19)^(1/3) n^(1/6)/(log n)^(5/6), matching the stated order.",
+     "evidence": "Term by term: 2*10002^2.5=2.001e10<=2*101^5=2.102e10; (L+10001)<=20004 log n<=20004(log n)^(5/2); sqrt(10002 log n)<=101(log n)^(5/2). The ratio of (34) to n^(1/6)/log^(5/6) converges to 4.6416e-8=(1e-22)^(1/3). (33) at R=1: 7.54e61<1e80."
+    },
+    {
+     "item": "(43)/(42) full-group constants",
+     "status": "verified",
+     "statement": "1.1 = 1 + 0.1 from delta_R<=A/sqrt n and delta_b=0.05*A*(2/sqrt n). n>=8R^2 gives delta_W<=A/sqrt n via sqrt L+sqrt H<=sqrt(2A). 2.1eps/6<eps/2. The value 1.1002210858485e-28 at n=1e80 is reproduced.",
+     "evidence": "The beta_loss>sqrt(n)/2 check 3(1/2+e)^2<(199/200)^2 is valid using k>=n/3. The squared inequality 8R^2 A<=A^2 n needs only A>=1."
+    },
+    {
+     "item": "(d) Linux replay of the three scripts",
+     "status": "verified",
+     "statement": "All 43 checks pass (27+10+6). ZERO_DECODER and FULL_GROUP JSON are identical apart from timing/RAM. ARITHMETIC.json differs only at float-roundoff level in the n=200/2000 numerics.",
+     "evidence": "windll memory probe replaced by resource.getrusage, outputs redirected to scratch/out. Diffs: rotation-identity max_error 4.44e-16 vs archived 1.44e-15 at n=2000; residuals 9.8645e-13 vs 9.8645e-13 (last digits); min_coordinate -0.11760216435074083 vs ...086 and -0.0022257110610129235 vs ...443. All 45-digit mp values and integer L/B_R/H_R counts agree exactly."
+    },
+    {
+     "item": "(d) tautological or weak checks",
+     "status": "documentation",
+     "statement": "Several 'exact' checks are tautologies that do not check the claim they are labelled with. 'log inverse constant' tests 1/10001<=1/10001, which is equality; the remainder 10001 log100+1<=5001.5 log n behind L_n<=10002 log n is never checked. 'log exponent', 'first onset coefficient' (4*10002==40008), 'energy exponent' (1/2*1/2==1/4) and 'W relative term condition' (2^2*2==8) are trivial identities. 'logarithm sufficient onset' tests 80*3<10^4, not log 10<3. The 80/120-digit agreement checks only test mpmath self-consistency. Claims stated but not machine-checked: the derivation of (39), the coefficient sqrt(eps)/10^6, the bad-step factor (2/m)^2=10000, the exponents in (38) and (33), and the sharp onset.",
+     "evidence": "zero_decoder_arithmetic.py lines 23-30; arithmetic.py lines 45-47; full_group_arithmetic.py line 20. My independent derivations in constants.py, onset.py and tradeoff.py cover all of these and found no error."
+    },
+    {
+     "item": "Untracked file in the target directory",
+     "status": "documentation",
+     "statement": "theory/codex_autonomous_absolute_energy_20261003/e5_log_cycle_1e6_2000.txt is untracked (git status '??'). It was created at 16:25, after the 15:55 commit. It holds only 'python3: can't open file .../e5_holes.py', a script that does not exist. It is not in PROVENANCE or PRESERVATION_AUDIT and is not part of the theorem, so it was probably written by some other process running in the repo dir. I left it untouched.",
+     "evidence": "git status --short; ls -la timestamps; git ls-files lists 11 files, not this one."
+    },
+    {
+     "item": "Supplementary numeric sanity for THEOREM 1 (outside lens, not a certificate)",
+     "status": "verified",
+     "statement": "The reference (R0) autonomous fixed point, computed by direct iteration at large width, has its minimum coordinate well above m=1/50 at the theorem's threshold. This is consistent with Theorem 1 and gives no counterexample.",
+     "evidence": "refpoint.py, residual<1e-11: min coordinate -0.0022257 (n=2000), 0.0457703 (n=2e4), 0.0494610 (n=2e5), 0.0498205 (n=1e6, 8838 iterations, 600 s). Dense perturbation <=4e-11 at n=1e6 per (9)."
+    },
+    {
+     "item": "True-but-loose constants",
+     "status": "sharpening",
+     "statement": "The main slacks are: L_n<=10002 log n, about 2x; the injection bound sqrt(l), against ||h_src|| about 0.05 sqrt(l) near h*; the eps/2 target where eps suffices for the no-robust-section conclusion; and the generic transport sum H_R of about 1e12 R^2. These make the 10^80 onset and the coefficient sqrt(eps)/10^6 very conservative. None affects correctness.",
+     "evidence": "The sharp onset of the stated bound is 2.0008e30 (eps/2) or 5.0e29 (eps). L/log n is about 5000.25 asymptotically. Source fixed coordinate s=tanh(lambda s+0.05) is about 0.05."
+    }
+   ],
+   "strongest_counterexample_attempt": "I attacked the constants chain at every link with exact Fractions and mpmath at 60-200 digits. Steps: (i) re-derived kappa^L sqrt n<=m/2, L_n<=10002 log n (valid from n>=9984), the time-l2 constant 0.70716<1, the bad-step count via Chebyshev, and H_R=B_R+10000 exactly. (ii) Found the exact onset of the bound by integer bisection and checked for re-crossing caused by the non-monotone ceiling L_n. delta_0 does jump up by about 1e-12 at L_n jumps, but no jump after n*=2.0008e30 pushes it back above eps/2. (iii) Tried to locate a hidden log or a wrong coefficient in the n^(1/4) tradeoff; R_req/n^(1/4) converges to 3.16227766e-8 = sqrt(eps)/1e6. (iv) Replayed all three scripts on Linux. (v) Checked Theorem 1 numerically at n=1e6, where the min coordinate is 0.0498>1/50. Nothing failed. The only negatives are documentation: tautological checks, an untracked stray log file in the target dir, and an onset loose by about 50 orders of magnitude.",
+   "sharpest_correct_statement": "For n>=10^6, any R_abs>0 (R_abs may depend on n), and every history of any length with total input norm <=R_abs, the zero-past-credit decoder has uniform permitted-query error <= (a/n)sqrt(ceil(n/2))(L_n+H_R) <= (L_n+H_R)/sqrt(n). Here L_n = ceil(log(100 sqrt n)/log(1.0001)) = 5000.25 log n + 46054 + O(1) <= 10002 log n, and H_R = ceil(10^4(1+10^4 R_abs)^2) + 10^4 <= 10^4(1+10^4 R_abs)^2 + 10001. For R_abs=1 and eps=1e-3, the bound is <=eps/2 exactly for all n >= 2*10^6*(394927+1000200020000)^2 \u2248 2.0008e30 (and <=eps from about 5.0e29), so the stated 10^80 is valid but loose. Any half-margin>eps antipodal section requires R_abs > (sqrt((eps sqrt n - 10002 log n - 10001)/10^4) - 1)/10^4 = (sqrt(eps)/10^6) n^(1/4)(1-o(1)) - 10^-4. This is a rigorous necessary condition with no hidden log factor, non-vacuous only for n > ~1.74e17. Its exponent 1/4 reflects the quadratic-in-R bad-step budget of this proof and is not shown sharp.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_constants-tradeoff/constants.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_constants-tradeoff/onset.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_constants-tradeoff/tradeoff.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_constants-tradeoff/refpoint.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_constants-tradeoff/replay/arithmetic.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_constants-tradeoff/replay/zero_decoder_arithmetic.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_constants-tradeoff/replay/full_group_arithmetic.py"
+   ]
+  },
+  {
+   "lens": "scope",
+   "verdict": "THEOREM_HOLDS_WITH_SCOPE_CAVEATS",
+   "first_failed_inequality": "none. I re-derived every displayed inequality in sections 2-6 and 12-13 ((2)-(23), (35)-(43)) and in the superseded sections 7-10 ((24)-(34)), and all of them hold. Every caveat below is about scope or documentation.",
+   "findings": [
+    {
+     "item": "(a) Exact landing (14) through tanh",
+     "status": "verified",
+     "statement": "atanh(h*)-R z_B-b = R(h*-z_B) holds exactly, so the next state is exactly h*. The pulse norm is at most a(kappa a)^B||h*|| < a kappa^B sqrt(n) <= R_abs/2. Every coordinate is <= 1/4 < 1/2, so the pulse lies inside the past cube.",
+     "evidence": "The fixed-point equation gives atanh(h*)=Rh*+b. Subtracting Rz_B+b gives R(h*-z_B). (17) with x=0 gives ||z_t-h*||<=kappa a||z_(t-1)-h*||, and ||h*||<sqrt(n). The l_inf norm is at most the l2 norm, which is <=1/4. Numerically, with the archived dense R built by the accepted harness: landing residual <=6e-14 at n=4000 and n=2106. At n=4000 with B=3000 zero steps, the pulse norm is 9.28e-5 and the largest coordinate is 5.6e-6 (s3_landing_regimes.out)."
+    },
+    {
+     "item": "(a) Contract: zero inputs, unpenalized length, nonempty for every R_abs>0",
+     "status": "verified",
+     "statement": "The absolute-energy class counts only sum||x_t||^2. Zero lies in the open past cube. Neither the accepted absolute-energy stage nor its review restricts history length; the review itself used T-1 zero inputs followed by a landing. So the h* class is nonempty for every R_abs>0. Even the old horizon N+2~4n log n can be met: B=ceil(log(sqrt n/min(R/2,1/4))/log(1.0001)) is about 82,946 at n=10^6, R=1. After landing, hold at h* with zero input.",
+     "evidence": "codex_absolute_history_energy PROOF section 1 (norm of all concatenated inputs, past cube). claude_absolute_energy_review REVIEW section 8. For any n>=200, without Theorem 1, the bound a^(B+1)||h*|| also gives nonemptiness. A landing at h* can never come for free: f is injective (R is invertible), so z_T != h* for every finite T."
+    },
+    {
+     "item": "(a) kappa-rate in REPORT section 3 holds only for n>=10^6",
+     "status": "documentation",
+     "statement": "REPORT section 3 uses kappa=10000/10001 without restating that this rate needs Theorem 1 (n>=10^6). Below that width the class is still nonempty, but zero-input relaxation can take about n steps. This matches the earlier review's remark that relaxing through zero inputs 'adds Theta(n) steps', which describes moderate widths.",
+     "evidence": "At n=2106 the measured autonomous decay rate is 0.99952516, against 1-1/n=0.99952517. At n=4000, h* min=0.0237>=1/50, and the measured worst radial ratio is 0.99943<=1."
+    },
+    {
+     "item": "(b) Credit upper (C) at arbitrary endpoints",
+     "status": "verified",
+     "statement": "Bound (36), ||B_T||op<=sqrt(l)(L_n+H_R), uses only h_0=0, ||X||<=R_abs and Theorem 1. It does not depend on the endpoint, the horizon, the past cube or the gate pattern. It therefore covers every common endpoint, h*, z_T=f^T(0), nearby z and z=0, and also non-common endpoints when h_T is stored.",
+     "evidence": "I re-derived the chain myself. Lemma 2 follows from atanh'>=1+y^2, and p^2+pz+z^2=(z+p/2)^2+3p^2/4. (17) has kappa=1/(1+m^2/4). In (20), the first term has time-l2 norm (m/2)/sqrt(1-kappa^2)=0.7071, and Young's inequality gives a gain of kappa/(1-kappa)=10000. (21) follows by counting with (m/2)^2=1e-4. In (22), the sum is B_R+1+9999=B_R+10000. Each injection is at most ||K||F||h_src||<=sqrt(l). In (13), w_R/beta=1/n and ||xi_Q||<=a/beta."
+    },
+    {
+     "item": "(b) Feasibility (A) is not claimed for all endpoints",
+     "status": "scope_caveat",
+     "statement": "Theorem 4 is vacuous at endpoints whose bounded-energy class is empty. One example is z=0 at large n, which is accepted as infeasible (n<803.21 R^2). Feasibility is constructed only at h*, at z_T, and at endpoints near h*. The files say this correctly. 'Covers arbitrary endpoints' should be read as 'the upper bound applies wherever the class is nonempty'.",
+     "evidence": "codex_absolute_history_energy REPORT section 3. PROOF section 11 and REPORT section 8 table."
+    },
+    {
+     "item": "(b) Holding cost (35) and the no-periodic-orbit claim",
+     "status": "verified",
+     "statement": "atanh(z)-Rz-b equals [atanh z - atanh h*] - R u, with u=z-h*. Applying Lemma 2 coordinatewise gives a lower bound of (1+m^2/4-a)||u|| = (1e-4+1/n)||u|| > 0. Holding for L steps costs sqrt(L) times that, so h* is the unique point that can be held at zero cost. f^p is an a^p-contraction, so it has only the fixed point h*, and no distinct autonomous periodic orbit exists (for every n>=200). The files explicitly disclaim that h* is the cheapest landing point, so no stronger statement is made.",
+     "evidence": "Uses atanh(h*)=Rh*+b, the triangle inequality, ||R||=a, and Theorem 1 (needed only for the m^2/4 gain)."
+    },
+    {
+     "item": "(b)/(d) 'No positive-dimensional robust section' needs a common endpoint, not a common history length",
+     "status": "sharpening",
+     "statement": "Exclusion of every eps-robust antipodal pair requires that the pair share an endpoint, so that the future direct terms cancel. The 'and history length' hypothesis in PROOF section 12 is unnecessary, because the zero-credit decoder uses no clock; this is an underclaim. Without a common endpoint the correct statement is weaker: a continuous n-coordinate encoder (h_T) with a delta_0-accurate decoder exists, so any encoder lower bound is at most n. Superlinearity is still excluded, as the files claim.",
+     "evidence": "PROOF lines 548-551 and REPORT section 4 ('ANY common endpoint and public horizon'). (37) holds for every T."
+    },
+    {
+     "item": "(c) Consistency with the accepted Omega(n^(19/18)), Omega(n^(16/15)) and zero-endpoint results",
+     "status": "verified",
+     "statement": "The accepted lower-bound sections satisfy every hypothesis of Theorem 4 except the constant energy budget: same frozen R, h_0=0, n>=10^900>=10^6, same legal one-step query, inputs in the cube, and no endpoint or gate hypothesis needed. Their centre has R_abs about 0.53313 n sqrt(log n). At that energy, delta_0 is about 2e11 n^1.5 log n, far above any margin, and B_R is about 2.8e11 n^2 log n, far above the window length N=4n log n. So there is no contradiction. With constant R_abs, the number of post-burn-in weak-gate steps is at most B_R=O(R^2), independent of n, while the old window needs about 4n log n such steps. The necessary energy (Omega(n^(1/4)), from (39)) and the known sufficient energy (about n sqrt(log n), at the old endpoint) leave an open gap, which the files state.",
+     "evidence": "C_abs was verified in claude_absolute_energy_review section 9. At a weak-gate state, ||h-h*||>=sqrt(r)(1/50-1/(2sqrt n)) > m/2, so every such step is a bad step."
+    },
+    {
+     "item": "(d) Superseded sections 7-10, (24)-(34)",
+     "status": "verified",
+     "statement": "I found no false intermediate statement. The bounds are loose but correct.",
+     "evidence": "(24): ||dh||_l2<=nR_abs, the source recursion is lambda||.||+||x_src||+e||dh||, and (1+en)/(1-lambda)<2. (25): public burn-in is good for all t>=L_n, giving sum q_g^j=10000. (26) is exact algebra, with ||G-G^0||<=2||dh||. (27): sum t^(3/2)<=L^(5/2), and Cauchy gives the source term. (28): chi_R=m+71R, from 10000/sqrt(20001)<71, and sum of squared transports <= sum of transports. (32): L_n<=10002 log n (needs log n>=9.21); 100.01^5<=101^5; C_R<=10^19(1+R)^3 using H<=2e12(1+R)^2 and chi<=72(1+R). (33): (log n)^(5/2)<=n^(1/8) for n>=10^80. (34) inverts (32)."
+    },
+    {
+     "item": "(d) Section 13, full R/W/b contract",
+     "status": "verified",
+     "statement": "(40)-(43) hold. beta_loss>=a sqrt(k)-sqrt(n)e>sqrt(n)/2, w_W/beta<2/n and w_b/beta<0.1/sqrt(n). n>=8R^2 gives delta_W<=A_n/sqrt n, and the total is 2.1eps/6 < eps/2.",
+     "evidence": "||S_R||<=sqrt(n)A_n. ||S_W||<=R(sqrt L+sqrt H), by Cauchy before and after burn-in. ||S_b||<=A_n."
+    },
+    {
+     "item": "(d) Audit of conclusion sentences",
+     "status": "verified",
+     "statement": "These sentences are all supported, within the frozen family, constant R_abs and n beyond the stated onset: 'no endpoint choice recovers', 'no positive-dimensional robust section' (at a common endpoint), 'n forward coordinates, 0 credit', 'O_R(log n/sqrt n)', and 'necessary energy Omega(n^(1/4))'. The last is correctly labelled a conservative necessary condition derived from a loose upper bound. Underclaims: 'no omega(n) section ... is established here' (REPORT section 4) understates a proved impossibility. The proof also covers R_abs=o(n^(1/4)), not only fixed R_abs. Theorem 1 is proved only for n>=10^6, but numerically it holds from n=3554.",
+     "evidence": "The onset (38) is consistent: at R=1, eps=.001, (40008/eps)^(20/9)~1e17 and (4H/eps)^2~1.6e31, both below 1e80. (39) gives 3.16e12 at n=1e80, which matches ZERO_DECODER_ARITHMETIC.json."
+    },
+    {
+     "item": "(d) CHECKS.md 'no failed inequality' and the 43 checks",
+     "status": "documentation",
+     "statement": "The CHECKS.md statement is accurate: I found no failed inequality. All 27+10+6 checks and every saved value reproduce exactly on Linux. However, the scripts call ctypes.windll (Windows-only) for memory counters and cannot run unmodified on Linux. I reran copies with that block and the file write removed.",
+     "evidence": "Scratch copies rerun_arithmetic.py, rerun_zero_decoder_arithmetic.py and rerun_full_group_arithmetic.py gave CHECKS 27/10/6, with identical 45-digit values (for example 7.0724889...e-29 at n=1e80)."
+    },
+    {
+     "item": "(d) PROVENANCE hash consistency",
+     "status": "documentation",
+     "statement": "All 10 new-stage files match their recorded sha256_lf. The JSON files' sha256_raw matches their CRLF form. 8 of the 9 frozen sources match. The ninth, theory/grok_bounded_history_radius_review_20261003/REPORT.md, is not in any branch of this repository (git log --all finds nothing), so 'frozen_raw_hash_matches: true' cannot be checked from the repo.",
+     "evidence": "sha256sum compared against PROVENANCE.json. git log --all --name-only shows no grok path."
+    },
+    {
+     "item": "Stray untracked file in the target directory",
+     "status": "documentation",
+     "statement": "theory/codex_autonomous_absolute_energy_20261003/e5_log_cycle_1e6_2000.txt is untracked. It is 161 bytes, has mtime 16:25 (after the 15:55 merge), and is absent from PROVENANCE. Its content is a python error about a missing e5_holes.py, so it was probably written by a concurrent process. It is not part of the reviewed commit. I left it untouched.",
+     "evidence": "git status --short shows '?? ...e5_log_cycle_1e6_2000.txt'."
+    },
+    {
+     "item": "(e) Moderate widths where h* is near zero or near-critical",
+     "status": "scope_caveat",
+     "statement": "Theorems 1 and 4 are scoped to n>=10^6, so nothing is contradicted. However, REPORT phrases such as 'gate-induced contraction gap does not shrink with width' and 'cannot sustain the old forced near-critical gate behavior' are false at practical widths unless read with that qualifier. In the reference model, min h* is negative up to about n=2105 and crosses zero at n=2106. There, 526 off-cycle coordinates have |h|<=6.4e-5 (gate 0.9999999959), and the zero-cost autonomous transport decays at exactly 1-1/n, a near-critical endpoint. For n in [2350,2665], the off-cycle gate deficit n H^2 lies inside the accepted weak-gate window [1/20,1/4]. min h* reaches 1/50 only from n=3554, and is 0.04982 at n=10^6.",
+     "evidence": "s1_hstar_scan.out and s2_crossings.out: an independent scalar reduction that matches direct iteration to 10 digits (n=200: -0.11760216; n=2000: -0.00222571). s3_landing_regimes.out uses the archived dense R: at n=2106 the decay rate is 0.99952516."
+    },
+    {
+     "item": "(e) Other regimes outside the theorem",
+     "status": "scope_caveat",
+     "statement": "Not covered: per-coordinate (RMS) budgets with R_abs=rho sqrt(n), where H_R~1e12 rho^2 n makes delta_0 grow; any R_abs>=c n^(1/4); relative-error or unnormalized losses; other RNN families; and widths below 10^6. Also, at practical widths the actual autonomous transport time is about 1/h*^2 (~400 steps), so the zero-credit decoder is not eps-accurate there. REPORT already disclaims practical onset and these contracts.",
+     "evidence": "From (21)-(22): H_R=O(R_abs^2). REPORT section 10 and PROOF section 13 scope statements."
+    }
+   ],
+   "strongest_counterexample_attempt": "I tried four ways to break the theorem.\n1. **A near-zero h* inside the theorem's scope.** I scanned the reference fixed point by an independent scalar reduction from n=200 to 10^6. The minimum coordinate is 0.0498 at n=10^6 and is already >=1/50 from n=3554. The only near-critical autonomous endpoint is at n\u22482106 (526 coordinates with |h|<=6.4e-5, decay rate 1-1/n), which is outside n>=10^6.\n2. **Breaking the radial secant contraction (17).** At n=4000, where the actual dense h* minimum is 0.0237>=1/50, bursty unit-energy histories gave a worst ratio of 0.99943<=1. ||G*R||=0.999189<=a(1-m^2).\n3. **Breaking exact landing or cube admissibility.** With the archived dense R, the landing residual is about 1e-14 and the pulse is 9.3e-5 after 3000 zero steps.\n4. **Contradiction with the accepted Omega(n^(19/18)) and Omega(n^(16/15)) results.** Those constructions violate only the constant-energy hypothesis (R_abs about 0.533 n sqrt(log n)), which gives delta_0 about 2e11 n^1.5 log n. There is no contradiction.\nNone of these refutes Theorem 4.",
+   "sharpest_correct_statement": "Setting: the frozen dense family with ||R||op=a and ||R-R0||op<=4e-8/n^2, every n>=10^6, every R_abs>0, and every history of any length from h_0=0 with ||X||_2<=R_abs. Inputs and endpoint are unrestricted (the past cube is not needed).\n\n1. The true selected-block past sensitivity satisfies ||B_T||op <= sqrt(l)(L_n+H_R). Here L_n=ceil(log(100 sqrt n)/log(10001/10000))<=10002 log n and H_R=ceil(10^4(1+10^4 R_abs)^2)+10^4.\n2. A decoder that stores h_T (n coordinates, or nothing when h_T is a public common endpoint), sets past sensitivity to zero and computes the future direct terms exactly has normalized error over all legal queries of at most sqrt(l)(L_n+H_R)/n <= (L_n+H_R)/sqrt(n). For the full R,W,b gradient the bound is 1.1(L_n+H_R)/sqrt(n)+2R_abs(sqrt(L_n)+sqrt(H_R))/n.\n3. Consequently, no eps-robust antipodal pair exists among histories sharing a common endpoint (no common time is needed) once n>=max{10^80,(40008/eps)^(20/9),(4H_R/eps)^2}. Without a common endpoint, robust dimension is at most n.\n4. Any robust pair requires R_abs > (sqrt((eps sqrt n-10002 log n-10001)/10^4)-1)/10^4 = Omega_eps(n^(1/4)).\n5. The exact landing class at h* is nonempty and inside the cube for every R_abs>0 (for n<10^6, use a^(B+1)||h*|| in place of kappa^B).\n\nNot covered: widths n<10^6 (numerically, the reference min h* is <1/50 up to n=3553 and essentially zero, i.e. near-critical, near n=2106); budgets R_abs>=c n^(1/4) or per-coordinate budgets; relative-error or other losses; other RNN families.\n\nScratch outputs are in /tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_scope/.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_scope/s1_hstar_scan.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_scope/s2_crossings.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_scope/s3_landing_regimes.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_scope/rerun_arithmetic.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_scope/rerun_zero_decoder_arithmetic.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf3_scope/rerun_full_group_arithmetic.py"
+   ]
+  }
+ ],
+ "critic": {
+  "verdict": "VERIFIED",
+  "verdict_reason": "THEOREM 4 (PROOF section 12, eqs. (36)-(39)) holds as written for n>=10^6. I re-derived each link myself rather than taking the lenses' word for it: the selected-row identity (2), Phi(B_m)<=-0.021649 in (7), Phi(b0)=a cH H(b0) in (8), and the dense transfer (9). From these, THEOREM 1 gives h*_i>=1/50. Lemma 2 (16) holds for every p in (-1,1), and the radial bound (17) is exact and global with kappa=10000/10001. The burn-in check kappa^L_n sqrt(n)<=m/2 passes (L_n=115136 at n=10^6). The time-l2 bound (20) has constants 0.70716 and 1e4. The bad-step count (21) and H_R=B_R+10000 in (22) are exact. ||B_T||op<=sqrt(l)(L_n+H_R) holds for every T, including T<L_n. Equation (13) gives w_R/beta=1/n and ||xi_Q||<=a/beta, so (37) follows. The onset (38) and the necessary-energy condition (39) are right: the coefficient sqrt(eps)/10^6 is reproduced to 12 digits. All six lenses also report no failed inequality. The numerical attacks stay at most 7.4e-6 of delta_0 inside the theorem's scope, and extrapolated mechanisms stay at most 2.9e-5 of it. The remaining issues are of three kinds: (a) loose constants, including a 10^80 onset where about 2.0e30 suffices for the stated bound; (b) scope limits (n<10^6, endpoints with no feasible history, robust-section exclusion only at a common endpoint); (c) documentation problems (tautological checks, Windows-only scripts, a stray untracked log file, an unverifiable provenance hash, minor underclaims). None of these is a false stated inequality, so the verdict is VERIFIED rather than REPAIRABLE.",
+  "false_statements_in_files": [
+   "No mathematically false statement was found in PROOF.md, REPORT.md, CHECKS.md or the JSON records. Every inequality in sections 2-13, eqs. (2)-(43), re-derives with the stated constants.",
+   "Documentation inaccuracy (not mathematical). In zero_decoder_arithmetic.py, the check 'log inverse constant' has the detail string 'L<=10002 log n for n>=10^6', but the code only tests the equality 1/10001<=1/10001. The remaining step, 10001 log100+1<=5001.5 log n (true for n>=9984), is never machine-checked. 'log exponent', 'first onset coefficient' and 'energy exponent' are trivial identities. So the CHECKS.md wording 'Exact rational checks cover ... error-onset exponents' overstates what the scripts check. The underlying claims are true.",
+   "Documentation inaccuracy. The scripts are presented as reproducible, but arithmetic.py and zero_decoder_arithmetic.py call ctypes.windll (Windows-only) and cannot run on Linux as written. A Linux replay with that block replaced reproduces all 43 checks and all 45-digit values.",
+   "Documentation inaccuracy. PROVENANCE.json reports frozen_raw_hash_matches=true for theory/grok_bounded_history_radius_review_20261003/REPORT.md, but that path is not in any branch of the repository, so the hash cannot be verified from the repo.",
+   "Underclaims (true but weaker than proved): (i) REPORT section 4 says 'no omega(n) section ... is established here', although a positive impossibility is proved. (ii) PROOF lines 548-551 and REPORT section 5 require a common endpoint AND a common history length; common length is unnecessary because the decoder has no clock and (36) is uniform in T. (iii) PROOF section 5 and REPORT section 3 use kappa without restating that it needs THEOREM 1 (n>=10^6). For n<10^6, a^(B+1)||h*|| gives nonemptiness instead.",
+   "The untracked file theory/codex_autonomous_absolute_energy_20261003/e5_log_cycle_1e6_2000.txt (mtime 16:25, after the 15:55 commit) contains only 'can't open file .../e5_holes.py'. Its name matches the contraction lens's e5_holes.py, so it is almost certainly a stray artifact of this review, not part of the target commit. It is not in PROVENANCE. I left it untouched; the owner should remove it."
+  ],
+  "strongest_justified_theorem": "Frozen dense family with ||R||op=a=1-1/n and ||R-R0||op<=4/(10^8 n^2), every n>=10^6, every R_abs>0 (R_abs may depend on n), every history of any finite length T>=0 from h_0=0 with sum_t||x_t||^2<=R_abs^2. Inputs and endpoint are unrestricted; the past cube is not needed.\n\n(i) THEOREM 1. The unique autonomous fixed point satisfies h*_i>=1/50 in every coordinate. Hence ||G*R||op<=a(1-1/2500), and for every z in (-1,1)^n, |atanh z_i-atanh h*_i|>=(1+h*_i^2/4)|z_i-h*_i|.\n\n(ii) Sensitivity bound. ||B_T||op<=sqrt(l)(L_n+H_R), where L_n=ceil(log(100 sqrt n)/log(10001/10000))<=10002 log n and H_R=ceil(10^4(1+10^4 R_abs)^2)+10^4. In addition, the number of steps t>=L_n with ||h_t-h*||>1/100 is <10^4(0.7072+10^4 R_abs)^2.\n\n(iii) Zero-credit decoder. Persistent state is E_t=h_t in R^n (none at a public common endpoint); there are zero credit coordinates and no clock. The decoder drops all past selected sensitivity and computes the future direct terms exactly. Its error for the selected R block, uniform over every permitted query (any L>=1, preactivations in [1/4,3/4]^n, inputs held fixed, w_R/beta=1/n frozen), is at most a^L sqrt(l)(L_n+H_R)/n<=(L_n+H_R)/sqrt(n). For the full normalized R,W,b gradient it is at most 1.1(L_n+H_R)/sqrt(n)+2R_abs(sqrt(L_n)+sqrt(H_R))/n.\n\n(iv) Robust sections. Any two histories with a common endpoint, of any lengths, have permitted-query half-distance <=delta_0. Hence for R_abs=1 and eps=10^-3 no positive-dimensional antipodal section with half-margin >eps (or >3eps/4, or the buffered 5eps/4) exists once n>=n*=2*10^6(L*+H_1)^2~2.0008e30 (n*-1 fails). The stated n>=10^80 and the general onset (38) are valid sufficient onsets. Without a common endpoint, continuity of h_T plus Borsuk-Ulam excludes sections of sphere dimension >=n at half-margin >delta_0.\n\n(v) Energy. Any robust half-margin >eps requires R_abs>(sqrt((eps sqrt n-10002 log n-10001)/10^4)-1)/10^4=(sqrt(eps)/10^6)n^(1/4)(1-o(1))-10^-4. This is a necessary condition only, and non-vacuous only for n>~1.7e17.\n\nNot proved: sharpness of n^(1/4) for legally visible robust sections (numerics suggest about n^(1/2)); any practical onset; widths n<10^6 (numerically min h*<1/50 for n<=3553 and <=0 for n<=2105, near-critical near n~2106); per-coordinate budgets R_abs~sqrt(n); other losses or RNN families.",
+  "first_failed_inequality": "None. No displayed inequality fails, and that includes the superseded sections 7-10 ((24)-(34)) and section 13 ((40)-(43)). The closest calls are all valid but loose:\n- (6): cycle excess bound 1600, where (1-m0)/m0^2=1560 already suffices.\n- 'L_n<=10002 log n': holds from n>=9984 with about a 2x margin.\n- (38): onset 10^80, where the stated bound itself already drops to eps/2 at about 2.0008e30.",
+  "contradictions_resolved": [
+   "Visible-credit R-scaling: the contraction lens says the true visible credit is ~R, while the numerical adversary reports ~R^2. My derivation resolves it: they measure different mechanisms and quantities.\n- The off-cycle held hole (cost B*^2 per step, B*=atanh(H)-aH -> b0-tanh(b0)=4.1625e-5, verified) has envelope credit (a/n)||B_T||~sigma tau/sqrt(2n)~2.0e7 R^2/sqrt(n).\n- Legal queries see off-cycle coordinates only at weight O(1/sqrt n), giving ~c sigma tau/n ~ R^2/n.\n- The co-moving cycle hole is legally visible but accumulates incoherently, giving ~0.0235 sqrt(tau/n) ~ 565 R/sqrt(n).\nBoth lenses are correct for their own quantity. Both legal mechanisms need R~sqrt(n) for eps-size credit, and both are far below delta_0.",
+   "Heuristic legal onset for R=1: about 8e10 (contraction lens) versus about 1.3e12 (numerical adversary). The two definitions differ. The first asks for a pair difference >2eps; the second asks for single-history credit <eps/2. That is a factor 4 in credit, and with credit proportional to n^(-1/2) a factor 16 in n. 8e10 x 16 is about 1.3e12, so the two agree. Both are heuristic and do not bear on THEOREM 4.",
+   "Is the n^(1/4) energy exponent sharp? The numerical adversary says it is attained; the constants lens says it is not shown sharp; the contraction lens suggests 1/2. Resolution: n^(1/4) is attained for the bounded envelope quantity (a/n)||B_T||op by the ramped off-cycle hole, about 7.0e-6 n^(1/4) at credit eps. For robust sections under LEGAL queries it is not shown sharp, and the heuristic exponent is 1/2. (39) is a valid necessary condition either way.",
+   "Looseness constant of (36): the contraction lens says about 3.4e4, the numerical adversary about 3.5e4 (20 x 1730). These are the same. The split is a factor of about 20 from the injection bound sqrt(l) versus the actual sigma sqrt(l) with sigma=0.04996, and about 1730 from the bad-step budget 1e12 R^2 versus the true unit-transport budget R^2/B*^2=5.8e8 R^2.",
+   "Moderate-width threshold for (5): the numerical adversary says 'about 3500', the fixed-point and scope lenses say 3554, and n<=2105 gives min h*<=0. These are consistent, and the exhaustive integer scan settles it at 3554. All of it lies outside the n>=10^6 scope.",
+   "Cycle excess: the proof states S(B_m)<=r m0+1600; the fixed-point lens derives 1560. Since 1560<1600, the stated bound is valid and (7) evaluates to exactly -0.021649. I recomputed this.",
+   "Origin of the stray file e5_log_cycle_1e6_2000.txt: three lenses deny creating it. It references e5_holes.py, the contraction lens's script name and naming pattern, so it is a review-process artifact, not target content. It does not affect the verdict."
+  ],
+  "gaps_filled": [
+   "Coverage of the 25 requested items:\n- Verdict: VERIFIED.\n- Fixed point: verified (THEOREM 1; I recomputed B_m=5.235e-6, (1-m0)/m0^2=1560 and Phi(B_m)<=-0.021649).\n- Burn-in/landing: verified ((18) and (14); landing residual about 1e-14; pulse <=a kappa^B sqrt n).\n- Query legality: verified. Future input on saturated coordinate 1 is about 35 at n=1e6; this is legal because the contract restricts only preactivations.\n- Past/direct decomposition: verified (exact to 1e-17).\n- Independent past-credit bound: re-derived by me (unroll B_T=Phi(T,L_n)B_(L_n)+sum_s Phi(T,s)G_s inj_s; ||inj_s||<=||K||_F sqrt(l); transport <=q_g^max(0,j-B_R) because every step after s>=L_n is classified).\n- L_n: verified.\n- H_R: verified exact.\n- Arbitrary length: verified (B_R independent of T; T<L_n gives sqrt(l)T).\n- Sparse pulses: covered by l2 energy (one pulse costs at most about 2590 bad steps).\n- Near-zero excursions: holes cost B*^2 per step; every hole step is bad, so it is charged to B_R.\n- Coordinate concentration: s=1 is optimal at fixed energy; N_delta coordinate-step bound.\n- Dense coupling: only ||R||=a used; ||R-R0||<=2e-8/n^2 for the archived R.\n- Radial lemma: verified globally; the minimum ratio at z=-p/2, p=0.02 is 1.000000022 (my mpmath).\n- Injection accumulation: verified.\n- Zero-credit encoder: valid under the accepted counting contract.\n- Uniform over queries: verified ((12)-(13)); legal queries reach about 11% of the envelope at n=200.\n- n0: 10^80 valid; exact onset of the stated bound is 2.0008e30.\n- Robust-section consequence: verified at a common endpoint.\n- Energy growth: (39) verified.\n- Strongest counterexample: see below.\n- Other endpoints: the upper bound applies wherever the class is nonempty; robust exclusion needs a common endpoint.\n- Local-radius relation: consistent.\n- First failed inequality: none.\n- Strongest theorem: as stated in this output.",
+   "Exact onset of the stated bound, computed by integer bisection at 80 digits. For R_abs=1 and eps=1e-3, the smallest n with sqrt(l)(L_n+H_R)/n<=eps/2 is n*=2000801740040285928830658000000 (L*=394927); n*-1 fails. delta_0(10^80,1)=7.07248900553e-29 matches REPORT. The (38) terms are (40008/eps)^(20/9)=7.83e16 and (4H/eps)^2=1.60064e31, so the 10^80 term is binding only because the log n<=n^(1/20) step needs it.",
+   "Other endpoints, made precise. Without a common endpoint, the continuous encoder h_T: histories -> R^n together with Borsuk-Ulam (a continuous map S^D->R^n with D>=n identifies some antipodal pair, which then has a common endpoint) excludes sections of sphere dimension >=n with half-margin >delta_0. Forward-state distinctions of dimension <n are not excluded, so the files' 'no superlinear' wording is correct. Endpoint 0 has an infeasible class at large n (accepted). h* and z_T=f^T(0) are feasible at arbitrarily small energy.",
+   "Relation to the accepted local-radius results (Omega(n^(16/15)), Omega(n^(19/18))). Those families are local about an expensive public baseline. Their absolute energy is about 0.533 n sqrt(log n), and maintaining a fixed source H=.4 costs about 0.374 sqrt(l) per step. They therefore lie outside the constant-absolute-energy class, and at their energy delta_0 is about 2e11 n^1.5 log n, so nothing contradicts them. The window between the necessary Omega(n^(1/4)) (envelope; about n^(1/2) heuristically for legal queries) and the known sufficient about n sqrt(log n) (old endpoint, not transported to h*) remains open, as the files state.",
+   "Arbitrary-length and T<L_n edge cases. B_1=0 because h_0=0, so ||B_T||<=sqrt(l)T<=sqrt(l)L_n for T<=L_n. For T>L_n the post-burn-in bad-step count is bounded independently of T, and extension by zero inputs is harmless because the bound is monotone in the extended sum.",
+   "Strongest counterexample attempted by the lenses. (a) Ramped off-cycle hole, in scope at n=1e6, R_abs=0.00607, every input counted, exact landing at h*: sup credit 0.201 against delta_0=27032 (ratio 7.4e-6). (b) Co-moving cycle hole, legally visible, at n=1e6, R_abs=0.0706: credit difference 2.41e-3 against delta_0 of about 3.5e6. Extrapolated over n in [1e6,1e80], the ratio stays below 2.9e-5. None comes close to refuting the theorem."
+  ],
+  "sharpenings": [
+   "Lemma 2 holds for every p in (-1,1). The hypothesis |p|>=m only fixes the uniform constant. It is tight to 2.2e-8 at z=-p/2, p=1/50.",
+   "THEOREM 1's analytic chain already closes from n of about 1.27e5 and certifies h*_i>=0.04903 at n=1e6. Numerically (5) holds from n=3554 on. The limit of min h* is tanh(0.05)=0.0499584, which would allow kappa of about 1/(1+6e-4).",
+   "Coordinate-step refinement of (21): #{(t,i): t>=L_n, |h_(t,i)|<=delta} <= (0.7072+10^4 R_abs)^2/(m-delta)^2 for delta<m.",
+   "(36) is rate-sharp in R_abs^2 and sqrt(l). An off-cycle hole held for tau<~n steps gives ||B_T||op of about sigma sqrt(l) tau with tau=(R^2-E0)/B*^2. So the true envelope credit is about 2.0e7 R_abs^2/sqrt(n) once n>>5.8e8 R^2, smaller than the bound by about 3.5e4. The L_n term (and its log n) is pure slack.",
+   "Credit visible to legal queries is far smaller than the envelope (13). Off-cycle coordinates are read at O(1/sqrt n), and cycle holes accumulate incoherently. Heuristically, eps-scale legal credit needs R_abs~n^(1/2), with a practical death of robust pairs for R=1 near n~1e11-1e12. These are numerics and heuristics, not proofs.",
+   "Under a common endpoint, a common history length is unnecessary. The theorem also covers R_abs=R_abs(n)=o(n^(1/4)), not only fixed R_abs.",
+   "Minor slack: ||S_W||<=R_abs sqrt(L_n+H_R) (up to sqrt 2 better); future gates in the box are <=sech^2(1/4)=0.940, so ||xi_Q||<=(0.94a)^L/beta; eps rather than eps/2 already suffices to exclude half-margin >eps (onset about 5.0e29)."
+  ]
+ }
+}

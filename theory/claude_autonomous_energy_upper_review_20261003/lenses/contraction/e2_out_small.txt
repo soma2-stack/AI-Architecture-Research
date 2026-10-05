@@ -1,0 +1,14 @@
+n=10000 it=9458 res=1.00e-13 time=0.7s
+  min h*=0.041084 at 2500; protected h0=0.501921; source=0.04995842
+  cycle head h1..h6=[0.99827 0.76083 0.64154 0.56592 0.51234 0.47174]; cycle tail h_(d-1)=0.04143022
+  off-cycle median H=0.0410840992 min=0.0410840992 max=0.0410840992
+  B*=atanh(H)-aH=2.7247e-05  H^3/3=2.3115e-05  (atanh(tanh .05)-.05)
+  head length (cycle coords above H+1e-3): 1914
+  ||h*||/sqrt(n)=0.055031
+n=100000 it=10981 res=9.96e-14 time=243.7s
+  min h*=0.049049 at 10983; protected h0=0.502055; source=0.04995838
+  cycle head h1..h6=[1.      0.76161 0.64204 0.56631 0.51267 0.47205]; cycle tail h_(d-1)=0.04904938
+  off-cycle median H=0.0490493795 min=0.0490493795 max=0.0490493795
+  B*=atanh(H)-aH=3.9882e-05  H^3/3=3.9335e-05  (atanh(tanh .05)-.05)
+  head length (cycle coords above H+1e-3): 1470
+  ||h*||/sqrt(n)=0.050402

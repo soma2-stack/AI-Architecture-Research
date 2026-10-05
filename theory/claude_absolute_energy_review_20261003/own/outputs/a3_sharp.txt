@@ -1,0 +1,8 @@
+min over n of S_n-(b0 sqrt n-0.709): 1000000000000000000000000000000 0.0018932188
+first n with memory term>0: 804
+R=0.5: nonempty for 200<=n<=100.0; empty for n>=200.8 (claimed 803.21R^2=200.8); first n with S_n>R: 201
+R=1: nonempty for 200<=n<=400.0; empty for n>=803.2 (claimed 803.21R^2=803.2); first n with S_n>R: 801
+R=2: nonempty for 200<=n<=1600.0; empty for n>=2935.5 (claimed 803.21R^2=3212.8); first n with S_n>R: 2660
+R=10: nonempty for 200<=n<=40000.0; empty for n>=45873.1 (claimed 803.21R^2=80321.0); first n with S_n>R: 45645
+R=100: nonempty for 200<=n<=4000000.0; empty for n>=4056921.1 (claimed 803.21R^2=8032096.3)
+R=1000: nonempty for 200<=n<=400000000.0; empty for n>=400567401.1 (claimed 803.21R^2=803209625.7)

@@ -1,0 +1,149 @@
+{
+  "outcome": "PASS",
+  "checks": [
+    {
+      "name": "prefix_suffix_i0_h0_s1",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-558793610329165127224783337812796477631/21990232555520000000000000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "same_row_age_times_product_h0_s1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "prefix_suffix_i1_h0_s1",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-2294460656840576074697162079707945219145879/90071992547409920000000000000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "prefix_suffix_i0_h0_s3",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-577920365937177609367484463/33554432000000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "same_row_age_times_product_h0_s3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "prefix_suffix_i1_h0_s3",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-889248102672188870547103673233/51539607552000000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "prefix_suffix_i0_h0_s7",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "0",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "same_row_age_times_product_h0_s7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "prefix_suffix_i1_h0_s7",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "0",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "prefix_suffix_i0_h1_s1",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-6883391060024587110967558796196298584777679/270215977642229760000000000000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "prefix_suffix_i1_h1_s1",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-2300116313646666627669445949234797869860313/90071992547409920000000000000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "same_row_age_times_product_h1_s1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "prefix_suffix_i0_h1_s3",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-533548334675182885219399701827/30923764531200000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "prefix_suffix_i1_h1_s3",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "-89081184244049103207160768919/5153960755200000000000000000000",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "same_row_age_times_product_h1_s3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "prefix_suffix_i0_h1_s7",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "0",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "prefix_suffix_i1_h1_s7",
+      "passed": true,
+      "data": {
+        "exact_coefficient": "0",
+        "scope": "n=512 rational algebra, not a model certificate"
+      }
+    },
+    {
+      "name": "same_row_age_times_product_h1_s7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "complete_actual_short_packet_threshold",
+      "passed": true,
+      "data": {
+        "pair_upper": "47991/25000000",
+        "decimal": 0.00191964,
+        "constant_N_over_sqrt_n": "1/50"
+      }
+    }
+  ],
+  "gpu_used": false,
+  "workers": 0,
+  "arithmetic": "exact Python Fraction",
+  "peak_process_threads": 4,
+  "peak_rss_bytes": 21393408,
+  "peak_working_set_bytes": 22417408,
+  "cpu_seconds": 0.203125,
+  "wall_seconds": 0.19780630000241217,
+  "script_sha256": "8ea2f2cf96223f13f2942e6502bcfae73c2d8d067466c8a95f51a14b716d210b"
+}

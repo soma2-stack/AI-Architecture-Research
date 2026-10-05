@@ -1,0 +1,1042 @@
+{
+  "status": "NEW-STAGE CHECKS ONLY",
+  "checks": [
+    {
+      "name": "clamp input cube",
+      "pass": true,
+      "detail": "s/n<=1e-12"
+    },
+    {
+      "name": "pulse input cube",
+      "pass": true,
+      "detail": "full source/bias input counted"
+    },
+    {
+      "name": "joint localized margin",
+      "pass": true,
+      "detail": "lower constants"
+    },
+    {
+      "name": "one-channel margin",
+      "pass": true,
+      "detail": "lower constants"
+    },
+    {
+      "name": "legal-query gate rational certificate",
+      "pass": true,
+      "detail": "positive-series cosh bounds"
+    },
+    {
+      "name": "kernel denominator coefficient",
+      "pass": true,
+      "detail": "T<=d/2<=n/8"
+    },
+    {
+      "name": "packet main rational constant",
+      "pass": true,
+      "detail": "sqrt(5)<3"
+    },
+    {
+      "name": "log-packet main margin",
+      "pass": true,
+      "detail": "T>=1e15 n^.75 F^2.5"
+    },
+    {
+      "name": "power main exponent",
+      "pass": true,
+      "detail": "positive"
+    },
+    {
+      "name": "power odd exponent",
+      "pass": true,
+      "detail": "negative"
+    },
+    {
+      "name": "power rounding exponent",
+      "pass": true,
+      "detail": "negative"
+    },
+    {
+      "name": "energy onset exponent",
+      "pass": true,
+      "detail": "absolute norm exponent"
+    },
+    {
+      "name": "complete-cycle Gram coefficient",
+      "pass": true,
+      "detail": "T=d<=n/4"
+    },
+    {
+      "name": "complete-cycle 16/15 margin",
+      "pass": true,
+      "detail": "all sufficiently large n"
+    },
+    {
+      "name": "packet startup cancellation 50000/99",
+      "pass": true,
+      "detail": "1.8830864304954033e-15"
+    },
+    {
+      "name": "packet rounded Gram 50000/99",
+      "pass": true,
+      "detail": "49.273768041747964"
+    },
+    {
+      "name": "packet rounding majorant 50000/99",
+      "pass": true,
+      "detail": "finite kernel"
+    },
+    {
+      "name": "packet exact temporal orthogonality 50000/99",
+      "pass": true,
+      "detail": "complete periods"
+    },
+    {
+      "name": "profile Fourier projection 50000/99",
+      "pass": true,
+      "detail": "arbitrary rounded spatial modes"
+    },
+    {
+      "name": "parameter eigenvectors 50000/99",
+      "pass": true,
+      "detail": "physical dressed probes"
+    },
+    {
+      "name": "short packet first-order twist ledger 50000/99",
+      "pass": true,
+      "detail": "1.285042131595327e-07 <= 0.0001051953707878821"
+    },
+    {
+      "name": "short packet odd degree 3+5 coefficients 50000/99",
+      "pass": true,
+      "detail": "8.459295497446402e-19 <= 7.684768083012737e-13; finite coefficients only"
+    },
+    {
+      "name": "short packet odd subtraction roundoff consistency 50000/99",
+      "pass": true,
+      "detail": "subtraction=1.5224702368877345e-12, majorant=7.684768083012737e-13, roundoff allowance=1e-11; not a tail certificate"
+    },
+    {
+      "name": "packet startup cancellation 65600/73",
+      "pass": true,
+      "detail": "2.3284866000665916e-15"
+    },
+    {
+      "name": "packet rounded Gram 65600/73",
+      "pass": true,
+      "detail": "36.42855569923453"
+    },
+    {
+      "name": "packet rounding majorant 65600/73",
+      "pass": true,
+      "detail": "finite kernel"
+    },
+    {
+      "name": "packet exact temporal orthogonality 65600/73",
+      "pass": true,
+      "detail": "complete periods"
+    },
+    {
+      "name": "profile Fourier projection 65600/73",
+      "pass": true,
+      "detail": "arbitrary rounded spatial modes"
+    },
+    {
+      "name": "parameter eigenvectors 65600/73",
+      "pass": true,
+      "detail": "physical dressed probes"
+    },
+    {
+      "name": "short packet first-order twist ledger 65600/73",
+      "pass": true,
+      "detail": "4.160296879382437e-08 <= 3.8060212367578436e-05"
+    },
+    {
+      "name": "short packet odd degree 3+5 coefficients 65600/73",
+      "pass": true,
+      "detail": "5.958563228529472e-20 <= 1.0059581705864953e-13; finite coefficients only"
+    },
+    {
+      "name": "short packet odd subtraction roundoff consistency 65600/73",
+      "pass": true,
+      "detail": "subtraction=1.3734328774865887e-12, majorant=1.0059581705864953e-13, roundoff allowance=1e-11; not a tail certificate"
+    }
+  ],
+  "numerical_evidence": [
+    {
+      "kind": "NUMERICAL EVIDENCE: finite packet algebra only",
+      "n": 50000,
+      "T": 99,
+      "F": 2,
+      "spatial_frequencies": [
+        126,
+        253
+      ],
+      "FT_over_n": 0.00396,
+      "Gram_min_real": 49.273768041747964,
+      "startup_residual": 1.8830864304954033e-15,
+      "first_order_twist_error": 1.285042131595327e-07,
+      "odd_subtraction_error": 1.5224702368877345e-12,
+      "odd_degree_3_plus_5_norm": 8.459295497446402e-19,
+      "odd_operator_majorant": 7.684768083012737e-13,
+      "subtraction_roundoff_allowance": 1e-11,
+      "max_pointwise_twist": 4.3443120372569284e-05
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: finite packet algebra only",
+      "n": 65600,
+      "T": 73,
+      "F": 2,
+      "spatial_frequencies": [
+        225,
+        449
+      ],
+      "FT_over_n": 0.002225609756097561,
+      "Gram_min_real": 36.42855569923453,
+      "startup_residual": 2.3284866000665916e-15,
+      "first_order_twist_error": 4.160296879382437e-08,
+      "odd_subtraction_error": 1.3734328774865887e-12,
+      "odd_degree_3_plus_5_norm": 5.958563228529472e-20,
+      "odd_operator_majorant": 1.0059581705864953e-13,
+      "subtraction_roundoff_allowance": 1e-11,
+      "max_pointwise_twist": 3.101861963917104e-05
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: scalar asymptotic-bath diagnostic, not actual dense certification",
+      "schedules": [
+        {
+          "n": 10000,
+          "depth_z": 0.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0002549257283740176,
+          "R_abs": 0.09993850072199814,
+          "R_over_sqrt_n": 0.0009993850072199813
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.000944428064650187,
+          "R_abs": 0.09998198813899146,
+          "R_over_sqrt_n": 0.0009998198813899147
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.00253972235889126,
+          "R_abs": 0.10013404536945246,
+          "R_over_sqrt_n": 0.0010013404536945245
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.004034998255789579,
+          "R_abs": 0.10078312074460039,
+          "R_over_sqrt_n": 0.0010078312074460038
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.05,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.00025392557549900214,
+          "R_abs": 0.09993828913862005,
+          "R_over_sqrt_n": 0.0009993828913862006
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.05,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.000936563153371213,
+          "R_abs": 0.09998135366360185,
+          "R_over_sqrt_n": 0.0009998135366360184
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.05,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0024840456339338523,
+          "R_abs": 0.10013193364750109,
+          "R_over_sqrt_n": 0.001001319336475011
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.05,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.0038485494814303185,
+          "R_abs": 0.10077472799648081,
+          "R_over_sqrt_n": 0.0010077472799648079
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.5,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0002450710460340128,
+          "R_abs": 0.0999377378469733,
+          "R_over_sqrt_n": 0.0009993773784697328
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.5,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0008691070429486934,
+          "R_abs": 0.09997970049192006,
+          "R_over_sqrt_n": 0.0009997970049192006
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.5,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.002051098596511613,
+          "R_abs": 0.10012643125642166,
+          "R_over_sqrt_n": 0.0010012643125642167
+        },
+        {
+          "n": 10000,
+          "depth_z": 0.5,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.002680307930024343,
+          "R_abs": 0.10075285704833474,
+          "R_over_sqrt_n": 0.0010075285704833474
+        },
+        {
+          "n": 10000,
+          "depth_z": 1.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0002355351236239996,
+          "R_abs": 0.09993727449656525,
+          "R_over_sqrt_n": 0.0009993727449656524
+        },
+        {
+          "n": 10000,
+          "depth_z": 1.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0008006888771265201,
+          "R_abs": 0.09997831101768254,
+          "R_over_sqrt_n": 0.0009997831101768253
+        },
+        {
+          "n": 10000,
+          "depth_z": 1.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0016849405340278287,
+          "R_abs": 0.1001218063883271,
+          "R_over_sqrt_n": 0.001001218063883271
+        },
+        {
+          "n": 10000,
+          "depth_z": 1.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.0019736437035760028,
+          "R_abs": 0.10073447134254035,
+          "R_over_sqrt_n": 0.0010073447134254035
+        }
+      ]
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: scalar asymptotic-bath diagnostic, not actual dense certification",
+      "schedules": [
+        {
+          "n": 1000000,
+          "depth_z": 0.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.00040545114107733214,
+          "R_abs": 0.10164013993978904,
+          "R_over_sqrt_n": 0.00010164013993978904
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0011072199030945505,
+          "R_abs": 0.10500209670993559,
+          "R_over_sqrt_n": 0.00010500209670993557
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.00270286685053587,
+          "R_abs": 0.11600417340010809,
+          "R_over_sqrt_n": 0.00011600417340010808
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.004198501256807685,
+          "R_abs": 0.154524438985501,
+          "R_over_sqrt_n": 0.000154524438985501
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.05,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0004044518441239854,
+          "R_abs": 0.10164012129734717,
+          "R_over_sqrt_n": 0.00010164012129734719
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.05,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0010993564924349827,
+          "R_abs": 0.10500204257328193,
+          "R_over_sqrt_n": 0.00010500204257328193
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.05,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0026471868771814322,
+          "R_abs": 0.1160040100592985,
+          "R_over_sqrt_n": 0.0001160040100592985
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.05,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.004012019893128595,
+          "R_abs": 0.15452394849396567,
+          "R_over_sqrt_n": 0.00015452394849396569
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.5,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.00039560503651475665,
+          "R_abs": 0.10164007228975624,
+          "R_over_sqrt_n": 0.00010164007228975625
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.5,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0010319143311480546,
+          "R_abs": 0.10500190025777434,
+          "R_over_sqrt_n": 0.00010500190025777434
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.5,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0022142214256299256,
+          "R_abs": 0.11600358066504711,
+          "R_over_sqrt_n": 0.00011600358066504711
+        },
+        {
+          "n": 1000000,
+          "depth_z": 0.5,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.002843603377666816,
+          "R_abs": 0.15452265907388085,
+          "R_over_sqrt_n": 0.00015452265907388087
+        },
+        {
+          "n": 1000000,
+          "depth_z": 1.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.00038607771752765065,
+          "R_abs": 0.10164003060145736,
+          "R_over_sqrt_n": 0.00010164003060145736
+        },
+        {
+          "n": 1000000,
+          "depth_z": 1.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0009635122340833277,
+          "R_abs": 0.10500177919701424,
+          "R_over_sqrt_n": 0.00010500177919701424
+        },
+        {
+          "n": 1000000,
+          "depth_z": 1.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0018480565762638015,
+          "R_abs": 0.11600321539981225,
+          "R_over_sqrt_n": 0.00011600321539981225
+        },
+        {
+          "n": 1000000,
+          "depth_z": 1.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.0021368595915317403,
+          "R_abs": 0.15452156222092567,
+          "R_over_sqrt_n": 0.00015452156222092565
+        }
+      ]
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: scalar asymptotic-bath diagnostic, not actual dense certification",
+      "schedules": [
+        {
+          "n": 100000000,
+          "depth_z": 0.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.00040714397697532394,
+          "R_abs": 0.21127487156873087,
+          "R_over_sqrt_n": 2.1127487156873085e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.001108913848749064,
+          "R_abs": 0.33755666226826886,
+          "R_over_sqrt_n": 3.3755666226826885e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0027045636422791475,
+          "R_abs": 0.5970933774044731,
+          "R_over_sqrt_n": 5.970933774044731e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.004200201620110794,
+          "R_abs": 1.1815802700705258,
+          "R_over_sqrt_n": 0.00011815802700705258
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.05,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0004061446884917123,
+          "R_abs": 0.21127487067294207,
+          "R_over_sqrt_n": 2.1127487067294205e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.05,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0011010504523920489,
+          "R_abs": 0.33755666058626094,
+          "R_over_sqrt_n": 3.375566605862609e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.05,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.002648883631606712,
+          "R_abs": 0.5970933742348238,
+          "R_over_sqrt_n": 5.970933742348238e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.05,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.004013719915729056,
+          "R_abs": 1.181580263663592,
+          "R_over_sqrt_n": 0.00011815802636635919
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.5,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.00039729795816581206,
+          "R_abs": 0.2112748683180537,
+          "R_over_sqrt_n": 2.112748683180537e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.5,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0010336084311104035,
+          "R_abs": 0.3375566561645256,
+          "R_over_sqrt_n": 3.375566561645256e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.5,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0022159180005355368,
+          "R_abs": 0.5970933659023123,
+          "R_over_sqrt_n": 5.970933659023124e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 0.5,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.002845301671667373,
+          "R_abs": 1.1815802468207672,
+          "R_over_sqrt_n": 0.00011815802468207672
+        },
+        {
+          "n": 100000000,
+          "depth_z": 1.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.00038777072519170536,
+          "R_abs": 0.21127486631484318,
+          "R_over_sqrt_n": 2.1127486631484318e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 1.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0009652064946108702,
+          "R_abs": 0.33755665240313004,
+          "R_over_sqrt_n": 3.3755665240313e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 1.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.001849753083636553,
+          "R_abs": 0.597093358814174,
+          "R_over_sqrt_n": 5.9709335881417406e-05
+        },
+        {
+          "n": 100000000,
+          "depth_z": 1.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.0021385570936554078,
+          "R_abs": 1.1815802324932414,
+          "R_over_sqrt_n": 0.00011815802324932414
+        }
+      ]
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: scalar asymptotic-bath diagnostic, not actual dense certification",
+      "schedules": [
+        {
+          "n": 10000000000,
+          "depth_z": 0.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0004071609105759575,
+          "R_abs": 1.8642082640384914,
+          "R_over_sqrt_n": 1.8642082640384914e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0011089307827281405,
+          "R_abs": 3.2258100752060344,
+          "R_over_sqrt_n": 3.225810075206034e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.002704580529185964,
+          "R_abs": 5.887518518431216,
+          "R_over_sqrt_n": 5.887518518431216e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.004200218328672653,
+          "R_abs": 11.773765206965052,
+          "R_over_sqrt_n": 0.00011773765206965053
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.05,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0004061616221929609,
+          "R_abs": 1.8642082640283395,
+          "R_over_sqrt_n": 1.8642082640283396e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.05,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0011010673867177195,
+          "R_abs": 3.225810075188434,
+          "R_over_sqrt_n": 3.225810075188434e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.05,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.002648900521355063,
+          "R_abs": 5.887518518399071,
+          "R_over_sqrt_n": 5.8875185183990715e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.05,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.004013736646783863,
+          "R_abs": 11.773765206900757,
+          "R_over_sqrt_n": 0.00011773765206900756
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.5,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0003973148919105274,
+          "R_abs": 1.8642082640016513,
+          "R_over_sqrt_n": 1.8642082640016512e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.5,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0010336253621073383,
+          "R_abs": 3.2258100751421646,
+          "R_over_sqrt_n": 3.225810075142164e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.5,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0022159348746156908,
+          "R_abs": 5.887518518314566,
+          "R_over_sqrt_n": 5.887518518314566e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 0.5,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.002845318442583391,
+          "R_abs": 11.773765206731728,
+          "R_over_sqrt_n": 0.00011773765206731728
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 1.0,
+          "T_over_n": 0.1,
+          "visible_half_margin": 0.0003877876591305771,
+          "R_abs": 1.8642082639789488,
+          "R_over_sqrt_n": 1.8642082639789487e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 1.0,
+          "T_over_n": 0.3,
+          "visible_half_margin": 0.0009652234236005014,
+          "R_abs": 3.2258100751028045,
+          "R_over_sqrt_n": 3.2258100751028046e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 1.0,
+          "T_over_n": 1.0,
+          "visible_half_margin": 0.0018497699560439077,
+          "R_abs": 5.887518518242682,
+          "R_over_sqrt_n": 5.8875185182426815e-05
+        },
+        {
+          "n": 10000000000,
+          "depth_z": 1.0,
+          "T_over_n": 4.0,
+          "visible_half_margin": 0.002138573908531185,
+          "R_abs": 11.773765206587942,
+          "R_over_sqrt_n": 0.00011773765206587942
+        }
+      ]
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: leading-order constant-hold optimization for one specified query",
+      "mu_infty": 0.04995837495787998,
+      "B_mu_infty": 4.162504212002621e-05,
+      "one_step_margin_ceiling": 0.004278583818260101,
+      "kappa_at_epsilon": 0.26621050482145575,
+      "leading_R_over_sqrt_n": 3.0372621517443597e-05,
+      "warning": "No global optimum or actual finite-width dense witness follows from this scalar diagnostic."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 512,
+      "pairs": 1,
+      "T": 1024,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 0.7950145664193697,
+      "squared_energy": 0.6320481608189785,
+      "E2_over_n_sqrt_s": 0.0012344690640995674,
+      "max_raw_input_coordinate": 0.4050802429599962,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 2.0158651201548846e-16,
+      "fixed_query_projected_half_margin": 0.0002891076163576937,
+      "margin_after_zero_input_gap": {
+        "0": 0.0002891076163576937,
+        "25": 0.00027521196697888496,
+        "256": 0.00013503065573586953,
+        "512": 3.13740399987557e-05
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 1536,
+      "dense_input_correction_norm_upper": 1.747610367985672e-10,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 512,
+      "pairs": 4,
+      "T": 512,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 1.3705974303046915,
+      "squared_energy": 1.8785373159578238,
+      "E2_over_n_sqrt_s": 0.0018345090976150623,
+      "max_raw_input_coordinate": 0.4051030539325643,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 1.6004645656917944e-16,
+      "fixed_query_projected_half_margin": 0.00047034693037604304,
+      "margin_after_zero_input_gap": {
+        "0": 0.00047034693037604304,
+        "25": 0.0004477211881906088,
+        "256": 0.00021663006218226112,
+        "512": 4.9493788883195844e-05
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 1536,
+      "dense_input_correction_norm_upper": 1.563262753279504e-10,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 512,
+      "pairs": 16,
+      "T": 256,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 2.741827434673156,
+      "squared_energy": 7.517617681526378,
+      "E2_over_n_sqrt_s": 0.0036707117585578018,
+      "max_raw_input_coordinate": 0.4052340874335909,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 3.671717528720129e-16,
+      "fixed_query_projected_half_margin": 0.0007191424350137511,
+      "margin_after_zero_input_gap": {
+        "0": 0.0007191424350137511,
+        "25": 0.0006843624178524322,
+        "256": 0.00030797730144578833,
+        "512": 6.538521607158476e-05
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 1536,
+      "dense_input_correction_norm_upper": 1.4624003058468689e-10,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 2048,
+      "pairs": 1,
+      "T": 4096,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 0.7889597888849457,
+      "squared_energy": 0.622457548477378,
+      "E2_over_n_sqrt_s": 0.0003039343498424697,
+      "max_raw_input_coordinate": 0.40481086738842703,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 2.0758777060719257e-16,
+      "fixed_query_projected_half_margin": 0.00031908881590875086,
+      "margin_after_zero_input_gap": {
+        "0": 0.00031908881590875086,
+        "102": 0.0003035822308825256,
+        "1024": 0.0001934971188107913,
+        "2048": 0.0001173002302064331
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 6144,
+      "dense_input_correction_norm_upper": 4.367746743851281e-11,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 2048,
+      "pairs": 4,
+      "T": 2048,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 1.3562753227343005,
+      "squared_energy": 1.8394827510580312,
+      "E2_over_n_sqrt_s": 0.00044909246852002714,
+      "max_raw_input_coordinate": 0.4048108740389358,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 0.0,
+      "fixed_query_projected_half_margin": 0.0006302864372398194,
+      "margin_after_zero_input_gap": {
+        "0": 0.0006302864372398194,
+        "102": 0.0005996567506483834,
+        "1024": 0.00038220889270563596,
+        "2048": 0.00023169943976019826
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 6144,
+      "dense_input_correction_norm_upper": 3.9067268080579244e-11,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 2048,
+      "pairs": 16,
+      "T": 1024,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 2.712550652642972,
+      "squared_energy": 7.357931043153814,
+      "E2_over_n_sqrt_s": 0.000898184941791237,
+      "max_raw_input_coordinate": 0.4048109028479067,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 2.6622212897024595e-16,
+      "fixed_query_projected_half_margin": 0.0012443732844740804,
+      "margin_after_zero_input_gap": {
+        "0": 0.0012443732844740804,
+        "102": 0.0011839011485032754,
+        "1024": 0.0007545935416435295,
+        "2048": 0.0004574425398230964
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 6144,
+      "dense_input_correction_norm_upper": 3.6544720165826915e-11,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 8192,
+      "pairs": 1,
+      "T": 16384,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 0.7910097521384551,
+      "squared_energy": 0.6256964279781403,
+      "E2_over_n_sqrt_s": 7.637895849342533e-05,
+      "max_raw_input_coordinate": 0.4048344722832495,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 3.882681629968016e-16,
+      "fixed_query_projected_half_margin": 0.00028136954818826004,
+      "margin_after_zero_input_gap": {
+        "0": 0.00028136954818826004,
+        "409": 0.0002642495837192899,
+        "4096": 3.2973836762090834e-06,
+        "8192": 4.277404104653637e-09
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 24576,
+      "dense_input_correction_norm_upper": 1.091856722820685e-11,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 8192,
+      "pairs": 4,
+      "T": 8192,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 1.3609484694207075,
+      "squared_energy": 1.8521807364185663,
+      "E2_over_n_sqrt_s": 0.00011304814065054726,
+      "max_raw_input_coordinate": 0.4048345967208118,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 3.994537468750074e-16,
+      "fixed_query_projected_half_margin": 0.0004244074936424562,
+      "margin_after_zero_input_gap": {
+        "0": 0.0004244074936424562,
+        "409": 0.00039855239651186315,
+        "4096": 4.95450496292488e-06,
+        "8192": 6.426723407521877e-09
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 24576,
+      "dense_input_correction_norm_upper": 9.765923018676542e-12,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 8192,
+      "pairs": 16,
+      "T": 4096,
+      "T_sqrt_s_over_n": 2.0,
+      "absolute_energy_norm": 2.721883916403162,
+      "squared_energy": 7.408652054374214,
+      "E2_over_n_sqrt_s": 0.0002260941178703068,
+      "max_raw_input_coordinate": 0.4048351030047159,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 3.3132764271951784e-16,
+      "fixed_query_projected_half_margin": 0.0005648741321160926,
+      "margin_after_zero_input_gap": {
+        "0": 0.0005648741321160926,
+        "409": 0.0005302883926021209,
+        "4096": 6.493170852252448e-06,
+        "8192": 8.420952807729592e-09
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 24576,
+      "dense_input_correction_norm_upper": 9.135224324100543e-12,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 8192,
+      "pairs": 16,
+      "T": 20480,
+      "T_sqrt_s_over_n": 10.0,
+      "absolute_energy_norm": 2.7219432415119855,
+      "squared_energy": 7.408975010012775,
+      "E2_over_n_sqrt_s": 0.00022610397369423753,
+      "max_raw_input_coordinate": 0.4048351030019067,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 3.7929799214565654e-16,
+      "fixed_query_projected_half_margin": 0.00118882816063917,
+      "margin_after_zero_input_gap": {
+        "0": 0.00118882816063917,
+        "409": 0.001116039379113981,
+        "4096": 1.3665459989233124e-05,
+        "8192": 1.7722649897626172e-08
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 24576,
+      "dense_input_correction_norm_upper": 1.1451464503370332e-11,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 8192,
+      "pairs": 64,
+      "T": 10240,
+      "T_sqrt_s_over_n": 10.0,
+      "absolute_energy_norm": 5.443843683356521,
+      "squared_energy": 29.63543404882069,
+      "E2_over_n_sqrt_s": 0.00045220083692658526,
+      "max_raw_input_coordinate": 0.40483727250889373,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 3.6638411145107034e-16,
+      "fixed_query_projected_half_margin": 0.0018912601217868496,
+      "margin_after_zero_input_gap": {
+        "0": 0.0018912601217868496,
+        "409": 0.0017729645695583414,
+        "4096": 2.042835613358376e-05,
+        "8192": 2.6473543089341464e-08
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 24576,
+      "dense_input_correction_norm_upper": 1.0066464964636564e-11,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    },
+    {
+      "kind": "NUMERICAL EVIDENCE: reference multi-pair clamp/pulse schedule and zero-input relaxation",
+      "n": 8192,
+      "pairs": 256,
+      "T": 5120,
+      "T_sqrt_s_over_n": 10.0,
+      "absolute_energy_norm": 10.888255918950888,
+      "squared_energy": 118.55411695656905,
+      "E2_over_n_sqrt_s": 0.0009044961315656208,
+      "max_raw_input_coordinate": 0.40484888184858003,
+      "past_cube_legal_for_sample": true,
+      "endpoint_difference": 9.35542015746369e-16,
+      "fixed_query_projected_half_margin": 0.0025986769300800454,
+      "margin_after_zero_input_gap": {
+        "0": 0.0025986769300800454,
+        "409": 0.002417582917807705,
+        "4096": 2.176932302532418e-05,
+        "8192": 2.8140311916246986e-08
+      },
+      "preparation_input_energy": 0.0,
+      "preparation_steps": 24576,
+      "dense_input_correction_norm_upper": 9.296911083279638e-12,
+      "warning": "Sampled boundary pattern only; s/n exceeds conservative theorem allowance. No finite-width dimension theorem."
+    }
+  ],
+  "resources": {
+    "cpu_seconds": 15.0625,
+    "wall_seconds": 15.261257799924351,
+    "peak_working_set_bytes": 57483264,
+    "GPU": 0,
+    "threads": 1,
+    "administrative_time_excluded": true
+  }
+}

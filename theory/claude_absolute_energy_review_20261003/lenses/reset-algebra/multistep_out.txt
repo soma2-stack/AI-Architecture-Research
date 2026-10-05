@@ -1,0 +1,25 @@
+all box minima >= L_n and >= sharpened bound
+200 1 0.7071067811865476
+200 2 min ||X|| over trials: 0.708455443
+200 3 min ||X|| over trials: 0.709443399
+200 4 min ||X|| over trials: 0.709635838
+200 6 min ||X|| over trials: 0.708975709
+200 10 min ||X|| over trials: 0.706925866
+200 20 min ||X|| over trials: 0.705680461
+n=200: best ||X||=0.705680461 at T=20;  L_n=0.499500000  Lsharp=0.499500000  b0*sqrt(n)=0.707106781
+400 1 1.0
+400 2 min ||X|| over trials: 1.004043931
+400 3 min ||X|| over trials: 1.007023252
+400 4 min ||X|| over trials: 1.007819215
+400 6 min ||X|| over trials: 1.006636903
+400 10 min ||X|| over trials: 1.003243148
+400 20 min ||X|| over trials: 1.002911349
+n=400: best ||X||=1.000000000 at T=1;  L_n=0.706753228  Lsharp=0.706753228  b0*sqrt(n)=1.000000000
+1000 1 1.5811388300841898
+1000 2 min ||X|| over trials: 1.596710609
+1000 3 min ||X|| over trials: 1.607104597
+1000 4 min ||X|| over trials: 1.607154496
+1000 6 min ||X|| over trials: 1.603192814
+1000 10 min ||X|| over trials: 1.599989149
+1000 20 min ||X|| over trials: 1.605410157
+n=1000: best ||X||=1.581138830 at T=1;  L_n=1.117810382  Lsharp=1.123884942  b0*sqrt(n)=1.581138830

@@ -1,0 +1,29 @@
+uniform(-1,1)            x=0            ||h_t-h*||=3.449806e+02 kappa||v||=4.099022e+02 ratio=0.841617
+uniform(-1,1)            x small        ||h_t-h*||=3.448811e+02 kappa||v||=4.097616e+02 ratio=0.841663
+uniform(-1,1)            x huge         ||h_t-h*||=9.605953e+02 kappa||v||=1.001411e+04 ratio=0.095924
+uniform(-1,1)            x lands -h*/2  ||h_t-h*||=7.496810e+01 kappa||v||=8.314025e+01 ratio=0.901706
+near +1                  x=0            ||h_t-h*||=2.318141e+00 kappa||v||=6.717659e+02 ratio=0.003451
+near +1                  x small        ||h_t-h*||=2.524028e+00 kappa||v||=6.717669e+02 ratio=0.003757
+near +1                  x huge         ||h_t-h*||=9.606279e+02 kappa||v||=1.003161e+04 ratio=0.095760
+near +1                  x lands -h*/2  ||h_t-h*||=7.496810e+01 kappa||v||=8.314025e+01 ratio=0.901706
+near -1                  x=0            ||h_t-h*||=3.322908e+00 kappa||v||=7.423119e+02 ratio=0.004476
+near -1                  x small        ||h_t-h*||=3.470421e+00 kappa||v||=7.423135e+02 ratio=0.004675
+near -1                  x huge         ||h_t-h*||=9.604664e+02 kappa||v||=1.002189e+04 ratio=0.095837
+near -1                  x lands -h*/2  ||h_t-h*||=7.496810e+01 kappa||v||=8.314025e+01 ratio=0.901706
+near 0                   x=0            ||h_t-h*||=2.347843e+00 kappa||v||=3.535135e+01 ratio=0.066415
+near 0                   x small        ||h_t-h*||=2.548674e+00 kappa||v||=3.536354e+01 ratio=0.072071
+near 0                   x huge         ||h_t-h*||=9.606250e+02 kappa||v||=9.992565e+03 ratio=0.096134
+near 0                   x lands -h*/2  ||h_t-h*||=7.496810e+01 kappa||v||=8.314025e+01 ratio=0.901706
+-h*                      x=0            ||h_t-h*||=4.802515e+00 kappa||v||=7.070224e+01 ratio=0.067926
+-h*                      x small        ||h_t-h*||=4.904063e+00 kappa||v||=7.071039e+01 ratio=0.069354
+-h*                      x huge         ||h_t-h*||=9.606224e+02 kappa||v||=9.999900e+03 ratio=0.096063
+-h*                      x lands -h*/2  ||h_t-h*||=7.496810e+01 kappa||v||=8.314025e+01 ratio=0.901706
+-h*/2 (Lemma-2 tight)    x=0            ||h_t-h*||=3.863496e+00 kappa||v||=5.302668e+01 ratio=0.072859
+-h*/2 (Lemma-2 tight)    x small        ||h_t-h*||=3.990715e+00 kappa||v||=5.303668e+01 ratio=0.075244
+-h*/2 (Lemma-2 tight)    x huge         ||h_t-h*||=9.605266e+02 kappa||v||=1.000978e+04 ratio=0.095959
+-h*/2 (Lemma-2 tight)    x lands -h*/2  ||h_t-h*||=7.496810e+01 kappa||v||=8.314025e+01 ratio=0.901706
+h*+tiny                  x=0            ||h_t-h*||=7.042254e-07 kappa||v||=7.059187e-07 ratio=0.997601
+h*+tiny                  x small        ||h_t-h*||=9.980775e-01 kappa||v||=1.000476e+00 ratio=0.997603
+h*+tiny                  x huge         ||h_t-h*||=9.604150e+02 kappa||v||=9.994592e+03 ratio=0.096093
+h*+tiny                  x lands -h*/2  ||h_t-h*||=7.496810e+01 kappa||v||=8.314025e+01 ratio=0.901706
+worst ratio (must be <=1): 0.9976028116208325

@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "192 bit logarithmic complement error",
+      "passed": true,
+      "values": {
+        "relative": "0.000301778999813654117431939786325931371299504293"
+      }
+    },
+    {
+      "name": "192 bit kappa lower",
+      "passed": true,
+      "values": {
+        "ratio": "0.99999905694210784785494140656544638017593728"
+      }
+    },
+    {
+      "name": "192 bit tail drift",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "192 bit p=1",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "192 bit geometry",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "192 bit Gamma lower",
+      "passed": true,
+      "values": {
+        "lower": "0.0403111779841893170386743491299841980164374082"
+      }
+    },
+    {
+      "name": "192 bit coordinate-time cost",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "192 bit full energy cost",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "192 bit input-correction legality",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "256 bit logarithmic complement error",
+      "passed": true,
+      "values": {
+        "relative": "0.000301778999813654117431939786325931371299504293"
+      }
+    },
+    {
+      "name": "256 bit kappa lower",
+      "passed": true,
+      "values": {
+        "ratio": "0.99999905694210784785494140656544638017593728"
+      }
+    },
+    {
+      "name": "256 bit tail drift",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "256 bit p=1",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "256 bit geometry",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "256 bit Gamma lower",
+      "passed": true,
+      "values": {
+        "lower": "0.0403111779841893170386743491299841980164374082"
+      }
+    },
+    {
+      "name": "256 bit coordinate-time cost",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "256 bit full energy cost",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "256 bit input-correction legality",
+      "passed": true,
+      "values": {}
+    },
+    {
+      "name": "192/256 logarithmic scalar agreement",
+      "passed": true,
+      "values": {
+        "lower40": [
+          "0.04031117798418931703867434912998419801644",
+          "0.04031117798418931703867434912998419801644"
+        ]
+      }
+    }
+  ],
+  "cpu_seconds": 0.15625,
+  "wall_seconds": 0.14889269999912358,
+  "peak_process_threads": 4,
+  "peak_working_set_bytes": 25530368,
+  "workers": 0,
+  "gpu_cuda_calls": 0,
+  "pool_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "script_sha256": "5671969057764662c70d32621024affa1b76d3870425c1c012f7e99b063833a8"
+}

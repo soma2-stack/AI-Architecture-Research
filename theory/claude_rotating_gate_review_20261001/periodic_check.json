@@ -1,0 +1,59 @@
+[
+ {
+  "n": 16,
+  "k": 8,
+  "p": 2,
+  "T": 61,
+  "partial_len": 1,
+  "max_abs_chi": 4.98361776048549,
+  "noncommutation_A1A2": 0.039772718228982845,
+  "mem_rows_moments_vs_direct_max_abs": 7.058520434810589e-13,
+  "surrogate_mem_max_abs": 0.9201887898915195,
+  "count_formula": 873,
+  "P": 528
+ },
+ {
+  "n": 24,
+  "k": 12,
+  "p": 3,
+  "T": 92,
+  "partial_len": 2,
+  "max_abs_chi": 11.391618329673996,
+  "noncommutation_A1A2": 0.0523727478689312,
+  "mem_rows_moments_vs_direct_max_abs": 5.943023850818463e-12,
+  "surrogate_mem_max_abs": 0.8639550998809318,
+  "count_formula": 2533,
+  "P": 1176
+ },
+ {
+  "n": 32,
+  "k": 16,
+  "p": 3,
+  "T": 151,
+  "partial_len": 1,
+  "max_abs_chi": 36.18173045409067,
+  "noncommutation_A1A2": 0.060632024062726386,
+  "mem_rows_moments_vs_direct_max_abs": 1.2840227076038602e-09,
+  "surrogate_mem_max_abs": 1.2466868958176773,
+  "count_formula": 4401,
+  "P": 2080
+ },
+ {
+  "n": 64,
+  "k": 32,
+  "max_abs_char_coeff": 4626.125966933914,
+  "spectral_radius_M": 0.9311477758508615
+ },
+ {
+  "n": 128,
+  "k": 64,
+  "max_abs_char_coeff": 99657552.0932622,
+  "spectral_radius_M": 0.9681967176410263
+ },
+ {
+  "n": 256,
+  "k": 128,
+  "max_abs_char_coeff": 5.595919764350782e+16,
+  "spectral_radius_M": 0.9830919787372436
+ }
+]

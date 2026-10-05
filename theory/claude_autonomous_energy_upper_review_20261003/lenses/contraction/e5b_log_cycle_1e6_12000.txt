@@ -1,0 +1,35 @@
+prefix: B0=2500 ||z-h*||=9.863e-04 landing energy=9.728e-07 post-landing ||h-h*||=6.15e-12  t=66s
+base done ||h_T-h*||=3.40e-12 t=350s
+hole done ||h_T-h*||=6.75e-13 t=681s
+{
+ "n": 1000000,
+ "tau": 12000,
+ "mode": "cycle",
+ "B0": 2500,
+ "prefix_energy": 9.72781531236887e-07,
+ "hole_energy": 0.004988785996229159,
+ "R_abs": 0.07063822462208684,
+ "bad_hole": 12000,
+ "bad_base": 0,
+ "crit_steps_hole": 12000,
+ "sumsq_hole": 29.785100376628623,
+ "radial_time_l2_bound": 707.3822462208684,
+ "B_R": 5003896423,
+ "H_R": 5003906423,
+ "L_n": 115136,
+ "op_bound_36": 3538377577572.5796,
+ "delta0_bound_37": 3538377.5775725795,
+ "y_weight_at_row": 0.6646888780530256,
+ "y_norm": 0.6646902093160614,
+ "K_rows_visited": {
+  "norm_sT_base": 13666.359865962759,
+  "norm_sT_hole": 14171.043203992022,
+  "norm_diff": 3624.006949603961,
+  "credit_base": 8.410549371285786e-05,
+  "credit_hole": 0.002492945020597878,
+  "credit_diff": 0.00240883952688502,
+  "s_hole_at_lastrow": 3750.7229103757063,
+  "s_base_at_lastrow": 126.71959903721302
+ },
+ "wall_s": 680.9060211181641
+}

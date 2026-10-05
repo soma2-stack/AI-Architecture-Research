@@ -1,0 +1,76 @@
+[
+ {
+  "meta": {
+   "max_abs_input": 0.4737114301948241,
+   "endpoint_max_abs_h": 9.71445146547012e-17,
+   "future_input_range_for_box": [
+    0.1999999999999999,
+    0.4500000000000001
+   ],
+   "kappa_Q": 0.17677669306987936,
+   "delta_dense": 2.460026317622109e-09,
+   "T": 512,
+   "seconds": 98.79873323440552,
+   "kind": "sparse",
+   "n": 64
+  },
+  "encoders": [
+   {
+    "m": 4,
+    "hybrid": true,
+    "policy": "greedy",
+    "count": 16363,
+    "uniform_query_error": 0.014685644600944093,
+    "worst_box_query_error": 0.017553263122931085,
+    "ledger_bound": 0.9265164270884355,
+    "ledger_target_z": 3.199984336467771e-05,
+    "z_T": 27.469846615443434,
+    "nu_median": 0.5842019993425613,
+    "nu_mean_sq_root": 0.5912225191360488,
+    "eta_star": 0.00013693063937629153
+   },
+   {
+    "m": 16,
+    "hybrid": true,
+    "policy": "greedy",
+    "count": 52675,
+    "uniform_query_error": 0.006306175538116707,
+    "worst_box_query_error": 0.007537562124635742,
+    "ledger_bound": 0.37131046358417613,
+    "ledger_target_z": 3.199984336467771e-05,
+    "z_T": 4.411886784435478,
+    "nu_median": 0.2539905939202063,
+    "nu_mean_sq_root": 0.247775907147718,
+    "eta_star": 0.00013693063937629153
+   },
+   {
+    "m": 32,
+    "hybrid": true,
+    "policy": "greedy",
+    "count": 101091,
+    "uniform_query_error": 0.003640575175941123,
+    "worst_box_query_error": 0.004351458565052569,
+    "ledger_bound": 0.1629824639700857,
+    "ledger_target_z": 3.199984336467771e-05,
+    "z_T": 0.8500250697306796,
+    "nu_median": 0.09448978266839528,
+    "nu_mean_sq_root": 0.10835500740324047,
+    "eta_star": 0.00013693063937629153
+   },
+   {
+    "m": 32,
+    "hybrid": true,
+    "policy": "rr",
+    "count": 101091,
+    "uniform_query_error": 0.05685997103881758,
+    "worst_box_query_error": 0.06796283445006673,
+    "ledger_bound": 1.7128109797224984,
+    "ledger_target_z": 3.199984336467771e-05,
+    "z_T": 93.87908856767149,
+    "nu_median": 1.152500555716946,
+    "nu_mean_sq_root": 1.1081827493303824,
+    "eta_star": 0.00013693063937629153
+   }
+  ]
+ }
+]

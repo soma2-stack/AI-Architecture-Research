@@ -1,3 +1,24 @@
+# Current accepted/reviewed checkpoint — 2026-10-04
+
+Read [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) for the authoritative concise snapshot and [theory/INDEX.md](theory/INDEX.md) for all evidence. The original chronological map is preserved byte-for-byte below this additive checkpoint. Older uses of “current” below describe their historical date.
+
+- **ACCEPTED:** growing-local-radius fixed-feature `Omega(n^(16/15))` (reviewed explicit regime `n>=10^75`, local-radius majorant `48 n^(1/3) sqrt(log n)`); width-independent local radius `<0.02` gives `Omega(n^(19/18))` around public `X_n(0)`. Absolute center norm is not uniformly bounded.
+- **ACCEPTED / Grok-reviewed:** strongest absolute-history-norm superlinear construction remains `Omega(n log n)` at `R_abs=O(n^(3/4)(log n)^(3/2))`, from `codex_holding_cost_attack_20261003/` and its Grok review. The `[1/4,3/4]` bracket refers to the exponent of `R_abs=||X||_2`, not squared energy; full-model `Omega_c(n^2)` to `O_c(n^2 log n)` is unchanged.
+- **VERIFIED / Claude-reviewed:** `codex_absolute_history_energy_20261003/` is a zero-endpoint feasibility obstruction. `codex_autonomous_absolute_energy_20261003/` bounds actual past-credit queries uniformly under fixed absolute energy in this frozen family, leaving n forward coordinates. The three missing Claude radius/energy reviews are now preserved.
+- **ACCEPTED, scoped:** paired projected suffix-product quantile obstruction is STATIC and leaves private channels open. Unpaired sensitivity exposes common Householder renewal; sufficiently short complete corridors have no robust gap.
+- **ACCEPTED / Grok-reviewed:** equal local codes can hide `Gamma>.03` and a cheap 1D robust section. Changing survivor sets refute the pointwise `O(1/m_s)` timing premise, not every query-weighted compression theorem.
+- **PARTIAL / PENDING REVIEW:** filtered timing retains its exact suffix-filter identity, long-low-run erasure estimate, and single-cohort flat-window collapse. Its claimed necessary disjoint-packing cap is not established because the argument uses a visibility lower bound in the wrong direction. The later monotonicity `D=2` report is **PENDING REVIEW / PROOF GAP**: a frozen-`A(q)` sign argument does not establish the actual time-ordered product with changing `q_t`. The uniform-gate one-block note retains only its narrow all-ones/zero-sum matched-versus-low observation; its D=2 and packing consequences are not established.
+- **CONDITIONAL Claude:** `claude_multidonor_joint_section_20261004/` preserves the exact joint-transfer derivation and conditional complete compression. Its identities still require independent review; its literal small-entry timing route is defeated. Checks do not establish acceptance.
+- **PENDING REVIEW / Codex-only:** `codex_multi_donor_joint_section_20261003/` scoped derivations and `codex_single_block_spatial_write_20261004/` at corridor head `c682b27`. The latter claims a joint logarithmic-dimensional nonuniform spatial section on one support; no superlinear threshold improvement is proved.
+- **REFUTED / scoped:** general convex packet averaging, fixed-anchor renewal as a reduction, old sustained robust-chart claims, uniform small-Gamma closure, and universal pointwise-small J. Auxiliary and special-case theorems are retained.
+- **DRAFT:** preserved Perplexity accessibility packet is unreviewed and does not change scientific status.
+
+Next research target: first repair or independently resolve the `D=2` time-varying-propagator gap and the filtered-packing inference. Then review the nonuniform spatial-write theorem and, if those steps survive, pursue a simultaneous multi-probe spatial-write lemma in one same-endpoint section with `D=omega(n)` and `mT=o(n^(3/2))`, or a complete actual-query compression obstruction. Do not count columns or independently visible axes. No bits/VRAM/practical-width/architecture claim follows.
+
+Consolidation base: `preserve/all-research-20261004` at `d1767d0a62dba90b03fd21e512b3db0c4efcd133`. Cleanup branch: `cleanup/research-consolidation-20261004`. Relative to that preservation base, historical evidence and governance were not rewritten; compared with `main`, this PR also imports preserved research, review evidence, and notebook provenance. GAS-0 remains unrelated local work.
+
+---
+
 # SHARED_RESEARCH_MAP.md
 
 **Purpose:** Fast shared context for the AI architecture search.  

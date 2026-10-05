@@ -1,0 +1,362 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "exact rank-two identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Ostar orthogonal",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full renewal M-L t=1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite Volterra all-orders t=1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-vector driver t=1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full renewal M-L t=2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite Volterra all-orders t=2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-vector driver t=2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full renewal M-L t=3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite Volterra all-orders t=3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-vector driver t=3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full renewal M-L t=4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite Volterra all-orders t=4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-vector driver t=4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full renewal M-L t=5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite Volterra all-orders t=5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-vector driver t=5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full renewal M-L t=6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite Volterra all-orders t=6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-vector driver t=6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full renewal M-L t=7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "finite Volterra all-orders t=7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-vector driver t=7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "co-moving zero-sum invariant",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "common-mode exact overlap",
+      "passed": true,
+      "data": {
+        "alpha": 0.9822222222222222,
+        "ell": 0.18772188517282568
+      }
+    },
+    {
+      "name": "fixed probe unit and zero sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "high projection norm one-half",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "projected forcing co-moves",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "nonperturbative complement damping 0",
+      "passed": true,
+      "data": {
+        "norm": 0.9964579867275893,
+        "bound": 0.99999951171875
+      }
+    },
+    {
+      "name": "nonperturbative complement damping 1",
+      "passed": true,
+      "data": {
+        "norm": 0.9970314602369851,
+        "bound": 0.99999951171875
+      }
+    },
+    {
+      "name": "nonperturbative complement damping 2",
+      "passed": true,
+      "data": {
+        "norm": 0.9965343980659069,
+        "bound": 0.99999951171875
+      }
+    },
+    {
+      "name": "public cap decimal",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "two-step loss constant",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "visibility constant",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "small prescribed correction remains legal",
+      "passed": true,
+      "data": {
+        "gate": 0.9945971742476157,
+        "p": 3
+      }
+    },
+    {
+      "name": "trace equality prescribed without tuning",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "public states independent of gates",
+      "passed": true,
+      "data": {
+        "error": 5.551115123125783e-17
+      }
+    },
+    {
+      "name": "common endpoint after reset",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "direct trace-probe difference zero",
+      "passed": true,
+      "data": {
+        "error": 0.0
+      }
+    },
+    {
+      "name": "private renewal differs",
+      "passed": true,
+      "data": {
+        "norm": 1.7869492108555787e-06
+      }
+    },
+    {
+      "name": "actual one-probe legal box lower positive",
+      "passed": true,
+      "data": {
+        "lower": 1.9388286143605474e-12,
+        "claim": "tiny algebra example, not robust dimension or official Gamma counterexample"
+      }
+    },
+    {
+      "name": "192 bit kappa lower",
+      "passed": true,
+      "data": {
+        "ratio": "1.0"
+      }
+    },
+    {
+      "name": "192 bit full complement relative error",
+      "passed": true,
+      "data": {
+        "ratio": "1.6e-47"
+      }
+    },
+    {
+      "name": "192 bit terminal-tail projection drift",
+      "passed": true,
+      "data": {
+        "bound": "4.36885735051626513964039937188520002113438628e-44"
+      }
+    },
+    {
+      "name": "192 bit local quantile p=1",
+      "passed": true,
+      "data": {
+        "value": "5.05964425626940693119822967109234965395128822e-21"
+      }
+    },
+    {
+      "name": "192 bit corridor geometry",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "192 bit legal correction",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "192 bit Gamma lower constant",
+      "passed": true,
+      "data": {
+        "lower": "0.040311216"
+      }
+    },
+    {
+      "name": "192 bit full energy upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "256 bit kappa lower",
+      "passed": true,
+      "data": {
+        "ratio": "1.0"
+      }
+    },
+    {
+      "name": "256 bit full complement relative error",
+      "passed": true,
+      "data": {
+        "ratio": "1.6e-47"
+      }
+    },
+    {
+      "name": "256 bit terminal-tail projection drift",
+      "passed": true,
+      "data": {
+        "bound": "4.36885735051626513964039937188520002113438628e-44"
+      }
+    },
+    {
+      "name": "256 bit local quantile p=1",
+      "passed": true,
+      "data": {
+        "value": "5.05964425626940693119822967109234965395128822e-21"
+      }
+    },
+    {
+      "name": "256 bit corridor geometry",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "256 bit legal correction",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "256 bit Gamma lower constant",
+      "passed": true,
+      "data": {
+        "lower": "0.040311216"
+      }
+    },
+    {
+      "name": "256 bit full energy upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "192/256 stable scalar agreement",
+      "passed": true,
+      "data": {
+        "decimal40": [
+          "0.040311216",
+          "0.040311216"
+        ]
+      }
+    }
+  ],
+  "seed": 20261003,
+  "cpu_seconds": 0.890625,
+  "wall_seconds": 0.9066134999993665,
+  "peak_process_threads": 4,
+  "peak_working_set_bytes": 43843584,
+  "library_pool_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "workers": 0,
+  "gpu_cuda_calls": 0,
+  "script_sha256": "2ff5d3f51476327d22c0fdbc1a61a4faab2644fffb59ca753d985f2d2fba676f"
+}

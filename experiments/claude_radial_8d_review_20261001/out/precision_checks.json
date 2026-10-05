@@ -1,0 +1,18 @@
+{
+ "max_beta_192_256_diff": 2.3061278987150716e-58,
+ "bands_identical_192_256": true,
+ "prefix_arrays_bitwise_192_256": true,
+ "weights_exact_and_sum_1_3": true,
+ "sharp_le_natural_elementwise": {
+  "HH": true,
+  "HH3": true,
+  "HS": true,
+  "HS3": true,
+  "Phi3": true
+ },
+ "M_monotone_in_lambda": true,
+ "mu_e0_from_unchanged_control": [
+  true,
+  true
+ ]
+}

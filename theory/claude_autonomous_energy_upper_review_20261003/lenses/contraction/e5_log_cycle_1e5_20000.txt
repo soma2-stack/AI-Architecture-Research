@@ -1,0 +1,45 @@
+prefix: B0=2600 ||z-h*||=9.104e-04 landing energy=8.287e-07 post-landing ||h-h*||=2.59e-13  t=7s
+base done ||h_T-h*||=1.63e-12 t=62s
+hole done ||h_T-h*||=1.09e-13 t=136s
+{
+ "n": 100000,
+ "tau": 20000,
+ "mode": "cycle",
+ "B0": 2600,
+ "prefix_energy": 8.287413236733741e-07,
+ "hole_energy": 0.004847383089562911,
+ "R_abs": 0.06962910189630901,
+ "bad_hole": 20000,
+ "bad_base": 0,
+ "crit_steps_hole": 20000,
+ "sumsq_hole": 48.117814687822296,
+ "radial_time_l2_bound": 697.2910189630901,
+ "B_R": 4862147652,
+ "H_R": 4862157652,
+ "L_n": 103622,
+ "op_bound_36": 1087234673302.873,
+ "delta0_bound_37": 10872346.73302873,
+ "y_weight_at_row": 0.6646708736955067,
+ "y_norm": 0.6646842270982836,
+ "K_rows_visited": {
+  "norm_sT_base": 3503.8953453837325,
+  "norm_sT_hole": 3606.4028545932674,
+  "norm_diff": 834.9681601380566,
+  "credit_base": 0.00013058490724690626,
+  "credit_hole": 0.005680430522786748,
+  "credit_diff": 0.005549845615539842,
+  "s_hole_at_lastrow": 854.7251852721993,
+  "s_base_at_lastrow": 19.765536424345672
+ },
+ "K_uniform": {
+  "norm_sT_base": 11.140944927442746,
+  "norm_sT_hole": 11.3552895483336,
+  "norm_diff": 2.1957845873861097,
+  "credit_base": 3.542131923700599e-09,
+  "credit_hole": 1.4598428727064732e-05,
+  "credit_diff": 1.4594886595141032e-05,
+  "s_hole_at_lastrow": 2.2461349311220995,
+  "s_base_at_lastrow": 0.050372691589325086
+ },
+ "wall_s": 136.41758346557617
+}

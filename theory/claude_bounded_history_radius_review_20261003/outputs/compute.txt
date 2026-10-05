@@ -1,0 +1,6 @@
+t1_validate.py: cpu_user=10.88s cpu_sys=0.02s wall=10.06s peak_rss=46.3MiB
+t6_ablation.py: cpu_user=1040.18s cpu_sys=0.18s wall=526.52s peak_rss=76.4MiB
+t3_substitution.py: cpu_user=4.72s cpu_sys=0.01s wall=4.81s peak_rss=17.1MiB
+t4_total.py: cpu_user=150.62s cpu_sys=0.93s wall=123.92s peak_rss=243.1MiB
+t2_adversary.py: background job, not individually timed; ~12 min wall (05:24:55-05:36:42 UTC) sharing 4 cores
+t5_mean.py: background job, not individually timed; ~30 min wall (05:29:32-~05:59 UTC), last case stopped manually

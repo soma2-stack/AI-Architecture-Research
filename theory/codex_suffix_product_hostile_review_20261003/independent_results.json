@@ -1,0 +1,494 @@
+{
+  "outcome": "PASS",
+  "checks": [
+    {
+      "name": "flat_extension_fails_256",
+      "passed": true,
+      "data": {
+        "left_limit": "2.000000000000000000000000000002",
+        "right_limit": "0.999999999999999999999999999998",
+        "scope": "Flat limit is NOT a legal suffix-product row"
+      }
+    },
+    {
+      "name": "legal_near_flat_continuity_256",
+      "passed": true,
+      "data": {
+        "position_changes": [
+          "0.000029703264388756324320042772700720399",
+          "0.000000029702970591118520704143769347958703",
+          "2.9702970297323791785122017740447344e-11"
+        ]
+      }
+    },
+    {
+      "name": "exact_knot_crossing_256",
+      "passed": true,
+      "data": {
+        "gate": "0.99506217291687944892610208175512803139359370729547",
+        "positions": [
+          "61.0000000000000002834681142211512439113310698342433364",
+          "61.0",
+          "60.99999999999999971512493851655246640847632539769775884"
+        ],
+        "maximum_entry_error": "0.120143093950147546668889107556458670275686348"
+      }
+    },
+    {
+      "name": "flat_extension_fails_384",
+      "passed": true,
+      "data": {
+        "left_limit": "2.000000000000000000000000000002",
+        "right_limit": "0.999999999999999999999999999998",
+        "scope": "Flat limit is NOT a legal suffix-product row"
+      }
+    },
+    {
+      "name": "legal_near_flat_continuity_384",
+      "passed": true,
+      "data": {
+        "position_changes": [
+          "0.000029703264388756324320042772700720399",
+          "0.000000029702970591118520704143769347958703",
+          "2.9702970297323791785122017740447344e-11"
+        ]
+      }
+    },
+    {
+      "name": "exact_knot_crossing_384",
+      "passed": true,
+      "data": {
+        "gate": "0.99506217291687944892610208175512803139359370729547",
+        "positions": [
+          "61.0000000000000002834681142211512439113310698342433364",
+          "61.0",
+          "60.99999999999999971512493851655246640847632539769775884"
+        ],
+        "maximum_entry_error": "0.120143093950147546668889107556458670275686348"
+      }
+    },
+    {
+      "name": "256_384_knot_gate_agreement",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "equal_code_aligned_m2_T30_p1",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_coordinates": 0,
+        "exact_sign_norm": 6.405186852694748e-05,
+        "full_query_controlled_upper": 8.51241494821558e-09,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "equal_code_aligned_m30_T2_p1",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_coordinates": 0,
+        "exact_sign_norm": 3.286297552238612e-05,
+        "full_query_controlled_upper": 8.26290380417909e-09,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "equal_code_aligned_m8_T8_p1",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_coordinates": 0,
+        "exact_sign_norm": 0.00010039473552761032,
+        "full_query_controlled_upper": 8.803157884220883e-09,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "equal_code_aligned_m6_T19_p1",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_coordinates": 0,
+        "exact_sign_norm": 0.0001442346382436091,
+        "full_query_controlled_upper": 9.153877105948874e-09,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "equal_code_aligned_m19_T6_p1",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_coordinates": 0,
+        "exact_sign_norm": 0.0001251357295678567,
+        "full_query_controlled_upper": 9.001085836542854e-09,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "equal_code_aligned_m64_T16_p3",
+      "passed": true,
+      "data": {
+        "p": 3,
+        "code_coordinates": 128,
+        "exact_sign_norm": 0.0006913721053547934,
+        "full_query_controlled_upper": 1.3530976842838347e-08,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "equal_code_aligned_m16_T64_p3",
+      "passed": true,
+      "data": {
+        "p": 3,
+        "code_coordinates": 32,
+        "exact_sign_norm": 0.0007288850078268933,
+        "full_query_controlled_upper": 1.3831080062615146e-08,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "equal_code_aligned_m64_T64_p9",
+      "passed": true,
+      "data": {
+        "p": 9,
+        "code_coordinates": 512,
+        "exact_sign_norm": 0.002477990665674595,
+        "full_query_controlled_upper": 2.7823925325396763e-08,
+        "max_entry_difference": "0.000005999931000116999649001052996841009476972"
+      }
+    },
+    {
+      "name": "sharp_support_m2_T25",
+      "passed": true,
+      "data": {
+        "column_overlap": 2,
+        "H": 2.0,
+        "frobenius": 1.4142135623730951
+      }
+    },
+    {
+      "name": "sharp_support_m25_T2",
+      "passed": true,
+      "data": {
+        "column_overlap": 2,
+        "H": 2.0,
+        "frobenius": 1.4142135623730951
+      }
+    },
+    {
+      "name": "sharp_support_m7_T7",
+      "passed": true,
+      "data": {
+        "column_overlap": 7,
+        "H": 7.0,
+        "frobenius": 2.6457513110645907
+      }
+    },
+    {
+      "name": "sharp_support_m3_T14",
+      "passed": true,
+      "data": {
+        "column_overlap": 3,
+        "H": 3.0,
+        "frobenius": 1.7320508075688772
+      }
+    },
+    {
+      "name": "sharp_support_m14_T3",
+      "passed": true,
+      "data": {
+        "column_overlap": 3,
+        "H": 3.0,
+        "frobenius": 1.7320508075688772
+      }
+    },
+    {
+      "name": "integer_count_1000000_1_1",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_count": 0,
+        "Q": "0.016",
+        "note": "Last test is an arithmetic equality case, outside model n range"
+      }
+    },
+    {
+      "name": "integer_count_1000000_100_1000",
+      "passed": true,
+      "data": {
+        "p": 51,
+        "code_count": 5000,
+        "Q": "50.5964425626940693119822967109",
+        "note": "Last test is an arithmetic equality case, outside model n range"
+      }
+    },
+    {
+      "name": "integer_count_1000000_1000_100",
+      "passed": true,
+      "data": {
+        "p": 51,
+        "code_count": 50000,
+        "Q": "50.5964425626940693119822967109",
+        "note": "Last test is an arithmetic equality case, outside model n range"
+      }
+    },
+    {
+      "name": "integer_count_1000000000000_100000000_100000",
+      "passed": true,
+      "data": {
+        "p": 16,
+        "code_count": 1500000000,
+        "Q": "16.0",
+        "note": "Last test is an arithmetic equality case, outside model n range"
+      }
+    },
+    {
+      "name": "integer_count_1000000000000000000000000_1000000000000000000000_1000000000",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_count": 0,
+        "Q": "0.505964425626940693119822967109",
+        "note": "Last test is an arithmetic equality case, outside model n range"
+      }
+    },
+    {
+      "name": "integer_count_1000000000000000000000000_1000000000_1000000000000000000000",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_count": 0,
+        "Q": "0.505964425626940693119822967109",
+        "note": "Last test is an arithmetic equality case, outside model n range"
+      }
+    },
+    {
+      "name": "integer_count_16000_1_1",
+      "passed": true,
+      "data": {
+        "p": 1,
+        "code_count": 0,
+        "Q": "1.0",
+        "note": "Last test is an arithmetic equality case, outside model n range"
+      }
+    },
+    {
+      "name": "product_inverse_determinant_T2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "product_inverse_determinant_T5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "product_inverse_determinant_T11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "product_inverse_determinant_T29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "all_future_and_dense_constants",
+      "passed": true,
+      "data": {
+        "q": "0.94001484880637795627721078008402777676028623580924",
+        "all_horizon_envelope": "37.78794411714423215955237701614608674458",
+        "coefficient_cap": "7.212489168102784748888612493469460200705",
+        "past_dense_upper": "1.9983350182486738406237387807704807e-12",
+        "future_dense_upper": "1.2252439496444102105569501942025097e-17"
+      }
+    },
+    {
+      "name": "ordinary_cycle_column_leakage",
+      "passed": true,
+      "data": {
+        "actual_leakage": 0.0020028324327899557,
+        "allowed": 0.006
+      }
+    },
+    {
+      "name": "multistep_query_uniform_high_L1",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.0,
+        "analytic_envelope": 9.30567223609852
+      }
+    },
+    {
+      "name": "multistep_query_uniform_high_L2",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.0,
+        "analytic_envelope": 16.24530157725031
+      }
+    },
+    {
+      "name": "multistep_query_uniform_high_L8",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.0,
+        "analytic_envelope": 42.24631075017041
+      }
+    },
+    {
+      "name": "multistep_query_uniform_high_L16",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.0,
+        "analytic_envelope": 50.98496844651508
+      }
+    },
+    {
+      "name": "multistep_query_uniform_high_L32",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.0,
+        "analytic_envelope": 37.70362891427356
+      }
+    },
+    {
+      "name": "multistep_query_uniform_high_L64",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.0,
+        "analytic_envelope": 10.389566289681744
+      }
+    },
+    {
+      "name": "multistep_query_greedy_positive_L1",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.24284076057064669,
+        "analytic_envelope": 9.30567223609852
+      }
+    },
+    {
+      "name": "multistep_query_greedy_positive_L2",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.2281862936792964,
+        "analytic_envelope": 16.24530157725031
+      }
+    },
+    {
+      "name": "multistep_query_greedy_positive_L8",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.15768721168009986,
+        "analytic_envelope": 42.24631075017041
+      }
+    },
+    {
+      "name": "multistep_query_greedy_positive_L16",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.09651363750621246,
+        "analytic_envelope": 50.98496844651508
+      }
+    },
+    {
+      "name": "multistep_query_greedy_positive_L32",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.036157370045724044,
+        "analytic_envelope": 37.70362891427356
+      }
+    },
+    {
+      "name": "multistep_query_greedy_positive_L64",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.005071905587616688,
+        "analytic_envelope": 10.389566289681744
+      }
+    },
+    {
+      "name": "multistep_query_greedy_negative_L1",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.24284076057064669,
+        "analytic_envelope": 9.30567223609852
+      }
+    },
+    {
+      "name": "multistep_query_greedy_negative_L2",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.2281862936792964,
+        "analytic_envelope": 16.24530157725031
+      }
+    },
+    {
+      "name": "multistep_query_greedy_negative_L8",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.15768721168010086,
+        "analytic_envelope": 42.24631075017041
+      }
+    },
+    {
+      "name": "multistep_query_greedy_negative_L16",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.09651363750621268,
+        "analytic_envelope": 50.98496844651508
+      }
+    },
+    {
+      "name": "multistep_query_greedy_negative_L32",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.036157370045724196,
+        "analytic_envelope": 37.70362891427356
+      }
+    },
+    {
+      "name": "multistep_query_greedy_negative_L64",
+      "passed": true,
+      "data": {
+        "sqrt_n_times_pair_adjoint": 0.005071905587616684,
+        "analytic_envelope": 10.389566289681744
+      }
+    },
+    {
+      "name": "all_sampled_pair_components_below_uniform_100sqrt2",
+      "passed": true,
+      "data": {
+        "maximum_sqrt_n_times_pair_adjoint": 0.24284076057064669,
+        "limitation": "Greedy legal words are attacks, not an optimization of every possible word"
+      }
+    }
+  ],
+  "pool_settings": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "cuda_visible_devices": "",
+  "gpu_usage": 0,
+  "child_processes": 0,
+  "peak_threads": 4,
+  "peak_rss_bytes": 56750080,
+  "peak_working_set_bytes": 72785920,
+  "cpu_seconds": 4.859375,
+  "wall_seconds": 5.176196599997638,
+  "precision_bits": [
+    256,
+    384
+  ],
+  "script_sha256": "623ccb22b9b3f252f12dcb731718597d7880bb8e27981e1f4b57a93e7c7dec41",
+  "status": "NUMERICAL ATTACKS; analytic derivation supplies uniform theorem"
+}

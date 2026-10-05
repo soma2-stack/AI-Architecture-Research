@@ -1,0 +1,46 @@
+{
+ "gates": {
+  "narrow": [
+   0.7864477329659274,
+   0.940014848806378
+  ],
+  "full": [
+   0.5965858082813315,
+   0.940014848806378
+  ],
+  "s_g_narrow": 0.07678355792022529,
+  "s_g_full": 0.17171452026252326,
+  "sech2_1/4": 0.940014848806378,
+  "sech2_1/2": 0.7864477329659274,
+  "sech2_3/4": 0.5965858082813315
+ },
+ "structures_brief": [
+  {
+   "n": 200,
+   "theta_cycle_residual": 3.1086244689504383e-15,
+   "gram_residual": 1.6653345369377348e-15,
+   "twist_formula_residual_max": 3.0097452308197603e-16,
+   "stationary_recursion_residual": 5.1236449471802094e-14,
+   "duhamel_residual": 7.771561172376096e-16,
+   "constant_gate_spike_residual": 7.811209981951781e-18
+  },
+  {
+   "n": 400,
+   "theta_cycle_residual": 3.2404634531246757e-15,
+   "gram_residual": 3.3306690738754696e-15,
+   "twist_formula_residual_max": 3.133344278483108e-16,
+   "stationary_recursion_residual": 6.394884621840902e-14,
+   "duhamel_residual": 1.1102230246251565e-15,
+   "constant_gate_spike_residual": 5.5372373353179685e-18
+  },
+  {
+   "n": 1000,
+   "theta_cycle_residual": 2.3175905639050143e-15,
+   "gram_residual": 7.771561172376096e-16,
+   "twist_formula_residual_max": 4.419208055050916e-16,
+   "stationary_recursion_residual": 1.1013412404281553e-13,
+   "duhamel_residual": 2.1094237467877974e-15,
+   "constant_gate_spike_residual": 1.0521967905324373e-17
+  }
+ ]
+}

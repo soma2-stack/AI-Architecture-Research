@@ -1,0 +1,12 @@
+n=200: ||R-R0||_op(float)=2.584e-13  analytic<=2a*eps/(a-eps)=5.000e-13  e_n=1.000e-12
+n=256: ||R-R0||_op(float)=1.561e-13  analytic<=2a*eps/(a-eps)=3.052e-13  e_n=6.104e-13
+n=400: ||R-R0||_op(float)=6.378e-14  analytic<=2a*eps/(a-eps)=1.250e-13  e_n=2.500e-13
+n=1000: ||R-R0||_op(float)=1.141e-14  analytic<=2a*eps/(a-eps)=2.000e-14  e_n=4.000e-14
+n=200: ||z*||=2.0454, max|z*_src|=0.04996, fixed-pt residual=8.4e-16
+   T=200: zero input for T-1 steps, then exact landing on z*: ||X|| = 3.082e-04
+   T=1000: zero input for T-1 steps, then exact landing on z*: ||X|| = 2.602e-15
+   T=4000: zero input for T-1 steps, then exact landing on z*: ||X|| = 4.880e-15
+n=400: ||z*||=2.4537, max|z*_src|=0.04996, fixed-pt residual=1.0e-15
+   T=400: zero input for T-1 steps, then exact landing on z*: ||X|| = 2.566e-05
+   T=2000: zero input for T-1 steps, then exact landing on z*: ||X|| = 1.148e-14
+   T=8000: zero input for T-1 steps, then exact landing on z*: ||X|| = 7.301e-15

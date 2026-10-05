@@ -1,0 +1,68 @@
+{
+  "outcome": "PASS",
+  "checks": [
+    {
+      "m": 1,
+      "T": 2400,
+      "p": 1,
+      "passed": true,
+      "maximum_entry_difference": "0.9443350241281112089608848280738447974531",
+      "exact_H": "41.87410813070838142139427357725740211632",
+      "controlled_all_future_upper": "0.0003350008650456670513711541886180592169305"
+    },
+    {
+      "m": 2,
+      "T": 900,
+      "p": 1,
+      "passed": true,
+      "maximum_entry_difference": "0.9443350241281112089608848280738447974531",
+      "exact_H": "51.93957041980539299407393125732831411961",
+      "controlled_all_future_upper": "0.0004155245633584431439525914500586265129569"
+    },
+    {
+      "m": 4,
+      "T": 240,
+      "p": 1,
+      "passed": true,
+      "maximum_entry_difference": "0.8842453055964729110623662073252249853577",
+      "exact_H": "40.5659115030926932839399813351763206634",
+      "controlled_all_future_upper": "0.0003245352920247415462715198506814105653072"
+    },
+    {
+      "m": 16,
+      "T": 15,
+      "p": 1,
+      "passed": true,
+      "maximum_entry_difference": "0.137136734455511160166022348453239336261",
+      "exact_H": "3.869248733007027442681970393900837389633",
+      "controlled_all_future_upper": "0.00003096198986405621954145576315120669911707"
+    },
+    {
+      "m": 40,
+      "T": 2,
+      "p": 1,
+      "passed": true,
+      "maximum_entry_difference": "0.019501980498",
+      "exact_H": "0.1842878282102377295259025384025727624975",
+      "controlled_all_future_upper": "0.00000148230262568190183620722030722058209998"
+    },
+    {
+      "m": 64,
+      "T": 64,
+      "p": 9,
+      "passed": true,
+      "maximum_entry_difference": "0.029106912084088510970298",
+      "exact_H": "11.6963146873119248595857050727224772921",
+      "controlled_all_future_upper": "0.00009357851749849539887668564058177981833684"
+    }
+  ],
+  "precision_bits": 256,
+  "gpu_usage": 0,
+  "peak_threads": 4,
+  "peak_rss_bytes": 28147712,
+  "peak_working_set_bytes": 29253632,
+  "cpu_seconds": 0.1875,
+  "wall_seconds": 0.20071850000022096,
+  "script_sha256": "1803b6a3c1d4ef77701058d13b931cd3b7094e24d01ae504759915e9030e778f",
+  "status": "NUMERICAL ADVERSARIAL EXAMPLES; uniform proof is separate"
+}

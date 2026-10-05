@@ -1,0 +1,330 @@
+{
+  "outcome": "PASS",
+  "checks": [
+    {
+      "name": "UPU_equals_open_shift_plus_rank_two",
+      "passed": true,
+      "data": {
+        "error": 1.887379141862766e-15
+      }
+    },
+    {
+      "name": "algebra_history_raw_cube",
+      "passed": true,
+      "data": {
+        "maximum_input": 0.12912600157822607,
+        "absolute_norm": 0.4001369613026456,
+        "scope": "n=1024 reference algebra check, not accepted asymptotic theorem"
+      }
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t1_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 0.0,
+        "feedback_kernel_error": 0.0
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t1_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t1_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 0.0,
+        "feedback_kernel_error": 0.0
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t1_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t2_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 7.676151381197371e-17,
+        "feedback_kernel_error": 7.676151381197371e-17
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t2_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t2_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 1.6132928326584306e-16,
+        "feedback_kernel_error": 7.24247051220317e-17
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t2_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t3_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 3.0617869350990645e-16,
+        "feedback_kernel_error": 1.0755285551056204e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t3_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t3_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 1.4224732503009818e-16,
+        "feedback_kernel_error": 1.4311468676808659e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t3_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t4_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 1.7694179454963432e-16,
+        "feedback_kernel_error": 4.683753385137379e-17
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t4_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t4_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 3.191891195797325e-16,
+        "feedback_kernel_error": 1.8301332671555315e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t4_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t5_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 5.065392549852277e-16,
+        "feedback_kernel_error": 6.245004513516506e-17
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t5_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t5_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 3.3306690738754696e-16,
+        "feedback_kernel_error": 1.717376241217039e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t5_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t6_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 7.632783294297951e-16,
+        "feedback_kernel_error": 1.734723475976807e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t6_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t6_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 5.516420653606247e-16,
+        "feedback_kernel_error": 2.706168622523819e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t6_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t7_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 1.6306400674181987e-16,
+        "feedback_kernel_error": 1.6479873021779667e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t7_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t7_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 2.914335439641036e-16,
+        "feedback_kernel_error": 2.914335439641036e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t7_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t8_i0",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 2.671474153004283e-16,
+        "feedback_kernel_error": 1.8041124150158794e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t8_i0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "shared_feedback_and_private_kernel_t8_i1",
+      "passed": true,
+      "data": {
+        "shared_feedback_error": 5.464378949326942e-16,
+        "feedback_kernel_error": 3.7296554733501353e-16
+      }
+    },
+    {
+      "name": "balanced_output_cancels_feedback_t8_i1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "reset_transmits_not_erases_feedback_i0",
+      "passed": true,
+      "data": {
+        "surviving_feedback_norm": 0.3774961420235668
+      }
+    },
+    {
+      "name": "reset_transmits_not_erases_feedback_i1",
+      "passed": true,
+      "data": {
+        "surviving_feedback_norm": 0.37513139923405453
+      }
+    },
+    {
+      "name": "joint_R_W_b_frozen_input_difference_1e-05",
+      "passed": true,
+      "data": {
+        "error": 1.6615847848673252e-10
+      }
+    },
+    {
+      "name": "joint_R_W_b_frozen_input_difference_1e-06",
+      "passed": true,
+      "data": {
+        "error": 2.429607131556507e-10
+      }
+    },
+    {
+      "name": "fixed_feature_matrix_equals_coupled_full_tangent",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "equal_local_quantiles_and_trace_do_not_determine_feedback",
+      "passed": true,
+      "data": {
+        "p": 28,
+        "common_oldest_product": 0.9950566783337317,
+        "common_product_sum": 2.9910830679821694,
+        "feedback_difference_frobenius": 3.7534203273804208e-06,
+        "numerical_one_step_feedback_lower": 7.01901223294922e-11,
+        "numerical_one_step_complete_lower": 5.344101270278616e-10,
+        "note": "Nonzero private feedback, NOT a robust section or epsilon-threshold counterexample"
+      }
+    },
+    {
+      "name": "public_state_bath_can_have_private_sensitivity",
+      "passed": true,
+      "data": {
+        "private_bath_row_norm": 8.377224880542436e-08
+      }
+    },
+    {
+      "name": "exceptional_row_legal_query_is_not_100_over_sqrt_n",
+      "passed": true,
+      "data": {
+        "actual_component": 0.6626848370917806,
+        "formula": 0.6626848370917809,
+        "scope": "Shows why a global ordinary-row dilution bound is invalid"
+      }
+    },
+    {
+      "name": "accepted_width_exceptional_query_192",
+      "passed": true,
+      "data": {
+        "component": "0.664688878053054068713248961855842945409147496"
+      }
+    },
+    {
+      "name": "accepted_width_exceptional_query_256",
+      "passed": true,
+      "data": {
+        "component": "0.664688878053054068713248961855842945409147496"
+      }
+    },
+    {
+      "name": "192_256_exceptional_query_agreement",
+      "passed": true,
+      "data": {}
+    }
+  ],
+  "resource_settings": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "peak_process_threads": 4,
+  "peak_rss_bytes": 96784384,
+  "peak_working_set_bytes": 98877440,
+  "cpu_seconds": 0.796875,
+  "wall_seconds": 0.8643487000008463,
+  "gpu_used": false,
+  "workers": 0,
+  "script_sha256": "407c06f2baf11a411c9c8636af24501e2ddb383d0fa46853c7bb06f6ead3d81b",
+  "evidence": "FORMULA CHECKS; no numerical dimension certificate",
+  "small_matrix_scope": "n=1024 reference algebra only; asymptotic theorem range not claimed"
+}

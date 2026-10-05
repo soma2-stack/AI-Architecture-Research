@@ -1,0 +1,27 @@
+n=200 F=2 delta=0.05 N=4240 prot=0 dense=checks
+  decomp_err 5.87e-19  householder_err 8.91e-18  lift_err 1.11e-15  endpoint |h| 8.3e-16 1.7e-15
+  radius direct 3.676942e-02 periodic 3.676942e-02 rel.diff 5.7e-15  majorant 4.6201e+00  ratio 0.0080
+  worst ratios (must be <=1): {'c_inf': np.float64(0.1496), 'c_sum': np.float64(0.0), 'c_l2': np.float64(0.8942), 'cshift': np.float64(0.6178), 'p_l2': np.float64(0.5721), 'v_mean': np.float64(0.43), 'vshift': np.float64(0.3987), 'A2': np.float64(0.0513), 'beta': np.float64(0.0658), 'A3a': np.float64(0.0633), 'A3b': np.float64(0.0367), 'A1': np.float64(0.6006), 'A1abs': np.float64(0.0107), 'dx_ratio': np.float64(0.0128)}
+n=200 F=2 delta=0.001 N=4240 prot=0 dense=checks
+  decomp_err 1.68e-20  householder_err 1.78e-19  lift_err 1.25e-15  endpoint |h| 1.2e-15 1.7e-15
+  radius direct 7.349348e-04 periodic 7.349348e-04 rel.diff 4.4e-14  majorant 7.9639e-02  ratio 0.0092
+  worst ratios (must be <=1): {'c_inf': np.float64(0.1496), 'c_sum': np.float64(0.0), 'c_l2': np.float64(0.8942), 'cshift': np.float64(0.6178), 'p_l2': np.float64(0.5722), 'v_mean': np.float64(0.4301), 'vshift': np.float64(0.3988), 'A2': np.float64(0.0511), 'beta': np.float64(0.0657), 'A3a': np.float64(0.0644), 'A3b': np.float64(0.0378), 'A1': np.float64(0.5997), 'A1abs': np.float64(0.0107), 'dx_ratio': np.float64(0.0149)}
+  time 1.5s
+n=256 F=3 delta=0.05 N=5680 prot=0.0242 dense=checks
+  decomp_err 2.89e-19  householder_err 3.86e-18  lift_err 3.26e-15  endpoint |h| 3.2e-15 3.8e-15
+  radius direct 2.260906e-02 periodic 2.260906e-02 rel.diff 1.4e-15  majorant 4.3554e+00  ratio 0.0052
+  worst ratios (must be <=1): {'c_inf': np.float64(0.1029), 'c_sum': np.float64(0.0), 'c_l2': np.float64(0.6401), 'cshift': np.float64(0.4425), 'p_l2': np.float64(0.4113), 'v_mean': np.float64(0.2206), 'vshift': np.float64(0.2857), 'A2': np.float64(0.0304), 'beta': np.float64(0.0476), 'A3a': np.float64(0.0429), 'A3b': np.float64(0.0245), 'A1': np.float64(0.6002), 'A1abs': np.float64(0.0051), 'dx_ratio': np.float64(0.0081)}
+n=256 F=3 delta=0.001 N=5680 prot=0.0242 dense=checks
+  decomp_err 6.09e-21  householder_err 7.73e-20  lift_err 3.33e-15  endpoint |h| 3.2e-15 3.8e-15
+  radius direct 4.519167e-04 periodic 4.519167e-04 rel.diff 7.1e-14  majorant 8.0543e-02  ratio 0.0056
+  worst ratios (must be <=1): {'c_inf': np.float64(0.1029), 'c_sum': np.float64(0.0), 'c_l2': np.float64(0.6401), 'cshift': np.float64(0.4425), 'p_l2': np.float64(0.4111), 'v_mean': np.float64(0.2204), 'vshift': np.float64(0.2856), 'A2': np.float64(0.0306), 'beta': np.float64(0.0436), 'A3a': np.float64(0.043), 'A3b': np.float64(0.0248), 'A1': np.float64(0.5998), 'A1abs': np.float64(0.0051), 'dx_ratio': np.float64(0.0088)}
+  time 2.3s
+n=400 F=4 delta=0.05 N=9588 prot=0 dense=adversarial
+  decomp_err 3.27e-19  householder_err 5.22e-19  lift_err 8.99e-15  endpoint |h| 7.7e-15 7.2e-15
+  radius direct 1.624521e-02 periodic 1.624521e-02 rel.diff 3.4e-15  majorant 4.3699e+00  ratio 0.0037
+  worst ratios (must be <=1): {'c_inf': np.float64(0.0713), 'c_sum': np.float64(0.0), 'c_l2': np.float64(0.758), 'cshift': np.float64(0.4399), 'p_l2': np.float64(0.4836), 'v_mean': np.float64(0.3087), 'vshift': np.float64(0.2839), 'A2': np.float64(0.0289), 'beta': np.float64(0.0391), 'A3a': np.float64(0.034), 'A3b': np.float64(0.0195), 'A1': np.float64(0.6005), 'A1abs': np.float64(0.0045), 'dx_ratio': np.float64(0.0078)}
+n=400 F=4 delta=0.001 N=9588 prot=0 dense=adversarial
+  decomp_err 8.22e-21  householder_err 1.16e-20  lift_err 8.06e-15  endpoint |h| 7.1e-15 7.2e-15
+  radius direct 3.246980e-04 periodic 3.246980e-04 rel.diff 5.7e-13  majorant 8.2599e-02  ratio 0.0039
+  worst ratios (must be <=1): {'c_inf': np.float64(0.0713), 'c_sum': np.float64(0.0), 'c_l2': np.float64(0.758), 'cshift': np.float64(0.4399), 'p_l2': np.float64(0.4838), 'v_mean': np.float64(0.309), 'vshift': np.float64(0.2839), 'A2': np.float64(0.0291), 'beta': np.float64(0.0324), 'A3a': np.float64(0.0339), 'A3b': np.float64(0.0196), 'A1': np.float64(0.5999), 'A1abs': np.float64(0.0045), 'dx_ratio': np.float64(0.0082)}
+  time 6.2s

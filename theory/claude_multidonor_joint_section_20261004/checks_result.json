@@ -1,0 +1,204 @@
+{
+ "checks": [
+  {
+   "name": "n=200: O_* = C + 1 u^T + e1 vH^T (shift 1)",
+   "max_abs_err": 3.219646771412954e-15,
+   "tol": 1e-12,
+   "pass": true
+  },
+  {
+   "name": "n=200: O e0 = e0 and O_* orthogonal",
+   "max_abs_err": 1.0658141036401503e-14,
+   "tol": 1e-12,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 0: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 8.598462369311836e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 0: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 4.0163380504274764e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 0: two-scalar-input probe form",
+   "max_abs_err": 7.246034666202182e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 1: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 2.620967358427852e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 1: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 1.5028092932467107e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 1: two-scalar-input probe form",
+   "max_abs_err": 3.1123987381330744e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 2: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 6.4651322328309565e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 2: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 2.080907311509681e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=200 trial 2: two-scalar-input probe form",
+   "max_abs_err": 3.302640593962656e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400: O_* = C + 1 u^T + e1 vH^T (shift 1)",
+   "max_abs_err": 2.220446049250313e-16,
+   "tol": 1e-12,
+   "pass": true
+  },
+  {
+   "name": "n=400: O e0 = e0 and O_* orthogonal",
+   "max_abs_err": 6.994405055138486e-15,
+   "tol": 1e-12,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 0: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 6.065614733038167e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 0: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 7.544421630762348e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 0: two-scalar-input probe form",
+   "max_abs_err": 1.3033552318924986e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 1: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 7.722683902120272e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 1: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 6.271717094476717e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 1: two-scalar-input probe form",
+   "max_abs_err": 4.216180783648347e-16,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 2: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 1.955555899886418e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 2: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 1.659220423475766e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=400 trial 2: two-scalar-input probe form",
+   "max_abs_err": 1.9110087367658625e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000: O_* = C + 1 u^T + e1 vH^T (shift 1)",
+   "max_abs_err": 1.6653345369377348e-15,
+   "tol": 1e-12,
+   "pass": true
+  },
+  {
+   "name": "n=1000: O e0 = e0 and O_* orthogonal",
+   "max_abs_err": 1.0880185641326534e-14,
+   "tol": 1e-12,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 0: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 1.731101049628788e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 0: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 6.942118706129318e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 0: two-scalar-input probe form",
+   "max_abs_err": 6.592093157530888e-15,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 1: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 3.751030295827006e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 1: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 1.2496779494421304e-13,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 1: two-scalar-input probe form",
+   "max_abs_err": 1.0301341816696188e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 2: renewal H_N = sum Phi aG(O*-C)L",
+   "max_abs_err": 3.9499944761427244e-14,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 2: scalar-kernel form H_N = sum beta S_L^T + eps rho^T",
+   "max_abs_err": 1.0473440292647634e-13,
+   "tol": 1e-10,
+   "pass": true
+  },
+  {
+   "name": "n=1000 trial 2: two-scalar-input probe form",
+   "max_abs_err": 1.1275299699359184e-14,
+   "tol": 1e-10,
+   "pass": true
+  }
+ ],
+ "cpu_seconds": 1.6877619130000001,
+ "all_pass": true
+}
