@@ -1,5 +1,15 @@
 # Codex Independent Research Notebook
 
+## Codex resume: moving-cycle probe substitution (2026-10-05)
+
+- **Scope/stage:** THEORY ONLY; new author-derived scoped obstructions written, independent hostile review required. Main moving-history redesign question remains STILL OPEN. Owner now independently verifies the multicolumn checkpoint at 9bf66b9; it is a premise, not reopened.
+- **New exact mechanism:** the inherited donor-to-survivor read has zero sum on EACH moving cycle track. Its translated geometric sum telescopes through a discrete primitive; leading moving row is <=min{kappa/sqrt(2(K+1)),m/(K+1)}, complete fresh minimum gain <=m/(K+1)+32000n/m.
+- **Stronger scoped obstruction:** changing the probe basis alone cannot remove dilution inside the same partitioned donor cube. Full row <=kappa/sqrt(K+1)+32000n/m; complete all-query last-stage axis upper yields necessary t_R>(1/8000)sqrt(K+1)n^(3/4) when the explicit residual is <=epsilon. This covers all fixed-feature columns for THIS protocol, not arbitrary corridor histories.
+- **Finite-error moving test:** with inherited public masks/tails/trace matching/clear/reset and any moving-only probe matrix, actual axis distance <=600000n^(-1/4)+3e7(logn)n^(-3/32)+9e-9<.001 at n>=10^1000. Genuine nonzero cycle eigenprobes add <=5n^(-1/16) from their explicitly counted rank-one off-cycle tails, still below the robust threshold. Existing full-gradient section remains robust via stationary probes.
+- **Dimension/cost:** no new moving robust section or beta gain. Accepted stationary D=KR and R2 D>=n^(3/16)/3 remain; mT<11sqrt(K)2^R n^(5/4), full norm<7K^(1/4)2^(R/2)n^(5/8). Global superlinear threshold[1/4,3/4] and full-model gap unchanged. No bits/VRAM/training/architecture claim.
+- **Evidence:** theory/codex_moving_probe_spatial_write_20261005/{PROOF,REPORT,CHECKS}.md, exact rational checks and provenance. One numerical pool, no workers, hard8-thread/100MiB guard, GPU/CUDA0. Checks do not prove robust dimension.
+- **Exact next action:** hostile-review the projector read, per-track moment/primitive, telescoping and complete all-query axis upper. If this scoped result survives, target a multi-survivor/Hadamard-interleaved write matrix that changes the single-common-read geometry, with a joint finite-radius minimum gain. No CURRENT_THEORY, AGENTS, accepted historical or independent notebook edits.
+
 ## Codex resume: shared multi-column spatial writes (2026-10-05)
 
 - **Scope/stage:** requested THEORY-ONLY multi-probe stage complete. The owner-verified single-block spatial-write theorem is a premise and was not reopened. New compensated theorem is author-derived, independent hostile review required. Stronger no-dilution question remains STILL OPEN.

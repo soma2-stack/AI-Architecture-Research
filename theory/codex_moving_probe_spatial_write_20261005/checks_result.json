@@ -1,0 +1,3941 @@
+{
+  "interpretation": "Exact small algebra identity checks; no numerical robust-dimension proof",
+  "passed": 784,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "m8K1j0 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t8 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t8 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t8 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t24 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t24 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda1t24 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t8 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t8 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t8 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t24 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t24 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda7/8t24 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t8 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t8 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t8 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t24 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t24 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0lambda99/100t24 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m8K1j0 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda1t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda7/8t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0lambda99/100t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j0 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda1t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda7/8t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1lambda99/100t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K2j1 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda1t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda7/8t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0lambda99/100t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j0 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda1t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda7/8t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1lambda99/100t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j1 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda1t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda7/8t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t12 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t12 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t12 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t36 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t36 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2lambda99/100t36 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m12K3j2 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda1t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda7/8t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0lambda99/100t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j0 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda1t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda7/8t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1lambda99/100t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j1 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda1t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda7/8t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2lambda99/100t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j2 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3 each-track zero moment",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3 cycle norm",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3 exact primitive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3 primitive norm bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda1t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda7/8t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t1 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t1 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t1 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t2 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t2 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t2 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t16 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t16 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t16 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t48 telescoping",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t48 read upper",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3lambda99/100t48 coefficient sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "m16K4j3 paired-track zero read",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "complete O orthogonality seed1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "complete O orthogonality seed2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "complete O orthogonality seed3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v12t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v16t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j0v45t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v12t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v16t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j1v45t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v12t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v16t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t1 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t1 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t1 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t1 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t1 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t2 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t2 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t2 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t2 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t2 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t3 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t3 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t3 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t3 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t3 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t4 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t4 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t4 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t4 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t4 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t5 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t5 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t5 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t5 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t5 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t6 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t6 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t6 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t6 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t6 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t7 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t7 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t7 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t7 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t7 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t8 full high projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t8 full low projection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t8 full-row norm budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t8 chronological read identity",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "j2v45t8 low H mean zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "all-query coefficient .051*100*sqrt(2)<8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "complete drift coefficient envelope",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "n=10^1000 support envelope",
+      "passed": true,
+      "data": {
+        "bound": "9.0000000000000000000000000000000000000000000000000000000000000000000000000122839E-9"
+      }
+    },
+    {
+      "name": "n=10^1000 eigenprobe envelope",
+      "passed": true,
+      "data": {
+        "bound": "9.0000000000000000000000000000000000000000000000000000158113883008418966600067516E-9"
+      }
+    },
+    {
+      "name": "monotone log-power envelope at threshold",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "dense spectral-tail charge .408*11<5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "norm scaling is sublinear dimension budget",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "coordinate probes K1 orthonormal",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "coordinate probes K2 orthonormal",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "coordinate probes K10 orthonormal",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "coordinate probes K100 orthonormal",
+      "passed": true,
+      "data": {}
+    }
+  ],
+  "script_sha256": "747f47ea5602e1f8ad7f188bd84b0fe95ed06f14d6e50c7bb2f4efb9c2942277",
+  "resource": {
+    "CPU_seconds": 18.46875,
+    "wall_seconds": 19.850654200010467,
+    "peak_observed_process_threads": 4,
+    "numeric_pool_limit": 1,
+    "worker_processes": 0,
+    "peak_RSS_bytes": 22200320,
+    "GPU_CUDA_calls": 0
+  }
+}
