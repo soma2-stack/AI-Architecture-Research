@@ -1,3 +1,24 @@
+# Current accepted/reviewed checkpoint — 2026-10-04
+
+Read [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) for the authoritative concise snapshot and [theory/INDEX.md](theory/INDEX.md) for all evidence. The original chronological map is preserved byte-for-byte below this additive checkpoint. Older uses of “current” below describe their historical date.
+
+- **ACCEPTED:** growing-local-radius fixed-feature `Omega(n^(16/15))`; width-independent local radius `<0.02` gives `Omega(n^(19/18))` around public `X_n(0)`. Absolute center energy is not uniformly bounded.
+- **ACCEPTED / Grok-reviewed:** strongest absolute-energy superlinear construction remains `Omega(n log n)` at `O(n^(3/4)(log n)^(3/2))`, from `codex_holding_cost_attack_20261003/` and its Grok review. General exponent bracket `[1/4,3/4]`; full-model `Omega_c(n^2)` to `O_c(n^2 log n)` is unchanged.
+- **VERIFIED / Claude-reviewed:** `codex_absolute_history_energy_20261003/` is a zero-endpoint feasibility obstruction. `codex_autonomous_absolute_energy_20261003/` bounds actual past-credit queries uniformly under fixed absolute energy in this frozen family, leaving n forward coordinates. The three missing Claude radius/energy reviews are now preserved.
+- **ACCEPTED, scoped:** paired projected suffix-product quantile obstruction is STATIC and leaves private channels open. Unpaired sensitivity exposes common Householder renewal; sufficiently short complete corridors have no robust gap.
+- **ACCEPTED / Grok-reviewed:** equal local codes can hide `Gamma>.03` and a cheap 1D robust section. Changing survivor sets refute the pointwise `O(1/m_s)` timing premise, not every query-weighted compression theorem.
+- **ACCEPTED Grok scoped continuations:** filtered timing, then the monotonicity-completed `D=2` square on two separate blocks, then the uniform-gate one-block cap. Earlier unfinished D2/band notes are **SUPERSEDED**. Their scope does not include arbitrary nonuniform gates.
+- **CONDITIONAL Claude:** `claude_multidonor_joint_section_20261004/` preserves the exact joint-transfer derivation and conditional complete compression. Its identities still require independent review; its literal small-entry timing route is defeated. Checks do not establish acceptance.
+- **PENDING REVIEW / Codex-only:** `codex_multi_donor_joint_section_20261003/` scoped derivations and `codex_single_block_spatial_write_20261004/` at corridor head `c682b27`. The latter claims a joint logarithmic-dimensional nonuniform spatial section on one support; no superlinear threshold improvement is proved.
+- **REFUTED / scoped:** general convex packet averaging, fixed-anchor renewal as a reduction, old sustained robust-chart claims, uniform small-Gamma closure, and universal pointwise-small J. Auxiliary and special-case theorems are retained.
+- **DRAFT:** preserved Perplexity accessibility packet is unreviewed and does not change scientific status.
+
+Next research target, after independent review: a simultaneous multi-probe spatial-write lemma in one same-endpoint section with `D=omega(n)` and `mT=o(n^(3/2))`, or a complete actual-query compression obstruction. Do not count columns or independently visible axes. No bits/VRAM/practical-width/architecture claim follows.
+
+Consolidation base: `preserve/all-research-20261004` at `d1767d0a62dba90b03fd21e512b3db0c4efcd133`. Cleanup branch: `cleanup/research-consolidation-20261004`. Historical notebooks, experiments, and governance are unchanged; GAS-0 remains unrelated local work.
+
+---
+
 # SHARED_RESEARCH_MAP.md
 
 **Purpose:** Fast shared context for the AI architecture search.  
