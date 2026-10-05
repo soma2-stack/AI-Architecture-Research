@@ -207,7 +207,7 @@ Unique commit lists, absent paths, differing theory paths and all local branch h
 - Base scientific files are blob-identical; only the two authorized navigation files were changed among pre-existing paths. Governance and all three giant notebooks are unchanged.
 - The old SHARED_RESEARCH_MAP bytes remain as an exact suffix after the additive checkpoint.
 - Exact imported source blobs, preserved local theory paths and four review folder trees were checked. Corridor `c682b27` is an ancestor.
-- Original worktree dirty/untracked status and file hashes are compared before push; original main and remote protected heads are checked.
+- Original worktree dirty/untracked status and file hashes are compared before push; original main and audited remote branch heads are checked.
 
 The cleanup branch is for owner review. No merge to main is authorized. Independent scientific review of the pending spatial-write theorem is a separate next task.
 
