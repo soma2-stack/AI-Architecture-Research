@@ -9,7 +9,373 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-09-30, session 28
+# Resume Pointer (read this first in a new session) — updated 2026-10-02, session 29s (causal suffix width, interim)
+
+- **Latest:** W^causal_(3eps/4)(n) = O(n)? See theory/claude_causal_width_20261002/REPORT.md (interim; usage limit).
+- **[R] Exact absorption identity:** right probes S_t = M_t X update exactly, S_t = G_t(a O_* S_(t-1) + X). The error is
+  static, with no accumulation, and these probes are the ONLY exact linear quotients (left-ideal kernel).
+- **[N] Harmonic column content is visible like sqrt(n):** Fourier probe v_f with d dense rows, read in l1 by
+  one-step queries; 0.0016 at n = 400 and 0.0031 at n = 1600 for f = 1. So probe encoders need about Theta(n^1.5).
+- **[S] Likely omega(n) refutation:** a saturated (tanh plus Kashin subspaces) odd section over harmonics f <= F.
+  Even polynomial orders cancel exactly for antipodes. It gives Omega(n^(7/6)) or more, for very large n.
+- **Next:** make the Section 3 constants rigorous; numerically test moderate n with F = 2–4.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-02 session 29r (historical; superseded by the block above) — moving-spike remainder + certified collisions
+
+- **Latest:** continued from Grok's permitted-query reach report (theory/grok_permitted_query_reach_20261002), taking
+  its corrections as constraints.
+  - Evidence: theory/claude_moving_spike_remainder_20261002/ (THEORY.md, REPORT.md, code, JSON, npy).
+- **Rigorous:**
+  - **Visible frame:** physical memory coordinate 0 decouples. On X = coords 1..k-1 the gate is diagonal and the
+    transport is orthogonal and shifts the spike vectors x_p = V theta_p exactly.
+  - **Exact all-L decomposition:** X_L = sigma_L x_p(L) + r_L, where the spike factor is the gate seen at the moving
+    node. The leak is the exact twist column: a wake spike at theta_0, plus a dense part, plus a reservoir term.
+  - **Remainder bounds:**
+    - R1 (triangle), sharp at L = 1, 2.
+    - R3 (energy identity): sqrt(L) growth; ||r_L|| <= 2.93 a s_g sqrt(k/n) lam^(L-1) for all L <= d and n >= 200.
+    - R4 (joint interval DP).
+    - The horizon-uniform budget is sharp (equal to the L = 1 value) for n >= 2400.
+  - **Theorem Q bracket:** LB_spike (exact legal spikes) <= nu <= UB4. It is within 1.1–1.6x on Codex's old pairs
+    (kappa was 2.7–6.8x). An SDP certificate pins the one-step term to 0.3–2%.
+- **CERTIFIED COLLISIONS** (UB4 < 2 eps), 11 verified pairs, in ALL THREE of Codex's sustained spread charts:
+  - n = 200 (294-dim): best 0.35 x 2 eps.
+  - n = 400 (594-dim): best 0.108 x 2 eps.
+  - n = 1000 (1743-dim): 0.195 x 2 eps.
+  - Cross-checks: three implementations agree (incl. Codex's full k x r credit) to 4e-14; inputs are admissible
+    (0.3736); legal attacks stay below UB. kappa would certify only 1 of the 11.
+  - **Onset:** nested q-mode sub-charts collide already at q = 2, i.e. 2(d-1) dims (n = 200, 400), while q = 1
+    (d-1 dims) survived all 5 starts. So the onset is linear in n.
+  - So these charts are NOT robust sections. The superlinear evidence is refuted.
+- **Class bounds are unchanged:** floor(n/4)-2 <= latent-cycle robust dim <= d^2+1.
+- **Next:** a Borsuk–Ulam collapse theorem for the whole class, i.e. an encoder storing dc, the O(log) visible spike
+  rows and an op-scale sketch of dR; plus the weakening-gate long-window loophole.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-02 session 29q (historical; superseded by the block above) — interacting-block review + attack
+
+- **Latest:** review of Codex ea0ebd7 (theory/codex_two_pulse_corotating_20261002) plus an attack on the d x d block.
+  - Evidence: theory/claude_interacting_block_20261002/ (REVIEW_PHASE1.md, THEORY_PHASE2.md, REPORT.md, scripts,
+    JSON).
+- **Phase 1: all 7 Codex claims VERIFIED within scope.** One-pulse lower bound; bounded pulses Theta(n); fixed
+  co-rotating profile Theta(n); latent-cycle reduction (my code matches to 7.5e-12); d^2+1 upper; sustained
+  long-window contraction (lambda = sqrt(1-199/20402), 412; asymptotic n ≳ 1.5e10).
+  - Codex's 5 corrections to my write-up are valid; no conclusion changes.
+  - New remark: the full permitted [1/4,3/4] box roughly doubles the one-pulse margin (> 0.0032).
+- **Phase 2 rigorous:**
+  - Lemma B2: the stationary n-scale credit enters only via ONE d-vector (exact, any gates).
+  - Lemma B3: exact cyclic basis θ_i (O_A θ_i = θ_(i+1), Gram I - 11^T/k); every gate is diagonal plus an EXACT
+    rank-two twist on node θ_1 (1e-16).
+  - Lemma B4: Duhamel localization, so all information beyond d enters via one rank-<=2 twist per step, plus fresh
+    credit <= T. Idealized (twist-free) block <= d+1.
+- **Phase 2 numerical:**
+  - Exactly d strong Jacobian directions, with a 10x gap to the tail.
+  - Best fixed one-step query sees only 1-2 block directions.
+  - Tail visibility falls with n (sustained) and stays ~1.2-1.9 eps (weak).
+  - Codex's pairs reproduced exactly; two-step queries don't beat one-step; the κ-envelope is 5-40x loose.
+- **No omega(n) section; no O(d) proof.** Stopping point D (+ C-type localization).
+- **Loophole:** weakening-gate long windows (undamped fresh credit with the twist acting on it) and the envelope gap.
+- **Next:** permitted-adjoint reach lemma (moving spike + one 0.153 demodulation pattern + O(c_k) spread), giving an
+  ~10x sharper rigorous upper bound to certify collisions and bound the twist channel.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-02 session 29p (historical; superseded by the block above) — two-pulse additivity research
+
+- **Latest:** original research on the two-pulse additivity question I recommended.
+  - Evidence: theory/claude_two_pulse_additivity_20261002/ (PROOF.md, REPORT.md, scripts, JSON and logs).
+- **"Two pulses beat O(n)": REFUTED (rigorous).** Theorem A: a q-pulse family has robust dim <= qk, so two pulses give
+  <= 2k <= n+1. Superlinear growth needs unboundedly many active steps.
+- **Theorem B:** single-fixed-query sections have dim <= r. Superlinear growth needs section-dependent queries.
+- **Theorem C (new rigorous lower bound):** ONE pulse with individual stationary coordinates and a zero-sum amplitude
+  section gives 2floor((k-d)/2)-1 >= floor(n/4)-2 dimensions, with half-margin > 0.00161 for all n >= 200.
+  - That is 2x the reviewed floor(n/8).
+  - The exact whole-sphere minimum equals the closed form: 0.00348 (n=200) to 0.00243 (n=1000).
+  - Key lemmas: Householder leak O e_c = e_c + ell, common for stationary c; credit rows m e_c + Lambda.
+- **Lemma C (exact, any query):** two stationary pulses enter the strong channel only via alpha m1 u1 + m2 u2. The
+  extra information travels through the weak leak scalar beta(g) and nearly-cancelling Lambda terms.
+- **Numerics, exact model:** no two-pulse additivity at eps=1e-3 for n=200 and 400.
+  - Fixed-query capacity 50-51 against 49-50.
+  - RMS capacity 100-102 against 99.
+  - Collapse directions reach about 1-1.3 eps singly and < eps for section dim >= 5.
+  - Rotating gain is about 0.04/j of stationary.
+- **Open:** superlinear growth via co-rotating (phase-locked) gate modulation, whose age profiles carry d^2 numbers but
+  are heuristically visible only at about sqrt(n) scale.
+- **Next:** co-rotating age-profile visibility theorem (Theta(n) upper, or an omega(n) section), after a cheap
+  worst-query numerical screen.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-02 session 29o (historical; superseded by the block above) — fixed-feature width review
+
+- **Latest:** hostile review of theory/reachable_fixed_feature_width_20261002 (Codex, 4a8a2dc).
+  - Evidence: theory/claude_fixed_feature_width_review_20261002/REVIEW.md.
+- **floor(n/8) joint section: VERIFIED.**
+  - Paired O-fixed vectors; a single pulse; exactly affine sensitivity.
+  - The whole ball is admissible (max input 0.4736), h_T = 0 exactly, radius 0.181.
+  - Margin: the proof's bound is 0.00145 with exact constants; the exact whole-sphere minimum is 0.00177–0.00216
+    (claimed > 0.0013). Borsuk-Ulam step OK.
+- **Omega(n) fixed-feature (selected-source) dimension ESTABLISHED.** Bounds floor(n/8) <= d <= (k-1)^2; full-model
+  bounds unchanged.
+- **The mechanism is commutative.** It is capped near n/4 (stationary subspace); any single pulse is capped at r+1.
+- **Superlinear growth needs** unboundedly many non-commuting pulses on rotating modes.
+- **(26) is an amplitude bound only.** It is a specially constructed subset relative to the diagnostic.
+- **Next theorem:** two-pulse additivity beyond r+1.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-02 session 29n (historical; superseded by the block above) — operator-dimension review
+
+- **Latest:** hostile review of theory/query_visible_operator_dimension_20261002 (Codex, cece652).
+  - Evidence: theory/claude_operator_dimension_review_20261002/REVIEW.md.
+- **Aggregate recurrence (6a): VERIFIED,** but it is block RTRL indexed by feature. p r^2 + (l+1)p = Theta(n^3).
+- **Query norm nu_H: VERIFIED** for one group and one shared feature. The lower bound uses only permitted box queries.
+- **Ambient r^2 ball: VERIFIED and ONLY ambient.** Exact half-margin 0.0054 (claimed > 0.004851).
+- **Reachability gap: REAL.**
+  - Accessibility is tangent rank of the raw augmented state, valid on this family only via the 1e-8 dense perturbation.
+  - The Omega(n^2) section varies features, not operators.
+- **The r^2 scale is mis-aimed.** Scalar or fixed-profile gates give O(n) operator directions, and (15) caps a
+  one-feature block at r^2. What matters is whether gates create robust operator dimension beyond Theta(n).
+- **Log requirements:**
+  - Single-query capacity: a section with m > P needs u-dependent queries.
+  - Depth attenuation (heuristic): deep bands are visible only coherently.
+- **Next theorem:** fixed-feature reachable operator width, omega(n) versus O(n polylog n), via a gate-dissipation
+  budget.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-02 session 29m (historical; superseded by the block above) — transport-basis review
+
+- **Latest:** hostile review of theory/age_preserving_transport_basis_20261002 (Codex, d609d4d).
+  - Evidence: theory/claude_transport_basis_review_20261002/REVIEW.md.
+- **Fixed-profile O(n^2): VERIFIED for the class as defined.**
+  - The profile is fixed from t = 1, with arbitrary scalar g_t and an arbitrary final gate.
+  - The class is thin: it pins memory magnitudes to one real degree of freedom per step.
+- **Identities VERIFIED:** (7), exact co-moving transport (F2), fresh-only residual (F5), delayed decoder.
+- **Counts VERIFIED:** 2n^2+3n+k+1 and n(2n+1)+r^2+r+p+2.
+- **Certificate VALID.** z sums ||f||^2 times the W-weighted operator norm^2 of the fresh-injector misfit.
+- **Counterexample VERIFIED and far stronger:** actual error 0.53–0.77 for every ridge at n = 200 (claimed > 0.06).
+  It is caused by frame collapse (conditioning), not span leakage.
+- **Period-1 boundary PASSES:** about 1e-11 on the histories that defeated convex merging.
+- **"Basis renewal = smallest obstruction": only for this representation.**
+  - On sparse/dense aperiodic histories the fresh misfit is 0.66–1.0, and the error (0.10–0.13) is worse than the
+    convex merger.
+  - Exact renewal is impossible (commutator lemma), so per-step renewal is the dense-event encoder. This is a
+    restatement of the open d_rob question.
+  - Conditioning and algebraic leakage should be separated.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-02 session 29l (historical; superseded by the block above) — moment-merger review
+
+- **Latest:** hostile review of theory/query_weighted_moment_merger_20261001 (Codex, 421544d).
+  - Evidence: theory/claude_moment_merger_review_20261001/REVIEW.md.
+- **Centered-covariance identity: VERIFIED.** Equivalent spectral form: K = sum_omega |V-hat(omega)|^2 P_omega.
+- **Ledger: VALID, but not sharper in the hard regime.** On gate-1 rows it is never better than the plain geometric
+  triangle sum, for any lambda.
+- **Count (24)/(C8): VERIFIED,** O_m(n^2). Each packet costs about 3n^2/4, so packets beat the window encoder only
+  for m below about 26 at n = 256.
+- **Counterexample: VERIFIED and stronger than claimed.** Actual error 0.099 at n = 200, and round-robin fails for
+  every m = o(n). The e1 row repairs it (error 3.5e-7).
+- **"Remaining = constant-packet ledger theorem": NO.**
+  - The statement is sufficient only, and family-only.
+  - It looks false for the convex-Q merge algebra: the actual error is 10–70 eps already on period-1 non-scalar gates,
+    for round-robin m <= 16 and for a greedy oracle at m = 8.
+  - Greedy at m = 32 is still 4–5 eps while storing more than the window encoder.
+- **Section 8 heredity** needs the prepended input to be a permitted FUTURE input.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29k (historical; superseded by the block above) — aperiodic aggregation review
+
+- **Latest:** hostile review of theory/aperiodic_query_aggregation_20261001 (Codex, 560b0a2).
+  - Evidence: theory/claude_aperiodic_review_20261001/REVIEW.md.
+- **Finite-event O_b(n^2) encoder: VERIFIED.**
+  - Active cyclic moments, plus frozen segments and event injections, each with a counted k x k transport.
+  - Exact to 8e-14; actual dense error <= 2e-11.
+  - Easy extension: drop items older than H_eps, so bounded event density suffices.
+- **One-pulse obstruction: VERIFIED.**
+  - Actual error 0.0072–0.0076 at c = 1 (claimed > 0.00129) and 0.0036 at c = 2.
+  - No scalar avoids it.
+  - Two real histories differ by more than 2eps. Gain grows linearly in n.
+- **Interpretation is correct:** this is an estimate-shortcut obstruction, not a memory lower bound.
+- **My recommendation:** before a merger proof, measure the visible singular spectrum (window features -> all late
+  queries) under random aperiodic gates. O(n^2) means pursue the merger; n^2 log n means pursue the lower-bound section.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29j (historical; superseded by the block above) — rotating-gate aggregation review
+
+- **Latest:** hostile review of theory/rotating_gate_aggregation_20261001 (Codex, e2e0b79).
+  - Evidence: theory/claude_rotating_gate_review_20261001/REVIEW.md.
+- **Scalar-memory-gate O(n^2): VERIFIED.** Cyclic O^j moments plus source traces, (d+l)(2n+1) <= P. The moments match
+  the direct surrogate to 1e-13, and the actual dense query error is <= 2e-11 to T = 1000.
+- **Fixed-period O_p(n^2): VERIFIED in real arithmetic** (Floquet + Cayley–Hamilton). It is exact at k <= 16, but
+  the char-poly coefficients reach 5.6e16 at k = 128 (ill-conditioned).
+- **Theta_c(n^2) ESTABLISHED** on the scalar-gate history class of the rotating family; the lower-bound section lies in
+  the class.
+- **Barriers are method-only:** low-rank (actual worst query 0.043 at rank k/2), Krylov closure, and the O(n)
+  gate-budget estimate.
+- **Open:** aperiodic non-scalar gates; a query-weighted coupling bound is needed.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29i (historical; superseded by the block above) — log-gap note review
+
+- **Latest:** hostile review of theory/arbitrary_horizon_log_gap_20261001 (Codex, 6a54d5b).
+  - Evidence: theory/claude_log_gap_review_20261001/REVIEW.md.
+- **Claim 1 VERIFIED:** suffix-only lookback H >= (n/2c) log n - O(n) on the near-diagonal dense family. It matches the
+  window upper bound's leading term, and the measured smallest working H (461/971/2034) lies between the bounds.
+- **Claim 2 VERIFIED for that family only:**
+  - P = 2n^2 + n diagonal-reference eligibility traces, with error <= kappa_Q e C/gamma^2.
+  - Measured 3e-12 over 2,000-step histories; fails at coupling 1e-3.
+- **"Lookback != memory" is shown**, but modestly (the family is essentially diagonal).
+- **Worst-case log gap untouched:** the rotating Omega(n^2) family has non-diagonal G_t aO, so the traces don't apply.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29h (historical; superseded by the block above) — gamma = c/n quadratic review
+
+- **Latest:** hostile review of theory/gamma_c_over_n_quadratic_20261001 (Codex, 148a387): **Omega_c(n^2) lower bound
+  CORRECT.**
+  - Evidence: theory/claude_quadratic_review_20261001/REVIEW.md.
+- **Construction:** R0 = diag(aO, delta I), with O a Householder-conjugated d-cycle. The d = Theta_c(n) backward images
+  of the head are orthogonal.
+  - Exact trajectory: memory 0, source rows H_s (spread lemma), h_T = 0.
+  - w_R/beta = 1/n exactly.
+  - Margin >= 0.0020671875 - 1e-6, uniform in n and c; numerically 0.078–0.11.
+  - Formula (6) matches autograd to 1e-13.
+- **Density** is formal: a 4e-8/n^2 perturbation. At fixed dense coupling 0.05 the margin decays with n
+  (0.045 -> 0.024 for n = 256 -> 1024).
+- **Notes:** needs horizon ~ n/(4c), with longer horizons by padding; explicitness is computable only.
+- **Bounds:** Omega_c(n^2) <= d_rob <= O_c(n^2 log n) at arbitrary horizon; Theta_c(n^2) at the constructed O(n)
+  horizon.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29g (historical; superseded by the block above) — near-critical review
+
+- **Latest:** hostile review of theory/near_critical_credit_phase_diagram_20261001 (Codex, 18be6c6).
+  - Evidence: theory/claude_near_critical_review_20261001/REVIEW.md.
+- **Uniform Omega(n) lower bound VERIFIED.**
+  - Family: R = delta I + (a-delta)qq^T, W = I, b = 1/20.
+  - Exact two-step fixed-h section of dimension floor(n/2000).
+  - Half-margin >= 83/40000 for all n >= 2000 and any a in [1/2, 1).
+  - Numerically, the true margins are 22–105x the bound at n = 2000–6000.
+  - Notes: extend to T >= 2 by a zero-state prefix; "explicit" means computably specified; a >= 1/2 is needed.
+- **Margin ceiling** (kappa_Q C/gamma)(1-gamma)^(ceil(r/2n)-1) VERIFIED, with its three-regime consequences.
+- **Theta(n)** is established as worst-case for constant-gap classes with gamma <= 1/2, at fixed eps < 0.002075.
+- **Open:** whether near-critical gaps (1/n, 1/n^2) give superlinear memory; the construction has one slow mode.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29f (historical; superseded by the block above) — width-scaling theory review
+
+- **Latest:** hostile review of Codex's theory/robust_width_scaling_20261001/THEORY.md (commit 2b109ed).
+  - Evidence: theory/claude_width_scaling_review_20261001/REVIEW.md.
+- **Theorem 1** (O(n^2) approximate state under uniform contraction): VALID BUT NOT TIGHT.
+  - The stored n x n factors are functions of the stored hidden states.
+  - The last H+1 hidden states plus H inputs, (2H+1)n numbers, give the same Z^[H] (verified to 6e-17 at n = 3–24).
+  - So O(n log(1/eps)) suffices in the accepted memory model.
+- **Theorem 2** (margin ceiling): VALID BUT LOOSE. The corrected ceiling is m <= C_*/(1-a) a^(ceil(r/2n)-1).
+  - Cubic sections give a^(n^2+O(n)); quadratic sections also collapse (a^(cn/2)).
+  - Cubic collapse extends to a_n = 1 - c/n.
+- **Consequence:** in the uniformly contractive class a uniform Omega(n^2) lower bound is impossible, and Codex's
+  "quadratic target" cannot exist. The right open question there is Omega(n).
+- Super-linear robust memory can only live outside uniform contraction (\|R\|op ~ 1) or with eps -> 0.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29e (historical; superseded by the block above) — radial 8D refinement review
+
+- **Latest:** hostile review of Codex's exact-elimination / sharp-gate / radial-Taylor refinement of the SAME 8D
+  section (experiments/radial_taylor_refinement_8d_20261001; freeze 902d449, result b230aed): **REFINEMENT VERIFIED.**
+  - Weakest guaranteed separation is now 0.0022943344 (face 7, 14.7% slack), against the old 0.0020489061.
+  - Evidence: experiments/claude_radial_8d_review_20261001/REVIEW.md.
+- **Checks:**
+  - My 60-digit C_S/C_h derivation lies inside their intervals.
+  - The exact identity holds on the true section to 6.5e-15, so nothing eliminated re-enters.
+  - Sharp gates: 0 of 12,000 exact comparisons below the true maxima.
+  - The clean-room engine reproduces the eliminated prefix bound exactly.
+  - Band majorants hold (at most 0.99972); end-to-end true g''' is at most 0.29 of M(lambda).
+  - Fresh 192/256 replays are bit-identical.
+  - New 2beta is 5–17% below the true minima.
+- **Weakest point:** the new step is chart-specific (final-input normals, invertible W) and unmechanized. The margin
+  risk is small: a >= 2.67x remainder error is needed to break any face. The certificate now sits near the linear
+  ceiling 2mu, so higher-D needs better sections/allocations, not tighter remainders.
+- **9D screen:** numerical-only and weak; the SPSA did not converge and no constraint was active. Not evidence against
+  9D.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29d (historical; superseded by the block above) — 8D review
+
+- **Latest:** hostile review of Codex's frozen 8D certificate (experiments/third_order_antipodal_8d_20261001; freeze
+  dd70f48, result 093c1e7): **8D CERTIFICATE VERIFIED.**
+  - Independent width-4 confirmation needs >= 8 continuous coordinates at epsilon = 1e-3.
+  - Evidence: experiments/claude_8d_review_20261001/REVIEW.md.
+- **Checks:**
+  - the kernel is byte-identical to the reviewed 7D kernel;
+  - I ran Codex's clean-room interval engine on the 8D candidate: PASS, agreeing to 2.5e-13;
+  - fresh replays are bit-identical;
+  - majorants never exceeded (0.9999947, near-exact by construction on last-input normals);
+  - finite-difference D^3 Phi at most 14.7% of the bound;
+  - all face minima are 50-digit confirmed;
+  - true minimum / 2eps: face 7 1.204, face 6 1.347, face 8 1.477, face 2 1.621.
+- **Weakest point:** thin formal margins. Face 8 breaks if M3 is understated by 5.5%, face 2 at 6.0%. True curvature
+  is 8–45x below M3.
+- **Recommendation:** NOT directly to rigorous 10D; the screen shows a 10D proxy beta/eps of 0.038 with the same kernel.
+  Upgrade the method (face subdivision or Taylor models) and re-certify 8D with margin first, then a 9D float screen.
+- Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29c (historical; superseded by the block above) — rebalanced 7D review
+
+- **Latest:** hostile review of Codex's rebalanced 7D certificate (experiments/rebalanced_7d_section_20261001; freeze
+  1835b68, result 622e001): **7D CERTIFICATE VERIFIED.**
+  - Independent width-4 confirmation needs >= 7 continuous coordinates at epsilon = 1e-3.
+  - Evidence: experiments/claude_rebalanced_7d_review_20261001/REVIEW.md.
+- **Checks:**
+  - exactly two affine substitutions, mathematically valid;
+  - 60-digit corner trajectories stay inside the new enclosures;
+  - fresh replays at 192 and 256 bits are identical;
+  - majorants never exceeded (adversarial maximum 0.99896);
+  - finite-difference D^3 Phi at most 9.2% of the bound;
+  - every face minimum is at the face centre;
+  - face 7: D78 = 3.219e-3, which is 1.61 x 2eps and 1.23 x 2beta;
+  - the contract (epsilon, metric, query, endpoint, encoder) is unchanged.
+- **Key finding:** the tightening is load-bearing. The accepted kernel fails the hidden self-map on this box (forcing
+  0.0304 against allowance 0.0124).
+- **Weakest point:** reliance on the new unmechanized tightened kernel. Face 1 is the most cubic-fragile and fails under
+  a 1.205x M3 underestimate.
+- **Recommendation:** not 8D next. Instead, a second independent interval implementation, or an upper bound.
+- The owner said no 8D. Nothing is committed.
+
+# Resume Pointer as of 2026-10-01 session 29b (historical; superseded by the block above) — 6D third-order review
+
+- **Latest:** hostile review of Codex's frozen 6D third-order antipodal certificate
+  (experiments/third_order_antipodal_20261001): **VERIFIED.**
+  - Independent width-4 confirmation needs >= 6 continuous coordinates at epsilon = 1e-3.
+  - Evidence: experiments/claude_third_order_review_20261001/REVIEW.md.
+- **Checks:**
+  - proof and kernel re-derived;
+  - replays at 192 and 256 bits bit-identical;
+  - majorants never exceeded, at most 0.998;
+  - implicit y''' end to end at most 2.3% of the bound;
+  - adversarial antipodal minima >= 1.15x the certified margin;
+  - freeze clean.
+- **Weakest point:** formal rigor depends on the unmechanized third-order kernel. Face 1 would fail under a 2.2x
+  cubic underestimate; the measured truth is 40–100x below the bound.
+- No 7D work, per owner.
+
+# Resume Pointer as of 2026-10-01 session 29 (historical; superseded by the block above) — robust-dimension audits and antipodal certificate
+
+- **Current:** owner-directed robust-dimension work (Part AX).
+- **Audits:** three hostile audits of Codex results, all sound:
+  - robust-witness search: SOUND / MINOR PROCEDURAL;
+  - support-aware query margin: VERIFIED;
+  - 4D continuous section: SOUND / MINOR FORMALIZATION.
+  The formalization addendum is written as a new file in the support-aware experiment.
+- **New result:** experiments/antipodal_robust_dimension_20261001/.
+  - A per-face antipodal lemma plus the reviewed kernel certify epsilon-essential continuous dimension at
+    epsilon = 1e-3 (192 bits, regenerated at 256):
+    - independent_n4_confirmation >= 5 (was 4);
+    - dense_n4_confirmation >= 4 (was 3);
+    - dense_n3_archived >= 3 (was 2).
+  - Numerical attacks found no violation.
+  - No useful upper bound.
+- **Stage-2 proxy only:** the odd-symmetric third-order bound suggests r = 6 at independent_n4_confirmation. It is not
+  certified.
+- **Not committed to git:** the owner decides. Next step: hostile review of PROOF.md and the stage-1 certificates,
+  then a rigorous third-order kernel.
+
+# Resume Pointer as of 2026-09-30 session 28 (historical; superseded by the block above)
 
 - **Current:** the GAS-0 bounded failure-feedback fix is implemented (Part AV).
   - Root cause: head-only truncation of failure texts (`run_visible[:1200]`, C4 notice `[:800]`, C4 ledger head `[:300]`) dropped the final exception line.
@@ -4931,6 +5297,63 @@ Frozen and pushed at `000f237` before the rerun.
 - Any continuation needs a new owner protocol version that addresses seeding. This lane does not propose one unilaterally.
 
 ---
+
+# Part AX — Robust-dimension audits and the antipodal face certificate (session 29, 2026-10-01; owner-directed)
+
+**Scope.** The owner asked for hostile audits of three Codex results, then a documentation cleanup, then continued
+robust-dimension research at the SAME eight frozen endpoints with epsilon = 1e-3. No new witnesses and no
+architecture. I did not read Codex_Research.md, Cursor_Research.md or SHARED_RESEARCH_MAP.md.
+
+**Audits (verified result unless marked).**
+1. **Robust-witness search** (7cb9f3d): RESULT LIKELY SOUND — MINOR PROCEDURAL ISSUE.
+   - The "Moderate" rule is ambiguous; it was implemented post hoc, conservatively.
+   - SPSA probes flood the search shortlists.
+   - Certificates replay bit-for-bit.
+2. **Support-aware query margin** (915d007): VERIFIED.
+   - Single-query injectivity on disjoint owner supports gives mu' = (7/8)/(sqrt(n) beta ||ell/R||).
+   - It is optimal up to sech^2(1/4)/(7/8) = 1.074.
+   - It reveals a LARGE query-step certificate bias against independent recurrence (4.6–5.5x).
+3. **4D continuous section** (545667d): RESULT SOUND — MINOR FORMALIZATION NEEDED.
+   - Lift continuity was asserted without proof.
+   - The strict-spacing corollary was post hoc: 72 states under 17/8, 90 and 5 on the older products.
+   - The addendum is experiments/support_aware_robust_dimension_20261001/FORMALIZATION_ADDENDUM_20261001.md.
+
+**Antipodal face lemma (new; needs hostile review).**
+- Let E bound |I - K D_t Psi| on the whole box, with r_i = sum_k E_ik a_k / a_i.
+- Integrating DPhi along segments through the cube gives D_C >= 2 mu~_i (1 - r_i) for any pair differing by 2 in
+  coordinate i.
+- If every beta_i = mu~_i (1 - r_i) > epsilon, Borsuk–Ulam on the cube boundary gives continuous memory >= r
+  coordinates, and all 2^r corners are separated.
+- Not needed: a global contraction, an exact projection product, lambda or the 9/10 fraction.
+- Combined with per-axis amplitudes and query-weighted SVD bases.
+
+**Certified (interval 192 bits, regenerated at 256 bits).**
+
+| Endpoint | Certified r | Weakest beta / eps |
+| --- | ---: | ---: |
+| independent_n4_confirmation | 5 | 1.324 |
+| dense_n4_confirmation | 4 | 1.193 |
+| dense_n3_archived | 3 | 1.070 |
+
+Other endpoints are unchanged. Validation:
+- The kernel reproduces the reviewed 4D certificate exactly.
+- The torch attacks found adversarial antipodal minima 1.33–1.74x the certified 2 beta_min.
+- Hessian majorants were never exceeded; the maximum was 0.998.
+- 48 of 67 candidates failed hidden-section inclusion. a_h was pushed to the edge and the frozen rule rounds it DOWN.
+  A bookkeeping crash was repaired and disclosed.
+
+**Interpretation.**
+- Verified: certified robust continuous dimension at epsilon = 1e-3 now reaches 5 for independent recurrence and 4
+  for dense recurrence at width 4. These are lower bounds.
+- Interpretation: certificates remain 1.3–1.8x conservative. No upper bound was obtained, so the true
+  epsilon-essential dimension is unresolved.
+- Not an architecture candidate. This is a measurement of memory requirements under a declared contract.
+
+**Hypothesis (proxy only).** For antipodal pairs the second-order term cancels. A third-order bound in the float proxy
+suggests:
+- r = 6 at independent_n4_confirmation;
+- +1 or more at most other endpoints.
+A rigorous third-order kernel is the next build.
 
 # Part AV — GAS-0 bounded failure-feedback fix (session 28, 2026-09-30; CPU tests, then a C4-only smoke run)
 
