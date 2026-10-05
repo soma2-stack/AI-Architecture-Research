@@ -4,7 +4,7 @@ Audit only. No historical evidence deletion, migration, branch deletion, history
 
 ## Baseline and consolidation
 
-Exact preservation base: `d1767d0a62dba90b03fd21e512b3db0c4efcd133`. Audited research/navigation head: `501eb37647509504d69f17cc3b17b97e2b29af6d` on `cleanup/research-consolidation-20261004`. Branch ahead/behind figures below are relative to that explicit head; the subsequent audit commit adds documentation only.
+Exact preservation base: `d1767d0a62dba90b03fd21e512b3db0c4efcd133`. Audited research/navigation snapshot: `501eb37647509504d69f17cc3b17b97e2b29af6d` on `cleanup/research-consolidation-20261004`. Branch ahead/behind figures and local-worktree validation below are relative to that explicit snapshot. Later commits correct audit wording and scientific-status/navigation claims after independent review; they do not retroactively extend the snapshot-specific local validation to the final PR head.
 
 Original local worktree: `C:/Users/coler/OneDrive/Desktop/ai new`. Separate cleanup worktree: `C:/Users/coler/AppData/Local/Temp/ai-research-consolidation-20261004`. Original GAS-0 changes, archival notebooks and untracked work were not staged or modified.
 
@@ -19,7 +19,7 @@ Wonderful-fermi was not merged. Only three absent independent review folders wer
 | `theory/claude_absolute_energy_review_20261003/` | 67 | 285,855 | `fd0b3656dd3b632abbcb4b6b0112edd8f6b496bc` |
 | `theory/claude_autonomous_energy_upper_review_20261003/` | 121 | 602,008 | `fd0b3656dd3b632abbcb4b6b0112edd8f6b496bc` |
 
-All 29 prior local theory folders, four Claude experiment-review folders, Perplexity draft/provenance, and corridor ancestry remain. Imported evidence has no new acceptance status merely because it was consolidated. Claude multidonor is CONDITIONAL as a compression theorem; Codex spatial-write and multi-donor new claims are PENDING REVIEW. Dedicated unpaired-review folder is absent; owner acceptance is the recorded basis. Grok filtered notes have owner-accepted scoped findings, not a fabricated independent-review relationship.
+All 29 prior local theory folders, four Claude experiment-review folders, Perplexity draft/provenance, and corridor ancestry remain. Imported evidence has no new acceptance status merely because it was consolidated. Claude multidonor is CONDITIONAL as a compression theorem; Codex spatial-write and multi-donor new claims are PENDING REVIEW. Dedicated unpaired-review folder is absent; owner acceptance is the recorded basis. A post-consolidation independent audit found that the Grok `D=2` monotonicity completion has an unresolved time-varying-propagator proof gap and that the filtered-timing disjoint-packing necessity is inferred from a lower bound in the wrong direction. Current navigation now marks those theorem claims pending rather than established; historical Grok reports remain unchanged.
 
 ## Measured tracked tree and object storage
 
@@ -211,4 +211,4 @@ Unique commit lists, absent paths, differing theory paths and all local branch h
 
 The cleanup branch is for owner review. No merge to main is authorized. Independent scientific review of the pending spatial-write theorem is a separate next task.
 
-Actual pre-push results: [CONSOLIDATION_VALIDATION.json](CONSOLIDATION_VALIDATION.json). All preservation, link, ancestry, original-worktree hash/status, and audited-head checks passed. Git reported two zero-sized garbage/temp entries during object inventory; these were left untouched. No Git garbage collection or pruning was performed.
+Snapshot results: [CONSOLIDATION_VALIDATION.json](CONSOLIDATION_VALIDATION.json) checks head `501eb37647509504d69f17cc3b17b97e2b29af6d`. All preservation, link, ancestry, original-worktree hash/status, and audited-head checks passed for that snapshot. Later documentation/status-correction commits were reviewed through GitHub but were not rerun through the original local-worktree validation harness, so this file does not claim final-head validation. Git reported two zero-sized garbage/temp entries during object inventory; these were left untouched. No Git garbage collection or pruning was performed.
