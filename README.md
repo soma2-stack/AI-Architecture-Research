@@ -13,7 +13,7 @@ Read in this order:
 
 `theory/` contains proofs, scoped derivations, reviews, and drafts. `experiments/` contains diagnostic and certification code, frozen inputs, replay outputs, and other experimental evidence. Experiments do not automatically validate a theorem or establish an architecture.
 
-ACCEPTED records owner acceptance; VERIFIED requires independent review evidence in its stated scope. PENDING REVIEW and CONDITIONAL remain unresolved. REFUTED, SUPERSEDED, HISTORICAL, and DRAFT records are kept so later researchers can reconstruct decisions and avoid repeating failed routes. A folder being committed does not certify its claims.
+Owner disposition and independent review are separate axes. ACCEPTED records owner acceptance; VERIFIED requires independent review evidence in its stated scope. A result can be owner-accepted and also have independent review, which is recorded separately in the theory index. Author-local labels such as `PROVED` inside preserved reports do not by themselves create repository-level VERIFIED status. PENDING REVIEW and CONDITIONAL remain unresolved. REFUTED, SUPERSEDED, HISTORICAL, and DRAFT records are kept so later researchers can reconstruct decisions and avoid repeating failed routes. A folder being committed does not certify its claims.
 
 `Claude_Research.md`, `Codex_Research.md`, and `Cursor_Research.md` are archival notebooks with detailed provenance. They are optional detail sources rather than onboarding requirements; their lane-reading rules remain governed by AGENTS.md. Historical failed work, outputs, and review records are intentionally preserved.
 
