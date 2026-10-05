@@ -992,14 +992,14 @@
     "agent": "Grok (version only where recorded)",
     "topic": "grok filtered timing d2 monotone",
     "type": "Review / scoped theory",
-    "status": "ACCEPTED",
+    "status": "PENDING REVIEW",
     "reviewed_by": [],
     "reviews_target": "",
     "superseded_by": "",
-    "summary": "Signed overlap monotonicity completes one joint D=2 square on separate survivor blocks with margin>.009.",
+    "summary": "Post-consolidation review found a proof gap: frozen-A(q) spectral signs do not establish the sign of the actual time-ordered products with changing q_t; the claimed joint D=2 square is not currently established.",
     "evidence_file": "theory/grok_filtered_timing_d2_monotone_20261004/REPORT.md",
     "status_evidence": [],
-    "status_basis": "Owner acceptance in supplied project checkpoint"
+    "status_basis": "Post-consolidation independent audit identified a time-varying-propagator gap and spectral sign errors; owner acceptance is preserved as provenance, not theorem establishment."
   },
   {
     "folder": "theory/grok_filtered_timing_one_block_20261004",
@@ -1011,10 +1011,10 @@
     "reviewed_by": [],
     "reviews_target": "",
     "superseded_by": "",
-    "summary": "Uniform matched-versus-low gating gives one all-ones robust mode per physical survivor block, not a general nonuniform cap.",
+    "summary": "Narrow accepted observation: in the uniform matched-versus-low family the strong difference is the all-ones coefficient while orthogonal/zero-sum survivor components reproduce; its D=2 and disjoint-packing consequences remain pending.",
     "evidence_file": "theory/grok_filtered_timing_one_block_20261004/REPORT.md",
     "status_evidence": [],
-    "status_basis": "Owner acceptance in supplied project checkpoint"
+    "status_basis": "Owner acceptance retained only for the narrow matched-versus-low all-ones/zero-sum observation; dependent D=2 and packing claims are not established."
   },
   {
     "folder": "theory/grok_filtered_timing_width_20261004",
@@ -1025,13 +1025,13 @@
     "status": "HISTORICAL",
     "reviewed_by": [],
     "reviews_target": "",
-    "superseded_by": "grok_filtered_timing_d2_monotone_20261004",
-    "summary": "Shared filtered timing has erasure/flat-collapse and disjoint-packing restrictions; only the known 1D section is obtained.",
+    "superseded_by": null,
+    "summary": "Exact filtering, long-low-run erasure, and single-cohort flat-window collapse remain useful; the claimed necessary disjoint-packing cap is not established because its argument uses a visibility lower bound in the wrong direction.",
     "evidence_file": "theory/grok_filtered_timing_width_20261004/REPORT.md",
     "status_evidence": [
       "The verified one-step lower bound has the shape"
     ],
-    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+    "status_basis": "Historical mixed-result note; exact identities/restricted estimates retained, while the necessary packing inference is pending correction."
   },
   {
     "folder": "theory/grok_holding_cost_attack_review_20261003",
