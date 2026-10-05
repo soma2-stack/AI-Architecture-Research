@@ -1,0 +1,1382 @@
+[
+  {
+    "folder": "theory/age_preserving_transport_basis_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "age preserving transport basis",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_transport_basis_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Fixed-profile gates admit quadratic memory; fixed anchors fail and renewal is not a reduction of arbitrary-gate compression.",
+    "evidence_file": "theory/age_preserving_transport_basis_20261002/REPORT.md",
+    "status_evidence": [
+      "The convex merger is rejected as a general representation. Its verified",
+      "below are author-derived and need independent hostile review.",
+      "the pending feature tuple, clock and scalar error ledger. Add n for current h",
+      "Use the verified ledger with",
+      "only the restricted fixed-shape theorem is unconditional.",
+      "**Single next step:** independent hostile review of the co-moving forcing-refit"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/aperiodic_query_aggregation_20261001",
+    "date": "2026-10-01",
+    "agent": "Codex; model unspecified",
+    "topic": "aperiodic query aggregation",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_aperiodic_review_20261001"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Bounded non-scalar events admit quadratic storage; arbitrary aperiodic gates remain outside the theorem.",
+    "evidence_file": "theory/aperiodic_query_aggregation_20261001/REPORT.md",
+    "status_evidence": [
+      "obstruction derived; independent review required.",
+      "The accepted quadratic section lies in this class, giving conditional",
+      "| Scalar/periodic accepted results | Preserved; bounded independent review read |",
+      "| Visible old-credit gain automatically O_c(1) | Refuted by the new analytic history |",
+      "First obtain independent review of these new lemmas. Do not start another"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/arbitrary_horizon_log_gap_20261001",
+    "date": "2026-10-01",
+    "agent": "Codex; model unspecified",
+    "topic": "arbitrary horizon log gap",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_log_gap_review_20261001"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Suffix lookback needs n log n steps, while exact eligibility traces give quadratic memory for the near-diagonal family.",
+    "evidence_file": "theory/arbitrary_horizon_log_gap_20261001/REPORT.md",
+    "status_evidence": [
+      "coherent and aggregatable. The new lemmas require independent hostile review.",
+      "The accepted quadratic lower and its independent review were read; their",
+      "was repeated. The independent review's padding note and existential/typical"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_absolute_energy_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude absolute energy review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_absolute_history_energy_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: Zero endpoint requires growing absolute energy; this is feasibility, not a memory upper bound.",
+    "evidence_file": "theory/claude_absolute_energy_review_20261003/REVIEW.md",
+    "status_evidence": [
+      "# Independent hostile review: absolute-history-energy obstruction",
+      "Labels: **[V]** analytic, verified by me; **[N]** numerical diagnostic only.",
+      "## Verdict: **VERIFIED**",
+      "Looseness is not a false statement, so the verdict stays VERIFIED rather than",
+      "Separately verified:"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_aperiodic_review_20261001",
+    "date": "2026-10-01",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude aperiodic review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "aperiodic_query_aggregation_20261001",
+    "superseded_by": "",
+    "summary": "Independent audit: Bounded non-scalar events admit quadratic storage; arbitrary aperiodic gates remain outside the theorem.",
+    "evidence_file": "theory/claude_aperiodic_review_20261001/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| Question | Verdict |",
+      "| **1. Finite-event O_b(n^2) encoder** | **VERIFIED.** Exact, with every buffer counted, continuous, arbitrary horizon, all permitted late queries, no replay. Quadratic in n for fixed b, with a linear b-factor. |",
+      "| **2. Single-pulse >eps obstruction** | **VERIFIED, and numerically much stronger.** The proof gives > 0.0012897776 at c = 1. The actual error is 0.0072–0.0076 at c = 1 (n = 200, 256) and 0.0036 at c = 2. No scalar choice, not just the mean, avoids it. |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_autonomous_energy_upper_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude autonomous energy upper review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_autonomous_absolute_energy_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: In the frozen biased family constant absolute energy makes past credit negligible uniformly; forward state still costs n.",
+    "evidence_file": "theory/claude_autonomous_energy_upper_review_20261003/REVIEW.md",
+    "status_evidence": [
+      "# Independent hostile review: constant-absolute-energy zero-credit UPPER theorem",
+      "- **[V]** verified analytically by me;",
+      "## 1. Verdict: **VERIFIED**",
+      "Looseness is not a false statement, so the verdict is VERIFIED rather than"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_bounded_history_radius_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude bounded history radius review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_bounded_history_multiharmonic_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: A joint 19/18 lower has local input radius below .02 around a public center whose absolute energy grows.",
+    "evidence_file": "theory/claude_bounded_history_radius_review_20261003/REVIEW.md",
+    "status_evidence": [
+      "# Independent hostile review: bounded-LOCAL-radius Omega(n^(19/18)) section",
+      "Claude, 2026-10-03. Independent review of",
+      "Labels: **[V]** = verified (analytic, by me); **[N]** = numerical diagnostic",
+      "## 1. Overall verdict",
+      "**VERIFIED.** The bounded-local-radius Omega(n^(19/18)) theorem survives as written.",
+      "## 7. Verified per-step L2 bound [V]",
+      "## 14. Verified robust half-margin [V]",
+      "## 15. Verified dimension lower bound [V]"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_causal_width_20261002",
+    "date": "2026-10-02",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude causal width",
+    "type": "Proof / theory",
+    "status": "SUPERSEDED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "codex_multiharmonic_lower_20261002",
+    "summary": "Exact probe absorption and a harmonic signal motivate a superlinear sketch, superseded by the checked joint theorem.",
+    "evidence_file": "theory/claude_causal_width_20261002/REPORT.md",
+    "status_evidence": [],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/claude_fixed_feature_width_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude fixed feature width review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "reachable_fixed_feature_width_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: One joint fixed-feature section establishes floor(n/8) directions; ambient-ball reachability is not assumed.",
+    "evidence_file": "theory/claude_fixed_feature_width_review_20261002/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| # | Question | Verdict |",
+      "| 1 | floor(n/8) section | **VERIFIED.** One joint continuous section over the closed unit ball of R^m, with m = floor((k-d)/2) >= floor(n/8). It is exactly floor(n/8) at every n tested. |",
+      "| 3 | Admissibility, endpoint, radius | **VERIFIED over the whole ball,** not just the axes. Max input 0.4736; h_T = 0 exactly; radius < 0.19 (analytic), 0.181 measured. |",
+      "| 4 | Borsuk-Ulam step | **VERIFIED.** No off-by-one: encoders with fewer than m coordinates collide on S^(m-1). |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_interacting_block_20261002",
+    "date": "2026-10-02",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude interacting block",
+    "type": "Proof / theory",
+    "status": "HISTORICAL",
+    "reviewed_by": [
+      "grok_permitted_query_reach_20261002",
+      "grok_spike_remainder_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "claude_moving_spike_remainder_20261002",
+    "summary": "Scoped one-pulse and bounded-pulse claims verify; interacting-block charts and query hypotheses require later collision analysis.",
+    "evidence_file": "theory/claude_interacting_block_20261002/REPORT.md",
+    "status_evidence": [
+      "full_box_margin.json). [R, contract-conditional]"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/claude_log_gap_review_20261001",
+    "date": "2026-10-01",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude log gap review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "arbitrary_horizon_log_gap_20261001",
+    "superseded_by": "",
+    "summary": "Independent audit: Suffix lookback needs n log n steps, while exact eligibility traces give quadratic memory for the near-diagonal family.",
+    "evidence_file": "theory/claude_log_gap_review_20261001/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| Claim | Verdict |",
+      "| **1. Suffix-only lookback H >= (n/2c) log n - O_(c,eps)(n)** | **VERIFIED.** The window upper bound has the same leading term, so suffix-only lookback on this family is Theta((n/2c) log n), tight up to O_(c,eps)(n). |",
+      "| **2. Same family, arbitrary horizon, O(n^2) continuous encoder** | **VERIFIED, for this near-diagonal family only.** P = 2n^2 + n counted eligibility traces (+n for h when not supplied). Continuous, online, aggregating, and uniform over all horizons and all permitted late queries. |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_moment_merger_review_20261001",
+    "date": "2026-10-01",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude moment merger review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "query_weighted_moment_merger_20261001",
+    "superseded_by": "",
+    "summary": "Verifies covariance and counts; refutes convex packet merging and round-robin scheduling as general compression.",
+    "evidence_file": "theory/claude_moment_merger_review_20261001/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| Question | Verdict |",
+      "| **1. Centered-covariance identity** | **VERIFIED.** Exact, with every cross term and the 1/4 factor at alpha = 1/2. Numerically 1e-15. |",
+      "| **2. Horizon-uniform error ledger** | **VERIFIED as a valid upper bound.** It is NOT a sharper bound in the hard regime: on rows whose gate is 1 it is never better than the plain geometric triangle sum, for any choice of lambda. |",
+      "| **3. Memory count** | **VERIFIED.** Formulas (24) and (C8) are exact; nothing is hidden or replayed; updates are continuous; O(n^2) for fixed m. Each packet costs about 3n^2/4 coordinates, so m must truly be O(1). |",
+      "| **One-packet counterexample** | **VERIFIED**, analytically and on the actual dense model. It is stronger than stated: round-robin fails for every m = o(n). The e1 eligibility row repairs it. |",
+      "## 1. Centered-covariance identity (Section 3): verified",
+      "## 3. Memory count (Section 6.1, C8): verified"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_moving_spike_remainder_20261002",
+    "date": "2026-10-02",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude moving spike remainder",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "grok_spike_remainder_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Exact moving spike plus bounded remainder provides legal-query uppers and certified collisions in sustained charts.",
+    "evidence_file": "theory/claude_moving_spike_remainder_20261002/REPORT.md",
+    "status_evidence": [
+      "**Verdicts:**",
+      "is verified like the others.",
+      "evidence is **refuted at n = 200, 400 and 1000** by certified collisions in the very charts that produced it."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_multidonor_joint_section_20261004",
+    "date": "2026-10-04",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude multidonor joint section",
+    "type": "Proof / theory",
+    "status": "CONDITIONAL",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Exact transfer representation is newly derived; complete compression depends on a sparse timing-signal hypothesis.",
+    "evidence_file": "theory/claude_multidonor_joint_section_20261004/REPORT.md",
+    "status_evidence": [
+      "`54a915d`. New derivations; independent hostile review required. The full",
+      "from the VERIFIED private-renewal renewal formula.",
+      "needs mT=omega(n^(3/2)) (CONDITIONAL / HEURISTIC). The question is not",
+      "closed unconditionally.",
+      "**CONDITIONAL**",
+      "requires mT = omega(n^(3/2)), the same law as the VERIFIED paired barrier."
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/claude_near_critical_review_20261001",
+    "date": "2026-10-01",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude near critical review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "near_critical_credit_phase_diagram_20261001",
+    "superseded_by": "",
+    "summary": "Independent audit: Constant-gap worst case is Theta(n); shrinking-gap matching lower bounds were left open here.",
+    "evidence_file": "theory/claude_near_critical_review_20261001/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| Question | Verdict |",
+      "| **1. Uniform Omega(n) lower bound** (section of dimension floor(n/2000), half-margin >= 0.002075 for all n >= 2000) | **VERIFIED.** No mathematical gap. Four formalization notes follow. |",
+      "| **2. Margin ceiling** m <= (kappa_Q C/gamma)(1-gamma)^(ceil(r/2n)-1), and its three-regime consequences | **VERIFIED.** |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_operator_dimension_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude operator dimension review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "query_visible_operator_dimension_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Observable operator norms and aggregate identities are scoped; ambient operator visibility is not reachable robust dimension.",
+    "evidence_file": "theory/claude_operator_dimension_review_20261002/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| # | Claim | Verdict |",
+      "| 1 | Exact coupled aggregate recurrence (6a) | **VERIFIED.** It is block RTRL indexed by feature, not a compression. |",
+      "| 2 | Storage count | **VERIFIED.** (2n+1) r^2 + (l+1)(2n+1) (+n). This is Theta(n^3), about n^3/2, despite there being only p = O(r) operators. |",
+      "| 3 | Physical query norm nu_H | **VERIFIED.** It is the exact all-query norm of one parameter group (R remaining-rows x source-columns) for ONE shared raw feature H. The lower bound uses only permitted queries. |",
+      "| 4 | Ambient r^2 ball, half-margin > 0.004851 | **VERIFIED, and ONLY ambient.** The exact half-margin is 0.00540–0.00543. No admissible lift is claimed or shown. |",
+      "| 7 | Accumulation example (Section 6.1) | **VERIFIED.** It shows coherent accumulation only and adds no dimension. |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_quadratic_review_20261001",
+    "date": "2026-10-01",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude quadratic review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "gamma_c_over_n_quadratic_20261001",
+    "superseded_by": "",
+    "summary": "Independent audit: A joint normalized fixed-hidden section proves Omega_c(n^2) at gamma=c/n, matching finite O(n)-horizon memory.",
+    "evidence_file": "theory/claude_quadratic_review_20261001/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| Question | Verdict |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_rotating_gate_review_20261001",
+    "date": "2026-10-01",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude rotating gate review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "rotating_gate_aggregation_20261001",
+    "superseded_by": "",
+    "summary": "Independent audit: Scalar and fixed-period gates have quadratic encoders; low-rank and fixed-Krylov methods fail within their tested scopes.",
+    "evidence_file": "theory/claude_rotating_gate_review_20261001/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| Question | Verdict |",
+      "| **1. Scalar-memory-gate O(n^2)** | **VERIFIED.** The cyclic moment representation (4) is exact. The memory moments and source traces use (d+l)(2n+1) <= P coordinates, are continuous and online, and involve no replay. Error is uniform over all horizons and permitted late queries via the reviewed dense-transfer bound. |",
+      "| **2. Fixed-period O_p(n^2)** | **VERIFIED in real arithmetic.** Floquet block recursion plus Cayley–Hamilton companion moments is exact even for noncommuting a D_i O products. Storage (pk+l)(2n+1) + 2pn + pk + 1 = O_p(n^2). Caveat: the companion coordinates are exponentially ill-conditioned (allowed by the real-coordinate contract). |",
+      "| **3. Theta_c(n^2) on the scalar-gate class** | **ESTABLISHED** for the hard rotating family restricted to histories whose past memory gates are scalar. The accepted Omega_c(n^2) section (memory states 0, gates I) lies in the class, padding keeps it there, and the O(n^2) encoder covers the whole class. It is a conditional, per-family statement. |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_transport_basis_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude transport basis review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "age_preserving_transport_basis_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Fixed-profile gates admit quadratic memory; fixed anchors fail and renewal is not a reduction of arbitrary-gate compression.",
+    "evidence_file": "theory/claude_transport_basis_review_20261002/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| # | Question | Verdict |",
+      "| 1 | Fixed-profile O(n^2) | **VERIFIED for the class as defined.** The class is thinner than \"arbitrary histories\" suggests; see caveats. |",
+      "| 2 | Representation identities | **VERIFIED.** Cayley-Hamilton (7), exact co-moving transport (F2), fresh-only residual (F5), continuity, delayed decoder (8a). Old decoded credit is preserved exactly in the surrogate. |",
+      "| 3 | Memory counts | **VERIFIED, both.** 2n^2+3n+k+1 and n(2n+1)+r^2+r+p+2; nothing omitted. |",
+      "| 5 | Fixed-anchor counterexample | **VERIFIED, and about 10x stronger than claimed.** Actual worst permitted error 0.53–0.77 for every ridge tried. |",
+      "## 1. Fixed-profile theorem (Section 3): verified, with scope caveats",
+      "- Delay (8a): Zbar_T = a G_T O_* Zbar_(T-1) + G_T Psi f_T, using the actual last gate and the pending tuple. It needs"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_two_pulse_additivity_20261002",
+    "date": "2026-10-02",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude two pulse additivity",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "codex_two_pulse_corotating_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Bounded pulse count caps dimension linearly; the stronger one-pulse construction requires its independent Codex audit.",
+    "evidence_file": "theory/claude_two_pulse_additivity_20261002/REPORT.md",
+    "status_evidence": [
+      "## A. Verdict",
+      "| Question | Verdict |",
+      "| Can two pulses beat O(n)? | **REFUTED (rigorous).** Theorem A: any section in a q-pulse family has dimension <= qk, so two pulses give <= 2k <= n + 1. The same holds for any bounded number of pulses. |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/claude_width_scaling_review_20261001",
+    "date": "2026-10-01",
+    "agent": "Claude (Opus 5.5 where recorded)",
+    "topic": "claude width scaling review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "robust_width_scaling_20261001",
+    "superseded_by": "",
+    "summary": "Independent audit: Contractive upper and margin ceiling are valid but loose; the review replaces the quadratic target with a counted linear window.",
+    "evidence_file": "theory/claude_width_scaling_review_20261001/REVIEW.md",
+    "status_evidence": [
+      "## Verdicts",
+      "| Claim | Verdict |",
+      "Its whole regime is conditional on uniform operator contraction plus width-uniform W and input bounds. The accepted"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_absolute_history_energy_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex absolute history energy",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_absolute_energy_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Zero endpoint requires growing absolute energy; this is feasibility, not a memory upper bound.",
+    "evidence_file": "theory/codex_absolute_history_energy_20261003/REPORT.md",
+    "status_evidence": [
+      "they have not yet received independent review. Earlier proofs/reviews unchanged.",
+      ">999.999649997999 at epsilon=0.001. Its two hostile-review verdicts are accepted",
+      "from the owner, not re-evaluated. Historical pending-review wording is retained"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_autonomous_absolute_energy_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex autonomous absolute energy",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_autonomous_energy_upper_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "In the frozen biased family constant absolute energy makes past credit negligible uniformly; forward state still costs n.",
+    "evidence_file": "theory/codex_autonomous_absolute_energy_20261003/REPORT.md",
+    "status_evidence": [
+      "Codex, 2026-10-03. **NEW THEOREM, internally checked; independent review",
+      "proof itself still needs independent hostile review, especially the scalar",
+      "**Single next step:** independent hostile review of THEOREM 1, Lemma 2 and"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_bounded_history_multiharmonic_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex bounded history multiharmonic",
+    "type": "Proof / theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [
+      "claude_bounded_history_radius_review_20261003",
+      "grok_bounded_history_radius_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "A joint 19/18 lower has local input radius below .02 around a public center whose absolute energy grows.",
+    "evidence_file": "theory/codex_bounded_history_multiharmonic_20261003/REPORT.md",
+    "status_evidence": [
+      "internally checked and pending independent hostile review. No old theorem",
+      "or independent review is modified. No exponent optimization or new regime.",
+      "the already verified window and all its signal/transfer accounting. The",
+      "append-only. Independent reviews and old theorem outputs remain untouched."
+    ],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/codex_causal_suffix_width_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "codex causal suffix width",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "grok_causal_suffix_width_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Suffix metric is nonexpansive; a one-time merge works but a linear causal encoder was not established.",
+    "evidence_file": "theory/codex_causal_suffix_width_20261002/REPORT.md",
+    "status_evidence": [
+      "2026-10-02. New Codex derivations; independent review required.",
+      "**O(n) is neither proved nor robustly refuted.** The verified checkpoint and",
+      "ordinary memory model the verified Omega(n)--O(n^2) bounds stand.",
+      "8. **Full-model consequence.** The verified",
+      "New lemmas are analytical deductions, not independently reviewed results."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_energy_credit_tradeoff_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex energy credit tradeoff",
+    "type": "Proof / theory",
+    "status": "SUPERSEDED",
+    "reviewed_by": [
+      "grok_energy_credit_tradeoff_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "codex_energy_threshold_improvement_20261003",
+    "summary": "Short harmonic packets give superlinear dimension at energy exponent 7/8, with scoped localized tradeoffs.",
+    "evidence_file": "theory/codex_energy_credit_tradeoff_20261003/REPORT.md",
+    "status_evidence": [
+      "awaiting independent hostile review. It is not an accepted project checkpoint"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/codex_energy_threshold_improvement_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex energy threshold improvement",
+    "type": "Proof / theory",
+    "status": "SUPERSEDED",
+    "reviewed_by": [
+      "grok_energy_threshold_improvement_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "codex_holding_cost_attack_20261003",
+    "summary": "Rebalanced joint profiles and modulation yield exponent 3/4 with F^(9/4) energy loss.",
+    "evidence_file": "theory/codex_energy_threshold_improvement_20261003/REPORT.md",
+    "status_evidence": [
+      "**CONDITIONAL:** sparse or rotating active subsets could save energy, but the",
+      "| Vanishing active fraction / duty-cycle scheme | CONDITIONAL | No scalar harmonic Q_t identity for noncommuting baseline |",
+      "| Universal sharper energy-width upper | CONDITIONAL | Continuous reachable query quotient not bounded |",
+      "The separate final audit verified 25 historical source hashes and direct",
+      "**Next action:** independently hostile-review the new quotient-spreading,"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/codex_holding_cost_attack_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex holding cost attack",
+    "type": "Proof / theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [
+      "grok_holding_cost_attack_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Best accepted packet gives D>=nF/10^7 at norm<=4e7 n^(3/4)F^(3/2); corridor construction is only a transport lemma.",
+    "evidence_file": "theory/codex_holding_cost_attack_20261003/REPORT.md",
+    "status_evidence": [
+      "2026-10-03. Internally checked NEW derivation; independent hostile review",
+      "remains unchanged. All NEW statements are internally checked, pending",
+      "independent hostile review. No bits, VRAM, training speed, practical onset,"
+    ],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/codex_intermediate_gate_credit_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "codex intermediate gate credit",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "grok_intermediate_gate_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Intermediate gate words have a legal coupled lift, a joint linear section, and a uniform low-order chronological expansion.",
+    "evidence_file": "theory/codex_intermediate_gate_credit_20261002/REPORT.md",
+    "status_evidence": [
+      "2026-10-02. New mathematical derivations for independent review. No numerical",
+      "## 4. Is fixed-feature Theta(n) proved or refuted?",
+      "New rigorous derivations remain subject to independent mathematical review."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_multi_donor_joint_section_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex multi donor joint section",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Multi-epoch legal candidates and scoped obstruction derivations do not produce superlinear dimension.",
+    "evidence_file": "theory/codex_multi_donor_joint_section_20261003/REPORT.md",
+    "status_evidence": [
+      "Started 2026-10-03; completed 2026-10-04. Codex. **NEW scoped obstruction theorems, internally checked; independent hostile review pending.** Historical accepted proofs/reviews are unchanged."
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/codex_multiharmonic_consolidation_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex multiharmonic consolidation",
+    "type": "Proof / theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [
+      "grok_multiharmonic_16_15_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Growing-local-radius joint lower reaches Omega(n^(16/15)); no bounded absolute-energy claim.",
+    "evidence_file": "theory/codex_multiharmonic_consolidation_20261003/REPORT.md",
+    "status_evidence": [
+      "The owner accepts the original JOINT theorem after independent hostile review.",
+      "update-compatible quotient. In either model universal O(n) is refuted.",
+      "Independent Grok report/probe hashes are verified unchanged by arithmetic.py."
+    ],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/codex_multiharmonic_lower_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "codex multiharmonic lower",
+    "type": "Proof / theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [
+      "grok_multiharmonic_lower_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "codex_multiharmonic_consolidation_20261003",
+    "summary": "Accepted joint 19/18 lower; single-harmonic normalization was corrected and growing-radius exponent strengthened later.",
+    "evidence_file": "theory/codex_multiharmonic_lower_20261002/REPORT.md",
+    "status_evidence": [
+      "**The original 19/18 theorem is accepted after independent review:**",
+      "The second row should replace 19/18 as the strongest independently reviewed",
+      "10. **Universal O(n).** Refuted under the stated continuous"
+    ],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/codex_online_gate_polynomial_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "codex online gate polynomial",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "grok_online_gate_polynomial_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Causal triangular recurrence and quadratic reference storage verify; exact realization rank is not finite-error memory.",
+    "evidence_file": "theory/codex_online_gate_polynomial_20261002/REPORT.md",
+    "status_evidence": [
+      "independent review. The accepted earlier results and their evidence are intact.",
+      "6. **Fixed-feature Theta(n)?** Still open, neither established nor refuted.",
+      "unprofiled. PROVENANCE.json records source hashes and the verified checkpoint.",
+      "the new lemmas have not received independent review. SHARED_RESEARCH_MAP.md"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_private_renewal_gamma_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex private renewal gamma",
+    "type": "Proof / theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [
+      "grok_private_renewal_gamma_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Equal local codes can hide Gamma>.03 and one cheap robust direction; no superlinear dimension follows.",
+    "evidence_file": "theory/codex_private_renewal_gamma_20261003/REPORT.md",
+    "status_evidence": [
+      "**Outcome: a nonperturbative equal-code counterexample. NEW proof pending",
+      "15. **Whole corridor closed?** NO. The uniform small-Gamma route is refuted;",
+      "exact trace-matched counterexample. If verified, test whether a growing",
+      "Source checkpoint699e8d9. Historical pending-review labels remain untouched;"
+    ],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/codex_single_block_spatial_write_20261004",
+    "date": "2026-10-04",
+    "agent": "Codex; model unspecified",
+    "topic": "codex single block spatial write",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Nonuniform masks claim joint logarithmically many modes on one support; independent review remains pending and D is not superlinear.",
+    "evidence_file": "theory/codex_single_block_spatial_write_20261004/REPORT.md",
+    "status_evidence": [
+      "2026-10-04. All NEW results below are **PROVED derivations, internally checked, independent hostile review pending**. Accepted historical results and independent reviews are unchanged.",
+      "| D=omega(n)? | Not obtained. Complete multi-column corridor remains open. | CONDITIONAL / OPEN |"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/codex_suffix_product_hostile_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex suffix product hostile review",
+    "type": "Review / scoped theory",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Scoped paired obstruction verifies with stronger minimum code count and careful energy interpretation.",
+    "evidence_file": "theory/codex_suffix_product_hostile_review_20261003/REPORT.md",
+    "status_evidence": [
+      "**VERIFIED** — the scoped paired-corridor obstruction",
+      "1. **Verdict:** VERIFIED. No in-scope load-bearing failure found."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_suffix_product_kernel_attack_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex suffix product kernel attack",
+    "type": "Proof / theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [
+      "codex_suffix_product_hostile_review_20261003"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Static quantile codes bound only the paired projected monotone suffix-product channel.",
+    "evidence_file": "theory/codex_suffix_product_kernel_attack_20261003/REPORT.md",
+    "status_evidence": [
+      "2026-10-03. NEW internally checked theorem, pending independent hostile",
+      "Next attack, AFTER independent review: characterize the unpaired private"
+    ],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/codex_sustained_weak_gate_credit_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "codex sustained weak gate credit",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "grok_sustained_weak_gate_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Sustained and K/t weakening subclasses have finite-error bounds, not a whole-class O(n) theorem.",
+    "evidence_file": "theory/codex_sustained_weak_gate_credit_20261002/REPORT.md",
+    "status_evidence": [
+      "2026-10-02. New scoped derivations for independent review. No experiments,",
+      "**NO. It is neither proved nor refuted.** No jointly admissible omega(n)"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_timing_signal_J_20261004",
+    "date": "2026-10-04",
+    "agent": "Codex; model unspecified",
+    "topic": "codex timing signal J",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "grok_timing_signal_J_review_20261004"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "A changing survivor set defeats uniform O(1/m_s) timing entries; large entries still represent one contrast.",
+    "evidence_file": "theory/codex_timing_signal_J_20261004/REPORT.md",
+    "status_evidence": [
+      "2026-10-04. **NEW results internally checked; independent hostile review pending.** Work restricted to AI-Architecture-Research theory. Historical records preserved.",
+      "**The literal uniform O(1/m_s) entry hypothesis is refuted.** Warm credit with all tuples at a high gate, then lower half of them. The new gate-weighted credit sum creates a large timing signal despite exact zero-sum STATE pairing. Many entries can remain large for a growing interval, including differences from a fixed public reference and histories with equal final old local codes.",
+      "| Does the described small-entry compression premise become unconditional? | No: its literal entry bound is false. |",
+      "| Is Claude's actual conditional theorem refuted? | Not asserted. Its newest document/hypothesis was not located locally; an exact path was requested. A different integrated/query-weighted premise may remain possible. |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_two_pulse_corotating_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "codex two pulse corotating",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_interacting_block_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "The improved one-pulse lower is floor(n/4)-2 with arithmetic clarifications; co-rotating diagnostics are not superlinear proofs.",
+    "evidence_file": "theory/codex_two_pulse_corotating_20261002/REPORT.md",
+    "status_evidence": [
+      "2026-10-02. **Stronger one-pulse theorem verified with arithmetic clarifications.",
+      "permitted query, uniform margin and dense transfer all independently verified.",
+      "New SCOPED results, requiring independent review:",
+      "- **Proof of omega(n): NONE.** No section has a verified worst-antipodal margin"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/codex_unpaired_corridor_sensitivity_20261003",
+    "date": "2026-10-03",
+    "agent": "Codex; model unspecified",
+    "topic": "codex unpaired corridor sensitivity",
+    "type": "Proof / theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Complete differentiated ledger exposes common-mode private feedback and a short-packet obstruction; full corridor remains open.",
+    "evidence_file": "theory/codex_unpaired_corridor_sensitivity_20261003/REPORT.md",
+    "status_evidence": [
+      "independent hostile review is required. Accepted historical proofs unchanged.",
+      "admit two codes, conditionally on their query coefficient. H lacks public",
+      "Stop this stage. Accepted files and independent review records are unchanged."
+    ],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/gamma_c_over_n_quadratic_20261001",
+    "date": "2026-10-01",
+    "agent": "Codex; model unspecified",
+    "topic": "gamma c over n quadratic",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_quadratic_review_20261001"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "A joint normalized fixed-hidden section proves Omega_c(n^2) at gamma=c/n, matching finite O(n)-horizon memory.",
+    "evidence_file": "theory/gamma_c_over_n_quadratic_20261001/REPORT.md",
+    "status_evidence": [
+      "**New theorem for independent review:** for every fixed c>0 and sufficiently",
+      "compensation and temporal-adjoint grouping are the main independent-review"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_bounded_history_radius_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok bounded history radius review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_bounded_history_multiharmonic_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: A joint 19/18 lower has local input radius below .02 around a public center whose absolute energy grows.",
+    "evidence_file": "theory/grok_bounded_history_radius_review_20261003/REPORT.md",
+    "status_evidence": [
+      "VERIFIED review on `claude/wonderful-fermi-yx8b1e`",
+      "Codex files were not modified. Claude's verdict was not used as evidence.",
+      "**Verdict: VERIFIED.** The bounded-local-radius theorem survives. The"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_causal_suffix_width_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok causal suffix width review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_causal_suffix_width_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Suffix metric is nonexpansive; a one-time merge works but a linear causal encoder was not established.",
+    "evidence_file": "theory/grok_causal_suffix_width_review_20261002/REPORT.md",
+    "status_evidence": [
+      "Verdict: the counted construction is a valid continuous causal encoder of",
+      "Verdict: the uniform polynomial suffix-metric bound holds for this one",
+      "Verdict: one permanent merge followed by exact future evolution is proved.",
+      "Verdict: PROOF section 10 matches the requested online width, and it is"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_energy_credit_tradeoff_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok energy credit tradeoff review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_energy_credit_tradeoff_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: Short harmonic packets give superlinear dimension at energy exponent 7/8, with scoped localized tradeoffs.",
+    "evidence_file": "theory/grok_energy_credit_tradeoff_review_20261003/REPORT.md",
+    "status_evidence": [
+      "**Verdict: VERIFIED.** The short-packet theorem",
+      "| Budget | Verdict |"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_energy_threshold_improvement_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok energy threshold improvement review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_energy_threshold_improvement_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: Rebalanced joint profiles and modulation yield exponent 3/4 with F^(9/4) energy loss.",
+    "evidence_file": "theory/grok_energy_threshold_improvement_review_20261003/REPORT.md",
+    "status_evidence": [
+      "**Verdict: VERIFIED.** The explicit theorem for `n >= 10^200` and"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_filtered_timing_d2_20261004",
+    "date": "2026-10-04",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok filtered timing d2",
+    "type": "Review / scoped theory",
+    "status": "SUPERSEDED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "grok_filtered_timing_d2_monotone_20261004",
+    "summary": "The first two-cohort square left an intermediate idle-gate band unproved.",
+    "evidence_file": "theory/grok_filtered_timing_d2_20261004/REPORT.md",
+    "status_evidence": [
+      "## Verdict",
+      "A genuine uniform `D = 2` section is **not proved** and **not refuted**.",
+      "Same tail, same per-group trace correction, same public reset as the verified one-dimensional section. Direct traces depend only on a group's own gates, so the corrections separate. Paired states still sum to zero, so the endpoint stays the common public state. With the same `M ~ sqrt(n)` and `T = ceil(10 n^{3/4})`,"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/grok_filtered_timing_d2_band_20261004",
+    "date": "2026-10-04",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok filtered timing d2 band",
+    "type": "Review / scoped theory",
+    "status": "SUPERSEDED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "grok_filtered_timing_d2_monotone_20261004",
+    "summary": "A narrowed square still left monotonicity in an intermediate gate band unproved.",
+    "evidence_file": "theory/grok_filtered_timing_d2_band_20261004/REPORT.md",
+    "status_evidence": [
+      "## Verdict",
+      "`D = 2` is **not proved**. It is also **not refuted**."
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/grok_filtered_timing_d2_monotone_20261004",
+    "date": "2026-10-04",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok filtered timing d2 monotone",
+    "type": "Review / scoped theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Signed overlap monotonicity completes one joint D=2 square on separate survivor blocks with margin>.009.",
+    "evidence_file": "theory/grok_filtered_timing_d2_monotone_20261004/REPORT.md",
+    "status_evidence": [],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/grok_filtered_timing_one_block_20261004",
+    "date": "2026-10-04",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok filtered timing one block",
+    "type": "Review / scoped theory",
+    "status": "ACCEPTED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Uniform matched-versus-low gating gives one all-ones robust mode per physical survivor block, not a general nonuniform cap.",
+    "evidence_file": "theory/grok_filtered_timing_one_block_20261004/REPORT.md",
+    "status_evidence": [],
+    "status_basis": "Owner acceptance in supplied project checkpoint"
+  },
+  {
+    "folder": "theory/grok_filtered_timing_width_20261004",
+    "date": "2026-10-04",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok filtered timing width",
+    "type": "Review / scoped theory",
+    "status": "HISTORICAL",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "grok_filtered_timing_d2_monotone_20261004",
+    "summary": "Shared filtered timing has erasure/flat-collapse and disjoint-packing restrictions; only the known 1D section is obtained.",
+    "evidence_file": "theory/grok_filtered_timing_width_20261004/REPORT.md",
+    "status_evidence": [
+      "The verified one-step lower bound has the shape"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/grok_holding_cost_attack_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok holding cost attack review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_holding_cost_attack_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: Best accepted packet gives D>=nF/10^7 at norm<=4e7 n^(3/4)F^(3/2); corridor construction is only a transport lemma.",
+    "evidence_file": "theory/grok_holding_cost_attack_review_20261003/REPORT.md",
+    "status_evidence": [
+      "**Overall verdict: VERIFIED**, in the scopes actually claimed."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_intermediate_gate_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok intermediate gate review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_intermediate_gate_credit_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Intermediate gate words have a legal coupled lift, a joint linear section, and a uniform low-order chronological expansion.",
+    "evidence_file": "theory/grok_intermediate_gate_review_20261002/REPORT.md",
+    "status_evidence": [
+      "**Verdict: the gate cube has a legal coupled realization. Arbitrary aperiodic words in the box are included.**",
+      "**Verdict: this subclass is Θ(n). The result does not extend to aperiodic words, and it does not follow from the older one-pulse lower bound.**",
+      "**Verdict: the expansion and the O(log n) truncation are finite-error and uniform in the gate word. Truncation order is not online dimension.**",
+      "**Verdict: it is a joint continuous robust section. The proved half-margin is > 0.00174.**"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_multiharmonic_16_15_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok multiharmonic 16 15 review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_multiharmonic_consolidation_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: Growing-local-radius joint lower reaches Omega(n^(16/15)); no bounded absolute-energy claim.",
+    "evidence_file": "theory/grok_multiharmonic_16_15_review_20261003/REPORT.md",
+    "status_evidence": [
+      "**Verdict: VERIFIED.** The rebalanced corollary survives as written."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_multiharmonic_lower_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok multiharmonic lower review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_multiharmonic_lower_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Accepted joint 19/18 lower; single-harmonic normalization was corrected and growing-radius exponent strengthened later.",
+    "evidence_file": "theory/grok_multiharmonic_lower_review_20261002/REPORT.md",
+    "status_evidence": [
+      "**Verdict: VERIFIED.** The stated theorem survives. No listed attack produces",
+      "Universal `O(n)` fixed-feature causal credit memory is refuted for the",
+      "`B = P_perp G / sqrt(d)` with standard Gaussian `G`, conditional on a union",
+      "`Theta(n)` is refuted. The full-model gap is not. One source feature does"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_online_gate_polynomial_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok online gate polynomial review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_online_gate_polynomial_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Causal triangular recurrence and quadratic reference storage verify; exact realization rank is not finite-error memory.",
+    "evidence_file": "theory/grok_online_gate_polynomial_review_20261002/REPORT.md",
+    "status_evidence": [
+      "**Verdict: exact, causal, and correctly counted. The count is not a minimum.**",
+      "**Verdict: \\(r^2=(\\lfloor n/2\\rfloor-1)^2\\) endpoint coordinates, plus \\(n\\) while streaming, with polynomial error at most \\(\\varepsilon/4\\).**",
+      "**Verdict: it survives, still joint, with polynomial half-margin \\(>0.00149\\).**",
+      "The verified section has actual half-margin \\(>0.00174636\\) before dense terms below \\(2\\cdot 10^{-9}\\), hence \\(>0.00174\\). Each endpoint’s polynomial proxy errs by at most \\(\\varepsilon/4=0.00025\\). The pair distance therefore drops by at most \\(0.0005\\), and the half-margin by at most \\(0.00025\\):",
+      "**Verdict: the exact lower bound is true. It is not a finite-error robust lower bound.**"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_permitted_query_reach_20261002",
+    "date": "2026-10-02",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok permitted query reach",
+    "type": "Review / scoped theory",
+    "status": "HISTORICAL",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "claude_moving_spike_remainder_20261002",
+    "summary": "Rejects a three-term adjoint formula and the one-sign-pattern replacement; diagnostic query searches do not prove width.",
+    "evidence_file": "theory/grok_permitted_query_reach_20261002/REPORT.md",
+    "status_evidence": [
+      "## A. Which structural claims verified?",
+      "**Partially proved. The three-term statement as written is refuted.**",
+      "Refuted: the claim that every legal adjoint is that spike plus one sign pattern of amplitude 0.153 plus an O(c_k) spread.",
+      "| Pair | Narrow one-step | Full one-step | Best pure spike | Best query found | κ | L2 upper | Verdict |"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/grok_private_renewal_gamma_review_20261003",
+    "date": "2026-10-03",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok private renewal gamma review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_private_renewal_gamma_20261003",
+    "superseded_by": "",
+    "summary": "Independent audit: Equal local codes can hide Gamma>.03 and one cheap robust direction; no superlinear dimension follows.",
+    "evidence_file": "theory/grok_private_renewal_gamma_review_20261003/REPORT.md",
+    "status_evidence": [
+      "**Overall verdict: VERIFIED.**",
+      "Verified, and exact.",
+      "Verified. The contraction is Euclidean, on the orthogonal complement of",
+      "Verified, and the equality is exact.",
+      "Verified exactly.",
+      "Verified, and it does not touch the lower bound.",
+      "Verified as a 1-dimensional section, and only as that.",
+      "Verified for `n >= 10^1000`, with the same mechanism and"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_spike_remainder_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok spike remainder review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "claude_moving_spike_remainder_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Exact moving spike plus bounded remainder provides legal-query uppers and certified collisions in sustained charts.",
+    "evidence_file": "theory/grok_spike_remainder_review_20261002/REPORT.md",
+    "status_evidence": [
+      "**Verdict: the exact decomposition holds.**",
+      "**Verdict: the certificate is a valid upper bound. The gap to a strong vertex search is about 1–2%.**",
+      "**Verdict: the three headline charts contain genuine colliding antipodes. Four further pairs need R4; their R1 uppers are above 2ε.**"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_sustained_weak_gate_review_20261002",
+    "date": "2026-10-02",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok sustained weak gate review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_sustained_weak_gate_credit_20261002",
+    "superseded_by": "",
+    "summary": "Independent audit: Sustained and K/t weakening subclasses have finite-error bounds, not a whole-class O(n) theorem.",
+    "evidence_file": "theory/grok_sustained_weak_gate_review_20261002/REPORT.md",
+    "status_evidence": [
+      "**Verdict: S1 and S2 hold inside the hypotheses actually written. They do not cover a short damped tail after an undamped warmup, partial damping, or gate gaps of order 1/n.**",
+      "**Verdict: W1 and W2 hold as finite-error bounds for histories whose realized gates meet the stated envelopes. “Zero history-dependent endpoint credit” means exactly that. It does not remove the n forward coordinates, and it does not cover a 1/n defect.**",
+      "Whole-class fixed-feature bounds stay Ω(n) ≤ d ≤ (⌊n/2⌋ − 1)². Whole-class Θ(n) is neither proved nor refuted. The full-model gap stays Ω_c(n²) ≤ d_rob ≤ O_c(n² log n). The sustained-chart collisions are untouched. No superlinear lower was removed except inside the subclasses whose hypotheses those constructions do not satisfy."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/grok_timing_signal_J_review_20261004",
+    "date": "2026-10-04",
+    "agent": "Grok (version only where recorded)",
+    "topic": "grok timing signal J review",
+    "type": "Review",
+    "status": "VERIFIED",
+    "reviewed_by": [],
+    "reviews_target": "codex_timing_signal_J_20261004",
+    "superseded_by": "",
+    "summary": "Independent audit: A changing survivor set defeats uniform O(1/m_s) timing entries; large entries still represent one contrast.",
+    "evidence_file": "theory/grok_timing_signal_J_review_20261004/REPORT.md",
+    "status_evidence": [
+      "**Overall verdict: VERIFIED.**",
+      "Verified.",
+      "Verified for every legal word and every `n >= 10^6`:",
+      "Verified exactly.",
+      "Verified on `s_0+1 <= s <= R_short`, with",
+      "Verified, as an extension of the same prefix.",
+      "`> 0.014999996` on the one-parameter section. That reuses the verified",
+      "## 8. What is refuted"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/near_critical_credit_phase_diagram_20261001",
+    "date": "2026-10-01",
+    "agent": "Codex; model unspecified",
+    "topic": "near critical credit phase diagram",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_near_critical_review_20261001"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Constant-gap worst case is Theta(n); shrinking-gap matching lower bounds were left open here.",
+    "evidence_file": "theory/near_critical_credit_phase_diagram_20261001/REPORT.md",
+    "status_evidence": [
+      "arbitrary-unit-loss replacement. New proof requires independent review.",
+      "unresolved transition with a clean cubic exclusion. Independently review the"
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/perplexity_accessibility_proof_draft_20261004",
+    "date": "2026-10-04",
+    "agent": "Perplexity; model unspecified",
+    "topic": "perplexity accessibility proof draft",
+    "type": "Draft",
+    "status": "DRAFT",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Unique exact-accessibility proof draft is archived with source hashes; it is not an independently reviewed robust theorem.",
+    "evidence_file": "theory/perplexity_accessibility_proof_draft_20261004/PROVENANCE.json",
+    "status_evidence": [
+      "\"classification\": \"unique scientifically meaningful draft; not an independent review; not formally verified; acceptance status unchanged\","
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/query_visible_operator_dimension_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "query visible operator dimension",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_operator_dimension_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Observable operator norms and aggregate identities are scoped; ambient operator visibility is not reachable robust dimension.",
+    "evidence_file": "theory/query_visible_operator_dimension_20261002/REPORT.md",
+    "status_evidence": [
+      "New author-derived lemmas require independent review. No experiment ran.",
+      "New lemmas require independent hostile review."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/query_weighted_moment_merger_20261001",
+    "date": "2026-10-01",
+    "agent": "Codex; model unspecified",
+    "topic": "query weighted moment merger",
+    "type": "Proof / theory",
+    "status": "REFUTED",
+    "reviewed_by": [
+      "claude_moment_merger_review_20261001"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Covariance/error identities and counts survive, but convex packet merging and round-robin scheduling fail as a general solution.",
+    "evidence_file": "theory/query_weighted_moment_merger_20261001/REPORT.md",
+    "status_evidence": [
+      "New author-derived lemmas require independent hostile review. The accepted",
+      "accuracy is conditional, not proved for arbitrary gates.**",
+      "Future-query invisibility itself is hereditary: prepending an admissible input",
+      "They are author-derived and require independent review; no new automated tests,",
+      "**Single next step:** independently review the covariance/ledger/counterexample,"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/reachable_fixed_feature_width_20261002",
+    "date": "2026-10-02",
+    "agent": "Codex; model unspecified",
+    "topic": "reachable fixed feature width",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_fixed_feature_width_review_20261002"
+    ],
+    "reviews_target": "",
+    "superseded_by": "codex_two_pulse_corotating_20261002",
+    "summary": "One joint fixed-feature section establishes floor(n/8) directions; ambient-ball reachability is not assumed.",
+    "evidence_file": "theory/reachable_fixed_feature_width_20261002/REPORT.md",
+    "status_evidence": [
+      "New arguments require independent hostile review. No numerical experiments,",
+      "one and hence has no dissipation. The bound is conditional: no uniform small",
+      "- Rigorous status: mathematical derivations, conditional on accepted frozen",
+      "derivations have not yet received independent hostile review."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  },
+  {
+    "folder": "theory/robust_width_scaling_20261001",
+    "date": "2026-10-01",
+    "agent": "Codex; model unspecified",
+    "topic": "robust width scaling",
+    "type": "Proof / theory",
+    "status": "SUPERSEDED",
+    "reviewed_by": [
+      "claude_width_scaling_review_20261001"
+    ],
+    "reviews_target": "",
+    "superseded_by": "near_critical_credit_phase_diagram_20261001",
+    "summary": "Contractive upper and margin ceiling are valid but loose; the review replaces the quadratic target with a counted linear window.",
+    "evidence_file": "theory/robust_width_scaling_20261001/REPORT.md",
+    "status_evidence": [
+      "**General quadratic-versus-cubic question remains open.** A new conditional",
+      "**Recommendation:** independent review of THEORY.md's factored-tail encoding"
+    ],
+    "status_basis": "Report and subsequent scoped findings; historical contents unchanged"
+  },
+  {
+    "folder": "theory/rotating_gate_aggregation_20261001",
+    "date": "2026-10-01",
+    "agent": "Codex; model unspecified",
+    "topic": "rotating gate aggregation",
+    "type": "Proof / theory",
+    "status": "VERIFIED",
+    "reviewed_by": [
+      "claude_rotating_gate_review_20261001"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Scalar and fixed-period gates have quadratic encoders; low-rank and fixed-Krylov methods fail within their tested scopes.",
+    "evidence_file": "theory/rotating_gate_aggregation_20261001/REPORT.md",
+    "status_evidence": [
+      "# Rotating-gate attack: conditional closure and concrete method obstructions",
+      "New mathematical results below require independent review.",
+      "| Hard rotating family, arbitrary length, scalar-memory-gate histories | Theta_c(n^2), new conditional result |",
+      "was constructed. The conditional results are not reported as general closure.",
+      "independent hostile review before being treated as accepted project results."
+    ],
+    "status_basis": "Independent review record / scoped reviewed statements"
+  }
+]
