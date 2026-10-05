@@ -1,0 +1,7 @@
+n=1000000 it=10689 res=9.96e-14 time=173.3s
+  min h*=0.049821 at 10691; protected h0=0.502069; source=0.04995838
+  cycle head h1..h6=[1.      0.76161 0.64205 0.56632 0.51268 0.47206]; cycle tail h_(d-1)=0.04982055
+  off-cycle median H=0.0498205454 min=0.0498205454 max=0.0498205454
+  B*=atanh(H)-aH=4.1331e-05  H^3/3=4.1220e-05  (atanh(tanh .05)-.05)
+  head length (cycle coords above H+1e-3): 1435
+  ||h*||/sqrt(n)=0.049979

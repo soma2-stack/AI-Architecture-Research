@@ -1,0 +1,14 @@
+kerA=False n=  200 F=1: (6) |sum v| d=0.05: 0.618  (8) beta_p d=0.05: 0.412  (6) |sum v| d=0.002: 0.539  (8) beta_p d=0.002: 0.454
+kerA=False n=  400 F=2: (6) |sum v| d=0.05: 0.637  (8) beta_p d=0.05: 0.413  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.454
+kerA=False n=  800 F=4: (6) |sum v| d=0.05: 0.635  (8) beta_p d=0.05: 0.373  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.401
+kerA=False n= 1600 F=4: (6) |sum v| d=0.05: 0.610  (8) beta_p d=0.05: 0.412  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.454
+kerA=False n= 1600 F=8: (6) |sum v| d=0.05: 0.539  (8) beta_p d=0.05: 0.274  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.284
+kerA=False n= 3200 F=8: (6) |sum v| d=0.05: 0.538  (8) beta_p d=0.05: 0.279  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.121
+kerA=True  n=  200 F=1: (6) |sum v| d=0.05: 0.616  (8) beta_p d=0.05: 0.415  (6) |sum v| d=0.002: 0.539  (8) beta_p d=0.002: 0.454
+kerA=True  n=  400 F=2: (6) |sum v| d=0.05: 0.631  (8) beta_p d=0.05: 0.413  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.454
+kerA=True  n=  800 F=4: (6) |sum v| d=0.05: 0.628  (8) beta_p d=0.05: 0.367  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.393
+kerA=True  n= 1600 F=4: (6) |sum v| d=0.05: 0.627  (8) beta_p d=0.05: 0.412  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.454
+kerA=True  n= 1600 F=8: (6) |sum v| d=0.05: 0.559  (8) beta_p d=0.05: 0.269  (6) |sum v| d=0.002: 0.538  (8) beta_p d=0.002: 0.279
+
+[exited with code 144]
+# kerA=True n=3200 F=8 case: stopped manually after ~30 min wall (finite-difference L-BFGS over 6400 variables); not completed. kerA=False at the same width completed above.

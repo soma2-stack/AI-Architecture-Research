@@ -1,0 +1,5 @@
+tiny   R=0.0050 sum_late u^2=2.0206 bound(1+1e4R)^2=2.601e+03 bad=18408 B_R=2.601e+07 max gate=0.997599 q_g=0.9999
+tiny   R=0.0200 sum_late u^2=32.3307 bound(1+1e4R)^2=4.040e+04 bad=19886 B_R=4.040e+08 max gate=0.997613 q_g=0.9999
+pulses N=1 R=0.2000 sum_late u^2=11.0654 bound=4.004e+06 bad=1104 B_R=4.004e+10 max gate=0.999836
+pulses N=20 R=0.2000 sum_late u^2=15.7409 bound=4.004e+06 bad=12797 B_R=4.004e+10 max gate=0.999981
+late pulse R=0.2 bad=2 sum_late u^2=0.0786 max gate=0.997594

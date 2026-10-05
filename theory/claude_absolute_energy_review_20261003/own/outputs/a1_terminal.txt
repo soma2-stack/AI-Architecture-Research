@@ -1,0 +1,7 @@
+b0-lambda-2e_n at n=200: 24974999999/500000000000 0.049949999998 >499/10000: True
+threshold 2e8/249001 = 200000000/249001 803.2096256641539
+(499/10000)^2/2 = 249001/200000000
+n=200: Codex L_n=0.499500  sharpened=0.499500  exact single-step min=0.499500  b0*sqrt(n)=0.707107 | O^T1 largest coords [np.int64(49), np.int64(0), np.int64(98)] vals [ 9.8889  1.     -0.1111] (sqrt k=10.0000, d-1=49) | saturated coords in minimizer: 100
+n=400: Codex L_n=0.706753  sharpened=0.706753  exact single-step min=0.706753  b0*sqrt(n)=1.000000 | O^T1 largest coords [np.int64(99), np.int64(0), np.int64(129)] vals [14.066   1.     -0.0761] (sqrt k=14.1421, d-1=99) | saturated coords in minimizer: 200
+n=800: Codex L_n=0.999750  sharpened=0.999750  exact single-step min=0.999750  b0*sqrt(n)=1.414214 | O^T1 largest coords [np.int64(199), np.int64(0), np.int64(398)] vals [19.9474  1.     -0.0526] (sqrt k=20.0000, d-1=199) | saturated coords in minimizer: 400
+n=1600: Codex L_n=1.414037  sharpened=1.473117  exact single-step min=1.473117  b0*sqrt(n)=2.000000 | O^T1 largest coords [np.int64(399), np.int64(0), np.int64(383)] vals [28.2476  1.     -0.0367] (sqrt k=28.2843, d-1=399) | saturated coords in minimizer: 801

@@ -1,0 +1,76 @@
+n=10^900.0
+   F        1.0e+50
+   delta    1.48212710766e-180
+   t_bdry   1.48212710766e-230
+   t_node   1.34941192942e-178
+   t_mean   2.0e-8
+   t_small  1.34941192942e-628
+   Rmaj     3.2e-7
+   signal   1482.12710766
+   tail     3.25578974868e-90
+   H        1482.12685766
+   D/Dlow 5.0   spreading/Fourier conditions True   2*eta^2*16=3.2e-7
+n=10^900.0
+   F        1.0e+50
+   delta    1.48212710766e-180
+   t_bdry   1.48212710766e-230
+   t_node   1.34941192942e-178
+   t_mean   2.0e-8
+   t_small  1.34941192942e-628
+   Rmaj     3.2e-7
+   signal   1482.12710766
+   tail     3.25578974868e-90
+   H        1482.12685766
+   D/Dlow 5.0   spreading/Fourier conditions True   2*eta^2*16=3.2e-7
+n=10^900.30103
+   F        1.03925922603e+50
+   delta    1.29513646366e-180
+   t_bdry   1.24621117737e-230
+   t_node   1.17936230951e-178
+   t_mean   2.0e-8
+   t_small  8.33935086529e-629
+   Rmaj     3.2e-7
+   signal   1510.81429508
+   tail     3.07228563504e-90
+   H        1510.81404508
+   D/Dlow 5.0   spreading/Fourier conditions True   2*eta^2*16=3.2e-7
+n=10^901.0
+   F        1.13646366639e+50
+   delta    9.46935581458e-181
+   t_bdry   8.33229965433e-231
+   t_node   8.62622280258e-179
+   t_mean   2.0e-8
+   t_small  2.72785116602e-629
+   Rmaj     3.2e-7
+   signal   1579.58375212
+   tail     2.68510520787e-90
+   H        1579.58350212
+   D/Dlow 5.0   spreading/Fourier conditions True   2*eta^2*16=3.2e-7
+n=10^1000.0
+   F        3.5938136638e+55
+   delta    5.18801990139e-200
+   t_bdry   1.44359735554e-255
+   t_node   4.97896958595e-198
+   t_mean   2.0e-8
+   t_small  4.97896958595e-698
+   Rmaj     3.2e-7
+   signal   865413.878451
+   tail     1.39638411636e-98
+   H        865413.878201
+   D/Dlow 5.0   spreading/Fourier conditions True   2*eta^2*16=3.2e-7
+n=10^1100.0
+   F        1.29154966501e+61
+   delta    1.82057685669e-219
+   t_bdry   1.40960654167e-280
+   t_node   1.83249669583e-217
+   t_mean   2.0e-8
+   t_small  1.83249669583e-767
+   Rmaj     3.2e-7
+   signal   506586325.003
+   tail     6.0343021574e-107
+   H        506586325.003
+   D/Dlow 5.0   spreading/Fourier conditions True   2*eta^2*16=3.2e-7
+monotone for log n > 9 -> n > 8103.08392758
+claimed radius 97eta+48eta^2 = 15157/1562500 0.00970048
+margin 1000-eta-eta^3-e = 999999649997999/1000000000000
+max over sampled n>=200 of term/cap: {'t_node': '0.267924', 't_mean': '0.666781', 't_small': '0.0187584', 't_bdry': '0.174242'}

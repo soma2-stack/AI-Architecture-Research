@@ -1,0 +1,55 @@
+{
+  "stage": "independent hostile review of Codex bounded-LOCAL-radius Omega(n^(19/18)) section",
+  "reviewer": "Claude",
+  "date": "2026-10-03",
+  "base_commit": "18ae6e666f2f32da5b43df028d303a7fca08e01e",
+  "verdict": "VERIFIED",
+  "first_failed_inequality": null,
+  "reviewed_files_sha256_working_tree": {
+    "theory/codex_bounded_history_multiharmonic_20261003/CHECKS.md": "ee2be3a7ba42141585ba863ee00d0ace7204f99de34bd02861065417eb74dd02",
+    "theory/codex_bounded_history_multiharmonic_20261003/CHECK_RESULTS_1.json": "71f282be47bdb06d866cccac65fbe77b20229543af0108776080a32851b88aad",
+    "theory/codex_bounded_history_multiharmonic_20261003/CHECK_RESULTS_2.json": "e53c3d0a37e01b268667679a1cca21a9524c677d98d742eb833cbd82e777cb60",
+    "theory/codex_bounded_history_multiharmonic_20261003/PROOF.md": "346101b9b074350ebe53d157099a883feef686c2eadaab3806ab911b9dd10e4b",
+    "theory/codex_bounded_history_multiharmonic_20261003/PROVENANCE.json": "816523da1e2dceb7c3f7a292589876cbf6f48977a51f5637707504acf1733c51",
+    "theory/codex_bounded_history_multiharmonic_20261003/REPORT.md": "e0aacde5a1d4b56648b8ef5f7ef8a004fdaaed9f5ffd034a6e06c4bd6850d0fe",
+    "theory/codex_bounded_history_multiharmonic_20261003/checks.py": "82b12e8c8bb472088d8fd4753eb59dc564ed546357dea9a59b1113d4b7e6fc47"
+  },
+  "reviewed_hashes_match_codex_PROVENANCE": "yes (CHECK_RESULTS_*.json and AGENTS.md match under CRLF convention, others LF)",
+  "background_consulted_sha256": {
+    "theory/codex_multiharmonic_lower_20261002/PROOF.md": "018e30761002ac0d088136c6a4b36331cedf01d5fe97d196648211fa73105cac",
+    "theory/codex_multiharmonic_consolidation_20261003/REPORT.md": "af41d46544235dd5f540ad7a6d0602300ce7027a9ce93bb5bbca106927ccefb4",
+    "theory/codex_intermediate_gate_credit_20261002/PROOF.md": "6d5e1d089094e6bc715d7221d7843b2f227b7465915e14c74dd70c3d3bcacdc2",
+    "AGENTS.md": "08f8876af75dd5586f24ebdf5908876d9d1a0f8c6141de570958b57d0f9dc8d8"
+  },
+  "this_review_artifacts_sha256": {
+    "theory/claude_bounded_history_radius_review_20261003/REVIEW.md": "62725710f7c31e7f6d4ecf8317a24a2673141a3e60ed49ee44ff43978f4be2f6",
+    "theory/claude_bounded_history_radius_review_20261003/harness.py": "58231e1de601f6d9f05306de4a553f1fed14101d8aca451038e1eb6db94188b2",
+    "theory/claude_bounded_history_radius_review_20261003/t1_validate.py": "a14081b52789737e5fe4e45f491ec988ba27635cdb22ca22775d6fdfd9f04600",
+    "theory/claude_bounded_history_radius_review_20261003/t2_adversary.py": "1836a94d4a6284a3cf90dc112e88180f3b558159120a192803284814e8e5702a",
+    "theory/claude_bounded_history_radius_review_20261003/t3_substitution.py": "f267bac0b475b02dfa1c960c5205ab806e621e21315f882d02e07d780debd8d7",
+    "theory/claude_bounded_history_radius_review_20261003/t4_total.py": "9b9d989b3542bfe8565bf7da9524bad4fc1b81f9107e64ee2785806245e919c7",
+    "theory/claude_bounded_history_radius_review_20261003/t5_mean.py": "b6d440576274a4b29f85502d74085f641b22bba4930c89be6cfdb56f001946a5",
+    "theory/claude_bounded_history_radius_review_20261003/t6_ablation.py": "b3fff2793e7297686606790ad8b48477056bf3e802ede6b992c6bd736d228dfc",
+    "theory/claude_bounded_history_radius_review_20261003/timed.py": "09e8ded81dbd0aefdcda81f3a0bb8057b7c01e89c44bd61e51bfd673226b51ba",
+    "theory/claude_bounded_history_radius_review_20261003/outputs/compute.txt": "f3992effb8951f78bea2ee7ada4e7439c235ed14f4b218210445b4091bf5ac4d",
+    "theory/claude_bounded_history_radius_review_20261003/outputs/t1_validate.txt": "f9f5cbf65c52f555eef26d941e53eb59a6d0ddd104a3e4b9671990d5cd3f85f7",
+    "theory/claude_bounded_history_radius_review_20261003/outputs/t2_adversary.txt": "37de6e778d41812e3ba22400f2348ba55f84507057e968497c423b1ac75f9fee",
+    "theory/claude_bounded_history_radius_review_20261003/outputs/t3_substitution.txt": "7447001129a44c918da791d8ffb7baca25ecf78c7ca76a8b660dc775b30b5ee8",
+    "theory/claude_bounded_history_radius_review_20261003/outputs/t4_total.txt": "54469253d80e1605bb20a4c82e0a36df609ac54739f791ea94223981c7b275b7",
+    "theory/claude_bounded_history_radius_review_20261003/outputs/t5_mean.txt": "e241408411290d88e0e112cf8618b8d95f4cbbe5f6e6a7be1e9373b1c385261f",
+    "theory/claude_bounded_history_radius_review_20261003/outputs/t6_ablation.txt": "a85bbbfbde11e8e6b085895fa6df6cbdc78b70fdecce4b307b11006eda72551b"
+  },
+  "numerics_scope": "diagnostic only (n<=3200); the verdict rests on the analytic re-derivation in REVIEW.md",
+  "compute": {
+    "cpu_only": true,
+    "gpu_seconds": 0,
+    "cuda_used": false,
+    "details": "outputs/compute.txt"
+  },
+  "codex_files_modified": false,
+  "AGENTS_modified": false,
+  "shared_map_modified": false,
+  "Codex_Research_or_Cursor_Research_opened": false,
+  "disclosure": "An early repository-wide grep for 'radius' over *.md printed three short matching lines of Codex_Research.md (lines 15 [omitted as too long], 17, 219). The file was not opened and those lines were not used in the review.",
+  "codex_checks_replay": "checks.py replayed in a scratch copy outside the repo with the Windows-only RAM probe stubbed; values reproduce to ~1e-15 relative; nothing written to Codex's directory"
+}

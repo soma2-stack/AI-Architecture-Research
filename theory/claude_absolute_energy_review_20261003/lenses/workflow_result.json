@@ -1,0 +1,552 @@
+{
+ "lenses": [
+  {
+   "lens": "reset-algebra",
+   "verdict": "CLAIM_HOLDS_LOOSE",
+   "first_failed_inequality": "none",
+   "findings": [
+    {
+     "item": "1. Terminal equation from the actual recurrence",
+     "status": "verified",
+     "statement": "For any nonempty history (T>=1) of h_t=tanh(R h_(t-1)+W x_t+b) with W=I, b=(1/20)1_n exactly (both confirmed in codex_multiharmonic_lower_20261002/PROOF.md sec. 2 and codex_intermediate_gate_credit_20261002/PROOF.md sec. 1; only R is dense-perturbed), the condition h_T=0 forces x_T=-R h_(T-1)-b0 1_n exactly.",
+     "evidence": "tanh is a bijection R->(-1,1) with tanh(y)=0 iff y=0, so h_T=0 iff R h_(T-1)+x_T+b=0. h_(T-1) is either h_0=0 (T=1) or a tanh output, so every coordinate satisfies |h_(T-1,i)|<1 whatever the inputs were. The past-cube constraint (-1/2,1/2)^n is not used, so the bound also covers unrestricted inputs. The reset in the accepted lift is a real input step, x_(N+2)=-R h_(N+1)-b (Lemma I eq. (5); multiharmonic radius (7) says 'including the reset')."
+    },
+    {
+     "item": "2. Why the source bias cannot be cancelled cheaply",
+     "status": "verified",
+     "statement": "R0=diag(aO, lambda I_l) is block diagonal, so the only recurrent signal reaching the source rows is lambda*h_source plus the dense leakage Pi_s(R-R0)h. Neither the memory block nor the gates or any earlier history can reach the source rows except through these two terms.",
+     "evidence": "||Pi_s R h||<=lambda||h_s||+||R-R0||_op||h||<=lambda sqrt(l)+e_n sqrt(n), using |h_i|<1. Reverse triangle inequality: ||Pi_s x_T||=||Pi_s R h+b0 1_l||>=b0 sqrt(l)-lambda sqrt(l)-e_n sqrt(n)=L_n. Coordinatewise the reference infimum is min_{|h|<=1}|lambda h+b0|=b0-lambda, approached as h->-1. Dense premise: for the archived R=(R0+E)a/||R0+E|| with ||E||=eps=1/(10^8 n^2), ||R-R0||<=|c-1|a+c*eps<=2a eps/(a-eps)<4eps=e_n. In float, ||R-R0||=2.58e-13 vs analytic 5.0e-13 vs e_n=1e-12 at n=200 (3.0e-13/6.1e-13 at n=256; 6.4e-14/2.5e-13 at n=400; 1.1e-14/4e-14 at n=1000)."
+    },
+    {
+     "item": "3. Memory block contribution (dropped by the proof)",
+     "status": "sharpening",
+     "statement": "The memory block also contributes an unavoidable residual for n>=804. The proof discards it, so (8) captures only about 1/sqrt(2) of the true forced terminal norm asymptotically. A sharper valid bound is ||x_T|| >= sqrt(l(b0-lambda)^2+[(b0 c*-a)_+]^2)-e_n sqrt(n), with c*=sqrt(k)-1/(sqrt(k)-1).",
+     "evidence": "O is orthogonal, so ||aO h_m+b0 1_k||=||a h_m+b0 O^T 1_k||, which separates by coordinate over the box: min=||(b0|c|-a)_+|| with c=O^T 1_k=sqrt(k)U P^T e0=sqrt(k)U e_(d-1)=sqrt(k)[e_(d-1)+(e0-1_k/sqrt k)/(sqrt k-1)]. Its entries are c_(d-1)=sqrt k-1/(sqrt k-1), c_0=1 and the rest -1/(sqrt k-1). Numerically max(c) equals c* at index d-1 for n=200..2000. The positive part is nonzero from n=804. scipy lsq_linear box minima of ||R h+b|| over [-1,1]^n with the actual dense R: n=200: 0.4994999999990 vs L_n=0.4994999999859 (tight); n=1000: 1.123884941661, equal to the sharpened bound, vs L_n=1.117810382; n=2000: 1.684015158 = sharpened, vs L_n=1.580980716. The sharpened bound is 49.2979 at n=10^6 (L_n=35.355) and asymptotically b0 sqrt(n)-1/sqrt(2)+o(1)."
+    },
+    {
+     "item": "4. PROOF (9) exact rational arithmetic",
+     "status": "verified",
+     "statement": "For every integer n>=200, L_n=(b0-lambda)sqrt(l)-e_n sqrt(n)>(499/10000)sqrt(n/2), and the inequality is strict.",
+     "evidence": "L_n=sqrt(l)[b0-lambda-e_n sqrt(n/l)]. l=ceil(n/2)>=n/2 gives sqrt(n/l)<=sqrt(2)<=2, so 2 is loose but valid. b0-lambda-2e_n is strictly increasing in n (derivative 1/(100n^2)+16e-8/n^3>0; checked exactly on [200,5000)). At n=200 it equals 1/20-1/20000-8/(10^8*200^2)=24974999999/500000000000 (Fractions), which exceeds 499/10000 by 24999999/500000000000. Then sqrt(l)*coef>0.0499 sqrt(l)>=0.0499 sqrt(n/2), strict because coef>0.0499 and l>=1. In high precision, min over n in [200,20000] and n=10^5..10^12 of L_n/(0.0499 sqrt(n/2)) is 1.0010020 at n=200. (499/10000)^2/2=249001/200000000 exactly. e_n sqrt(n)=4/(10^8 n^(3/2)) as written in REPORT/STATUS."
+    },
+    {
+     "item": "5. PROOF (10) threshold",
+     "status": "verified",
+     "statement": "||X||<=R together with ||X||^2>(249001/2e8)n forces n<(2e8/249001)R^2. So for n>=200 and n>=(2e8/249001)R^2 no nonempty zero-endpoint history has ||X||<=R.",
+     "evidence": "200000000/249001=803.2096256641539592210473050309... The quoted 803.209626 rounds up, so using it is conservative. The n>=200 qualifier is the family's domain (sec. 1). It is implicit in PROOF (10) and explicit in REPORT. For R<L_200=0.49949999998586 the class has no nonempty member at any n>=200. If the family were formally extended, the 0.0499 coefficient step would first hold at n=101, but the family is not defined there (it needs d>=2 etc.)."
+    },
+    {
+     "item": "6. REPORT table 'Universal terminal norm lower bound'",
+     "status": "verified",
+     "statement": "All six entries match L_n recomputed at 60 digits.",
+     "evidence": "n=200: 0.499499999985858; 256: 0.565243483201231; 400: 0.706753227790954; 1000: 1.11781038195088; 2000: 1.58098071620073; 10^6: 35.3553319882596. These agree with REPORT's 9-digit values and with ARITHMETIC.json terminal_lower. C_abs=0.533129483399339144056793391833378956654 also agrees."
+    },
+    {
+     "item": "7. ||X||_2>=||x_T||_2 and the norm convention",
+     "status": "scope_caveat",
+     "statement": "This step is legitimate because ||X||_2^2 is the plain sum over all steps, preparation and reset included, of ||x_t||^2 (PROOF sec. 1, lines 19-21, consistent with the accepted radius estimates that count the reset). The obstruction depends on that convention.",
+     "evidence": "If the reset step were treated as a free public operation outside X, or if a time-normalized (RMS) history norm were used, the bound would fail. Under RMS, a length-T history with one reset of norm ~0.05 sqrt(n) has RMS ~0.05 sqrt(n/T), which tends to 0 for T>>n. Neither alternative is the stated convention, so this is a scope note, not a defect."
+    },
+    {
+     "item": "8. Multi-step reset cannot evade the one-step cost",
+     "status": "verified",
+     "statement": "The bound uses only the last step, and its right side depends only on |h_(T-1,i)|<1. No preparation path, gate schedule, harmonic content or history length can reduce it. Adversarial optimization over whole histories confirms this.",
+     "evidence": "L-BFGS minimized total sum_t||x_t||^2 over all T-step histories with h_0=0 and h_T=0 on the actual dense R, with interior states free via tanh(u). Best ||X|| at n=200: T=1 0.70711, T=2 0.70846, T=10 0.70693, T=20 0.70568, versus L_n=0.4995. At n=400 the best is 1.0000 (T=1) vs L_n=0.7068; at n=1000, 1.5811 (T=1) vs L_n=1.1178. No history came near L_n. Multi-step histories can go slightly below b0 sqrt(n) (0.70568<0.70711 at n=200), so b0 sqrt(n) is only an upper bound on the infimum."
+    },
+    {
+     "item": "9. Sharp threshold and looseness of 803.2",
+     "status": "sharpening",
+     "statement": "The zero-endpoint class contains the one-step history x_1=-b0 1_n, which is inside the past cube and has ||X||=b0 sqrt(n), so it is nonempty for n<=400R^2. The sharpened bound empties it once n is about 400(R+1/sqrt2)^2. The claimed 803.2R^2 threshold is therefore valid but loose by a factor approaching 2.",
+     "evidence": "Binary search with the sharpened bound gives the first empty n: R=1: 801 (claimed 803.2); R=10: 45645 (claimed 80321); R=100: 4056570 (claimed 8032096); R=1000: 400565688 (claimed 803209626, ratio 2.005). The infimum of ||X|| over nonempty zero-endpoint histories lies in [sharpened bound, b0 sqrt(n)], i.e. b0 sqrt(n)-Theta(<=1/sqrt2). For n<804 the sharpened and claimed bounds coincide."
+    },
+    {
+     "item": "10. Is h=0 the source? Nonzero autonomous endpoint",
+     "status": "verified",
+     "statement": "Yes. The obstruction is exactly the terminal cancellation of the nonzero bias forced by the endpoint 0. At the unique autonomous fixed point z* of h->tanh(Rh+b) (unique because ||R||=a<1), the bounded-energy class is nonempty for every R>0. Moving to a nonzero common endpoint is mathematically meaningful, but it only removes the feasibility obstruction; it gives no memory theorem by itself.",
+     "evidence": "Run zero input for T-1 steps, then the exact landing input x_T=atanh(z*)-R h_(T-1)-b=R(z*-h_(T-1)), whose norm is at most a^T||z*||. Numerically, n=200: ||z*||=2.045, ||X||=3.1e-4 (T=n), 2.6e-15 (T=5n); n=400: 2.6e-5 (T=n), 1.1e-14 (T=5n). This matches PROOF (15): at z* the source term atanh(z*_s)-b0 1_l is about lambda z*_s, so the right side of (15) is negative."
+    },
+    {
+     "item": "11. Distinction from memory compression; 'empty' wording",
+     "status": "documentation",
+     "statement": "The result is a pure feasibility statement: at fixed R and n>=803.21R^2 there is no nonempty history ending at h=0. It says nothing about O(n) memory sufficiency. Strictly, the class is the singleton {empty history} if T=0 is admitted, not empty; PROOF sec. 5 and REPORT sec. 3 already say 'empty/singleton'. The 'vacuous zero-dimension' remark is correctly labeled as not an O(n) compression theorem.",
+     "evidence": "PROOF lines 200-209; REPORT lines 80-85. A dimension statement about an empty or singleton class is vacuous."
+    },
+    {
+     "item": "12. Center formula (3) and baseline asymptotic (cross-check, outside main lens)",
+     "status": "verified",
+     "statement": "Summing the four input types reproduces (3) exactly, and E0~C_abs n sqrt(log n) follows.",
+     "evidence": "Memory: prep k b0^2; first interior k(B-b0)^2; (N-1) later interiors k[(B-b0)^2+a^2beta^2] (cross term vanishes since 1_k^T O 1_k=0); reset k(b0^2+a^2beta^2). Total k[2b0^2+N((B-b0)^2+a^2beta^2)]. Source: l[(A-b0)^2+N(A-b0-lambda s)^2+(b0+lambda s)^2]. With k,l~n/2, N~4n log n, B,beta->0: E0^2~2n^2 log n[b0^2+(A-b0)^2], so C_abs=0.533129483399339. Delta_n=e_n sqrt(s^2 l+N(beta^2 k+s^2 l))=O(n^(-1) sqrt(log n)), which is negligible."
+    },
+    {
+     "item": "13. Reproducibility of arithmetic.py",
+     "status": "documentation",
+     "statement": "arithmetic.py calls ctypes.windll (lines 129-132), so it raises AttributeError on Linux. It also refuses to overwrite ARITHMETIC.json. The numbers were reproduced independently by the scratch scripts.",
+     "evidence": "grep shows ctypes.windll.kernel32/psapi at lines 129-131. Independent recomputation in exact_constants.py and sharpening.py matches every ARITHMETIC.json terminal_lower value and C_abs."
+    }
+   ],
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_reset-algebra/exact_constants.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_reset-algebra/adversary.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_reset-algebra/multistep.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_reset-algebra/premise_and_endpoint.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_reset-algebra/sharpening.py"
+   ],
+   "sharpest_correct_statement": "VERIFIED, with a factor-of-about-2 sharpening available. Take any integer n>=200 and any nonempty finite history of the frozen dense tanh family (W=I, b=(1/20)1_n, ||R-R0||<=e_n=4/(10^8 n^2)), with arbitrary real inputs, any length, gate schedule, harmonic content or preparation path. If its last state is h_T=0, then the forced reset input x_T=-R h_(T-1)-b gives ||X||_2 >= ||x_T||_2 >= sqrt(l(b0-lambda)^2+[(b0(sqrt k-1/(sqrt k-1))-a)_+]^2) - e_n sqrt(n) >= (b0-lambda)sqrt(l)-e_n sqrt(n) > 0.0499 sqrt(n/2), and ||X||_2^2 > (249001/200000000)n. Meanwhile the one-step history x_1=-b0 1_n, which lies in the past cube, reaches h=0 with ||X||=b0 sqrt(n). So the infimum is b0 sqrt(n)-Theta(<=1/sqrt2). For fixed R, the zero-endpoint class contains no nonempty history once n>=200 and n>=(200000000/249001)R^2 (=803.2096256641...R^2; valid, but loose by about 2x). It is in fact empty once n is about 400(R+1/sqrt2)^2 and nonempty whenever n<=400R^2. The obstruction comes entirely from the single terminal bias-cancellation step at endpoint 0 with b!=0. At the autonomous fixed-point endpoint z* it disappears: z* is reached exactly with arbitrarily small energy. It is a feasibility statement about the h=0 contract, not an O(n) memory upper bound or a compression theorem. A nonzero common endpoint is therefore a meaningful reformulation, but whether it admits a superlinear bounded-energy robust section is open."
+  },
+  {
+   "lens": "evasion",
+   "verdict": "CLAIM_HOLDS_LOOSE",
+   "first_failed_inequality": "none",
+   "findings": [
+    {
+     "item": "1. Reset equation",
+     "status": "verified",
+     "statement": "For any history with T>=1 ending exactly at h_T=0, x_T = -R h_(T-1) - b0 1_n.",
+     "evidence": "h_T = tanh(R h_(T-1) + W x_T + b0 1_n) with W=I frozen. tanh is injective with tanh(0)=0, so R h_(T-1)+x_T+b0 1_n=0. h_(T-1) is either h_0=0 (T=1) or tanh(.) in (-1,1)^n. The forward re-simulation of every optimized history in (b) returned ||h_T|| <= 7e-14, which confirms the lift x_t = atanh(h_t) - R h_(t-1) - b numerically."
+    },
+    {
+     "item": "2. Why the source/bias term cannot be cancelled cheaply",
+     "status": "verified",
+     "statement": "In R0 the source block is lambda*I_l with zero memory-to-source coupling, so the recurrent drive into the source coordinates is at most lambda*sqrt(l) + e_n*sqrt(n). Against the bias norm b0*sqrt(l) this is negligible.",
+     "evidence": "Pi_s R0 h = lambda h_s with ||h_s||<=sqrt(l). The dense leakage satisfies ||Pi_s (R-R0)h|| <= ||R-R0|| ||h|| <= e_n sqrt(n). Therefore ||x_T|| >= ||Pi_s x_T|| >= b0 sqrt(l) - lambda sqrt(l) - e_n sqrt(n) = L_n. The box-constrained minimizer in (a) saturates every source state at -1 (n_saturated=l at n=200,400,800) and still leaves exactly (b0-lambda)sqrt(l)."
+    },
+    {
+     "item": "3. Dense premise ||R-R0||_op <= e_n for the archived R",
+     "status": "documentation",
+     "statement": "The premise holds analytically, with room to spare. In float64, R-R0 seems to violate it at n>=1600, but this comes from roundoff in the matrix build, not from the matrix itself.",
+     "evidence": "Let E=ones/(1e8 n^3), eps=||E||=1/(1e8 n^2), sigma=||R0+E||. Then |sigma-a|<=eps, and R-R0=(a/sigma-1)R0+(a/sigma)E, so ||R-R0|| <= 2a*eps/(a-eps), about 2/(1e8 n^2) < e_n=4/(1e8 n^2). float64 gives eR=2.58e-13, 6.38e-14, 4.02e-14 at n=200,400,800 (all <= e_n). At n=1600 and 3200 it gives 1.98e-14 > 1.56e-14 and 1.77e-14 > 3.9e-15. These values sit at the SVD/Householder roundoff floor and are not real violations. Either way the leakage is about 1e-12 against bounds of order 1."
+    },
+    {
+     "item": "4. Constants 0.0499 sqrt(n/2), 249001/2e8, 803.209626",
+     "status": "verified",
+     "statement": "Every norm conversion and rational constant in (8)-(10) is correct. The step sqrt(n/l)<=2 is valid but loose; the tight value is sqrt(2).",
+     "evidence": "l=ceil(n/2)>=n/2. L_n = sqrt(l)(b0-lambda-e_n sqrt(n/l)) >= sqrt(n/2)(1/20-1/20000-8/(1e8*200^2)) = sqrt(n/2)*24974999999/5e11 > 0.0499 sqrt(n/2), strictly. (499/10000)^2/2 = 249001/200000000 exactly (checked with Fraction). Exact 2e8/249001 = 803.209625664154..., so the stated threshold 803.209626 rounds up and stays safe."
+    },
+    {
+     "item": "5. Threshold n < 803.209626 R^2",
+     "status": "verified",
+     "statement": "||X||<=R together with ||X||^2 > 249001 n/2e8 implies n < (2e8/249001)R^2. So every nonempty zero-endpoint history has ||X||>R once n >= 803.209626 R^2 (and n>=200).",
+     "evidence": "Direct algebra from (9). For R=0 the statement reduces to: every nonempty history has ||X||>0. That holds because L_n>0."
+    },
+    {
+     "item": "6a. Single final step, exact box minimum",
+     "status": "sharpening",
+     "statement": "I computed min over h in [-1,1]^n of ||R h + b0 1_n|| exactly. For n<=803 it equals the claimed L_n to about 1e-11, so the terminal-only bound is TIGHT in that range. For n>=804 the memory block adds an unavoidable residual of order sqrt(n).",
+     "evidence": "scipy lsq_linear (BVLS) with the archived dense R gives box minima of 0.49950 (claimed 0.49950; b0 sqrt n = 0.70711) at n=200, 0.70675 (claimed 0.70675; 1.0) at n=400, 0.99975 (claimed 0.99975; 1.41421) at n=800, 1.47312 (claimed 1.41404; 2.0) at n=1600 and 2.23552 (claimed 1.99987; 2.82843) at n=3200. The analytic R0 formula below matches BVLS to about 1e-13 at every n."
+    },
+    {
+     "item": "6b. Sharp terminal energy and the role of O^T 1_k",
+     "status": "sharpening",
+     "statement": "Exact R0 terminal minimum: m0(n)^2 = (b0-lambda)^2 l + [b0(sqrt k - 1/(sqrt k - 1)) - a]_+^2. The memory term is positive for n>=804, and m0 = sqrt(n)/20 - 1/sqrt(2) + o(1). For all n>=200, ||X|| >= m0 - e_n sqrt(n) > sqrt(n)/20 - 0.721. The claimed constant sqrt(1/2)*b0 is therefore loose by a factor of sqrt(2) asymptotically.",
+     "evidence": "||aO h_m + b0 1_k|| = ||a h_m + b0 c|| with c = O^T 1_k = sqrt(k) U P^T e0 = sqrt(k) U e_(d-1). Explicitly, c_(d-1) = s - 1/(s-1), c_0 = 1, and the other k-2 entries equal -1/(s-1), where s = sqrt(k). Numerically argmax|c| = d-1, matching the formula to 1e-13. The minimization separates over coordinates, so only coordinate d-1 leaves a residual, max(0, b0 c_(d-1) - a). Since 1^T c = 0, the bias cannot be absorbed in the mean direction; it is concentrated on one coordinate whose box headroom is 1. All-n proof: for n>=810, (b0-lambda)^2 l >= b0^2 l - 0.0005006, b0 c_(d-1) - a >= b0 sqrt k - 1.006 >= 0, and sqrt k <= sqrt(n/2), which give m0^2 >= (b0 sqrt n - 0.72)^2. For 200<=n<=2400 the claimed bound itself already exceeds sqrt(n)/20 - 0.721. Over n in [200, 2e6] the numerical minimum of the margin is 0.0174 (limit 0.721 - 0.7071 = 0.0139)."
+    },
+    {
+     "item": "7. Full-history evasion attempts (b)",
+     "status": "verified",
+     "statement": "No history found comes anywhere near the claimed bound. The best total energies sit at about b0 sqrt(n) and exceed the claimed L_n by a factor of 1.38 to 1.50.",
+     "evidence": "Method: L-BFGS over interior pre-activations u_t, inputs from the exact lift, analytic gradient (finite-difference relative error <= 3e-9), 7 initializations (zero, autonomous, box-terminal, minus-bias, 3 random). n=200: T=1 0.70711, T=2 0.70846, T=3 0.70944, T=5 0.70941, T=10 0.70693, T=20 0.70568, T=30 0.70962, T=45 0.69526, T=50 0.69087 (best, 0.977 b0 sqrt n, 1.383 x claimed), T=60 0.71580, T=100 0.74795. At T=50 the memory block pays 0.2273 against b0^2 k = 0.25 (tanh saturation saves about 9%). The source block always pays 0.250025 >= b0^2 l. n=400: T=1 1.00000 (best), T=2 1.00404, T=3 1.00702, T=5 1.00746, T=10 1.00324, T=30 1.00913; ratio to claimed >= 1.4149. n=1600: T=2,3,5 give 2.0295, 2.0453, 2.0366, all worse than the one-step value 2.0, including saturated-pulse initializations aimed at coordinate d-1."
+    },
+    {
+     "item": "8. Sharp emptiness threshold in n versus R",
+     "status": "sharpening",
+     "statement": "For unrestricted (or past-cube) inputs, the class of nonempty zero-endpoint histories is NONEMPTY for n <= 400 R^2 and EMPTY for n >= 400(R+0.721)^2. The sharp threshold is n*(R) = 400 R^2 + O(R). The claimed 803.209626 R^2 is a valid sufficient condition but loose by a factor of about 2.008.",
+     "evidence": "The upper side is the one-step history x_1 = -b0 1_n: h_1 = tanh(0) = 0, ||X|| = b0 sqrt n exactly, and |x_i| = 0.05 lies in the past cube (-1/2,1/2)^n. The lower side is item 6b: ||X|| > sqrt(n)/20 - 0.721. Ratio: 803.2096/400 = 2.008. If the admitted class carries extra structure beyond the past cube, it can only shrink, and its threshold can only be lower."
+    },
+    {
+     "item": "9. Multi-step resets, saturation, leakage (c)",
+     "status": "verified",
+     "statement": "None of these evades the cost. Every history, however long its reset, ends with a single step from some h_(T-1) in [-1,1]^n, and the bound holds uniformly over that box. Saturation gains at most lambda per source coordinate. Memory-to-source leakage is <= e_n sqrt(n), about 1e-12.",
+     "evidence": "The box minimum in (a) already takes the infimum over every possible pre-state, saturated ones included. A short refinement removes lambda as well. Case h_(T-1,i) >= 0: |x_T,i| >= b0. Case h_(T-1,i) < 0 (so T>=2): |x_T,i| and |x_(T-1,i)| are both >= b0 - lambda, because atanh(h)<0 forces x_(T-1,i) <= lambda - b0. Since 2(b0-lambda)^2 >= b0^2, the source energy in the last two steps is >= b0^2 l up to leakage, giving ||X|| >= b0 sqrt(l) - sqrt(2) e_n sqrt(n)."
+    },
+    {
+     "item": "10. Approximate endpoints ||h_T|| <= tau",
+     "status": "sharpening",
+     "statement": "The obstruction survives every endpoint tolerance tau = o(sqrt n): ||X|| >= (tanh(b0) - lambda) sqrt(l) - tau - e_n sqrt(n) for any tau. For tau<1 there is also ||X|| >= (b0-lambda) sqrt(l) - e_n sqrt(n) - atanh(tau). Escape needs an RMS endpoint tolerance of about 0.05 per source coordinate.",
+     "evidence": "x_T = atanh(h_T) - R h_(T-1) - b. On the source block, |atanh(z) - b0| >= |z - tanh(b0)| because atanh' >= 1, so ||Pi_s x_T|| >= ||z_s - tanh(b0) 1_l|| - lambda sqrt(l) - e_n sqrt(n) >= tanh(b0) sqrt(l) - tau - .... The second form uses ||atanh(v)||_2 <= atanh(||v||_2), which holds because atanh(x)/x is increasing."
+    },
+    {
+     "item": "11. Independence from length, gates, harmonics, preparation (e)",
+     "status": "verified",
+     "statement": "The bound uses only the final transition and the coordinate bound |h_(T-1,i)| <= 1. It therefore holds uniformly over history length T>=1, gate schedule, harmonic or frequency choices, source profile and preparation path, including whole continuous sections.",
+     "evidence": "The proof never refers to t < T-1. The full-history optimizations over T in {1,...,100} with diverse initializations all landed at or above about 0.977 b0 sqrt n, far above L_n."
+    },
+    {
+     "item": "12. Is h=0 the genuine source of the obstruction; nonzero common endpoint",
+     "status": "scope_caveat",
+     "statement": "Yes, h=0 is the source. For a general common endpoint z, the obstruction becomes ||X|| >= ||atanh(z_s) - b0 1_l|| - lambda sqrt(l) - e_n sqrt(n). There is also a memory-mean analogue: ||x_T,m|| >= sqrt(k)|mean(atanh z_m) - b0| - 2a(1 + 1/sqrt k) - e_n sqrt(n). Endpoints near the biased autonomous level escape it completely, so moving to a nonzero common endpoint is mathematically meaningful: the class becomes nonempty at any R>0. It is a scope change, though, and gives no robust-width result.",
+     "evidence": "The map h -> tanh(Rh+b) is an l2 contraction with constant a<1, so it has a unique globally attracting fixed point z*. X=0 lands exactly on phi^T(0), so the class with that endpoint contains energy 0. Landing exactly on z* after T free steps costs ||R(z* - phi^(T-1)(0))|| <= a^T sqrt n. Measured landing cost: 3.1e-4 at T=n=200, 2.6e-5 at T=n=400, about 1e-14 at T=5n. z* is unsaturated at n<=1600 (max|z*_m| = 0.52, 0.64, 0.77, 0.89 at n=200, 400, 800, 1600), with mean(z*_m) about 0.05 and source level 0.04996, about tanh(0.05). The terminal bound evaluated at z* is <= 0. The memory-mean bound uses |c^T h_m| <= ||c||_1 = 2 sqrt k + 2 - 2/(sqrt k - 1). Caveat: PROOF section 6 (re-checked: B_n = b0 sqrt r - (L_at+a) sqrt(r/4n) - e_n sqrt n, using O e0 = e0 and zero source-to-selected R0 block) still makes the specific long weak-gate window cost Theta(n sqrt(log n)), whatever the endpoint."
+    },
+    {
+     "item": "13. Baseline asymptotic ||X_n(0)|| ~ C_abs n sqrt(log n)",
+     "status": "verified",
+     "statement": "Formula (3) re-derives transition by transition from (1), and C_abs = 0.53312948339933914405679... This is outside my lens but was checked.",
+     "evidence": "Memory contributions: preparation k b0^2; first interior k(B-b0)^2; N-1 later interiors k[(B-b0)^2 + a^2 beta^2], using 1^T O 1 = 0 (float check 4.7e-13); reset k(a^2 beta^2 + b0^2). These sum to k{2b0^2 + N[(B-b0)^2 + a^2 beta^2]}. Source contributions: l{(A-b0)^2 + N(A-b0-lambda s)^2 + (b0+lambda s)^2}. With k, l ~ n/2 and N ~ 4n log n, E0^2 ~ 2[b0^2 + (A-b0)^2] n^2 log n. mpmath at 40 digits gives C_abs = 0.5331294833993391440567934. The ARITHMETIC.json ratio at n=1e6, 0.533057, approaches it from below at an O(n^-1/2) rate, consistent with the -2 b0 B term."
+    },
+    {
+     "item": "14. Emptiness versus O(n) memory bound; zero-length history",
+     "status": "documentation",
+     "statement": "The files correctly distinguish an infeasibility (emptiness) statement from any memory-compression or O(n) upper bound. Assigning dimension zero to an empty class is vacuous, as they say. Strictly, the class becomes the singleton {zero-length history}, which is empty only once T=0 is excluded; REPORT/PROOF state this.",
+     "evidence": "PROOF section 5 (last paragraphs), REPORT section 3, STATUS 'New result' paragraph."
+    },
+    {
+     "item": "15. Overall verdict mapping",
+     "status": "verified",
+     "statement": "Under the requested three-way scale this lens returns VERIFIED, with a recommended sharpening: the constant 0.0499 sqrt(n/2) and the threshold 803.21 R^2 are correct but about sqrt(2) and 2x loose. No evasion exists and no inequality fails.",
+     "evidence": "See items 1-11."
+    }
+   ],
+   "sharpest_correct_statement": "Frozen dense tanh family, all integers n >= 200, required endpoint h_T = 0. Every history with T >= 1 ending exactly at h_T = 0 satisfies the bound below, whatever its length, gate schedule, harmonic construction, preparation path or input set (unrestricted or past cube):\n\n||X||_2 >= ||x_T||_2 >= sqrt( (b0-lambda)^2 l + [b0(sqrt(k) - 1/(sqrt(k)-1)) - a]_+^2 ) - e_n sqrt(n) > sqrt(n)/20 - 0.721.\n\n- The middle term is the exact box minimum of the terminal step for R0.\n- Its memory part comes from O^T 1_k = sqrt(k) U e_(d-1).\n\nThe one-step history x_1 = -b0 1_n achieves exactly sqrt(n)/20. So the minimum energy over all histories is sqrt(n)/20 - O(1), lying in [sqrt(n)/20 - 0.721, sqrt(n)/20]. Numerically, at n=200 the best found was 0.977 times sqrt(n)/20, and at n=400 and n=1600 the one-step history was optimal.\n\nConsequences for a fixed absolute budget R:\n- The class of nonempty zero-endpoint histories is empty once n >= 400(R + 0.721)^2.\n- It is nonempty for n <= 400 R^2.\n- The sharp threshold is n*(R) = 400 R^2 (1 + O(1/R)).\n\nThe claimed ||X|| > 0.0499 sqrt(n/2) and n < 803.209626 R^2 are correct, but loose by factors of about sqrt(2) and 2.008. The terminal-only part of the claim is exactly tight for 200 <= n <= 803.\n\nThe obstruction persists for approximate endpoints: ||X|| >= (tanh(b0) - lambda) sqrt(l) - tau - e_n sqrt(n). More generally, it applies to any common endpoint whose source block is l2-far from the autonomous level, or whose memory mean is far from the bias level.\n\nThis is a pure feasibility (emptiness) obstruction, not an O(n) memory theorem. A nonzero common endpoint near the autonomous fixed point z* removes the obstruction entirely: the class is nonempty at any R > 0 (energy <= a^T sqrt(n)), and contains X=0 for the endpoint phi^T(0). That makes it a mathematically meaningful but different-scope question. Scripts are in /tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/model.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/a_box.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/b_hist.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/b_large.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/b_long.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/b_mech.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_evasion/c_endpoint.py"
+   ]
+  },
+  {
+   "lens": "endpoint",
+   "verdict": "CLAIM_HOLDS_LOOSE",
+   "first_failed_inequality": "none",
+   "findings": [
+    {
+     "item": "Reset equation and primary bound (8)-(10)",
+     "status": "verified",
+     "statement": "If h_T=0 with T>=1, then x_T=-R h_(T-1)-b0 1_n exactly. The source block cannot cancel the bias, so ||X||>=(b0-lambda)sqrt(l)-e_n sqrt(n)>0.0499 sqrt(n/2). For budget R the class contains only the empty history once n>=(200000000/249001)R^2=803.2096256...R^2. This holds for any history length, gate schedule, harmonic construction, preparation path or sign choice, and also with unrestricted inputs.",
+     "evidence": "tanh is injective and tanh(0)=0, so x_T=atanh(0)-R h_(T-1)-b0 1. R0 is block-diagonal with source block lambda I_l, so ||Pi_s R h||<=lambda||h_s||+||(R-R0)h||<=lambda sqrt(l)+e_n sqrt(n), using |h_i|<1 or h_0=0. Then ||Pi_s x_T||>=b0 sqrt(l)-lambda sqrt(l)-e_n sqrt(n), and ||X||>=||x_T|| because the time slots are disjoint. Constants: sqrt(l)>=sqrt(n/2) and e_n sqrt(n)<=2e_n sqrt(n/2). b0-lambda-2e_n>=1/20-1/20000-8/(10^8*200^2)=24974999999/500000000000>0.0499. (0.0499)^2/2=249001/200000000 exactly, and 200000000/249001=803.20962566. The inequality is strict, so ||X||>R at the threshold. The archived R satisfies ||R||op=a to 1e-14 and ||R-R0||op=2.6e-13,6.4e-14,4.0e-14,2.0e-14 against e_n=1e-12,2.5e-13,6.25e-14,1.56e-14 for n=200,400,800,1600."
+    },
+    {
+     "item": "Multi-step resets",
+     "status": "verified",
+     "statement": "No legal multi-step reset can avoid the cost. The bound applies to the last input alone, for every h_(T-1) in (-1,1)^n, and earlier steps only add nonnegative energy. A local search over T=2,3,5,10-step histories ending at 0 never got near L_n.",
+     "evidence": "Script e_multistep_inf.py uses L-BFGS over preactivations; the results are local minima, so they are upper bounds on the infimum. Best ||X||: n=200 gave 0.70693 (T=10), with L_n=0.4995 and b0 sqrt(n)=0.70711. n=400 gave 1.00324 (L_n=0.7068). n=1200 gave 1.7521 (L_n=1.2245)."
+    },
+    {
+     "item": "Sharp one-step terminal minimum (strengthening)",
+     "status": "sharpening",
+     "statement": "(8) uses only the source block. The exact one-step minimum, up to +/-e_n sqrt(n), is sqrt((b0-lambda)^2 l+(b0(sqrt k-gamma/sqrt k)-a)_+^2)-e_n sqrt(n), with gamma=1/(1-1/sqrt k). It equals L_n for n<=802. From n>=804 the memory block adds a term, and the minimum grows like b0 sqrt(n)-1/sqrt2. The T=1 history x_1=-b0 1_n is admissible and has ||X||=b0 sqrt(n). So the true emptiness threshold is about 400R^2 (between 400R^2 and roughly 400(R+0.71)^2). The class is nonempty for n<=400R^2. The claimed 803.21R^2 is a valid sufficient condition but loose by about a factor of 2.",
+     "evidence": "O is orthogonal, so ||aOh_m+b0 1_k||=||a h_m+b0 O^T 1_k||. O^T 1_k=sqrt(k) U e_(d-1). Its entries are: coordinate d-1, sqrt k-gamma/sqrt k; coordinate 0, 1/b0*b0=1; all others, -gamma/sqrt k. Over the box, the minimum is sum_i(|v_i|-a)_+^2, and only coordinate d-1 can exceed a. That happens exactly when n>=804 (margin -1.3e-4 at n=802, +1.1e-3 at n=804). BVLS minimum of ||Rh+b0 1|| over [-1,1]^n with the actual R: 0.4995, 0.7068, 0.9998 (=L_n) for n=200,400,800; 1.24476 against L_n=1.22454 at n=1200; 1.47312 against L_n=1.41404 at n=1600. These match the closed formula to 6 digits."
+    },
+    {
+     "item": "(a) Autonomous fixed point h* and contraction",
+     "status": "verified",
+     "statement": "F(h)=tanh(Rh+b0 1) is a contraction on [-1,1]^n in ||.||_2 with factor a=1-1/n, so h* is unique. Source block: every coordinate equals s*=tanh(lambda s*+b0+O(e_n)), about 0.04996, with gate 0.9975, so nothing saturates. Memory block: the protected coordinate 0 solves x=tanh(ax+b0) and sits near 0.50 (gate about 0.75). Coordinate 1 receives the funnelled bias. Its preactivation is about b0 sqrt k, so it saturates as n grows: h*_1=0.5215,0.6351,0.7696,0.8889,0.9633 for n=200,400,800,1600,3200, with gates 0.728,0.597,0.408,0.210,0.072. Cycle coordinates 2..d-1 follow h_i about tanh(a h_(i-1)), a decaying profile roughly sqrt(3/(2i)) (h_(d-1)=0.120,0.088,0.068,0.052). Non-cycle coordinates d..k-1 are all equal and small: -0.1176,-0.0850,-0.0474,-0.0124 (+0.0165 at n=3200). ||h*||=2.045,2.454,2.826,3.203. No memory coordinate exceeds 0.9 for n<=1600. The local contraction ||diag(1-h*^2)R|| is 0.9812,0.9903,0.9965,0.99922.",
+     "evidence": "Contraction: tanh is coordinatewise 1-Lipschitz, so ||F(h)-F(h')||<=||R(h-h')||<=a||h-h'||. Computed by Newton with residual <=3.2e-15, giving a-posteriori error <=n*residual<=5.1e-12. Eigenstructure: U swaps e0 and u=1_k/sqrt k. O e0=e0=O^T e0, so row 0 is decoupled. O u=U P e0=U e1, which is approximately e1, and (O1_k)_1=sqrt k-gamma/sqrt k (9.889 at n=200). The bias b0 1_k=b0 sqrt k u is therefore funnelled into coordinate 1 and then shifted along the d-cycle. Measured pre_1=0.578,0.750,1.019,1.417 against b0 sqrt k=0.5,0.707,1.0,1.414. For i>=2 and for the non-cycle coordinates, pre_i-b0-a h_(i-1) (or -a h_j) is -0.0511,-0.0501,-0.0500, i.e. the rank-one Householder term cancels the bias to O(1/n). The eigenvalue-1 eigenspace of O, U(span(cycle mean, e_d..e_(k-1))), explains why the unsaturated linear solution (I-aO)^(-1)b0 1_k has norm 14.2,28.4,56.7,113.4 (about 0.071n) with coordinate 0 equal to b0 n. tanh saturation caps it, so the linear regime is invalid."
+    },
+    {
+     "item": "(b) PROOF (15) and nonemptiness of the h* class",
+     "status": "verified",
+     "statement": "(15) is valid for any endpoint z. At z=h* it is vacuous: its right side is <=0. Histories with T-1 zero inputs followed by one correction input end exactly at h* and have energy <=a^T||h*||<=e^(-T/n)sqrt(n). So {||X||<=R, h_T=h*} is nonempty for every n>=200 and every R>0, for example with T>=n ln(sqrt(n)/min(R,1/2)), with all inputs in the past cube. Zero energy itself is never attained: F is injective, so F^T(0)=h* would force h*=0.",
+     "evidence": "atanh(h*_s)-b0 1_l=lambda h*_s+((R-R0)h*)_s, with norm <=lambda||h*_s||+e_n||h*||<lambda sqrt(l)+e_n sqrt(n). Measured term against subtracted amount: 2.50e-5 vs 5.0e-4 (n=200), 8.8e-6 vs 1.77e-4 (n=1600). The correction input is x_T=atanh(h*)-R h_(T-1)-b0=R(h*-F^(T-1)(0)), so ||x_T||<=a*a^(T-1)||h*-0||. Numerically ||x_T|| at T=n was 3.1e-4,2.6e-5,1.5e-5,2.3e-5 for n=200..1600, and at roundoff (1e-14 to 3e-13) by T=5n. The bound a^T||h*|| was always respected, the endpoint error was <=1.1e-16, and max|x_T|<<1/2."
+    },
+    {
+     "item": "Is h=0 the source of the obstruction; general-endpoint bound",
+     "status": "scope_caveat",
+     "statement": "Yes. The obstruction comes entirely from the mismatch between the endpoint and the autonomous dynamics, atanh(z)-b0 1 not lying in R(-1,1)^n. It is not a property of the history class. The exact one-step bound for any z is ||X||>=sqrt(||(|atanh(z_s)-b0|-lambda)_+||^2+||(|O^T(atanh(z_m)-b0 1_k)|-a)_+||^2)-e_n sqrt(n). Moving only the source to equilibrium is not enough: the endpoint (0_k,s* 1_l) is still obstructed for n>=804, at about b0 sqrt(n/2)-1. Only endpoints near autonomous behaviour in both blocks, such as h*, avoid it. PROOF section 8 already concedes the endpoint dependence, so this narrows scope rather than refuting anything.",
+     "evidence": "The derivation is the same terminal identity, block-diagonal R0, and coordinatewise box minimisation, with O orthogonal. For the memory part with z_m=0 the bound is (b0(sqrt k-gamma/sqrt k)-a)_+, which is positive exactly for n>=804. At z=h* both parts vanish, because O^T(atanh(h*_m)-b0)=a h*_m+O(e_n) and |a h*_m|<a."
+    },
+    {
+     "item": "(c) Meaning of a nonzero common endpoint for the credit/query contract",
+     "status": "scope_caveat",
+     "statement": "A common endpoint h* gives a well-posed and non-vacuous contract, but it is a contract change, not a repair. What still holds: (i) direct and source future terms depend only on Q and the common h_T, so they cancel in same-endpoint comparisons; (ii) legal future preactivations in [1/4,3/4]^n are realised by x_(T+1)=pi-Rz-b0, and future inputs are unrestricted; (iii) the inverse tanh lift and the dense-transfer operator bounds; (iv) section-perturbation differences at the reset are unchanged, since atanh(z) is common. What needs re-proof: the final gate becomes G_z=diag(1-z^2) instead of I, so M_T=G_z(aO_*M_(T-1)+I). The common G_z still cancels, but the half-difference becomes a G_z O_*(...). G_z does not commute with O_*, and its (1,1) entry tends to 0, so the harmonic eigenvector analysis and the L1 query bound (16) need redoing. Past-cube admissibility of the reset also fails: a one-step reset from the window to h* has max|x| of 0.585, 0.719 and 1.093 at n=400, 800 and 1600, while the cube requires <1/2. Relaxation through zero inputs is admissible but adds Theta(n) steps whose gates change the credit transport. Moving the endpoint also does not reduce the energy of the accepted center (244.4159 with endpoint h* vs 244.4096 with endpoint 0 at n=200), because the long window dominates.",
+     "evidence": "Checked against intermediate_gate_credit PROOF section 1 ('direct future contributions... common endpoint h=0... cancel') and section 2 ('final endpoint reset necessarily has G=I'), and multiharmonic PROOF section 3 ('reset adds I and left-multiplies by aO_*') and section 9 ('Source/direct future terms cancel because the compared current endpoint is h=0'). Reset input norms: ||x|| to 0 was 0.758,1.037,1.441,2.019 and to h* was 1.913,2.273,2.550,2.751. Zero-input relaxation from the window state followed by a correction costs 2.9e-4 (n=200, 199 steps) and about 1e-14 after 5n steps."
+    },
+    {
+     "item": "(d) Weak-window bound (11),(12)",
+     "status": "verified",
+     "statement": "Every term checks: |atanh y|<=|y|/(1-y^2)<=L_at|y|; the protected coordinate is excluded because O=diag(1,O_*); the reference source-to-selected block is zero; the dense residual is <=e_n sqrt(n); and disjoint time slots add in squared norm. B_n>0 holds exactly for n>=400 (B_399=-2.19e-4, B_400=6.61e-4), and B_n/sqrt r increases with n. sqrt(N-1)B_n/(b0 sqrt2 n sqrt(log n)) is 0.80, 0.98 and 0.9994 at n=1e4, 1e6, 1e9, so it tends to 1. At fixed R, the number of weak-to-weak transitions satisfies M<=R^2/B_n^2, which is about 800R^2/n. Once n exceeds roughly 800(R+0.71)^2 no two consecutive weak states can occur at all, whatever the endpoint. The accepted mechanism therefore cannot be rescued by moving the endpoint.",
+     "evidence": "Exact minimum of ||x_sel|| over two consecutive weak states, computed by BVLS with g=atanh(h_cur) in [-G,G]^r, h_prev,sel in the cube, and the other coordinates in [-1,1], using the actual R (R0 gives the same to 6 digits): n=200 0.1095 (B_n=-0.205); 256 0.1791; 300 0.2281; 400 0.3266 (B_n=0.00066); 600 0.4902 (0.159); 800 0.6271 (0.293); 1200 0.8552 (0.517); 1600 1.0468 (0.707)."
+    },
+    {
+     "item": "(d) Sharper analytic weak-transition bound",
+     "status": "sharpening",
+     "statement": "B_n is valid but loose, and it is vacuous for n<400 even though the true per-transition cost is positive for all n>=200. Projecting onto 1_r gives ||x_sel||>=sqrt(r)(b0-atanh(1/(2sqrt n)))-a||O_*^T 1_r||_1/(2sqrt(n r))-e_n sqrt(n), with ||O_*^T 1_r||_1=sqrt k+(k-3)gamma/sqrt k. This bound is positive for n>=200 and lies within 0.04 of the exact minimum.",
+     "evidence": "Cauchy-Schwarz on <x_sel,1_r>=<g,1>-a<h_prev,sel,O_*^T 1_r>-<dense,1>-b0 r. Values: 0.0721, 0.1465, 0.1982, 0.3011, 0.4697, 0.6095, 0.8410, 1.0346 against exact minima 0.1095 ... 1.0468. The L1 norm numerically is 20.78 at n=200, matching 10+97*0.1111."
+    },
+    {
+     "item": "Baseline asymptotic ||X_n(0)|| ~ C_abs n sqrt(log n)",
+     "status": "verified",
+     "statement": "Formula (1) with the actual R agrees with closed formula (3) within Delta_n. C_abs=sqrt(2[b0^2+(atanh(.4)-b0)^2])=0.53312948339933914405679... The ratio approaches C_abs from below, with leading correction about -0.137/sqrt(n) relative, coming from the -2b0 B term.",
+     "evidence": "|E_R-E0| was 3.3e-11,1.7e-11,8.4e-12,4.6e-12 against Delta_n=2.6e-10,1.4e-10,7.3e-11,3.8e-11 for n=200,400,800,1600. E_R/(n sqrt log n)=0.53091,0.53096,0.53128,0.53167; the file's n=1e6 value is 0.533057, and C_abs*(1-1.37e-4)=0.533056. Memory input norms (B-b0)^2+a^2beta^2 use 1_k^T O 1_k=0, since e0^T P e0=0 for d>=2."
+    },
+    {
+     "item": "Feasibility vs memory compression",
+     "status": "documentation",
+     "statement": "The theorem shows that the bounded-energy, zero-endpoint class is empty for nonzero-length histories once n>=803.21R^2 (in truth about 400R^2). Calling the robust dimension of an empty or singleton class zero is vacuous. Nothing here bounds memory by O(n) for any nonempty class: not for endpoint h*, whose class is nonempty for all R>0, and not for any other model or endpoint. PROOF and REPORT state this distinction correctly.",
+     "evidence": "See the explicit h* construction above and PROOF sections 5 and 8."
+    }
+   ],
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_endpoint/model.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_endpoint/a_fixed_point.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_endpoint/a2_profile.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_endpoint/c_endpoint_transfer.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_endpoint/d_weak_window.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_endpoint/e_multistep_inf.py"
+   ],
+   "sharpest_correct_statement": "VERIFIED, with sharpening. Frozen family, n>=200, l=ceil(n/2), gamma=1/(1-1/sqrt k). Every history with T>=1 and h_T=0 satisfies, for any inputs, gates, length or preparation: ||X||>=||x_T||>=sqrt((b0-lambda)^2 l+(b0(sqrt k-gamma/sqrt k)-a)_+^2)-e_n sqrt(n)>=(b0-lambda)sqrt(l)-e_n sqrt(n)>0.0499 sqrt(n/2). The middle expression is the exact one-step minimum to within +/-e_n sqrt(n). With the 0.0499 sqrt(n/2) form, the class {||X||<=R, h_T=0} contains only the empty history once n>=(200000000/249001)R^2, about 803.21R^2. That threshold is sufficient but loose by about a factor of 2: the T=1 history has ||X||=b0 sqrt(n), so the class is nonempty for n<=400R^2, and the true threshold is asymptotically about 400R^2. The obstruction comes only from endpoint mismatch. For any common z the exact one-step bound is sqrt(||(|atanh z_s-b0|-lambda)_+||^2+||(|O^T(atanh z_m-b0)|-a)_+||^2)-e_n sqrt(n). At the autonomous fixed point h* (a contraction with factor a=1-1/n), the class {||X||<=R, h_T=h*} is nonempty for every R>0 and every n: T-1 zero inputs plus one correction cost <=a^T sqrt(n). So a nonzero common endpoint is meaningful and non-vacuous. It is a contract change, though, that carries no inherited lower bound. The final gate becomes G_z=diag(1-h*^2) instead of I, and G_z(1,1) tends to 0 because h*_1 tends to 1. A one-step reset to h* breaks the past cube for n>=400. And regardless of endpoint, each transition between weak selected states costs at least max(0,B_n): B_n>0 exactly for n>=400, and the true minimum is about b0 sqrt(n/2)-O(1) and positive for all n>=200. So at fixed R the accepted weak-gate window cannot exist for large n. No O(n) memory upper bound follows for any nonempty class."
+  },
+  {
+   "lens": "center",
+   "verdict": "CLAIM_HOLDS_LOOSE",
+   "first_failed_inequality": "none",
+   "findings": [
+    {
+     "item": "(a) Exact center formula (1): history and input types",
+     "status": "verified",
+     "statement": "Inverting h_t=tanh(R h_(t-1)+x_t+b0 1) gives x_t=atanh(h_t)-R h_(t-1)-b0 1. For h_0=0, h_1=p, h_2..h_(N+1)=v, h_(N+2)=0 there are T=N+2 inputs of four types: x_1=atanh(p)-b0 1 (1 copy), x_2=q-Rp (1 copy), x_3..x_(N+1)=q-Rv (N-1 copies), x_(N+2)=-(Rv+b0 1) (1 copy). That is exactly (1) for the actual R. N=ceil(4n log n)+1 matches arithmetic.py and the accepted window.",
+     "evidence": "Direct derivation. A float64 forward simulation of the actual tanh recurrence with the archived dense R (R=(R0+J/(1e8 n^3))a/||.||) realizes every state: max|h_T|=1.4e-17 at n=200,256,400. The simulated sqrt(sum||x_t||^2) is 244.409560366924, 320.033083864176 and 519.858531517342, agreeing with (1) to about 1e-11 (float accumulation). The largest |x_i| is 0.3736 (=atanh(.4)-.05), so the center is inside the past cube (-1/2,1/2)^n."
+    },
+    {
+     "item": "(a') Center equals the accepted local-radius center",
+     "status": "verified",
+     "statement": "The zero-defect history of the accepted section has preparation h_1=(0_k,H) with H=.4*1_l, memory states sqrt(z0/n)=beta on every memory coordinate (selected coordinates, off-cycle coordinates at z=z0, and the protected coordinate), positive signs, source H throughout the window, and an exact reset to 0. That is precisely p=(0_k,s1_l), v=(beta 1_k, s 1_l).",
+     "evidence": "codex_intermediate_gate_credit_20261002/PROOF.md Lemma I: 'protected memory h_(t,1)=sqrt(z0/n)', 'public source-establishment step h=(0_k,H) from h0=0', 'Full history length is N+2'. codex_multiharmonic_lower PROOF section 6: 'All other selected physical defects are zero'; 'memory h_t(i)=sqrt(z_t(i)/n) with fixed signs, source h_t=H, preparation public, and final h=0'. codex_bounded_history PROOF section 4: 'All fixed signs are chosen positive'; N=ceil(4n log n)+1 in its eq (1). The earlier Claude harness used protected value 0 by default, but that review noted it is immaterial for the local radius. For the absolute norm, the Lemma I value beta is the one used here, which is correct."
+    },
+    {
+     "item": "(b) Identities (2): 1_k^T O 1_k=0 and ||O 1_k||^2=k",
+     "status": "verified",
+     "statement": "U is symmetric and orthogonal and swaps e0 and 1_k/sqrt(k), so U1_k=sqrt(k)e0 and 1^T O 1=(U1)^T P (U1)=k e0^T P e0=k*e0(d-1)=0 for d>=2, using (Pe0)=e1. ||O1||=||1|| because O is orthogonal. Explicitly O1_k=sqrt(k)e1+gamma_U w and O^T 1_k=sqrt(k)e_(d-1)+gamma_U w, so the recurrent image of the uniform memory state is orthogonal to the bias direction and concentrated on a single coordinate.",
+     "evidence": "Algebra: U e1=e1-gamma_U w(w^T e1)=e1+gamma_U w/sqrt(k). Numerics with explicit matrices at n=200,256,400: |1^T O 1|<=4.7e-13, |||O1||^2-k|<=1.4e-12, explicit-form errors <=6.2e-14, ||Oe0-e0||<=2.1e-15."
+    },
+    {
+     "item": "(b) Reference formula (3) term by term",
+     "status": "verified",
+     "statement": "Memory block: k b0^2 (prep) + k(B-b0)^2 (first) + (N-1)k[(B-b0)^2+a^2beta^2] (later; the cross term vanishes by (2)) + k(a^2beta^2+b0^2) (reset) = k{2b0^2+N[(B-b0)^2+a^2beta^2]}. Source block: l(A-b0)^2 + l(A-b0-lambda s)^2 + (N-1)l(A-b0-lambda s)^2 + l(b0+lambda s)^2 = l{(A-b0)^2+N(A-b0-lambda s)^2+(b0+lambda s)^2}. Nothing is discarded.",
+     "evidence": "60-digit mpmath: the term-by-term sum minus the closed form is at most 1.3e-54 at all six widths. Float64 direct evaluation of (1) with R0 matches the closed form to <=6e-14 (n=200,256,400)."
+    },
+    {
+     "item": "(b) Dense sandwich (4)-(5)",
+     "status": "verified",
+     "statement": "X_R-X_R0 = -(R-R0)h_prev stepwise. The previous states are 0, p and N copies of v, so ||X_R-X_R0||^2 <= e_n^2(s^2 l + N(beta^2 k+s^2 l)) = Delta_n^2. Reverse triangle gives (5). Calling the enclosure 'sharp' overstates it: the actual |E_R-E0| is only about 0.11-0.125 Delta_n. Also, the archived R satisfies ||R-R0||<=2e-8/n^2=e_n/2, so Delta_n could be halved.",
+     "evidence": "||R-R0|| <= |a-||raw||| + ||raw-R0|| <= 2/(1e8 n^2). A high-precision exact closed form for the archived R uses raw=R0+eps J; the top singular value comes from a 3x3 reduced eigenproblem on span{(1_k,0),(O^T1_k,0),(0,1_l)}, giving ||raw||-a = eps k/2. E_R-E0 = -3.261e-11 vs Delta=2.611e-10 (n=200), -2.562e-11 vs 2.086e-10 (256), -1.660e-11 vs 1.386e-10 (400), -6.85e-12 vs 5.95e-11 (1000), -3.52e-12 vs 3.12e-11 (2000), -9.05e-15 vs 8.41e-14 (1e6). Float64 dense evaluation agrees (-3.254e-11 at n=200)."
+    },
+    {
+     "item": "(c) Constant C_abs",
+     "status": "verified",
+     "statement": "C_abs = sqrt(2[b0^2+(atanh(.4)-b0)^2]) = 0.533129483399339144056793391833378956654... The claimed 0.533129483399339 is a correct 15-digit truncation, and REPORT's 38-digit value agrees to 4e-39. ||X_n(0)||/(n sqrt(log n)) -> C_abs follows from (3)-(5): k/n,l/n->1/2, N/(n log n)->4, B,lambda->0, Delta_n=o(n sqrt log n).",
+     "evidence": "mpmath at dps=60: C_abs - 0.533129483399339 = 1.44e-16."
+    },
+    {
+     "item": "(c) Convergence rate and slowest correction",
+     "status": "sharpening",
+     "statement": "E0/(n sqrt(log n)) = C_abs[1 - (b0 sqrt(z0)/S)/sqrt(n) + c1/n + O(1/(n log n))], with S=b0^2+(A-b0)^2, b0 sqrt(z0)/S = 0.136263715919 and c1 about 1.04. The slowest correction is the memory cross term -2 b0 B, with B ~ beta = sqrt(.15/n), inside (B-b0)^2+a^2 beta^2 = b0^2-2b0 beta+O(1/n). Convergence is O(n^(-1/2)) and non-monotone at small n: 0.530908, 0.530881, 0.530956 at n=200, 256, 400.",
+     "evidence": "rel=ratio/C_abs-1 and rel*sqrt(n): -0.0589 (n=200), -0.1017 (1e3), -0.12557 (1e4), -0.13520 (1e6), -0.136158 (1e8), -0.1362637 (1e16, 1e20) -> 0.1362637. (rel+0.13626/sqrt n)*n -> about 1.04, matching the predicted 1/n coefficient 1.0357 plus slowly decaying 1/(n log n) terms."
+    },
+    {
+     "item": "(d) E0 table and actual-R center norms",
+     "status": "verified",
+     "statement": "The REPORT table E0 = 244.409560367, 320.033083864, 519.858531517, 1396.696899383, 2932.284265626, 1,981,332.888941135 is reproduced to every printed digit. With the actual archived dense R, E_R = 244.4095603669165631349, 320.0330838641672991302, 519.8585315173604028515 (n=200,256,400) lies strictly inside E0 +/- Delta_n. The same holds at n=1000, 2000 and 1e6.",
+     "evidence": "Recomputed E0 (60 digits): 244.409560366949173, 320.033083864192923, 519.858531517377005, 1396.69689938345922, 2932.2842656264135, 1981332.88894113474. Ratios (E_R-E0)/Delta_n are in [-0.125,-0.107]. Scripts c1_scalar.py, c2_dense.py and c5 (inline)."
+    },
+    {
+     "item": "(e) Whole-section enclosure (7)",
+     "status": "verified",
+     "statement": "For every y, | ||X_n(y)|| - ||X_n(0)|| | <= ||X_n(y)-X_n(0)|| <= 0.00970048 (accepted premise) and |E_R-E0| < Delta_n strictly, because ||R-R0|| <= e_n/2. So E0-Delta_n-L < ||X_n(y)|| < E0+Delta_n+L holds with strict inequalities even if the accepted local bound is only non-strict. (13) is the corresponding sufficient and necessary budget for this family. The section exists only for n>=10^900, where E0 is astronomically large, so (7) is meaningful there only.",
+     "evidence": "Reverse triangle inequality plus the strictness of the dense bound. bounded_history PROOF (15) gives R_history <= 97eta+48eta^2 = 0.00970048."
+    },
+    {
+     "item": "(e) Tradeoff (14)",
+     "status": "verified",
+     "statement": "D_n = floor(floor(n/4)/1e6) floor(n^(1/18)) ~ n^(19/18)/(4e6). Eliminating n via n=(4e6 D)^(18/19)(1+o(1)) and log n = (18/19)log(4e6 D)+o(1) gives R_family ~ C_abs(4e6 D)^(18/19) sqrt((18/19)log(4e6 D)). This is correctly labelled as a cost of this construction only.",
+     "evidence": "mpmath at n=1e900, 1e5000, 1e50000: D/D_asym-1 = -1e-50, -2.2e-58, -2.2e-57; formula (14)/(C_abs n sqrt log n) - 1 = -9.5e-51, -3.2e-58, -3.2e-57; D/(n^(19/18)/2e7) = 5.0 (consistent with the accepted D>=n^(19/18)/2e7)."
+    },
+    {
+     "item": "Primary claim (8)-(10): terminal energy lower bound and threshold",
+     "status": "verified",
+     "statement": "h_T=0 and injectivity of tanh force x_T=-R h_(T-1)-b0 1, for any history length, gate schedule, harmonic construction or preparation path, including T=1 with h_0=0. The source projection gives ||x_T|| >= (b0-lambda)sqrt(l) - e_n sqrt(n), because Pi_s R0 h = lambda h_s with |h_i|<1 and the dense leakage is <= e_n sqrt(n). With l>=n/2: L_n >= sqrt(n/2)(b0-lambda-sqrt2 e_n) >= sqrt(n/2)*0.04994999999 > 0.0499 sqrt(n/2). Squaring gives ||X||^2 > (249001/2e8)n. A budget R therefore forces n < (2e8/249001)R^2 = 803.20962566415... R^2, so rounding the constant up to 803.209626 is safe.",
+     "evidence": "Exact rationals: b0-1/20000-8/(1e8*200^2) = 24974999999/500000000000 > 499/10000, and (499/10000)^2/2 = 249001/200000000. REPORT's terminal column is reproduced: 0.4995 (n=200), 0.565243 (256), 0.706753 (400), 35.355332 (1e6)."
+    },
+    {
+     "item": "Multi-step resets cannot evade the one-step cost",
+     "status": "verified",
+     "statement": "||X|| >= ||x_T|| >= min_{h in [-1,1]^n} ||R h + b0 1||, and every earlier step only adds nonnegative energy. Any multi-step preparation of h_(T-1) can therefore lower the last-step cost at most to this box minimum, which the proof bounds below.",
+     "evidence": "Exact convex box-constrained least squares (scipy lsq_linear) with the actual R gives min_h||Rh+b|| = 0.499500 (n=200), 0.706753 (400), 1.123885 (1000), 1.684015 (2000), always >= claimed L_n. An L-BFGS search over 2-step histories 0->h1->0 found best energies 0.7085, 1.0040, 1.5967, 2.2754, all >= the terminal minimum."
+    },
+    {
+     "item": "Sharpening: the bound is loose by a factor of sqrt(2) in norm and about 2 in the width threshold",
+     "status": "sharpening",
+     "statement": "The memory block cannot cancel the bias cheaply either. ||aOh_m+b0 1_k|| = ||a h_m + b0 O^T 1_k||, and b0 O^T 1_k has entry b0(sqrt k - gamma_U/sqrt k) at coordinate d-1, which needs |h_(d-1)|>1 once that entry exceeds a (k>~400). The exact R0 box minimum is sqrt(l(b0-lambda)^2 + (b0(sqrt k-gamma_U/sqrt k)-a)_+^2) = 0.05 sqrt(n) - 0.707 + o(1). The trivial one-step history x_1=-b0 1 (which ends at h_1=0, lies in the cube and is nonempty) has ||X|| = b0 sqrt(n) exactly. So the minimal zero-endpoint energy is b0 sqrt(n) - O(1). The class is nonempty for n <= 400R^2 and empty for n > 400(R+0.71+o(1))^2. The claimed 803.21 R^2 is a valid but approximately 2.008x loose sufficient threshold.",
+     "evidence": "The closed form equals the numerical box minimum exactly: memory part 0.116693 (n=1000) and 0.580006 (n=2000), both closed and lsq. Sharpened bound 1.684015 vs claimed 1.580981 at n=2000. Asymptotically sqrt(b0^2 n - 2 a b0 sqrt(n/2) + 1) = 0.05 sqrt(n) - 0.7071. Claimed constant 0.0499/sqrt2 = 0.03528 vs sharp 0.05."
+    },
+    {
+     "item": "Is h=0 genuinely the source? Nonzero autonomous endpoint",
+     "status": "scope_caveat",
+     "statement": "Yes. The obstruction comes from requiring the endpoint 0 while b0 != 0: atanh(0)=0 cannot absorb the bias, and neither recurrent block can. For a general endpoint z, (15) replaces b0 1_l by atanh(z_s)-b0 1_l. At the zero-input fixed point h* = tanh(R h* + b0 1), which exists and is unique because ||R||=a<1, (15) is negative. There is a length-(N+2) history ending EXACTLY at h* with ||X|| <= a^(T) ||h*|| <= n^(-7/2): zero input for T-1 steps, then x_T=R(h*-h_(T-1)). A public common nonzero endpoint is therefore mathematically meaningful and removes this obstruction entirely. Same-endpoint cancellation of direct future contributions needs only a COMMON endpoint, not 0. It does not rescue the existing multiharmonic mechanism, whose source maintenance (psi_n(.4)^2 l per step) and weak-window bias cancellation (section 6) still grow.",
+     "evidence": "Numerics with the actual R: h*_source = 0.04996 ~ tanh(.05); fixed-point residual <=2.3e-15; exact-h* history energy 5.4e-15, 1.3e-14, 3.3e-14 at n=200, 400, 1000 (float floor); (15) at z=h* = -4.75e-4, -3.36e-4, -2.12e-4, against L_n = 0.4995, 0.7068, 1.1178 for endpoint 0. Rigorous: ||h_(T-1)-h*|| <= a^(T-1)||h*|| by 1-Lipschitz tanh, and T>=4n log n gives a^T sqrt(n) <= n^(-3.5)."
+    },
+    {
+     "item": "Emptiness vs O(n) memory; zero-length history",
+     "status": "scope_caveat",
+     "statement": "The obstruction is independent of memory content. Even the zero-information one-step history costs b0 sqrt(n), so emptiness at fixed R is a degeneracy of the contract (absolute budget about zero input + endpoint 0 + b0 != 0). It is not an O(n), O(1) or any compression theorem, and assigning dimension 0 to an empty class is vacuous; PROOF section 5 says this correctly. 'EMPTY' must be read as 'no history with T>=1': the zero-length history is a singleton member. The statement also implicitly requires n>=200, the family's domain.",
+     "evidence": "PROOF section 5: 'A zero-length history at h_0=0 is just one point'; 'This is not a substantive O(n) sufficient-statistic theorem.' The trivial history x_1=-b0 1_n has energy exactly 0.05 sqrt(n)."
+    },
+    {
+     "item": "Documentation nits",
+     "status": "documentation",
+     "statement": "(i) (5) is called a 'sharp enclosure' but is about 8x conservative. (ii) The proof uses sqrt(n/l)<=2 where sqrt(2) holds; this is harmless. (iii) R denotes both the recurrent matrix and the energy budget. (iv) arithmetic.py calls ctypes.windll and cannot run on Linux as written. I reproduced its numerical content independently without importing it.",
+     "evidence": "See the dense-sandwich ratios above. arithmetic.py lines with ctypes.windll.kernel32/psapi."
+    }
+   ],
+   "sharpest_correct_statement": "Verdict: VERIFIED (loose constant). For the frozen dense family (n>=200), the accepted center has exact norm E_R(n) given by (1). It satisfies |E_R-E0| < Delta_n (in fact about 0.12 Delta_n, and Delta_n can be halved since ||R-R0||<=2e-8/n^2), with E0 from (3) reproduced to every printed digit. ||X_n(0)|| = C_abs n sqrt(log n)[1 - 0.1362637/sqrt(n) + O(1/n)], where C_abs = 0.533129483399339144056793391833... Every member of the accepted section is within E0 +/- Delta_n +/- 0.00970048, and (14) holds as a construction-specific asymptotic. For every history with T>=1 ending at h_T=0, whatever the length, gates, harmonics or preparation, ||X||_2 >= ||x_T|| >= min_{h in [-1,1]^n}||Rh+b0 1|| >= sqrt(l(b0-lambda)^2 + (b0(sqrt k - gamma_U/sqrt k) - a)_+^2) - e_n sqrt(n). This is >= (b0-lambda)sqrt(l) - e_n sqrt(n) > 0.0499 sqrt(n/2), and the trivial one-step history x_1=-b0 1 attains b0 sqrt(n). So the minimal zero-endpoint energy is 0.05 sqrt(n) - O(1). The bounded-energy zero-endpoint class (T>=1) is empty for n >= (2e8/249001)R^2 ~ 803.2096 R^2, which is a correct but approximately 2x loose sufficient threshold; the sharp threshold is n ~ 400 R^2. This is a feasibility degeneracy caused by endpoint 0 with nonzero bias, not a memory-compression or O(n) theorem. A common nonzero endpoint is mathematically meaningful: at the autonomous fixed point h* the terminal bound becomes negative, and an exact-h* history of the same length has energy <= n^(-7/2). Under that endpoint the robust-width question is open, while the existing multiharmonic mechanism still diverges because of source maintenance and weak-window bias costs.",
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_center/c1_scalar.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_center/c2_dense.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_center/c3_terminal_tradeoff.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_center/c4_autonomous.py"
+   ]
+  },
+  {
+   "lens": "scope",
+   "verdict": "CLAIM_HOLDS_WITH_SCOPE_CAVEATS",
+   "first_failed_inequality": "none",
+   "findings": [
+    {
+     "item": "1. Reset equation",
+     "status": "verified",
+     "statement": "For any history whose last state is h_T=0, the last input must satisfy x_T = -R h_(T-1) - b0 1_n. This follows from the actual recurrence with W=I.",
+     "evidence": "h_T = tanh(R h_(T-1) + x_T + b0 1_n) = 0. Because tanh is injective and tanh(0)=0, R h_(T-1) + x_T + b0 1_n = 0. This holds for every T>=1, including T=1 where h_0=0 and so x_1 = -b0 1_n. No assumption about earlier inputs or gates is used."
+    },
+    {
+     "item": "2. Why the bias cannot be cancelled cheaply",
+     "status": "verified",
+     "statement": "In the source block, the only thing that could cancel b0 1_l is the recurrent term. Its reference part is lambda h_src with lambda=1/(100n), far smaller than b0=1/20, and the dense leakage is at most e_n sqrt(n). The cross-blocks of R0 are zero.",
+     "evidence": "Pi_s R h = lambda h_s + Pi_s(R-R0)h. Every |h_i|<=1 (or h=0), so ||b0 1_l + lambda h_s||^2 = sum_i (b0+lambda h_i)^2 >= (b0-lambda)^2 l, and ||(R-R0)h|| <= e_n sqrt(n) = 4/(10^8 n^(3/2)). Hence ||x_T|| >= ||Pi_s x_T|| >= (b0-lambda)sqrt(l) - e_n sqrt(n), with l=ceil(n/2), matching STATUS.md:42. The memory block cannot cancel either once n is large: aO h_m = -b0 1_k would need h_m = -(b0/a)O^T 1_k, and that vector has entry b0(sqrt k - 1/(sqrt k -1))/a > 1 for k >~ 400."
+    },
+    {
+     "item": "3. Independence of history length, gate schedule, harmonics and preparation",
+     "status": "verified",
+     "statement": "The proof uses only the final transition and the bound |h_(T-1),i|<=1. It holds for every history length, gate word, harmonic profile, sign choice, preparation path, and for unrestricted (non-cube) past inputs.",
+     "evidence": "No other quantity enters (8). I forward-simulated the actual public center with the archived dense R (n=200,256,400; N+2 = 4242, 5682, 9590 steps). The endpoint error was <=1.4e-17 and the final reset norm was 0.758, 0.845, 1.037, each above L_n = 0.4995, 0.5652, 0.7068."
+    },
+    {
+     "item": "4. Norm conversions and constants in 0.0499 sqrt(n/2)",
+     "status": "verified",
+     "statement": "For n>=200, (b0-lambda)sqrt(l) - e_n sqrt(n) > 0.0499 sqrt(n/2) and ||X||^2 > (249001/200000000)n.",
+     "evidence": "||X|| >= sqrt(l)[b0 - lambda - e_n sqrt(n/l)]. Here sqrt(n/l) <= sqrt2 <= 2, lambda <= 1/20000 and 2e_n <= 8/(10^8*200^2) = 2e-12. So the coefficient is >= 24974999999/500000000000 = 0.049949999998 > 499/10000, and l >= n/2. Exact rational check: (499/10000)^2/2 = 249001/200000000. mpmath scan over n=200..5000 and n=10^4..10^39 gives min L_n/(0.0499 sqrt(n/2)) = 1.0010020 (at n=200)."
+    },
+    {
+     "item": "5. Threshold n < 803.209626 R^2",
+     "status": "verified",
+     "statement": "If ||X||<=R and the history is nonempty, then n < (200000000/249001)R^2 = 803.209625664154 R^2. The quoted 803.209626 is rounded up, which is the safe direction. For n>=200 and n >= 803.209626 R^2 the class of nonempty h=0-ending histories is empty.",
+     "evidence": "R >= ||X|| > 0.0499 sqrt(n/2) gives R^2 > 0.00249001 n/2. Fraction arithmetic confirms 200000000/249001 = 803.2096256641539..."
+    },
+    {
+     "item": "6. Multi-step resets cannot evade the cost; (8) is loose only by a constant",
+     "status": "sharpening",
+     "statement": "No multi-step reset escapes the cost, because the final step always pays and earlier steps can only choose h_(T-1) inside the cube. But (8) ignores the memory block. The rigorous bracket on the minimal energy m_n is S_n <= m_n <= b0 sqrt(n), with S_n = sqrt((b0-lambda)^2 l + (b0(sqrt k - 1/(sqrt k -1)) - a)_+^2) - e_n sqrt(n). Here b0 sqrt(n) - S_n -> 1/sqrt2. So the true emptiness threshold is asymptotically n ~ 400 R^2, not 803.2 R^2. The class is nonempty whenever n <= 400 R^2.",
+     "evidence": "Minimizing over the closed cube is a superset relaxation, and it is block-separable for R0. In the memory block, min ||aOh+b0 1|| = ||(b0|O^T 1_k| - a)_+||. O^T 1_k = sqrt(k) U e_(d-1) has entries sqrt k - 1/(sqrt k -1), 1, and -1/(sqrt k -1). BVLS with the actual archived R gives a minimum of 0.49950, 0.56524, 0.70675, 1.12388, 1.68402 at n = 200, 256, 400, 1000, 2000. That equals L_n to <=1e-11 for n<=400 and equals S_n at n=1000 and 2000. Upper bound: the one-step history x_1 = -b0 1_n gives h_1 = tanh(0) = 0 (checked forward with the actual R) at energy b0 sqrt(n), and |x_i| = 0.05 is admitted. Gap b0 sqrt(n) - S_n = 0.2076, 0.457, 0.552, 0.702, 0.70711 at n = 200, 1e3, 2e3, 1e6, 1e40."
+    },
+    {
+     "item": "7. Is h=0 the source of the obstruction?",
+     "status": "verified",
+     "statement": "Yes. It comes from combining (i) the exact h_T=0 requirement, (ii) the uniform bias b0 1_n, whose norm is b0 sqrt(n), (iii) a source recurrence (lambda) too weak to absorb it, and (iv) an absolute budget R held fixed as n grows. For an endpoint z the terminal bound becomes (15): ||atanh(z_s) - b0 1_l|| - lambda sqrt(l) - e_n sqrt(n). This can vanish near the source equilibrium.",
+     "evidence": "Same algebra with atanh(z) on the left. A zero-input history has ||X||=0 and endpoint z_T = Phi^T(0) != 0 (z_1 = tanh(b0) 1_n). So {||X||<=R, h_T=z_T} is nonempty for every R and n, and (8) does not transfer."
+    },
+    {
+     "item": "8a. Does the contract require h=0? (definitional versus frozen)",
+     "status": "scope_caveat",
+     "statement": "The general robust-section and sufficient-memory definitions use an arbitrary fixed or supplied endpoint h. h=0 was first a construction choice made for convenience in the queries. Later stages then froze it, together with the query family C_0 defined 'from h=0', as part of the accepted lower-bound instantiation. So PROOF.md:24 ('The accepted fixed-feature contract ends at h_T=0') is accurate for the frozen instantiation, but h=0 is not required by the definitional contract.",
+     "evidence": "Generic fixed endpoint: robust_width_scaling_20261001/THEORY.md:30-31 'continuous history lift X(u)... ending at one fixed h'; near_critical_credit_phase_diagram_20261001/PROOF.md:25,27,33-34 'At fixed h', 'fixed-h history section', 'k_eps ... with endpoint h supplied'; arbitrary_horizon_log_gap_20261001/PROOF.md:25 'At a supplied endpoint h'. Choice: gamma_c_over_n_quadratic_20261001/PROOF.md:41-46 'We use only the permitted future input v=(9/20)*1 from the endpoint h=0 ... In the R block that direct injection is itself zero at h=0'. Frozen: reachable_fixed_feature_width_20261002/PROOF.md:13 'Keep the accepted ... endpoint h=0', :26 'C_0 ... from h=0'; query_visible_operator_dimension_20261002/PROOF.md:59; codex_online_gate_polynomial_20261002/PROOF.md:27 'The actual common endpoint is h=0'; codex_causal_suffix_width_20261002/PROOF.md:16; codex_multiharmonic_lower_20261002/PROOF.md:28,46; codex_sustained_weak_gate_credit_20261002/CHECKS.md:5-6. Because lower bounds are existential, the prover picked the endpoint; the obstruction therefore rules out a self-imposed restriction, not the fixed-h question."
+    },
+    {
+     "item": "8b. Is a nonzero autonomous endpoint mathematically meaningful?",
+     "status": "scope_caveat",
+     "statement": "Yes, in the sense that the class is nonempty at zero energy and \u00a75 is avoided. But the natural autonomous endpoints carry no legal query at large n. Under the project's realizable-query convention (future inputs in (-1/2,1/2)^n, all future preactivations in [1/4,3/4]^n), the box is reachable from z only if (Rz)_i is in (-0.3,1.2) for every i. For z_1 = tanh(b0)1_n, (R0 z_1)_1 = a tanh(b0)(sqrt k - 1/(sqrt k -1)), which exceeds 1.2 once k>=578 (n>=1156). The legal query family is then empty and credit is trivially zero. In exploratory runs, query-admissible nonzero endpoints were reachable below the h=0 floor, but the energy grew with n. Whether a fixed R independent of n can reach them is OPEN; this could be a second, endpoint-independent Theta(sqrt n) obstruction. PROOF \u00a78's 'ACTUAL accepted query metric ... uniform over public z_n' is underspecified, because C_0 is defined only from h=0.",
+     "evidence": "Analytic: O 1_k = sqrt(k) U e1, with coordinate-1 factor 1 - 1/(sqrt k(sqrt k -1)). Simulation with the actual R, n=2000, over all zero-input endpoints T=1..60811: max(Rz) about 1.53-1.58 > 1.2 at every T (n=200, 400, 1000 stay below 1.2). L-BFGS energy minimization to reach (Rz) in [-0.25,1.15]^n (local optimizer, not a proof): n=2000 T=16/64 gives 0.110/0.100; n=4000 T=16/64 gives 0.470/0.501; n=8000 T=16 gives 1.242. Compare the h=0 floor S_n = 1.684 / ~2.4 / ~3.4. Realizable-box convention: rotating_gate_aggregation_20261001/PROOF.md:215-220; age_preserving_transport_basis_20261002/PROOF.md:691 ('accepted realizable one-step future preactivation box [1/4,1/2]^n at h=0'); codex_online_gate_polynomial_20261002/PROOF.md:28-29."
+    },
+    {
+     "item": "(b) Is the reset input counted? What if it were exempt?",
+     "status": "scope_caveat",
+     "statement": "Under project conventions the reset input is counted. x_T is the past input that produces the endpoint; only future query inputs are excluded. If the reset were exempt, the \u00a75 obstruction would vanish completely: zero inputs followed by an exempt reset reach h_T=0 with zero counted energy at every n. The class would then effectively become a free-penultimate-state class. \u00a76 (the weak-window bound) would survive unchanged, since it never uses the reset.",
+     "evidence": "PROOF.md:19-21; codex_multiharmonic_lower_20261002/PROOF.md:244 '||x_t-x_t^0||2<3delta, including the reset'; codex_intermediate_gate_credit_20261002/PROOF.md:126-127 'including the final reset' ('exempt' at :90 refers to the gate cube, not the norm); claude_bounded_history_radius_review_20261003/REVIEW.md:60-61 (reset counted; 'future query inputs ... not part of the past history'). Since ||X|| >= ||x_T|| is the only inequality used, exempting x_T leaves no lower bound."
+    },
+    {
+     "item": "Budget-scaling scope omission",
+     "status": "scope_caveat",
+     "statement": "The obstruction says only that a fixed R falls below the bias scale b0 sqrt(n). With a per-coordinate budget R_n = rho sqrt(n), rho >= b0, the h=0 class is nonempty: it contains the reset-only history. Nothing in the files addresses robust dimension for R_n between b0 sqrt(n) and the center's ~0.533 n sqrt(log n). The redesign table and \u00a78 omit both this option and the reset-exempt option.",
+     "evidence": "Upper bracket from item 6: m_n <= b0 sqrt(n). REPORT.md:89-97 lists endpoint, bias and source changes but no budget normalization. REPORT.md:151-153 ('further witness work is unnecessary') holds only for fixed R."
+    },
+    {
+     "item": "9. Baseline asymptotic ||X_n(0)|| ~ 0.533129483399339 n sqrt(log n)",
+     "status": "verified",
+     "statement": "(3) is exact for R0, and (5) gives the sandwich for the actual R. C_abs = sqrt(2[b0^2+(atanh(.4)-b0)^2]) = 0.533129483399339144056793391833..., and E0/(n sqrt log n) -> C_abs. Convergence is slow.",
+     "evidence": "Re-derived the four input types. The memory cross terms vanish because 1_k^T O 1_k = k e0^T P e0 = 0 (d>=2). This gives k{2b0^2+N[(B-b0)^2+a^2beta^2]} + l{(A-b0)^2+N(A-b0-lambda s)^2+(b0+lambda s)^2}. Previous states are 0, p and N copies of v, so Delta_n = e_n sqrt(s^2 l + N(beta^2 k + s^2 l)). Forward simulation with the actual R: ||X|| - E0 = -2.6e-11, -1.7e-11, -3.5e-11, all within Delta_n of about 1.4-2.6e-10. Ratio: 0.5330574 (1e6), 0.5331272 (1e9), 0.53312948339 (1e20), 0.533129483399339144 (1e40)."
+    },
+    {
+     "item": "\u00a76 weak-window lower bound",
+     "status": "verified",
+     "statement": "(11)-(12) are correct as scoped. For N consecutive selected-gate-cube states, ||X|| >= sqrt(N-1) max(0,B_n), and for N = ceil(4n log n)+1 this tends to 0.05 sqrt2 n sqrt(log n). B_n > 0 only for n >~ 400. At fixed R the cube admits no two consecutive weak states once B_n > R. The phrase 'precludes ... same long window' is accurate; short bursts are correctly excluded from the claim.",
+     "evidence": "|h_sel| <= 1/(2 sqrt n), and the atanh Lipschitz constant is 1/(1-1/(4n)). O fixes e0, so the selected block maps to itself with norm a C_n, C_n = sqrt(r/(4n)). The source-to-selected block is 0 and the dense part is <= e_n sqrt(n). Numerics: sqrt(N-1)B_n/(n sqrt log n) = 0.06930 (1e6), 0.0707093 (1e12), 0.0707106781187 (1e40), versus 0.05 sqrt2 = 0.0707106781187."
+    },
+    {
+     "item": "10. Emptiness versus any O(n) memory bound; conclusion-sentence audit",
+     "status": "documentation",
+     "statement": "The text keeps feasibility and compression separate: 'vacuous zero-coordinate upper bound', 'not a substantive O(n) sufficient-statistic theorem', 'irrespective of epsilon' (true, because emptiness does not depend on the query or on epsilon). Minor issues: (i) PROOF.md:200-203 says the class is 'EMPTY' and also that the zero-length history is a singleton; the precise statement is that nonempty histories are absent, so the class is {empty history}. (ii) 'No omega(n) robust section' is an underclaim; no robust section of positive dimension exists at all. (iii) PROOF.md:273 'stronger than a tradeoff based on tangent singular values' is rhetorical and unquantified. (iv) STATUS.md:49-52 and REPORT \u00a74 weak-window claims are correctly scoped to that mechanism.",
+     "evidence": "Read PROOF.md \u00a75, \u00a77, \u00a78, REPORT.md \u00a73-\u00a76 and STATUS.md in full. No sentence claims an O(n) upper bound, a finite-bit result, or a result for other endpoints or models."
+    },
+    {
+     "item": "(d) arithmetic.py / ARITHMETIC.json / CHECKS.md consistency",
+     "status": "documentation",
+     "statement": "arithmetic.py is Windows-only: ctypes.windll at lines 129-132 raises AttributeError on Linux before the output is written. It also refuses to overwrite ARITHMETIC.json, so it cannot be re-run in place. CHECKS.md's 'Minor implementation issues: none' is therefore inaccurate; the same issue was flagged in the earlier review (REVIEW.md \u00a717.1, \u00a721). Several checks are tautological or only weakly informative: 'frozen local radius' compares two constants; the 'sandwich' uses a test matrix R0+(e/2)ones/n rather than the archived R; '80/120 agreement' tests precision stability only. Not checked: theorem (8) itself, the decimal 803.209626, B_n and (12), (14), and anything involving the actual archived R. PROVENANCE.json hashes for ARITHMETIC.json and AGENTS.md match only CRLF copies. STATUS.md:61-62 ('No separate Claude bounded-radius review folder was located') was true for commit f62aa45, where 3a18102 was on a sibling branch, but is stale after merge 085977c.",
+     "evidence": "Linux replay in scratch with the RAM probe stubbed: 18/18 checks pass. All 6 high-precision rows are identical to ARITHMETIC.json; float details differ by <=4e-13 (BLAS rounding). The current LF sha256 of ARITHMETIC.json is e0caae9b...; the CRLF-converted copy gives the recorded 93142c15.... AGENTS.md: LF 08f8876a..., CRLF 3c6e09c0... (recorded). PROOF, REPORT, STATUS, CHECKS and arithmetic.py hashes match. The REPORT \u00a72 table values match the JSON."
+    }
+   ],
+   "scripts_written": [
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/arithmetic_linux.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/ARITHMETIC_linux_replay.json",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/terminal_min.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/center_forward.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/constants.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/sharp_bracket.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/autonomous.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/query_admissible_endpoint.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/qa2.py",
+    "/tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_scope/qa3.py"
+   ],
+   "sharpest_correct_statement": "Verdict: VERIFIED. The claim holds as stated. It is a feasibility obstruction, not a memory-compression theorem, and it is loose only by a constant.\n\nStrongest justified theorem (frozen dense tanh family, n>=200, W=I, b0=1/20, ||R-R0||op <= e_n = 4/(10^8 n^2)):\n\n1. Lower bound. Every nonempty history (any length, gates, harmonics, signs, preparation; admitted or unrestricted inputs) whose last state is exactly h_T=0 satisfies ||X||_2 >= ||x_T||_2 >= max{L_n, S_n}, where\n   - L_n = (1/20 - 1/(100n)) sqrt(ceil(n/2)) - 4/(10^8 n^(3/2)) > 0.0499 sqrt(n/2);\n   - S_n = sqrt((b0-lambda)^2 l + (b0(sqrt k - 1/(sqrt k -1)) - a)_+^2) - e_n sqrt(n).\n\n2. Upper bound. The one-step history x_1 = -b0 1_n reaches h_1=0 with energy b0 sqrt(n). So the minimal energy m_n satisfies S_n <= m_n <= b0 sqrt(n), and b0 sqrt(n) - S_n -> 1/sqrt2.\n\n3. Consequence for a fixed absolute budget R. The h=0 class contains only the zero-length history whenever n >= (200000000/249001)R^2 \u2248 803.2096257 R^2. Asymptotically this already happens at n \u2248 400(R+1/sqrt2)^2. The class is nonempty whenever n <= 400 R^2.\n\n4. What this is not. It is not an O(n) memory bound: the resulting zero-coordinate bound is vacuous. It also does not bound the general fixed-endpoint contract. That contract (THEORY.md:30-31, near_critical PROOF.md) allows any supplied endpoint; h=0 was a construction choice later frozen into the accepted instantiation.\n\n5. What it does not cover. It does not survive any of these changes:\n   - exempting the reset input (energy can then be zero);\n   - a budget that scales as R_n >= b0 sqrt(n);\n   - a nonzero endpoint.\n\n6. Separately, \u00a76 is correct. Any N consecutive selected-gate-cube states cost at least sqrt(N-1) max(0,B_n), which is about 0.0707 n sqrt(log n) for N ~ 4n log n, at any endpoint.\n\n7. Baseline. ||X_n(0)|| / (n sqrt(log n)) -> 0.533129483399339144..., exactly as stated.\n\nIs a nonzero common endpoint meaningful? Yes: the class is nonempty at zero energy and (8) no longer applies. But the natural autonomous endpoints have no legal query once n >= 1156, under the realizable preactivation-box convention ((Rz)_i must lie in (-0.3,1.2)). So an enlarged-endpoint program must:\n   - restrict to query-admissible endpoints, or redefine the query family C_z, since the accepted C_0 is defined only from h=0;\n   - first settle whether histories with n-independent energy can reach such endpoints.\n\nExploratory optimization found such histories below the h=0 energy floor, but their energy grew with n: 0.10 at n=2000, about 0.47 at n=4000, 1.24 at n=8000. This leaves open a possible endpoint-independent Theta(sqrt n) obstruction."
+  }
+ ],
+ "critic": {
+  "verdict": "VERIFIED",
+  "verdict_reason": "I found no failed inequality in the primary claim. All five lenses, plus my own exact-rational and 50-digit checks, confirm each step.\n\n1. The terminal identity. Injectivity of tanh with tanh(0)=0 gives x_T = -R h_(T-1) - b0 1_n for every T >= 1.\n2. The source projection. Pi_s R0 h = lambda h_s, the cross blocks of R0 are zero, and |h_i| < 1, so ||Pi_s x_T|| >= (b0 - lambda) sqrt(l) - e_n sqrt(n).\n3. The energy step. ||X|| >= ||x_T|| because time slots are disjoint and the reset is counted. PROOF section 1, lines 19-21, says so explicitly.\n4. The constant. Using l = ceil(n/2) >= n/2 and sqrt(n/l) <= sqrt(2) <= 2, the coefficient b0 - lambda - 2e_n is increasing in n. At n=200 it equals 24974999999/500000000000, which is 499/10000 + 24999999/5e11. Hence ||X|| > 0.0499 sqrt(n/2) strictly, with minimum ratio 1.0010020 at n=200.\n5. The threshold. (499/10000)^2/2 = 249001/200000000 exactly, so ||X|| <= R forces n < (2e8/249001) R^2 = 803.20962566415...R^2. The quoted 803.209626 is rounded up, which is the safe direction.\n\nScope of the bound. It uses only the last step and the coordinate box, so it is independent of:\n- history length;\n- gate schedule;\n- harmonic construction;\n- preparation path;\n- sign choices;\n- whether inputs are inside the cube.\n\nEvasion attempts all failed:\n- An exact box minimum (BVLS) on the actual dense R.\n- L-BFGS over full histories with T from 1 to 100. The best found was about 0.977 b0 sqrt(n), against L_n of about 0.707 b0 sqrt(n).\n- A two-step saturation argument, which proves the source block alone costs b0 sqrt(l) - sqrt(2) e_n sqrt(n).\n\nWhat the lenses found against the claim:\n- The claim is loose. The constant is off by about sqrt(2), and the threshold by about 2x as R grows; the memory block, which the proof drops, adds a forced residual for n >= 804.\n- There are scope caveats: n >= 200; 'empty' means no history with T >= 1, so the zero-length singleton remains; the reset is counted; R is a fixed absolute budget; the endpoint h=0 belongs to the frozen instantiation, not the general fixed-endpoint definition.\n\nLooseness is not grounds for REPAIRABLE. The false statements I found are peripheral wording and provenance items, not part of the primary claim.",
+  "strongest_justified_theorem": "Setting: the frozen dense tanh family.\n- Integers n >= 200, with k = floor(n/2), l = ceil(n/2), a = 1 - 1/n, lambda = 1/(100n), b0 = 1/20.\n- W = I, b = b0 1_n, h_0 = 0.\n- Any R with ||R - R0||op <= e_n = 4/(10^8 n^2). This is the accepted premise. For the archived construction it holds analytically, since ||R - R0|| <= 2a eps/(a - eps) with eps = 1/(10^8 n^2); float64 exceedances seen at n >= 1600 are roundoff.\n\nLet X be any history of length T >= 1, with any inputs (past cube or unrestricted), any gate schedule, harmonic content, preparation path or length, whose last state is exactly h_T = 0. Then:\n\n(A) Terminal identity: x_T = -R h_(T-1) - b0 1_n.\n\n(B) Primary bound, as claimed:\n||X||_2 >= ||x_T||_2 >= L_n := (b0 - lambda) sqrt(l) - e_n sqrt(n) > (499/10000) sqrt(n/2),\nand therefore ||X||^2 > (249001/200000000) n.\n\n(C) Sharpened bounds, all rigorous:\n- ||X|| >= S_n := sqrt(l (b0-lambda)^2 + [(b0 (sqrt k - 1/(sqrt k - 1)) - a)_+]^2) - e_n sqrt(n). This is the exact one-step box minimum for R0, up to \u00b1e_n sqrt(n). It follows from O^T 1_k = sqrt(k) U e_(d-1), whose entries are sqrt k - 1/(sqrt k - 1), 1 and -1/(sqrt k - 1). The memory term is zero for n <= 803 and positive from n = 804, where k = 402.\n- ||X|| >= b0 sqrt(l) - sqrt(2) e_n sqrt(n). This comes from a two-step source argument: if h_(T-1,i) < 0, then both |x_(T-1,i)| and |x_(T,i)| are at least b0 - lambda, and 2(b0 - lambda)^2 >= b0^2.\n- ||X|| > b0 sqrt(n) - 0.709 for every n >= 200. For n >= 804, the condition is 2 b0 sqrt(n) (c - delta/sqrt 2) >= c^2 - delta^2 + 2 b0 lambda l with delta = a + b0/(sqrt k - 1) <= 1.00263. For n <= 803, b0 sqrt(n) - (b0 - lambda) sqrt(n/2) <= 0.4152. A 50-digit scan has minimum margin 0.0019, which is the limit at infinity.\n\n(D) Upper bound: the one-step history x_1 = -b0 1_n, which lies in the past cube, reaches h_1 = 0 with ||X|| = b0 sqrt(n) exactly. So the infimum lies in [max(S_n, b0 sqrt(l) - sqrt(2) e_n sqrt(n)), b0 sqrt(n)], and equals b0 sqrt(n) - O(1).\n\n(E) Feasibility consequence for a fixed absolute budget R:\n- There is no history with T >= 1, h_T = 0 and ||X|| <= R once n >= 200 and n >= min{(2e8/249001) R^2, 400 (R + 0.709)^2}. For large R the second term is better by about 2x; for R <= ~1.7 the file's 803.21 R^2 is better. Examples: R=1 gives 803.2 vs first S_n-empty n = 801; R=10 gives 80321 vs about 45665.\n- The class is nonempty whenever 200 <= n <= 400 R^2.\n- The sharp threshold is therefore n*(R) = 400 R^2 (1 + O(1/R)).\n\n(F) Source of the obstruction: it is the endpoint mismatch atanh(0) - b0 1_n, which is not in R[-1,1]^n plus a small ball. It vanishes if b0 = 0 or at the autonomous fixed point.\n\n(G) What this is and is not: a feasibility (emptiness) statement only. The class reduces to the zero-length singleton. Assigning it dimension 0 is vacuous. No O(n), or any, memory-compression upper bound for any nonempty class follows.\n\nSeparately verified, outside the primary claim:\n- E0 formula (3) is exact for R0, and |E_R - E0| <= Delta_n holds. The 'sharp enclosure' is rigorous but about 8x conservative.\n- ||X_n(0)|| / (n sqrt(log n)) -> C_abs = sqrt(2[b0^2 + (atanh(0.4) - b0)^2]) = 0.533129483399339144056793391833... The convergence is slow: the relative correction is -0.1362637/sqrt(n) + O(1/n).\n- The weak-window bound (11)-(12) holds. B_n > 0 exactly from n = 400, since B_399 = -2.19e-4 and B_400 = 6.61e-4.",
+  "nonzero_endpoint_assessment": "Moving to a nonzero common endpoint is mathematically meaningful, but it changes the contract rather than repairing anything. It removes this feasibility obstruction and gives no memory theorem by itself.\n\nWhy it removes the obstruction:\n- The map F(h) = tanh(R h + b0 1_n) is an l2 contraction with factor a = 1 - 1/n, so it has a unique fixed point h*.\n- Take T-1 zero inputs, then the exact correction x_T = R(h* - h_(T-1)). This lands exactly on h* with ||X|| <= a^T ||h*|| <= a^T sqrt(n), and every input is in the past cube once T >= n ln(2 sqrt(n)).\n- So {||X|| <= R, h_T = h*} is nonempty for every R > 0 and every n >= 200.\n- Bound (15) is <= 0 at h*. The general one-step obstruction for an endpoint z is dist(atanh(z) - b0 1, R[-1,1]^n) - O(e_n sqrt(n)).\n- Moving only the source block to equilibrium is not enough. For example, the endpoint (0_k, s* 1_l) is still obstructed through the memory block from n = 804.\n\nLens conflict on legal queries, resolved in favour of the endpoint lens. The scope lens claimed autonomous endpoints have no legal query for n >= 1156, with a possible endpoint-independent Theta(sqrt n) obstruction. That claim imports a cube restriction on future inputs which the accepted contract explicitly disclaims:\n- codex_intermediate_gate_credit_20261002/PROOF.md lines 41-42: 'Future inputs are otherwise unrestricted. The past cube ... is NOT a future-input constraint.'\n- codex_multiharmonic_lower_20261002/PROOF.md lines 374-375.\nUnder the accepted contract, every endpoint admits the full future preactivation box [1/4,3/4]^n. That 'second obstruction' therefore applies only under a non-accepted convention.\n\nWhat a nonzero endpoint does change:\n- The final gate becomes G_z = diag(1 - z^2) instead of I. Its (1,1) entry tends to 0 as h*_1 tends to 1.\n- The same-endpoint cancellation of direct terms survives, because it needs only a common endpoint.\n- The harmonic, L1 query analysis (16)-(17) must be re-proved, and no accepted lower bound transfers automatically.\n- A one-step reset to h* leaves the past cube for n >= 400. Relaxation through zero inputs adds Theta(n) steps.\n- Independently of endpoint, section 6 (verified) shows that each weak-to-weak transition in the accepted gate cube costs at least max(0, B_n), which is about b0 sqrt(n/2) - O(1). So at fixed R the accepted long multiharmonic window cannot exist once n is roughly 800(R + 0.71)^2.\n\nOpen question: the robust antipodal width in the actual query metric of {X : ||X|| <= R, h_T(X) = z_n}, with z_n common and public. Neither a superlinear construction nor an O(n) upper bound exists for it. Note also that the definitional robust-section contract allows any supplied endpoint; h = 0 was a construction choice, frozen later. The obstruction therefore rules out the frozen instantiation, not the general fixed-endpoint question.",
+  "false_statements_in_files": [
+   "PROOF.md section 3 calls (5) the 'sharp enclosure'. It is rigorous, but the actual |E_R - E0| is only about 0.107-0.125 Delta_n, so it is not sharp. This is wording; no inequality fails.",
+   "PROOF.md section 5 says 'the accepted zero-endpoint history class is EMPTY for all sufficiently large n', and STATUS/REPORT echo it. If zero-length histories are admitted, the class is the singleton {empty history}. The precise statement is that no history with T >= 1 exists. The file qualifies this a few lines later as 'empty/singleton', so this is imprecise rather than substantive.",
+   "CHECKS.md: 'Minor implementation issues: none.' This is inaccurate. arithmetic.py calls ctypes.windll.kernel32/psapi (lines 129-132), which raises AttributeError on Linux. It also refuses to overwrite ARITHMETIC.json (line 140), so it cannot be re-run in place. A Linux replay with the RAM probe stubbed passes 18/18.",
+   "STATUS.md Provenance: 'No separate Claude bounded-radius review folder was located.' This is stale. theory/claude_bounded_history_radius_review_20261003/ (REVIEW.md, harness.py) is present after commits 3a18102 and 085977c.",
+   "PROVENANCE.json: the recorded sha256 values for ARITHMETIC.json (93142c15...) and AGENTS.md (3c6e09c0...) match only CRLF-converted copies. The checked-out LF files hash to e0caae9b... and 08f8876a.... This is a provenance mismatch on the current checkout, not a mathematical error.",
+   "PROOF.md section 7: 'This is stronger than a tradeoff based on tangent singular values' is unquantified rhetoric rather than a proved comparison. 'No omega(n) robust section' is an underclaim: no history with T >= 1 exists at all."
+  ],
+  "sharpenings": [
+   "Exact one-step bound: ||X|| >= S_n = sqrt(l (b0-lambda)^2 + [(b0 (sqrt k - 1/(sqrt k - 1)) - a)_+]^2) - e_n sqrt(n). This is the exact R0 box minimum, up to \u00b1e_n sqrt(n). It equals L_n for 200 <= n <= 803; the memory term becomes positive at n = 804, where k = 402. BVLS on the actual R matches it, for example 1.123885 at n=1000 and 1.684015 at n=2000.",
+   "Two-step source refinement removes lambda: ||X|| >= b0 sqrt(l) - sqrt(2) e_n sqrt(n). The case analysis on the sign of h_(T-1,i) uses reference residuals, and the leakage is bounded as a vector.",
+   "Clean all-n form: ||X|| > b0 sqrt(n) - 0.709 for every n >= 200 (analytic proof above). Asymptotically the infimum is b0 sqrt(n) - 1/sqrt(2) + o(1) at the lower end. The one-step history x_1 = -b0 1_n gives exactly b0 sqrt(n) at the upper end.",
+   "Threshold: the class is empty once n >= min{803.2096257 R^2, 400 (R + 0.709)^2} and nonempty once 200 <= n <= 400 R^2. The sharp n*(R) is 400 R^2 (1 + O(1/R)), so the file's 803.21 R^2 is loose by up to about 2.008x for large R, but it is the better of the two for R <= ~1.7.",
+   "Approximate endpoints (evasion lens, verified by derivation): with ||h_T|| <= tau, ||X|| >= (tanh(b0) - lambda) sqrt(l) - tau - e_n sqrt(n). The obstruction survives any tau = o(sqrt(n)).",
+   "Delta_n can be essentially halved, because the archived R satisfies ||R - R0|| <= 2a eps/(a - eps), which is about e_n/2.",
+   "Weak-window bound: B_n > 0 exactly for n >= 400. A Cauchy-Schwarz projection onto 1_r gives a per-transition bound that is positive for all n >= 200 (endpoint lens)."
+  ],
+  "contradictions_resolved": [
+   "Do autonomous endpoints carry legal queries? The scope lens said no for n >= 1156, hinting at an endpoint-independent Theta(sqrt n) obstruction; the endpoint lens said future inputs are unrestricted. Resolved for the endpoint lens. The accepted contract explicitly makes future inputs unrestricted (intermediate_gate_credit PROOF lines 41-42; multiharmonic PROOF lines 374-375). The scope lens's (Rz)_i in (-0.3, 1.2) condition holds only if future inputs are confined to the past cube, which is a non-accepted convention, as in rotating_gate's voluntary subset choice.",
+   "Sharp-threshold constant: the lenses gave 400(R + 1/sqrt 2)^2, 400(R + 0.721)^2 and 400(R + 0.71 + o(1))^2. Resolved by derivation. 1/sqrt 2 is only the limit; a rigorous all-n constant is 0.709, since delta/sqrt 2 <= 0.70897 at k >= 402 and the n <= 803 case needs only 0.4152. 0.721 is valid but slightly loose. The 'loose by a factor of about 2' description is asymptotic in R only. For small R the file's threshold is competitive or better: R=1 gives 803.2 vs 801, and R=0.5 gives 200.8 vs 201.",
+   "Onset of the memory term: one lens said it equals L_n for n <= 802, another for n <= 803. Exact check: n = 803 has k = 401, the same as n = 802, so the memory residual is zero there. Its value is -1.34e-4 at k = 401 and +1.116e-3 at n = 804. The correct statement is n <= 803.",
+   "Dense premise: the evasion lens reported float64 ||R - R0|| > e_n at n >= 1600, while another lens listed the values without comment. Resolved analytically: with E = J/(10^8 n^3), eps = ||E|| = 1/(10^8 n^2) and sigma = ||R0 + E||, |sigma - a| <= eps, so ||R - R0|| <= 2a eps/(a - eps) < 4 eps = e_n. The float exceedances are at the roundoff floor, about 1e-14. The premise is in any case the accepted frozen assumption.",
+   "Whether h=0 is required: the scope lens says the definitional contract allows any supplied endpoint; PROOF says 'the accepted fixed-feature contract ends at h_T=0'. These are consistent. h = 0 is frozen in the accepted instantiation (multiharmonic PROOF lines 28 and 46; the query family C_0 is defined from h = 0) but not in the general definition. The theorem kills the frozen instantiation only, which PROOF section 8 itself concedes."
+  ],
+  "gaps_filled": [
+   "Item 4/5 constants: re-derived independently in exact Fractions. coef(200) = 24974999999/5e11 > 499/10000; (499/10000)^2/2 = 249001/2e8; 2e8/249001 = 803.209625664153959221...; min L_n/(0.0499 sqrt(n/2)) = 1.0010020 at n = 200. The n >= 200 domain qualifier is implicit in PROOF (10).",
+   "Item 6: verified the two-step argument rigorously. Saturating h_(T-1,source) toward -1 to shrink the last step costs at least as much in step T-1. The box-minimum relaxation (approached only as h -> -1, i.e. infinite atanh) is why the true infimum, about b0 sqrt(n), sits far above L_n for n <= 803.",
+   "Rigorous all-n sharpened constant: ||X|| > b0 sqrt(n) - 0.709. Analytic proof plus a 50-digit scan over n in [200, 20000] and up to 1e30.",
+   "Small-R regime: the claimed 803.21 R^2 is not uniformly 2x loose. The best sufficient threshold is the minimum of the two forms.",
+   "Item 8: resolved query admissibility at nonzero endpoints from the accepted contract text, as described in contradictions_resolved.",
+   "Item 7: the obstruction disappears both for b0 = 0 (endpoint 0 is then autonomous) and for endpoint h*. The general one-step obstruction is dist(atanh(z) - b0 1_n, R[-1,1]^n). Source-only equilibration does not suffice for n >= 804.",
+   "Item 9: confirmed C_abs = 0.53312948339933914405679339183337895665 at 50 digits. The relative correction coefficient is b0 sqrt(z0)/S = 0.13626, with S = b0^2 + (A - b0)^2.",
+   "Provenance: confirmed the CRLF/LF hash mismatch, the windll non-portability and the stale STATUS sentence directly. Weak-window threshold: B_399 = -2.19e-4 and B_400 = 6.61e-4 recomputed. My scripts are in /tmp/claude-0/-home-user-AI-Architecture-Research/41f5f24e-9d59-52c8-b10d-d67473801e1c/scratchpad/wf_completeness/checks.py."
+  ]
+ }
+}

@@ -1,0 +1,16 @@
+C_abs = 0.533129483399339144056793391833
+n=200: E0=244.4095603669  E0/(n sqrt log n)=0.530907926933  rel.gap to C_abs=0.004167
+n=256: E0=320.0330838642  E0/(n sqrt log n)=0.530881005741  rel.gap to C_abs=0.004218
+n=400: E0=519.8585315174  E0/(n sqrt log n)=0.530956188975  rel.gap to C_abs=0.004076
+n=1000: E0=1396.696899383  E0/(n sqrt log n)=0.531414863501  rel.gap to C_abs=0.003216
+n=2000: E0=2932.284265626  E0/(n sqrt log n)=0.5317940754  rel.gap to C_abs=0.002505
+n=1000000: E0=1981332.888941  E0/(n sqrt log n)=0.533057402946  rel.gap to C_abs=0.0001352
+n=1000000000: E0=2426944969.461  E0/(n sqrt log n)=0.533127186684  rel.gap to C_abs=4.308e-6
+n=1000000000000000: E0=3.133185967188e+15  E0/(n sqrt log n)=0.533129481102  rel.gap to C_abs=4.309e-9
+n=1000000000000000000000000000000: E0=4.430994107327e+30  E0/(n sqrt log n)=0.533129483399  rel.gap to C_abs=1.363e-16
+n=200: actual-R center 244.409560367  E0 244.409560367  |diff| 3.26e-11  Delta_n 2.61e-10  inside: True
+n=256: actual-R center 320.033083864  E0 320.033083864  |diff| 2.56e-11  Delta_n 2.09e-10  inside: True
+n=400: actual-R center 519.858531517  E0 519.858531517  |diff| 1.66e-11  Delta_n 1.39e-10  inside: True
+n=200: ||F(h*)-h*||=4.9e-16 | source h*: 0.049961..0.049961 (tanh(b0)=0.049958) | memory |h*| max 0.5215, #|h|>0.9: 0, #|h|<1/(2sqrt n): 0/100, min gate 0.7281 | source terminal bound (15) at z=h*: -4.750e-04
+n=400: ||F(h*)-h*||=1.2e-15 | source h*: 0.049960..0.049960 (tanh(b0)=0.049958) | memory |h*| max 0.6351, #|h|>0.9: 0, #|h|<1/(2sqrt n): 0/200, min gate 0.5966 | source terminal bound (15) at z=h*: -3.359e-04
+n=800: ||F(h*)-h*||=2.1e-15 | source h*: 0.049959..0.049959 (tanh(b0)=0.049958) | memory |h*| max 0.7696, #|h|>0.9: 0, #|h|<1/(2sqrt n): 0/400, min gate 0.4077 | source terminal bound (15) at z=h*: -2.375e-04

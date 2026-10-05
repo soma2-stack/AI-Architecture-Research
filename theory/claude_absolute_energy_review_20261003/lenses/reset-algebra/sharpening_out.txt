@@ -1,0 +1,13 @@
+first n with memory-block contribution (b0*c* > a): 804
+200 L_n= 0.499499999986  sharpened= 0.499499999986  b0sqrt(n)-1/sqrt2= 0.0  b0 sqrt(n)= 0.707106781187  ratio sharpened/L_n= 1.0
+256 L_n= 0.565243483201  sharpened= 0.565243483201  b0sqrt(n)-1/sqrt2= 0.0928932188135  b0 sqrt(n)= 0.8  ratio sharpened/L_n= 1.0
+400 L_n= 0.706753227791  sharpened= 0.706753227791  b0sqrt(n)-1/sqrt2= 0.292893218813  b0 sqrt(n)= 1.0  ratio sharpened/L_n= 1.0
+806 L_n= 1.00349392725  sharpened= 1.00349670809  b0sqrt(n)-1/sqrt2= 0.712400175471  b0 sqrt(n)= 1.41950695666  ratio sharpened/L_n= 1.0000028
+1000 L_n= 1.11781038195  sharpened= 1.12388494166  b0sqrt(n)-1/sqrt2= 0.874032048898  b0 sqrt(n)= 1.58113883008  ratio sharpened/L_n= 1.0054343
+2000 L_n= 1.5809807162  sharpened= 1.68401515815  b0sqrt(n)-1/sqrt2= 1.52896119631  b0 sqrt(n)= 2.2360679775  ratio sharpened/L_n= 1.0651712
+1000000 L_n= 35.3553319883  sharpened= 49.2979109612  b0sqrt(n)-1/sqrt2= 49.2928932188  b0 sqrt(n)= 50.0  ratio sharpened/L_n= 1.3943558
+1000000000 L_n= 1118.03398853  sharpened= 1580.43187975  b0sqrt(n)-1/sqrt2= 1580.4317233  b0 sqrt(n)= 1581.13883008  ratio sharpened/L_n= 1.4135812
+R=1: claimed empty for n>=803.209625664; sharpened empty for n>=801; nonempty (x_1=-b) for n<=400; ratio claimed/sharp=1.00276
+R=10: claimed empty for n>=80320.9625664; sharpened empty for n>=45645; nonempty (x_1=-b) for n<=40000; ratio claimed/sharp=1.75969
+R=100: claimed empty for n>=8032096.25664; sharpened empty for n>=4056570; nonempty (x_1=-b) for n<=4000000; ratio claimed/sharp=1.98002
+R=1000: claimed empty for n>=803209625.664; sharpened empty for n>=400565688; nonempty (x_1=-b) for n<=400000000; ratio claimed/sharp=2.00519
