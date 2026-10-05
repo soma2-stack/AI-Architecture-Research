@@ -1,6 +1,6 @@
 # Current accepted/reviewed checkpoint — 2026-10-04
 
-Read [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) for the authoritative concise snapshot and [theory/INDEX.md](theory/INDEX.md) for all evidence. The original chronological map is preserved byte-for-byte below this additive checkpoint. Older uses of “current” below describe their historical date.
+Read [theory/CURRENT_THEORY.md](../../theory/CURRENT_THEORY.md) for the authoritative concise snapshot and [theory/INDEX.md](../../theory/INDEX.md) for all evidence. The original chronological map is preserved byte-for-byte below this additive checkpoint. Older uses of “current” below describe their historical date.
 
 - **ACCEPTED:** growing-local-radius fixed-feature `Omega(n^(16/15))` (reviewed explicit regime `n>=10^75`, local-radius majorant `48 n^(1/3) sqrt(log n)`); width-independent local radius `<0.02` gives `Omega(n^(19/18))` around public `X_n(0)`. Absolute center norm is not uniformly bounded.
 - **ACCEPTED / Grok-reviewed:** strongest absolute-history-norm superlinear construction remains `Omega(n log n)` at `R_abs=O(n^(3/4)(log n)^(3/2))`, from `codex_holding_cost_attack_20261003/` and its Grok review. The `[1/4,3/4]` bracket refers to the exponent of `R_abs=||X||_2`, not squared energy; full-model `Omega_c(n^2)` to `O_c(n^2 log n)` is unchanged.

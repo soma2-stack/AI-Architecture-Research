@@ -9,12 +9,15 @@ Read in this order:
 3. [04_RESEARCH_STATE.md](04_RESEARCH_STATE.md) — brief resume point
 4. [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) — authoritative current theory
 5. [theory/INDEX.md](theory/INDEX.md) — all theory folders and evidence relationships
-6. [SHARED_RESEARCH_MAP.md](SHARED_RESEARCH_MAP.md) — current checkpoint followed by historical context
+6. [docs/history/SHARED_RESEARCH_MAP.md](docs/history/SHARED_RESEARCH_MAP.md) — current checkpoint followed by historical context
 
 `theory/` contains proofs, scoped derivations, reviews, and drafts. `experiments/` contains diagnostic and certification code, frozen inputs, replay outputs, and other experimental evidence. Experiments do not automatically validate a theorem or establish an architecture.
 
 Owner disposition and independent review are separate axes. ACCEPTED records owner acceptance; VERIFIED requires independent review evidence in its stated scope. A result can be owner-accepted and also have independent review, which is recorded separately in the theory index. Author-local labels such as `PROVED` inside preserved reports do not by themselves create repository-level VERIFIED status. PENDING REVIEW and CONDITIONAL remain unresolved. REFUTED, SUPERSEDED, HISTORICAL, and DRAFT records are kept so later researchers can reconstruct decisions and avoid repeating failed routes. A folder being committed does not certify its claims.
 
-`Claude_Research.md`, `Codex_Research.md`, and `Cursor_Research.md` are archival notebooks with detailed provenance. They are optional detail sources rather than onboarding requirements; their lane-reading rules remain governed by AGENTS.md. Historical failed work, outputs, and review records are intentionally preserved.
+`docs/notebooks/Claude_Research.md`, `docs/notebooks/Codex_Research.md`, and `docs/notebooks/Cursor_Research.md` are archival notebooks with detailed provenance. They are optional detail sources rather than onboarding requirements; their lane-reading rules remain governed by AGENTS.md. Historical failed work, outputs, and review records are intentionally preserved.
 
-[REPOSITORY_CLEANUP_AUDIT.md](REPOSITORY_CLEANUP_AUDIT.md) records the consolidation, branch inventory, artifact sizes, and proposed future storage policy. No artifact migration or history shrinking is performed in this pass.
+[docs/audits/REPOSITORY_CLEANUP_AUDIT.md](docs/audits/REPOSITORY_CLEANUP_AUDIT.md) records the consolidation, branch inventory, artifact sizes, and proposed future storage policy. No artifact migration or history shrinking is performed in this pass.
+
+
+Older handoffs, protocols, audits, preservation manifests, and historical maps are grouped under [`docs/`](docs/README.md) so the repository root stays focused on the files needed for current work.
