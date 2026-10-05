@@ -40,5 +40,7 @@
   },
   "original_files_hash_checked": 120,
   "evidence_validation": "REPOSITORY_CLEANUP_DATA.json; all original scientific blobs identical and all selective imported source blobs identical",
-  "resource_scope": "Documentation and read-only Git/file checks only; no research experiment or GPU use."
+  "resource_scope": "Documentation and read-only Git/file checks only; no research experiment or GPU use.",
+  "snapshot_scope_note": "This file records validation of checked_head only. Later cleanup-branch commits correct audit wording and scientific-status/navigation claims after independent review; those later commits are not covered by the original local-worktree/hash validation run.",
+  "final_pr_head_validated_by_this_snapshot": false
 }
