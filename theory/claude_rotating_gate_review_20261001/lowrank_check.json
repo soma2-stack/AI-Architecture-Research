@@ -1,0 +1,48 @@
+[
+ {
+  "n": 128,
+  "c": 1.0,
+  "k": 64,
+  "d": 32,
+  "fourier_gram_offdiag_max": 9.688333153495565e-15,
+  "fourier_norm_sq": [
+   5.119999999999997,
+   5.120000000000001
+  ],
+  "max_abs_input": 0.47368018019368086,
+  "top_k_singular_values_min_max": [
+   0.08832215395110915,
+   0.08832215395164979
+  ],
+  "sv_k_plus_1": 5.221593208756319e-17,
+  "y0_bound": 0.0744140625,
+  "eckart_young_rank_k2_frob": 0.4996255519037711,
+  "eq8_lower_bound_on_query_error": 0.0033908446117796166,
+  "actual_worst_box_query_error_found": 0.043443697516914064,
+  "claimed": 0.0011848,
+  "eps": 0.001
+ },
+ {
+  "n": 256,
+  "c": 1.0,
+  "k": 128,
+  "d": 64,
+  "fourier_gram_offdiag_max": 5.117328420492297e-14,
+  "fourier_norm_sq": [
+   10.239999999999986,
+   10.240000000000002
+  ],
+  "max_abs_input": 0.4736645551936202,
+  "top_k_singular_values_min_max": [
+   0.08851615169750154,
+   0.08851615169777968
+  ],
+  "sv_k_plus_1": 5.330598734176096e-17,
+  "y0_bound": 0.07470703125,
+  "eckart_young_rank_k2_frob": 0.7081292135808406,
+  "eq8_lower_bound_on_query_error": 0.0033982925303742534,
+  "actual_worst_box_query_error_found": 0.043064997535159494,
+  "claimed": 0.0011848,
+  "eps": 0.001
+ }
+]

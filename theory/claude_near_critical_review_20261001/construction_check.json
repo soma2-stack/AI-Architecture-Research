@@ -1,0 +1,110 @@
+[
+ {
+  "n": 2000,
+  "a": 0.5,
+  "N": 1000,
+  "r": 1,
+  "Mop_over_sqrtN": 1.0,
+  "min_tanh_spread_over_sqrtN": 0.7615941559557659,
+  "lemma_requires": [
+   9,
+   0.0625
+  ],
+  "max_abs_h2": 0.0,
+  "max_abs_input": 0.35463766238230593,
+  "beta": 1.0,
+  "min_half_margin": 0.05467837441603568,
+  "claimed_lower": 0.002075,
+  "ratio": 26.351023814956953
+ },
+ {
+  "n": 2000,
+  "a": 0.999999875,
+  "N": 1000,
+  "r": 1,
+  "Mop_over_sqrtN": 1.0,
+  "min_tanh_spread_over_sqrtN": 0.7615941559557659,
+  "lemma_requires": [
+   9,
+   0.0625
+  ],
+  "max_abs_h2": 0.0,
+  "max_abs_input": 0.35463766238230593,
+  "beta": 1.0,
+  "min_half_margin": 0.21871460482513816,
+  "claimed_lower": 0.002075,
+  "ratio": 105.40462883139189
+ },
+ {
+  "n": 2001,
+  "a": 0.5,
+  "N": 1000,
+  "r": 1,
+  "Mop_over_sqrtN": 1.0,
+  "min_tanh_spread_over_sqrtN": 0.7615941559557659,
+  "lemma_requires": [
+   9,
+   0.0625
+  ],
+  "max_abs_h2": 0.0,
+  "max_abs_input": 0.35463766238230593,
+  "beta": 1.0,
+  "min_half_margin": 0.054667440756899305,
+  "claimed_lower": 0.002075,
+  "ratio": 26.345754581638218
+ },
+ {
+  "n": 4000,
+  "a": 0.5,
+  "N": 2000,
+  "r": 2,
+  "Mop_over_sqrtN": 1.0163660757817525,
+  "min_tanh_spread_over_sqrtN": 0.6177314757837225,
+  "lemma_requires": [
+   9,
+   0.0625
+  ],
+  "max_abs_h2": 2.0816681711721685e-17,
+  "max_abs_input": 0.4053512150276301,
+  "beta": 1.0,
+  "min_half_margin": 0.04604410587097267,
+  "claimed_lower": 0.002075,
+  "ratio": 22.18993054022779
+ },
+ {
+  "n": 4000,
+  "a": 0.999875,
+  "N": 2000,
+  "r": 2,
+  "Mop_over_sqrtN": 1.0163660757817525,
+  "min_tanh_spread_over_sqrtN": 0.6177314757837225,
+  "lemma_requires": [
+   9,
+   0.0625
+  ],
+  "max_abs_h2": 1.0408340855860843e-16,
+  "max_abs_input": 0.4053512150276301,
+  "beta": 1.0,
+  "min_half_margin": 0.1841308488406107,
+  "claimed_lower": 0.002075,
+  "ratio": 88.73775847740275
+ },
+ {
+  "n": 6000,
+  "a": 0.75,
+  "N": 3000,
+  "r": 3,
+  "Mop_over_sqrtN": 1.0119509416987376,
+  "min_tanh_spread_over_sqrtN": 0.6206084793159587,
+  "lemma_requires": [
+   9,
+   0.0625
+  ],
+  "max_abs_h2": 2.0816681711721685e-17,
+  "max_abs_input": 0.42481928597984847,
+  "beta": 1.0,
+  "min_half_margin": 0.10383034450225992,
+  "claimed_lower": 0.002075,
+  "ratio": 50.038720242052975
+ }
+]
