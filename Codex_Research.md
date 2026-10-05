@@ -1,5 +1,15 @@
 # Codex Independent Research Notebook
 
+## Codex resume: D=2 chronological repair (2026-10-05)
+
+- **Current scope/stage:** requested THEORY-ONLY repair complete; new derivation is PROVED in the requested author-status file, independent hostile review pending. This is not repository ACCEPTED/VERIFIED. No historical report was changed.
+- **Result:** one two-block B^2 section at n>=10^200, actual normalized pair distance >.009 and half-margin >.0045 at epsilon=.001, same exact nonzero endpoint, full norm <8 n^(5/8), mT<=11 n^(5/4). No superlinear-dimensional or energy-threshold improvement.
+- **Missing idea repaired:** a common positive coordinate realization signs genuine changing-q chronological Green functions; a separate forced cone signs the idle derivative source. The exceptional front is retained in the exact reduction, then bounded uniformly, not assumed absent. Frozen powers and their historical spectral signs are not used.
+- **Limits/open questions:** exact full-front monotonicity, disjoint-packing necessity and growing-dimensional extensions are not proved here. Older resume blocks below are historical; their acceptance wording is not evidence for the new derivation.
+- **Evidence:** [new report](theory/codex_d2_time_varying_repair_20261005/REPORT.md), PROOF.md, exact symbolic/rational checks, independent full Householder replay, 192/256-bit scalar checks (not interval certification), source hashes and resource log. Final check CPU1.453125s, peak5 process threads including loader/monitor, math pools1, RAM82.6MiB, GPU/CUDA0.
+- **Exact next action:** independent hostile review of the common-cone identity, full-front comparison, reset/query factors and pair-versus-half margin. Stop this task; no later spatial-write, architecture, or new research direction.
+
+
 Date opened: 2026-09-27  
 Workspace: `ai new`  
 Scope: independent architecture-class exploration. This notebook is the only shared file I will edit in this phase.
