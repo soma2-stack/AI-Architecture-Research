@@ -1,0 +1,26 @@
+{
+  "scope": "Joint robust K=2 repeated near-critical donor write; no growing-K frontier improvement",
+  "status_token": "PROVED",
+  "author_proof_not_independently_verified": true,
+  "complete_dynamics": "Exact chronological full propagator; full complement controlled nonperturbatively",
+  "finite_radius": "Whole B^2 antipodal section; Hessian bound and complete uniform error",
+  "exact_trace_matching": true,
+  "common_endpoint": true,
+  "absolute_input_norm": "All preparation/interior/corrections/dense lift/reset counted; no center subtraction",
+  "checked_resources": {
+    "passed": 39,
+    "cpu_seconds": 0.203125,
+    "peak_observed_threads": 4,
+    "peak_ram_bytes": 19767296,
+    "gpu_cuda_usage": 0
+  },
+  "forbidden_changes_performed": [],
+  "unchanged_frontier": {
+    "dimension_beta": "3/16",
+    "superlinear_energy_bracket": "[1/4,3/4]",
+    "full_model": "Omega_c(n^2) to O_c(n^2 log n)"
+  },
+  "main_sha_before": "2e3ee7b3faea9c908904a8202d85e95d2d5f8985",
+  "main_sha_now": "2e3ee7b3faea9c908904a8202d85e95d2d5f8985",
+  "governance_sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6"
+}

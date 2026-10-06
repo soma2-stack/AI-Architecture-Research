@@ -1,0 +1,219 @@
+{
+  "meaning": "Algebra and small finite samples only; proof is in PROOF.md.",
+  "passed": 39,
+  "checks": [
+    {
+      "check": "all fourth-order Jacobian coefficients exact",
+      "status": "PASS"
+    },
+    {
+      "check": "determinant leading power is eta^4",
+      "status": "PASS"
+    },
+    {
+      "check": "remaining determinant polynomial below 2 eta^5",
+      "status": "PASS"
+    },
+    {
+      "check": "strict determinant lower",
+      "status": "PASS"
+    },
+    {
+      "check": "normalization loss below 100000",
+      "status": "PASS"
+    },
+    {
+      "check": "full replay fixed zero-sum probe stationary",
+      "status": "PASS"
+    },
+    {
+      "check": "complete projected recurrence step 1",
+      "status": "PASS"
+    },
+    {
+      "check": "complete projected recurrence step 2",
+      "status": "PASS"
+    },
+    {
+      "check": "complete projected recurrence step 3",
+      "status": "PASS"
+    },
+    {
+      "check": "complete projected recurrence step 4",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 0",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 1",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 2",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 3",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 4",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 5",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 6",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 7",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 8",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 9",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 10",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 11",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 12",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 13",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 14",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 15",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 16",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 17",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 18",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 19",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 20",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 21",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 22",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 23",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 24",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 25",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 26",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 27",
+      "status": "PASS"
+    },
+    {
+      "check": "100-digit finite antipode 28",
+      "status": "PASS"
+    }
+  ],
+  "exact_raw_jacobian_coefficients": [
+    [
+      [
+        "0",
+        "-1/15",
+        "19/300",
+        "-49/1500"
+      ],
+      [
+        "0",
+        "-1/15",
+        "13/100",
+        "-41/300"
+      ]
+    ],
+    [
+      [
+        "0",
+        "0",
+        "1/60",
+        "-29/1500"
+      ],
+      [
+        "0",
+        "0",
+        "1/60",
+        "-49/1500"
+      ]
+    ]
+  ],
+  "exact_determinant_polynomial": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "-1/4500",
+    "49/22500",
+    "-443/281250"
+  ],
+  "sampled_minimum_continuum_gain": "3.402062910406989472372479001735451331142887474360535199772335385277490993870137999503573249922030751E-22",
+  "decimal_precision": 100,
+  "full_replay_width": 512,
+  "full_replay_steps": 4,
+  "cpu_seconds": 0.203125,
+  "peak_observed_process_threads": 4,
+  "peak_working_set_bytes": 19767296,
+  "arithmetic_pool_threads": 1,
+  "workers": 0,
+  "GPU_CUDA_usage": 0,
+  "checks_script_sha256": "87912f01240cf9354c7d43405914b2647eb75cf8c2b8540616f6c9d6773ef028",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  }
+}

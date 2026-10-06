@@ -1,0 +1,45 @@
+{
+  "author": "Codex",
+  "date": "2026-10-06",
+  "branch": "codex/repeated-nearcritical-filter-independent-20261006",
+  "base_commit": "b484504b30c412d2c19820b0927f0d53008fbe96",
+  "repository": "soma2-stack/AI-Architecture-Research",
+  "theorem_status": "Author-local PROVED K=2; independent review pending; growing-K question open",
+  "checkpoint_acceptance": "Owner notices in conversation; root navigation is older and unchanged",
+  "requested_folder_date": "20261005",
+  "concurrent_test_branch_not_imported": "codex/repeated-nearcritical-filter-write-20261005",
+  "dependencies": [
+    {
+      "path": "README.md",
+      "sha256": "9090c5d79611c38d2e87d9e098a6fa661dad40bdf4ad13093cddc8954c168c6b"
+    },
+    {
+      "path": "04_RESEARCH_STATE.md",
+      "sha256": "a78a883db52368e320903b5e6344927b3f203a66f9c901bd6afe3a091ffce2dd"
+    },
+    {
+      "path": "theory/CURRENT_THEORY.md",
+      "sha256": "b0643a3b2b70bbee5383305c6e21e505bc9165f4599517139eb922f52b0d682b"
+    },
+    {
+      "path": "theory/codex_unpaired_corridor_sensitivity_20261003/PROOF.md",
+      "sha256": "870bbe0dcdb2c771941c5e8948d52841a506d27327dcde23f88c96778f38b062"
+    },
+    {
+      "path": "theory/codex_private_renewal_gamma_20261003/PROOF.md",
+      "sha256": "2c732ff83535b3c8a844f9402bad24e10a1750bc220a81551157c2165d19f2b6"
+    },
+    {
+      "path": "theory/codex_multicolumn_spatial_write_20261005/PROOF.md",
+      "sha256": "b22386a4088d2d058ce42dc3f6f8f86929a60e0faf336d61645e980429bb7221"
+    },
+    {
+      "path": "theory/codex_single_block_spatial_write_20261004/PROOF.md",
+      "sha256": "b7be50d4ec53bd3690ca735a62eaa1ffe28e82cfde68236dadad714713f1f376"
+    },
+    {
+      "path": "theory/codex_multisurvivor_hadamard_write_20261005/PROOF.md",
+      "sha256": "5eb69b8af6cd867a5d0e8f3738cdbd0662b24b15b4e83e164e1c74448988a0ef"
+    }
+  ]
+}
