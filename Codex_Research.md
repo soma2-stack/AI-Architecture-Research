@@ -1,5 +1,14 @@
 # Codex Independent Research Notebook
 
+## Codex resume: fixed K=3 discrete filter comparison (2026-10-06)
+
+- **Scope/stage:** THEORY ONLY, fixed K=3 only. Author verdict REFUTED for Gemini's literal matched bank with symmetric whitening psi=G3^(-1/2)F, rho=1/2 and its specified Walsh Q3. Pending independent hostile review. No K=4, growing-K, alpha/beta optimization or architecture research.
+- **Surviving continuum fact:** exact Gram G3=(1/7680)[64,5,10;5,14,-10;10,-10,74]. Exact spectral bracket .03876<sigma_min(M3)<.03878; independent decimal .03876699625524. This agrees with the accepted continuum checkpoint and is NOT a discrete-memory theorem.
+- **First load-bearing failure:** matched L2 whitening is not a pointwise amplitude normalization. Exact rational inverse-square-root certificate proves lambda_S1(u)<-eta/200 on [15/16,1] and lambda_S1(1)<-eta/3, eta=1e-6. Prescribed final gates exceed one at every width, independently of all donor controls, even theta=0. No real square-root lift or legal center history exists. The complete actual comparison/gain/trace/reset/query/energy for THIS bank is therefore undefined, not zero and not proved by a shadow recurrence.
+- **Scope limits/frontier:** correctly renormalized fixed-K=3 banks are NOT refuted. Accepted repeated K=2 and multicolumn beta=3/16 remain; 3/16 is a construction lower bound, not a ceiling. No new robust D=3 temporal-bank theorem or global energy-frontier change. Root current-state documents remain untouched.
+- **Evidence/resources:** theory/sol_k3_discrete_filter_comparison_20261006/{PROOF,REPORT,CHECKS,FAILED_ROUTES}.md; independent 47 PASS rational/small checks, .171875 CPU seconds, process threads4, arithmetic pool1, workers0, peak19,095,552 bytes, GPU/CUDA0. Historical checks were not run/imported. Primary untracked Grok joint audit was read and hash-recorded, not edited or committed.
+- **Exact next action:** hostile-review the candidate identification (symmetric whitening and Q3), four-panel Gram, rational square-root certificate/Sylvester inequality, and final-interval gate violation. If the owner elects to repair THIS K=3 family, first supply explicit pointwise-legal public words and certified protected continuum gain; then complete their whole-ball seven-cohort discrete comparison. No silent waveform rescaling and no generalization. Stop after this requested branch is committed/pushed.
+
 ## Codex resume: repeated near-critical filter writing (2026-10-06)
 
 - **Scope/stage:** THEORY ONLY; new author-local PROVED K=2 theorem, pending independent hostile review. The growing-K gain question remains OPEN. Accepted multicolumn, probe-only/moving-cycle and prior multisurvivor checkpoints are premises, not reopened. Isolated branch codex/repeated-nearcritical-filter-independent-20261006 starts from b484504, leaving concurrent test work untouched.
