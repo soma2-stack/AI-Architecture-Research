@@ -1,5 +1,15 @@
 # Codex Independent Research Notebook
 
+## Codex resume: multi-survivor / Hadamard write geometry (2026-10-05)
+
+- **Scope/stage:** THEORY ONLY; primary improved-gain problem STILL OPEN. Owner-verified multicolumn and moving-probe checkpoints are premises, not reopened. New structural results need independent hostile review. Work is isolated on codex/multisurvivor-hadamard-independent-20261005 from df9ef337.
+- **Exact new transfer:** survivor filters act on PRIVATE J-vector histories, coupled through the full rank-two Volterra resolvent. A read/probe/control Jacobian is a tensor, not a joint transfer theorem. Complete bath/front and all renewals remain; no support-localization principle is used.
+- **New finite noncollapse:** one jointly legal four-step two-donor/three-survivor-cohort family has two overlapping protected private patterns after exact donor trace matching and a common reset. Its complete 2-by-2 response is explicit, with positive determinant and sigma_min>delta p b^2 gap/(20n). This is NOT robust at epsilon=.001: accepted complete actual pair upper is <.47991/sqrt(n)<.002. No new D is counted from rank or nonzero gain.
+- **Scoped failures:** synchronized survivors give one spatial factor; matched donor/survivor pairs have constant projected pre-correction gain but zero private credit and vanish after trace matching. An all-low filter bank has actual pair<128/sqrt(n)+8e-9. One initial pulse plus public intermediate filters and final correction has actual pair<.312delta/sqrt(n)+8e-9, even with near-critical survivors. Affine overlapping Hadamard gate coding pays >=1/sqrt(K) ball-legality loss. None closes arbitrary nonuniform chronological histories.
+- **Dimension/resources:** accepted D=KR and R2 D>=n^(3/16)/3 remain; beta unchanged. Accepted mT<11n^(45/32)=o(n^(3/2)). No new robust superlinear section, no energy-threshold improvement, and no universal rank-one obstruction. Global bracket[1/4,3/4] and full-model gap unchanged.
+- **Evidence:** theory/codex_multisurvivor_hadamard_write_20261005/{PROOF,REPORT,FAILED_ROUTES,CHECKS}.md; 282 final exact PASS checks. Final CPU .375s; two serial math runs total .765625s; observed Python threads4, arithmetic pools1, workers0, peak20,770,816 bytes, GPU/CUDA0. Small replay is algebra-only outside the theorem's large-width envelope.
+- **Exact next action:** hostile-review finite two-filter identities and reset cancellation, single-pulse complete-query obstruction, and scoped Hadamard/diversity bounds. Then target a near-critical PUBLIC filter bank with REPEATED simultaneous donor writing, uniform finite-antipodal gain kappa/K^alpha with alpha<1/2, exact traces, masks and endpoint. Do not count independent small modes as robust dimensions. No CURRENT_THEORY/AGENTS/historical-report edits.
+
 ## Codex resume: moving-cycle probe substitution (2026-10-05)
 
 - **Scope/stage:** THEORY ONLY; new author-derived scoped obstructions written, independent hostile review required. Main moving-history redesign question remains STILL OPEN. Owner now independently verifies the multicolumn checkpoint at 9bf66b9; it is a premise, not reopened.
