@@ -1,0 +1,91 @@
+{
+  "branch": "codex/frontier-invention-20261006",
+  "base_commit": "b8d17b3e1130838af4eb3f30d6b02a5109506449",
+  "status": "PROVED",
+  "independent_review": "PENDING",
+  "scope": "NEW coded finite-radius fixed-feature lower theorem; not an architecture or superlinear theorem",
+  "main_unchanged": true,
+  "agents_unchanged": true,
+  "current_theory_unchanged": true,
+  "historical_reports_unchanged": true,
+  "expected_modified_notebook": "Codex_Research.md",
+  "dependency_paths_present": true,
+  "output_files": [
+    {
+      "path": "theory/codex_frontier_invention_20261006/checks_result.json",
+      "bytes": 4176,
+      "sha256": "028ac018a974130a6a63f257f6df94d46f4f20e61303639a7d4f1cd382e9cea0"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/CHECKS.md",
+      "bytes": 3688,
+      "sha256": "ed5f9c44cc291300746ef61247bd76e0e65f20dc54ff437f15e5e8b4f496dd94"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/checks.py",
+      "bytes": 8031,
+      "sha256": "abedb4e293c74ce47084806ca70721871d7ea9b316e3de8b2b4326577c133607"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/FAILED_ROUTES.md",
+      "bytes": 3878,
+      "sha256": "e1d489e5a68c640af3ddd8a45f283ae58f585bcd4f969c67fbf0435b77d965df"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/IDEAS.md",
+      "bytes": 6704,
+      "sha256": "25bc5173182e2665308a1af19ea87eda39838b4703e9a90c893cb0e0036df1e4"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/PROOF.md",
+      "bytes": 25873,
+      "sha256": "68a4aa4415155c822c3058025b4e70d725dc2056cb3a1264093d2157993611fa"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/PROVENANCE.json",
+      "bytes": 4629,
+      "sha256": "471bf31a19ed347bbb08a10832f020b7c7c013102b3062860953f6ab4cfbda53"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/REPORT.md",
+      "bytes": 5136,
+      "sha256": "319da396ec25850b7b3f82426fc43ad4970a268d81e5c09f5e3cd9f646f9677e"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/STATUS.md",
+      "bytes": 7,
+      "sha256": "8e0002a418a827279a6306aa065d525f22ff451364cfe8974679e00ccc246502"
+    }
+  ],
+  "primary_checkout": "C:/Users/coler/OneDrive/Desktop/ai new",
+  "primary_head": "eb0374622b332149cd0f67dbb492f203f67c42a0",
+  "primary_status": [
+    "?? PERPLEXITY_PROOF_PACKET.txt",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C0_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C1_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C1_dev_arena_seed1_retry_after_empty_ledger_fix/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C2_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C3_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C4_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C4_dev_arena_seed1_clean_after_plan_first_fix/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_20260929/C4_dev_arena_seed1_retry_after_empty_commit_fix/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_final_20260930/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_postfix_20260929/C0_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_postfix_20260929/C1_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_postfix_20260929/C2_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_postfix_20260929/C3_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_pilot_qwen35_postfix_20260929/C4_dev_arena_seed1/workspace/",
+    "?? experiments/gas0/analysis/dev_smoke_c4_feedback_20260930/C4_dev_arena_seed1_stages1to3/workspace/",
+    "?? experiments/gas0/analysis/model_selection_recoveryfix_20260929/qwen35/budget_planner_seed1/workspace/",
+    "?? experiments/gas0/analysis/model_selection_recoveryfix_20260929/qwen35/dev_arena_seed1/workspace/",
+    "?? theory/grok_codex_gemini_joint_audit_20261006/"
+  ],
+  "checks_file": "checks_result.json",
+  "check_count": 30,
+  "notes": [
+    "No force push, merge, rebase, branch deletion, or main update",
+    "No historical source modified",
+    "One arithmetic thread; observed Python process threads 4; GPU 0",
+    "All large-width claims are analytic, not inferred from sampling"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "author": "Codex",
+  "date": "2026-10-06",
+  "branch": "codex/frontier-invention-20261006",
+  "base_commit": "b8d17b3e1130838af4eb3f30d6b02a5109506449",
+  "repository": "soma2-stack/AI-Architecture-Research",
+  "author_status": "PROVED",
+  "independent_review_status": "PENDING",
+  "owner_acceptance_of_new_result": false,
+  "source_records": [
+    {
+      "path": "README.md",
+      "sha256": "9090c5d79611c38d2e87d9e098a6fa661dad40bdf4ad13093cddc8954c168c6b",
+      "bytes": 2318,
+      "git_blob": "801bc99bdb12d5170123dd403b6b5eeb61d4708c"
+    },
+    {
+      "path": "04_RESEARCH_STATE.md",
+      "sha256": "a78a883db52368e320903b5e6344927b3f203a66f9c901bd6afe3a091ffce2dd",
+      "bytes": 2606,
+      "git_blob": "0d688e43281da30015d2b323761ffd975de47977"
+    },
+    {
+      "path": "theory/CURRENT_THEORY.md",
+      "sha256": "b0643a3b2b70bbee5383305c6e21e505bc9165f4599517139eb922f52b0d682b",
+      "bytes": 13803,
+      "git_blob": "10467dca5395a32bfbe178faca724ca51ee02eb6"
+    },
+    {
+      "path": "theory/reachable_fixed_feature_width_20261002/PROOF.md",
+      "sha256": "e6b05d761474527f9dfa38a4939b7d1963eb73f6fc38f37ac68d0aa4a3b199ae",
+      "bytes": 22717,
+      "git_blob": "cc33912d171c5c434175fd09c6b015d5e3e7d1a1"
+    },
+    {
+      "path": "theory/codex_private_renewal_gamma_20261003/PROOF.md",
+      "sha256": "2c732ff83535b3c8a844f9402bad24e10a1750bc220a81551157c2165d19f2b6",
+      "bytes": 21619,
+      "git_blob": "f83fa97a0fd0bbbd758d9c7266341f0afb85741e"
+    },
+    {
+      "path": "theory/codex_unpaired_corridor_sensitivity_20261003/PROOF.md",
+      "sha256": "870bbe0dcdb2c771941c5e8948d52841a506d27327dcde23f88c96778f38b062",
+      "bytes": 24693,
+      "git_blob": "c2b8e80cefb8e663da24be4bf590a6827961cb5c"
+    },
+    {
+      "path": "theory/codex_single_block_spatial_write_20261004/PROOF.md",
+      "sha256": "b7be50d4ec53bd3690ca735a62eaa1ffe28e82cfde68236dadad714713f1f376",
+      "bytes": 18137,
+      "git_blob": "660c0ea812530e6ded84445218b0c6e9af913ba7"
+    },
+    {
+      "path": "theory/codex_multicolumn_spatial_write_20261005/PROOF.md",
+      "sha256": "b22386a4088d2d058ce42dc3f6f8f86929a60e0faf336d61645e980429bb7221",
+      "bytes": 25394,
+      "git_blob": "79bb9db904c9d9e3c238dd087eae2768a37f720d"
+    },
+    {
+      "path": "theory/codex_multi_donor_joint_section_20261003/PROOF.md",
+      "sha256": "a7c3df9a0af793fe67960c5579974821f05837805759b74aba3b56fe4e199b12",
+      "bytes": 23908,
+      "git_blob": "d10276dc7e2978b132ea7f5129d6fc17880b7216"
+    },
+    {
+      "path": "theory/codex_moving_probe_spatial_write_20261005/PROOF.md",
+      "sha256": "66eabc96a8b5bd52c861b63bd864f1ffda2b9e92b290e2a17210208c27eefcc8",
+      "bytes": 24000,
+      "git_blob": "4174837330b950a185cef6a038d79a9d6699edb8"
+    },
+    {
+      "path": "theory/codex_repeated_nearcritical_filter_write_20261005/PROOF.md",
+      "sha256": "0410cb4a6c9898ede05faeaa5093b74959c7bcc62f1304b76c2e802f95b41f26",
+      "bytes": 23890,
+      "git_blob": "d13f724f743d436f837e38cd952c94e9d5021a80"
+    },
+    {
+      "path": "theory/sol_k3_discrete_filter_comparison_20261006/PROOF.md",
+      "sha256": "5e2ba1f254249d6131d2df20d7fdab567d2e15c5c21c1c7219d78d8c640f41e3",
+      "bytes": 11290,
+      "git_blob": "c0fb0a37b13fe4378c9c7095155ac12ade225d75"
+    },
+    {
+      "path": "theory/codex_autonomous_absolute_energy_20261003/PROOF.md",
+      "sha256": "c1278cd9346cb2de8665c8a382bab77e78a6fb2cbeadc8e572343559909b4822",
+      "bytes": 28628,
+      "git_blob": "68bf759d9d68efef059c50f6a0d83390f2d90f00"
+    },
+    {
+      "path": "theory/near_critical_credit_phase_diagram_20261001/REPORT.md",
+      "sha256": "a9dc79fe71858e16e0592e2bf97fca2b9d8cafb7679291d7138592b5e95facb1",
+      "bytes": 3305,
+      "git_blob": "cf937675fbd7058fedc1acc571256c701e3d1a50"
+    }
+  ],
+  "governance_git_blob": "0e90094d73c07edd741bb53572d479e8844513a0",
+  "main_before": "2e3ee7b3faea9c908904a8202d85e95d2d5f8985",
+  "source_contract": "Existing frozen dense tanh, one autonomous source feature, all recurrent parameters differentiated with realized inputs frozen",
+  "public_code": "Existence-selected Gaussian full-spark frame; no astronomical frame generated",
+  "numerical_scope": "Standard-library-only small algebra checks; no proof by sampling",
+  "preservation": "New isolated folder and own notebook resume only; primary checkout untouched",
+  "hash_convention": "SHA256 covers source working-tree bytes as read, including line endings; git_blob provides normalized committed object identity"
+}
