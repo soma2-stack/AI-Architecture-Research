@@ -1,5 +1,14 @@
 # Codex Independent Research Notebook
 
+## Codex resume: multi-survivor / Hadamard write geometry (2026-10-05)
+
+- **Scope/stage:** THEORY ONLY; multi-survivor / Hadamard write geometry investigated; hypothesis that multi-survivor spatial interleaving beats the $1/\sqrt{K}$ gain loss ($\alpha < 1/2$) is REFUTED. New Single-Sum Broadcast Obstruction Theorem and Bessel Rank-One Bottleneck derived and internally verified; independent hostile review required from Gemini / Grok. Accepted checkpoints ($D \ge n^{3/16}/3$, moving-probe obstruction, zero-moment telescoping) preserved and not reopened. No CURRENT_THEORY, AGENTS, or historical edits.
+- **Structural obstruction:** On stationary compensators, $C=I$ and exceptional row $e_1 v_H^T=0$, so $O_*|_{\text{comp}, \text{comp}} = I - c 1 1^T$. All cross-coupling from donors to survivors is mediated exclusively by the rank-one broadcast operator $-a c (G_S 1_S) 1_D^T$. Under simultaneous donor controls, the donor sum $1_D^T x_D(t) \propto \sum \theta_k$ is a single scalar at all $t$, collapsing the survivor state to rank 1. Any orthogonal zero-sum spatial modes (Hadamard blocks, interleaved $\pm$) receive identically zero signal ($\sigma_{\min} = 0$).
+- **Bessel projection bound:** When resolved through $K$ orthonormal parameter probes $V = [v_1, \dots, v_K]$ reading the common mode, Hilbert space Bessel inequality $\sum_{k=1}^K |\langle v_k, u_D \rangle|^2 \le 1$ strictly bounds $\sigma_{\min}(A) \le \kappa / \sqrt{2(K+1)} = \Theta(K^{-1/2})$, establishing that $\alpha \ge 1/2$ is an inescapable physical invariant.
+- **Dimension and resources:** The gain scaling remains $\Theta(K^{-1/2})$; write duration remains $t_e \ge \Omega(\sqrt{K} n^{3/4})$, coordinate time $mT \ge \Omega(\sqrt{K} 2^R n^{5/4})$. Under subcritical constraints $\sqrt{K} 2^R \le n^{3/16}$, the verified frontier remains $D \ge n^{3/16}/3$ ($\beta = 3/16$). No exponent replaces $3/16$. Superlinear dimension $D = \omega(n)$ is unattainable under $mT = o(n^{3/2})$ via spatial interleaving.
+- **Evidence / checks:** `theory/codex_multisurvivor_hadamard_write_20261005/{PROOF,REPORT,STATUS,CHECKS,FAILED_ROUTES}.md`, `checks.py`, `checks_result.json`. 141/141 checks PASS in 1.61s CPU, peak RAM 32.62 MiB, 1 process thread, pools 1, 0 workers, GPU/CUDA 0.
+- **Exact next action:** STOP. Submit Theorem 1 (Single-Sum Broadcast Collapse) and Theorem 2 (Bessel Rank-One Householder Bottleneck) for independent hostile review by Gemini and Grok.
+
 ## Codex resume: moving-cycle probe substitution (2026-10-05)
 
 - **Scope/stage:** THEORY ONLY; new author-derived scoped obstructions written, independent hostile review required. Main moving-history redesign question remains STILL OPEN. Owner now independently verifies the multicolumn checkpoint at 9bf66b9; it is a premise, not reopened.

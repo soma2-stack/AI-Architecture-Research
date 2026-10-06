@@ -1,0 +1,722 @@
+{
+  "passed": true,
+  "passed_count": 141,
+  "total_count": 141,
+  "wall_seconds": 1.608181500021601,
+  "cpu_seconds": 1.609375,
+  "peak_threads": 4,
+  "peak_ram_bytes": 34209792,
+  "checks": [
+    {
+      "name": "K1 Bessel sum bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K1 exact projection amplitude",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K1 probe-independent upper bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 Bessel sum bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 exact projection amplitude",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 probe-independent upper bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Bessel sum bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 exact projection amplitude",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 probe-independent upper bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Bessel sum bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 exact projection amplitude",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 probe-independent upper bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Bessel sum bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 exact projection amplitude",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 probe-independent upper bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K32 Bessel sum bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K32 exact projection amplitude",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K32 probe-independent upper bound",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (0,0)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (0,1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (0,2)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (0,3)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (0,4)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (1,0)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (1,1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (1,2)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (1,3)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (1,4)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (2,0)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (2,1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (2,2)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (2,3)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (2,4)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (3,0)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (3,1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (3,2)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (3,3)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (3,4)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (4,0)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (4,1)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (4,2)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (4,3)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "compensator submatrix entry (4,4)",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 Hadamard row 0 is common mean",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 Hadamard mode 1 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 Hadamard mode 1 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Hadamard row 0 is common mean",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Hadamard mode 1 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Hadamard mode 1 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Hadamard mode 2 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Hadamard mode 2 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Hadamard mode 3 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 Hadamard mode 3 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard row 0 is common mean",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 1 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 1 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 2 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 2 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 3 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 3 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 4 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 4 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 5 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 5 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 6 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 6 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 7 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 Hadamard mode 7 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard row 0 is common mean",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 1 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 1 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 2 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 2 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 3 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 3 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 4 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 4 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 5 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 5 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 6 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 6 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 7 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 7 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 8 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 8 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 9 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 9 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 10 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 10 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 11 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 11 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 12 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 12 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 13 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 13 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 14 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 14 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 15 is zero-sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 Hadamard mode 15 annihilates broadcast",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 transfer matrix leading singular value positive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 transfer matrix singular value 1 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 transfer matrix has rank 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 transfer matrix leading singular value positive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 transfer matrix singular value 1 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 transfer matrix singular value 2 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 transfer matrix singular value 3 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 transfer matrix has rank 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix leading singular value positive",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix singular value 1 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix singular value 2 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix singular value 3 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix singular value 4 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix singular value 5 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix singular value 6 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix singular value 7 is zero",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 transfer matrix has rank 1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 ratio matches 1/sqrt(2)",
+      "passed": true,
+      "data": {
+        "ratio": 0.7049665717222158
+      }
+    },
+    {
+      "name": "K4 ratio matches 1/sqrt(4)",
+      "passed": true,
+      "data": {
+        "ratio": 0.4977327078445732
+      }
+    },
+    {
+      "name": "K8 ratio matches 1/sqrt(8)",
+      "passed": true,
+      "data": {
+        "ratio": 0.35168409964514064
+      }
+    },
+    {
+      "name": "Walsh mask f1 e2 preserves zero sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e2 triangular readout",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e2 image match",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e3 preserves zero sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e3 triangular readout",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e3 image match",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f2 e3 preserves zero sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f2 e3 triangular readout",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f2 e3 image match",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e4 preserves zero sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e4 triangular readout",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f1 e4 image match",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f2 e4 preserves zero sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f2 e4 triangular readout",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f2 e4 image match",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f3 e4 preserves zero sum",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f3 e4 triangular readout",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh mask f3 e4 image match",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "coordinate time exponent < 3/2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "coordinate time exponent equals 43/32",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "history energy exponent < 3/4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "robust dimension exponent beta equals 3/16",
+      "passed": true,
+      "data": {}
+    }
+  ]
+}
