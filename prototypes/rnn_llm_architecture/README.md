@@ -14,6 +14,19 @@ CPU-only correctness checks are included. **No training script, optimizer,
 dataset, synthetic experiment loop, collector, RL, generation service, GPU job,
 or pretrained weights.**
 
+## Fourth theory-faithful design path (new; incomplete)
+
+See [THEORY_BLUEPRINT.md](THEORY_BLUEPRINT.md) for the complete
+architecture plan, exact contract boundaries, and open components.
+[theory_reference.py](theory_reference.py) adds a CPU-oriented,
+untrained reference implementation of the source's selected
+fixed-feature credit recurrence, with
+[test_theory_reference.py](test_theory_reference.py) checking its algebra.
+**This fourth path is NOT a fourth runnable token-prediction cell yet.**
+It does not implement the full frozen dense-tanh legal-query protocol,
+the Route-6 construction, or the unsolved strict-budget theorem.
+The three existing runnable variants remain unchanged.
+
 ## Three model variants
 
 All have a token embedding, a configurable stack of recurrent layers, state
