@@ -81,6 +81,7 @@ For `codex_unpaired_corridor_sensitivity_20261003`, acceptance is supplied by th
 
 | Folder | Date | Topic | Agent | Type | Status | Reviewed by / reviews target | Superseded by | Summary |
 |---|---|---|---|---|---|---|---|---|
+| [codex_moving_cycle_parameter_exhaustion_20261007](codex_moving_cycle_parameter_exhaustion_20261007/) | 2026-10-07 | Moving-cycle parameter exhaustion | Codex | Author proof / review handoff | PENDING REVIEW | Pending | — | Author claims a dimension-independent shared-field variation bound and q_total=o(K) approximate moving-cycle parameter exhaustion for the fixed-source, no-wrap, publicly segmented one-step-capture family; independent hostile review is pending. |
 | [codex_d2_time_varying_repair_20261005](codex_d2_time_varying_repair_20261005/) | 2026-10-05 | time-varying D=2 repair | Codex | Proof / theory | PENDING REVIEW | — | — | Author derivation repairs the chronological sign argument in its scoped auxiliary and full-front model; independent review remains pending. |
 | [codex_filtered_timing_packing_repair_20261005](codex_filtered_timing_packing_repair_20261005/) | 2026-10-05 | filtered timing packing repair | Codex | Proof / theory | PENDING REVIEW | — | — | Revisits filtered timing; a necessary disjoint-packing cap remains unresolved pending review. |
 | [codex_history_uniform_leverage_20261005](codex_history_uniform_leverage_20261005/) | 2026-10-05 | history-uniform leverage | Codex | Proof / theory | PENDING REVIEW | — | — | Scoped history-uniform leverage analysis; no broader conclusion is promoted here. |
