@@ -54,6 +54,36 @@ def test_gradient_flows_through_time(cell_type):
     assert torch.isfinite(state[0]).all()
 
 
+@pytest.mark.parametrize("cell_type", ["tanh", "near_critical", "protected"])
+def test_gradient_crosses_explicit_streaming_boundary(cell_type):
+    torch.manual_seed(131)
+    model = RNNLanguageModel(RNNConfig(
+        vocab_size=41, width=16, layers=1, cell_type=cell_type, protected_channels=4
+    ))
+    ids = torch.randint(0, 41, (2, 7))
+    _, state_after_prefix = model(ids[:, :3])
+    suffix_logits, _ = model(ids[:, 3:], state_after_prefix)
+    state_gradient = torch.autograd.grad(
+        suffix_logits[:, -1, 7].sum(), state_after_prefix[0]
+    )[0]
+    assert torch.isfinite(state_gradient).all()
+    assert state_gradient.abs().sum() > 0
+
+
+@pytest.mark.parametrize("cell_type", ["tanh", "near_critical", "protected"])
+def test_long_cpu_sequence_has_finite_state_logits_and_gradients(cell_type):
+    torch.manual_seed(132)
+    model = RNNLanguageModel(RNNConfig(
+        vocab_size=23, width=16, layers=1, cell_type=cell_type, protected_channels=4
+    ))
+    ids = torch.randint(0, 23, (2, 256))
+    logits, state = model(ids)
+    gradient = torch.autograd.grad(logits[:, -1, 3].sum(), model.embedding.weight)[0]
+    assert torch.isfinite(logits).all()
+    assert torch.isfinite(state[0]).all()
+    assert torch.isfinite(gradient).all()
+
+
 def test_near_critical_recurrent_operator():
     torch.manual_seed(14)
     width = 16
@@ -72,6 +102,10 @@ def test_sum_free_orthonormal_masks():
     coefficients = torch.randn(3, 8)
     state = torch.nn.functional.linear(coefficients, cell.masks.T)
     assert torch.allclose(cell.read_protected(state), coefficients, atol=1e-6)
+    with pytest.raises(ValueError, match="channels must be an integer"):
+        sum_free_walsh_bank(32, 2.5)
+    with pytest.raises(ValueError, match="width must be a power of two"):
+        sum_free_walsh_bank(31, 2)
 
 
 def test_protected_state_budget_is_constant():
@@ -90,6 +124,30 @@ def test_protected_state_budget_is_constant():
 def test_invalid_protected_width_rejected():
     with pytest.raises(ValueError):
         RNNConfig(cell_type="protected", width=30, protected_channels=4)
+    with pytest.raises(ValueError, match="protected_channels must be an integer"):
+        RNNConfig(cell_type="protected", width=32, protected_channels=4.5)
+
+
+def test_invalid_config_dimensions_rejected():
+    with pytest.raises(ValueError, match="width must be an integer"):
+        RNNConfig(width=16.0)
+    with pytest.raises(ValueError, match="layers must be an integer"):
+        RNNConfig(layers=True)
+
+
+def test_invalid_input_and_state_shapes_or_dtypes_rejected():
+    model = RNNLanguageModel(RNNConfig(
+        vocab_size=23, width=16, layers=1, cell_type="protected", protected_channels=4
+    ))
+    with pytest.raises(ValueError, match=r"nonempty \[batch, time\]"):
+        model(torch.empty((0, 3), dtype=torch.long))
+    with pytest.raises(ValueError, match="positive integer"):
+        model.initial_state(0)
+    ids = torch.ones((2, 3), dtype=torch.long)
+    with pytest.raises(ValueError, match="device, and model dtype"):
+        model(ids, (torch.zeros((2, 16), dtype=torch.float64),))
+    with pytest.raises(ValueError, match=r"\[batch, width\]"):
+        model(ids, (torch.zeros((2, 15)),))
 
 
 def test_reset_not_implicit():

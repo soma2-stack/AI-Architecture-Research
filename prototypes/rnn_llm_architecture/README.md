@@ -33,9 +33,14 @@ For the protected cell, let `P` be an `R x n` orthonormal Walsh bank
 q_new = sigmoid(G_s x) * q + (1-sigmoid(G_s x)) * u
 f_old = h - P^T q
 f_write = c - P^T u
-f_new = sigmoid(G_f x) * f_old + (1-sigmoid(G_f x)) * f_write
+f_mix = sigmoid(G_f x) * f_old + (1-sigmoid(G_f x)) * f_write
+f_new = f_mix - P^T(P f_mix)
 h_new = P^T q_new + f_new
 ```
+
+The final projection is required because the coordinate-wise fast gate can
+move `f_mix` into the protected Walsh subspace. The implementation removes
+that component after gating so `P h_new = q_new` (up to floating-point error).
 
 The protected bank occupies **R of the existing n state coordinates**,
 not R additional n-wide states. Increasing R nevertheless changes the gate

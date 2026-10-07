@@ -22,11 +22,18 @@ class RNNConfig:
     protected_channels: int = 8
 
     def __post_init__(self) -> None:
+        for name in ("vocab_size", "width", "layers"):
+            value = getattr(self, name)
+            if not isinstance(value, int) or isinstance(value, bool):
+                raise ValueError(f"{name} must be an integer")
         if self.vocab_size < 2 or self.width < 2 or self.layers < 1:
             raise ValueError("vocab_size>=2, width>=2, and layers>=1 are required")
         if self.cell_type not in ("tanh", "near_critical", "protected"):
             raise ValueError("cell_type must be tanh, near_critical, or protected")
         if self.cell_type == "protected":
+            if (not isinstance(self.protected_channels, int)
+                    or isinstance(self.protected_channels, bool)):
+                raise ValueError("protected_channels must be an integer")
             if self.width & (self.width - 1):
                 raise ValueError("protected cell requires a power-of-two width")
             if not 1 <= self.protected_channels <= self.width // 2:
@@ -65,8 +72,11 @@ class NearCriticalTanhCell(nn.Module):
 
 def sum_free_walsh_bank(width: int, channels: int) -> Tensor:
     """Orthonormal Walsh characters with odd-parity indices (XOR sum-free)."""
-    if width < 2 or width & (width - 1):
+    if (not isinstance(width, int) or isinstance(width, bool)
+            or width < 2 or width & (width - 1)):
         raise ValueError("width must be a power of two >= 2")
+    if not isinstance(channels, int) or isinstance(channels, bool):
+        raise ValueError("channels must be an integer")
     labels = [i for i in range(1, width) if i.bit_count() % 2 == 1]
     if not 1 <= channels <= len(labels):
         raise ValueError("invalid channel count")
@@ -146,6 +156,8 @@ class RNNLanguageModel(nn.Module):
         nn.init.normal_(self.embedding.weight, std=w ** -0.5)
 
     def initial_state(self, batch_size: int, *, device=None, dtype=None) -> tuple[Tensor, ...]:
+        if not isinstance(batch_size, int) or isinstance(batch_size, bool) or batch_size < 1:
+            raise ValueError("batch_size must be a positive integer")
         p = self.embedding.weight
         return tuple(torch.zeros(batch_size, self.config.width,
                                  device=p.device if device is None else device,
@@ -163,17 +175,23 @@ class RNNLanguageModel(nn.Module):
         *,
         return_history: bool = False,
     ):
-        if input_ids.ndim != 2 or input_ids.dtype != torch.long or input_ids.shape[1] < 1:
+        if (not isinstance(input_ids, Tensor) or input_ids.ndim != 2
+                or input_ids.dtype != torch.long or input_ids.shape[0] < 1
+                or input_ids.shape[1] < 1):
             raise ValueError("input_ids must be a nonempty [batch, time] int64 tensor")
+        if input_ids.device != self.embedding.weight.device:
+            raise ValueError("input_ids and model parameters must be on the same device")
         batch, timesteps = input_ids.shape
         if state is None:
             memory = list(self.initial_state(batch))
         else:
             if len(state) != self.config.layers:
                 raise ValueError("state must have one tensor per layer")
+            if any(not isinstance(s, Tensor) for s in state):
+                raise ValueError("state must contain tensors")
             if any(s.shape != (batch, self.config.width) or s.device != input_ids.device
-                   for s in state):
-                raise ValueError("state tensors must match [batch, width] and device")
+                   or s.dtype != self.embedding.weight.dtype for s in state):
+                raise ValueError("state tensors must match [batch, width], device, and model dtype")
             memory = list(state)
         embedded = self.embedding(input_ids)
         logits, history = [], []
