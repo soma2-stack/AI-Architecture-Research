@@ -113,7 +113,11 @@ class ProtectedCell(nn.Module):
         old_fast = h - F.linear(old_coeff, self.masks.T)
         write_fast = proposal - F.linear(write_coeff, self.masks.T)
         fast_retention = torch.sigmoid(self.fast_gate(x))
-        new_fast = fast_retention * old_fast + (1 - fast_retention) * write_fast
+        mixed_fast = fast_retention * old_fast + (1 - fast_retention) * write_fast
+        # A coordinate-wise fast gate can leak into the Walsh subspace.
+        # Project it back out so read_protected(h_new) == coeff exactly.
+        mixed_coeff = self.read_protected(mixed_fast)
+        new_fast = mixed_fast - F.linear(mixed_coeff, self.masks.T)
         return F.linear(coeff, self.masks.T) + new_fast
 
 
