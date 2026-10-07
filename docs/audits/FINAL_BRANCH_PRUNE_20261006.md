@@ -106,6 +106,7 @@ All listed tags were pushed and verified: the peeled remote tag commit equals th
 | `archive/claude-admiring-turing-cvyhm0` | `claude/admiring-turing-cvyhm0` | `8e64c850aea05586dbbcd178f2b396f0de4ebe19` |
 | `archive/claude-wonderful-fermi-yx8b1e` | `claude/wonderful-fermi-yx8b1e` | `fd0b3656dd3b632abbcb4b6b0112edd8f6b496bc` |
 | `archive/codex-repeated-nearcritical-filter-write-20261005` | local-only `codex/repeated-nearcritical-filter-write-20261005` | `fff52bbd5b029b8705967f061a5a1f3f515c8b98` |
+| `archive/gemini-time-varying-nearcritical-filter-bank-20261006` | local-only `gemini/time-varying-nearcritical-filter-bank-20261006` | `eb0374622b332149cd0f67dbb492f203f67c42a0` |
 
 The multisurvivor completion local alias pointed at the same SHA as `codex/multisurvivor-hadamard-write-20261005`; it was removed after that exact commit was verified under the archive tag. The local-only repeated-filter-write branch had distinct content and received its own tag before deletion.
 
@@ -119,8 +120,8 @@ The multisurvivor completion local alias pointed at the same SHA as `codex/multi
 
 - Starting GitHub branch count: **18**.
 - Remote branches deleted in this pass: **14** (12 Codex/Sol frontier branches and the admiring/wonderful Claude branches).
-- Archive tags created in this pass: **15** (14 for deleted GitHub branches plus one local-only repeated-filter-write checkpoint).
+- Archive tags created in this pass: **16** (14 for deleted GitHub branches plus local-only repeated-filter-write and Gemini branch checkpoints).
 - Final GitHub branch count: **4** — `main`, the two explicit `preserve/*` refs, and `claude/gallant-bardeen-ybxn57`.
 - No preservation branch was deleted. Main remains at `c6c4ae1b0d4f8d614bb64a7ce0e70f48a8200970`.
-- Twelve clean obsolete temporary worktrees associated with archived or contained refs were removed; no dirty worktree was removed. The original `ai new` checkout and clean main checkout remain.
+- Twelve clean obsolete temporary worktrees associated with archived or contained refs were removed; no dirty worktree was removed. The original `ai new` checkout and clean main checkout remain. The exact committed tip of the local Gemini branch is also archived by tag, while its intentional untracked files remain only in the original checkout.
 - Old worktrees with tracked deletions or other dirty state remain untouched. The unique Gallant Claude notebook commit also remains only on its retained branch; all other frontier branch tips are now reachable from archive tags, and the reviewed folders are represented on main.
