@@ -1,0 +1,99 @@
+{
+  "experiment": "finite_n_clean_mask_scaling_20261006",
+  "start_timestamp_utc": "2026-10-06T21:53:50.331599+00:00",
+  "python_version": "3.11.9",
+  "pytorch_version": "2.13.0+cu130",
+  "cuda_runtime_version": "13.0",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "gpu_name": "NVIDIA GeForce RTX 3060",
+  "gpu_total_memory_bytes": 12884377600,
+  "dtype": "torch.float64",
+  "initial_allocated_vram_bytes": 0,
+  "initial_reserved_vram_bytes": 0,
+  "cpu_thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "torch_num_threads": 1,
+  "torch_num_interop_threads": 1,
+  "resource_limits": {
+    "wall_hard_seconds": 5400.0,
+    "optional_start_stop_seconds": 4200.0,
+    "allocated_vram_stop_bytes": 6442450944,
+    "CUDA_required": true,
+    "CPU_fallback": false
+  },
+  "preregistered_thresholds": {
+    "primary_complete_response_cross_talk_pass": 0.001,
+    "cross_talk_reference_targets": [
+      0.01,
+      0.001,
+      0.0001,
+      1e-05,
+      1e-06,
+      1e-07
+    ],
+    "protected_component_transport_relative_error_pass": 1e-09,
+    "trace_correction_relative_error_pass": 1e-10,
+    "mask_balance_absolute_sum_pass": 0,
+    "mask_pairwise_gram_max_error_pass": 1e-12,
+    "legacy_clean_R8_distinction_min_factor": 10.0
+  },
+  "mask_family_algorithms": {
+    "legacy": "historical power-of-two/composite alias-prone labels; n=2048 R8 uses [1,2,4,8,16,32,3,5] because label 64 is out of range; n=4096 R8 reproduces [1,2,4,8,16,32,64,3].",
+    "sum_free": "first R odd positive integers below nd=n/32; all pairwise XORs are even, hence no pairwise alias into the selected odd labels.",
+    "independent": "first R powers of two, available only for R<=log2(nd); distinct subset XORs cannot equal another selected basis label."
+  },
+  "mask_family_capacity": "sum_free R<=nd/2; independent R<=log2(nd); legacy subject to distinct legal labels.",
+  "measurement_conventions": "Copied validated reference_cuda.py from finite_n_r8_diagnosis_20261006. Complete response and isolated protected-component matrix use the inherited CUDA float64 recurrence, full private feedback/front/bath/Householder transport, trace correction, common reset, and normalized Walsh reads. No theorem implication.",
+  "source_sha256": {
+    "reference_cuda.py": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55",
+    "prior_r8_reference_cuda.py": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55"
+  },
+  "planned_tests": [
+    "clean-vs-legacy R8 reproduction at n2048",
+    "sum-free R ladder at n1024; selected R ladder at n2048 and n4096 if within runtime",
+    "clean R8 width curve n512..4096",
+    "K=8,16,32,64 at n2048 R8",
+    "clear multipliers .5,1,2,4 for clean R8 at n1024",
+    "independent-mask comparison where available",
+    "matched-age reads where runtime permits",
+    "alias-relation negative control via legacy R8"
+  ],
+  "pass_fail_thresholds_locked_before_new_sweep": true,
+  "matched_age_diagnostic": {
+    "status": "COMPLETED_ROW_WISE",
+    "construction": "Stitched row i from the checkpoint at capture_time_i+256. Each intended signal has the same age, but rows are observed at different global times; therefore this is not one simultaneous joint endpoint experiment.",
+    "n": 1024,
+    "R": 16,
+    "age_steps": 256,
+    "max_normalized_offdiagonal": 8.582094786134288e-15,
+    "max_absolute_offdiagonal": 1.1008156616838483e-15
+  },
+  "end_timestamp_utc": "2026-10-06T23:28:30.810027+00:00",
+  "total_runtime_seconds": 5401.92342180002,
+  "peak_allocated_vram_bytes": 164945920,
+  "peak_reserved_vram_bytes": 283115520,
+  "peak_allocated_vram_mib": 157.3,
+  "peak_reserved_vram_mib": 270.0,
+  "largest_n_completed": 4096,
+  "largest_R_completed": 16,
+  "stop_event": {
+    "type": "HARD_RUNTIME_GUARD",
+    "configured_limit_seconds": 5400.0,
+    "actual_runtime_seconds": 5401.92342180002,
+    "message": "CUDA reference engine stopped the batched K sweep at the 90-minute hard limit before returning any per-K rows."
+  },
+  "noncompletion_note": "K batch was interrupted by the hard runtime guard and returned no per-K measurements. The clean-mask clear sweep was not launched. These are not negative results.",
+  "largest_width_case": {
+    "n": 4096,
+    "R": 8
+  },
+  "largest_R_case": {
+    "R": 16,
+    "n": 2048
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "seed": 20261006,
+  "widths": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "donor_counts": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "dtype": "float64",
+  "a": "1-1/n",
+  "g_H": "1-1/n^2",
+  "g_L": 0.995,
+  "write_steps": "ceil(.4*n)",
+  "clear_steps": "2*n",
+  "trace_tail": "ceil(log((write_steps+1)/1e-3)/(-log(a*g_L)))+1",
+  "reset_state": 0.05,
+  "initial_tuple_beta": 0.04,
+  "carrier": "four-site balanced stationary off-cycle tuples",
+  "model": "complete frozen reference R0, including full selected Householder/cycle feedback",
+  "dense_perturbation": "not included; this tests the full dense reference block O_*, not the tiny actual-model transfer correction",
+  "cpu_intraop_threads": 1,
+  "cpu_interop_threads": 1,
+  "worker_processes": 0,
+  "hard_guard_seconds": 540,
+  "target_vram_bytes": 0,
+  "no_training": true,
+  "no_optimization": true
+}

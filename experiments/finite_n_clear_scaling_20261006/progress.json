@@ -1,0 +1,29 @@
+{
+  "state": "COMPLETED",
+  "completed_tests": [
+    "A_clear_sweep",
+    "B_clear_law",
+    "C_thresholds",
+    "D_width_sweep",
+    "E_K_clear_sweep",
+    "F_channel_ladder",
+    "G_channel_age",
+    "H_amplitude_imbalance",
+    "I_trace_stress",
+    "J_negative_controls",
+    "K_dense_perturbation"
+  ],
+  "failed_tests": [],
+  "skipped_tests": [
+    "A n=512: stopped extending after 8x C0 because measured A\u2192B cross-talk was below 1e-8",
+    "A n=1024: stopped extending after 4x C0 because measured A\u2192B cross-talk was below 1e-8",
+    "A n=2048: stopped extending after 2x C0 because measured A\u2192B cross-talk was below 1e-8",
+    "A n=4096: stopped extending after 2x C0 because measured A\u2192B cross-talk was below 1e-8",
+    "L_optional: not run; core A--K coverage and the 90-minute ceiling take priority over optional denser sampling"
+  ],
+  "elapsed_wall_seconds": 4459.122,
+  "current_peak_allocated_vram_bytes": 104268800,
+  "current_peak_reserved_vram_bytes": 184549376,
+  "remaining_planned_tests": [],
+  "updated_utc": "2026-10-06T18:15:56.733974+00:00"
+}

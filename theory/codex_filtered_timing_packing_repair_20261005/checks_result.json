@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "Algebra checks at n=256; not canonical large-width corridor legality or a proof of packing.",
+  "seed": 20261005,
+  "trials": 8,
+  "legal_future_query_samples": 56,
+  "future_horizons": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_midpoint_identity_residual": 1.0628525376433703e-14,
+  "max_coupled_suffix_identity_residual": 6.59472476627343e-14,
+  "max_sampled_visibility_over_direct_upper": 0.011838827531623108,
+  "max_sampled_visibility_over_dissipation_upper": 0.0023814161260867464,
+  "max_sampled_visibility_over_spatial_upper": 0.011838827531623108,
+  "outside_support_two_step_entry": 2.8036403773731844e-05,
+  "outside_support_exact_formula": 2.8036403773734392e-05,
+  "cpu_seconds": 0.484375,
+  "peak_process_threads_observed": 4,
+  "math_threads_per_pool": 1,
+  "peak_ram_bytes_observed": 42627072,
+  "windows_peak_working_set_bytes": 43520000,
+  "gpu_usage": 0,
+  "cuda_visibility": "-1"
+}

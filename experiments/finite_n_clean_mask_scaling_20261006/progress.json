@@ -1,0 +1,62 @@
+{
+  "status": "STOPPED_AT_90_MINUTE_HARD_LIMIT",
+  "completed_tests": [
+    "reproduce_n2048_K32_R8_sum_free_c2",
+    "reproduce_n2048_K32_R8_legacy_c2",
+    "width_n512_K8_R8_sum_free_c2",
+    "width_n1024_K16_R8_sum_free_c2_age256",
+    "width_n4096_K64_R8_sum_free_c2",
+    "ladder_n1024_K16_R2_sum_free_c2",
+    "ladder_n1024_K16_R4_sum_free_c2",
+    "ladder_n1024_K16_R6_sum_free_c2",
+    "ladder_n1024_K16_R8_sum_free_c2_age256",
+    "ladder_n1024_K16_R9_sum_free_c2",
+    "ladder_n1024_K16_R10_sum_free_c2",
+    "ladder_n1024_K16_R12_sum_free_c2_age256",
+    "ladder_n1024_K16_R16_sum_free_c2_age256",
+    "family_compare_n1024_K16_R4_independent_c2",
+    "family_compare_n1024_K16_R5_independent_c2",
+    "optional_ladder_n2048_K32_R12_sum_free_c2_age256",
+    "optional_ladder_n2048_K32_R16_sum_free_c2_age256"
+  ],
+  "failed_tests": [],
+  "skipped_tests": [
+    {
+      "test": "clean K scaling n=2048 R=8, K=8/16/32/64",
+      "status": "INCONCLUSIVE",
+      "reason": "Batched CUDA call was interrupted by the 90-minute hard runtime guard; no individual K result rows were returned."
+    },
+    {
+      "test": "clean-mask clearing sweep R=8 multipliers 0.5/1/2/4",
+      "status": "NOT RUN",
+      "reason": "Remaining runtime did not meet the preregistered minimum time budget; no clean-mask clearing result is inferred."
+    },
+    {
+      "test": "sum-free R=20/24/32 at n=2048",
+      "status": "NOT RUN",
+      "reason": "Optional channel-count extension stopped at the 70-minute cutoff after the in-flight R=16 case."
+    },
+    {
+      "test": "higher sum-free R at n=4096",
+      "status": "NOT RUN",
+      "reason": "Not started within the wall-clock budget."
+    },
+    {
+      "test": "R=8/12/16 full row-wise matched-age matrices",
+      "status": "COMPLETED_DIAGONAL_ROWS_ONLY",
+      "reason": "Each channel diagonal/cross-read row was sampled at its own 256-step age; rows are stitched across times, not one simultaneous endpoint."
+    }
+  ],
+  "pending_tests": [],
+  "elapsed_runtime_seconds": 5401.92342180002,
+  "current_test": null,
+  "peak_allocated_vram_bytes": 164945920,
+  "peak_reserved_vram_bytes": 283115520,
+  "largest_n_completed": 4096,
+  "largest_R_completed": 16,
+  "current_best_passing_R": 16,
+  "first_failing_R_observed": null,
+  "stopped_tests": [
+    "Kscale_n2048_R8 batched call (runtime guard before results returned)"
+  ]
+}

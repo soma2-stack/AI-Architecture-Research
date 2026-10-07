@@ -1,0 +1,81 @@
+{
+  "status": "STOPPED AFTER TEST 2",
+  "completed_tests": [
+    "Kscale_n2048_K8_R8_sum_free_c2_age256",
+    "Kscale_n2048_K16_R8_sum_free_c2_age256",
+    "Kscale_n2048_K64_R8_sum_free_c2_age256",
+    "Kscale_n2048_K16_R16_sum_free_c2_age256",
+    "Kscale_n2048_K64_R16_sum_free_c2_age256",
+    "family_n2048_K32_R4_sum_free_c2_age256",
+    "family_n2048_K32_R4_legacy_c2_age256",
+    "family_n2048_K32_R4_independent_c2_age256",
+    "family_n2048_K32_R12_legacy_c2_age256",
+    "family_n2048_K32_R16_legacy_c2_age256"
+  ],
+  "pending_tests": [
+    "TEST 3: n=4096 clean R=16,20,24,32",
+    "TEST 4–10: first-failure diagnosis, higher-R alias analysis, width scaling, negative control, and extensions"
+  ],
+  "skipped_tests": [
+    {
+      "case": "Kscale_n2048_K128_R8_sum_free_c2",
+      "reason": "K=128 does not divide nd=64 at n=2048",
+      "n": 2048,
+      "K": 128,
+      "R": 8
+    },
+    {
+      "case": "Kscale_n2048_K128_R16_sum_free_c2",
+      "reason": "K=128 does not divide nd=64 at n=2048",
+      "n": 2048,
+      "K": 128,
+      "R": 16
+    },
+    {
+      "case": "independent_n2048_R8",
+      "reason": "UNAVAILABLE DUE TO MASK DIMENSION",
+      "family": "independent",
+      "n": 2048,
+      "R": 8,
+      "nd": 64,
+      "maximum_independent_R": 6
+    },
+    {
+      "case": "independent_n2048_R12",
+      "reason": "UNAVAILABLE DUE TO MASK DIMENSION",
+      "family": "independent",
+      "n": 2048,
+      "R": 12,
+      "nd": 64,
+      "maximum_independent_R": 6
+    },
+    {
+      "case": "independent_n2048_R16",
+      "reason": "UNAVAILABLE DUE TO MASK DIMENSION",
+      "family": "independent",
+      "n": 2048,
+      "R": 16,
+      "nd": 64,
+      "maximum_independent_R": 6
+    }
+  ],
+  "failed_tests": [],
+  "elapsed_runtime_seconds": 4212.542323499976,
+  "current_case": null,
+  "peak_allocated_vram_bytes": 103635456,
+  "peak_reserved_vram_bytes": 169869312,
+  "largest_R_tested": 16,
+  "largest_R_passing": 16,
+  "first_failing_R": null,
+  "stop_reason": "Stopped immediately after TEST 2 per user instruction; TEST 3 and later tests were not run.",
+  "completed_scope": "TEST 1 clean K sweeps plus TEST 2 n=2048 mask-family comparisons",
+  "scope_change": "User explicitly directed stop before TEST 3.",
+  "completed_reused_baselines": [
+    "reproduce_n2048_K32_R8_sum_free_c2",
+    "reproduce_n2048_K32_R8_legacy_c2",
+    "optional_ladder_n2048_K32_R12_sum_free_c2_age256",
+    "optional_ladder_n2048_K32_R16_sum_free_c2_age256"
+  ],
+  "last_completed_scope": "TEST 2: n=2048 legacy/sum-free/independent mask-family comparison",
+  "stop_boundary": "Stopped before TEST 3; no n=4096 or R=20/24/32 recurrence was launched."
+}

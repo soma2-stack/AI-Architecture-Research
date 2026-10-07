@@ -1,6 +1,29 @@
-# Current theory — 2026-10-04
+# Current theory — 2026-10-06
 
 Authoritative navigation snapshot, consolidated from the preservation-complete base `d1767d0a62dba90b03fd21e512b3db0c4efcd133` and the missing Claude folders. This document records existing evidence and owner acceptance; it introduces no new theorem. [INDEX.md](INDEX.md) covers all historical theory folders.
+
+## Current state — 2026-10-06 (authoritative hierarchy)
+
+This hierarchy supersedes the dated moving-corridor next-action statements retained below. It records the stated scope and review evidence; it does not strengthen the source proofs.
+
+1. **Baseline contract.** The frozen dense tanh / robust learning-credit contract, normalization, legal-query conditions, and energy conventions are given in [Scope / contract](#scope--contract) below.
+2. **Established absolute-energy and global results.** The previously reviewed absolute-energy and full-model results in the table below remain scoped to their stated families; this consolidation does not extend them.
+3. **Absolute-history exponent bracket.** The fixed-feature absolute-history-norm exponent bracket remains `[1/4,3/4]`, up to its stated slow or polylogarithmic factors.
+4. **Multicolumn and repeated-write progression.** The [multicolumn spatial-write](codex_multicolumn_spatial_write_20261005/) and [repeated near-critical filter-write](codex_repeated_nearcritical_filter_write_20261005/) records, alongside [multisurvivor Hadamard writes](codex_multisurvivor_hadamard_write_20261005/) and [moving-probe writes](codex_moving_probe_spatial_write_20261005/), document scoped construction attempts and limits. Their repository statuses are recorded individually in the index; author-local `PROVED` labels alone do not confer verification.
+5. **Coded-donor spreading.** The [frontier-invention record](codex_frontier_invention_20261006/) develops simultaneous coded donor controls. Its source-level claims and independent-review status remain distinguished in the index.
+6. **Early-capture linear frontier.** The [linear-dimension frontier](codex_linear_dimension_frontier_20261006/) records early capture before trace repair, its scoped finite-stage donor-control obstruction, and the linear boundary. Review status: **VERIFIED IN STATED SCOPE**, with mixed evidence recorded below: Gemini and Grok verified in scope; Sonnet verified in scope with an inherited-premise caveat; Perplexity/Sol found insufficient evidence for complete independent certification, no counterexample, and support for the core algebra, topology, and obstruction.
+7. **Best strict-budget result.** `D >= n/[10^70 log log n]` with `mT=o(n^(3/2))`, within the source construction's admissible regime.
+8. **More generally.** The early-capture result allows arbitrarily slowly diverging dilution within its stated admissible regime; this does not assert linear dimension at strict little-o budget.
+9. **Linear boundary.** The same protocol reaches `D=Omega(n)` at `mT=Theta(n^(3/2))`.
+10. **Scoped bounded-stage obstruction.** The obstruction applies to the specified donor-control family. It is not a universal RNN impossibility result and does not exclude other architectures or unrestricted control families.
+11. **Main open problem.** Establish `D=Omega(n)` with `mT=o(n^(3/2))`, or prove an appropriately scoped obstruction. The finite-stage result does not settle the unrestricted problem.
+12. **Finite-size protected-channel evidence. EXPERIMENTAL / FINITE-SIZE ONLY.** [Clean-mask scaling](../experiments/finite_n_clean_mask_scaling_20261006/) reports numerical protected Walsh-channel checks through `R=16`. The later [R20–R32 checkpoint](../experiments/finite_n_r20_r32_scaling_20261006/CHECKPOINT.md) found no K-dependent degradation over the tested values at `R=8,16`; sum-free masks passed the finite `0.1%` cross-talk target through `R=16`, while alias-prone legacy masks failed at `R=8,12,16`. At `n=2048`, fully independent labels are limited to six dimensions and the matched independent-family run was only available at `R=4`. Higher-order XOR-relation counts alone did not explain leakage; no clean-mask finite-size capacity limit was observed through `R=16`. These results do not prove an asymptotic theorem or change theorem status. See [experiment index](../experiments/INDEX.md).
+
+**Next theoretical direction:** grow `R` jointly protected controls per donor group without an `R`-fold write-duration cost. The current open problem is the strict-budget linear-dimension result above; the older `D=2` repair action is not current.
+
+## Archived detailed snapshot — 2026-10-04
+
+The detailed status narrative below is preserved for provenance. Where it conflicts with the authoritative 2026-10-06 hierarchy above, the hierarchy and newer folder records govern. Historical proof-gap statements remain history, not current next actions.
 
 ## Scope / contract
 
@@ -50,7 +73,7 @@ The local-radius center has no width-independent absolute norm. Finite history r
 
 **Dense-error correction:** a previous displayed bracket was algebraically wrong. The reconstructed dense pair comparison is approximately `1.4e-12` at `n=10^6`, with conservative pair charge `<=8e-9` retained. The short-packet result does not depend on the bad display. See [unpaired ledger](codex_unpaired_corridor_sensitivity_20261003/), [renewal derivation](codex_private_renewal_gamma_20261003/), and [timing review](grok_timing_signal_J_review_20261004/). No historical display is edited here.
 
-## Current exact open problem
+## Historical exact open problem — 2026-10-04 snapshot (superseded)
 
 First repair or independently resolve the `D=2` time-varying-propagator gap and the filtered-timing packing inference. Then independently review the pending nonuniform spatial-write theorem. If those steps survive, determine whether a growing family of **parameter-column probes can share the same protected survivor patterns** in one jointly admissible continuous section, with uniform actual-query antipodal distance `>0.002` and `D=omega(n)` while `mT=o(n^(3/2))`. Counting columns, donor epochs, large timing entries, or separately robust directions does not answer this. No complete-corridor finite-error code or such superlinear lower section is established.
 

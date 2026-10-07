@@ -1,0 +1,196 @@
+{
+  "checks": [
+    {
+      "name": "exact query constant >1.69",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "single contrast gives >4.2e-6 protected row",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retention/reset slack >2e-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "full short-packet necessary time",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "finite-stage dimension coefficient",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "raw norm coefficient",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "loglog specialization cost coefficient",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "loglog specialization norm coefficient",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "complete rank-two transport preserves norm exactly",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "private renewal term in example is nonzero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact full-renewal one-step capture",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected row during changing complete tail step 11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "one-step old-character identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old character keeps zero total mass",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old character cannot mimic later singleton",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "weak multirow mask survival R=2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "weak multirow mask survival R=10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "weak multirow mask survival R=200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "weak multirow mask survival R=1000",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "onset geometry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "onset front relative error",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "constant-width capture renewal loss",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "onset loglog M above sqrt(n)",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "onset code has K>=1e10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "trace-tail exponential bound",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": 36,
+  "scope": "Tiny exact algebra and onset arithmetic; no actual RNN or full-sphere sampling",
+  "resources": {
+    "arithmetic_threads": 1,
+    "worker_processes": 0,
+    "observed_peak_process_threads": 4,
+    "peak_working_set_bytes": 17575936,
+    "cpu_seconds": 0.140625,
+    "wall_seconds": 0.13825280001037754,
+    "gpu_cuda_usage": 0,
+    "guards": "<=8 process threads; <100MiB; <30s"
+  }
+}
