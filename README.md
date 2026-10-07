@@ -2,6 +2,22 @@
 
 This repository preserves research on computational mechanisms, architecture novelty, and robust recurrent learning-credit memory. The current theory asks how much continuous learning state is required to answer later normalized gradient queries. It has mathematical constructions and scoped negative results, with substantial open questions.
 
+## Main theorem target
+
+The central open problem in this repository is whether a legal RNN construction can achieve:
+
+**D = Ω(n)**
+
+while simultaneously keeping
+
+**mT = o(n³⁄²)**
+
+Here, **D** is the robust learning-credit dimension, **n** is the recurrent width, **m** is the active history/input width, and **T** is the time horizon.
+
+In plain language: can robust learning-credit dimension scale linearly with model width while the total coordinate-time cost remains strictly below the n³⁄² scaling boundary?
+
+**Current status: OPEN.**
+
 Read in this order:
 
 1. [README.md](README.md)
