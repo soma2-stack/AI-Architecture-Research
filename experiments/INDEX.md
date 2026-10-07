@@ -11,6 +11,6 @@ All entries below are **NUMERICAL FINITE-SIZE EVIDENCE ONLY**. They do not prove
 | [Clear scaling](finite_n_clear_scaling_20261006/) | Clearing, multichannel, age, and control sweeps; the legacy R=8 channel set misses the 0.1% threshold. |
 | [R=8 diagnosis](finite_n_r8_diagnosis_20261006/) | Diagnoses alias-prone masks and compares a sum-free R=8 family; the finite comparison is not a general scaling result. |
 | [Clean-mask scaling](finite_n_clean_mask_scaling_20261006/) | Clean protected Walsh channels pass the recorded finite tests through R=16; R=20/24/32 were not run in this completed folder. |
-| R20–R32 scaling | A same-named source folder exists in the original checkout, but its metadata and progress file say `RUNNING`; it is incomplete and excluded from the committed artifact set. Its local copies remain untracked. |
+| [R20–R32 scaling checkpoint](finite_n_r20_r32_scaling_20261006/) | **CHECKPOINT / PARTIAL BATTERY.** TEST 1 K scaling and TEST 2 mask-family comparison are complete; TEST 3 R=20/24/32 and later width, matched-age, and higher-R tests were not run. K scaling was flat over tested values; sum-free masks passed through R=16, while alias-prone legacy masks failed at R=8/12/16 around 0.25%. No clean-mask capacity limit was observed in this scope. |
 
 See each folder's `SUMMARY.md`, `results.json`, `run_metadata.json`, and `progress.json` where present for measured values and run provenance. Useful plots and the scripts needed to reproduce the recorded protocol are retained.
