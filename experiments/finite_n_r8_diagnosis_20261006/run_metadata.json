@@ -1,0 +1,109 @@
+{
+  "created_utc": "2026-10-06T20:07:06.447641+00:00",
+  "python_version": "3.11.9",
+  "pytorch_version": "2.13.0+cu130",
+  "cuda_runtime_version": "13.0",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 3060",
+  "gpu_total_memory_bytes": 12884377600,
+  "selected_device": "cuda:0",
+  "dtype": "float64",
+  "initial_allocated_vram_bytes": 0,
+  "peak_allocated_vram_bytes": 30602752,
+  "peak_reserved_vram_bytes": 46137344,
+  "cpu_intraop_threads": 1,
+  "cpu_interop_threads": 1,
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "preregistered_thresholds": {
+    "primary_complete_response_cross_talk_pass": 0.001,
+    "cross_talk_reference_targets": [
+      0.01,
+      0.001,
+      0.0001,
+      1e-05
+    ],
+    "protected_extra_damage_pass": 1e-09,
+    "trace_correction_damage_pass": 1e-10,
+    "reproduction_relative_difference_pass": 0.1,
+    "broken_control_min_cross_talk": 0.1,
+    "broken_control_increase_factor": 10.0,
+    "clear_law_relative_contraction_error_descriptive_only": 0.2,
+    "legal_gate_open_interval": [
+      0.0,
+      1.0
+    ],
+    "input_cube_abs_max": 0.5,
+    "vrAM_stop_allocated_bytes": 6442450944,
+    "hard_wall_seconds": 250.0
+  },
+  "previous_reference_sha256": "a01a996edd21b883d25cfe04b702004339f2d609ad6fb8ae23aa383081d6ce6c",
+  "copied_engine_sha256": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55",
+  "previous_R8_reference": {
+    "n": 4096,
+    "K": 64,
+    "R": 8,
+    "clear_mult": 2.0,
+    "expected_worst_cross_talk": 0.0025062358620352044
+  },
+  "baseline_clear_definition": "C0=2n clear steps; previous R=8 ladder case used clear_mult=2, i.e. 2*C0=4n.",
+  "finite_reference_scope": "Copied validated finite reference recurrence; complete selected Householder/cycle block, full evolving front/bath, trace correction, reset, frozen inputs; no training.",
+  "no_training": true,
+  "no_optimizer": true,
+  "cuda_required": true,
+  "hard_wall_limit_seconds": 3600,
+  "previous_attempt_runtime_seconds": 3316.58,
+  "continuation_runtime_reserve_seconds": 250.0,
+  "planned_tests": [
+    "R8 reproduction n4096",
+    "R8 clear sweep n2048 (0.5x,1x,2x,4x,8x,16x as runtime permits)",
+    "R8 width n512/1024/2048/4096",
+    "R4..12 ladder n2048",
+    "age-normalized analysis",
+    "absolute-vs-normalized leakage",
+    "protected-vs-complete matrices",
+    "clear policy comparison",
+    "matched age R6/R8",
+    "legal amplitude scales",
+    "K sensitivity K8/16/32/64",
+    "negative alias control"
+  ],
+  "status": "COMPLETED; CUDA float64 finite-size diagnostic only",
+  "runtime_seconds": 127.58306109998375,
+  "cumulative_runtime_seconds": 3444.163061299985,
+  "cpu_time_seconds": 129.09375,
+  "observed_peak_total_gpu_memory_mib_sampled": 2022,
+  "observed_gpu_memory_note": "Sampled with nvidia-smi during runs; PyTorch peak allocation/reservation are separately recorded exactly.",
+  "largest_n": 4096,
+  "largest_K": 64,
+  "largest_R": 8,
+  "completed_case_count": 20,
+  "failed_numerical_cases": 0,
+  "mask_comparison": {
+    "legacy_R8_masks": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      3
+    ],
+    "clean_sum_free_masks": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "algebraic_note": "legacy set contains 1 xor 2 = 3; clean set consists of odd masks, so pairwise XORs are even and outside the selected set."
+  }
+}

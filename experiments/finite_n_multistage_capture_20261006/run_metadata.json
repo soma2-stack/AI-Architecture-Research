@@ -1,0 +1,344 @@
+{
+  "torch_version": "2.13.0+cu130",
+  "cuda_version": "13.0",
+  "cuda_available": true,
+  "selected_device": "cuda:0",
+  "dtype": "float64",
+  "seed": 20261006,
+  "thresholds_frozen_before_sweep": {
+    "two_capture_max_damage_over_initial": 1e-09,
+    "full_response_cross_talk_ratio": 0.001,
+    "trace_step_error_over_initial": 1e-10,
+    "trace_match_absolute_error": 1e-10,
+    "order_transport_quality_difference": 1e-06,
+    "order_cross_talk_difference": 0.001,
+    "amplitude_max_damage_over_initial": 1e-08,
+    "scaling_B_norm_ratio_min": 0.9,
+    "scaling_B_norm_ratio_max": 1.1,
+    "scaling_A_retention_relative_change": 0.01,
+    "break_min_cross_talk_ratio": 0.1,
+    "break_min_cross_talk_increase_factor": 10.0,
+    "past_input_absolute_bound": 0.5
+  },
+  "prior_test_status": {
+    "test_1_early_capture": "PASS",
+    "test_2_capture_vs_control": "PASS",
+    "test_3_coded_donor_scaling": "PASS",
+    "test_4_intentional_break": "PASS"
+  },
+  "previous_outputs_sha256": {
+    "coded_donor_scaling.png": "bbe09b8bcfb94c4b3ef53d9c6634fab79f835bd9b5b60b17ce3ade6ea2babff0",
+    "config.json": "1d6a90ee594eca5a7846fd7c87c0186e9793d57a5f6ade8a6a42ad8f3f6f7daa",
+    "results.json": "876a5dcbed0aef042ff8776c767abc920727417749443389c7349889dd831ba5",
+    "signal_survival.png": "a24b47cc192282af968943e2a4a6ba42b7e99ae5edcf54bf52a900c7647ec964",
+    "SUMMARY.md": "282385e4ee5eb1d85b96ab1aad062d1257ab2fcca1c64ae0b089f26b0b0b402a"
+  },
+  "reference_source_ref": "e841ecb2f2f164f61f94c91485c8983618c6a558",
+  "reference_scope": "Complete dense reference O_*; stationary off-cycle four-site carriers; tiny actual-model perturbation omitted.",
+  "cpu_intraop_threads": 1,
+  "cpu_interop_threads": 1,
+  "workers": 0,
+  "no_training": true,
+  "no_optimization": true,
+  "hard_runtime_guard_seconds": 700,
+  "allocated_vram_guard_bytes": 4294967296,
+  "attribution": "Each row is a finite +/- control pair with all other controls held at their positive write; complete vector norm over orthonormal parameter probes.",
+  "prediction": "a*g_H at preservation steps; a*(g_H+g_L)/2 at another independent capture; a*(1-.05^2) at reset.",
+  "checkpoint_note": "before_stage_write is recorded before the first write update; each after-checkpoint includes that step.",
+  "classification_note": "PASS concerns finite reference transport only, not a robust B^D theorem or Gaussian-code whole-boundary validation.",
+  "gpu_name": "NVIDIA GeForce RTX 3060",
+  "initial_allocated_vram_bytes": 0,
+  "planned_core_cases": [
+    {
+      "n": 256,
+      "K": 8,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n256_K8_amp1.0_1.0_order01"
+    },
+    {
+      "n": 512,
+      "K": 8,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n512_K8_amp1.0_1.0_order01"
+    },
+    {
+      "n": 512,
+      "K": 16,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n512_K16_amp1.0_1.0_order01"
+    },
+    {
+      "n": 1024,
+      "K": 8,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n1024_K8_amp1.0_1.0_order01"
+    },
+    {
+      "n": 1024,
+      "K": 16,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n1024_K16_amp1.0_1.0_order01"
+    },
+    {
+      "n": 1024,
+      "K": 32,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n1024_K32_amp1.0_1.0_order01"
+    },
+    {
+      "n": 2048,
+      "K": 8,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n2048_K8_amp1.0_1.0_order01"
+    },
+    {
+      "n": 2048,
+      "K": 16,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n2048_K16_amp1.0_1.0_order01"
+    },
+    {
+      "n": 2048,
+      "K": 32,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n2048_K32_amp1.0_1.0_order01"
+    },
+    {
+      "n": 2048,
+      "K": 64,
+      "kind": "core",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "core_n2048_K64_amp1.0_1.0_order01"
+    },
+    {
+      "n": 512,
+      "K": 8,
+      "kind": "reverse",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        1,
+        0
+      ],
+      "id": "reverse_n512_K8_amp1.0_1.0_order10"
+    },
+    {
+      "n": 1024,
+      "K": 16,
+      "kind": "reverse",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        1,
+        0
+      ],
+      "id": "reverse_n1024_K16_amp1.0_1.0_order10"
+    },
+    {
+      "n": 2048,
+      "K": 32,
+      "kind": "reverse",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        1,
+        0
+      ],
+      "id": "reverse_n2048_K32_amp1.0_1.0_order10"
+    },
+    {
+      "n": 1024,
+      "K": 16,
+      "kind": "imbalance",
+      "amplitudes": [
+        1.0,
+        0.5
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "imbalance_n1024_K16_amp1.0_0.5_order01"
+    },
+    {
+      "n": 1024,
+      "K": 16,
+      "kind": "imbalance",
+      "amplitudes": [
+        1.0,
+        0.25
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "imbalance_n1024_K16_amp1.0_0.25_order01"
+    },
+    {
+      "n": 1024,
+      "K": 16,
+      "kind": "imbalance",
+      "amplitudes": [
+        0.5,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "imbalance_n1024_K16_amp0.5_1.0_order01"
+    },
+    {
+      "n": 512,
+      "K": 8,
+      "kind": "stress",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "stress_n512_K8_amp1.0_1.0_order01"
+    },
+    {
+      "n": 1024,
+      "K": 16,
+      "kind": "stress",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "stress_n1024_K16_amp1.0_1.0_order01"
+    },
+    {
+      "n": 1024,
+      "K": 16,
+      "kind": "broken",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "broken_n1024_K16_amp1.0_1.0_order01"
+    },
+    {
+      "n": 2048,
+      "K": 4,
+      "kind": "scaling",
+      "amplitudes": [
+        1.0,
+        1.0
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "id": "scaling_n2048_K4_amp1.0_1.0_order01"
+    }
+  ],
+  "total_runtime_seconds": 309.61876850001863,
+  "cpu_seconds": 295.84375,
+  "peak_allocated_vram_bytes": 75597824,
+  "peak_reserved_vram_bytes": 136314880,
+  "largest_n": 2048,
+  "largest_K": 64,
+  "optional_three_channel_cases": 3,
+  "status": "COMPLETED",
+  "previous_outputs_unchanged": true,
+  "output_generation_seconds": 1.1839190000027884,
+  "total_runtime_including_outputs_seconds": 310.8026875000214
+}

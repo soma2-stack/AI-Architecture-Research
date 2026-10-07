@@ -1,0 +1,25 @@
+2026-10-05 internal verification transcript
+
+Initial invocation: single math thread, monitor soft cap 4.
+STOP: resource budget exceeded
+Inspection: baseline Python threads=4; three loader threads had zero CPU time; no preloaded numerical libraries.
+Corrected resource cap to the user hard limit 8; kept all math pools at 1.
+
+Successful invocation:
+symbolic PASS
+exact_fraction PASS
+numeric_auxiliary PASS
+full_reference PASS
+high_precision PASS
+
+Detailed values and resource samples: checks_result.json.
+No GPU usage. No mathematical test failed.
+
+Final run after expanding the tail/reset scalar ledger:
+symbolic PASS
+exact_fraction PASS
+numeric_auxiliary PASS
+full_reference PASS
+high_precision PASS
+Final resources: {"peak_process_threads": 5, "peak_rss_bytes": 86638592, "cpu_seconds": 1.453125, "wall_seconds": 1.4467697000072803, "gpu_usage": "ZERO: no GPU library/device access", "thread_limits": {"OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "NUMEXPR_NUM_THREADS": "1", "CUDA_VISIBLE_DEVICES": "-1"}}
+Previous successful run resources: peak threads=5; RSS=86593536 bytes; CPU=1.328125s; wall=1.360292599987588s.

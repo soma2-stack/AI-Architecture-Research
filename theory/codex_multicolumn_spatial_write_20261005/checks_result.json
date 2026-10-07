@@ -1,0 +1,5514 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "one thread numerical pools / no GPU",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K1 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K1 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K1 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K4 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K6 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K6 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K6 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K7 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K7 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K7 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K8 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K9 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K9 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K9 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K10 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K10 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K10 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K11 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K11 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K11 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K12 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K12 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K12 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K13 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K13 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K13 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K14 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K14 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K14 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K15 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K15 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K15 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K16 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K17 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K17 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K17 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K18 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K18 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K18 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K19 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K19 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K19 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K20 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K20 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K20 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K21 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K21 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K21 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K22 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K22 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K22 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K23 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K23 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K23 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K24 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K24 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K24 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K25 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K25 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K25 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K26 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K26 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K26 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K27 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K27 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K27 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K28 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K28 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K28 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K29 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K29 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K29 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K30 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K30 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K30 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K31 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K31 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K31 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K32 exact Gram inverse",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K32 exact joint axis dilution",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K32 exact worst-idle lower coefficient",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front group J identity fresh8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "full-front exact group recurrence fresh8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "fresh-time front truncation genuinely fails",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 weighted forcing balance",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t0 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t0 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t0 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t0 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t0 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t0 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t0 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t1 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t1 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t1 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t1 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t1 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t1 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t1 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t2 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t2 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t2 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t2 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t2 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t2 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t2 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t3 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t3 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t3 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t3 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t3 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t3 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t3 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t4 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t4 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t4 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t4 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t4 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t4 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t4 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t5 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t5 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t5 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t5 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t5 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t5 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t5 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t6 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t6 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t6 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t6 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t6 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t6 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t6 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t7 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t7 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t7 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t7 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t7 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t7 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t7 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t8 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t8 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t8 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t8 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t8 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t8 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t8 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t9 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t9 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t9 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t9 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t9 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t9 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t9 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t10 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t10 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t10 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t10 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t10 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t10 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t10 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t11 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t11 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t11 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t11 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t11 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t11 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t11 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t12 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t12 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t12 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t12 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t12 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t12 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t12 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t13 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t13 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t13 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t13 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t13 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t13 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t13 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t14 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t14 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t14 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t14 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t14 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t14 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t14 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t15 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t15 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t15 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t15 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t15 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t15 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t15 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t16 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t16 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t16 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t16 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t16 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t16 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t16 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t17 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t17 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t17 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t17 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t17 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t17 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t17 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t18 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t18 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t18 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t18 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t18 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t18 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t18 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t19 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t19 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t19 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t19 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t19 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t19 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t19 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t20 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t20 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t20 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t20 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t20 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t20 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t20 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t21 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t21 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t21 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t21 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t21 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t21 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t21 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t22 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t22 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t22 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t22 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t22 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t22 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t22 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t23 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t23 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t23 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t23 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t23 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t23 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t23 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t24 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t24 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t24 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t24 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t24 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t24 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t24 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t25 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t25 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t25 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t25 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t25 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t25 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t25 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t26 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t26 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t26 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t26 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t26 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t26 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t26 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t27 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t27 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t27 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t27 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t27 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t27 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t27 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t28 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t28 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t28 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t28 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t28 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t28 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t28 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t29 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t29 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t29 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t29 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t29 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t29 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t29 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t30 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t30 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t30 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t30 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t30 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t30 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t30 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 positive coefficients step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 forced mass identity step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 invariant forcing cone step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t31 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t31 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t31 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t31 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t31 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t31 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K2 chronological cone identity t31 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 weighted forcing balance",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t0 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t0 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t0 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t0 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t0 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t0 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t0 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t1 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t1 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t1 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t1 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t1 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t1 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t1 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t2 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t2 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t2 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t2 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t2 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t2 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t2 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t3 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t3 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t3 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t3 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t3 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t3 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t3 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t4 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t4 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t4 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t4 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t4 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t4 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t4 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t5 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t5 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t5 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t5 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t5 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t5 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t5 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t6 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t6 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t6 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t6 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t6 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t6 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t6 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t7 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t7 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t7 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t7 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t7 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t7 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t7 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t8 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t8 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t8 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t8 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t8 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t8 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t8 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t9 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t9 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t9 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t9 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t9 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t9 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t9 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t10 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t10 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t10 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t10 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t10 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t10 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t10 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t11 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t11 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t11 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t11 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t11 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t11 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t11 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t12 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t12 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t12 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t12 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t12 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t12 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t12 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t13 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t13 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t13 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t13 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t13 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t13 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t13 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t14 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t14 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t14 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t14 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t14 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t14 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t14 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t15 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t15 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t15 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t15 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t15 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t15 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t15 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t16 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t16 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t16 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t16 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t16 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t16 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t16 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t17 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t17 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t17 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t17 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t17 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t17 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t17 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t18 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t18 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t18 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t18 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t18 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t18 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t18 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t19 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t19 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t19 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t19 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t19 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t19 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t19 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t20 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t20 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t20 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t20 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t20 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t20 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t20 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t21 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t21 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t21 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t21 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t21 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t21 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t21 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t22 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t22 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t22 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t22 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t22 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t22 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t22 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t23 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t23 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t23 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t23 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t23 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t23 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t23 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t24 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t24 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t24 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t24 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t24 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t24 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t24 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t25 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t25 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t25 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t25 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t25 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t25 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t25 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t26 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t26 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t26 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t26 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t26 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t26 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t26 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t27 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t27 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t27 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t27 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t27 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t27 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t27 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t28 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t28 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t28 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t28 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t28 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t28 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t28 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t29 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t29 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t29 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t29 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t29 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t29 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t29 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t30 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t30 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t30 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t30 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t30 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t30 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t30 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 positive coefficients step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 forced mass identity step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 invariant forcing cone step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t31 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t31 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t31 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t31 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t31 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t31 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K3 chronological cone identity t31 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 weighted forcing balance",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t0 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t0 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t0 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t0 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t0 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t0 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t0 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t1 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t1 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t1 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t1 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t1 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t1 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t1 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t2 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t2 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t2 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t2 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t2 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t2 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t2 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t3 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t3 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t3 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t3 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t3 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t3 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t3 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t4 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t4 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t4 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t4 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t4 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t4 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t4 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t5 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t5 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t5 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t5 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t5 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t5 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t5 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t6 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t6 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t6 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t6 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t6 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t6 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t6 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step7",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t7 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t7 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t7 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t7 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t7 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t7 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t7 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step8",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t8 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t8 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t8 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t8 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t8 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t8 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t8 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step9",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t9 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t9 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t9 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t9 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t9 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t9 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t9 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step10",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t10 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t10 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t10 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t10 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t10 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t10 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t10 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step11",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t11 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t11 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t11 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t11 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t11 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t11 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t11 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step12",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t12 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t12 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t12 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t12 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t12 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t12 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t12 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step13",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t13 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t13 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t13 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t13 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t13 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t13 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t13 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step14",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t14 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t14 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t14 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t14 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t14 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t14 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t14 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step15",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t15 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t15 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t15 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t15 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t15 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t15 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t15 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step16",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t16 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t16 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t16 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t16 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t16 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t16 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t16 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step17",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t17 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t17 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t17 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t17 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t17 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t17 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t17 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step18",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t18 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t18 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t18 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t18 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t18 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t18 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t18 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step19",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t19 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t19 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t19 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t19 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t19 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t19 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t19 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step20",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t20 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t20 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t20 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t20 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t20 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t20 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t20 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step21",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t21 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t21 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t21 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t21 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t21 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t21 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t21 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step22",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t22 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t22 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t22 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t22 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t22 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t22 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t22 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step23",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t23 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t23 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t23 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t23 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t23 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t23 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t23 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step24",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t24 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t24 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t24 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t24 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t24 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t24 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t24 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step25",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t25 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t25 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t25 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t25 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t25 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t25 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t25 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step26",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t26 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t26 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t26 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t26 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t26 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t26 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t26 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step27",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t27 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t27 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t27 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t27 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t27 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t27 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t27 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step28",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t28 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t28 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t28 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t28 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t28 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t28 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t28 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step29",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t29 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t29 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t29 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t29 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t29 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t29 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t29 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step30",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t30 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t30 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t30 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t30 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t30 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t30 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t30 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 positive coefficients step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 forced mass identity step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 invariant forcing cone step31",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t31 j0",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t31 j1",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t31 j2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t31 j3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t31 j4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t31 j5",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "K5 chronological cone identity t31 j6",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh fresh mask f1 e2",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh fresh mask f1 e3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh fresh mask f2 e3",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh fresh mask f1 e4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh fresh mask f2 e4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "Walsh fresh mask f3 e4",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "reused bit fails zero-sum protection",
+      "passed": true,
+      "data": {}
+    },
+    {
+      "name": "threshold scalar envelope front",
+      "passed": true,
+      "data": {
+        "value": "1.2649110640673517327995574177730874134878220557300867307430019411170377754556953E-49"
+      }
+    },
+    {
+      "name": "threshold scalar envelope complement",
+      "passed": true,
+      "data": {
+        "value": "6.0000000000000000000000000000000000000000000000000000000000000000000000000000000E-247"
+      }
+    },
+    {
+      "name": "threshold scalar envelope tail",
+      "passed": true,
+      "data": {
+        "value": "3.2370968813945370551093701413712556860420856490299330859737542744337925499364445E-149"
+      }
+    },
+    {
+      "name": "threshold scalar envelope mask",
+      "passed": true,
+      "data": {
+        "value": "6.4741937627890741102187402827425113720841712980598661719475085488675850998728887E-149"
+      }
+    },
+    {
+      "name": "threshold scalar envelope erased",
+      "passed": true,
+      "data": {
+        "value": "7.3104372274745380451343635170942560090872635602829916330619625085664863923598170E-154"
+      }
+    },
+    {
+      "name": "threshold scalar envelope trace",
+      "passed": true,
+      "data": {
+        "value": "3.1622776601683793319988935444327185337195551393252168268575048527925944386392382E-3936"
+      }
+    },
+    {
+      "name": "threshold geometry envelope",
+      "passed": true,
+      "data": {
+        "value": "7.8439904776816884762053328919949328501295720119603483841901853181662675994707072E-91"
+      }
+    },
+    {
+      "name": "threshold p=1 envelope",
+      "passed": true,
+      "data": {
+        "value": "7.0764643846129873730268256047464957173162365575604538189055600380595955372391494E-43"
+      }
+    },
+    {
+      "name": "threshold high-gate envelope",
+      "passed": true,
+      "data": {
+        "value": "3.9122147020856301626959266294239066584187391580849617876260275901078641393868864E-93"
+      }
+    },
+    {
+      "name": "exact conservative pair signal",
+      "passed": true,
+      "data": {
+        "value": "0.0133297366688640"
+      }
+    }
+  ],
+  "exact_rational_algebra": true,
+  "scalar_values_are_checks_not_proof": true,
+  "cpu_seconds": 21.953125,
+  "wall_seconds": 22.512848299986217,
+  "peak_observed_process_threads": 4,
+  "peak_observed_rss_bytes": 23195648,
+  "gpu_cuda_calls": 0,
+  "workers": 0,
+  "pools": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TBB_NUM_THREADS": "1"
+  },
+  "script_sha256": "b99f752987d8f58d0accf193e77faf43227dd16ebcaa9393c54be54cc7600109"
+}

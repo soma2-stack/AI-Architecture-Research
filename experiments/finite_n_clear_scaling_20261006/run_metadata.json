@@ -1,0 +1,173 @@
+{
+  "start_time_local": "2026-10-06T14:08:01.365466-04:00",
+  "start_time_utc": "2026-10-06T18:08:01.365466+00:00",
+  "python_version": "3.11.9",
+  "torch_version": "2.13.0+cu130",
+  "cuda_runtime_version": "13.0",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 3060",
+  "gpu_total_memory_bytes": 12884377600,
+  "selected_device": "cuda:0",
+  "dtype": "float64",
+  "initial_allocated_vram_bytes": 0,
+  "thresholds_preregistered": {
+    "protected_extra_damage_over_initial": 1e-09,
+    "trace_correction_damage_over_initial": 1e-10,
+    "complete_response_cross_talk": 0.001,
+    "negative_control_cross_talk": 0.1,
+    "negative_control_increase_factor": 10.0,
+    "coded_donor_combined_norm_relative_spread": 0.1,
+    "old_channel_retention_relative_spread": 0.01,
+    "clear_upper_envelope_slack": 1.05,
+    "empirical_fit_floor_fraction": 1e-13,
+    "cross_talk_targets": [
+      0.01,
+      0.001,
+      0.0001,
+      1e-05,
+      1e-06
+    ],
+    "input_cube_abs_max": 0.5,
+    "dense_max_transport_error_at_1e-5": 0.001
+  },
+  "preexisting_summary_sha256": "7eb776f35ae7e4c121a762f3dbee9ee7d9dc0f871059aae9fd21a303243607b0",
+  "preexisting_results_sha256": "a81cddd9ec6abd7639b981dbd765144e6502f6d97944267db86d62150f9e0a76",
+  "preexisting_metadata_sha256": "cc329901b370f933a6461ad3052d009b7e92d5987938af32bd92f5bda63b2a44",
+  "preexisting_script_sha256": "1b6a995b864d186e060f15c258e1c9695ddb507b6b1feb4ee754827d0fcd9ab0",
+  "previous_experiment_read_only": true,
+  "prior_multistage_pass_fail": {
+    "two_capture_retention": {
+      "status": "PASS",
+      "worst_damage": 6.487898145461085e-13
+    },
+    "cross_talk_isolation": {
+      "status": "FAIL",
+      "worst_ratio": 0.017600049697050178
+    },
+    "trace_correction_protection": {
+      "status": "PASS",
+      "worst_step_error": 1.9402600280922567e-15,
+      "largest_stress_correction_range": 4.040468437493949e-06
+    },
+    "order_reversal": {
+      "status": "PASS",
+      "comparisons": [
+        {
+          "n": 512,
+          "K": 8,
+          "quality_difference": 8.711920074233603e-13,
+          "cross_talk_difference": 0.00033370279201083925,
+          "forward_retention": [
+            1.225567772630318e-05,
+            0.004279249709418117
+          ],
+          "reverse_retention": [
+            0.004279249709416968,
+            1.2255677726313785e-05
+          ]
+        },
+        {
+          "n": 1024,
+          "K": 16,
+          "quality_difference": 6.579181643928678e-13,
+          "cross_talk_difference": 4.126200147520971e-05,
+          "forward_retention": [
+            0.00017711171203925523,
+            0.016262782381011812
+          ],
+          "reverse_retention": [
+            0.016262782381022474,
+            0.00017711171203919256
+          ]
+        },
+        {
+          "n": 2048,
+          "K": 32,
+          "quality_difference": 2.1338486533295509e-13,
+          "cross_talk_difference": 1.7847288162804488e-06,
+          "forward_retention": [
+            0.0010805184661357389,
+            0.04016275801464381
+          ],
+          "reverse_retention": [
+            0.04016275801465241,
+            0.0010805184661357191
+          ]
+        }
+      ]
+    },
+    "amplitude_imbalance": {
+      "status": "PASS",
+      "worst_damage": 5.033393319785921e-13,
+      "worst_cross_talk": 0.00015163183467040064
+    },
+    "broken_protection_control": {
+      "status": "PASS",
+      "cross_talk_increase_factor": 6586.235332862361,
+      "broken_ratios": [
+        1.0,
+        1.0
+      ],
+      "normal_ratios": [
+        0.00015183180519081187,
+        1.488284516661731e-17
+      ]
+    },
+    "coded_donor_scaling": {
+      "status": "PASS",
+      "B_combined_norm_ratios": [
+        1.0,
+        0.9999999999994094,
+        0.9999999999998938,
+        0.9999999999994408,
+        0.9999999999999877
+      ],
+      "A_retention_relative_changes": [
+        0.0,
+        8.952838470577262e-13,
+        1.4344081478157023e-13,
+        9.247047572102929e-13,
+        6.683542608243442e-14
+      ],
+      "baseline_K": 4
+    }
+  },
+  "CPU_intraop_threads": 1,
+  "CPU_interop_threads": 1,
+  "worker_processes": 0,
+  "wallclock_budget_seconds": 5400,
+  "optional_stop_seconds": 4800,
+  "finite_family": "same previous stationary off-cycle balanced four-site carrier, full selected O_* reference; astronomical moving corridors cannot fit these widths",
+  "no_training": true,
+  "no_optimizer": true,
+  "no_gradient_descent": true,
+  "elapsed_wall_seconds": 4459.122,
+  "cpu_seconds": 62.703125,
+  "peak_allocated_vram_bytes": 104268800,
+  "peak_reserved_vram_bytes": 184549376,
+  "largest_n": 4096,
+  "largest_K": 64,
+  "largest_R": 8,
+  "previous_outputs_unchanged": true,
+  "first_experiment_segment_start_utc": "2026-10-06T17:01:37.611974+00:00",
+  "finalization_utc": "2026-10-06T18:15:56.733974+00:00",
+  "final_resume_segment_elapsed_wall_seconds": 63.1113973,
+  "peak_device_usage_nvidia_smi_observed_mib_approx": 1843,
+  "nvidia_smi_device_usage_note": "Approximate observed during the R=8 run; includes CUDA allocations outside this PyTorch process and was not continuously sampled.",
+  "all_dense_perturbation_inputs_legal": true,
+  "final_dense_reset": "Each matched pair resets to its coordinatewise midpoint state, yielding exact common endpoint within that run; maximum raw input stays in the preregistered cube.",
+  "final_dense_rows_rerun_after_legality_fix": true,
+  "no_training_or_optimizer": true,
+  "completed_case_counts": {
+    "A_clear_sweep": 35,
+    "D_width_sweep": 24,
+    "E_K_clear_sweep": 25,
+    "F_channel_ladder": 6,
+    "H_amplitude_imbalance": 4,
+    "I_trace_stress": 3,
+    "J_negative_controls": 4,
+    "K_dense_perturbation": 10
+  },
+  "cumulative_recorded_case_seconds": 3210.7849420002312,
+  "total_wall_elapsed_seconds": 4459.122
+}

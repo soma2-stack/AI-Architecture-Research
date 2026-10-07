@@ -1,0 +1,234 @@
+{
+  "scope": "K=3 literal matched bank only; exact countercertificate, not a dimension upper",
+  "passed": 47,
+  "checks": [
+    {
+      "check": "exact three Paley words",
+      "status": "PASS"
+    },
+    {
+      "check": "exact independently integrated Gram",
+      "status": "PASS"
+    },
+    {
+      "check": "Gram positive minor 0",
+      "status": "PASS"
+    },
+    {
+      "check": "Gram positive minor 1",
+      "status": "PASS"
+    },
+    {
+      "check": "Gram positive minor 2",
+      "status": "PASS"
+    },
+    {
+      "check": "lower eigenvalue certificate 0",
+      "status": "PASS"
+    },
+    {
+      "check": "lower eigenvalue certificate 1",
+      "status": "PASS"
+    },
+    {
+      "check": "lower eigenvalue certificate 2",
+      "status": "PASS"
+    },
+    {
+      "check": "upper eigenvalue certificate",
+      "status": "PASS"
+    },
+    {
+      "check": "trace bound",
+      "status": "PASS"
+    },
+    {
+      "check": "specified survivor basis orthonormal",
+      "status": "PASS"
+    },
+    {
+      "check": "first survivor column",
+      "status": "PASS"
+    },
+    {
+      "check": "certificate symmetric",
+      "status": "PASS"
+    },
+    {
+      "check": "certificate B>8I minor 0",
+      "status": "PASS"
+    },
+    {
+      "check": "certificate B>8I minor 1",
+      "status": "PASS"
+    },
+    {
+      "check": "certificate B>8I minor 2",
+      "status": "PASS"
+    },
+    {
+      "check": "exact Gram inverse",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual numerator matrix",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 0,0",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 0,1",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 0,2",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 1,0",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 1,1",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 1,2",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 2,0",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 2,1",
+      "status": "PASS"
+    },
+    {
+      "check": "exact residual entry bound 2,2",
+      "status": "PASS"
+    },
+    {
+      "check": "Sylvester certificate bound",
+      "status": "PASS"
+    },
+    {
+      "check": "exact final-interval start value",
+      "status": "PASS"
+    },
+    {
+      "check": "strict negative rate certificate",
+      "status": "PASS"
+    },
+    {
+      "check": "exact strict-gap value",
+      "status": "PASS"
+    },
+    {
+      "check": "exact negative final-panel slope",
+      "status": "PASS"
+    },
+    {
+      "check": "slope remains negative with inverse-root error",
+      "status": "PASS"
+    },
+    {
+      "check": "exact endpoint integrated codes",
+      "status": "PASS"
+    },
+    {
+      "check": "stronger endpoint rate bound",
+      "status": "PASS"
+    },
+    {
+      "check": "number of bad samples W bits=5",
+      "status": "PASS"
+    },
+    {
+      "check": "strict illegal gate W bits=5",
+      "status": "PASS"
+    },
+    {
+      "check": "number of bad samples W bits=5",
+      "status": "PASS"
+    },
+    {
+      "check": "strict illegal gate W bits=5",
+      "status": "PASS"
+    },
+    {
+      "check": "number of bad samples W bits=5",
+      "status": "PASS"
+    },
+    {
+      "check": "strict illegal gate W bits=5",
+      "status": "PASS"
+    },
+    {
+      "check": "number of bad samples W bits=6",
+      "status": "PASS"
+    },
+    {
+      "check": "strict illegal gate W bits=6",
+      "status": "PASS"
+    },
+    {
+      "check": "number of bad samples W bits=7",
+      "status": "PASS"
+    },
+    {
+      "check": "strict illegal gate W bits=7",
+      "status": "PASS"
+    },
+    {
+      "check": "number of bad samples W bits=2691",
+      "status": "PASS"
+    },
+    {
+      "check": "strict illegal gate W bits=2691",
+      "status": "PASS"
+    }
+  ],
+  "exact_Gram": [
+    [
+      "1/120",
+      "1/1536",
+      "1/768"
+    ],
+    [
+      "1/1536",
+      "7/3840",
+      "-1/768"
+    ],
+    [
+      "1/768",
+      "-1/768",
+      "37/3840"
+    ]
+  ],
+  "numerical_Gram_eigenvalues": [
+    0.0015028799986540723,
+    0.007776984963183725,
+    0.010511801704828863
+  ],
+  "numerical_sigma_min_M3": 0.038766996255243616,
+  "numerical_endpoint_first_survivor_rate_over_eta": -0.3424708025188614,
+  "exact_rate_upper_final_interval": "-eta/200",
+  "exact_rate_upper_endpoint": "-eta/3",
+  "cpu_seconds": 0.171875,
+  "peak_observed_process_threads": 4,
+  "peak_working_set_bytes": 19095552,
+  "arithmetic_pool_threads": 1,
+  "workers": 0,
+  "GPU_CUDA_usage": 0,
+  "script_sha256": "254a69f54c205e0b7c1f5ba30611f9802b84b44723f53f715e18032007a52123",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "-1"
+  }
+}

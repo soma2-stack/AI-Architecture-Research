@@ -1322,7 +1322,7 @@
     "agent": "Perplexity; model unspecified",
     "topic": "perplexity accessibility proof draft",
     "type": "Draft",
-    "status": "DRAFT",
+    "status": "PENDING REVIEW",
     "reviewed_by": [],
     "reviews_target": "",
     "superseded_by": "",
@@ -1331,7 +1331,7 @@
     "status_evidence": [
       "\"classification\": \"unique scientifically meaningful draft; not an independent review; not formally verified; acceptance status unchanged\","
     ],
-    "status_basis": "Report and subsequent scoped findings; historical contents unchanged",
+    "status_basis": "Preserved unreviewed draft; no independent certification is recorded",
     "status_evidence_note": "Historical/source excerpts only; not the current disposition. Use status, reviewed_by, and status_basis for current status."
   },
   {
@@ -1446,5 +1446,229 @@
     ],
     "status_basis": "Independent review record / scoped reviewed statements",
     "status_evidence_note": "Historical/source excerpts only; not the current disposition. Use status, reviewed_by, and status_basis for current status."
+  },
+  {
+    "folder": "theory/codex_d2_time_varying_repair_20261005",
+    "date": "2026-10-05",
+    "agent": "Codex",
+    "topic": "time-varying D=2 repair",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Author derivation repairs the chronological sign argument in its scoped auxiliary and full-front model; independent review remains pending.",
+    "evidence_file": "theory/codex_d2_time_varying_repair_20261005/REPORT.md",
+    "status_evidence": [
+      "Author derivation repairs the chronological sign argument in its scoped auxiliary and full-front model; independent review remains pending."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_filtered_timing_packing_repair_20261005",
+    "date": "2026-10-05",
+    "agent": "Codex",
+    "topic": "filtered timing packing repair",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Revisits filtered timing; a necessary disjoint-packing cap remains unresolved pending review.",
+    "evidence_file": "theory/codex_filtered_timing_packing_repair_20261005/REPORT.md",
+    "status_evidence": [
+      "Revisits filtered timing; a necessary disjoint-packing cap remains unresolved pending review."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_history_uniform_leverage_20261005",
+    "date": "2026-10-05",
+    "agent": "Codex",
+    "topic": "history-uniform leverage",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Scoped history-uniform leverage analysis; no broader conclusion is promoted here.",
+    "evidence_file": "theory/codex_history_uniform_leverage_20261005/REPORT.md",
+    "status_evidence": [
+      "Scoped history-uniform leverage analysis; no broader conclusion is promoted here."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_private_complement_leverage_20261005",
+    "date": "2026-10-05",
+    "agent": "Codex",
+    "topic": "private complement leverage",
+    "type": "Proof / theory",
+    "status": "REFUTED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Refutes the proposed all-support complement-leverage cap; auxiliary calculations remain in the folder.",
+    "evidence_file": "theory/codex_private_complement_leverage_20261005/REPORT.md",
+    "status_evidence": [
+      "Refutes the proposed all-support complement-leverage cap; auxiliary calculations remain in the folder."
+    ],
+    "status_basis": "Source report refutes the stated claim in its scope",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_multisurvivor_hadamard_write_20261005",
+    "date": "2026-10-05",
+    "agent": "Codex",
+    "topic": "multisurvivor Hadamard write",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Scoped shared-corridor multisurvivor and Hadamard write analysis; author checks are not independent review.",
+    "evidence_file": "theory/codex_multisurvivor_hadamard_write_20261005/REPORT.md",
+    "status_evidence": [
+      "Scoped shared-corridor multisurvivor and Hadamard write analysis; author checks are not independent review."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_multicolumn_spatial_write_20261005",
+    "date": "2026-10-05",
+    "agent": "Codex",
+    "topic": "multicolumn spatial write",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Analyzes compensated shared multicolumn spatial writes; claims remain within the recorded scope pending review.",
+    "evidence_file": "theory/codex_multicolumn_spatial_write_20261005/REPORT.md",
+    "status_evidence": [
+      "Analyzes compensated shared multicolumn spatial writes; claims remain within the recorded scope pending review."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_moving_probe_spatial_write_20261005",
+    "date": "2026-10-05",
+    "agent": "Codex",
+    "topic": "moving-probe spatial write",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Studies moving-probe gain in shared-corridor writes; not promoted beyond the source status.",
+    "evidence_file": "theory/codex_moving_probe_spatial_write_20261005/REPORT.md",
+    "status_evidence": [
+      "Studies moving-probe gain in shared-corridor writes; not promoted beyond the source status."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_repeated_nearcritical_filter_write_20261005",
+    "date": "2026-10-06",
+    "agent": "Codex",
+    "topic": "repeated near-critical filter write",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Author proves a scoped K=2 write; growing-K improvement remains open and independent hostile review is pending.",
+    "evidence_file": "theory/codex_repeated_nearcritical_filter_write_20261005/REPORT.md",
+    "status_evidence": [
+      "Author proves a scoped K=2 write; growing-K improvement remains open and independent hostile review is pending."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/gemini_time_varying_nearcritical_filter_bank_20261006",
+    "date": "2026-10-06",
+    "agent": "Gemini",
+    "topic": "time-varying near-critical filter bank",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Author reports scoped K=3/4 results and a growing-K dilution obstruction; review status is not inferred from author labels.",
+    "evidence_file": "theory/gemini_time_varying_nearcritical_filter_bank_20261006/REPORT.md",
+    "status_evidence": [
+      "Author reports scoped K=3/4 results and a growing-K dilution obstruction; review status is not inferred from author labels."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/sol_k3_discrete_filter_comparison_20261006",
+    "date": "2026-10-06",
+    "agent": "Sol",
+    "topic": "K=3 discrete filter comparison",
+    "type": "Proof / theory",
+    "status": "REFUTED",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Refutes the literal matched-filter word under the recorded exact gate-legality certificate.",
+    "evidence_file": "theory/sol_k3_discrete_filter_comparison_20261006/REPORT.md",
+    "status_evidence": [
+      "Refutes the literal matched-filter word under the recorded exact gate-legality certificate."
+    ],
+    "status_basis": "Source report refutes the stated claim in its scope",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_frontier_invention_20261006",
+    "date": "2026-10-06",
+    "agent": "Codex",
+    "topic": "coded simultaneous private writing",
+    "type": "Proof / theory",
+    "status": "PENDING REVIEW",
+    "reviewed_by": [],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Develops coded simultaneous donor controls; its author report explicitly awaits independent hostile review.",
+    "evidence_file": "theory/codex_frontier_invention_20261006/REPORT.md",
+    "status_evidence": [
+      "Develops coded simultaneous donor controls; its author report explicitly awaits independent hostile review."
+    ],
+    "status_basis": "Author/source status only; independent review not established by this entry",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/codex_linear_dimension_frontier_20261006",
+    "date": "2026-10-06",
+    "agent": "Codex",
+    "topic": "early-capture linear-dimension frontier",
+    "type": "Proof / theory",
+    "status": "VERIFIED IN STATED SCOPE",
+    "reviewed_by": [
+      "Gemini",
+      "Grok",
+      "Sonnet",
+      "Perplexity/Sol"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Strict-budget result, linear boundary, and donor-control-family obstruction; see CURRENT_THEORY.md for precise claims and review caveat.",
+    "evidence_file": "theory/codex_linear_dimension_frontier_20261006/REPORT.md",
+    "status_evidence": [
+      "Strict-budget result, linear boundary, and donor-control-family obstruction; see CURRENT_THEORY.md for precise claims and review caveat.",
+      "Gemini and Grok: VERIFIED IN STATED SCOPE.",
+      "Sonnet: VERIFIED IN STATED SCOPE with inherited-premise caveat.",
+      "Perplexity/Sol: INSUFFICIENT EVIDENCE for complete independent certification; no counterexample found and core algebra/topology/obstruction supported."
+    ],
+    "status_basis": "Mixed independent review evidence; verified only in the explicitly stated scope",
+    "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
   }
 ]

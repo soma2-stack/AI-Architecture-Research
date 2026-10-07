@@ -9,7 +9,9 @@ Read in this order:
 3. [04_RESEARCH_STATE.md](04_RESEARCH_STATE.md) — brief resume point
 4. [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) — authoritative current theory
 5. [theory/INDEX.md](theory/INDEX.md) — all theory folders and evidence relationships
-6. [docs/history/SHARED_RESEARCH_MAP.md](docs/history/SHARED_RESEARCH_MAP.md) — current checkpoint followed by historical context
+6. [experiments/INDEX.md](experiments/INDEX.md) — finite-size evidence and limits
+7. [theory/codex_linear_dimension_frontier_20261006/PROOF.md](theory/codex_linear_dimension_frontier_20261006/PROOF.md) — current proof record
+8. [docs/history/SHARED_RESEARCH_MAP.md](docs/history/SHARED_RESEARCH_MAP.md) — current checkpoint followed by historical context
 
 `theory/` contains proofs, scoped derivations, reviews, and drafts. `experiments/` contains diagnostic and certification code, frozen inputs, replay outputs, and other experimental evidence. Experiments do not automatically validate a theorem or establish an architecture.
 

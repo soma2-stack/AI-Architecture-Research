@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-06",
+  "agent": "Codex",
+  "branch": "codex/linear-dimension-frontier-20261006",
+  "base_commit": "5cfe9c40014f9bca0bf30969262e616ba97b0103",
+  "status": "STILL OPEN for linear dimension at strict little-o budget; new scoped author proofs pending independent review",
+  "accepted_premise": "Owner states Grok and Gemini independently verified the coded-donor checkpoint in the latest task. No historical report or repository acceptance file was changed.",
+  "source_records": [
+    {
+      "path": "README.md",
+      "bytes": 2318,
+      "sha256": "9090c5d79611c38d2e87d9e098a6fa661dad40bdf4ad13093cddc8954c168c6b",
+      "git_blob": "801bc99bdb12d5170123dd403b6b5eeb61d4708c"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 18440,
+      "sha256": "3c6e09c06aca935e00dab041b86b585031d5ffd6e4e99b0a05ecc164083da9b6",
+      "git_blob": "0e90094d73c07edd741bb53572d479e8844513a0"
+    },
+    {
+      "path": "04_RESEARCH_STATE.md",
+      "bytes": 2606,
+      "sha256": "a78a883db52368e320903b5e6344927b3f203a66f9c901bd6afe3a091ffce2dd",
+      "git_blob": "0d688e43281da30015d2b323761ffd975de47977"
+    },
+    {
+      "path": "theory/CURRENT_THEORY.md",
+      "bytes": 13803,
+      "sha256": "b0643a3b2b70bbee5383305c6e21e505bc9165f4599517139eb922f52b0d682b",
+      "git_blob": "10467dca5395a32bfbe178faca724ca51ee02eb6"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/PROOF.md",
+      "bytes": 26453,
+      "sha256": "3f267832b474a076bb6c74e6df64fdc6907bfd08b71013a601876d852f6c2280",
+      "git_blob": "c2bef617a7951beb9544078b4b0018505b2f721e"
+    },
+    {
+      "path": "theory/codex_frontier_invention_20261006/REPORT.md",
+      "bytes": 5236,
+      "sha256": "d39c32624435b8d68d81599576c0fb932c955c116a076e7450351f7128053c17",
+      "git_blob": "52eb617dcd7e09227852ff787fcbea12350f515a"
+    },
+    {
+      "path": "theory/codex_holding_cost_attack_20261003/PROOF.md",
+      "bytes": 22292,
+      "sha256": "8a345c31d256832a7cb739f6d1c45ba7c82a51765226b8af7242008c49dc47a9",
+      "git_blob": "73f6d9ffc05d466e90ace62839e5508b46d0f8cb"
+    },
+    {
+      "path": "theory/codex_unpaired_corridor_sensitivity_20261003/PROOF.md",
+      "bytes": 24693,
+      "sha256": "870bbe0dcdb2c771941c5e8948d52841a506d27327dcde23f88c96778f38b062",
+      "git_blob": "c2b8e80cefb8e663da24be4bf590a6827961cb5c"
+    },
+    {
+      "path": "theory/codex_private_renewal_gamma_20261003/PROOF.md",
+      "bytes": 21619,
+      "sha256": "2c732ff83535b3c8a844f9402bad24e10a1750bc220a81551157c2165d19f2b6",
+      "git_blob": "f83fa97a0fd0bbbd758d9c7266341f0afb85741e"
+    },
+    {
+      "path": "theory/codex_multicolumn_spatial_write_20261005/PROOF.md",
+      "bytes": 25394,
+      "sha256": "b22386a4088d2d058ce42dc3f6f8f86929a60e0faf336d61645e980429bb7221",
+      "git_blob": "79bb9db904c9d9e3c238dd087eae2768a37f720d"
+    },
+    {
+      "path": "theory/codex_single_block_spatial_write_20261004/PROOF.md",
+      "bytes": 18137,
+      "sha256": "b7be50d4ec53bd3690ca735a62eaa1ffe28e82cfde68236dadad714713f1f376",
+      "git_blob": "660c0ea812530e6ded84445218b0c6e9af913ba7"
+    },
+    {
+      "path": "theory/codex_d2_time_varying_repair_20261005/PROOF.md",
+      "bytes": 19697,
+      "sha256": "b552d16369e1ca3ffb046dfc071363ed0d15309c350c7bf011e4d5fbf41253c6",
+      "git_blob": "f12a985e9864c73bc0d8ed84653afd4b89881310"
+    }
+  ]
+}

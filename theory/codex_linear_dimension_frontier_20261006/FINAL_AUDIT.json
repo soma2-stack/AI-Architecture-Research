@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-06",
+  "author_status": "STILL OPEN",
+  "useful_results": [
+    "Early capture construction for sqrt(n)<=M<=10^-40n",
+    "Linear dimension at critical Theta(n^(3/2)) cost only",
+    "Arbitrarily slow dimension dilution at strict little-o cost",
+    "Finite-stage continuous-control/time obstruction",
+    "Weak-multirow public mask algebra only"
+  ],
+  "unproved": [
+    "Linear dimension at mT=o(n^(3/2))",
+    "Complete-corridor compression",
+    "Simultaneous growing temporal/spatial control lemma"
+  ],
+  "tests_passed": 36,
+  "main_ref": "2e3ee7b3faea9c908904a8202d85e95d2d5f8985",
+  "agents_blob": "0e90094d73c07edd741bb53572d479e8844513a0",
+  "protected_tracked_diff": null,
+  "outputs_excluding_this_audit": [
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/checks_result.json",
+      "bytes": 4672,
+      "sha256": "7ac8f7d2b51e5de04f858e040dc7d9d5353cc8eb27c81a94cdeacf613ab73c56"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/CHECKS.md",
+      "bytes": 4285,
+      "sha256": "d07633d37e64efbe3c05e4a3fc41317a775eeb54d61018b1e93465aed898613f"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/checks.py",
+      "bytes": 7916,
+      "sha256": "a87646cecd548ced840b84d7e37d83b98231685459aeed36fe6ed708b2c4b8f8"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/FAILED_ROUTES.md",
+      "bytes": 4559,
+      "sha256": "be00709c93e5d8d972f6d88b9baa3986f6138b5e2ef05a740600bfea6bb9083f"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/IDEAS.md",
+      "bytes": 6704,
+      "sha256": "022fe88536d0bbb8d065918c167ad9f7afb3ebd18004a82a52d2d14830cfd280"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/PROOF.md",
+      "bytes": 22734,
+      "sha256": "4b044e9765830d3a2e580293df90b3d137eb8952589b0ab2b6b72c3b98867a9c"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/PROVENANCE.json",
+      "bytes": 3448,
+      "sha256": "17d1a08b36f114414c0d5c7da17bd8e5c62eaba8c46cdefec62f873c554d5f2f"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/REPORT.md",
+      "bytes": 5026,
+      "sha256": "6d5ec2007b9abc9c713d9724cdf3102b78a7003beeba7e10f6bbb2ec96577ef0"
+    },
+    {
+      "path": "theory/codex_linear_dimension_frontier_20261006/STATUS.md",
+      "bytes": 11,
+      "sha256": "2f960824d0e6539684c88577c173f3aae07050a1e670bd40af99bd70bbdf1649"
+    }
+  ]
+}
