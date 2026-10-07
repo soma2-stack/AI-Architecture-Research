@@ -6,11 +6,15 @@ This repository preserves research on computational mechanisms, architecture nov
 
 The central open problem in this repository is whether a legal RNN construction can achieve:
 
-**D = Ω(n)**
+$$
+D = \Omega(n)
+$$
 
 while simultaneously keeping
 
-**mT = o(n³⁄²)**
+$$
+mT = o\!\left(n^{3/2}\right)
+$$
 
 Here, **D** is the robust learning-credit dimension, **n** is the recurrent width, **m** is the active history/input width, and **T** is the time horizon.
 
