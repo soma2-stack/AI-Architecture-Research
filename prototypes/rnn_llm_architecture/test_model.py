@@ -101,3 +101,16 @@ def test_reset_not_implicit():
     reset = model.initial_state(1)
     assert torch.equal(reset[0], torch.zeros_like(reset[0]))
     assert not torch.allclose(last_state[0], reset[0])
+
+
+def test_slow_channels_survive_fast_gate_without_leak():
+    torch.manual_seed(27)
+    cell = ProtectedCell(32, 8)
+    x, h = torch.randn(3, 32), torch.randn(3, 32)
+    proposal = torch.tanh(cell.x_to_candidate(x) + cell.h_to_candidate(h))
+    retention = torch.sigmoid(cell.slow_gate(x))
+    expected = retention * cell.read_protected(h) + (
+        1 - retention
+    ) * cell.read_protected(proposal)
+    actual = cell.read_protected(cell(x, h))
+    assert torch.allclose(expected, actual, atol=1e-6)
