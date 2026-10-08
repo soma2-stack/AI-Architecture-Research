@@ -1,0 +1,86 @@
+﻿{
+    "module":  "necessity_015",
+    "device":  "cpu",
+    "workers":  6,
+    "threads_per_worker":  1,
+    "started":  "2026-10-08T10:17:38.1426108-04:00",
+    "ended":  "2026-10-08T10:18:49.8924809-04:00",
+    "runtime_s":  71.7,
+    "repo":  "E:\\Rnn LLM\\AI-Architecture-Research",
+    "branch":  "prototype/rnn-llm-architecture-v0-20261007",
+    "commit":  "1b427890a33c0bdc2014a75791ce722b104d56a9",
+    "tracked_changes":  false,
+    "shard_arg":  "jobs",
+    "extra_args":  "",
+    "max_wall_seconds":  1100,
+    "software":  {
+                     "python":  "3.11.9",
+                     "torch":  "2.13.0+cu130",
+                     "torch_cuda":  "13.0",
+                     "cuda_available":  true,
+                     "gpu":  "NVIDIA GeForce RTX 3060",
+                     "numpy":  "2.4.6"
+                 },
+    "cpu":  "Intel(R) Core(TM) i7-14700K",
+    "logical_processors":  28,
+    "env":  {
+                "PYTHONDONTWRITEBYTECODE":  "1",
+                "PYTHONHASHSEED":  "0",
+                "OMP_NUM_THREADS":  "1",
+                "PYTHONUTF8":  "1",
+                "CUDA_VISIBLE_DEVICES":  "-1",
+                "MKL_NUM_THREADS":  "1"
+            },
+    "peak_temp_c_observed":  27.9,
+    "tests_run":  false,
+    "shards":  [
+                   {
+                       "shard":  "gru32_success_43_43",
+                       "exit_code":  0,
+                       "runtime_s":  54.9,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\gru32_success_43_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\gru32_success_43_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.necessity_015 --output \"E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\gru32_success_43_43.json\" --max-wall-seconds 1100 --jobs gru32_success_43_43 "
+                   },
+                   {
+                       "shard":  "fixed005_success_43_43",
+                       "exit_code":  0,
+                       "runtime_s":  60.5,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\fixed005_success_43_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\fixed005_success_43_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.necessity_015 --output \"E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\fixed005_success_43_43.json\" --max-wall-seconds 1100 --jobs fixed005_success_43_43 "
+                   },
+                   {
+                       "shard":  "prot_success_43_29",
+                       "exit_code":  0,
+                       "runtime_s":  66.3,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_success_43_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_success_43_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.necessity_015 --output \"E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_success_43_29.json\" --max-wall-seconds 1100 --jobs prot_success_43_29 "
+                   },
+                   {
+                       "shard":  "prot_failed_17_17",
+                       "exit_code":  0,
+                       "runtime_s":  65.3,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_failed_17_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_failed_17_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.necessity_015 --output \"E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_failed_17_17.json\" --max-wall-seconds 1100 --jobs prot_failed_17_17 "
+                   },
+                   {
+                       "shard":  "prot_success_43_43",
+                       "exit_code":  0,
+                       "runtime_s":  66.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_success_43_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_success_43_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.necessity_015 --output \"E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_success_43_43.json\" --max-wall-seconds 1100 --jobs prot_success_43_43 "
+                   },
+                   {
+                       "shard":  "prot_partial_43_17",
+                       "exit_code":  0,
+                       "runtime_s":  65,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_partial_43_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_partial_43_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.necessity_015 --output \"E:\\Rnn LLM\\rnn-results\\necessity_015_20261008_101733\\prot_partial_43_17.json\" --max-wall-seconds 1100 --jobs prot_partial_43_17 "
+                   }
+               ]
+}
