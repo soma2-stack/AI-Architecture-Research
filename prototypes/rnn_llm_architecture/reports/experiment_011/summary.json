@@ -1,0 +1,455 @@
+{
+  "runs": [
+    {
+      "variant": "protected",
+      "seed": 17,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8016,
+      "training_stream_sha256": "ed26fed809eb8896c7017c7619c68b48b14ff3897d8f9566cb580e283a0b7cc7",
+      "eval": {
+        "64": {
+          "per_slot": 0.6806640625,
+          "whole": 0.13671875,
+          "whole_varied": 0.0
+        },
+        "128": {
+          "per_slot": 0.6630859375,
+          "whole": 0.109375,
+          "whole_varied": 0.0043668122962117195
+        },
+        "256": {
+          "per_slot": 0.69140625,
+          "whole": 0.14453125,
+          "whole_varied": 0.0
+        },
+        "512": {
+          "per_slot": 0.6513671875,
+          "whole": 0.11328125,
+          "whole_varied": 0.004385964944958687
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "seed": 29,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8016,
+      "training_stream_sha256": "edfb42e40ef85f4992356782ac53936f79df6fa7bad0a3ee4e498cb3cd0214f3",
+      "eval": {
+        "64": {
+          "per_slot": 0.7724609375,
+          "whole": 0.22265625,
+          "whole_varied": 0.12719298899173737
+        },
+        "128": {
+          "per_slot": 0.783203125,
+          "whole": 0.25390625,
+          "whole_varied": 0.15859030187129974
+        },
+        "256": {
+          "per_slot": 0.7744140625,
+          "whole": 0.2265625,
+          "whole_varied": 0.13913042843341827
+        },
+        "512": {
+          "per_slot": 0.7412109375,
+          "whole": 0.25390625,
+          "whole_varied": 0.14864864945411682
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "seed": 43,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8016,
+      "training_stream_sha256": "ce2f9a4dbef08a6fc46b5045877c37d394a4aeddc3dd09a5f33fa3fcd3d8898d",
+      "eval": {
+        "64": {
+          "per_slot": 0.998046875,
+          "whole": 0.9921875,
+          "whole_varied": 0.9911110997200012
+        },
+        "128": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "256": {
+          "per_slot": 0.99609375,
+          "whole": 0.984375,
+          "whole_varied": 0.9864864945411682
+        },
+        "512": {
+          "per_slot": 0.900390625,
+          "whole": 0.6328125,
+          "whole_varied": 0.6419214010238647
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "seed": 17,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8016,
+      "training_stream_sha256": "ed26fed809eb8896c7017c7619c68b48b14ff3897d8f9566cb580e283a0b7cc7",
+      "eval": {
+        "64": {
+          "per_slot": 0.6806640625,
+          "whole": 0.13671875,
+          "whole_varied": 0.0
+        },
+        "128": {
+          "per_slot": 0.666015625,
+          "whole": 0.10546875,
+          "whole_varied": 0.0
+        },
+        "256": {
+          "per_slot": 0.693359375,
+          "whole": 0.14453125,
+          "whole_varied": 0.0
+        },
+        "512": {
+          "per_slot": 0.6689453125,
+          "whole": 0.109375,
+          "whole_varied": 0.0
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "seed": 29,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8016,
+      "training_stream_sha256": "edfb42e40ef85f4992356782ac53936f79df6fa7bad0a3ee4e498cb3cd0214f3",
+      "eval": {
+        "64": {
+          "per_slot": 0.6572265625,
+          "whole": 0.109375,
+          "whole_varied": 0.0
+        },
+        "128": {
+          "per_slot": 0.66796875,
+          "whole": 0.11328125,
+          "whole_varied": 0.0
+        },
+        "256": {
+          "per_slot": 0.658203125,
+          "whole": 0.1015625,
+          "whole_varied": 0.0
+        },
+        "512": {
+          "per_slot": 0.6611328125,
+          "whole": 0.1328125,
+          "whole_varied": 0.0
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "seed": 43,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8016,
+      "training_stream_sha256": "ce2f9a4dbef08a6fc46b5045877c37d394a4aeddc3dd09a5f33fa3fcd3d8898d",
+      "eval": {
+        "64": {
+          "per_slot": 0.6767578125,
+          "whole": 0.12109375,
+          "whole_varied": 0.0
+        },
+        "128": {
+          "per_slot": 0.6572265625,
+          "whole": 0.11328125,
+          "whole_varied": 0.0
+        },
+        "256": {
+          "per_slot": 0.6689453125,
+          "whole": 0.1328125,
+          "whole_varied": 0.0
+        },
+        "512": {
+          "per_slot": 0.6748046875,
+          "whole": 0.10546875,
+          "whole_varied": 0.0
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "seed": 17,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8112,
+      "training_stream_sha256": "ed26fed809eb8896c7017c7619c68b48b14ff3897d8f9566cb580e283a0b7cc7",
+      "eval": {
+        "64": {
+          "per_slot": 0.869140625,
+          "whole": 0.4921875,
+          "whole_varied": 0.4117647111415863
+        },
+        "128": {
+          "per_slot": 0.873046875,
+          "whole": 0.51171875,
+          "whole_varied": 0.45414847135543823
+        },
+        "256": {
+          "per_slot": 0.8837890625,
+          "whole": 0.55859375,
+          "whole_varied": 0.4840182662010193
+        },
+        "512": {
+          "per_slot": 0.875,
+          "whole": 0.54296875,
+          "whole_varied": 0.4868420958518982
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "seed": 29,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8112,
+      "training_stream_sha256": "edfb42e40ef85f4992356782ac53936f79df6fa7bad0a3ee4e498cb3cd0214f3",
+      "eval": {
+        "64": {
+          "per_slot": 0.84375,
+          "whole": 0.4140625,
+          "whole_varied": 0.34210526943206787
+        },
+        "128": {
+          "per_slot": 0.8486328125,
+          "whole": 0.44140625,
+          "whole_varied": 0.37444934248924255
+        },
+        "256": {
+          "per_slot": 0.8291015625,
+          "whole": 0.3984375,
+          "whole_varied": 0.33043476939201355
+        },
+        "512": {
+          "per_slot": 0.8125,
+          "whole": 0.37890625,
+          "whole_varied": 0.29729729890823364
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "seed": 43,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8112,
+      "training_stream_sha256": "ce2f9a4dbef08a6fc46b5045877c37d394a4aeddc3dd09a5f33fa3fcd3d8898d",
+      "eval": {
+        "64": {
+          "per_slot": 0.7734375,
+          "whole": 0.2578125,
+          "whole_varied": 0.15555556118488312
+        },
+        "128": {
+          "per_slot": 0.771484375,
+          "whole": 0.234375,
+          "whole_varied": 0.13656388223171234
+        },
+        "256": {
+          "per_slot": 0.765625,
+          "whole": 0.21875,
+          "whole_varied": 0.09909909963607788
+        },
+        "512": {
+          "per_slot": 0.7822265625,
+          "whole": 0.25390625,
+          "whole_varied": 0.1659388691186905
+        }
+      }
+    },
+    {
+      "variant": "gru32",
+      "seed": 17,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 13888,
+      "training_stream_sha256": "ed26fed809eb8896c7017c7619c68b48b14ff3897d8f9566cb580e283a0b7cc7",
+      "eval": {
+        "64": {
+          "per_slot": 0.677734375,
+          "whole": 0.13671875,
+          "whole_varied": 0.0
+        },
+        "128": {
+          "per_slot": 0.6630859375,
+          "whole": 0.10546875,
+          "whole_varied": 0.0
+        },
+        "256": {
+          "per_slot": 0.6884765625,
+          "whole": 0.14453125,
+          "whole_varied": 0.0
+        },
+        "512": {
+          "per_slot": 0.6494140625,
+          "whole": 0.109375,
+          "whole_varied": 0.0
+        }
+      }
+    },
+    {
+      "variant": "gru32",
+      "seed": 29,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 13888,
+      "training_stream_sha256": "edfb42e40ef85f4992356782ac53936f79df6fa7bad0a3ee4e498cb3cd0214f3",
+      "eval": {
+        "64": {
+          "per_slot": 0.71875,
+          "whole": 0.234375,
+          "whole_varied": 0.14035087823867798
+        },
+        "128": {
+          "per_slot": 0.7001953125,
+          "whole": 0.1953125,
+          "whole_varied": 0.09251101315021515
+        },
+        "256": {
+          "per_slot": 0.6640625,
+          "whole": 0.16015625,
+          "whole_varied": 0.08695652335882187
+        },
+        "512": {
+          "per_slot": 0.6474609375,
+          "whole": 0.19140625,
+          "whole_varied": 0.10810811072587967
+        }
+      }
+    },
+    {
+      "variant": "gru32",
+      "seed": 43,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 13888,
+      "training_stream_sha256": "ce2f9a4dbef08a6fc46b5045877c37d394a4aeddc3dd09a5f33fa3fcd3d8898d",
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "128": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "256": {
+          "per_slot": 0.998046875,
+          "whole": 0.9921875,
+          "whole_varied": 1.0
+        },
+        "512": {
+          "per_slot": 0.92578125,
+          "whole": 0.73046875,
+          "whole_varied": 0.7423580884933472
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "seed": 17,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 130,
+      "training_stream_sha256": "ed26fed809eb8896c7017c7619c68b48b14ff3897d8f9566cb580e283a0b7cc7",
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "128": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "512": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "seed": 29,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 130,
+      "training_stream_sha256": "edfb42e40ef85f4992356782ac53936f79df6fa7bad0a3ee4e498cb3cd0214f3",
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "128": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "512": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "seed": 43,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 130,
+      "training_stream_sha256": "ce2f9a4dbef08a6fc46b5045877c37d394a4aeddc3dd09a5f33fa3fcd3d8898d",
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "128": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        },
+        "512": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0
+        }
+      }
+    }
+  ],
+  "skipped": []
+}

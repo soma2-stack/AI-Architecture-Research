@@ -1,0 +1,182 @@
+﻿{
+    "module":  "capacity_013",
+    "device":  "cpu",
+    "workers":  10,
+    "threads_per_worker":  1,
+    "started":  "2026-10-08T08:34:37.1106170-04:00",
+    "ended":  "2026-10-08T08:45:21.5325697-04:00",
+    "runtime_s":  644.4,
+    "repo":  "E:\\Rnn LLM\\AI-Architecture-Research",
+    "branch":  "prototype/rnn-llm-architecture-v0-20261007",
+    "commit":  "52430c154bed2ca350b154ca20e5ee21c77c0f37",
+    "tracked_changes":  false,
+    "shard_arg":  "jobs",
+    "extra_args":  "--steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm",
+    "max_wall_seconds":  1800,
+    "software":  {
+                     "python":  "3.11.9",
+                     "torch":  "2.13.0+cu130",
+                     "torch_cuda":  "13.0",
+                     "cuda_available":  true,
+                     "gpu":  "NVIDIA GeForce RTX 3060",
+                     "numpy":  "2.4.6"
+                 },
+    "cpu":  "Intel(R) Core(TM) i7-14700K",
+    "logical_processors":  28,
+    "env":  {
+                "PYTHONDONTWRITEBYTECODE":  "1",
+                "PYTHONHASHSEED":  "0",
+                "OMP_NUM_THREADS":  "1",
+                "PYTHONUTF8":  "1",
+                "CUDA_VISIBLE_DEVICES":  "-1",
+                "MKL_NUM_THREADS":  "1"
+            },
+    "peak_temp_c_observed":  34,
+    "tests_run":  true,
+    "shards":  [
+                   {
+                       "shard":  "protected_fixed_0474:17:43",
+                       "exit_code":  0,
+                       "runtime_s":  289.8,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_43.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:17:43 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:17:29",
+                       "exit_code":  0,
+                       "runtime_s":  290.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_29.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:17:29 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:17:17",
+                       "exit_code":  0,
+                       "runtime_s":  290.5,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_17_17.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:17:17 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:43:17",
+                       "exit_code":  0,
+                       "runtime_s":  344.6,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_17.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:43:17 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:29:17",
+                       "exit_code":  0,
+                       "runtime_s":  345.8,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_17.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:29:17 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:29:43",
+                       "exit_code":  0,
+                       "runtime_s":  345.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_43.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:29:43 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:43:29",
+                       "exit_code":  0,
+                       "runtime_s":  350.8,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_29.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:43:29 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:29:29",
+                       "exit_code":  0,
+                       "runtime_s":  352,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_29_29.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:29:29 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_0474:43:43",
+                       "exit_code":  0,
+                       "runtime_s":  351.2,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_0474_43_43.json\" --max-wall-seconds 1800 --jobs protected_fixed_0474:43:43 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:17:17",
+                       "exit_code":  0,
+                       "runtime_s":  356.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_17.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:17:17 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:29:17",
+                       "exit_code":  0,
+                       "runtime_s":  239.9,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_17.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:29:17 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:17:43",
+                       "exit_code":  0,
+                       "runtime_s":  310.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_43.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:17:43 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:17:29",
+                       "exit_code":  0,
+                       "runtime_s":  310.5,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_17_29.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:17:29 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:29:43",
+                       "exit_code":  0,
+                       "runtime_s":  275.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_43.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:29:43 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:29:29",
+                       "exit_code":  0,
+                       "runtime_s":  275.5,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_29_29.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:29:29 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:43:29",
+                       "exit_code":  0,
+                       "runtime_s":  279.6,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_29.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:43:29 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:43:17",
+                       "exit_code":  0,
+                       "runtime_s":  285.4,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_17.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:43:17 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   },
+                   {
+                       "shard":  "protected_fixed_005:43:43",
+                       "exit_code":  0,
+                       "runtime_s":  284.4,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_013 --output \"E:\\Rnn LLM\\rnn-results\\capacity_013_20261008_083359\\protected_fixed_005_43_43.json\" --max-wall-seconds 1800 --jobs protected_fixed_005:43:43 --steps 3000 --save-weights-at 0,3000 --weights-dir prototypes/rnn_llm_architecture/reports/experiment_013/weights_confirm"
+                   }
+               ]
+}

@@ -1,0 +1,86 @@
+﻿{
+    "module":  "intervene_014",
+    "device":  "cpu",
+    "workers":  6,
+    "threads_per_worker":  1,
+    "started":  "2026-10-08T09:42:51.8419797-04:00",
+    "ended":  "2026-10-08T09:43:42.0657050-04:00",
+    "runtime_s":  50.2,
+    "repo":  "E:\\Rnn LLM\\AI-Architecture-Research",
+    "branch":  "prototype/rnn-llm-architecture-v0-20261007",
+    "commit":  "c166cc088de8592abb124e709f0a4eaacdf20e8e",
+    "tracked_changes":  false,
+    "shard_arg":  "jobs",
+    "extra_args":  "--stage intervene",
+    "max_wall_seconds":  1200,
+    "software":  {
+                     "python":  "3.11.9",
+                     "torch":  "2.13.0+cu130",
+                     "torch_cuda":  "13.0",
+                     "cuda_available":  true,
+                     "gpu":  "NVIDIA GeForce RTX 3060",
+                     "numpy":  "2.4.6"
+                 },
+    "cpu":  "Intel(R) Core(TM) i7-14700K",
+    "logical_processors":  28,
+    "env":  {
+                "PYTHONDONTWRITEBYTECODE":  "1",
+                "PYTHONHASHSEED":  "0",
+                "OMP_NUM_THREADS":  "1",
+                "PYTHONUTF8":  "1",
+                "CUDA_VISIBLE_DEVICES":  "-1",
+                "MKL_NUM_THREADS":  "1"
+            },
+    "peak_temp_c_observed":  28,
+    "tests_run":  false,
+    "shards":  [
+                   {
+                       "shard":  "fixed005_success_43_43",
+                       "exit_code":  0,
+                       "runtime_s":  43.9,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\fixed005_success_43_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\fixed005_success_43_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.intervene_014 --output \"E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\fixed005_success_43_43.json\" --max-wall-seconds 1200 --jobs fixed005_success_43_43 --stage intervene"
+                   },
+                   {
+                       "shard":  "prot_partial_29_29",
+                       "exit_code":  0,
+                       "runtime_s":  43.3,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_partial_29_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_partial_29_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.intervene_014 --output \"E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_partial_29_29.json\" --max-wall-seconds 1200 --jobs prot_partial_29_29 --stage intervene"
+                   },
+                   {
+                       "shard":  "prot_failed_17_17",
+                       "exit_code":  0,
+                       "runtime_s":  42.9,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_failed_17_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_failed_17_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.intervene_014 --output \"E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_failed_17_17.json\" --max-wall-seconds 1200 --jobs prot_failed_17_17 --stage intervene"
+                   },
+                   {
+                       "shard":  "prot_success_43_43",
+                       "exit_code":  0,
+                       "runtime_s":  44.2,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_success_43_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_success_43_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.intervene_014 --output \"E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_success_43_43.json\" --max-wall-seconds 1200 --jobs prot_success_43_43 --stage intervene"
+                   },
+                   {
+                       "shard":  "prot_success_43_29",
+                       "exit_code":  0,
+                       "runtime_s":  44.6,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_success_43_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_success_43_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.intervene_014 --output \"E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_success_43_29.json\" --max-wall-seconds 1200 --jobs prot_success_43_29 --stage intervene"
+                   },
+                   {
+                       "shard":  "prot_partial_43_17",
+                       "exit_code":  0,
+                       "runtime_s":  43.6,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_partial_43_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_partial_43_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.intervene_014 --output \"E:\\Rnn LLM\\rnn-results\\intervene_014_20261008_094246\\prot_partial_43_17.json\" --max-wall-seconds 1200 --jobs prot_partial_43_17 --stage intervene"
+                   }
+               ]
+}

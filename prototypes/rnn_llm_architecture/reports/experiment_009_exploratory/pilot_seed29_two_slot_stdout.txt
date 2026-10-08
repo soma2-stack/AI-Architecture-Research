@@ -1,0 +1,15 @@
+{"done": 1, "of": 12, "task": "two_slot", "variant": "tanh_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 0.0, "64": 0.0, "128": 0.0, "256": 0.0, "512": 0.0}, "seconds": 43.7}
+{"done": 2, "of": 12, "task": "two_slot", "variant": "gru_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 1.0}, "seconds": 104.6}
+{"done": 3, "of": 12, "task": "two_slot", "variant": "protected_no_retain_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 0.9595588445663452}, "seconds": 136.4}
+{"done": 4, "of": 12, "task": "two_slot", "variant": "protected_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 1.0, "64": 1.0, "128": 1.0, "256": 0.7245283126831055, "512": 0.5772058963775635}, "seconds": 142.8}
+{"done": 5, "of": 12, "task": "two_slot", "variant": "lstm_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 1.0, "64": 1.0, "128": 1.0, "256": 0.7207547426223755, "512": 0.33088234066963196}, "seconds": 102.8}
+{"done": 6, "of": 12, "task": "two_slot", "variant": "protected_shift_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 1.0, "64": 1.0, "128": 1.0, "256": 0.8339622616767883, "512": 0.6139705777168274}, "seconds": 142.6}
+{"done": 7, "of": 12, "task": "two_slot", "variant": "gru_hard_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 0.0077821011655032635, "64": 0.0042553190141916275, "128": 0.015037594363093376, "256": 0.011320754885673523, "512": 0.0036764706019312143}, "seconds": 117.6}
+{"done": 8, "of": 12, "task": "two_slot", "variant": "protected_hard_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 0.9522058963775635}, "seconds": 139.5}
+{"done": 9, "of": 12, "task": "two_slot", "variant": "protected_hard_shift_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 0.0, "64": 0.0, "128": 0.0, "256": 0.0, "512": 0.0}, "seconds": 142.1}
+{"done": 10, "of": 12, "task": "legacy", "variant": "gru_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 0.7782101035118103, "64": 0.7404255270957947, "128": 0.5225563645362854, "256": 0.3660377264022827, "512": 0.21691176295280457}, "seconds": 90.7}
+{"done": 11, "of": 12, "task": "legacy", "variant": "protected_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 0.05058365687727928, "64": 0.0936170220375061, "128": 0.09398496150970459, "256": 0.08301886916160583, "512": 0.13235294818878174}, "seconds": 134.1}
+{"done": 12, "of": 12, "task": "two_slot", "variant": "oracle_tag_protected_w32", "seed": 29, "status": "complete", "unequal_by_delay": {"32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 1.0}, "seconds": 158.8}
+Experiment 009: complete; runs=12; seconds=414.5
+
+[exited with code 0]

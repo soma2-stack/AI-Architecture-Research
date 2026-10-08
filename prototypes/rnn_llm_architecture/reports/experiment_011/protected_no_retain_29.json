@@ -1,0 +1,507 @@
+{
+  "status": "complete",
+  "experiment": 11,
+  "config": {
+    "jobs": [
+      [
+        "protected_no_retain",
+        29
+      ]
+    ],
+    "steps": 3000,
+    "batch": 12,
+    "delay": 64,
+    "eval_delays": [
+      64,
+      128,
+      256,
+      512
+    ],
+    "eval_histories": 256,
+    "checkpoint_every": 250,
+    "checkpoint_histories": 128,
+    "loss_window": 50,
+    "lr": 0.002,
+    "clip": 1.0,
+    "max_wall_seconds": 1800.0
+  },
+  "task": {
+    "slots": 4,
+    "values": 2
+  },
+  "environment": {
+    "torch": "2.13.0+cu130",
+    "cpu_threads": 1,
+    "python": "3.11.9",
+    "cuda_available": false,
+    "CUDA_VISIBLE_DEVICES": "-1"
+  },
+  "scope": "optimization-vs-capacity screen on a synthetic 4-slot binary task. delta_rule is an explicit-address reference, not a fair learned comparison. Low accuracy is not evidence of capacity limits.",
+  "runs": [
+    {
+      "variant": "protected_no_retain",
+      "reference_only": false,
+      "seed": 29,
+      "status": "complete",
+      "steps": 3000,
+      "parameters": 8016,
+      "training_stream_sha256": "edfb42e40ef85f4992356782ac53936f79df6fa7bad0a3ee4e498cb3cd0214f3",
+      "loss_windows": [
+        {
+          "step": 50,
+          "mean_loss": 0.7083449602127075
+        },
+        {
+          "step": 100,
+          "mean_loss": 0.700831128358841
+        },
+        {
+          "step": 150,
+          "mean_loss": 0.6981420993804932
+        },
+        {
+          "step": 200,
+          "mean_loss": 0.7011578381061554
+        },
+        {
+          "step": 250,
+          "mean_loss": 0.6913002169132233
+        },
+        {
+          "step": 300,
+          "mean_loss": 0.6676141905784607
+        },
+        {
+          "step": 350,
+          "mean_loss": 0.6698118305206299
+        },
+        {
+          "step": 400,
+          "mean_loss": 0.6571975922584534
+        },
+        {
+          "step": 450,
+          "mean_loss": 0.6564075553417206
+        },
+        {
+          "step": 500,
+          "mean_loss": 0.6412976264953614
+        },
+        {
+          "step": 550,
+          "mean_loss": 0.6340698873996735
+        },
+        {
+          "step": 600,
+          "mean_loss": 0.6144015896320343
+        },
+        {
+          "step": 650,
+          "mean_loss": 0.5960050642490387
+        },
+        {
+          "step": 700,
+          "mean_loss": 0.5919726765155793
+        },
+        {
+          "step": 750,
+          "mean_loss": 0.582910509109497
+        },
+        {
+          "step": 800,
+          "mean_loss": 0.6068929505348205
+        },
+        {
+          "step": 850,
+          "mean_loss": 0.6032235532999038
+        },
+        {
+          "step": 900,
+          "mean_loss": 0.6039279055595398
+        },
+        {
+          "step": 950,
+          "mean_loss": 0.609128315448761
+        },
+        {
+          "step": 1000,
+          "mean_loss": 0.6075803607702255
+        },
+        {
+          "step": 1050,
+          "mean_loss": 0.6049602574110031
+        },
+        {
+          "step": 1100,
+          "mean_loss": 0.6016495960950852
+        },
+        {
+          "step": 1150,
+          "mean_loss": 0.604146779179573
+        },
+        {
+          "step": 1200,
+          "mean_loss": 0.5935922062397003
+        },
+        {
+          "step": 1250,
+          "mean_loss": 0.5900677192211151
+        },
+        {
+          "step": 1300,
+          "mean_loss": 0.5829992628097534
+        },
+        {
+          "step": 1350,
+          "mean_loss": 0.6000991594791413
+        },
+        {
+          "step": 1400,
+          "mean_loss": 0.593150737285614
+        },
+        {
+          "step": 1450,
+          "mean_loss": 0.6059283912181854
+        },
+        {
+          "step": 1500,
+          "mean_loss": 0.5940916556119918
+        },
+        {
+          "step": 1550,
+          "mean_loss": 0.5921952134370804
+        },
+        {
+          "step": 1600,
+          "mean_loss": 0.6069675326347351
+        },
+        {
+          "step": 1650,
+          "mean_loss": 0.6137905609607697
+        },
+        {
+          "step": 1700,
+          "mean_loss": 0.5917559695243836
+        },
+        {
+          "step": 1750,
+          "mean_loss": 0.6005974680185318
+        },
+        {
+          "step": 1800,
+          "mean_loss": 0.597725972533226
+        },
+        {
+          "step": 1850,
+          "mean_loss": 0.5957206404209137
+        },
+        {
+          "step": 1900,
+          "mean_loss": 0.5946358907222747
+        },
+        {
+          "step": 1950,
+          "mean_loss": 0.588024452328682
+        },
+        {
+          "step": 2000,
+          "mean_loss": 0.5935759389400482
+        },
+        {
+          "step": 2050,
+          "mean_loss": 0.58594990670681
+        },
+        {
+          "step": 2100,
+          "mean_loss": 0.6015232753753662
+        },
+        {
+          "step": 2150,
+          "mean_loss": 0.5876799112558365
+        },
+        {
+          "step": 2200,
+          "mean_loss": 0.6035076224803925
+        },
+        {
+          "step": 2250,
+          "mean_loss": 0.5933745640516281
+        },
+        {
+          "step": 2300,
+          "mean_loss": 0.5913024616241455
+        },
+        {
+          "step": 2350,
+          "mean_loss": 0.5879834586381912
+        },
+        {
+          "step": 2400,
+          "mean_loss": 0.5857386243343353
+        },
+        {
+          "step": 2450,
+          "mean_loss": 0.5802100038528443
+        },
+        {
+          "step": 2500,
+          "mean_loss": 0.6020178240537644
+        },
+        {
+          "step": 2550,
+          "mean_loss": 0.5933989906311035
+        },
+        {
+          "step": 2600,
+          "mean_loss": 0.5855740690231324
+        },
+        {
+          "step": 2650,
+          "mean_loss": 0.5893718028068542
+        },
+        {
+          "step": 2700,
+          "mean_loss": 0.5739943951368331
+        },
+        {
+          "step": 2750,
+          "mean_loss": 0.5941391551494598
+        },
+        {
+          "step": 2800,
+          "mean_loss": 0.5940200453996658
+        },
+        {
+          "step": 2850,
+          "mean_loss": 0.5926473981142044
+        },
+        {
+          "step": 2900,
+          "mean_loss": 0.584974809885025
+        },
+        {
+          "step": 2950,
+          "mean_loss": 0.5876669156551361
+        },
+        {
+          "step": 3000,
+          "mean_loss": 0.5957497131824493
+        }
+      ],
+      "checkpoints": [
+        {
+          "step": 250,
+          "delay": 64,
+          "per_slot": 0.583984375,
+          "whole": 0.125,
+          "whole_varied": 0.0,
+          "elapsed_s": 21.5
+        },
+        {
+          "step": 500,
+          "delay": 64,
+          "per_slot": 0.6171875,
+          "whole": 0.140625,
+          "whole_varied": 0.0181818176060915,
+          "elapsed_s": 43.2
+        },
+        {
+          "step": 750,
+          "delay": 64,
+          "per_slot": 0.666015625,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 64.6
+        },
+        {
+          "step": 1000,
+          "delay": 64,
+          "per_slot": 0.669921875,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 86.1
+        },
+        {
+          "step": 1250,
+          "delay": 64,
+          "per_slot": 0.654296875,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 108.0
+        },
+        {
+          "step": 1500,
+          "delay": 64,
+          "per_slot": 0.671875,
+          "whole": 0.1484375,
+          "whole_varied": 0.00909090880304575,
+          "elapsed_s": 129.4
+        },
+        {
+          "step": 1750,
+          "delay": 64,
+          "per_slot": 0.662109375,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 150.4
+        },
+        {
+          "step": 2000,
+          "delay": 64,
+          "per_slot": 0.671875,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 171.6
+        },
+        {
+          "step": 2250,
+          "delay": 64,
+          "per_slot": 0.671875,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 192.8
+        },
+        {
+          "step": 2500,
+          "delay": 64,
+          "per_slot": 0.673828125,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 214.9
+        },
+        {
+          "step": 2750,
+          "delay": 64,
+          "per_slot": 0.673828125,
+          "whole": 0.140625,
+          "whole_varied": 0.0,
+          "elapsed_s": 242.3
+        }
+      ],
+      "train_wall_s": 263.92,
+      "train_cpu_s": 260.0,
+      "train_token_positions": 10512000,
+      "eval": {
+        "64": {
+          "per_slot": 0.6572265625,
+          "whole": 0.109375,
+          "whole_varied": 0.0,
+          "varied_count": 228,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "histories": 256,
+          "baselines": {
+            "independent_guess": {
+              "per_slot": 0.4970703125,
+              "whole": 0.09765625,
+              "whole_varied": 0.09649122506380081,
+              "varied_count": 228,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "last_write_copy": {
+              "per_slot": 0.6044921875,
+              "whole": 0.109375,
+              "whole_varied": 0.0,
+              "varied_count": 228,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "analytic_guess_per_slot": 0.5,
+            "analytic_guess_whole": 0.0625
+          }
+        },
+        "128": {
+          "per_slot": 0.66796875,
+          "whole": 0.11328125,
+          "whole_varied": 0.0,
+          "varied_count": 227,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "histories": 256,
+          "baselines": {
+            "independent_guess": {
+              "per_slot": 0.49609375,
+              "whole": 0.0625,
+              "whole_varied": 0.05726872384548187,
+              "varied_count": 227,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "last_write_copy": {
+              "per_slot": 0.623046875,
+              "whole": 0.11328125,
+              "whole_varied": 0.0,
+              "varied_count": 227,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "analytic_guess_per_slot": 0.5,
+            "analytic_guess_whole": 0.0625
+          }
+        },
+        "256": {
+          "per_slot": 0.658203125,
+          "whole": 0.1015625,
+          "whole_varied": 0.0,
+          "varied_count": 230,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "histories": 256,
+          "baselines": {
+            "independent_guess": {
+              "per_slot": 0.5078125,
+              "whole": 0.078125,
+              "whole_varied": 0.08260869234800339,
+              "varied_count": 230,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "last_write_copy": {
+              "per_slot": 0.62109375,
+              "whole": 0.1015625,
+              "whole_varied": 0.0,
+              "varied_count": 230,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "analytic_guess_per_slot": 0.5,
+            "analytic_guess_whole": 0.0625
+          }
+        },
+        "512": {
+          "per_slot": 0.6611328125,
+          "whole": 0.1328125,
+          "whole_varied": 0.0,
+          "varied_count": 222,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "histories": 256,
+          "baselines": {
+            "independent_guess": {
+              "per_slot": 0.505859375,
+              "whole": 0.08984375,
+              "whole_varied": 0.0855855867266655,
+              "varied_count": 222,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "last_write_copy": {
+              "per_slot": 0.623046875,
+              "whole": 0.1328125,
+              "whole_varied": 0.0,
+              "varied_count": 222,
+              "whole_guess_chance": 0.0625,
+              "copy_latest_upper_chance_varied": 0.0
+            },
+            "analytic_guess_per_slot": 0.5,
+            "analytic_guess_whole": 0.0625
+          }
+        }
+      },
+      "total_wall_s": 267.14
+    }
+  ],
+  "skipped": [],
+  "elapsed_seconds": 270.64
+}

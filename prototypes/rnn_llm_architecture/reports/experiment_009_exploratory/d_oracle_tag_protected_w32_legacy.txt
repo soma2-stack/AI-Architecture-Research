@@ -1,0 +1,13 @@
+250 0.021 unequal@64 1.0
+500 0.001 unequal@64 1.0
+oracle_tag_protected_w32 legacy 41s
+eval 32 0.861 same -1 {}
+eval 64 1.0 same -1 {}
+eval 128 1.0 same -1 {}
+eval 256 1.0 same -1 {}
+eval 512 1.0 same -1 {}
+gates L 0 {"marked_value": {"mean": 0.0709, "fraction_exactly_zero": 0.0}, "unmarked_bit": {"mean": 0.0, "fraction_exactly_zero": 1.0}, "write_marker": {"mean": 0.0, "fraction_exactly_zero": 1.0}, "benign_distractor": {"mean": 0.0, "fraction_exactly_zero": 1.0}, "log_retention_per_nonwrite_token": 0.0, "implied_retention_after_512_nonwrite_tokens": 1.0}
+gates L 1 {"marked_value": {"mean": 0.1829, "fraction_exactly_zero": 0.0}, "unmarked_bit": {"mean": 0.0, "fraction_exactly_zero": 1.0}, "write_marker": {"mean": 0.0, "fraction_exactly_zero": 1.0}, "benign_distractor": {"mean": 0.0, "fraction_exactly_zero": 1.0}, "log_retention_per_nonwrite_token": 0.0, "implied_retention_after_512_nonwrite_tokens": 1.0}
+fast retention L 0 distractor mean 0.72 max-channel 0.754
+fast retention L 1 distractor mean 0.461 max-channel 0.898
+{"features": 64, "train": {"paired_on_unequal": 0.955268383026123, "slot_accuracy": [0.9609375, 0.9970703125]}, "test": {"paired_on_unequal": 0.9531568288803101, "slot_accuracy": [0.9462890625, 0.9990234375]}, "transfer": {"paired_on_unequal": 0.9459459185600281, "slot_accuracy": [0.9501953125, 0.9970703125]}, "transfer_delay": 256}

@@ -1,0 +1,3909 @@
+{
+  "status": "complete",
+  "config": {
+    "variants": [
+      "tanh_w32",
+      "near_critical_w32",
+      "protected_w32",
+      "gru_w32",
+      "lstm_w32",
+      "protected_random_w32",
+      "protected_no_project_w32"
+    ],
+    "regimes": [
+      "benign",
+      "interfering"
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "train_delay": 64,
+    "eval_delays": [
+      64,
+      128,
+      256
+    ],
+    "steps": 150,
+    "batch_size": 16,
+    "eval_batch": 512,
+    "lr": 0.002,
+    "grad_clip": 1.0,
+    "max_wall_seconds": 540.0
+  },
+  "environment": {
+    "torch": "2.14.1+cpu",
+    "python": "3.12.14",
+    "device": "cpu"
+  },
+  "runs": [
+    {
+      "regime": "benign",
+      "seed": 17,
+      "variant": "tanh_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.9086270928382874,
+      "train_loss_last": 0.7061534523963928,
+      "parameters": 4864,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.478515625,
+            "loss": 0.6997658610343933,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.501953125,
+            "loss": 0.6933578848838806,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.515625,
+            "loss": 0.6930176615715027,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.478515625,
+            "loss": 0.6986957788467407,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.49609375,
+            "loss": 0.6944076418876648,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.54296875,
+            "loss": 0.6900579333305359,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.32421875,
+            "loss": 0.7348593473434448,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.359375,
+            "loss": 0.7309673428535461,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.357421875,
+            "loss": 0.7324181795120239,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.4989387790000137
+    },
+    {
+      "regime": "benign",
+      "seed": 17,
+      "variant": "near_critical_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.6587388515472412,
+      "train_loss_last": 0.7062559127807617,
+      "parameters": 2816,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.48046875,
+            "loss": 0.7075468301773071,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.482421875,
+            "loss": 0.6962418556213379,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.548828125,
+            "loss": 0.6923665404319763,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.50390625,
+            "loss": 0.7073078155517578,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.509765625,
+            "loss": 0.6962207555770874,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.466796875,
+            "loss": 0.7038518190383911,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.51171875,
+            "loss": 0.7032412886619568,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.490234375,
+            "loss": 0.700244665145874,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.486328125,
+            "loss": 0.7060613632202148,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.8818312999999876
+    },
+    {
+      "regime": "benign",
+      "seed": 17,
+      "variant": "protected_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.1987253427505493,
+      "train_loss_last": 0.0006610220880247653,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0006610166747123003,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0007225223816931248,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0007764635956846178,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.79296875,
+            "loss": 0.9823532104492188,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.771484375,
+            "loss": 1.1661479473114014,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.78515625,
+            "loss": 1.1333421468734741,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.517578125,
+            "loss": 2.718968391418457,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 2.750495672225952,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.505859375,
+            "loss": 2.645831346511841,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.655903374000019
+    },
+    {
+      "regime": "benign",
+      "seed": 17,
+      "variant": "gru_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7749062776565552,
+      "train_loss_last": 0.2087503969669342,
+      "parameters": 13376,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.177532359957695,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.1857168823480606,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.20125015079975128,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.888671875,
+            "loss": 0.29662755131721497,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.884765625,
+            "loss": 0.33319395780563354,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.859375,
+            "loss": 0.38927268981933594,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.666015625,
+            "loss": 0.5823989510536194,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.537109375,
+            "loss": 0.7489728927612305,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.5,
+            "loss": 0.8729865550994873,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.67759739600001
+    },
+    {
+      "regime": "benign",
+      "seed": 17,
+      "variant": "lstm_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.0090558528900146,
+      "train_loss_last": 0.6977156400680542,
+      "parameters": 17600,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.4921875,
+            "loss": 0.6960126161575317,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.513671875,
+            "loss": 0.6932151913642883,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.52734375,
+            "loss": 0.6918691992759705,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.5,
+            "loss": 0.6955763697624207,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.517578125,
+            "loss": 0.6917533874511719,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.517578125,
+            "loss": 0.6923611164093018,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.517578125,
+            "loss": 0.6936144828796387,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.49609375,
+            "loss": 0.6932888627052307,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.49609375,
+            "loss": 0.6932553648948669,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.966901980000017
+    },
+    {
+      "regime": "benign",
+      "seed": 17,
+      "variant": "protected_random_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.9173330068588257,
+      "train_loss_last": 0.0005839907098561525,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.000585628324188292,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0006950548849999905,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0022274635266512632,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.55078125,
+            "loss": 2.0749001502990723,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.501953125,
+            "loss": 2.344224691390991,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.48828125,
+            "loss": 2.6937286853790283,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.541015625,
+            "loss": 1.549940586090088,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.490234375,
+            "loss": 1.7429944276809692,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.48828125,
+            "loss": 1.7687411308288574,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.78311260800001
+    },
+    {
+      "regime": "benign",
+      "seed": 17,
+      "variant": "protected_no_project_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.1055419445037842,
+      "train_loss_last": 0.00043667160207405686,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.00043277005897834897,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0004591602773871273,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0005981879658065736,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.6015625,
+            "loss": 1.168000340461731,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.5546875,
+            "loss": 1.4865570068359375,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.50390625,
+            "loss": 1.8756204843521118,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.5546875,
+            "loss": 0.7148951888084412,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.482421875,
+            "loss": 0.7481839060783386,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.517578125,
+            "loss": 0.7357858419418335,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 7.838610718000012
+    },
+    {
+      "regime": "benign",
+      "seed": 29,
+      "variant": "tanh_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.8464162945747375,
+      "train_loss_last": 0.6987628936767578,
+      "parameters": 4864,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.544921875,
+            "loss": 0.6924179196357727,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6931100487709045,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.470703125,
+            "loss": 0.6934159398078918,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.5234375,
+            "loss": 0.6925950646400452,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.51171875,
+            "loss": 0.6930859088897705,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.501953125,
+            "loss": 0.6929588317871094,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.515625,
+            "loss": 0.6929923295974731,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.5078125,
+            "loss": 0.6930429339408875,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.494140625,
+            "loss": 0.6931081414222717,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.494792590999964
+    },
+    {
+      "regime": "benign",
+      "seed": 29,
+      "variant": "near_critical_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.8526648283004761,
+      "train_loss_last": 0.7475283145904541,
+      "parameters": 2816,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.51171875,
+            "loss": 0.7107350826263428,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.498046875,
+            "loss": 0.7063979506492615,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.505859375,
+            "loss": 0.7240320444107056,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.533203125,
+            "loss": 0.6993757486343384,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.494140625,
+            "loss": 0.7135836482048035,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.50390625,
+            "loss": 0.7198973894119263,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.5,
+            "loss": 0.7067974805831909,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.515625,
+            "loss": 0.700785756111145,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.509765625,
+            "loss": 0.7093660831451416,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.924783321999996
+    },
+    {
+      "regime": "benign",
+      "seed": 29,
+      "variant": "protected_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.894222617149353,
+      "train_loss_last": 0.0005278594326227903,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.000540457374881953,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.904296875,
+            "loss": 0.22294829785823822,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.5,
+            "loss": 3.4673750400543213,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.662109375,
+            "loss": 1.6786755323410034,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.625,
+            "loss": 2.048281192779541,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.54296875,
+            "loss": 2.222238302230835,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.599609375,
+            "loss": 1.9506137371063232,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.53125,
+            "loss": 2.4212467670440674,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.51171875,
+            "loss": 2.517411947250366,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.637971937000032
+    },
+    {
+      "regime": "benign",
+      "seed": 29,
+      "variant": "gru_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.9233637452125549,
+      "train_loss_last": 0.6854950189590454,
+      "parameters": 13376,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.462890625,
+            "loss": 0.6960196495056152,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.505859375,
+            "loss": 0.6923263669013977,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.486328125,
+            "loss": 0.6939091086387634,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.466796875,
+            "loss": 0.695020854473114,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.537109375,
+            "loss": 0.6915066838264465,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.53125,
+            "loss": 0.6918426156044006,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.5,
+            "loss": 0.6932724714279175,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6934661865234375,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.5,
+            "loss": 0.6933465003967285,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.70527174099999
+    },
+    {
+      "regime": "benign",
+      "seed": 29,
+      "variant": "lstm_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.1506142616271973,
+      "train_loss_last": 0.6938554644584656,
+      "parameters": 17600,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.501953125,
+            "loss": 0.6929024457931519,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.47265625,
+            "loss": 0.693517804145813,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.4765625,
+            "loss": 0.6935904622077942,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.5078125,
+            "loss": 0.6932141780853271,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.515625,
+            "loss": 0.6928319334983826,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.51171875,
+            "loss": 0.692743182182312,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.5,
+            "loss": 0.6932297348976135,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6931548118591309,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.5,
+            "loss": 0.6931043267250061,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.969951633999983
+    },
+    {
+      "regime": "benign",
+      "seed": 29,
+      "variant": "protected_random_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.8057664036750793,
+      "train_loss_last": 0.0005993605591356754,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0005972662474960089,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0007304494502022862,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.000990512897260487,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.86328125,
+            "loss": 0.7362180352210999,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.833984375,
+            "loss": 0.8652453422546387,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.80859375,
+            "loss": 0.8694801926612854,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.69921875,
+            "loss": 1.3317043781280518,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.693359375,
+            "loss": 1.4158672094345093,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.64453125,
+            "loss": 1.4227629899978638,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.822362075000001
+    },
+    {
+      "regime": "benign",
+      "seed": 29,
+      "variant": "protected_no_project_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.856065034866333,
+      "train_loss_last": 0.0004663863801397383,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0004661392595153302,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.501953125,
+            "loss": 2.7928879261016846,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.5,
+            "loss": 3.60251522064209,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.734375,
+            "loss": 1.3320585489273071,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.69921875,
+            "loss": 1.696180820465088,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.609375,
+            "loss": 2.572667121887207,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.515625,
+            "loss": 2.6083316802978516,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.50390625,
+            "loss": 2.8410215377807617,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.509765625,
+            "loss": 2.864473342895508,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 7.952720837000015
+    },
+    {
+      "regime": "benign",
+      "seed": 43,
+      "variant": "tanh_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7530612945556641,
+      "train_loss_last": 0.6891402006149292,
+      "parameters": 4864,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.49609375,
+            "loss": 0.6947718858718872,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6934265494346619,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.470703125,
+            "loss": 0.6978315114974976,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.501953125,
+            "loss": 0.6927747130393982,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.494140625,
+            "loss": 0.6949864625930786,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.49609375,
+            "loss": 0.695297122001648,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.498046875,
+            "loss": 0.6938974857330322,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.498046875,
+            "loss": 0.6961022615432739,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.498046875,
+            "loss": 0.6944029927253723,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.4423681409999745
+    },
+    {
+      "regime": "benign",
+      "seed": 43,
+      "variant": "near_critical_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7413749098777771,
+      "train_loss_last": 0.7147436141967773,
+      "parameters": 2816,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.521484375,
+            "loss": 0.6951060891151428,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.505859375,
+            "loss": 0.6941330432891846,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.443359375,
+            "loss": 0.7046124935150146,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.50390625,
+            "loss": 0.6944519877433777,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.505859375,
+            "loss": 0.6929441690444946,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.46484375,
+            "loss": 0.6992591023445129,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.474609375,
+            "loss": 0.6964061856269836,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.49609375,
+            "loss": 0.6932931542396545,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.51953125,
+            "loss": 0.6922155022621155,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.8643445910000196
+    },
+    {
+      "regime": "benign",
+      "seed": 43,
+      "variant": "protected_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7331113815307617,
+      "train_loss_last": 0.0006125704385340214,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0005958882975392044,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0006498798611573875,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.000710289750713855,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.693359375,
+            "loss": 1.1892656087875366,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.650390625,
+            "loss": 1.586207389831543,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.681640625,
+            "loss": 1.5517627000808716,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.52734375,
+            "loss": 1.9500072002410889,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.515625,
+            "loss": 2.145082473754883,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.513671875,
+            "loss": 2.2341089248657227,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.647466323000003
+    },
+    {
+      "regime": "benign",
+      "seed": 43,
+      "variant": "gru_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.6626917123794556,
+      "train_loss_last": 0.6965845823287964,
+      "parameters": 13376,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.51953125,
+            "loss": 0.692705512046814,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6926662921905518,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.521484375,
+            "loss": 0.6922661662101746,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.53515625,
+            "loss": 0.6920701861381531,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.51953125,
+            "loss": 0.6925463676452637,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.501953125,
+            "loss": 0.6925152540206909,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.494140625,
+            "loss": 0.693306028842926,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.501953125,
+            "loss": 0.6937376260757446,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.509765625,
+            "loss": 0.6933101415634155,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.66819465399999
+    },
+    {
+      "regime": "benign",
+      "seed": 43,
+      "variant": "lstm_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.741258978843689,
+      "train_loss_last": 0.6947442293167114,
+      "parameters": 17600,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.5078125,
+            "loss": 0.6928436756134033,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.498046875,
+            "loss": 0.6930292844772339,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.51171875,
+            "loss": 0.6930683851242065,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.51953125,
+            "loss": 0.6926507353782654,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.501953125,
+            "loss": 0.6931002736091614,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.517578125,
+            "loss": 0.6925931572914124,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.5,
+            "loss": 0.6931434869766235,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6930378675460815,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.5,
+            "loss": 0.693178653717041,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.8528125560000035
+    },
+    {
+      "regime": "benign",
+      "seed": 43,
+      "variant": "protected_random_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.8218156695365906,
+      "train_loss_last": 0.0004075639008078724,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0004040198982693255,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.0,
+            "loss": 5.6762285232543945,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0012483298778533936,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.701171875,
+            "loss": 1.5487370491027832,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.328125,
+            "loss": 3.4074695110321045,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.62109375,
+            "loss": 2.309913158416748,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.615234375,
+            "loss": 1.89858877658844,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.451171875,
+            "loss": 2.995359420776367,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.57421875,
+            "loss": 2.606999635696411,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.823837115999993
+    },
+    {
+      "regime": "benign",
+      "seed": 43,
+      "variant": "protected_no_project_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7549278736114502,
+      "train_loss_last": 0.0007931494619697332,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007820103783160448,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0008106358582153916,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0009312806068919599,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.95703125,
+            "loss": 0.18585558235645294,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.9609375,
+            "loss": 0.14875344932079315,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.9609375,
+            "loss": 0.15351971983909607,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.828125,
+            "loss": 0.504578709602356,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.828125,
+            "loss": 0.40511956810951233,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.8515625,
+            "loss": 0.3792460858821869,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 7.916075629999966
+    },
+    {
+      "regime": "interfering",
+      "seed": 17,
+      "variant": "tanh_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.8172979354858398,
+      "train_loss_last": 0.7065624594688416,
+      "parameters": 4864,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.48828125,
+            "loss": 0.6952558159828186,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.5234375,
+            "loss": 0.694441556930542,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.513671875,
+            "loss": 0.6927348971366882,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.484375,
+            "loss": 0.693860650062561,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.513671875,
+            "loss": 0.6934412717819214,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.501953125,
+            "loss": 0.6931838989257812,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.498046875,
+            "loss": 0.6939253807067871,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6935913562774658,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.484375,
+            "loss": 0.6945907473564148,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.4529644039999994
+    },
+    {
+      "regime": "interfering",
+      "seed": 17,
+      "variant": "near_critical_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.0178320407867432,
+      "train_loss_last": 0.6811604499816895,
+      "parameters": 2816,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.48828125,
+            "loss": 0.7095711827278137,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.486328125,
+            "loss": 0.7073091864585876,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.474609375,
+            "loss": 0.7046769261360168,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.50390625,
+            "loss": 0.7066186666488647,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.52734375,
+            "loss": 0.6963174343109131,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.470703125,
+            "loss": 0.7082305550575256,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.4765625,
+            "loss": 0.7041604518890381,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.482421875,
+            "loss": 0.69792240858078,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.478515625,
+            "loss": 0.7027750611305237,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.8768487819999677
+    },
+    {
+      "regime": "interfering",
+      "seed": 17,
+      "variant": "protected_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.5327504873275757,
+      "train_loss_last": 0.0008756214519962668,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008273070561699569,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.004914212506264448,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.5,
+            "loss": 3.424647569656372,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.000857922132126987,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0010980023071169853,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.626953125,
+            "loss": 1.6695951223373413,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008966311579570174,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009881408186629415,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.994140625,
+            "loss": 0.025585144758224487,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.568614531000037
+    },
+    {
+      "regime": "interfering",
+      "seed": 17,
+      "variant": "gru_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7416324615478516,
+      "train_loss_last": 0.000828930176794529,
+      "parameters": 13376,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008118454716168344,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009796717204153538,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0015414252411574125,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007802374893799424,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009176922612823546,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0014186850748956203,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.998046875,
+            "loss": 0.0026104648131877184,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.99609375,
+            "loss": 0.011723540723323822,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.96484375,
+            "loss": 0.10436002910137177,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.598029596999993
+    },
+    {
+      "regime": "interfering",
+      "seed": 17,
+      "variant": "lstm_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.0099294185638428,
+      "train_loss_last": 0.7026192545890808,
+      "parameters": 17600,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.49609375,
+            "loss": 0.6938026547431946,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.53515625,
+            "loss": 0.6919357776641846,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.478515625,
+            "loss": 0.6944496631622314,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.529296875,
+            "loss": 0.6927910447120667,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 0.501953125,
+            "loss": 0.6922082901000977,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 0.4921875,
+            "loss": 0.6934368014335632,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.494140625,
+            "loss": 0.6931813955307007,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.494140625,
+            "loss": 0.69313645362854,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.490234375,
+            "loss": 0.6933337450027466,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.772562751999999
+    },
+    {
+      "regime": "interfering",
+      "seed": 17,
+      "variant": "protected_random_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7621627449989319,
+      "train_loss_last": 0.0007725494797341526,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008137691766023636,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0008363009546883404,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0008782107033766806,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007773759425617754,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.000806239724624902,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0008880494860932231,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007993595208972692,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0008351988508366048,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0009686900302767754,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.381998991999978
+    },
+    {
+      "regime": "interfering",
+      "seed": 17,
+      "variant": "protected_no_project_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.4001537561416626,
+      "train_loss_last": 0.0008476516231894493,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.001095605781301856,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.007686943281441927,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.751953125,
+            "loss": 0.4813362658023834,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.00082393892807886,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50079345703125
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.000929920410271734,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.502105712890625
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0011558746919035912,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5016250610351562
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008828890277072787,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0008761893259361386,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0009643867379054427,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 7.546488511000007
+    },
+    {
+      "regime": "interfering",
+      "seed": 29,
+      "variant": "tanh_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.8201262354850769,
+      "train_loss_last": 0.6893098950386047,
+      "parameters": 4864,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.501953125,
+            "loss": 0.6946934461593628,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.515625,
+            "loss": 0.6940795183181763,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.50390625,
+            "loss": 0.6934298872947693,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.482421875,
+            "loss": 0.693814218044281,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.537109375,
+            "loss": 0.6937158703804016,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.5078125,
+            "loss": 0.6934106945991516,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.498046875,
+            "loss": 0.6932244300842285,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.521484375,
+            "loss": 0.6925827264785767,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.494140625,
+            "loss": 0.6930878162384033,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.425806191999982
+    },
+    {
+      "regime": "interfering",
+      "seed": 29,
+      "variant": "near_critical_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.6967194676399231,
+      "train_loss_last": 0.7070614099502563,
+      "parameters": 2816,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.484375,
+            "loss": 0.7032316327095032,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.4921875,
+            "loss": 0.7044531106948853,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.4765625,
+            "loss": 0.7026470899581909,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.486328125,
+            "loss": 0.6972796320915222,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.509765625,
+            "loss": 0.6955535411834717,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.513671875,
+            "loss": 0.6971709728240967,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.513671875,
+            "loss": 0.6951768398284912,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.484375,
+            "loss": 0.6981922388076782,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.45703125,
+            "loss": 0.6983703374862671,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.857928407999964
+    },
+    {
+      "regime": "interfering",
+      "seed": 29,
+      "variant": "protected_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7508916258811951,
+      "train_loss_last": 0.000789916084613651,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007862672791816294,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0010523094097152352,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0027836274821311235,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007727259071543813,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009386699530296028,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0014752632705494761,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008406657725572586,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0010042247595265508,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0014256271533668041,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.317643060000023
+    },
+    {
+      "regime": "interfering",
+      "seed": 29,
+      "variant": "gru_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.037684679031372,
+      "train_loss_last": 0.6860084533691406,
+      "parameters": 13376,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.478515625,
+            "loss": 0.6960690021514893,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.50390625,
+            "loss": 0.6943023204803467,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.50390625,
+            "loss": 0.6943888664245605,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.47265625,
+            "loss": 0.6960554718971252,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.482421875,
+            "loss": 0.6930934190750122,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.484375,
+            "loss": 0.6937755346298218,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.494140625,
+            "loss": 0.6934637427330017,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.484375,
+            "loss": 0.6940839886665344,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.4921875,
+            "loss": 0.6934162378311157,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.406791239999961
+    },
+    {
+      "regime": "interfering",
+      "seed": 29,
+      "variant": "lstm_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.0990183353424072,
+      "train_loss_last": 0.6895594596862793,
+      "parameters": 17600,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.484375,
+            "loss": 0.694729208946228,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.46484375,
+            "loss": 0.6941985487937927,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.509765625,
+            "loss": 0.6937275528907776,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.47265625,
+            "loss": 0.6948025822639465,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 0.484375,
+            "loss": 0.6936848163604736,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 0.484375,
+            "loss": 0.6932534575462341,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.48828125,
+            "loss": 0.6934456825256348,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.482421875,
+            "loss": 0.6934802532196045,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.484375,
+            "loss": 0.6933205723762512,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.735768448999977
+    },
+    {
+      "regime": "interfering",
+      "seed": 29,
+      "variant": "protected_random_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7777617573738098,
+      "train_loss_last": 0.0007914218585938215,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007981177186593413,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009580012992955744,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0013867717934772372,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007845821673981845,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0010001823538914323,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0014837488997727633,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008334089652635157,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0010995055781677365,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.001674687140621245,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.352949305000038
+    },
+    {
+      "regime": "interfering",
+      "seed": 29,
+      "variant": "protected_no_project_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7954363822937012,
+      "train_loss_last": 0.0006300368695519865,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0006517673609778285,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009430000791326165,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0012780382530763745,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0006232426385395229,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.503387451171875
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009221673826687038,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4971771240234375
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0012696654302999377,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.49942779541015625
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0006616080063395202,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0008964614826254547,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.001375309657305479,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 7.523560264000025
+    },
+    {
+      "regime": "interfering",
+      "seed": 43,
+      "variant": "tanh_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 1.0276052951812744,
+      "train_loss_last": 0.6934784054756165,
+      "parameters": 4864,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.482421875,
+            "loss": 0.6930742263793945,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6936048269271851,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.5078125,
+            "loss": 0.6927983164787292,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.501953125,
+            "loss": 0.6936858892440796,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.490234375,
+            "loss": 0.6933181881904602,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.484375,
+            "loss": 0.6937026977539062,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.486328125,
+            "loss": 0.6935099363327026,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.484375,
+            "loss": 0.6932361125946045,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.474609375,
+            "loss": 0.6936162710189819,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.3783788689999596
+    },
+    {
+      "regime": "interfering",
+      "seed": 43,
+      "variant": "near_critical_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.9161954522132874,
+      "train_loss_last": 0.709750235080719,
+      "parameters": 2816,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.501953125,
+            "loss": 0.6943285465240479,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.48046875,
+            "loss": 0.6983951926231384,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.525390625,
+            "loss": 0.6899917125701904,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.4921875,
+            "loss": 0.693680465221405,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.4921875,
+            "loss": 0.6936693787574768,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.509765625,
+            "loss": 0.6939209699630737,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.478515625,
+            "loss": 0.6939024925231934,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.486328125,
+            "loss": 0.6933263540267944,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.5234375,
+            "loss": 0.692268431186676,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 2.8432481610000195
+    },
+    {
+      "regime": "interfering",
+      "seed": 43,
+      "variant": "protected_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7060633301734924,
+      "train_loss_last": 0.0007955449400469661,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0007939545903354883,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0008319183834828436,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0009003058657981455,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.000799539964646101,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0008506731828674674,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0009271451272070408,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0008477709488943219,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0009131758706644177,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0009948092047125101,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.320529313000009
+    },
+    {
+      "regime": "interfering",
+      "seed": 43,
+      "variant": "gru_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.8144513368606567,
+      "train_loss_last": 0.694102942943573,
+      "parameters": 13376,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.51171875,
+            "loss": 0.6930018663406372,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.5,
+            "loss": 0.6936611533164978,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.556640625,
+            "loss": 0.6899273991584778,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.513671875,
+            "loss": 0.6921899914741516,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.48828125,
+            "loss": 0.6937596201896667,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.5078125,
+            "loss": 0.6923990249633789,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.505859375,
+            "loss": 0.6929621696472168,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.494140625,
+            "loss": 0.6930859684944153,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.505859375,
+            "loss": 0.6931794285774231,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.4918850039999825
+    },
+    {
+      "regime": "interfering",
+      "seed": 43,
+      "variant": "lstm_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.7291504144668579,
+      "train_loss_last": 0.6901829838752747,
+      "parameters": 17600,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 0.52734375,
+            "loss": 0.6927735805511475,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 0.4765625,
+            "loss": 0.6935880184173584,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 0.5546875,
+            "loss": 0.6906890273094177,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 0.53515625,
+            "loss": 0.6921883225440979,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 0.4765625,
+            "loss": 0.693701982498169,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 0.5078125,
+            "loss": 0.6926915645599365,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 0.509765625,
+            "loss": 0.6929280757904053,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.49609375,
+            "loss": 0.6928409337997437,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 0.50390625,
+            "loss": 0.6930968761444092,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 6.72650042500004
+    },
+    {
+      "regime": "interfering",
+      "seed": 43,
+      "variant": "protected_random_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.9451096057891846,
+      "train_loss_last": 0.0012515917187556624,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.001244948012754321,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0026385891251266003,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.009373451583087444,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0012418328551575541,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.002265771385282278,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.006809674669057131,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0013648176100105047,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 0.99609375,
+            "loss": 0.02540501207113266,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.006983612198382616,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 8.364487034999968
+    },
+    {
+      "regime": "interfering",
+      "seed": 43,
+      "variant": "protected_no_project_w32",
+      "complete": true,
+      "steps_completed": 150,
+      "steps_requested": 150,
+      "train_loss_first": 0.6904059648513794,
+      "train_loss_last": 0.0011482163099572062,
+      "parameters": 7504,
+      "metrics": {
+        "benign": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.001114937593229115,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0011950882617384195,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.001431790180504322,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 0.0,
+            "bit_noise_fraction": 0.0
+          }
+        },
+        "interfering": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0011452266480773687,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.50030517578125
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.0012178549077361822,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.4986724853515625
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.001435081590898335,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 0.5013961791992188
+          }
+        },
+        "all_bits": {
+          "64": {
+            "accuracy": 1.0,
+            "loss": 0.0011737719178199768,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "128": {
+            "accuracy": 1.0,
+            "loss": 0.001251612207852304,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          },
+          "256": {
+            "accuracy": 1.0,
+            "loss": 0.0014989289920777082,
+            "examples": 512,
+            "positive_fraction": 0.5,
+            "conflicting_noise_fraction": 1.0,
+            "bit_noise_fraction": 1.0
+          }
+        }
+      },
+      "elapsed_seconds": 7.54347312699997
+    }
+  ],
+  "skipped": [],
+  "scope": "synthetic supervised interference test, not formal D",
+  "elapsed_seconds": 261.620919374
+}

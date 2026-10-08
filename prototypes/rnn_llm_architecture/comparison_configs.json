@@ -1,0 +1,401 @@
+{
+  "scope": "Reproducible architecture-only definitions; no training invocation. Equal width is not equal trainable parameters or compute. Parameter-matched variants target trainable scalar count and may change width/layer depth.",
+  "token_configurations": {
+    "tanh_w16": {
+      "vocab_size": 97,
+      "width": 16,
+      "layers": 2,
+      "cell_type": "tanh",
+      "protected_channels": 4,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "near_critical_w16": {
+      "vocab_size": 97,
+      "width": 16,
+      "layers": 2,
+      "cell_type": "near_critical",
+      "protected_channels": 4,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "protected_w16": {
+      "vocab_size": 97,
+      "width": 16,
+      "layers": 2,
+      "cell_type": "protected",
+      "protected_channels": 4,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "tanh_w32": {
+      "vocab_size": 97,
+      "width": 32,
+      "layers": 2,
+      "cell_type": "tanh",
+      "protected_channels": 8,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "near_critical_w32": {
+      "vocab_size": 97,
+      "width": 32,
+      "layers": 2,
+      "cell_type": "near_critical",
+      "protected_channels": 8,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "protected_w32": {
+      "vocab_size": 97,
+      "width": 32,
+      "layers": 2,
+      "cell_type": "protected",
+      "protected_channels": 8,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "tanh_w64": {
+      "vocab_size": 97,
+      "width": 64,
+      "layers": 2,
+      "cell_type": "tanh",
+      "protected_channels": 8,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "near_critical_w64": {
+      "vocab_size": 97,
+      "width": 64,
+      "layers": 2,
+      "cell_type": "near_critical",
+      "protected_channels": 8,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    },
+    "protected_w64": {
+      "vocab_size": 97,
+      "width": 64,
+      "layers": 2,
+      "cell_type": "protected",
+      "protected_channels": 8,
+      "precision": "float32",
+      "seed": 20261007,
+      "gap": null,
+      "leak": 1.0,
+      "operator": "orthogonal",
+      "slow_write_bias": -3.0,
+      "project_fast": true,
+      "retain_slow": true,
+      "slow_feedback": true,
+      "orthogonal_masks": true,
+      "protected_basis": "walsh"
+    }
+  },
+  "validation": {
+    "width": 32,
+    "vocabulary": 97,
+    "layers": 2,
+    "channels": 8,
+    "seed": 20261007,
+    "horizons": [
+      1,
+      16,
+      64,
+      256,
+      1024
+    ],
+    "benchmark_steps": 64,
+    "benchmark_batch": 2,
+    "benchmark_repeats": 7
+  },
+  "near_critical_isolated_options": {
+    "operator": [
+      "orthogonal",
+      "identity",
+      "householder_cycle"
+    ],
+    "leak": [
+      1.0,
+      0.2
+    ],
+    "gap": [
+      null,
+      0.01,
+      0.1
+    ]
+  },
+  "protected_mechanism_removal_options": {
+    "project_fast": [
+      true,
+      false
+    ],
+    "retain_slow": [
+      true,
+      false
+    ],
+    "slow_feedback": [
+      true,
+      false
+    ],
+    "orthogonal_masks": [
+      true,
+      false
+    ],
+    "protected_basis": [
+      "walsh",
+      "random_orthogonal"
+    ]
+  },
+  "theory_early_capture_fixture": {
+    "n": 2048,
+    "tuples": 8,
+    "controls": [
+      [
+        1.0,
+        -0.5
+      ],
+      [
+        -0.2,
+        0.8
+      ]
+    ],
+    "labels": [
+      1,
+      2
+    ],
+    "write_steps": 1,
+    "tail_steps": 16,
+    "clear_steps": 4,
+    "dtype": "float64",
+    "formal_D": "NOT CERTIFIED"
+  },
+  "theory_no_clear_fixture": {
+    "n": 2048,
+    "tuples": 8,
+    "controls": [
+      [
+        1.0,
+        -1.0
+      ],
+      [
+        -0.5,
+        0.5
+      ]
+    ],
+    "labels": [
+      1,
+      2
+    ],
+    "precharge_steps": 4,
+    "release_steps": 2,
+    "dtype": "float64",
+    "robust_margin": "OPEN"
+  },
+  "gated_equal_width_configurations": {
+    "gru_w16": {
+      "vocab_size": 97,
+      "width": 16,
+      "layers": 2,
+      "cell_type": "gru",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "lstm_w16": {
+      "vocab_size": 97,
+      "width": 16,
+      "layers": 2,
+      "cell_type": "lstm",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "gru_w32": {
+      "vocab_size": 97,
+      "width": 32,
+      "layers": 2,
+      "cell_type": "gru",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "lstm_w32": {
+      "vocab_size": 97,
+      "width": 32,
+      "layers": 2,
+      "cell_type": "lstm",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "gru_w64": {
+      "vocab_size": 97,
+      "width": 64,
+      "layers": 2,
+      "cell_type": "gru",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "lstm_w64": {
+      "vocab_size": 97,
+      "width": 64,
+      "layers": 2,
+      "cell_type": "lstm",
+      "precision": "float32",
+      "seed": 20261007
+    }
+  },
+  "parameter_matched_to_standard_w32_l2": {
+    "matching_basis": "trainable scalar parameter count; nearest available among widths 16/32/64 and layers 1..8",
+    "target_trainable_parameters": 7456,
+    "configurations": {
+      "tanh": {
+        "vocab_size": 97,
+        "width": 32,
+        "layers": 2,
+        "cell_type": "tanh",
+        "protected_channels": 8,
+        "precision": "float32",
+        "seed": 20261007,
+        "gap": null,
+        "leak": 1.0,
+        "operator": "orthogonal",
+        "slow_write_bias": -3.0,
+        "project_fast": true,
+        "retain_slow": true,
+        "slow_feedback": true,
+        "orthogonal_masks": true,
+        "protected_basis": "walsh"
+      },
+      "near_critical": {
+        "vocab_size": 97,
+        "width": 32,
+        "layers": 4,
+        "cell_type": "near_critical",
+        "protected_channels": 8,
+        "precision": "float32",
+        "seed": 20261007,
+        "gap": null,
+        "leak": 1.0,
+        "operator": "orthogonal",
+        "slow_write_bias": -3.0,
+        "project_fast": true,
+        "retain_slow": true,
+        "slow_feedback": true,
+        "orthogonal_masks": true,
+        "protected_basis": "walsh"
+      },
+      "protected": {
+        "vocab_size": 97,
+        "width": 16,
+        "layers": 7,
+        "cell_type": "protected",
+        "protected_channels": 4,
+        "precision": "float32",
+        "seed": 20261007,
+        "gap": null,
+        "leak": 1.0,
+        "operator": "orthogonal",
+        "slow_write_bias": -3.0,
+        "project_fast": true,
+        "retain_slow": true,
+        "slow_feedback": true,
+        "orthogonal_masks": true,
+        "protected_basis": "walsh"
+      },
+      "gru": {
+        "vocab_size": 97,
+        "width": 16,
+        "layers": 4,
+        "cell_type": "gru",
+        "precision": "float32",
+        "seed": 20261007
+      },
+      "lstm": {
+        "vocab_size": 97,
+        "width": 16,
+        "layers": 3,
+        "cell_type": "lstm",
+        "precision": "float32",
+        "seed": 20261007
+      }
+    },
+    "measured_trainable_parameters": {
+      "tanh": 7456,
+      "near_critical": 7648,
+      "protected": 7884,
+      "gru": 8240,
+      "lstm": 8208
+    },
+    "theory_reference": "excluded: no token-prediction model is specified"
+  }
+}

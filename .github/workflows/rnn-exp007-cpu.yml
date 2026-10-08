@@ -1,0 +1,72 @@
+name: RNN Experiment 007 — addressed retrieval control
+
+on:
+  push:
+    branches:
+      - prototype/rnn-llm-architecture-v0-20261007
+    paths:
+      - 'prototypes/rnn_llm_architecture/experiment_007.py'
+      - 'prototypes/rnn_llm_architecture/test_experiment_007.py'
+      - '.github/workflows/rnn-exp007-cpu.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rnn-exp007-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  addressed-reader-study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU dependencies
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==2.4.6 scipy==1.17.1 pytest==9.1.1 \
+            filelock typing-extensions setuptools sympy networkx jinja2 fsspec
+          python -m pip install --disable-pip-version-check \
+            --index-url https://download.pytorch.org/whl/cpu \
+            --no-deps 'torch==2.14.1+cpu'
+          python -c 'import torch; assert torch.version.cuda is None and not torch.cuda.is_available(); print(torch.__version__)'
+      - name: Complete architecture and retrieval suite
+        run: python -m pytest -q -o addopts= -p no:cacheprovider prototypes/rnn_llm_architecture/
+      - name: Bounded query-aware memory retrieval experiment
+        run: |
+          python -m prototypes.rnn_llm_architecture.experiment_007 \
+            --output "${RUNNER_TEMP}/rnn-exp007-results.json" \
+            --variants protected_w32,gru_w32,lstm_w32 \
+            --seeds 17,29,43 --delays 16,64 \
+            --pretrain-steps 200 --additional-steps 150 \
+            --batch 16 --head-examples 1024 --head-batch 64 \
+            --eval-examples 512 --max-wall-seconds 540
+      - name: Preserve source snapshot
+        if: always()
+        run: |
+          tar -czf "${RUNNER_TEMP}/rnn-exp007-source.tar.gz" \
+            AGENTS.md prototypes/rnn_llm_architecture
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rnn-exp007-evidence
+          path: |
+            ${{ runner.temp }}/rnn-exp007-results.json
+            ${{ runner.temp }}/rnn-exp007-source.tar.gz
+          if-no-files-found: warn

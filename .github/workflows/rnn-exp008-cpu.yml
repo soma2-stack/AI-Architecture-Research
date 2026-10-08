@@ -1,0 +1,71 @@
+name: RNN Experiment 008 — curriculum versus fixed-length training
+
+on:
+  push:
+    branches:
+      - prototype/rnn-llm-architecture-v0-20261007
+    paths:
+      - 'prototypes/rnn_llm_architecture/experiment_008.py'
+      - 'prototypes/rnn_llm_architecture/test_experiment_008.py'
+      - '.github/workflows/rnn-exp008-cpu.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rnn-exp008-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  curriculum-study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU dependencies
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==2.4.6 scipy==1.17.1 pytest==9.1.1 \
+            filelock typing-extensions setuptools sympy networkx jinja2 fsspec
+          python -m pip install --disable-pip-version-check \
+            --index-url https://download.pytorch.org/whl/cpu \
+            --no-deps 'torch==2.14.1+cpu'
+          python -c 'import torch; assert torch.version.cuda is None and not torch.cuda.is_available(); print(torch.__version__)'
+      - name: Complete architecture and curriculum suite
+        run: python -m pytest -q -o addopts= -p no:cacheprovider prototypes/rnn_llm_architecture/
+      - name: Bounded four-schedule two-slot experiment
+        run: |
+          python -m prototypes.rnn_llm_architecture.experiment_008 \
+            --output "${RUNNER_TEMP}/rnn-exp008-results.json" \
+            --variants protected_w32,gru_w32,lstm_w32 \
+            --seeds 17,29,43 --schedules curriculum,shuffled,fixed64,fixed128 \
+            --steps-per-stage 60 --batch 16 --eval-examples 256 \
+            --max-wall-seconds 720
+      - name: Archive exact tested source
+        if: always()
+        run: |
+          tar -czf "${RUNNER_TEMP}/rnn-exp008-source.tar.gz" \
+            AGENTS.md prototypes/rnn_llm_architecture
+      - name: Upload raw evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rnn-exp008-evidence
+          path: |
+            ${{ runner.temp }}/rnn-exp008-results.json
+            ${{ runner.temp }}/rnn-exp008-source.tar.gz
+          if-no-files-found: warn
