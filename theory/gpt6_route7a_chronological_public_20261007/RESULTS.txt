@@ -1,3 +1,6 @@
+SUPERSEDED / INVALID FOR INTENDED TRACE-NEUTRAL PROTOCOL (2026-10-08)
+The old script failed to advance the local sensitivity trace during public precharge. Its gate-3 compensation used the wrong incoming trace, so all M/L/H numerical scores below require corrected replay. See ERRATUM.md. Do not cite these as verified corrected-model measurements.
+
 Reproduction log: finite reduced reference-state model; all numeric evidence is finite-size.
 Use chronological_probe.py (NumPy required). These runs are NOT asymptotically admitted corridor certificates.
 
