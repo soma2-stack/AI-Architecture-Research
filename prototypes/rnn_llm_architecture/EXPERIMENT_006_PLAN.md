@@ -1,6 +1,6 @@
 # Experiment 006 — frozen-state storage vs retrieval diagnosis
 
-**Status:** preregistered bounded CPU diagnostic; outputs must be reported with all seeds, including failures. The frozen dense-tanh learning-credit theorem remains OPEN and is not tested.
+**Status:** protocol committed before the hosted run; **completed** in [GitHub Actions #37715859355](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37715859355), 24/24 runs, 164/164 tests passed. [Results and limitations](EXPERIMENT_006_RESULTS.md). The frozen dense-tanh learning-credit theorem remains OPEN and is not tested.
 
 ## Decision to be resolved
 
