@@ -86,7 +86,7 @@ Regression details:
 }
 ```
 
-An initial result-reporting TypeError (abs applied to a Python list) was fixed before any main case was checkpointed. The passed regression results were reused; no superseded scientific measurement was promoted. run.log preserves this event.
+An initial result-reporting TypeError (abs applied to a Python list) was fixed before any main case was checkpointed. The passed regression results were reused; no superseded scientific measurement was promoted. [RUN_LOG.txt](RUN_LOG.txt) preserves this event and the completed run.
 
 ## Deterministic public bath/front certificate
 

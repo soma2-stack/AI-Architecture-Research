@@ -35,7 +35,7 @@ f"Maximum live trace-neutrality residual: {max(x['maxtrace'] for x in d['cases']
 f"Maximum measured driven/capture inverse-lift input: {max(x['maxinput'] for x in d['cases']):.6g}.",
 f"Gate range over main cases: [{min(x['gate_min'] for x in d['cases']):.6g}, {max(x['gate_max'] for x in d['cases']):.17g}]. Zero gates at a saturated front are floating-point tanh rounding, not a prescribed illegal donor gate.",
 '', 'Regression details:', '', '```json',json.dumps(d['regression'],indent=2),'```','',
-'An initial result-reporting TypeError (abs applied to a Python list) was fixed before any main case was checkpointed. The passed regression results were reused; no superseded scientific measurement was promoted. run.log preserves this event.','',
+'An initial result-reporting TypeError (abs applied to a Python list) was fixed before any main case was checkpointed. The passed regression results were reused; no superseded scientific measurement was promoted. [RUN_LOG.txt](RUN_LOG.txt) preserves this event and the completed run.','',
 '## Deterministic public bath/front certificate','',
 'These values come from the support-bound proof in RESEARCH.md, not empirical maxima. They certify the stated reference bath/front premises for the three listed geometries; dense lifting and source/query assumptions remain separate.','',
 '| n | m | N | bath-gate upper | first-front upper | certified |','|---:|---:|---:|---:|---:|---|']

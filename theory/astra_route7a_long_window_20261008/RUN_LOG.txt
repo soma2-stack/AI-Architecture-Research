@@ -1,0 +1,50 @@
+REGRESSION {'W1_previous_gate_error': 3.3306690738754696e-16, 'cases': [{'W': 1, 'dense_sparse_gate_error': 4.440892098500626e-16, 'pairing_relative': 3.6588393135168556e-14, 'full_local_trace_error': 0.0, 'dense_adjoint_pairing_absolute': 5.551115123125783e-16}, {'W': 4, 'dense_sparse_gate_error': 4.440892098500626e-16, 'pairing_relative': 1.4657542072934108e-14, 'full_local_trace_error': 0.0, 'dense_adjoint_pairing_absolute': 6.661338147750939e-16}, {'W': 64, 'dense_sparse_gate_error': 4.440892098500626e-16, 'pairing_relative': 7.05630015854198e-14, 'full_local_trace_error': 0.0, 'dense_adjoint_pairing_absolute': 1.0408340855860843e-15}], 'DC_identity_error': 4.885328253045884e-14, 'constant_field_unmatched_initial_response': -0.003900536442723035}
+START (32768, 8, 4, 1, 256, False, 'random')
+Traceback (most recent call last):
+  File "C:\Users\coler\OneDrive\Desktop\ai new\theory\astra_route7a_long_window_20261008\run_experiments.py", line 138, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\theory\astra_route7a_long_window_20261008\run_experiments.py", line 128, in main
+    print('START',item,flush=True);out=case(*item);data['cases'].append(out);save(path,data)
+                                       ^^^^^^^^^^^
+  File "C:\Users\coler\OneDrive\Desktop\ai new\theory\astra_route7a_long_window_20261008\run_experiments.py", line 85, in case
+    J_sup=float(np.max(abs(pp['J']))),J_TV=float(np.sum(abs(np.diff(pp['J'])))),
+                       ^^^^^^^^^^^^
+TypeError: bad operand type for abs(): 'list'
+START (32768, 8, 4, 1, 256, False, 'random')
+DONE 32768 8 4 1 random 1.0095063906327992e-09 0.9199926853179932
+START (32768, 8, 4, 4, 256, False, 'random')
+DONE 32768 8 4 4 random 1.276987586643146e-09 0.9965178966522217
+START (32768, 8, 4, 8, 256, False, 'random')
+DONE 32768 8 4 8 random 2.0620797165837395e-09 1.2366163730621338
+START (32768, 8, 4, 16, 256, False, 'random')
+DONE 32768 8 4 16 random 3.0180062597546304e-09 2.7454144954681396
+START (32768, 8, 4, 32, 256, False, 'random')
+DONE 32768 8 4 32 random 4.2672975660063005e-09 3.0346567630767822
+START (32768, 8, 4, 64, 256, False, 'random')
+DONE 32768 8 4 64 random 5.908661791325508e-09 4.098676443099976
+START (16384, 4, 2, 1, 128, False, 'random')
+DONE 16384 4 2 1 random 9.527719001700896e-10 0.7792983055114746
+START (16384, 4, 2, 16, 128, False, 'random')
+DONE 16384 4 2 16 random 2.5844641173258795e-09 0.981266975402832
+START (16384, 4, 2, 64, 128, False, 'random')
+DONE 16384 4 2 64 random 4.872251311577358e-09 1.5860035419464111
+START (65536, 16, 8, 1, 256, False, 'random')
+DONE 65536 16 8 1 random 8.829424178161775e-10 3.108515739440918
+START (65536, 16, 8, 16, 256, False, 'random')
+DONE 65536 16 8 16 random 2.812734947477552e-09 4.387828826904297
+START (65536, 16, 8, 64, 256, False, 'random')
+DONE 65536 16 8 64 random 5.716575171216174e-09 9.235832452774048
+START (32768, 8, 4, 1, 256, False, 'aligned')
+DONE 32768 8 4 1 aligned 1.7398807849516665e-09 2.2276928424835205
+START (32768, 8, 4, 64, 256, False, 'aligned')
+DONE 32768 8 4 64 aligned 1.2413070357588648e-08 4.222370624542236
+START (1048576, 8, 4, 1, 2048, True, 'random')
+DONE 1048576 8 4 1 random 3.148908425579871e-11 451.37144351005554
+START (1048576, 8, 4, 16, 2048, True, 'random')
+DONE 1048576 8 4 16 random 9.568386794570495e-11 361.9898307323456
+START (1048576, 8, 4, 64, 2048, True, 'random')
+DONE 1048576 8 4 64 random 1.9557421312992376e-10 342.3046374320984
+JACOBIAN 1 [3.597448287051573e-12, 3.400430414480376e-12, 3.25900262532205e-12, 3.202938615321448e-12, 1.7163021070316896e-12, 1.0246805953138126e-12, 6.316364250990998e-13, 3.183255517304939e-13]
+JACOBIAN 16 [8.500586186016892e-12, 7.666742940158775e-12, 7.402834789231066e-12, 7.360647287954605e-12, 4.116518594447484e-12, 2.136081127154618e-12, 9.310262349208579e-13, 4.652171193946221e-13]
+JACOBIAN 64 [2.2615582073345744e-11, 2.0506701045284827e-11, 1.9426399038411237e-11, 1.941230996948846e-11, 8.955460524406055e-12, 6.063929869601338e-12, 8.148411114476121e-13, 2.9532751845046297e-13]
