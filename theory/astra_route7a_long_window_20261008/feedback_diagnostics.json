@@ -1,0 +1,89 @@
+[
+  {
+    "n": 16384,
+    "m": 4,
+    "R": 2,
+    "W": 1,
+    "L": 128,
+    "blocks": [
+      {
+        "stage": 0,
+        "identity_error": 3.572361455045012e-18,
+        "old_max": 0.0,
+        "unmatched_initial_max": 7.75970327673797e-09,
+        "variation_max": 7.955818055323727e-09,
+        "actual_delta_field_max": 3.170119287078287e-06,
+        "actual_delta_receiver_max": 3.169923172303274e-06
+      },
+      {
+        "stage": 1,
+        "identity_error": 1.7220179817679926e-18,
+        "old_max": 3.15352063213046e-06,
+        "unmatched_initial_max": 7.19116015716429e-09,
+        "variation_max": 7.90577912877297e-09,
+        "actual_delta_field_max": 6.3786013646423615e-06,
+        "actual_delta_receiver_max": 3.225405241936291e-06
+      }
+    ],
+    "best_found_H": 9.56198514659176e-11,
+    "M_at_H_query": 7.323798037995105e-10
+  },
+  {
+    "n": 16384,
+    "m": 4,
+    "R": 2,
+    "W": 16,
+    "L": 128,
+    "blocks": [
+      {
+        "stage": 0,
+        "identity_error": 1.0465939096274135e-17,
+        "old_max": 0.0,
+        "unmatched_initial_max": 5.911178003381525e-08,
+        "variation_max": 1.730039528472548e-10,
+        "actual_delta_field_max": 3.292812190509707e-06,
+        "actual_delta_receiver_max": 3.3520969745029494e-06
+      },
+      {
+        "stage": 1,
+        "identity_error": 8.499975625696904e-18,
+        "old_max": 3.3317298082468067e-06,
+        "unmatched_initial_max": 6.352810858306206e-08,
+        "variation_max": 1.3200195057471521e-07,
+        "actual_delta_field_max": 6.890558952455395e-06,
+        "actual_delta_receiver_max": 3.7451309003143363e-06
+      }
+    ],
+    "best_found_H": 5.007865538490896e-10,
+    "M_at_H_query": 2.3526802840713207e-09
+  },
+  {
+    "n": 16384,
+    "m": 4,
+    "R": 2,
+    "W": 64,
+    "L": 128,
+    "blocks": [
+      {
+        "stage": 0,
+        "identity_error": 2.8299370767766174e-18,
+        "old_max": 0.0,
+        "unmatched_initial_max": 1.6950306129115894e-07,
+        "variation_max": 7.471215218958389e-08,
+        "actual_delta_field_max": 3.6499015133629e-06,
+        "actual_delta_receiver_max": 3.894116726840813e-06
+      },
+      {
+        "stage": 1,
+        "identity_error": 2.5805705771049514e-17,
+        "old_max": 3.859189841690433e-06,
+        "unmatched_initial_max": 2.8379319160463786e-07,
+        "variation_max": 6.442177385250959e-07,
+        "actual_delta_field_max": 8.65014886798558e-06,
+        "actual_delta_receiver_max": 5.635250649567436e-06
+      }
+    ],
+    "best_found_H": 1.5897360609744582e-09,
+    "M_at_H_query": 1.5913035425521193e-09
+  }
+]

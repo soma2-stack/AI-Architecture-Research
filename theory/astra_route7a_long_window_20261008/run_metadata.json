@@ -1,0 +1,17 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "numpy": "2.4.6",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "dtype": "float64",
+  "device": "CPU",
+  "source_commit": "1fa6b00018f7dceb72b689c4ebdbe3928ba717f9",
+  "seed": 812,
+  "robust_target": 0.002,
+  "query_starts_small": 3,
+  "query_iterations_small": 2,
+  "query_starts_large": 2,
+  "query_iterations_large": 1,
+  "GH": "1-n^-2; W=1 regression also uses historical .99999",
+  "capture": "last high step before compensation",
+  "reference_only": true
+}
