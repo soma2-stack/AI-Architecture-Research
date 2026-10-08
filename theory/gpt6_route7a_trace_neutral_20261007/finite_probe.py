@@ -120,4 +120,4 @@ def probe(n,m,R,L):
 if __name__=="__main__":
     for R in (1,2,3,4):
         print(probe(1024,3,R,ceil(sqrt(1024*R))),flush=True)
-    print(probe(2048,4,2,ceil(sqrt(2048*2))),flush=True)
+    print(probe(2048,4,2,65),flush=True)
