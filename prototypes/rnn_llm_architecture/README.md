@@ -192,3 +192,9 @@ At 64-token training, the protected family learned single tagged-bit memory in t
 [Protocol](EXPERIMENT_004_PLAN.md) · [Full per-seed analysis](EXPERIMENT_004_RESULTS.md) · [All 27 raw runs](reports/experiment_004_results.json) · [Hosted CPU run](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37712871182)
 
 Training both independent slot queries from the same prefix improved the protected model's updated-slot answer, **but not exact two-slot storage**. Its mean both-slot success at training length 64 was 51.7%, versus roughly 50% naive last-write; only 3.3% when A≠B. It fell to 27.8% both-slot success at 256 tokens. The next architecture hypothesis is a state-conditioned slow-write gate; these results do **not** establish new theoretical D or a unique mechanism.
+
+## Experiment 005 results — state-conditioned write gate
+
+[Preregistered protocol](EXPERIMENT_005_PLAN.md) · [Full results and negative outcome](EXPERIMENT_005_RESULTS.md) · [Complete 30-run JSON](reports/experiment_005_results.json) · [Hosted CPU evidence](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37714510923)
+
+State-conditioned gates were an additive, zero-initialized GRU-like modification of the slow write update, preserving the original protected baseline. Hosted PyTorch CPU tests passed 156/156 and all 30/30 conditions completed. **No consistent primary unequal-pair accuracy improvement:** at train delay 16, original 19.0% versus state-gated 20.3%; at delay 64, original 2.6% versus state-gated 0.9%. Three seeds, same width and unequal parameter budgets. The 2-slot selective-memory gap remains open; the main formal theorem is unrelated and OPEN.
