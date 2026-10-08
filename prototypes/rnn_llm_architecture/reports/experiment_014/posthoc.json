@@ -1,0 +1,138 @@
+{
+ "label": "POST-HOC, not preregistered",
+ "late_cut_layer1_64_tokens": {
+  "prot_success_43_29": {
+   "n_eligible": 512,
+   "both_switch": 0.001953125,
+   "only_protected": 0.99609375,
+   "only_complement": 0.0,
+   "neither": 0.001953125,
+   "per_slot_switch_protected": [
+    1.0,
+    0.9921875,
+    1.0,
+    1.0
+   ],
+   "per_slot_switch_complement": [
+    0.0,
+    0.0078125,
+    0.0,
+    0.0
+   ]
+  },
+  "prot_success_43_43": {
+   "n_eligible": 512,
+   "both_switch": 0.013671875,
+   "only_protected": 0.97265625,
+   "only_complement": 0.0,
+   "neither": 0.013671875,
+   "per_slot_switch_protected": [
+    0.9765625,
+    0.96875,
+    1.0,
+    1.0
+   ],
+   "per_slot_switch_complement": [
+    0.03125,
+    0.0234375,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed005_success_43_43": {
+   "n_eligible": 510,
+   "both_switch": 0.0,
+   "only_protected": 0.0,
+   "only_complement": 0.9960784316062927,
+   "neither": 0.003921568859368563,
+   "per_slot_switch_protected": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "per_slot_switch_complement": [
+    0.984375,
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "prot_partial_43_17": {
+   "n_eligible": 382,
+   "both_switch": 0.054973822087049484,
+   "only_protected": 0.554973840713501,
+   "only_complement": 0.33507853746414185,
+   "neither": 0.054973822087049484,
+   "per_slot_switch_protected": [
+    0.0,
+    0.7400000095367432,
+    1.0,
+    0.8947368264198303
+   ],
+   "per_slot_switch_complement": [
+    1.0,
+    0.25999999046325684,
+    0.0,
+    0.10526315867900848
+   ]
+  },
+  "prot_partial_29_29": {
+   "n_eligible": 322,
+   "both_switch": 0.16149067878723145,
+   "only_protected": 0.39751553535461426,
+   "only_complement": 0.2763975262641907,
+   "neither": 0.16459627449512482,
+   "per_slot_switch_protected": [
+    1.0,
+    0.21794871985912323,
+    0.2884615361690521,
+    0.3125
+   ],
+   "per_slot_switch_complement": [
+    0.0,
+    0.7820512652397156,
+    0.7115384340286255,
+    0.671875
+   ]
+  },
+  "prot_failed_17_17": {
+   "n_eligible": 206,
+   "both_switch": 0.28155338764190674,
+   "only_protected": 0.2330097109079361,
+   "only_complement": 0.20388349890708923,
+   "neither": 0.28155338764190674,
+   "per_slot_switch_protected": [
+    0.4761904776096344,
+    0.4655172526836395,
+    0.5882353186607361,
+    0.5
+   ],
+   "per_slot_switch_complement": [
+    0.5,
+    0.5344827771186829,
+    0.4117647111415863,
+    0.5263158082962036
+   ]
+  },
+  "gru32_success_43_43": {
+   "n_eligible": 512,
+   "both_switch": 0.005859375,
+   "only_protected": 0.0,
+   "only_complement": 0.98828125,
+   "neither": 0.005859375,
+   "per_slot_switch_protected": [
+    0.0078125,
+    0.015625,
+    0.0,
+    0.0
+   ],
+   "per_slot_switch_complement": [
+    0.9921875,
+    0.984375,
+    1.0,
+    1.0
+   ]
+  }
+ }
+}

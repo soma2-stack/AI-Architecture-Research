@@ -128,3 +128,9 @@ Nine runs per condition, one per cell, three init and three data seeds; the pair
 initial gate function were not matched; diagnostics are exploratory and cover 7 reproduced + 18 fixed-gate runs; probes are linear; the
 perturbation measure covers layer 0 only. Local execution (PyTorch 2.13.0+cu130, CUDA hidden, Python 3.11.9); no hosted replication.
 Experiments 001–012 code and evidence, frozen files and `AGENTS.md` are unchanged; nothing was pushed.
+
+## Addendum (added during Experiment 014; original results and data unchanged)
+
+The statement above that "a small layer-0 perturbation ... shrinks by ≈ 10× over 64 tokens and ≈ 1,000–3,000× over 256 tokens ... yet successful runs recall 95–100 % at 256 tokens: values appear to be held by contracting, attractor-like dynamics" rests on a **layer-0** measurement.
+Experiment 014 (state transplants, [`EXPERIMENT_014_RESULTS.md`](EXPERIMENT_014_RESULTS.md)) shows layer 0 holds no memory at read time (a full layer-0 state transplant transfers 0–1 %), while layer 1 holds it and contracts generic perturbations only slowly (median ratio 0.2–0.4 over 256 tokens; the memory difference 0.66–0.88). The "attractor-like contracting dynamics" inference should be considered unsupported; the layer-0 contraction numbers themselves are correct.
+
