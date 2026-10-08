@@ -27,6 +27,8 @@ memory can avoid *both* while keeping update and retirement exact and constant-c
 
 ## Candidate 1 (strongest question, recommended): exactly decodable additive object memory — continuous keys, exact O(1) retire/update, history independence
 
+> **Update 2026-10-08 — falsified; recommended kill.** See [CANDIDATE1_FALSIFICATION.md](CANDIDATE1_FALSIFICATION.md): it is a Reed–Solomon/Vandermonde syndrome moment sketch with Prony recovery (known); edits cost Θ(K·d) scalar operations, not O(1); exact recovery for arbitrarily close continuous keys is impossible for multiset-continuous encodings in finite precision; with a separation floor it is dominated by direct addressing/hashing. The original text below is preserved unchanged.
+
 **State.** `S ∈ ℂ^{M×d_v}`, rows `S[m] = Σ_{i∈Live} v_i ω_i^m`, `m = 0..M−1`, with object key `ω_i = e^{jθ_i}`, `θ_i = κ(content_i)` produced by a learned map, value `v_i ∈ ℝ^{d_v}`.
 (This is linear-attention / fast-weight state with Fourier-feature keys; the difference is the readout.)
 
