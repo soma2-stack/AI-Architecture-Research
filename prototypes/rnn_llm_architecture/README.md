@@ -2,6 +2,8 @@
 
 **Status: untrained engineering prototype / hypothesis, NOT a proved new architecture.**
 
+**Update 2026-10-08: SUSPENDED.** Experiments 009–016 found no new primitive, no unique architectural guarantee and no advantage over GRUs; the cell reduces exactly to a known gated recurrence (Experiment 016). Code and all evidence are preserved. See [PROTOTYPE_CLOSURE.md](PROTOTYPE_CLOSURE.md) and the report-only [NEXT_DIRECTION_CANDIDATES.md](NEXT_DIRECTION_CANDIDATES.md).
+
 This isolated folder is intended to connect the [current robust credit-memory
 theory](../../theory/CURRENT_THEORY.md) to a falsifiable language-model design.
 It does not alter any theory records, experiments, research-lane notebooks,
