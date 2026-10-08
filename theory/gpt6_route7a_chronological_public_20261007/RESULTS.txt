@@ -1,0 +1,34 @@
+Reproduction log: finite reduced reference-state model; all numeric evidence is finite-size.
+Use chronological_probe.py (NumPy required). These runs are NOT asymptotically admitted corridor certificates.
+
+Balanced public Walsh captures; all +1 vs all -1 donor controls:
+n=16384  m=4  R=2   N=189   endpoint_inf=0                  optimized_M=7.79547704e-08  optimized_L=7.89790228e-08  optimized_H=4.98881373e-09
+n=32768  m=8  R=4   N=376   endpoint_inf=5.55111512e-17     optimized_M=1.49892931e-07  optimized_L=1.51450104e-07  optimized_H=9.49355303e-09
+n=65536  m=32 R=16  N=1073  endpoint_inf=1.66533454e-16     optimized_M=6.40641949e-07  optimized_L=6.49696877e-07  optimized_H=5.71728835e-08
+n=65536  m=64 R=32  N=1546  endpoint_inf=1.38777878e-16     optimized_M=1.40786036e-06  optimized_L=1.44649384e-06  optimized_H=1.80030324e-07
+n=65536  m=64 R=48  N=1919  endpoint_inf=1.52655666e-16     optimized_M=1.73977818e-06  optimized_L=1.79338693e-06  optimized_H=2.25090704e-07
+
+Optimization: all-high legal future query start, 2 updates; each channel optimized separately; no claim global maximum.
+In all tested cases max abs driven/public capture raw input < 0.12.
+A test at n=65536,m=32,R=16 showed maximum gate difference outside the donor sites = 2.220446049e-16.
+
+Full-reference operator consistency n=32768,m=8,R=4:
+norm ratio ||Ov||/||v|| relative error 2.220446049e-16
+O/O^T pairing relative error 9.310410784e-16
+M/M^T pairing relative error 1.273338844e-15
+
+One-step fixed-query samples over 4 pairs of control patterns, n=65536,m=32,R=16:
+all+ vs all-   sampled_M=3.15525173e-07   sampled_H=2.10877860e-09
+random vs random sampled_M=8.68211155e-08  sampled_H=1.14223528e-09
+checker donor signs sampled_M=3.19583753e-07 sampled_H=5.92178897e-09
+alternating stages sampled_M=6.11289298e-08 sampled_H=4.19523304e-10
+These fixed-query samples are not optimized; sampled distances are not bounds on all pairs or queries.
+
+Near-unit gate obstruction to naive contraction:
+n=16384  m=4  R=2   max g=0.999999999765579
+n=32768  m=8  R=4   max g=0.9999999999997222
+n=65536  m=32 R=16  max g=0.9999999997913802
+n=65536  m=64 R=32  max g=0.9999999999229368
+g_H=0.99999. Thus ||G_t||<=g_H is false.
+
+Model caveats: source scalar sigma approximated as .05, reference-only O_* (not dense actual R), no-wrap geometry but S<=d/100 fails for all finite widths; true chronological non-donor tanh public gates, public paired Walsh masks, public final common reset, exact reduced-memory endpoint numerical checks.
