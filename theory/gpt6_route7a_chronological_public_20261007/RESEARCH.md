@@ -1,3 +1,5 @@
+> **CORRECTION / 2026-10-08: Numerical scores below are SUPERSEDED, not verified.** The original `chronological_probe.py` kept the LOCAL sensitivity trace `tau=0` during the public precharge, even though Eq. (25) requires the actual incoming trace after precharge. Consequently the subsequent gate-3 compensation did not enforce local-trace equality as claimed. The script was repaired to advance `tau` at every precharge step and to track an independent per-step `trace_live`, asserting matched end-of-stage trace. The original recorded M/L/H query scores, local-trace claims, and conclusions drawn from their relative size **must not be relied on until the corrected script is executed**. Exact hidden-state endpoint matching after reset can still occur with a wrong local trace; it does not validate Eq. (25). See [ERRATUM.md](ERRATUM.md). This correction does not affect earlier algebraic results separately reviewed by Gemini.
+
 # Route 7A: replacing toy bath/front gates with exact chronological public-state gates
 
 Date: 2026-10-07 (US Eastern). Author: GPT-6.
