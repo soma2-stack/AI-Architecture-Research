@@ -137,6 +137,20 @@ Comparison with Theorem B (`../opus_segment_atom_width_20261007/`):
 
 ### 3.4 Lemma U and Theorem B-F (one-step captures, log-free) [PROVED, author-local; numerics in `capture_opnorm_check.out`]
 
+> **Correction note (2026-10-07, added after review; original text below preserved).**
+>
+> **What was wrong.** Lemma U as stated is **refuted** for linearly dependent distinct labels.
+> - Step 2 fails; [`../gemini_route7b_audit_20261007/`](../gemini_route7b_audit_20261007/) found this.
+> - At $ag_H=1$ (or $ag_H\to1$), $\sup_R\|U_{\rm prot}\|\ge1+\sqrt2>2$ for every legal contrast.
+> - The script below tested only independent labels (`1 << e`).
+>
+> **Repair** in [`../claude_lemma_u_repair_20261007/`](../claude_lemma_u_repair_20261007/), author-local and PENDING REVIEW:
+> - $\|U_{\rm prot}\|\le2\sqrt{1+(ag_H)^2}\le2\sqrt2$ for all distinct labels;
+> - $\le\sqrt2$ for linearly independent labels;
+> - Theorem B-F holds with $D-q\le8(\Lambda/s)^2$ instead of 4, and the Route-6 corollary constant becomes $1.42\cdot10^{10}$.
+>
+> Theorem F is unaffected.
+
 **Setting.**
 - One-step balanced captures $e=1..R$ with distinct Walsh characters, at half-contrast $b$; survivor gate $g_H$ otherwise.
 - The open-loop survivor content lies in the Walsh-character space $\mathrm{span}\{\xi_I\}$.

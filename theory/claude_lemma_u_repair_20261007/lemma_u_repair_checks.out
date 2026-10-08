@@ -1,0 +1,45 @@
+== S1. Gemini's dependent example (chi3=chi1 chi2, a=.999, gbar=.94, b=.05) ==
+<V1 xi1, V2 xi2> = 0.088095 (2a^3 gbar^2 b = 0.088095); sv(V) = [1.006431 0.96344  0.851613]
+
+== S2. Gemini's cross-term bound |G_V(e,f)| <= 2b(a gbar)^(|e-f|-1) and Gershgorin ==
+r= 4 b=0.5: min G_V = 0.00e+00 (>=0); max ratio to Gemini bound = 5.12e+02; max off-diag row sum = 1.312; ||V||^2 = 1.3703; 1+2b/(1-a gbar) = 3.0
+r= 6 b=0.5: min G_V = 0.00e+00 (>=0); max ratio to Gemini bound = 3.60e+16; max off-diag row sum = 2.266; ||V||^2 = 1.6794; 1+2b/(1-a gbar) = 3.0
+r= 8 b=0.4: min G_V = -1.38e-17 (>=0); max ratio to Gemini bound = 6.55e+53; max off-diag row sum = 3.222; ||V||^2 = 1.9143; 1+2b/(1-a gbar) = 3.0
+r=10 b=0.2: min G_V = -2.71e-17 (>=0); max ratio to Gemini bound = 2.15e+96; max off-diag row sum = 3.914; ||V||^2 = 2.0558; 1+2b/(1-a gbar) = 3.0
+
+== S3. Lemma A: max_{gamma!=0} P(X_k=gamma) <= (1-(1-2p)^((k+1)/2))/(k+1) ==
+exhaustive r<=4 (all step sets, 6 values of p): max ratio = 1.000000
+random r in 5..9 (1500 sets, all prefixes): max ratio = 1.000000
+
+== S4. Gram bound Gamma(j,k) <= 1/(max(j,k)+1); Hardy kernel norms ==
+max Gamma(j,k)(max(j,k)+1) over 200 random orders = 0.996094
+||[1/(max(j,k)+1)]||, R=10: 1.5052 (<4)
+||[1/(max(j,k)+1)]||, R=100: 2.3665 (<4)
+||[1/(max(j,k)+1)]||, R=1000: 2.8824 (<4)
+||[1/(max(j,k)+1)]||, R=3000: 3.0500 (<4)
+
+== S5. Counterexamples to ||U_prot|| <= 2 (a=gH=1, all intervals nonempty, counting order) ==
+r=11 R=2047 b=0.5: ||U_prot|| = 2.03464  ||P A_cap|| = 1.43871  (bound 2*sqrt2 = 2.8284)
+r=12 R=4095 b=0.5: ||U_prot|| = 2.07462  ||P A_cap|| = 1.46698  (bound 2*sqrt2 = 2.8284)
+r=12 R=4095 b=0.4: ||U_prot|| = 2.07027  ||P A_cap|| = 1.46390  (bound 2*sqrt2 = 2.8284)
+r=12 R=4095 b=0.2: ||U_prot|| = 2.04848  ||P A_cap|| = 1.44850  (bound 2*sqrt2 = 2.8284)
+r=12 b=0.2 a=1-1e-9 (a gH<1): ||U_prot|| = 2.04848
+
+== S6. p=1/2 level matrix M_ii' = 1/2 2^{-|i-i'|/2}(1-2^{-min}); limit (1+2^-1/2)^2 ==
+r=   4: ||P A_cap|| = 1.003523  sqrt2*that = 1.419196
+r=   8: ||P A_cap|| = 1.318917  sqrt2*that = 1.865230
+r=  12: ||P A_cap|| = 1.466975  sqrt2*that = 2.074617
+r=  20: ||P A_cap|| = 1.591972  sqrt2*that = 2.251389
+r=  50: ||P A_cap|| = 1.683260  sqrt2*that = 2.380489
+r= 200: ||P A_cap|| = 1.705431  sqrt2*that = 2.411844
+r=1000: ||P A_cap|| = 1.707038  sqrt2*that = 2.414116
+limits: 1+1/sqrt2 = 1.707107, 1+sqrt2 = 2.414214
+
+== S7. Random legal configurations, full model (a,gH<=1, b<=gH/2, dependent labels, gaps, tails) ==
+general labels: max ||U_prot|| / [2 sqrt(1+(a gH)^2)] = 0.2695 (<=1)
+independent labels: max ||U_prot|| / [sqrt(1+(a gH)^2) ab/(1-a gbar)] = 0.5827 (<=1)
+
+== S8. Adversarial orderings (walk order) vs counting order, ||P A_cap||, a=gH=1 ==
+r=3 p=0.5: exhaustive max = 0.87232; counting = 0.87232
+r=3 p=0.3: exhaustive max = 0.74347; counting = 0.74347
+r=3 p=0.1: exhaustive max = 0.37906; counting = 0.37906
