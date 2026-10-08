@@ -17,7 +17,8 @@ For each seed all models trained on a byte-identical stream (one distinct hash p
    whole-varied ≥ 90 % at delay 64) **no learned condition qualifies** (best: 1/3 seeds for `protected` and `gru32`).
    But the 800-update result of Experiment 010 was clearly an optimization plateau, not a hard wall: 2 of 12 learned
    runs solved the task (`protected` seed 43: 99.1 %; `gru32` seed 43: 100 %) and 6 of 12 left the ≈ 66 % per-slot
-   plateau (≥ 70 % at a checkpoint) — all three `gru24` seeds partially, none of `protected_no_retain`. The other runs were **still on the plateau (loss ≈ 0.59) when the 3,000-update budget ended**; that is "not learned
+   plateau (≥ 70 % at a 250-update checkpoint; 7 of 12 if the final delay-64 evaluation is used instead — see the
+   audit addendum) — all three `gru24` seeds partially, none of `protected_no_retain`. The other runs were **still on the plateau (loss ≈ 0.59) when the 3,000-update budget ended**; that is "not learned
    within the budget", not evidence of a capacity limit.
 2. **The protected RNN did not outperform the GRU.** Mean whole-varied@64: protected 37.3 %, gru24 30.3 %, gru32 38.0 %.
    The +7.0-point gap over `gru24` is below the 10-point rule, and protected was higher in only 1 of 3 paired seeds
@@ -86,3 +87,28 @@ for three of four models, entirely through a minority of seeds leaving the plate
   of the evidence; it only checked timing, stream identity and plateau status.
 - Executed locally (Windows 11, i7-14700K, PyTorch 2.13.0+cu130 with CUDA hidden, Python 3.11.9), not in the hosted CPU environment
   used for Experiments 009–010 (PyTorch 2.14.1+cpu); no hosted replication was run.
+
+## Audit addendum (added during Experiment 012 Phase 0; original results unchanged)
+
+Re-verified against the archived raw JSON with [`audit_011.py`](audit_011.py) (output:
+[`reports/experiment_011_audit/audit_011.json`](reports/experiment_011_audit/audit_011.json); pinned by `test_audit_011.py`).
+Every number in the tables above matches the raw JSON; all accuracies are exact multiples of their denominators.
+
+1. **"6 vs 7 runs ≥ 70 % per-slot" — not an error in the data, an ambiguity in the text.** The "plateau exit" column and
+   the sentence above count *checkpoints* (held-out delay 64, 128 histories, every 250 updates, taken before the last update):
+   **6** runs. The "per-slot@64" column of the per-run table is the *final* evaluation (256 histories, disjoint seeds):
+   **7** runs are ≥ 70 %. The only discordant run is `gru32` seed 29: best checkpoint 68.2 %, final evaluation 71.9 %.
+   Both counts are correct for their definitions; the 6-of-12 statement now names its definition.
+2. **Independent-guess baseline.** The reported **6.9 %** whole-memory figure is an *empirical* mean over the three seeds'
+   evaluation sets of a seeded uniform random guesser (per-seed 7.0 %, 9.8 %, 3.9 % on 256 histories each).
+   The *theoretical* probability is (1/2)^4 = **6.25 %**, and because the guesses are independent of the labels it is also
+   6.25 % in the varied-only stratum (empirical 6.8 %). The binomial standard error is ≈ 1.5 points per evaluation set
+   (≈ 0.9 for a mean of three), so 6.9 % is consistent with 6.25 %. The 50.6 % per-slot guess figure is likewise empirical (theory 50 %).
+   The earlier Experiment 010 text implying the varied-stratum chance "may differ" does not apply to an independent-guess baseline.
+3. **Seed coupling (important for interpretation).** In Experiment 011 one number per run set *all three* of: the model
+   initialization (`config.seed` → `torch.manual_seed` inside `fork_rng`), the training stream
+   (`seed·1,000,003 + step·8191 + …`) and the evaluation histories (`11,000,000 + seed·100,003 + delay`). A "seed 43" success
+   therefore confounds initialization, training stream and the particular evaluation set. Nothing else consumes global
+   RNG state (no dropout; AdamW is deterministic), so the three can be separated — Experiment 012 does so.
+4. Other statements re-checked and confirmed: 2/12 learned runs ≥ 90 % whole-varied@64 (`protected` s43, `gru32` s43);
+   protected vs `gru24` per seed 0.0/12.7/99.1 % vs 41.2/34.2/15.6 %; one training-stream hash per seed.

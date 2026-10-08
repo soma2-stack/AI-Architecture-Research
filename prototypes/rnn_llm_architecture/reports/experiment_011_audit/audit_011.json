@@ -1,0 +1,174 @@
+{
+  "n_runs": 15,
+  "n_learned": 12,
+  "issues": [],
+  "non_integral_accuracy_values": 0,
+  "per_slot_ge70_checkpoint_definition": {
+    "count": 6,
+    "runs": [
+      [
+        "gru24",
+        17
+      ],
+      [
+        "gru24",
+        29
+      ],
+      [
+        "gru24",
+        43
+      ],
+      [
+        "gru32",
+        43
+      ],
+      [
+        "protected",
+        29
+      ],
+      [
+        "protected",
+        43
+      ]
+    ]
+  },
+  "per_slot_ge70_final_eval_definition": {
+    "count": 7,
+    "runs": [
+      [
+        "gru24",
+        17
+      ],
+      [
+        "gru24",
+        29
+      ],
+      [
+        "gru24",
+        43
+      ],
+      [
+        "gru32",
+        29
+      ],
+      [
+        "gru32",
+        43
+      ],
+      [
+        "protected",
+        29
+      ],
+      [
+        "protected",
+        43
+      ]
+    ]
+  },
+  "discordant": [
+    [
+      "gru32",
+      29
+    ]
+  ],
+  "discordant_detail": {
+    "gru32:29": {
+      "checkpoint_max": 0.681640625,
+      "final_eval": 0.71875
+    }
+  },
+  "solved_ge90_whole_varied_64": [
+    [
+      "gru32",
+      43
+    ],
+    [
+      "protected",
+      43
+    ]
+  ],
+  "means_whole_varied_64": {
+    "protected": 0.37276802957057953,
+    "protected_no_retain": 0.0,
+    "gru24": 0.30314184725284576,
+    "gru32": 0.38011695941289264
+  },
+  "independent_guess_empirical": {
+    "64": {
+      "whole_mean_over_3_eval_sets": 0.06901041666666667,
+      "per_slot_mean": 0.505859375,
+      "whole_varied_mean": 0.06814832488695781,
+      "whole_per_seed": [
+        0.0703125,
+        0.09765625,
+        0.0390625
+      ]
+    },
+    "128": {
+      "whole_mean_over_3_eval_sets": 0.06901041666666667,
+      "per_slot_mean": 0.4944661458333333,
+      "whole_varied_mean": 0.0702922095855077,
+      "whole_per_seed": [
+        0.0625,
+        0.0625,
+        0.08203125
+      ]
+    },
+    "256": {
+      "whole_mean_over_3_eval_sets": 0.07682291666666667,
+      "per_slot_mean": 0.5068359375,
+      "whole_varied_mean": 0.06992793828248978,
+      "whole_per_seed": [
+        0.0859375,
+        0.078125,
+        0.06640625
+      ]
+    },
+    "512": {
+      "whole_mean_over_3_eval_sets": 0.06901041666666667,
+      "per_slot_mean": 0.5130208333333334,
+      "whole_varied_mean": 0.06352686882019043,
+      "whole_per_seed": [
+        0.05078125,
+        0.08984375,
+        0.06640625
+      ]
+    }
+  },
+  "independent_guess_theory": {
+    "per_slot": 0.5,
+    "whole": 0.0625,
+    "whole_varied": 0.0625,
+    "note": "guesses are independent of labels, so P(all 4 right)=1/16 in ANY stratum, including varied-only",
+    "binomial_se_single_eval_set_256_histories": 0.015128841196122723,
+    "binomial_se_mean_of_3_sets": 0.008734640537108554
+  },
+  "independent_guess_reported_6_9_is_whole_at_64_mean_of_3_sets": 0.06901041666666667,
+  "baselines_regenerated_identical": true,
+  "coupling": {
+    "model_init_seed": "build(name,4,2,seed): config.seed -> torch.manual_seed inside fork_rng (== run seed)",
+    "training_data_seed": "training_seed(seed,step)=seed*1_000_003+step*8191+4*197+2 (== run seed)",
+    "evaluation_seed": "eval_seed(seed,delay)=11_000_000+seed*100_003+delay (== run seed; checkpoint stream +1)",
+    "consequence": "In Exp 011 all three were the SAME number per run, so 'seed 43' confounds initialization, training stream and the evaluation histories.",
+    "eval_sets_differ_by_seed": true
+  },
+  "stream_hashes_per_seed_unique": {
+    "17": 1,
+    "29": 1,
+    "43": 1
+  },
+  "protected_vs_gru24_whole_varied_64": {
+    "17": [
+      0.0,
+      0.4117647111415863
+    ],
+    "29": [
+      0.12719298899173737,
+      0.34210526943206787
+    ],
+    "43": [
+      0.9911110997200012,
+      0.15555556118488312
+    ]
+  }
+}
