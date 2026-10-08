@@ -54,7 +54,7 @@ def make_history(n,m,R,controls,mask=True,L=None):
     for t in range(1,N+1):
         raw=BIAS+a*o_apply(n,h)
         new=np.tanh(raw)
-        donor=np.r_[A+1+np.arange(m)+t,B+1+np.arange(m)+t,stationary]-1
+        donor=np.r_[A+np.arange(m)+t,B+np.arange(m)+t,stationary]  # stationary already zero-based
         if t<=L:
             dg=np.full(m,GH)
             tau=GH*(1+a*tau)  # CRITICAL: charge the local sensitivity trace during precharge
@@ -126,6 +126,16 @@ def optimized_three(n,m,R,iterations=2):
     hminus=make_history(n,m,R,-np.ones((R,m)))
     same=float(np.max(abs(hplus['endpoint']-hminus['endpoint'])))
     if same>1e-12:raise AssertionError("not same endpoint")
+    # Independent gate-set regression: no control-dependent gates outside
+    # the two moving donor tracks plus the two stationary compensator banks.
+    d=n//4; S=hplus['S']; station=np.r_[d+5+2*np.arange(m),d+6+2*np.arange(m)]-1
+    max_non_donor_gate_diff=0.
+    for t,(gp,gm) in enumerate(zip(hplus['gates'],hminus['gates']),start=1):
+        moving=np.r_[2*S+np.arange(m)+t,5*S+np.arange(m)+t]
+        mask=np.ones(n//2-1,dtype=bool)
+        mask[np.r_[moving,station]]=False
+        max_non_donor_gate_diff=max(max_non_donor_gate_diff,float(np.max(abs(gp[mask]-gm[mask]))))
+    if max_non_donor_gate_diff>1e-12:raise AssertionError("private gate outside donor sites")
     glo=1/math.cosh(.75)**2; ghi=1/math.cosh(.25)**2
     factor=SIGMA*math.sqrt(n//2)/n;a=1-1/n
     out={}
@@ -152,6 +162,7 @@ def optimized_three(n,m,R,iterations=2):
                 endpoint_error=same,max_driven_or_public_capture_input=hplus['maxinput'],
                 max_stage_trace_error=max(hplus['max_stage_trace_error'],hminus['max_stage_trace_error']),
                 precharge_trace=hplus['precharge_trace'],
+                max_non_donor_gate_diff=max_non_donor_gate_diff,
                 max_public_or_private_gate=maxgate,
                 optimized_one_step_M=out['M'],
                 optimized_one_step_L=out['L'],
