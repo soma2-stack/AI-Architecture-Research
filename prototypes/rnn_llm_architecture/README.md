@@ -180,3 +180,9 @@ theorem evidence was obtained. Keep these tasks and claims separate.
 [Experiment plan](EXPERIMENT_002_PLAN.md) · [Full results and negative findings](EXPERIMENT_002_RESULTS.md) · [66-run raw JSON](reports/experiment_002_results.json) · [Hosted CPU evidence](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37710980507)
 
 The protected model learned one-bit delayed recall at 64 tokens and often transferred to 128/256 tokens, but **not in every seed**. A no-projection ablation did just as well or better at the longest test length; Walsh-specific advantage has not been established. Counterfactual **both-slot** accuracy remained below a last-write shortcut on selective updating. Formal robust learning-credit dimension remains **OPEN**.
+
+## Experiment 003 results
+
+[Protocol and scope](EXPERIMENT_003_PLAN.md) · [Complete report](EXPERIMENT_003_RESULTS.md) · [All 42 runs](reports/experiment_003_results.json) · [GitHub-hosted evidence](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37712102670)
+
+At 64-token training, the protected family learned single tagged-bit memory in the presence of competing bit tokens. The original protected cell averaged 87.6% on 256-token interference, while random-orthonormal and no-projection variants both reached 100% at that tested length. This does **not** establish Walsh-specific or projection-specific benefit, independent two-slot storage, token-model generality or formal learning-credit dimension.
