@@ -186,3 +186,9 @@ The protected model learned one-bit delayed recall at 64 tokens and often transf
 [Protocol and scope](EXPERIMENT_003_PLAN.md) · [Complete report](EXPERIMENT_003_RESULTS.md) · [All 42 runs](reports/experiment_003_results.json) · [GitHub-hosted evidence](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37712102670)
 
 At 64-token training, the protected family learned single tagged-bit memory in the presence of competing bit tokens. The original protected cell averaged 87.6% on 256-token interference, while random-orthonormal and no-projection variants both reached 100% at that tested length. This does **not** establish Walsh-specific or projection-specific benefit, independent two-slot storage, token-model generality or formal learning-credit dimension.
+
+## Experiment 004 results
+
+[Protocol](EXPERIMENT_004_PLAN.md) · [Full per-seed analysis](EXPERIMENT_004_RESULTS.md) · [All 27 raw runs](reports/experiment_004_results.json) · [Hosted CPU run](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37712871182)
+
+Training both independent slot queries from the same prefix improved the protected model's updated-slot answer, **but not exact two-slot storage**. Its mean both-slot success at training length 64 was 51.7%, versus roughly 50% naive last-write; only 3.3% when A≠B. It fell to 27.8% both-slot success at 256 tokens. The next architecture hypothesis is a state-conditioned slow-write gate; these results do **not** establish new theoretical D or a unique mechanism.
