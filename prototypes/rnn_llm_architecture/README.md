@@ -174,3 +174,9 @@ seeds; GRU/LSTM/ordinary controls were near chance at **that bounded budget**.
 Selective overwrite remains much weaker and admits a last-write shortcut.
 No parameter-matched training, general-language evaluation, or formal-D
 theorem evidence was obtained. Keep these tasks and claims separate.
+
+## Experiment 002 results
+
+[Experiment plan](EXPERIMENT_002_PLAN.md) · [Full results and negative findings](EXPERIMENT_002_RESULTS.md) · [66-run raw JSON](reports/experiment_002_results.json) · [Hosted CPU evidence](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37710980507)
+
+The protected model learned one-bit delayed recall at 64 tokens and often transferred to 128/256 tokens, but **not in every seed**. A no-projection ablation did just as well or better at the longest test length; Walsh-specific advantage has not been established. Counterfactual **both-slot** accuracy remained below a last-write shortcut on selective updating. Formal robust learning-credit dimension remains **OPEN**.
