@@ -1,5 +1,5 @@
 {
-  "scope": "Reproducible architecture-only definitions; no training invocation. Equal width is not equal trainable parameters or compute.",
+  "scope": "Reproducible architecture-only definitions; no training invocation. Equal width is not equal trainable parameters or compute. Parameter-matched variants target trainable scalar count and may change width/layer depth.",
   "token_configurations": {
     "tanh_w16": {
       "vocab_size": 97,
@@ -263,5 +263,139 @@
     "release_steps": 2,
     "dtype": "float64",
     "robust_margin": "OPEN"
+  },
+  "gated_equal_width_configurations": {
+    "gru_w16": {
+      "vocab_size": 97,
+      "width": 16,
+      "layers": 2,
+      "cell_type": "gru",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "lstm_w16": {
+      "vocab_size": 97,
+      "width": 16,
+      "layers": 2,
+      "cell_type": "lstm",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "gru_w32": {
+      "vocab_size": 97,
+      "width": 32,
+      "layers": 2,
+      "cell_type": "gru",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "lstm_w32": {
+      "vocab_size": 97,
+      "width": 32,
+      "layers": 2,
+      "cell_type": "lstm",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "gru_w64": {
+      "vocab_size": 97,
+      "width": 64,
+      "layers": 2,
+      "cell_type": "gru",
+      "precision": "float32",
+      "seed": 20261007
+    },
+    "lstm_w64": {
+      "vocab_size": 97,
+      "width": 64,
+      "layers": 2,
+      "cell_type": "lstm",
+      "precision": "float32",
+      "seed": 20261007
+    }
+  },
+  "parameter_matched_to_standard_w32_l2": {
+    "matching_basis": "trainable scalar parameter count; nearest available among widths 16/32/64 and layers 1..8",
+    "target_trainable_parameters": 7456,
+    "configurations": {
+      "tanh": {
+        "vocab_size": 97,
+        "width": 32,
+        "layers": 2,
+        "cell_type": "tanh",
+        "protected_channels": 8,
+        "precision": "float32",
+        "seed": 20261007,
+        "gap": null,
+        "leak": 1.0,
+        "operator": "orthogonal",
+        "slow_write_bias": -3.0,
+        "project_fast": true,
+        "retain_slow": true,
+        "slow_feedback": true,
+        "orthogonal_masks": true,
+        "protected_basis": "walsh"
+      },
+      "near_critical": {
+        "vocab_size": 97,
+        "width": 32,
+        "layers": 4,
+        "cell_type": "near_critical",
+        "protected_channels": 8,
+        "precision": "float32",
+        "seed": 20261007,
+        "gap": null,
+        "leak": 1.0,
+        "operator": "orthogonal",
+        "slow_write_bias": -3.0,
+        "project_fast": true,
+        "retain_slow": true,
+        "slow_feedback": true,
+        "orthogonal_masks": true,
+        "protected_basis": "walsh"
+      },
+      "protected": {
+        "vocab_size": 97,
+        "width": 16,
+        "layers": 7,
+        "cell_type": "protected",
+        "protected_channels": 4,
+        "precision": "float32",
+        "seed": 20261007,
+        "gap": null,
+        "leak": 1.0,
+        "operator": "orthogonal",
+        "slow_write_bias": -3.0,
+        "project_fast": true,
+        "retain_slow": true,
+        "slow_feedback": true,
+        "orthogonal_masks": true,
+        "protected_basis": "walsh"
+      },
+      "gru": {
+        "vocab_size": 97,
+        "width": 16,
+        "layers": 4,
+        "cell_type": "gru",
+        "precision": "float32",
+        "seed": 20261007
+      },
+      "lstm": {
+        "vocab_size": 97,
+        "width": 16,
+        "layers": 3,
+        "cell_type": "lstm",
+        "precision": "float32",
+        "seed": 20261007
+      }
+    },
+    "measured_trainable_parameters": {
+      "tanh": 7456,
+      "near_critical": 7648,
+      "protected": 7884,
+      "gru": 8240,
+      "lstm": 8208
+    },
+    "theory_reference": "excluded: no token-prediction model is specified"
   }
 }

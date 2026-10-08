@@ -25,9 +25,9 @@ fixed-feature credit recurrence, with
 **This fourth path is NOT a fourth runnable token-prediction cell yet.**
 It does not implement the full frozen dense-tanh legal-query protocol,
 the Route-6 construction, or the unsolved strict-budget theorem.
-The three existing runnable variants remain unchanged.
+The original three runnable variants remain unchanged as frozen baselines.
 
-## Three model variants
+## Five token-model variants and one mathematical reference
 
 All have a token embedding, a configurable stack of recurrent layers, state
 shape `[batch, width]` per layer, layer normalization, and a tied output head.
@@ -37,6 +37,16 @@ shape `[batch, width]` per layer, layer normalization, and a tied output head.
 | `tanh` | `h'=tanh(W_x x+W_h h+b)` | Ordinary trainable reference. |
 | `near_critical` | `h'=tanh(W_x x+(1-1/n) Q h+b)`, frozen orthogonal `Q` | Tests the **idea** of near-critical transition persistence. Not the exact frozen dense-tanh/corridor theorem construction. |
 | `protected` | One recurrent state separated into fixed orthonormal Walsh channels and their orthogonal complement; separately gated writes | Tests selective retention and multi-channel interference. Not a theorem-backed robust-credit guarantee. |
+| `gru` | Standard `torch.nn.GRUCell` reset/update-gated recurrence | Established gated baseline with one `[B,W]` persistent state per layer. |
+| `lstm` | Standard `torch.nn.LSTMCell` input/forget/output-gated recurrence | Established gated baseline with separate `[B,W]` hidden and cell tensors per layer. |
+
+GRU/LSTM token wrappers use the same embedding, layer-normalization placement,
+tied output head, explicit streaming state, reset-mask convention, and hidden
+history shape as the other candidates. An LSTM state is represented as
+`LSTMState(hidden, cell)` per layer; both values are preserved across chunks,
+detached together, and cleared together on reset. PyTorch's stock cell
+initializers run inside a local seeded RNG scope, so model construction is
+reproducible without consuming the caller's random stream.
 
 For the protected cell, let `P` be an `R x n` orthonormal Walsh bank
 (`P P^T = I`) with odd-parity, pairwise XOR-sum-free labels. Let
@@ -84,7 +94,7 @@ nonlinear temporal cross-talk or stable learning credit.
    CPU-only tests here check these basic properties.
 2. **Learning-credit diagnostics:** vary sequence horizon and retain
    backpropagated gradient norms and actual future-loss sensitivity; test
-   with all three cells, multiple seeds, matched parameter count / training
+   with all five token models, multiple seeds, matched parameter count / training
    FLOPs. Raw norms are diagnostics, not the formal theorem metric.
 3. **Retention and interference:** delayed recall, selective overwrite,
    late retrieval after distractors, and mixed messages; vary R=2/4/8/16.
@@ -136,10 +146,11 @@ counts, criticism and next-phase recommendations are documented in
 [LIMITATIONS.md](LIMITATIONS.md) for evidence calibration and open research.
 
 * `candidates.py`: improved standard, near-critical and protected token models.
+* `gated.py`: standard PyTorch GRU and LSTM token models.
 * `full_reference.py`: exact established forward operators, balanced histories,
   early capture/trace repair, complete unpaired renewal and legal-query oracle.
-* `validation.py`: shared cell/token diagnostics and measured resource inventory.
-* `comparison_configs.json`: reproducible configurations and isolated ablations.
+* `validation.py`: shared cell/token diagnostics, fair configurations and measured resource inventory.
+* `comparison_configs.json`: equal-width and trainable-parameter-matched configurations, plus isolated ablations.
 * `reports/`: actual CPU test and diagnostic records.
 
 ```bash

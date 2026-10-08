@@ -19,6 +19,7 @@ import torch
 from torch import Tensor
 
 from .candidates import CandidateConfig, CandidateLanguageModel, ProtectedMemoryCell
+from .gated import GatedConfig, GatedLanguageModel, LSTMState
 from .model import RNNConfig, RNNLanguageModel
 from .full_reference import (FrozenTanhReference, CorridorCreditEngine, FourSiteGeometry,
     early_capture_schedule, realize_four_site_history, orthonormal_probe_bank, survivor_walsh)
@@ -38,28 +39,45 @@ class ValidationConfig:
 
 
 class RecurrentPath:
-    """Common real-valued scan [batch,time,width], one state [batch,width].
+    """Common real-valued scan [batch,time,width].
 
-For paths 1-3 this tests a single cell before token heads / LayerNorm.
-Path 4 consumes raw controls with W=I. Same width/input does not assert
-equivalent state semantics, parameter access, or matched token models.
+For cell paths this tests one recurrent cell before token heads / LayerNorm.
+The LSTM scan carries both hidden and cell memory. Path 4 consumes raw
+controls with W=I. Same width/input does not assert equivalent state
+semantics, parameter access, or matched token models.
 """
     def __init__(self, kind: str, config: ValidationConfig):
         self.kind,self.width = kind,config.width
         if kind == "theory":
             self.module = FrozenTanhReference(config.width)
+        elif kind in ("gru", "lstm"):
+            model = GatedLanguageModel(GatedConfig(vocab_size=config.vocabulary,
+                width=config.width,layers=1,cell_type=kind,seed=config.seed,precision="float64"))
+            self.module = model.cells[0]
         else:
             self.module = CandidateLanguageModel(CandidateConfig(vocab_size=config.vocabulary,
                 width=config.width,layers=1,protected_channels=config.channels,
                 cell_type=kind,seed=config.seed,precision="float64")).cells[0]
 
     def initial_state(self, batch):
+        if self.kind == "lstm":
+            hidden = torch.zeros(batch,self.width,dtype=torch.float64)
+            return LSTMState(hidden,torch.zeros_like(hidden))
         return torch.zeros(batch,self.width,dtype=torch.float64)
 
     def scan(self, inputs: Tensor, state: Tensor | None = None):
         h=self.initial_state(inputs.shape[0]) if state is None else state
         if self.kind == "theory":
             return torch.stack([self.module.scan(x,s) for x,s in zip(inputs,h)])
+        if self.kind == "gru":
+            for t in range(inputs.shape[1]):
+                h=self.module(inputs[:,t],h)
+            return h
+        if self.kind == "lstm":
+            for t in range(inputs.shape[1]):
+                hidden,cell=self.module(inputs[:,t],(h.hidden,h.cell))
+                h=LSTMState(hidden,cell)
+            return h
         prepared=self.module.prepare(inputs)
         for t in range(inputs.shape[1]):
             h=self.module.step(tuple(x[:,t] for x in prepared),h)
@@ -92,6 +110,80 @@ def token_cost_estimate(config: CandidateConfig, *, batch=1, steps=1):
             "excluded":"nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"}
 
 
+def gated_token_cost_estimate(config: GatedConfig, *, batch=1, steps=1):
+    """Dense affine MAC estimate for standard PyTorch gated cells."""
+    w,l,v=config.width,config.layers,config.vocab_size
+    core=(6 if config.cell_type=="gru" else 8)*w*w
+    element=8 if config.precision=="float64" else 4
+    state_values=l*w*(2 if config.cell_type=="lstm" else 1)
+    return {"core_MAC_per_token_per_layer_estimate":core,
+            "whole_model_MAC_per_token_estimate":l*core+v*w,
+            "state_values_per_example":state_values,
+            "state_bytes_per_example":state_values*element,
+            "logits_payload_bytes_estimate":batch*steps*v*element,
+            "hidden_history_payload_bytes_estimate":batch*steps*l*w*element,
+            "complexity":"O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+            "excluded":"gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"}
+
+
+def _token_model(kind, *, width, layers, vocabulary, channels, seed, precision="float32"):
+    if kind in ("gru","lstm"):
+        return GatedLanguageModel(GatedConfig(vocab_size=vocabulary,width=width,layers=layers,
+            cell_type=kind,precision=precision,seed=seed))
+    return CandidateLanguageModel(CandidateConfig(vocab_size=vocabulary,width=width,layers=layers,
+        protected_channels=channels,cell_type=kind,precision=precision,seed=seed))
+
+
+def fair_comparison_profiles(config: ValidationConfig):
+    """Measured equal-width inventories and closest predeclared budget matches.
+
+    The match target is trainable scalar count for the standard width-32,
+    two-layer token model. Depth/width may vary and are always included in the
+    returned configuration. The mathematical reference has no token LM.
+    """
+    kinds=("tanh","near_critical","protected","gru","lstm")
+    equal_width={}
+    for width in (16,32,64):
+        channels=max(1,min(config.channels,width//4))
+        equal_width[str(width)]={}
+        for kind in kinds:
+            model=_token_model(kind,width=width,layers=2,vocabulary=config.vocabulary,
+                channels=channels,seed=config.seed)
+            gated=kind in ("gru","lstm")
+            spec=(GatedConfig(vocab_size=config.vocabulary,width=width,layers=2,cell_type=kind,
+                seed=config.seed) if gated else CandidateConfig(vocab_size=config.vocabulary,
+                width=width,layers=2,protected_channels=channels,cell_type=kind,seed=config.seed))
+            inventory=parameter_inventory(model)
+            equal_width[str(width)][kind]={"config":asdict(spec),"inventory":inventory,
+                "resource_estimate":(gated_token_cost_estimate(spec) if gated else token_cost_estimate(spec))}
+
+    target_model=_token_model("tanh",width=32,layers=2,vocabulary=config.vocabulary,
+        channels=min(config.channels,16),seed=config.seed)
+    target=target_model.trainable_parameters
+    matched={"target":"tanh width=32 layers=2 trainable parameters",
+             "target_trainable_parameters":target,"search_widths":[16,32,64],
+             "search_layers":[1,2,3,4,5,6,7,8],"architectures":{}}
+    for kind in kinds:
+        choices=[]
+        for width in matched["search_widths"]:
+            channels=max(1,min(config.channels,width//4))
+            for layers in matched["search_layers"]:
+                model=_token_model(kind,width=width,layers=layers,vocabulary=config.vocabulary,
+                    channels=channels,seed=config.seed)
+                choices.append((abs(model.trainable_parameters-target),width,layers,channels,model))
+        _,width,layers,channels,model=min(choices,key=lambda item:(item[0],item[1],item[2]))
+        spec=(GatedConfig(vocab_size=config.vocabulary,width=width,layers=layers,cell_type=kind,
+            seed=config.seed) if kind in ("gru","lstm") else CandidateConfig(
+            vocab_size=config.vocabulary,width=width,layers=layers,protected_channels=channels,
+            cell_type=kind,seed=config.seed))
+        matched["architectures"][kind]={"config":asdict(spec),
+            "inventory":parameter_inventory(model),
+            "trainable_parameter_delta":model.trainable_parameters-target,
+            "trainable_parameter_delta_fraction":(model.trainable_parameters-target)/target}
+    return {"equal_width_token_models":equal_width,"parameter_matched_token_models":matched,
+            "theory_reference":"No token-prediction wrapper or directly comparable LM parameter budget is specified."}
+
+
 def theoretical_cost_estimate(n: int, directions: int, *, split_renewal=True, actual_dense=False):
     r=n//2-1
     return {"forward_state_values":n,"fixed_source_physical_credit_values":n*directions,
@@ -113,20 +205,31 @@ def cell_diagnostics(config: ValidationConfig):
     reader=torch.randn(config.width,generator=generator,dtype=torch.float64)
     reader=reader/reader.norm()
     results={}
-    for kind in ('tanh','near_critical','protected','theory'):
+    for kind in ('tanh','near_critical','protected','gru','lstm','theory'):
         path=RecurrentPath(kind,config)
         full=path.scan(inputs); split=max(config.horizons)//3
         prefix=path.scan(inputs[:,:split]); chunk=path.scan(inputs[:,split:],prefix)
-        row={**parameter_inventory(path.module),"state_bytes_measured":path.initial_state(1).numel()*8,
-             "streaming_max_abs_error_measured":(full-chunk).abs().max().item(),
-             "reset_reproducibility_max_abs_error_measured":(full-path.scan(inputs)).abs().max().item(),
-             "max_abs_final_state_measured":full.abs().max().item(),"horizons":[]}
+        def leaves(state):
+            return (state.hidden,state.cell) if isinstance(state,LSTMState) else (state,)
+        def close_error(a,b):
+            return max((x-y).abs().max().item() for x,y in zip(leaves(a),leaves(b)))
+        row={**parameter_inventory(path.module),
+             "state_bytes_measured":sum(s.numel() for s in leaves(path.initial_state(1)))*8,
+             "streaming_max_abs_error_measured":close_error(full,chunk),
+             "reset_reproducibility_max_abs_error_measured":close_error(full,path.scan(inputs)),
+             "max_abs_final_state_measured":max(x.abs().max().item() for x in leaves(full)),"horizons":[]}
         for horizon in config.horizons:
-            state=path.initial_state(1).requires_grad_()
+            state=path.initial_state(1)
+            if isinstance(state,LSTMState):
+                state=LSTMState(state.hidden.requires_grad_(),state.cell.requires_grad_())
+            else:
+                state=state.requires_grad_()
             final=path.scan(inputs[:,:horizon],state)
-            grad=torch.autograd.grad((final*reader).sum(),state)[0]
-            row['horizons'].append({"steps":horizon,"initial_state_gradient_l2_measured":grad.norm().item(),
-                  "all_finite":bool(torch.isfinite(final).all() and torch.isfinite(grad).all())})
+            gradients=torch.autograd.grad((leaves(final)[0]*reader).sum(),leaves(state))
+            gradient_norm=math.sqrt(sum(g.square().sum().item() for g in gradients))
+            row['horizons'].append({"steps":horizon,"initial_state_gradient_l2_measured":gradient_norm,
+                  "all_finite":bool(all(torch.isfinite(x).all() for x in leaves(final)) and
+                                     all(torch.isfinite(g).all() for g in gradients))})
         if kind=='near_critical':
             sv=torch.linalg.svdvals(path.module.recurrent)
             row['recurrent_singular_values_measured']={"min":sv.min().item(),"max":sv.max().item()}
@@ -155,23 +258,34 @@ def token_benchmarks(config: ValidationConfig):
     generator=torch.Generator().manual_seed(config.seed+2)
     ids=torch.randint(config.vocabulary,(config.benchmark_batch,config.benchmark_steps),generator=generator)
     results={}
-    for kind in ('tanh','near_critical','protected'):
-        cfg=CandidateConfig(vocab_size=config.vocabulary,width=config.width,layers=config.layers,
-                            protected_channels=config.channels,cell_type=kind,seed=config.seed)
-        candidate=CandidateLanguageModel(cfg)
-        with torch.random.fork_rng(devices=[]):
-            torch.manual_seed(config.seed)
-            original=RNNLanguageModel(RNNConfig(vocab_size=config.vocabulary,width=config.width,
-                      layers=config.layers,protected_channels=config.channels,cell_type=kind))
-        weights=candidate.state_dict()
-        if kind=='protected': weights={k:(-v if '.slow_gate.' in k else v) for k,v in weights.items()}
-        original.load_state_dict(weights)
+    for kind in ('tanh','near_critical','protected','gru','lstm'):
+        gated=kind in ('gru','lstm')
+        if gated:
+            cfg=GatedConfig(vocab_size=config.vocabulary,width=config.width,layers=config.layers,
+                            cell_type=kind,seed=config.seed)
+            candidate=GatedLanguageModel(cfg)
+            models=(("candidate",candidate),)
+            estimate=gated_token_cost_estimate(cfg,batch=config.benchmark_batch,steps=config.benchmark_steps)
+        else:
+            cfg=CandidateConfig(vocab_size=config.vocabulary,width=config.width,layers=config.layers,
+                                protected_channels=config.channels,cell_type=kind,seed=config.seed)
+            candidate=CandidateLanguageModel(cfg)
+            with torch.random.fork_rng(devices=[]):
+                torch.manual_seed(config.seed)
+                original=RNNLanguageModel(RNNConfig(vocab_size=config.vocabulary,width=config.width,
+                          layers=config.layers,protected_channels=config.channels,cell_type=kind))
+            weights=candidate.state_dict()
+            if kind=='protected': weights={k:(-v if '.slow_gate.' in k else v) for k,v in weights.items()}
+            original.load_state_dict(weights)
+            models=(("original",original),("candidate",candidate))
+            estimate=token_cost_estimate(cfg,batch=config.benchmark_batch,steps=config.benchmark_steps)
         row={"config":asdict(cfg),"inventory":parameter_inventory(candidate),
-             "resource_estimate":token_cost_estimate(cfg,batch=config.benchmark_batch,steps=config.benchmark_steps)}
+             "resource_estimate":estimate}
         with torch.no_grad():
-            difference=(candidate(ids)[0]-original(ids)[0]).abs().max().item()
-            row['matched_weights_logits_max_abs_error_measured']=difference
-            for name,model in (('original',original),('candidate',candidate)):
+            if not gated:
+                difference=(candidate(ids)[0]-original(ids)[0]).abs().max().item()
+                row['matched_weights_logits_max_abs_error_measured']=difference
+            for name,model in models:
                 for _ in range(2): model(ids)
                 samples=[]
                 for _ in range(config.benchmark_repeats):
@@ -225,7 +339,8 @@ def run_validation(config=ValidationConfig()):
                     "device":"cpu","dtype_cell_diagnostics":"float64","dtype_token_benchmarks":"float32","threads":1},
                 "scope":"Untrained CPU architecture diagnostics. No weight updates. Gradients/rank/state width are NOT formal D.",
                 "cells":cell_diagnostics(config),"protected":protected_diagnostics(config),
-                "tokens":token_benchmarks(config),"theory":theory_diagnostics()}
+                "tokens":token_benchmarks(config),"comparison_profiles":fair_comparison_profiles(config),
+                "theory":theory_diagnostics()}
         report['wall_seconds_measured']=time.perf_counter()-start
         return report
     finally:
@@ -238,7 +353,7 @@ def main():
     args=parser.parse_args()
     report=run_validation()
     report['source_sha256']={name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest()
-              for name in ('candidates.py','full_reference.py','validation.py','model.py','theory_reference.py')}
+              for name in ('candidates.py','gated.py','full_reference.py','validation.py','model.py','theory_reference.py')}
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
     print(json.dumps({"output":str(args.output),"wall_seconds":report['wall_seconds_measured'],

@@ -1,4 +1,4 @@
-# Four RNN architecture paths — implementation and comparison
+# Six RNN architecture paths — implementation and comparison
 
 Architecture development only. No training, optimizer, parameter updates,
 collector, RL, GPU experiment, proof-status edit, or main-branch change.
@@ -12,6 +12,8 @@ The strict target **D=Omega(n), mT=o(n^(3/2)) remains OPEN**.
 | 2. Near-critical | `candidates.NearCriticalCell`; `CandidateLanguageModel(cell_type="near_critical")` | Frozen norm-controlled recurrence with configurable gap, leak, and orthogonal/identity/Householder-cycle operators. |
 | 3. Protected memory | `candidates.ProtectedMemoryCell`; `CandidateLanguageModel(cell_type="protected")` | Explicit selective Walsh-coefficient writes and a projected fast complement, with mechanism-removal switches. |
 | 4. Full theoretical reference | `full_reference.FrozenTanhReference`, `CorridorCreditEngine`, controlled-history and protocol helpers | Exact established forward/sensitivity algebra, chronological balanced controls, selected legal-query answers. A mathematical reference, with explicit gaps, rather than a fourth trained token model. |
+| 5. GRU | `gated.GatedLanguageModel(GatedConfig(cell_type="gru"))`, using `torch.nn.GRUCell` | Established reset/update gating with one recurrent state tensor per layer and the shared token-model interface. |
+| 6. LSTM | `gated.GatedLanguageModel(GatedConfig(cell_type="lstm"))`, using `torch.nn.LSTMCell` | Established input/forget/output gating and separate hidden and cell memory per layer; both are persisted, reset and detached explicitly. |
 
 The original three cells, their token wrapper, and original credit kernel
 are unchanged in [model.py](model.py) and [theory_reference.py](theory_reference.py).
@@ -20,12 +22,18 @@ are unchanged in [model.py](model.py) and [theory_reference.py](theory_reference
 source hashes. Historical research hashes are a provenance snapshot; they
 do not prohibit subsequent owner-authorized research on other branches.
 
-The improved token models share the original embedding, layer-normalization
+The five token models share the original embedding, layer-normalization
 placement, tied head, width, layer count, and returned-state convention.
-Copying identical weights reproduces all three original recurrences. The
+Copying identical weights reproduces all three original custom recurrences.
+GRU and LSTM use the standard PyTorch cell equations. The
 protected slow gate changes from retention to write probability; migrating
 original weights requires negating the slow-gate weight and bias. Tests do
 this explicitly. Improvements remain separate from the original controls.
+
+For GRU, state is a tuple of `[B,W]` hidden tensors, one per layer. For LSTM,
+state is a tuple of `LSTMState(hidden, cell)` pairs. Both components travel
+across chunk boundaries and are zeroed together when a per-example reset is
+marked. State remains caller-owned; empty chunks leave it untouched.
 
 ## Candidate equations and interfaces
 
@@ -135,13 +143,15 @@ separate from token approximation. Missing mechanisms have fail-closed
 
 ## Fair comparison and resource accounting
 
-[comparison_configs.json](comparison_configs.json) defines matching token
-widths 16/32/64, layer/vocabulary/seed controls, isolated recurrence options,
-protected ablations, and exact finite-reference fixtures.
+[comparison_configs.json](comparison_configs.json) defines equal token
+widths 16/32/64, layer/vocabulary/seed controls, trainable-parameter-matched
+variants, isolated recurrence options, protected ablations, and exact
+finite-reference fixtures.
 [validation.py](validation.py) provides both a common real-valued cell
-scan and token-wrapper checks. The common scan compares equal width and
+scan and token-wrapper checks for all five token models. The LSTM cell scan
+retains both hidden and cell state. The common scan compares equal width and
 identical real inputs; path 4 consumes raw controls and has different
-state semantics. It is not a parameter-matched LLM comparison.
+state semantics. There is no token-model parameter match for path 4.
 
 Measured token counts at `n=32, L=2, vocabulary=97, R=8`, float32:
 
@@ -150,6 +160,9 @@ Measured token counts at `n=32, L=2, vocabulary=97, R=8`, float32:
 | Standard | 7,456 | 0 | 64 values / 256 bytes | 7,200 |
 | Near-critical | 5,408 | 2,048 | 64 values / 256 bytes | 7,200 |
 | Protected | 10,096 | 512 | 64 values / 256 bytes | 13,344 |
+| GRU | 15,968 | 0 | 64 values / 256 bytes | 15,392 |
+| LSTM | 20,192 | 0 | 128 values / 512 bytes | 19,488 |
+| Full theoretical reference | no token LM | fixed reference tensors are reported separately | 32 values / 256 bytes at `n=32` (float64) | no token-model MAC estimate |
 
 These counts also match the respective original controls. Matching width
 does **not** match trainable parameters: near-critical freezes `L*n^2`
@@ -164,14 +177,31 @@ parameter counts are:
 * Standard: `v*n + L*(2n^2+3n)+2n`.
 * Near-critical: `v*n + L*(n^2+3n)+2n`, plus `L*n^2` frozen buffers.
 * Protected: `v*n + L*(3n^2+nR+4n+R)+2n`, plus `L*nR` mask buffers.
+* GRU: `v*n + L*(6n^2+8n)+2n` (`nn.GRUCell` gates and biases, layer norm,
+  and the shared final norm).
+* LSTM: `v*n + L*(8n^2+10n)+2n` (`nn.LSTMCell` gates and biases, layer norm,
+  and the shared final norm).
 
-Default dense cell MAC estimates are `2n^2`, `2n^2`, and `3n^2+8nR`;
+Default dense cell MAC estimates are `2n^2`, `2n^2`, `3n^2+8nR`, `6n^2`
+and `8n^2` for standard, near-critical, protected, GRU and LSTM respectively;
 the shared head adds `v*n`. Multiply MACs by approximately two for
 multiply/add FLOPs. Nonlinearities, normalization, memory traffic and
 allocator/Python overhead are excluded. Persistent forward state is
-`B*L*n`; logits cost `B*T*v` elements and requested history `B*T*L*n`.
+`B*L*n` for all existing paths and GRU, and `2*B*L*n` for LSTM. Logits
+cost `B*T*v` elements and requested hidden history `B*T*L*n` for each.
 Temporary batched projections and autograd tapes also grow with `T`.
 No measured process peak-memory claim is made from tensor payload counts.
+
+The executable parameter-matched token configurations target the standard
+`width=32, layers=2` model's 7,456 trainable scalars. Within the predeclared
+search widths 16/32/64 and depths 1–8, the nearest configs are standard
+32x2 (7,456), near-critical 32x4 (7,648), protected 16x7 (7,884), GRU 16x4
+(8,240), and LSTM 16x3 (8,208). The widest discrepancy is 10.5%. These are
+closest discrete matches, not exact equality; depth and width changes alter
+recurrent path length, embedding/head capacity and latency. The equal-width
+32x2 comparison is separately recorded and has substantially different
+parameter counts and cost. Near-critical frozen matrices count as stored
+buffers, not trainable parameters.
 
 For the reference, public constants are `O(n)`; forward state is `n`.
 With `p` fixed-source directions, physical sensitivity costs `n*p` values;
@@ -195,7 +225,8 @@ all originals plus candidate, full-reference and shared-accounting checks.
 The final executed count, command and timings are recorded in
 [reports/TEST_RESULTS.md](reports/TEST_RESULTS.md).
 
-Checks cover shapes, matched-weight equations, empty chunks, uninterrupted
+Checks cover shapes, official PyTorch GRU/LSTM sequence-equation parity,
+matched-weight equations, empty chunks, uninterrupted
 versus streamed execution, reset and detach gradients, local RNG isolation,
 float32/64 stability to 1,024 steps, analytic/finite-difference derivatives,
 independent dense operators, spectra, complete renewal, balanced histories,
@@ -213,13 +244,17 @@ and a fixed unit reader, 1,024-step initial-state gradient norms:
 | Standard | `7.29e-7` |
 | Near-critical | `3.14e-17` |
 | Protected | `3.38e-2` |
+| GRU | `0` |
+| LSTM | `0` |
 | Reference | `2.98e-21` |
 
-All were finite. These are one untrained initialization and one reader,
-with unequal parameterization and different state semantics. They establish
-no recall, learning-credit dimension, intelligence or inference ranking.
-In particular, a frozen near-critical norm does not automatically preserve
-gradients better than an ordinary orthogonal-initialized trainable cell.
+All gradients and states were finite; GRU/LSTM sensitivity rounded to zero
+in this float64 fixture after 1,024 steps. These are one untrained
+initialization and one reader, with unequal parameterization and different
+state semantics. They establish no recall, learning-credit dimension,
+intelligence or inference ranking. In particular, a frozen near-critical
+norm does not automatically preserve gradients better than an ordinary
+orthogonal-initialized trainable cell.
 
 The deterministic protected fixture updates one coefficient for 256 steps;
 closed-channel drift is `7.11e-14` and Gram error `1.11e-16` in float64.
@@ -245,36 +280,44 @@ is 32,736 bytes at two directions. These are tensor payloads, not RSS.
 actual per-horizon data, inventories, matched-weight discrepancies,
 seven-repeat forward timing medians, scope flags, configuration and source
 hashes. Timings use one CPU thread, no gradients, batch 2, 64 tokens,
-float32, and two warmups. They are local measurements, not training
+float32, and two warmups. Measured candidate-wrapper medians were 1.270 ms
+(standard), 1.765 ms (near-critical), 6.756 ms (protected), 3.518 ms (GRU),
+and 3.582 ms (LSTM). For the first three, frozen-original medians were 2.868,
+2.653, and 9.951 ms respectively, with matched-weight maximum logit
+differences below `3.1e-6`. GRU/LSTM do not have frozen-original token
+wrappers in this repository. These local measurements are not training
 throughput, hardware-independent guarantees or extrapolated asymptotics.
 
 ## Independent criticism and cheapest decisive next work
 
 | Architecture | Strongest advantage | Failure mode / known mechanisms | Distinctive-removal consequence | Evidence still needed | Cheapest future decision |
 |---|---|---|---|---|---|
-| Standard | Simple trustworthy dense reference; ordinary trainable flexibility. | Tanh saturation, vanishing/exploding trained recurrence; Elman RNN and orthogonal initialization are known. | Removing ordinary recurrence removes temporal state; batching only changes implementation overhead. | All token prediction/recall quality is **NOT YET TESTED**; post-training spectral behavior requires measurements. | First small separately authorized token/recall run with a standard gated control, using the frozen original and candidate. |
-| Near-critical | Explicit frozen norm and exact cell-level Lipschitz control. | Contraction and saturation still erase credit; frozen features can limit adaptation. Orthogonal/unitary RNNs, reservoir computing, and leaky recurrence are known. | Removing spectral control loses the norm guarantee; identity can preserve the bound with very different mixing. | Learned usefulness, preferred gap/operator/leak, and cost/quality gains are **NOT YET TESTED**. No robust-D theorem transfers to this surrogate. | Matched gap/operator/leak comparison after the standard run; include the standard baseline's often stronger initial gradients. |
-| Protected | Closed-channel selective overwrite has an explicit projection invariant and direct gradient access. | Proposal/gates can couple open channels; gate saturation may block writing; projected state need not be coordinate-bounded by one. LSTM-style gating, multiple timescales and orthogonal subspace memory are known. | Removing fast projection leaks into protected reads; removing retention loses selective persistence. Random orthogonal substitution preserves the main invariant. | Selective **learned** writing, delayed retrieval, nonlinear interference, benefit over LSTM/GRU/equal-budget projected memory are **NOT YET TESTED**. Walsh-specific benefit needs stronger proof or data. | Tiny delayed recall/selective overwrite task with projection/retention/feedback/basis ablations, with equal-width and equal-budget gated controls. |
+| Standard | Simple trustworthy dense reference; ordinary trainable flexibility. | Tanh saturation, vanishing/exploding trained recurrence; Elman RNN and orthogonal initialization are known. | Removing ordinary recurrence removes temporal state; batching only changes implementation overhead. | All token prediction/recall quality is **NOT YET TESTED**; post-training spectral behavior requires measurements. | First small separately authorized token/recall run with standard gated controls, using the frozen original and candidate. |
+| Near-critical | Explicit frozen norm and exact cell-level Lipschitz control. | Contraction and saturation still erase credit; frozen features can limit adaptation. Orthogonal/unitary RNNs, reservoir computing, and leaky recurrence are known. | Removing spectral control loses the norm guarantee; identity can preserve the bound with very different mixing. | Learned usefulness, preferred gap/operator/leak, and cost/quality gains are **NOT YET TESTED**. No robust-D theorem transfers to this surrogate. | Matched gap/operator/leak comparison after baseline controls; include the standard baseline's often stronger initial gradients. |
+| Protected | Closed-channel selective overwrite has an explicit projection invariant and direct gradient access. | Proposal/gates can couple open channels; gate saturation may block writing; projected state need not be coordinate-bounded by one. LSTM-style gating, multiple timescales and orthogonal subspace memory are known. | Removing fast projection leaks into protected reads; removing retention loses selective persistence. Random orthogonal substitution preserves the main invariant. | Selective **learned** writing, delayed retrieval, nonlinear interference and benefit over equal-budget GRU/LSTM controls are **NOT YET TESTED**. Walsh-specific benefit needs stronger proof or data. | Tiny delayed recall/selective overwrite task with projection/retention/feedback/basis ablations, with equal-width and equal-budget gated controls. |
+| GRU | Standard reset/update gates with a single persistent state; broad framework familiarity and simpler state than LSTM. | Reset/update gate saturation and ordinary recurrent Jacobian contraction; Cho et al. (2014) GRU is established. | Removing gates returns to an ungated recurrent cell; there is no protected-subspace or certified retention invariant. | Language quality, long-delay retrieval and any advantage over standard/LSTM are **NOT YET TESTED**. | Small equal-width and matched-budget comparison against standard and LSTM with a fixed token/recall protocol. |
+| LSTM | Separate cell memory with input/forget/output gates and a direct additive memory path; Hochreiter–Schmidhuber (1997) is established. | Forget gates can erase memory, input/output gates can saturate, and cell values can grow; unbounded state magnitude can cause numerical issues. | Removing the cell path or gates changes it to a different recurrent cell; no robust learning-credit guarantee follows from the cell state. | Learned retention, interference, accuracy and trained long-horizon stability are **NOT YET TESTED**. | Same small protocol as GRU with hidden/cell-state diagnostics and equal-width plus matched-budget controls. |
 | Theoretical reference | Faithful chronological algebra and normalized fixed-input query oracle; no dropped unpaired renewal. | Extremely large theorem thresholds, weak finite signals, prescribed controls and source feature; dense differentiation is costly. Householder transport, Walsh characters, inverse control, eligibility sensitivities and Borsuk–Ulam are existing tools. | Removing early capture can expose stored credit to correction drift; dropping unpaired feedback changes the actual equations. Decomposing these known operations does not by itself settle the scoped robust-dimension/cost property. | Strict-budget linear D, unrestricted Route-6/7A, practical onset and a coherent exact token adapter all remain open; token usefulness is **NOT YET TESTED**. | Untrained normalized fixed-input sensitivity/collision checks for the no-clear alternative, followed by a mathematical joint-section or compression proof. Do not train this reference as an LLM. |
 
-Classify paths 1–2 as known recurrent mechanisms and path 3 as a conceptual
-architecture candidate assembled from known operations. The closed-channel
-invariant has an ordinary orthogonal-coordinate implementation; no new
-primitive is established. Path 4 is a mathematical reference for a scoped
-research property, not proof of a new computational primitive or of model
-superiority. Relevant prior-art anchors are Elman (1990), Jaeger (2001),
-Hochreiter–Schmidhuber LSTM (1997), orthogonal/identity initialization
-(Le et al., 2015), unitary RNNs (Arjovsky et al., 2016), and Clockwork RNNs
-(Koutnik et al., 2014). This mapping is a conservative mechanism comparison,
-not an exhaustive priority/novelty certification.
+Paths 1–2 and 5–6 are known recurrent mechanism families. Path 3 is a
+conceptual architecture candidate assembled from known operations. The
+closed-channel invariant has an ordinary orthogonal-coordinate
+implementation; no new primitive is established. Path 4 is a mathematical
+reference for a scoped research property, not proof of a new computational
+primitive or model superiority. Relevant prior-art anchors include Elman
+(1990), Jaeger (2001), Hochreiter–Schmidhuber LSTM (1997), Cho et al. GRU
+(2014), orthogonal/identity initialization (Le et al., 2015), unitary RNNs
+(Arjovsky et al., 2016), and Clockwork RNNs (Koutnik et al., 2014). This
+mapping is a conservative mechanism comparison, not an exhaustive
+priority/novelty certification.
 
-**Recommendation:** begin the later authorized training phase with the
-standard candidate and an ordinary gated RNN control; then prioritize the
-protected model with its ablations. Near-critical variants merit a small
-controlled comparison rather than a presumption of improvement. Keep path
-4 on the mathematical validation track until token transitions and the
-missing proof obligations are specified. A simpler model winning is a
-valid result. No training was started in this work.
+**Recommendation:** begin a future separately authorized training phase
+with the standard candidate and GRU/LSTM controls. The gated models are
+well-established comparison points, not presumed winners. Then test
+near-critical and protected mechanisms with explicit ablations and the
+parameter-matched configs. Keep the theoretical reference on the mathematical
+validation track until token transitions and proof obligations are specified.
+A simpler model winning is a valid result. No training was started here.
 
 ## Reproduction
 

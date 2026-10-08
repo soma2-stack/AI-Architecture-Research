@@ -49,7 +49,7 @@
         },
         {
           "steps": 64,
-          "initial_state_gradient_l2_measured": 0.5718019088675179,
+          "initial_state_gradient_l2_measured": 0.571801908867518,
           "all_finite": true
         },
         {
@@ -140,6 +140,82 @@
         {
           "steps": 1024,
           "initial_state_gradient_l2_measured": 0.03376871153284205,
+          "all_finite": true
+        }
+      ]
+    },
+    "gru": {
+      "trainable_parameters_measured": 6336,
+      "frozen_parameters_measured": 0,
+      "buffer_values_measured": 0,
+      "parameter_bytes_measured": 50688,
+      "buffer_bytes_measured": 0,
+      "state_bytes_measured": 256,
+      "streaming_max_abs_error_measured": 0.0,
+      "reset_reproducibility_max_abs_error_measured": 0.0,
+      "max_abs_final_state_measured": 0.22673354534677584,
+      "horizons": [
+        {
+          "steps": 1,
+          "initial_state_gradient_l2_measured": 0.5123398945649099,
+          "all_finite": true
+        },
+        {
+          "steps": 16,
+          "initial_state_gradient_l2_measured": 0.00030092166821423866,
+          "all_finite": true
+        },
+        {
+          "steps": 64,
+          "initial_state_gradient_l2_measured": 1.158838880772396e-13,
+          "all_finite": true
+        },
+        {
+          "steps": 256,
+          "initial_state_gradient_l2_measured": 3.670541245773763e-49,
+          "all_finite": true
+        },
+        {
+          "steps": 1024,
+          "initial_state_gradient_l2_measured": 0.0,
+          "all_finite": true
+        }
+      ]
+    },
+    "lstm": {
+      "trainable_parameters_measured": 8448,
+      "frozen_parameters_measured": 0,
+      "buffer_values_measured": 0,
+      "parameter_bytes_measured": 67584,
+      "buffer_bytes_measured": 0,
+      "state_bytes_measured": 512,
+      "streaming_max_abs_error_measured": 0.0,
+      "reset_reproducibility_max_abs_error_measured": 0.0,
+      "max_abs_final_state_measured": 0.319209273197547,
+      "horizons": [
+        {
+          "steps": 1,
+          "initial_state_gradient_l2_measured": 0.2886451676877731,
+          "all_finite": true
+        },
+        {
+          "steps": 16,
+          "initial_state_gradient_l2_measured": 0.00011871792635046866,
+          "all_finite": true
+        },
+        {
+          "steps": 64,
+          "initial_state_gradient_l2_measured": 3.2227554334618947e-14,
+          "all_finite": true
+        },
+        {
+          "steps": 256,
+          "initial_state_gradient_l2_measured": 9.213364595438756e-53,
+          "all_finite": true
+        },
+        {
+          "steps": 1024,
+          "initial_state_gradient_l2_measured": 0.0,
           "all_finite": true
         }
       ]
@@ -241,8 +317,8 @@
         "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
       },
       "matched_weights_logits_max_abs_error_measured": 2.384185791015625e-06,
-      "original_median_forward_seconds_measured": 0.0028663460000188934,
-      "candidate_median_forward_seconds_measured": 0.001388189999943279
+      "original_median_forward_seconds_measured": 0.0028680890000032377,
+      "candidate_median_forward_seconds_measured": 0.0012701719997494365
     },
     "near_critical": {
       "config": {
@@ -281,8 +357,8 @@
         "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
       },
       "matched_weights_logits_max_abs_error_measured": 2.3543834686279297e-06,
-      "original_median_forward_seconds_measured": 0.0027307120001296425,
-      "candidate_median_forward_seconds_measured": 0.0017111160000240488
+      "original_median_forward_seconds_measured": 0.00265255399972375,
+      "candidate_median_forward_seconds_measured": 0.0017645569996602717
     },
     "protected": {
       "config": {
@@ -321,9 +397,717 @@
         "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
       },
       "matched_weights_logits_max_abs_error_measured": 3.0994415283203125e-06,
-      "original_median_forward_seconds_measured": 0.009732493999990766,
-      "candidate_median_forward_seconds_measured": 0.006337011000141501
+      "original_median_forward_seconds_measured": 0.009951325000201905,
+      "candidate_median_forward_seconds_measured": 0.0067559829999481735
+    },
+    "gru": {
+      "config": {
+        "vocab_size": 97,
+        "width": 32,
+        "layers": 2,
+        "cell_type": "gru",
+        "precision": "float32",
+        "seed": 20261007
+      },
+      "inventory": {
+        "trainable_parameters_measured": 15968,
+        "frozen_parameters_measured": 0,
+        "buffer_values_measured": 0,
+        "parameter_bytes_measured": 63872,
+        "buffer_bytes_measured": 0
+      },
+      "resource_estimate": {
+        "core_MAC_per_token_per_layer_estimate": 6144,
+        "whole_model_MAC_per_token_estimate": 15392,
+        "state_values_per_example": 64,
+        "state_bytes_per_example": 256,
+        "logits_payload_bytes_estimate": 49664,
+        "hidden_history_payload_bytes_estimate": 32768,
+        "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+        "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+      },
+      "candidate_median_forward_seconds_measured": 0.0035176269998373755
+    },
+    "lstm": {
+      "config": {
+        "vocab_size": 97,
+        "width": 32,
+        "layers": 2,
+        "cell_type": "lstm",
+        "precision": "float32",
+        "seed": 20261007
+      },
+      "inventory": {
+        "trainable_parameters_measured": 20192,
+        "frozen_parameters_measured": 0,
+        "buffer_values_measured": 0,
+        "parameter_bytes_measured": 80768,
+        "buffer_bytes_measured": 0
+      },
+      "resource_estimate": {
+        "core_MAC_per_token_per_layer_estimate": 8192,
+        "whole_model_MAC_per_token_estimate": 19488,
+        "state_values_per_example": 128,
+        "state_bytes_per_example": 512,
+        "logits_payload_bytes_estimate": 49664,
+        "hidden_history_payload_bytes_estimate": 32768,
+        "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+        "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+      },
+      "candidate_median_forward_seconds_measured": 0.0035820439998133224
     }
+  },
+  "comparison_profiles": {
+    "equal_width_token_models": {
+      "16": {
+        "tanh": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 2,
+            "cell_type": "tanh",
+            "protected_channels": 4,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 2704,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 10816,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 512,
+            "whole_model_MAC_per_token_estimate": 2576,
+            "state_values_per_example": 32,
+            "state_bytes_per_example": 128,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 128,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "near_critical": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 2,
+            "cell_type": "near_critical",
+            "protected_channels": 4,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 2192,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 512,
+            "parameter_bytes_measured": 8768,
+            "buffer_bytes_measured": 2048
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 512,
+            "whole_model_MAC_per_token_estimate": 2576,
+            "state_values_per_example": 32,
+            "state_bytes_per_example": 128,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 128,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "protected": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 2,
+            "cell_type": "protected",
+            "protected_channels": 4,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 3384,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 128,
+            "parameter_bytes_measured": 13536,
+            "buffer_bytes_measured": 512
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 1280,
+            "whole_model_MAC_per_token_estimate": 4112,
+            "state_values_per_example": 32,
+            "state_bytes_per_example": 128,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 128,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "gru": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 2,
+            "cell_type": "gru",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 4912,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 19648,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 1536,
+            "whole_model_MAC_per_token_estimate": 4624,
+            "state_values_per_example": 32,
+            "state_bytes_per_example": 128,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 128,
+            "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+            "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+          }
+        },
+        "lstm": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 2,
+            "cell_type": "lstm",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 6000,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 24000,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 2048,
+            "whole_model_MAC_per_token_estimate": 5648,
+            "state_values_per_example": 64,
+            "state_bytes_per_example": 256,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 128,
+            "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+            "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+          }
+        }
+      },
+      "32": {
+        "tanh": {
+          "config": {
+            "vocab_size": 97,
+            "width": 32,
+            "layers": 2,
+            "cell_type": "tanh",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 7456,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 29824,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 2048,
+            "whole_model_MAC_per_token_estimate": 7200,
+            "state_values_per_example": 64,
+            "state_bytes_per_example": 256,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 256,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "near_critical": {
+          "config": {
+            "vocab_size": 97,
+            "width": 32,
+            "layers": 2,
+            "cell_type": "near_critical",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 5408,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 2048,
+            "parameter_bytes_measured": 21632,
+            "buffer_bytes_measured": 8192
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 2048,
+            "whole_model_MAC_per_token_estimate": 7200,
+            "state_values_per_example": 64,
+            "state_bytes_per_example": 256,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 256,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "protected": {
+          "config": {
+            "vocab_size": 97,
+            "width": 32,
+            "layers": 2,
+            "cell_type": "protected",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 10096,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 512,
+            "parameter_bytes_measured": 40384,
+            "buffer_bytes_measured": 2048
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 5120,
+            "whole_model_MAC_per_token_estimate": 13344,
+            "state_values_per_example": 64,
+            "state_bytes_per_example": 256,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 256,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "gru": {
+          "config": {
+            "vocab_size": 97,
+            "width": 32,
+            "layers": 2,
+            "cell_type": "gru",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 15968,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 63872,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 6144,
+            "whole_model_MAC_per_token_estimate": 15392,
+            "state_values_per_example": 64,
+            "state_bytes_per_example": 256,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 256,
+            "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+            "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+          }
+        },
+        "lstm": {
+          "config": {
+            "vocab_size": 97,
+            "width": 32,
+            "layers": 2,
+            "cell_type": "lstm",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 20192,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 80768,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 8192,
+            "whole_model_MAC_per_token_estimate": 19488,
+            "state_values_per_example": 128,
+            "state_bytes_per_example": 512,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 256,
+            "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+            "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+          }
+        }
+      },
+      "64": {
+        "tanh": {
+          "config": {
+            "vocab_size": 97,
+            "width": 64,
+            "layers": 2,
+            "cell_type": "tanh",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 23104,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 92416,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 8192,
+            "whole_model_MAC_per_token_estimate": 22592,
+            "state_values_per_example": 128,
+            "state_bytes_per_example": 512,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 512,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "near_critical": {
+          "config": {
+            "vocab_size": 97,
+            "width": 64,
+            "layers": 2,
+            "cell_type": "near_critical",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 14912,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 8192,
+            "parameter_bytes_measured": 59648,
+            "buffer_bytes_measured": 32768
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 8192,
+            "whole_model_MAC_per_token_estimate": 22592,
+            "state_values_per_example": 128,
+            "state_bytes_per_example": 512,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 512,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "protected": {
+          "config": {
+            "vocab_size": 97,
+            "width": 64,
+            "layers": 2,
+            "cell_type": "protected",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 32464,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 1024,
+            "parameter_bytes_measured": 129856,
+            "buffer_bytes_measured": 4096
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 16384,
+            "whole_model_MAC_per_token_estimate": 38976,
+            "state_values_per_example": 128,
+            "state_bytes_per_example": 512,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 512,
+            "complexity": "O(B T [L n^2 + V n + L n R]) arithmetic; O(B L n) persistent forward state",
+            "excluded": "nonlinearities, normalizations, allocator/Python overhead, autograd tape and temporary projected sequences"
+          }
+        },
+        "gru": {
+          "config": {
+            "vocab_size": 97,
+            "width": 64,
+            "layers": 2,
+            "cell_type": "gru",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 56512,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 226048,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 24576,
+            "whole_model_MAC_per_token_estimate": 55360,
+            "state_values_per_example": 128,
+            "state_bytes_per_example": 512,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 512,
+            "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+            "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+          }
+        },
+        "lstm": {
+          "config": {
+            "vocab_size": 97,
+            "width": 64,
+            "layers": 2,
+            "cell_type": "lstm",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 73152,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 292608,
+            "buffer_bytes_measured": 0
+          },
+          "resource_estimate": {
+            "core_MAC_per_token_per_layer_estimate": 32768,
+            "whole_model_MAC_per_token_estimate": 71744,
+            "state_values_per_example": 256,
+            "state_bytes_per_example": 1024,
+            "logits_payload_bytes_estimate": 388,
+            "hidden_history_payload_bytes_estimate": 512,
+            "complexity": "O(B T [L n^2 + V n]) arithmetic; O(B L n) GRU or O(2 B L n) LSTM persistent state",
+            "excluded": "gate nonlinearities, normalizations, memory traffic, allocator/Python overhead, autograd tape and temporary tensors"
+          }
+        }
+      }
+    },
+    "parameter_matched_token_models": {
+      "target": "tanh width=32 layers=2 trainable parameters",
+      "target_trainable_parameters": 7456,
+      "search_widths": [
+        16,
+        32,
+        64
+      ],
+      "search_layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "architectures": {
+        "tanh": {
+          "config": {
+            "vocab_size": 97,
+            "width": 32,
+            "layers": 2,
+            "cell_type": "tanh",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 7456,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 29824,
+            "buffer_bytes_measured": 0
+          },
+          "trainable_parameter_delta": 0,
+          "trainable_parameter_delta_fraction": 0.0
+        },
+        "near_critical": {
+          "config": {
+            "vocab_size": 97,
+            "width": 32,
+            "layers": 4,
+            "cell_type": "near_critical",
+            "protected_channels": 8,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 7648,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 4096,
+            "parameter_bytes_measured": 30592,
+            "buffer_bytes_measured": 16384
+          },
+          "trainable_parameter_delta": 192,
+          "trainable_parameter_delta_fraction": 0.02575107296137339
+        },
+        "protected": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 7,
+            "cell_type": "protected",
+            "protected_channels": 4,
+            "precision": "float32",
+            "seed": 20261007,
+            "gap": null,
+            "leak": 1.0,
+            "operator": "orthogonal",
+            "slow_write_bias": -3.0,
+            "project_fast": true,
+            "retain_slow": true,
+            "slow_feedback": true,
+            "orthogonal_masks": true,
+            "protected_basis": "walsh"
+          },
+          "inventory": {
+            "trainable_parameters_measured": 7884,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 448,
+            "parameter_bytes_measured": 31536,
+            "buffer_bytes_measured": 1792
+          },
+          "trainable_parameter_delta": 428,
+          "trainable_parameter_delta_fraction": 0.05740343347639485
+        },
+        "gru": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 4,
+            "cell_type": "gru",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 8240,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 32960,
+            "buffer_bytes_measured": 0
+          },
+          "trainable_parameter_delta": 784,
+          "trainable_parameter_delta_fraction": 0.10515021459227468
+        },
+        "lstm": {
+          "config": {
+            "vocab_size": 97,
+            "width": 16,
+            "layers": 3,
+            "cell_type": "lstm",
+            "precision": "float32",
+            "seed": 20261007
+          },
+          "inventory": {
+            "trainable_parameters_measured": 8208,
+            "frozen_parameters_measured": 0,
+            "buffer_values_measured": 0,
+            "parameter_bytes_measured": 32832,
+            "buffer_bytes_measured": 0
+          },
+          "trainable_parameter_delta": 752,
+          "trainable_parameter_delta_fraction": 0.10085836909871244
+        }
+      }
+    },
+    "theory_reference": "No token-prediction wrapper or directly comparable LM parameter budget is specified."
   },
   "theory": {
     "history": {
@@ -370,11 +1154,12 @@
     },
     "clear_status": "4 diagnostic steps; theorem-scale complementary clearing NOT CERTIFIED"
   },
-  "wall_seconds_measured": 1.8038129349999963,
+  "wall_seconds_measured": 2.4072174670000095,
   "source_sha256": {
     "candidates.py": "4a340122845f64bdfd195764f02e012c46476296c63eef9a7a9e5b68cb33b4a4",
+    "gated.py": "e13c5b282294cece6bad92db7485a671000629ee09235cd5860486ce4a63a034",
     "full_reference.py": "c8da0bc7ae7efe23d95030c322d9158d86627890b807f298ea96f18cb2ee6922",
-    "validation.py": "5d6efafd23c69f11fc92450944a06d6093ae2cf93ba3afa73b22c38d8e440abe",
+    "validation.py": "8ca13e6aedae3bafca7a804f5cb71c54a1eed71f6b14c7bcfbb4444d294d5783",
     "model.py": "f4beb2f975f614d03a7048a62aae1dd58477047670e54fc52973148b77959b20",
     "theory_reference.py": "5cc1a8b05f579a23017c42a1258140e827b0c26f6221ac84f3093aabae192dea"
   }

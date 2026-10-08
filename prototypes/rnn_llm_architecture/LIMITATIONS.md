@@ -111,6 +111,20 @@ cited independent reviews concern the existing mathematical records.
   allocator overhead and wall-clock memory traffic. No GPU, process peak-RSS,
   training performance or hardware scaling measurements were made.
 
+The GRU and LSTM additions are deliberately standard comparison models, not
+new theoretical mechanisms. They use PyTorch `GRUCell` / `LSTMCell` in an
+explicit token-by-token wrapper to preserve resets and caller-managed
+streaming at arbitrary per-example token positions. This favors transparent
+state semantics over fused whole-sequence kernel throughput; no speed
+comparison against `nn.GRU` / `nn.LSTM` sequence kernels was made, and the
+reported timings are local untrained CPU measurements.
+LSTM state doubles persistent recurrent-state tensor storage relative to GRU
+at the same width and depth. Equal-width models differ substantially in
+parameter and MAC budgets. Parameter-matched variants change width and/or
+depth, so they also change embedding capacity and path length; none is an
+exact experimental control. Their language quality, learned memory retention,
+trained numerical stability and superiority are all **NOT YET TESTED**.
+
 The next inexpensive work should target a precise failed or open claim:
 test a no-clear normalized joint signal or collision before adding new
 architecture machinery; separately authorize tiny learned recall/token
