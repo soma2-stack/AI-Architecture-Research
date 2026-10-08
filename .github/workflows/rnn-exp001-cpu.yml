@@ -5,7 +5,8 @@ on:
     branches:
       - prototype/rnn-llm-architecture-v0-20261007
     paths:
-      - 'prototypes/rnn_llm_architecture/**'
+      - 'prototypes/rnn_llm_architecture/*.py'
+      - 'prototypes/rnn_llm_architecture/comparison_configs.json'
       - '.github/workflows/rnn-exp001-cpu.yml'
   workflow_dispatch:
 

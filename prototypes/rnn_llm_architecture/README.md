@@ -161,3 +161,16 @@ python -m prototypes.rnn_llm_architecture.validation --output /tmp/rnn-validatio
 These commands run CPU architecture checks without training. The fourth
 path remains a mathematical reference; missing robust-section and token
 adapter obligations explicitly raise rather than fabricate implementations.
+
+## Experiment 001 (first authorized CPU learning pilot)
+
+[Method and task limitations](EXPERIMENT_001.md) ·
+[Measured 40-condition report](EXPERIMENT_001_RESULTS.md) ·
+[Complete per-seed results](reports/experiment_001_results.json) ·
+[GitHub Actions evidence](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37710011831)
+
+The protected model learned 64-token delayed binary recall in both 100-step
+seeds; GRU/LSTM/ordinary controls were near chance at **that bounded budget**.
+Selective overwrite remains much weaker and admits a last-write shortcut.
+No parameter-matched training, general-language evaluation, or formal-D
+theorem evidence was obtained. Keep these tasks and claims separate.
