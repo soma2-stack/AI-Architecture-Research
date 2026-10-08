@@ -1,0 +1,25 @@
+(a) c*(r):
+  r= 1: c*=0.50000  (direct Haar 0.50000)
+  r= 2: c*=0.60355  (direct Haar 0.60355)
+  r= 3: c*=0.80178  (direct Haar 0.80178)
+  r= 4: c*=0.87944  (direct Haar 0.87944)
+  r= 5: c*=0.96561  (direct Haar 0.96561)
+  r= 6: c*=1.01091  (direct Haar 1.01091)
+  r= 7: c*=1.05076  (direct Haar 1.05076)
+  r= 8: c*=1.07503  (direct Haar 1.07503)
+  r= 9: c*=1.09415
+  r=10: c*=1.10669
+  r=12: c*=1.12241
+  r=16: c*=1.13416
+  r=20: c*=1.13709
+  r=24: c*=1.13783
+  limit candidates: (1/3)/(1-2^-1/2) = 1.13807;  Theorem NC simple bound 1+2^-1/2 = 1.70711
+
+(b) singular values of the legal MTAB operator U (C=32, staggered and rates), raw and on donor-smoothed signals
+  rates     raw: top-6 sv = [1.405e+01 2.176e+00 3.900e-01 6.200e-02 9.000e-03 1.000e-03], sv_10/sv_1 = 1.38e-09; donor-rate 0.001: top-4 sv = [10.134  0.963  0.113  0.013], sv_5/sv_1 = 1.37e-04; donor-rate 0.005: top-4 sv = [13.236  1.866  0.293  0.041], sv_5/sv_1 = 3.62e-04
+  staggered raw: top-6 sv = [12.996  5.991  3.573  2.366  1.669  1.232], sv_10/sv_1 = 3.77e-02; donor-rate 0.001: top-4 sv = [9.418 2.552 1.034 0.514], sv_5/sv_1 = 3.07e-02; donor-rate 0.005: top-4 sv = [12.533  5.267  2.784  1.621], sv_5/sv_1 = 8.04e-02
+
+(c) literal TV-W (per-filter TV<=1, |f|<=1/2, orthonormal psi): D groups of b identical window filters
+  D=1 d=64: D*rho^2 = 16.0  vs  (1+log(1+d)) = 5.17  -> ratio 3.1
+  D=2 d=512: D*rho^2 = 64.0  vs  (1+log(1+d)) = 7.24  -> ratio 8.8
+  D=4 d=4096: D*rho^2 = 256.0  vs  (1+log(1+d)) = 9.32  -> ratio 27.5
