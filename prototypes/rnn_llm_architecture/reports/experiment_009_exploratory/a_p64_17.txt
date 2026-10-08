@@ -1,0 +1,26 @@
+trained protected_w32 d=64 s=17 steps=200 loss=0.391 10.5s
+D1 updated acc 0.841796875
+D1 untouched acc | untouched==update 1.0  | untouched!=update 0.34205231070518494
+D1 P(both answers == last written value) 0.8193359375
+D1 P(pred A == pred B) 0.962890625
+D1 pair on unequal 0.046277664601802826
+D2 after_init all 64 {'A_init': 1.0, 'B_init': 1.0}
+D2 after_init slow 16 {'A_init': 1.0, 'B_init': 1.0}
+D2 after_init fast 64 {'A_init': 1.0, 'B_init': 1.0}
+D2 after_update all 64 {'A_final': 0.896, 'B_final': 0.885, 'untouched': 0.77, 'update_val': 1.0}
+D2 after_update slow 16 {'A_final': 0.779, 'B_final': 0.729, 'untouched': 0.744, 'update_val': 0.998}
+D2 after_update fast 64 {'A_final': 0.855, 'B_final': 0.855, 'untouched': 0.773, 'update_val': 1.0}
+D2 final all 64 {'A_final': 0.809, 'B_final': 0.783, 'untouched': 0.762, 'update_val': 1.0}
+D2 final slow 16 {'A_final': 0.775, 'B_final': 0.756, 'untouched': 0.756, 'update_val': 1.0}
+D2 final fast 64 {'A_final': 0.801, 'B_final': 0.779, 'untouched': 0.748, 'update_val': 1.0}
+D3 L0 gate@update-bit | slot A: [0.043, 0.046, 0.04, 0.04, 0.058, 0.093, 0.053, 0.05]
+D3 L0 gate@update-bit | slot B: [0.043, 0.046, 0.04, 0.04, 0.058, 0.094, 0.052, 0.049]
+D3 L0 gate@distractor mean: [0.0476, 0.0399, 0.0444, 0.0558, 0.0438, 0.0435, 0.0521, 0.0496]
+D3 L0 gate@initial bits pos1,pos3: [0.043, 0.045, 0.041, 0.04, 0.057, 0.09, 0.054, 0.05] [0.043, 0.045, 0.041, 0.04, 0.057, 0.09, 0.054, 0.05]
+D3 L1 gate@update-bit | slot A: [0.077, 0.017, 0.124, 0.065, 0.041, 0.168, 0.013, 0.045]
+D3 L1 gate@update-bit | slot B: [0.186, 0.01, 0.246, 0.151, 0.063, 0.084, 0.009, 0.035]
+D3 L1 gate@distractor mean: [0.2155, 0.0555, 0.2827, 0.1797, 0.0313, 0.1341, 0.0139, 0.0366]
+D3 L1 gate@initial bits pos1,pos3: [0.046, 0.016, 0.095, 0.065, 0.074, 0.094, 0.276, 0.069] [0.021, 0.013, 0.083, 0.047, 0.092, 0.101, 0.309, 0.054]
+D4 loss updated 0.3531401455402374 untouched 0.5835978388786316
+D4 all-params cos(g_upd,g_unt) -0.367409884929657 |sum|/(|u|+|n|) 0.5996742248535156
+D4 slow-gate cos -0.661250650882721 |sum|/(|u|+|n|) 0.45760831236839294

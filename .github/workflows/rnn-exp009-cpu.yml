@@ -1,0 +1,76 @@
+name: RNN Experiment 009 — two-slot mechanism study (hosted CPU replication)
+
+on:
+  push:
+    branches:
+      - prototype/rnn-llm-architecture-v0-20261007
+    paths:
+      - 'prototypes/rnn_llm_architecture/experiment_009.py'
+      - 'prototypes/rnn_llm_architecture/event_gated.py'
+      - 'prototypes/rnn_llm_architecture/test_experiment_009.py'
+      - 'prototypes/rnn_llm_architecture/test_event_gated.py'
+      - '.github/workflows/rnn-exp009-cpu.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rnn-exp009-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mechanism-study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [17, 29, 43, 59, 71]
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU dependencies
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==2.4.6 scipy==1.17.1 pytest==9.1.1 \
+            filelock typing-extensions setuptools sympy networkx jinja2 fsspec
+          python -m pip install --disable-pip-version-check \
+            --index-url https://download.pytorch.org/whl/cpu \
+            --no-deps 'torch==2.14.1+cpu'
+          python -c 'import torch; assert torch.version.cuda is None and not torch.cuda.is_available(); print(torch.__version__)'
+      - name: Complete architecture and Experiment 009 test suite
+        run: python -m pytest -q -o addopts= -p no:cacheprovider prototypes/rnn_llm_architecture/
+      - name: Bounded per-seed two-slot study
+        run: |
+          python -m prototypes.rnn_llm_architecture.experiment_009 \
+            --output "${RUNNER_TEMP}/rnn-exp009-seed${{ matrix.seed }}.json" \
+            --variants protected_w32,protected_no_retain_w32,protected_shift_w32,protected_hard_w32,protected_hard_shift_w32,tanh_w32,gru_w32,lstm_w32,gru_w24,lstm_w20,gru_keep3_w32,gru_hard_w32,oracle_tag_protected_w32 \
+            --legacy-variants protected_w32,gru_w32 --seeds ${{ matrix.seed }} --steps 2000 \
+            --workers 4 --max-wall-seconds 1800
+      - name: Archive exact tested source
+        if: always()
+        run: |
+          tar -czf "${RUNNER_TEMP}/rnn-exp009-source-seed${{ matrix.seed }}.tar.gz" \
+            AGENTS.md .github/workflows/rnn-exp009-cpu.yml prototypes/rnn_llm_architecture
+      - name: Upload raw evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rnn-exp009-evidence-seed${{ matrix.seed }}
+          path: |
+            ${{ runner.temp }}/rnn-exp009-seed${{ matrix.seed }}.json
+            ${{ runner.temp }}/rnn-exp009-source-seed${{ matrix.seed }}.tar.gz
+          if-no-files-found: warn
