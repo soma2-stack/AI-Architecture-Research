@@ -1,0 +1,3934 @@
+{
+  "status": "screen_incomplete_one_time_limited",
+  "method": "CPU-only 800-update capacity screen; no convergence or novelty claim",
+  "ci_run": "https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37727194566",
+  "source_commit": "eb71064db54285d5b4d0007413b6769aadba24f1",
+  "run_counts": {
+    "total": 60,
+    "full_800": 59,
+    "time_limited": 1
+  },
+  "partial_runs": [
+    {
+      "task": "rnn-exp010-8x2",
+      "variant": "delta_rule",
+      "seed": 43,
+      "steps": 586,
+      "status": "time_limit"
+    }
+  ],
+  "sources": [
+    {
+      "task": "rnn-exp010-2x2",
+      "sha256": "e00464e0c7221ca46ba9f15e4d70bca0d259a6e8e4540ed6b8a353accc5e46a9",
+      "status": "complete",
+      "elapsed_seconds": 440.224
+    },
+    {
+      "task": "rnn-exp010-4x2",
+      "sha256": "8f4e3539cb47f686a792f70ab1926b382a415afca4be338821975885ae1d2e44",
+      "status": "complete",
+      "elapsed_seconds": 591.668
+    },
+    {
+      "task": "rnn-exp010-4x4",
+      "sha256": "224b7caa88938dcd2e3e108636e15047828983b5994a7db341e3e0c266667221",
+      "status": "complete",
+      "elapsed_seconds": 606.627
+    },
+    {
+      "task": "rnn-exp010-8x2",
+      "sha256": "aabd75ea4f13173e48298ebac8e728774ddd48a7905eb4f2467a02083b3c0fb3",
+      "status": "incomplete",
+      "elapsed_seconds": 1051.22
+    },
+    {
+      "task": "rnn-exp010-8x4",
+      "sha256": "5482e1daf75071d77c802b049e364b1944bcc85931c46dc086a5e5a2d221204f",
+      "status": "complete",
+      "elapsed_seconds": 519.858
+    }
+  ],
+  "configurations": [
+    {
+      "task": "rnn-exp010-2x2",
+      "config": {
+        "variants": [
+          "protected",
+          "protected_no_retain",
+          "gru24",
+          "delta_rule"
+        ],
+        "tasks": [
+          [
+            2,
+            2
+          ]
+        ],
+        "seeds": [
+          17,
+          29,
+          43
+        ],
+        "delay": 64,
+        "eval_delays": [
+          64,
+          256
+        ],
+        "steps": 800,
+        "batch": 12,
+        "eval_batch": 128,
+        "eval_every": 200,
+        "lr": 0.002,
+        "clip": 1.0,
+        "max_wall_seconds": 1050.0
+      }
+    },
+    {
+      "task": "rnn-exp010-4x2",
+      "config": {
+        "variants": [
+          "protected",
+          "protected_no_retain",
+          "gru24",
+          "delta_rule"
+        ],
+        "tasks": [
+          [
+            4,
+            2
+          ]
+        ],
+        "seeds": [
+          17,
+          29,
+          43
+        ],
+        "delay": 64,
+        "eval_delays": [
+          64,
+          256
+        ],
+        "steps": 800,
+        "batch": 12,
+        "eval_batch": 128,
+        "eval_every": 200,
+        "lr": 0.002,
+        "clip": 1.0,
+        "max_wall_seconds": 1050.0
+      }
+    },
+    {
+      "task": "rnn-exp010-4x4",
+      "config": {
+        "variants": [
+          "protected",
+          "protected_no_retain",
+          "gru24",
+          "delta_rule"
+        ],
+        "tasks": [
+          [
+            4,
+            4
+          ]
+        ],
+        "seeds": [
+          17,
+          29,
+          43
+        ],
+        "delay": 64,
+        "eval_delays": [
+          64,
+          256
+        ],
+        "steps": 800,
+        "batch": 12,
+        "eval_batch": 128,
+        "eval_every": 200,
+        "lr": 0.002,
+        "clip": 1.0,
+        "max_wall_seconds": 1050.0
+      }
+    },
+    {
+      "task": "rnn-exp010-8x2",
+      "config": {
+        "variants": [
+          "protected",
+          "protected_no_retain",
+          "gru24",
+          "delta_rule"
+        ],
+        "tasks": [
+          [
+            8,
+            2
+          ]
+        ],
+        "seeds": [
+          17,
+          29,
+          43
+        ],
+        "delay": 64,
+        "eval_delays": [
+          64,
+          256
+        ],
+        "steps": 800,
+        "batch": 12,
+        "eval_batch": 128,
+        "eval_every": 200,
+        "lr": 0.002,
+        "clip": 1.0,
+        "max_wall_seconds": 1050.0
+      }
+    },
+    {
+      "task": "rnn-exp010-8x4",
+      "config": {
+        "variants": [
+          "protected",
+          "protected_no_retain",
+          "gru24",
+          "delta_rule"
+        ],
+        "tasks": [
+          [
+            8,
+            4
+          ]
+        ],
+        "seeds": [
+          17,
+          29,
+          43
+        ],
+        "delay": 64,
+        "eval_delays": [
+          64,
+          256
+        ],
+        "steps": 800,
+        "batch": 12,
+        "eval_batch": 128,
+        "eval_every": 200,
+        "lr": 0.002,
+        "clip": 1.0,
+        "max_wall_seconds": 1050.0
+      }
+    }
+  ],
+  "runs": [
+    {
+      "variant": "protected",
+      "slots": 2,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 48.305,
+      "loss_first": 0.7442269921302795,
+      "loss_last": 0.33753788471221924,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.203125,
+          "loss": 0.6942309737205505
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.01515151560306549,
+          "whole": 0.3828125,
+          "loss": 0.6811648011207581
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.4765625,
+          "loss": 0.4738697111606598
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.01515151560306549,
+          "whole": 0.4921875,
+          "loss": 0.33753788471221924
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.75390625,
+          "whole": 0.5078125,
+          "whole_varied": 0.03076923079788685,
+          "varied_count": 65,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.4921875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.765625,
+          "whole": 0.53125,
+          "whole_varied": 0.016393441706895828,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 2,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 46.36,
+      "loss_first": 0.8088459968566895,
+      "loss_last": 0.36322221159935,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.01515151560306549,
+          "whole": 0.234375,
+          "loss": 0.6890199780464172
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.453125,
+          "loss": 0.5986519455909729
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.484375,
+          "loss": 0.49576547741889954
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.484375,
+          "loss": 0.36322221159935
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.74609375,
+          "whole": 0.4921875,
+          "whole_varied": 0.0,
+          "varied_count": 65,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.4921875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.76171875,
+          "whole": 0.5234375,
+          "whole_varied": 0.0,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 2,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 35.15,
+      "loss_first": 0.640032947063446,
+      "loss_last": 0.0005740702035836875,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.2109375,
+          "loss": 0.6910641193389893
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.9848484992980957,
+          "whole": 0.9921875,
+          "loss": 0.04856448993086815
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0029999108519405127
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0005740702035836875
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 65,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.4921875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 2,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 19.712,
+      "loss_first": 1.0864942073822021,
+      "loss_last": 0.0004726021725218743,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0055146608501672745
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0015787625452503562
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0007518576458096504
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0004726021725218743
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 65,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.4921875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 2,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 46.681,
+      "loss_first": 0.7261946797370911,
+      "loss_last": 0.0013357964344322681,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.014084506779909134,
+          "whole": 0.296875,
+          "loss": 0.6007623076438904
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0422535203397274,
+          "whole": 0.46875,
+          "loss": 0.4139263927936554
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00163756322581321
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0013357964344322681
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 74,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.421875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 63,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 2,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 44.877,
+      "loss_first": 0.816796600818634,
+      "loss_last": 0.6682291030883789,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.203125,
+          "loss": 0.752280056476593
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.203125,
+          "loss": 0.6959905624389648
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.014084506779909134,
+          "whole": 0.3046875,
+          "loss": 0.6045326590538025
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.014084506779909134,
+          "whole": 0.453125,
+          "loss": 0.6682291030883789
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.72265625,
+          "whole": 0.453125,
+          "whole_varied": 0.054054055362939835,
+          "varied_count": 74,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.421875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.765625,
+          "whole": 0.53125,
+          "whole_varied": 0.0476190485060215,
+          "varied_count": 63,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 2,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 34.207,
+      "loss_first": 1.0639287233352661,
+      "loss_last": 0.0013304000021889806,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.203125,
+          "loss": 0.7733291983604431
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.014084506779909134,
+          "whole": 0.453125,
+          "loss": 0.3615158498287201
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0028341372963041067
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0013304000021889806
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 74,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.421875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.99609375,
+          "whole": 0.9921875,
+          "whole_varied": 0.9841269850730896,
+          "varied_count": 63,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 2,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 19.364,
+      "loss_first": 0.9726694226264954,
+      "loss_last": 0.0003535111027304083,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0041656349785625935
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0012372079072520137
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0006314474157989025
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0003535111027304083
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 74,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.421875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 63,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 2,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 44.356,
+      "loss_first": 1.4508047103881836,
+      "loss_last": 0.0009868558263406157,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.04838709533214569,
+          "whole": 0.390625,
+          "loss": 0.6821088790893555
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.515625,
+          "loss": 0.5916123390197754
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.9838709831237793,
+          "whole": 0.9921875,
+          "loss": 0.16792742908000946
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0009868558263406157
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 64,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 2,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 43.198,
+      "loss_first": 1.4738569259643555,
+      "loss_last": 0.4181534945964813,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.06451612710952759,
+          "whole": 0.3125,
+          "loss": 0.6948208212852478
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.016129031777381897,
+          "whole": 0.3515625,
+          "loss": 0.6851954460144043
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.016129031777381897,
+          "whole": 0.5234375,
+          "loss": 0.5445632934570312
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.016129031777381897,
+          "whole": 0.5234375,
+          "loss": 0.4181534945964813
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.7578125,
+          "whole": 0.515625,
+          "whole_varied": 0.03125,
+          "varied_count": 64,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.7734375,
+          "whole": 0.5546875,
+          "whole_varied": 0.06557376682758331,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 2,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 33.415,
+      "loss_first": 0.6535102725028992,
+      "loss_last": 0.014519798569381237,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.016129031777381897,
+          "whole": 0.328125,
+          "loss": 0.7023531794548035
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.4921875,
+          "loss": 0.6700370907783508
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.515625,
+          "loss": 0.4013333320617676
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.014519798569381237
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 64,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 2,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 19.295,
+      "loss_first": 0.3044174015522003,
+      "loss_last": 0.00021590940013993531,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.002042696811258793
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0006886132177896798
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00035226097679696977
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00021590940013993531
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 64,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 4,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 58.504,
+      "loss_first": 0.7443765997886658,
+      "loss_last": 0.5618649125099182,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.15625,
+          "loss": 0.6533077359199524
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.1484375,
+          "loss": 0.6098086833953857
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.1484375,
+          "loss": 0.6846225261688232
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.5618649125099182
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.658203125,
+          "whole": 0.1484375,
+          "whole_varied": 0.0,
+          "varied_count": 107,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1640625,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.505859375,
+          "whole": 0.0390625,
+          "whole_varied": 0.0,
+          "varied_count": 118,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 4,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 55.869,
+      "loss_first": 0.7416682839393616,
+      "loss_last": 0.5179648995399475,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.1484375,
+          "loss": 0.665309488773346
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.1484375,
+          "loss": 0.6089332699775696
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.6104732155799866
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.5179648995399475
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.689453125,
+          "whole": 0.1640625,
+          "whole_varied": 0.0,
+          "varied_count": 107,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1640625,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.642578125,
+          "whole": 0.078125,
+          "whole_varied": 0.0,
+          "varied_count": 118,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 4,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 40.368,
+      "loss_first": 0.6910644173622131,
+      "loss_last": 0.6267182230949402,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.078125,
+          "loss": 0.7298672795295715
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0859375,
+          "loss": 0.6958988308906555
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.018691588193178177,
+          "whole": 0.0859375,
+          "loss": 0.694644033908844
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.1328125,
+          "loss": 0.6267182230949402
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.62109375,
+          "whole": 0.1484375,
+          "whole_varied": 0.009345794096589088,
+          "varied_count": 107,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1640625,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.546875,
+          "whole": 0.046875,
+          "whole_varied": 0.0,
+          "varied_count": 118,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 4,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 42.195,
+      "loss_first": 1.0008635520935059,
+      "loss_last": 0.0005102547002024949,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.005928179249167442
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0016865894431248307
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0008324445807375014
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0005102547002024949
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 107,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1640625,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 118,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 4,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 56.27,
+      "loss_first": 0.8432919979095459,
+      "loss_last": 0.6482861638069153,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.1484375,
+          "loss": 0.7097446918487549
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.15625,
+          "loss": 0.6587715744972229
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.018691588193178177,
+          "whole": 0.171875,
+          "loss": 0.6102336049079895
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.009345794096589088,
+          "whole": 0.1640625,
+          "loss": 0.6482861638069153
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.5859375,
+          "whole": 0.1015625,
+          "whole_varied": 0.008849557489156723,
+          "varied_count": 113,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1171875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.580078125,
+          "whole": 0.1015625,
+          "whole_varied": 0.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 4,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 54.997,
+      "loss_first": 0.7702032923698425,
+      "loss_last": 0.6300994753837585,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0859375,
+          "loss": 0.6990613341331482
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.6476632952690125
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.520279586315155
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.6300994753837585
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.666015625,
+          "whole": 0.1171875,
+          "whole_varied": 0.0,
+          "varied_count": 113,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1171875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.673828125,
+          "whole": 0.1328125,
+          "whole_varied": 0.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 4,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 40.407,
+      "loss_first": 1.1752187013626099,
+      "loss_last": 0.6334033608436584,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0859375,
+          "loss": 0.6966775059700012
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.6535176634788513
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.5184400081634521
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.1640625,
+          "loss": 0.6334033608436584
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.666015625,
+          "whole": 0.125,
+          "whole_varied": 0.008849557489156723,
+          "varied_count": 113,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1171875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.646484375,
+          "whole": 0.1328125,
+          "whole_varied": 0.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 4,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 42.961,
+      "loss_first": 0.9449267387390137,
+      "loss_last": 0.0003476348065305501,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.003974579740315676
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0012212115107104182
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0005670196260325611
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0003476348065305501
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 113,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1171875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 4,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 56.98,
+      "loss_first": 1.3709888458251953,
+      "loss_last": 0.600744366645813,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.008771929889917374,
+          "whole": 0.1015625,
+          "loss": 0.6373088359832764
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.008771929889917374,
+          "whole": 0.109375,
+          "loss": 0.586345911026001
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.109375,
+          "loss": 0.6256150603294373
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.109375,
+          "loss": 0.600744366645813
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.673828125,
+          "whole": 0.1328125,
+          "whole_varied": 0.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.62109375,
+          "whole": 0.1328125,
+          "whole_varied": 0.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 4,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 53.782,
+      "loss_first": 1.17105233669281,
+      "loss_last": 0.6847159266471863,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0625,
+          "loss": 0.6895487904548645
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0859375,
+          "loss": 0.5893988013267517
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.09375,
+          "loss": 0.6751437187194824
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.017543859779834747,
+          "whole": 0.1015625,
+          "loss": 0.6847159266471863
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.6171875,
+          "whole": 0.1171875,
+          "whole_varied": 0.009009009227156639,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.580078125,
+          "whole": 0.1171875,
+          "whole_varied": 0.027027027681469917,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 4,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 39.576,
+      "loss_first": 0.6400133967399597,
+      "loss_last": 0.5879189372062683,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.02631578966975212,
+          "whole": 0.0703125,
+          "loss": 0.6924709677696228
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.008771929889917374,
+          "whole": 0.09375,
+          "loss": 0.6455856561660767
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.109375,
+          "loss": 0.6304404139518738
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.008771929889917374,
+          "whole": 0.1171875,
+          "loss": 0.5879189372062683
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.650390625,
+          "whole": 0.1328125,
+          "whole_varied": 0.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.65625,
+          "whole": 0.1328125,
+          "whole_varied": 0.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 4,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 42.795,
+      "loss_first": 0.2930217683315277,
+      "loss_last": 0.00021205079974606633,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0020091987680643797
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.000674958573654294
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00034564724774099886
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00021205079974606633
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 111,
+          "whole_guess_chance": 0.0625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.1328125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 4,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 58.732,
+      "loss_first": 2.0474393367767334,
+      "loss_last": 1.1501121520996094,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.2394616603851318
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.2555404901504517
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.3358230590820312
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.1501121520996094
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.5,
+          "whole": 0.0234375,
+          "whole_varied": 0.0,
+          "varied_count": 125,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0234375,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.4609375,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 4,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 57.872,
+      "loss_first": 2.044679641723633,
+      "loss_last": 1.2919906377792358,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.4160858392715454
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3901985883712769
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.349614143371582
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.2919906377792358
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.41796875,
+          "whole": 0.0234375,
+          "whole_varied": 0.0,
+          "varied_count": 125,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0234375,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.3984375,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 4,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 42.536,
+      "loss_first": 1.3634486198425293,
+      "loss_last": 1.0705782175064087,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.4006909132003784
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3895012140274048
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.3128399848937988
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.007874015718698502,
+          "whole": 0.015625,
+          "loss": 1.0705782175064087
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.5,
+          "whole": 0.03125,
+          "whole_varied": 0.00800000037997961,
+          "varied_count": 125,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0234375,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.47265625,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 4,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 260,
+      "elapsed_s": 43.632,
+      "loss_first": 1.6265159845352173,
+      "loss_last": 0.0012040900764986873,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.01361581776291132
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.003912856336683035
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.001890424988232553
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0012040900764986873
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 125,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0234375,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 4,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 59.773,
+      "loss_first": 1.7435951232910156,
+      "loss_last": 1.2403839826583862,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.3208060264587402
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0234375,
+          "loss": 1.2940882444381714
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0234375,
+          "loss": 1.1987820863723755
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0234375,
+          "loss": 1.2403839826583862
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.44921875,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.46484375,
+          "whole": 0.0078125,
+          "whole_varied": 0.0078125,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 4,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 58.148,
+      "loss_first": 1.8325705528259277,
+      "loss_last": 1.2012240886688232,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.3616939783096313
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.015625,
+          "loss": 1.3699102401733398
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0234375,
+          "loss": 1.170822262763977
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0234375,
+          "loss": 1.2012240886688232
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.4609375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.498046875,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 4,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 42.057,
+      "loss_first": 1.674453616142273,
+      "loss_last": 1.199967622756958,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3631914854049683
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.389340877532959
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.015625,
+          "loss": 1.1686125993728638
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0234375,
+          "loss": 1.199967622756958
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.458984375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.443359375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 4,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 260,
+      "elapsed_s": 44.779,
+      "loss_first": 1.2800887823104858,
+      "loss_last": 0.0011192256351932883,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.01225870568305254
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0036827169824391603
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0018940583104267716
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0011192256351932883
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 4,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 55.002,
+      "loss_first": 2.209444284439087,
+      "loss_last": 1.2561166286468506,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.2711857557296753
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.2890074253082275
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.1428302526474
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.2561166286468506
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.443359375,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.453125,
+          "whole": 0.03125,
+          "whole_varied": 0.0,
+          "varied_count": 124,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.03125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 4,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 53.245,
+      "loss_first": 2.377927303314209,
+      "loss_last": 1.2696012258529663,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3821715116500854
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.4169344902038574
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.411169409751892
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.2696012258529663
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.427734375,
+          "whole": 0.015625,
+          "whole_varied": 0.007874015718698502,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.474609375,
+          "whole": 0.03125,
+          "whole_varied": 0.0,
+          "varied_count": 124,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.03125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 4,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 40.472,
+      "loss_first": 1.8308568000793457,
+      "loss_last": 1.238383173942566,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3804572820663452
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.3692173957824707
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.0790321826934814
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0078125,
+          "loss": 1.238383173942566
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.458984375,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.470703125,
+          "whole": 0.03125,
+          "whole_varied": 0.0,
+          "varied_count": 124,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.03125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 4,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 260,
+      "elapsed_s": 43.36,
+      "loss_first": 1.5709400177001953,
+      "loss_last": 0.0009668719139881432,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.010050908662378788
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0031699768733233213
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0014998987317085266
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0009668719139881432
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 124,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.03125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 8,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 88.783,
+      "loss_first": 0.8292536735534668,
+      "loss_last": 0.6766898036003113,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6748477816581726
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6732561588287354
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.682361900806427
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6766898036003113
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.595703125,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.595703125,
+          "whole": 0.015625,
+          "whole_varied": 0.0,
+          "varied_count": 126,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.015625,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 8,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 84.66,
+      "loss_first": 0.7641897201538086,
+      "loss_last": 0.6616421341896057,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6741951107978821
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.674401044845581
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6882786750793457
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6616421341896057
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.599609375,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.626953125,
+          "whole": 0.015625,
+          "whole_varied": 0.0,
+          "varied_count": 126,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.015625,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 8,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 56.016,
+      "loss_first": 0.7006013989448547,
+      "loss_last": 0.6975696086883545,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.7022964954376221
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.692098081111908
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.7027943730354309
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6975696086883545
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.478515625,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.5068359375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 126,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.015625,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 8,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 135.764,
+      "loss_first": 0.972320020198822,
+      "loss_last": 0.000497958215419203,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.005535691510885954
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0017932254122570157
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0008438516524620354
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.000497958215419203
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 126,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.015625,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 8,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 81.477,
+      "loss_first": 0.8554725050926208,
+      "loss_last": 0.7043456435203552,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6351492404937744
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.682350218296051
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.675540030002594
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.7043456435203552
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.6201171875,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.56640625,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 8,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 81.853,
+      "loss_first": 0.7970833778381348,
+      "loss_last": 0.6976311802864075,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6888175010681152
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.686745822429657
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6837859749794006
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6976311802864075
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.6142578125,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.50390625,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 8,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 55.69,
+      "loss_first": 1.1145507097244263,
+      "loss_last": 0.7029348015785217,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.015625,
+          "whole": 0.015625,
+          "loss": 0.6917517781257629
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6927571296691895
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6952178478240967
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.7029348015785217
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.6298828125,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.5908203125,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 8,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 135.263,
+      "loss_first": 0.9657338261604309,
+      "loss_last": 0.00033748362329788506,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.003902454860508442
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0011623924365267158
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0005632874672301114
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00033748362329788506
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 8,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 83.264,
+      "loss_first": 1.7801152467727661,
+      "loss_last": 0.6681591868400574,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6863645911216736
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6783530116081238
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6806870102882385
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6681591868400574
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.599609375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.607421875,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 8,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 81.536,
+      "loss_first": 1.9013495445251465,
+      "loss_last": 0.6755053400993347,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6964225769042969
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.692358672618866
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6820631623268127
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6755053400993347
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.6083984375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.5703125,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 8,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 55.736,
+      "loss_first": 0.7163292765617371,
+      "loss_last": 0.6744633316993713,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.7071173787117004
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6977432370185852
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6925520300865173
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 0.6744633316993713
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.60546875,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.599609375,
+          "whole": 0.0078125,
+          "whole_varied": 0.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 8,
+      "values": 2,
+      "seed": 43,
+      "steps": 586,
+      "status": "time_limit",
+      "parameters": 130,
+      "elapsed_s": 99.781,
+      "loss_first": 0.32720860838890076,
+      "loss_last": 0.0003522845508996397,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0020056471694260836
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0006659867358393967
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 8,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 42.585,
+      "loss_first": 1.8131961822509766,
+      "loss_last": 1.2881380319595337,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3419294357299805
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3153711557388306
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.2573364973068237
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.2881380319595337
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.3740234375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.328125,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 8,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 40.788,
+      "loss_first": 2.0665361881256104,
+      "loss_last": 1.2934924364089966,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3627744913101196
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3197667598724365
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.2706810235977173
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.2934924364089966
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.376953125,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.3486328125,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 8,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 27.206,
+      "loss_first": 1.419502854347229,
+      "loss_last": 1.344063639640808,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.381874680519104
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.378412127494812
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.394156575202942
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.344063639640808
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.310546875,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.3251953125,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 8,
+      "values": 4,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 260,
+      "elapsed_s": 64.091,
+      "loss_first": 1.5681061744689941,
+      "loss_last": 0.00112992397043854,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.012137711979448795
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0037263892590999603
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.001814392046071589
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00112992397043854
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 8,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 41.838,
+      "loss_first": 1.8854146003723145,
+      "loss_last": 1.2756648063659668,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3380370140075684
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3385223150253296
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.2632709741592407
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.2756648063659668
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.3994140625,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.30078125,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 8,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 40.447,
+      "loss_first": 2.1750869750976562,
+      "loss_last": 1.381754755973816,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3722896575927734
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3606882095336914
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3505959510803223
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.381754755973816
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.31640625,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.2978515625,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 8,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 26.161,
+      "loss_first": 1.6890300512313843,
+      "loss_last": 1.3220542669296265,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3798632621765137
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3916397094726562
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.391430377960205
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3220542669296265
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.2880859375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.2666015625,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 8,
+      "values": 4,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 260,
+      "elapsed_s": 58.953,
+      "loss_first": 1.3475645780563354,
+      "loss_last": 0.0010652338387444615,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.011742175556719303
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.003676826134324074
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0016492707654833794
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0010652338387444615
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected",
+      "slots": 8,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 41.67,
+      "loss_first": 2.2112648487091064,
+      "loss_last": 1.3643735647201538,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3588799238204956
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3585219383239746
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3330310583114624
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3643735647201538
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.3984375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.3134765625,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "protected_no_retain",
+      "slots": 8,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8016,
+      "elapsed_s": 40.799,
+      "loss_first": 2.340599775314331,
+      "loss_last": 1.3604718446731567,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3405002355575562
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3619192838668823
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.323309063911438
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3604718446731567
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.4013671875,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.3740234375,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru24",
+      "slots": 8,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 8112,
+      "elapsed_s": 27.131,
+      "loss_first": 1.726701259613037,
+      "loss_last": 1.303848147392273,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3922529220581055
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.3890295028686523
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.316389560699463
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.0,
+          "loss": 1.303848147392273
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.4248046875,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.3916015625,
+          "whole": 0.0,
+          "whole_varied": 0.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "delta_rule",
+      "slots": 8,
+      "values": 4,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 260,
+      "elapsed_s": 62.443,
+      "loss_first": 1.5981796979904175,
+      "loss_last": 0.0009391044732183218,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.009563724510371685
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.003098889021202922
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0015451478539034724
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0009391044732183218
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 1.52587890625e-05,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        }
+      }
+    }
+  ]
+}
