@@ -1,8 +1,10 @@
 # Experiment 001 — Small supervised recurrent-memory pilot
 
-**Status:** pilot harness and tests committed; trainable-architecture training
-results are **NOT YET VERIFIED** until a run executes on the actual PR code.
-This file is not a research-theorem record. It contains no claim about formal
+**Status:** five-model CPU training pilot **COMPLETED** in
+[GitHub Actions run #37710011831](https://github.com/soma2-stack/AI-Architecture-Research/actions/runs/37710011831).
+See [per-seed analysis](EXPERIMENT_001_RESULTS.md) and
+[structured evidence](reports/experiment_001_results.json).
+This file is not a research-theorem record and contains no claim of formal
 robust credit dimension or model superiority.
 
 ## Scientific question
@@ -65,10 +67,12 @@ overwriting evidence. If the budget is reached, JSON records completed and
 skipped conditions; do not silently fill gaps.
 
 A branch-local [GitHub Actions workflow](../../.github/workflows/rnn-exp001-cpu.yml)
-attempts the CPU unit suite and a smaller 12-step five-model/two-task smoke
-on push or explicit workflow dispatch. **No GitHub Actions result should be
-reported unless a real run appears.** CI minute consumption is bounded by a
-per-job 18-minute timeout.
+runs the CPU unit suite, a 12-step five-model/two-task smoke,
+and the bounded 40-condition/100-step experiment on relevant source changes
+or explicit workflow dispatch. The completed authoritative evidence is
+run #37710011831; subsequent runs must be audited independently.
+CI execution is bounded by a per-job 18-minute timeout and a global
+600-second training budget for the full matrix.
 
 ## Fairness, limits, and falsification
 
@@ -97,10 +101,11 @@ per-job 18-minute timeout.
 
 On the authoring environment (Python 3.13, CPU PyTorch 2.10) the **six new
 standalone harness tests** passed using a toy model for the training smoke.
-This validates generator logic and basic optimizer plumbing only; it does
-**not** exercise the five repository model implementations, and should not
-be conflated with the prior reported 127 architecture tests.
+This only validates generator logic and basic optimizer plumbing.
 
-The full actual-repository suite and real five-model CPU training matrix
-require the PR checkout or a successful CI job. Until then, label them
-**NOT RUN/NOT VERIFIED**.
+On the **actual PR commit**, a hosted GitHub runner with CPU PyTorch 2.14.1
+subsequently passed **133/133 prototype tests** and completed **40/40 runs**
+(100 optimizer updates per condition) with no training failures. A
+source-snapshot download was separately tested on local CPU PyTorch 2.10
+and all **133 tests passed** there as well. Neither unit tests nor 100-step
+pilots establish architectural superiority or a proof of formal D.
