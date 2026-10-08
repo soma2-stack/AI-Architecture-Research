@@ -1,4 +1,4 @@
-"""Independent product-neutral private survivor echo, derived from Astra baseline.
+"""Long-window extension of the corrected sparse chronological reference model.
 NumPy float64. Full rank-two feedback; no externally prescribed J.
 Not the dense perturbed model, source-root certificate, or a robust-width proof.
 """
@@ -35,20 +35,19 @@ def delta_gate(gp,gm,v):
         out[ix]+=sign*diff.reshape((-1,)+(1,)*(v.ndim-1))*v[ix]
     return out
 
-def history(n,m,R,W,controls,L=256,gh=None,capture_phase=None,hold_survivors=False,
-            survivor_controls=None,mode='echo',strength=.0001,eta_override=None):
+def history(n,m,R,W,controls,L=256,gh=None,capture_phase=None,hold_survivors=False,private_capture=None,private_interior=None):
     assert n%4==0 and m>0 and m&(m-1)==0 and R<m and W>=1
     if gh is None:gh=1-n**-2
     if capture_phase is None:capture_phase=W # final high step, BEFORE compensation
     assert 1<=capture_phase<=W
     ctr=np.asarray(controls,dtype=float).reshape(R,m);assert np.max(abs(ctr))<=1
-    sc=ctr if survivor_controls is None else np.asarray(survivor_controls).reshape(R,m)
-    assert np.max(abs(sc))<=1 and mode in ['echo','weak_echo']
-    # Fixed-gap echo versus an explicitly R-dependent near-critical alternative.
-    center=GSTAR if mode=='echo' else gh*math.exp(-.0025/R)
-    eta=strength if mode=='echo' else .002/R
-    if eta_override is not None:eta=eta_override
-    assert center*math.exp(eta)<=gh
+    if (private_capture is not None or private_interior is not None) and not hold_survivors:
+        raise ValueError('private survivor controls require exact balanced paired forcing each step')
+    pc=None if private_capture is None else np.asarray(private_capture,dtype=float).reshape(R,m)
+    pi=None if private_interior is None else np.asarray(private_interior,dtype=float).reshape(R,m,W-1)
+    for word in (pc,pi):
+        if word is not None and np.max(abs(word))>1:raise ValueError('survivor control outside cube')
+
     k=n//2;d=n//4;r=k-1;a=1-1/n;alpha=a*gh
     N=L+(W+2)*R+1;S=m+N+4;A=2*S;B=5*S
     if 7*S+m+N>=d:raise ValueError('no-wrap failed')
@@ -57,10 +56,8 @@ def history(n,m,R,W,controls,L=256,gh=None,capture_phase=None,hold_survivors=Fal
     ga=1/(1-1/math.sqrt(k));cv=ga/math.sqrt(k);uc=-ga**2/k
     u=math.tanh(BIAS);sgn=np.r_[np.ones(2*m),-np.ones(2*m)]
     hd={int(i):float(s*math.sqrt(1-gh)-u) for i,s in zip(donors(0),sgn)}
-    si0=np.r_[3*S+np.arange(m),6*S+np.arange(m)]
-    for i,ss in zip(si0,np.r_[np.ones(m),-np.ones(m)]):hd[int(i)]=float(ss*math.sqrt(1-gh)-u)
     tau=np.zeros(m);live=np.zeros(m);gates=[];dgs=[];baselines=[];taus=[]
-    traceerr=0.;maxinput=0.;maxq=0.;maxf1=0.;frontviolation=0.;gate_min=1.;gate_max=0.;energy=0.;echoerr=0.
+    traceerr=0.;maxinput=0.;maxq=0.;maxf1=0.;frontviolation=0.;gate_min=1.;gate_max=0.
     TW=gh*(-math.expm1(W*math.log(alpha)))/(1-alpha)
     for t in range(1,N+1):
         total=r*u+sum(hd.values());terminal=u+hd.get(d-2,0.)
@@ -95,23 +92,25 @@ def history(n,m,R,W,controls,L=256,gh=None,capture_phase=None,hold_survivors=Fal
             assert traceerr<1e-8
         for ix,v in zip(donors(t),sgn*np.sqrt(1-np.tile(dg,4))):
             prev=unew+nd.get(int(ix),0.)
-            inp=math.atanh(float(v))-math.atanh(prev)
-            maxinput=max(maxinput,abs(inp));energy+=inp*inp
+            maxinput=max(maxinput,abs(math.atanh(float(v))-math.atanh(prev)))
             nd[int(ix)]=float(v-unew)
-        if t<=L:gs=np.full(m,gh)
-        elif t==N:gs=np.full(m,1-math.tanh(BIAS)**2)
-        else:
-            st,phase=divmod(t-L-1,W+2)
-            if phase==0:gs=center*np.exp(eta*sc[st]);first=gs.copy()
-            elif phase==W+1:
-                gs=center*np.exp(-eta*sc[st]);echoerr=max(echoerr,float(np.max(abs(first*gs-center**2))))
-            else:gs=np.full(m,gh)
-        ids=np.r_[3*S+np.arange(m)+t,6*S+np.arange(m)+t]
-        for ix,v in zip(ids,np.r_[np.sqrt(1-gs),-np.sqrt(1-gs)]):
-            prev=unew+nd.get(int(ix),0.)
-            inp=math.atanh(float(v))-math.atanh(prev)
-            maxinput=max(maxinput,abs(inp));energy+=inp*inp
-            nd[int(ix)]=float(v-unew)
+        capture=L<t<N and (t-L-1)%(W+2)==capture_phase
+        if capture or hold_survivors:
+            if capture:
+                st=(t-L-1)//(W+2)
+                low=np.array([(int(i)&(st+1)).bit_count()%2 for i in range(m)],bool)
+                assert low.sum()==m//2
+                gs=np.where(low,.995+EPS*pc[st] if pc is not None else .995,gh)
+            else:
+                gs=np.full(m,gh)
+                if pi is not None and L<t<N:
+                    st,phase=divmod(t-L-1,W+2)
+                    if 1<=phase<W:gs=gh-EPS*(1+pi[st,:,phase-1])/2
+            ids=np.r_[3*S+np.arange(m)+t,6*S+np.arange(m)+t]
+            for ix,v in zip(ids,np.r_[np.sqrt(1-gs),-np.sqrt(1-gs)]):
+                prev=unew+nd.get(int(ix),0.)
+                maxinput=max(maxinput,abs(math.atanh(float(v))-math.atanh(prev)))
+                nd[int(ix)]=float(v-unew)
         u=unew;hd=nd
         ix=np.fromiter(hd.keys(),dtype=np.int32);dv=np.fromiter(hd.values(),dtype=float)
         gd=-2*u*dv-dv*dv;bulk=1-u*u
@@ -123,14 +122,12 @@ def history(n,m,R,W,controls,L=256,gh=None,capture_phase=None,hold_survivors=Fal
         gate_min=min(gate_min,float(np.min(bulk+gd)),bulk)
         gate_max=max(gate_max,float(np.max(bulk+gd)),bulk)
     assert np.isfinite(maxinput) and gate_min>=-1e-14 and gate_max<=1+1e-14
-    return dict(n=n,m=m,R=R,W=W,L=L,N=N,S=S,gh=gh,capture_phase=capture_phase,hold_survivors=True,
-        mode=mode,echo_center=center,echo_contrast=eta,echo_product_error=echoerr,
-        reference_driven_energy=energy,initial_preparation_not_in_energy=True,
+    return dict(n=n,m=m,R=R,W=W,L=L,N=N,S=S,gh=gh,capture_phase=capture_phase,hold_survivors=hold_survivors,
         base=u,exceptions=hd,gates=gates,dgs=np.array(dgs),baselines=np.array(baselines),
         incoming_traces=taus,endpoint_trace=live,maxtrace=traceerr,maxinput=maxinput,
         max_bath_gate=maxq,max_first_front_gate=maxf1,front_premise_violation=frontviolation,
         gate_min=gate_min,gate_max=gate_max,strong_geometry=bool(n>=10**6 and S<=d/100),
-        donor_indices_final=donors(N))
+        donor_indices_final=donors(N),private_capture=(pc is not None),private_interior=(pi is not None))
 
 def transpose_pair(p,m,c,local=False):
     """Stable complete pair difference; never subtract two final large M^T c."""

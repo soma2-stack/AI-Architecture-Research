@@ -1,0 +1,24 @@
+{
+  "monotone_boundary_code_error": 1.1102230246251565e-16,
+  "local_residual_norm": 0.010404416699245578,
+  "monotone_code_bound": 3.0,
+  "receiver_aggregate_error": 8.881784197001252e-16,
+  "cross_protocol_common_endpoints": [
+    {
+      "variant": "astra_weak_echo",
+      "cross_protocol_endpoint_error": 0.0
+    },
+    {
+      "variant": "gpt_capture",
+      "cross_protocol_endpoint_error": 0.0
+    },
+    {
+      "variant": "gpt_interior_tied",
+      "cross_protocol_endpoint_error": 0.0
+    },
+    {
+      "variant": "gpt_interior_independent",
+      "cross_protocol_endpoint_error": 0.0
+    }
+  ]
+}
