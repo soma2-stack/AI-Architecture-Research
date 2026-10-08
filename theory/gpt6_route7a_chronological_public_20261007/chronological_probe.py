@@ -47,7 +47,9 @@ def make_history(n,m,R,controls,mask=True,L=None):
     h[np.r_[idx0,stationary]]=signs*np.sqrt(1-GH)
     initial=h.copy()
     gates=[]
-    tau=np.zeros(m)
+    tau=np.zeros(m)  # common LOCAL row-sum trace at each stage boundary
+    trace_live=np.zeros(m)  # independently updated at EVERY step to catch stale tau
+    max_stage_trace_error=0.
     maxinput=0.
     for t in range(1,N+1):
         raw=BIAS+a*o_apply(n,h)
@@ -55,12 +57,15 @@ def make_history(n,m,R,controls,mask=True,L=None):
         donor=np.r_[A+1+np.arange(m)+t,B+1+np.arange(m)+t,stationary]-1
         if t<=L:
             dg=np.full(m,GH)
+            tau=GH*(1+a*tau)  # CRITICAL: charge the local sensitivity trace during precharge
         elif t==N:
             dg=np.full(m,1-math.tanh(BIAS)**2)
         else:
             j=(t-L-1)//3
             phase=(t-L-1)%3
             if phase==0:
+                if np.max(abs(tau-trace_live))>1e-8:
+                    raise AssertionError('stage starts with stale local trace')
                 dg=GSTAR+EPS*ctr[j]
                 incoming=tau.copy()
             elif phase==1:
@@ -72,6 +77,12 @@ def make_history(n,m,R,controls,mask=True,L=None):
                 dg=target/(1+a*t2)
                 assert np.max(abs(dg*(1+a*t2)-target))<1e-10
                 tau=target
+        trace_live=dg*(1+a*trace_live)
+        if L<t<N and ((t-L-1)%3==2):
+            stage_error=float(np.max(abs(trace_live-target)))
+            max_stage_trace_error=max(max_stage_trace_error,stage_error)
+            if stage_error>1e-8:
+                raise AssertionError('stage-3 trace is not actually neutral')
         new[donor]=signs*np.sqrt(1-np.tile(dg,4))
         if mask and L<t<N and ((t-L-1)%3==1):
             j=(t-L-1)//3
@@ -84,7 +95,8 @@ def make_history(n,m,R,controls,mask=True,L=None):
         maxinput=max(maxinput,float(np.max(abs(np.arctanh(new[donor])-raw[donor]))))
         h=new
         gates.append(1-h*h)
-    return dict(gates=gates,initial=initial,endpoint=h,N=N,L=L,S=S,maxinput=maxinput)
+    return dict(gates=gates,initial=initial,endpoint=h,N=N,L=L,S=S,maxinput=maxinput,
+                max_stage_trace_error=max_stage_trace_error,precharge_trace=GH*(1-(a*GH)**L)/(1-a*GH))
 
 def Mt(n,gates,c,local=False):
     a=1-1/n;d=n//4
@@ -138,6 +150,8 @@ def optimized_three(n,m,R,iterations=2):
     maxgate=max(float(g.max()) for g in hplus['gates'])
     return dict(n=n,m=m,R=R,L=hplus['L'],N=hplus['N'],
                 endpoint_error=same,max_driven_or_public_capture_input=hplus['maxinput'],
+                max_stage_trace_error=max(hplus['max_stage_trace_error'],hminus['max_stage_trace_error']),
+                precharge_trace=hplus['precharge_trace'],
                 max_public_or_private_gate=maxgate,
                 optimized_one_step_M=out['M'],
                 optimized_one_step_L=out['L'],
