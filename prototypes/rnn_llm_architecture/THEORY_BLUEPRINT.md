@@ -1,5 +1,13 @@
 # Fourth architecture: theory-faithful RNN research design
 
+**Implementation update:** the original status and diagram below record the
+starting blueprint. The additive [full_reference.py](full_reference.py) now
+implements exact established forward/lift/renewal/capture/query components;
+[ARCHITECTURE_REPORT.md](ARCHITECTURE_REPORT.md) gives current runnable scope
+and actual tests. [LIMITATIONS.md](LIMITATIONS.md) records the remaining
+robust-section, dense-realization and exact-token gaps. Original kernels
+and research evidence are preserved; the main theorem remains OPEN.
+
 **Status (2026-10-07): ARCHITECTURE BLUEPRINT + SCOPED CREDIT KERNEL.**
 **NOT a complete LLM, a verified new architecture, or a proof of the open theorem.**
 

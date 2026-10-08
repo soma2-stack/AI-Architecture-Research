@@ -126,3 +126,27 @@ next_logits, next_state = model(torch.tensor([[7]]), state)  # stream continuati
 
 **Architecture only.** Do not interpret next-token logits as a useful trained
 language model until a separate approved pretraining and evaluation phase.
+
+## Implemented architecture-development expansion
+
+The original files above are preserved as frozen source controls. Four
+separate current paths, implemented scope, actual CPU results, fair resource
+counts, criticism and next-phase recommendations are documented in
+[ARCHITECTURE_REPORT.md](ARCHITECTURE_REPORT.md). See
+[LIMITATIONS.md](LIMITATIONS.md) for evidence calibration and open research.
+
+* `candidates.py`: improved standard, near-critical and protected token models.
+* `full_reference.py`: exact established forward operators, balanced histories,
+  early capture/trace repair, complete unpaired renewal and legal-query oracle.
+* `validation.py`: shared cell/token diagnostics and measured resource inventory.
+* `comparison_configs.json`: reproducible configurations and isolated ablations.
+* `reports/`: actual CPU test and diagnostic records.
+
+```bash
+python -m pytest -q prototypes/rnn_llm_architecture
+python -m prototypes.rnn_llm_architecture.validation --output /tmp/rnn-validation.json
+```
+
+These commands run CPU architecture checks without training. The fourth
+path remains a mathematical reference; missing robust-section and token
+adapter obligations explicitly raise rather than fabricate implementations.
