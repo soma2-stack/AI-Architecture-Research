@@ -1,5 +1,7 @@
 # Experiment 009 — why does independent two-slot memory fail?
 
+**Status update:** the confirmatory run is complete — see [`EXPERIMENT_009_RESULTS.md`](EXPERIMENT_009_RESULTS.md). The protocol below is unchanged from the preregistration commit `2c61215`.
+
 **Status:** preregistered before the confirmatory run. Phase A (exploratory
 diagnostics) is complete and archived in
 [`reports/experiment_009_exploratory/`](reports/experiment_009_exploratory/README.md).
