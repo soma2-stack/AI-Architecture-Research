@@ -10,7 +10,7 @@ capability or resource advantage that established systems lack?
 **Answer.** No surviving architectural property. The joint requirement is met exactly, at the natural cost, by a learned controller operating an ordinary
 typed object heap (pointer / graph machine) with change propagation. This is the decades-old storage-modification / Kolmogorov–Uspensky model of computation
 plus known neural controllers. The one ingredient that remains hard — credit assignment for discrete structural decisions — is a learning problem with known
-estimator families, and no mechanism can provide exact gradients through it (Lemma 1). "Native" continuous alternatives trade away exact identity or locality
+estimator families, and no mechanism can provide exact gradients through it (Lemma 1) *[qualified — see Correction C1: true only for pathwise derivatives of deterministic hard selections; exact gradients of the expected objective under stochastic policies exist]*. "Native" continuous alternatives trade away exact identity or locality
 (Lemma 2).
 
 ## 1. Computational model and the joint requirement
@@ -53,7 +53,7 @@ Sizes: `N` live objects, `E` relations, `D = Σ_o d(τ(o))`. The affected set `A
 | mechanism | J1 | J2 | J3 | J4 | J5 | remark |
 |---|---|---|---|---|---|---|
 | **Kolmogorov–Uspensky machines** (1958), **storage modification / pointer machines** (Schönhage 1980) | ✓ create node | ✓ redirect pointer | ✓ | ✓ one local action per step | — (not learned) | the model of computation *defined* by J1–J4. Gurevich reads the KU thesis as: any computation doing one restricted local action at a time is a KU machine |
-| persistent data structures (Driscoll–Sarnak–Sleator–Tarjan 1986/89) | ✓ | ✓ | ✓ plus all past versions | ✓ `O(1)` amortised space and time per modification, `O(log m)` access (node copying) | — | old versions double as a reverse-mode tape |
+| persistent data structures (Driscoll–Sarnak–Sleator–Tarjan 1986/89) | ✓ | ✓ | ✓ plus all past versions | ✓ `O(1)` amortised space and time per modification, `O(log m)` access (node copying) *[qualified — Correction C3: bounded in-degree pointer structures only]* | — | old versions double as a reverse-mode tape |
 | graph rewriting (double-pushout, Ehrig–Pfender–Schneider 1973) | ✓ | ✓ | ✓ the untouched context is glued unchanged | ✓ rule application is local | — | rule-based structural change with identity of the context preserved |
 | incremental computation (adaptive functional programming / self-adjusting computation, Acar–Blelloch–Harper 2002; TOPLAS 2009) | n/a | n/a | ✓ | ✓ change propagation re-executes only affected parts (not always faster than recomputation) | — | refreshes *derived* state after an edit |
 | object tables / handles (classical memory management) | ✓ | ✓ | ✓ `retype` behind a stable handle | ✓ | — | type change without identity change |
@@ -90,7 +90,7 @@ Apply E_t:   create: id ← pop(F); T[id] ← (τ, init)                        
              link/unlink: update adjacency lists and index                 O(1) amortised
              retype(o, τ′, f): T[o].h ← f(T[o].h); T[o].τ ← τ′           O(cost f), id unchanged
 Refresh:     derived embeddings g(o) = MessagePass_k(o) recomputed only for o within k hops of A_t (change propagation)
-Persistence: every overwritten field is kept as a version (node copying)   O(1) amortised space per modification
+Persistence: every overwritten field is kept as a version (node copying)   O(1) amortised space per modification  [qualified — C3: an append-only undo log suffices for the tape]
 Learning:    continuous θ: backprop through executed steps, reading old versions as the tape   (cost ∝ executed work Σ_t |A_t|)
              discrete decisions: supervised edit targets (as in Pointer Graph Networks) or REINFORCE /
              straight-through / perturbed-optimizer estimators
@@ -101,7 +101,7 @@ Learning:    continuous θ: backprop through executed steps, reading old version
 - Per-step cost is `O(|Q_t|·d_ctrl + Σ_{o∈A_t} size(o) + |N_k(A_t)|·d²)`. Memory is `O(N + E + D)` words plus `O(1)` per modification for the tape.
 - J5(a) is exact. J5(b) is the best currently available (estimators or supervision). J5(c): reverse-mode cost is proportional to executed work.
 
-**Lemma 1 (no exact gradient through discrete structure — applies to every system, so it cannot distinguish one).** Let the structure produced at step t,
+**Lemma 1 (no exact gradient through discrete structure — applies to every system, so it cannot distinguish one).** *[Qualified — Correction C1.]* Let the structure produced at step t,
 `σ_t(θ) ∈ 𝒮`, take values in a finite set, and let `θ ↦ σ_t(θ)` be computed by any deterministic procedure whose outputs are continuous functions of θ
 composed with a final selection into 𝒮. Then `σ_t` is locally constant on the open set where no selection tie occurs, which is dense whenever ties are non-generic (the tie set has empty interior). So `∂L/∂θ` through `σ_t` is zero
 almost everywhere, and gradient information about structure must come from relaxation, perturbation, score-function estimation or supervision.
@@ -114,7 +114,7 @@ addressing, as in NTM/DNC).
 - *Superposition:* if identities are carried by continuous keys in a superposed, permutation-invariant state, the superposition-indistinguishability result of
   [`CANDIDATE1_FALSIFICATION.md`](CANDIDATE1_FALSIFICATION.md) (Theorem A) applies. Under finite precision, distinct but arbitrarily close identities cannot be kept exactly apart.
 
-Sparse relaxations (top-k, sparsemax) restore locality, but they are piecewise constant in structure, which returns to Lemma 1. ∎
+Sparse relaxations (top-k, sparsemax) restore locality, but they are piecewise constant in structure, which returns to Lemma 1. ∎ *[Corrected — Correction C2: sparsemax is piecewise linear with a non-zero Jacobian on its support; strict positivity, not differentiability, forces dense access.]*
 
 Together, the lemmas say the trade-off between exact discrete structure and gradient-based structure learning is intrinsic. Known systems already sit at
 its endpoints: DNC (dense, exact gradients), SAM and sparsemax-style memories (sparse, approximate), Pointer Graph Networks (hard pointers, supervision), and
@@ -141,7 +141,7 @@ The screen tried each candidate property:
    graph memories. Per-step cost is proportional to the affected region.
 4. **"Learning survives structural change."**
    - *Continuous parameters:* exact gradients along the executed computation (persistence supplies the tape).
-   - *Structural decisions:* no system can have exact gradients (Lemma 1). Relaxations lose exact identity or locality (Lemma 2). Known estimators or supervision are the frontier.
+   - *Structural decisions:* no system can have exact *pathwise* gradients (Lemma 1, as qualified in C1). Relaxations lose exact identity or locality (Lemma 2). Known estimators or supervision are the frontier.
    - This is a *learning problem*, not a missing primitive.
 5. **Resource advantage over fixed-state recurrent models.** Real, but already realised by R and by every growing-memory architecture above. It is the
    classical advantage of pointer memories over fixed registers, not a new mechanism.
@@ -174,3 +174,43 @@ transitions, the identity guarantee and the per-step resource scaling.
 - Veličković et al., Pointer Graph Networks: https://proceedings.neurips.cc/paper/2020/hash/176bf6219855a6eb1f3a30903e34b6fb-Abstract.html · Rossi et al., Temporal Graph Networks: https://arxiv.org/abs/2006.10637
 - Schmidhuber, fast-weight memories (1992): https://mlanthology.org/neco/1992/schmidhuber1992neco-learning · Ha et al., HyperNetworks: https://arxiv.org/abs/1609.09106 · Irie et al., self-referential weight matrix: https://arxiv.org/abs/2202.05780
 - Vlastelica et al., blackbox combinatorial solvers: https://arxiv.org/abs/1912.02175 · Berthet et al., perturbed optimizers: https://arxiv.org/abs/2002.08676 · Menick et al., SnAp: https://arxiv.org/abs/2006.07232
+
+## Corrections (added later on 2026-10-08 at GPT-6's request; the negative conclusion is unchanged)
+
+The reduction of representation-changing memory to "a learned controller operating an ordinary heap or graph" stands. Three supporting statements
+overreached and are corrected here; the text above is preserved with inline markers.
+
+- **C1 — Lemma 1 is a statement about pathwise derivatives only.**
+  - *What is true:* for a deterministic hard selection σ(θ) into a finite set, the pathwise derivative is zero almost everywhere.
+  - *What is false:* the gloss that no mechanism can provide exact gradients for structural decisions. For a stochastic policy π_θ the expected objective
+    `J(θ) = E_{a∼π_θ}[L(a)]` is smooth, and `∇J = E[L(a) ∇log π_θ(a)]` exactly (REINFORCE, Williams 1992).
+    - *Unbiased and lower-variance:* REBAR (Tucker et al. 2017), RELAX (Grathwohl et al. 2018) and local expectation gradients (Titsias & Lázaro-Gredilla 2015).
+    - *Exact and computable for small action sets:* enumeration.
+    - *Exact gradients of a smoothed objective:* perturbed optimizers (Berthet et al. 2020), whose outputs are never locally constant.
+    - *Biased but informative surrogates:* straight-through (Bengio et al. 2013) and blackbox-solver gradients (Vlastelica et al. 2020).
+  - *Correct statement:* learning signals for discrete decisions exist, and some are exact for the expected or smoothed objective. The real limits are their
+    variance, bias and compute, analysed in [`DISCRETE_EDIT_CREDIT_ASSIGNMENT.md`](DISCRETE_EDIT_CREDIT_ASSIGNMENT.md).
+- **C2 — Differentiable addressing does not have to touch every object.**
+  - *What Lemma 2 still covers:* strictly positive weights over all `N` candidates (softmax) force dense access.
+  - *What it got wrong:* sparsemax (Martins & Astudillo 2016) is piecewise *linear*, with a non-zero Jacobian on its support. It is not locally constant there.
+    It still needs all `N` scores unless candidates come from an index.
+  - *Sublinear options:*
+    - Sparse Access Memory (Rae et al. 2016): `O(log N)`-time sparse reads and writes using approximate nearest-neighbour indices.
+    - Hierarchical softmax (Morin & Bengio 2005): an exact stochastic choice among `N` with `O(log N)` work for sampling and for `∇log π`.
+    - Perturbed maximum inner-product search (Mussmann & Ermon 2016; Mussmann, Levy & Ermon 2017): sublinear amortised sampling.
+  - *Correct statement:* exact dense evaluation is forced by strict positivity, not by differentiability. Sparse or hierarchical parameterisations give
+    sublinear access, with exact gradients (hierarchical softmax) or approximate retrieval (index-based).
+- **C3 — `O(1)` space per edit is not universal for persistence.**
+  - *Pointer structures of bounded in-degree:* node copying (Driscoll et al.) gives `O(1)` amortised space and time per update; Brodal (1996) made the update
+    worst-case `O(1)` on the pointer machine.
+  - *Arrays and unbounded in-degree:*
+    - Fully persistent arrays cost `Θ(log log n)` per operation: Dietz (1989) gives the upper bound; lookups have a cell-probe `Ω(log log n)` lower bound under mild space assumptions.
+    - Confluent persistence costs more.
+  - *What the reference system actually needs:* only an append-only undo log of `(address, old value)` pairs as a reverse-mode tape, which is `O(1)` per
+    write. Full persistence is not required.
+
+Sources for the corrections: https://arxiv.org/abs/1703.07370 · https://arxiv.org/abs/1711.00123 · https://proceedings.neurips.cc/paper/2015/hash/1373b284bc381890049e92d324f56de0-Abstract.html ·
+https://arxiv.org/abs/2002.08676 · https://arxiv.org/abs/1308.3432 · https://arxiv.org/abs/1912.02175 · https://arxiv.org/abs/1602.02068 · https://arxiv.org/abs/1610.09027 ·
+https://proceedings.mlr.press/r5/morin05a.html · https://proceedings.mlr.press/v48/mussmann16.html · https://arxiv.org/abs/1707.03372 · https://cs.au.dk/~gerth/papers/njc96.pdf ·
+https://en.wikipedia.org/wiki/Persistent_array
+
