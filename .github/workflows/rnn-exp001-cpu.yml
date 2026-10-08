@@ -1,0 +1,60 @@
+name: RNN Experiment 001 — bounded CPU checks
+
+on:
+  push:
+    branches:
+      - prototype/rnn-llm-architecture-v0-20261007
+    paths:
+      - 'prototypes/rnn_llm_architecture/**'
+      - '.github/workflows/rnn-exp001-cpu.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  architecture-and-memory-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU dependencies
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==2.4.6 scipy==1.17.1 pytest==9.1.1 \
+            filelock typing-extensions setuptools sympy networkx jinja2 fsspec
+          python -m pip install --disable-pip-version-check \
+            --index-url https://download.pytorch.org/whl/cpu \
+            --no-deps 'torch==2.14.1+cpu'
+          python -c 'import torch; assert torch.version.cuda is None and not torch.cuda.is_available(); print(torch.__version__)'
+      - name: Architecture and new pilot unit tests
+        run: python -m pytest -o addopts= -q -p no:cacheprovider prototypes/rnn_llm_architecture/
+      - name: Bounded five-model smoke training
+        run: |
+          python -m prototypes.rnn_llm_architecture.learning_pilot \
+            --output "${RUNNER_TEMP}/rnn-exp001-smoke.json" \
+            --models tanh,near_critical,protected,gru,lstm \
+            --tasks delayed,selective \
+            --delays 16 --seeds 17 \
+            --steps 12 --batch 8 --eval-batch 128 \
+            --max-wall-seconds 720
+      - name: Upload smoke evidence even after failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rnn-exp001-smoke
+          path: ${{ runner.temp }}/rnn-exp001-smoke.json
+          if-no-files-found: warn
