@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 import pytest
 import torch
-from .capacity_010 import (generator_batch,replay,metrics,query_histories,DeltaRule,
+from prototypes.rnn_llm_architecture.capacity_010 import (generator_batch,replay,metrics,query_histories,DeltaRule,
                            predictions,Config,execute,VALUE_START,WRITE_START,QUERY_START,
                            FILLER_START,last_marked_value)
 
