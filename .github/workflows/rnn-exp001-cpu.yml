@@ -12,6 +12,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: rnn-exp001-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   architecture-and-memory-pilot:
     runs-on: ubuntu-latest
@@ -51,10 +55,27 @@ jobs:
             --delays 16 --seeds 17 \
             --steps 12 --batch 8 --eval-batch 128 \
             --max-wall-seconds 720
-      - name: Upload smoke evidence even after failure
+      - name: Bounded five-model full matrix (100 updates per condition)
+        run: |
+          python -m prototypes.rnn_llm_architecture.learning_pilot \
+            --output "${RUNNER_TEMP}/rnn-exp001-matrix.json" \
+            --models tanh,near_critical,protected,gru,lstm \
+            --tasks delayed,selective \
+            --delays 16,64 --seeds 17,29 \
+            --steps 100 --batch 16 --eval-batch 512 \
+            --max-wall-seconds 600
+      - name: Package architecture source for independent offline verification
+        if: always()
+        run: |
+          tar -czf "${RUNNER_TEMP}/rnn-architecture-source.tar.gz" \
+            AGENTS.md prototypes/rnn_llm_architecture
+      - name: Upload test evidence and source snapshot
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: rnn-exp001-smoke
-          path: ${{ runner.temp }}/rnn-exp001-smoke.json
+          name: rnn-exp001-evidence
+          path: |
+            ${{ runner.temp }}/rnn-exp001-smoke.json
+            ${{ runner.temp }}/rnn-exp001-matrix.json
+            ${{ runner.temp }}/rnn-architecture-source.tar.gz
           if-no-files-found: warn
