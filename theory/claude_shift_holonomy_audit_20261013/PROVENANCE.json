@@ -1,0 +1,48 @@
+{
+ "folder": "theory/claude_shift_holonomy_audit_20261013",
+ "date": "2026-10-13",
+ "agent": "Claude Opus 5.5 (claude-opus-5-5), Claude lane",
+ "requested_by": "owner (soma2-stack), direct audit request",
+ "audit_target": "Port-Localized Shift-Holonomy Recurrence attributed to Gemini 4 Argon, as specified in the owner's brief; no repository folder for the proposal exists",
+ "type": "Independent audit + author-derived theorems for a modified architecture",
+ "repository_status": "PENDING INDEPENDENT REVIEW",
+ "original_problem_status": "OPEN (unchanged)",
+ "base_commit": "f8a96fb8b8dfe0c072e82dc57b8c23cbc20de89c",
+ "branch": "claude/shift-holonomy-audit-20261013",
+ "files": {
+  "PROOF.md": "theorems and proofs",
+  "REPORT.md": "technical report, sections I-X",
+  "CHECKS.md": "numerical check table",
+  "REVIEW_HANDOFF.md": "attack points and reproduction",
+  "STATUS.md": "status summary",
+  "checks.py": "sha256 0b0275ee281b081abfff0e364aa806e07e1dd210bad0453ac3b2108831ed6292 (working-tree bytes at generation)",
+  "checks_result.json": "sha256 3f63ed58d5709b259574c028dddc11a705fe596c2aa390276094862d7150ef1e (working-tree bytes at generation)"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "numpy": "2.4.6",
+  "torch": "2.13.0+cu130 (CPU only)",
+  "dtype": "float64",
+  "seed": 20261013,
+  "threads": "<=4, BelowNormal priority",
+  "runtime_seconds": 24.6
+ },
+ "restricted_notebooks_read": "none; Codex_Research.md and Cursor_Research.md were not opened",
+ "repository_records_read": [
+  "AGENTS.md",
+  "04_RESEARCH_STATE.md",
+  "theory/CURRENT_THEORY.md",
+  "theory/codex_linear_dimension_frontier_20261006/PROOF.md",
+  "theory/robust_width_scaling_20261001/THEORY.md",
+  "theory/reachable_fixed_feature_width_20261002/PROOF.md",
+  "theory/codex_suffix_product_kernel_attack_20261003/PROOF.md (sections 1 and 7)",
+  "theory/codex_frontier_invention_20261006 (Lemma 1 code; 'projection holonomy' row)"
+ ],
+ "literature_checks": [
+  "Appeltant et al., Nat. Commun. 2, 468 (2011), doi:10.1038/ncomms1476",
+  "Rodan and Tino, IEEE TNN 22(1):131-144 (2011)",
+  "Henaff, Szlam, LeCun, ICML 2016, PMLR 48:2034-2042",
+  "Fu et al., Hungry Hungry Hippos (H3), ICLR 2023"
+ ],
+ "notes": "Exact identities were also checked in rational arithmetic. Numerical results are diagnostic only. The tanh ablation (section 7.2) is numerical plus a proof sketch."
+}

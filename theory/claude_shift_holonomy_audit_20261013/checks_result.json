@@ -1,0 +1,652 @@
+{
+ "versions": {
+  "python": "3.11.9",
+  "numpy": "2.4.6",
+  "torch": "2.13.0+cu130",
+  "dtype": "float64",
+  "seed": 20261013
+ },
+ "A_forward_cancellation": {
+  "float64": [
+   {
+    "R": 1,
+    "m": 1,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 1,
+    "m": 2,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 1,
+    "m": 5,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 2,
+    "m": 1,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 2,
+    "m": 2,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 2,
+    "m": 5,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 3,
+    "m": 1,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 3,
+    "m": 2,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 3,
+    "m": 5,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 4,
+    "m": 1,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 4,
+    "m": 2,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 4,
+    "m": 5,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 8,
+    "m": 1,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 8,
+    "m": 2,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   },
+   {
+    "R": 8,
+    "m": 5,
+    "max|h_2R|": 0.0,
+    "max|h_t| for 2R<=t<=5R": 0.0
+   }
+  ],
+  "exact": [
+   {
+    "R": 1,
+    "m": 2,
+    "exact zero endpoint, continuation, h_R structure": true
+   },
+   {
+    "R": 2,
+    "m": 2,
+    "exact zero endpoint, continuation, h_R structure": true
+   },
+   {
+    "R": 3,
+    "m": 2,
+    "exact zero endpoint, continuation, h_R structure": true
+   },
+   {
+    "R": 4,
+    "m": 2,
+    "exact zero endpoint, continuation, h_R structure": true
+   },
+   {
+    "R": 8,
+    "m": 1,
+    "exact zero endpoint, continuation, h_R structure": true
+   }
+  ]
+ },
+ "B_jacobian_worst_errors": {
+  "|prod-closed|": 0.0,
+  "|autograd-closed|": 2.220446049250313e-16,
+  "|FD-closed|": 6.300138188919391e-11
+ },
+ "B_singular_value_range_random_z": [
+  0.502539893250679,
+  1.4935645880537916
+ ],
+ "B_singular_values_at_cube_vertex": [
+  0.5,
+  1.5
+ ],
+ "B_closed_form_exact_rational": true,
+ "B_general_history_Jacobian_is_monomial": true,
+ "C_max_cancel_input_z_in_[-1/2,1/2]": 0.625,
+ "C_max_cancel_input_z_in_[-(sqrt2-1),sqrt2-1]": 0.5000000000000001,
+ "C_max_cancel_input_z_in_[-1/2,0]": 0.375,
+ "D_param_grads_adjoint_vs_autograd_max_abs_err": 8.881784197001252e-16,
+ "D_theta0_grad_equals_Gamma(z)*lambda_T_err": 0.0,
+ "E_metrics": {
+  "fixed_head_mu_closed_form_err": 5.551115123125783e-17,
+  "gemini_g_T_samples_rank": 6,
+  "gemini_literal_metric (theta0, 1/2||h||^2)": [
+   {
+    "R": 1,
+    "m": 4,
+    "min sup-separation over cube-boundary samples": 0.5
+   },
+   {
+    "R": 2,
+    "m": 3,
+    "min sup-separation over cube-boundary samples": 0.5
+   },
+   {
+    "R": 4,
+    "m": 2,
+    "min sup-separation over cube-boundary samples": 0.5
+   },
+   {
+    "R": 8,
+    "m": 2,
+    "min sup-separation over cube-boundary samples": 0.5
+   }
+  ],
+  "max |lambda_T entry|: block1, blocks>=2": [
+   0.5,
+   0.9375
+  ],
+  "theta0_single_saturated_coordinate": [
+   {
+    "n": 16,
+    "unit adjoint": 1.0,
+    "fixed head (best nonexpansive)": 0.25
+   },
+   {
+    "n": 64,
+    "unit adjoint": 1.0,
+    "fixed head (best nonexpansive)": 0.125
+   },
+   {
+    "n": 256,
+    "unit adjoint": 1.0,
+    "fixed head (best nonexpansive)": 0.0625
+   },
+   {
+    "n": 1024,
+    "unit adjoint": 1.0,
+    "fixed head (best nonexpansive)": 0.03125
+   },
+   {
+    "n": 4096,
+    "unit adjoint": 1.0,
+    "fixed head (best nonexpansive)": 0.015625
+   }
+  ],
+  "gemini_schedule_bias_transplanted_w": [
+   {
+    "schedule": "R=2",
+    "R": 2,
+    "n": 64,
+    "T": 4,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.0021623910907272756,
+    "upper bound 2wT": 0.035
+   },
+   {
+    "schedule": "R=2",
+    "R": 2,
+    "n": 256,
+    "T": 4,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.0011618414537509585,
+    "upper bound 2wT": 0.0175
+   },
+   {
+    "schedule": "R=2",
+    "R": 2,
+    "n": 1024,
+    "T": 4,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.0005889628895284729,
+    "upper bound 2wT": 0.00875
+   },
+   {
+    "schedule": "R=2",
+    "R": 2,
+    "n": 4096,
+    "T": 4,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.00029398532675332256,
+    "upper bound 2wT": 0.004375
+   },
+   {
+    "schedule": "R=3",
+    "R": 3,
+    "n": 63,
+    "T": 6,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.00259626177777494,
+    "upper bound 2wT": 0.05291502622129181
+   },
+   {
+    "schedule": "R=3",
+    "R": 3,
+    "n": 255,
+    "T": 6,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.0014254927123536338,
+    "upper bound 2wT": 0.02630142022557628
+   },
+   {
+    "schedule": "R=3",
+    "R": 3,
+    "n": 1023,
+    "T": 6,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.0007174208597126099,
+    "upper bound 2wT": 0.01313141338909517
+   },
+   {
+    "schedule": "R=3",
+    "R": 3,
+    "n": 4095,
+    "T": 6,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.00036018619185575944,
+    "upper bound 2wT": 0.006563301233138936
+   },
+   {
+    "schedule": "R=sqrt(n)",
+    "R": 8,
+    "n": 64,
+    "T": 16,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.004800829409340888,
+    "upper bound 2wT": 0.14
+   },
+   {
+    "schedule": "R=sqrt(n)",
+    "R": 16,
+    "n": 256,
+    "T": 32,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.0032387165642290628,
+    "upper bound 2wT": 0.14
+   },
+   {
+    "schedule": "R=sqrt(n)",
+    "R": 32,
+    "n": 1024,
+    "T": 64,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.0031044545644757617,
+    "upper bound 2wT": 0.14
+   },
+   {
+    "schedule": "R=sqrt(n)",
+    "R": 64,
+    "n": 4096,
+    "T": 128,
+    "min over samples of w*||delta grad_b|| (sign query)": 0.002763903945368187,
+    "upper bound 2wT": 0.14
+   }
+  ]
+ },
+ "F_repair": {
+  "closed_form_check": [
+   {
+    "R": 1,
+    "m": 5,
+    "q": 3,
+    "|actual-closed|": 2.498001805406602e-16,
+    "endpoints exactly zero": true
+   },
+   {
+    "R": 2,
+    "m": 4,
+    "q": 2,
+    "|actual-closed|": 3.191891195797325e-16,
+    "endpoints exactly zero": true
+   },
+   {
+    "R": 3,
+    "m": 3,
+    "q": 4,
+    "|actual-closed|": 1.3322676295501878e-15,
+    "endpoints exactly zero": true
+   },
+   {
+    "R": 5,
+    "m": 2,
+    "q": 3,
+    "|actual-closed|": 1.3600232051658168e-15,
+    "endpoints exactly zero": true
+   },
+   {
+    "R": 8,
+    "m": 2,
+    "q": 2,
+    "|actual-closed|": 1.27675647831893e-15,
+    "endpoints exactly zero": true
+   }
+  ],
+  "scaling": [
+   {
+    "R": 8,
+    "m": 8,
+    "n": 64,
+    "T": 1560,
+    "mT/n": 195,
+    "active coordinate-time/n": 2,
+    "D (empirical code)": 4,
+    "min normalized sep, w=0.035/sqrt(n)": 1.1458464633026824,
+    "theorem lower bound wR (needs ||dz||_1>=rho n/16.02)": 0.035,
+    "min actual/(proved inequality)": 1.748585910548094,
+    "min ||dz||_1/(rho n)": 0.7182156110711222
+   },
+   {
+    "R": 16,
+    "m": 16,
+    "n": 256,
+    "T": 3120,
+    "mT/n": 195,
+    "active coordinate-time/n": 2,
+    "D (empirical code)": 16,
+    "min normalized sep, w=0.035/sqrt(n)": 1.1198069718521373,
+    "theorem lower bound wR (needs ||dz||_1>=rho n/16.02)": 0.035,
+    "min actual/(proved inequality)": 1.5849059829652679,
+    "min ||dz||_1/(rho n)": 0.8355807730984951
+   },
+   {
+    "R": 32,
+    "m": 32,
+    "n": 1024,
+    "T": 6240,
+    "mT/n": 195,
+    "active coordinate-time/n": 2,
+    "D (empirical code)": 64,
+    "min normalized sep, w=0.035/sqrt(n)": 0.9300782018153297,
+    "theorem lower bound wR (needs ||dz||_1>=rho n/16.02)": 0.035,
+    "min actual/(proved inequality)": 1.3189162456134949,
+    "min ||dz||_1/(rho n)": 0.8431834633077759
+   },
+   {
+    "R": 64,
+    "m": 64,
+    "n": 4096,
+    "T": 12480,
+    "mT/n": 195,
+    "active coordinate-time/n": 2,
+    "D (empirical code)": 256,
+    "min normalized sep, w=0.035/sqrt(n)": 0.9359883209593624,
+    "theorem lower bound wR (needs ||dz||_1>=rho n/16.02)": 0.035,
+    "min actual/(proved inequality)": 1.3444902340509615,
+    "min ||dz||_1/(rho n)": 0.8431131092207926
+   }
+  ],
+  "future_part_difference": 0.0
+ },
+ "F4_query_optimality": [
+  {
+   "R": 2,
+   "m": 4,
+   "n": 8,
+   "sign query": 2.040603464664313,
+   "best found": 2.119478119726646,
+   "sign/best": 0.9627858130130141,
+   "method": "exhaustive over box vertices (objective convex)"
+  },
+  {
+   "R": 3,
+   "m": 4,
+   "n": 12,
+   "sign query": 4.441752657078811,
+   "best found": 4.441752657078811,
+   "sign/best": 1.0,
+   "method": "exhaustive over box vertices (objective convex)"
+  },
+  {
+   "R": 4,
+   "m": 4,
+   "n": 16,
+   "sign query": 3.02519846080129,
+   "best found": 3.180057504530559,
+   "sign/best": 0.9513030681021823,
+   "method": "exhaustive over box vertices (objective convex)"
+  },
+  {
+   "R": 4,
+   "m": 8,
+   "n": 32,
+   "sign query": 3.072094227304538,
+   "best found": 3.085356600724743,
+   "sign/best": 0.9957015103482401,
+   "method": "vertex coordinate ascent, 40 random starts"
+  }
+ ],
+ "G_max ||delta grad_b||/(2T) over 200 random nonexpansive pairs (<=1 required)": 0.0997914506100937,
+ "H_code_diagnostics": [
+  {
+   "N": 2000,
+   "D": 2,
+   "||G||op/sqrt(N)": 1.0124228365658303,
+   "min found fraction |(Gy)_i|>=1/4": 0.4875,
+   "Lemma 7 guarantee (only for D<=N/1000)": 0.0625
+  },
+  {
+   "N": 2000,
+   "D": 20,
+   "||G||op/sqrt(N)": 1.079843872961554,
+   "min found fraction |(Gy)_i|>=1/4": 0.758,
+   "Lemma 7 guarantee (only for D<=N/1000)": 0.0625
+  },
+  {
+   "N": 2000,
+   "D": 100,
+   "||G||op/sqrt(N)": 1.2190356045310875,
+   "min found fraction |(Gy)_i|>=1/4": 0.69,
+   "Lemma 7 guarantee (only for D<=N/1000)": 0.0625
+  },
+  {
+   "N": 2000,
+   "D": 250,
+   "||G||op/sqrt(N)": 1.341370072522089,
+   "min found fraction |(Gy)_i|>=1/4": 0.623,
+   "Lemma 7 guarantee (only for D<=N/1000)": 0.0625
+  }
+ ],
+ "I_ablations": {
+  "zero_bias_tanh_cyclic_shift_RNN": [
+   {
+    "R": 8,
+    "n": 64,
+    "T": 1560,
+    "endpoint max|h_T|": 0.0,
+    "max |input|": 0.3694989719258693,
+    "normalized sep, sign-aligned adjoint (idealized family)": 1.7815861027403246,
+    "normalized sep, uniform head adjoint": 1.3425174715360475
+   },
+   {
+    "R": 16,
+    "n": 256,
+    "T": 3120,
+    "endpoint max|h_T|": 0.0,
+    "max |input|": 0.25541281188299536,
+    "normalized sep, sign-aligned adjoint (idealized family)": 1.1741311821797218,
+    "normalized sep, uniform head adjoint": 0.5873289837330536
+   },
+   {
+    "R": 32,
+    "n": 1024,
+    "T": 6240,
+    "endpoint max|h_T|": 0.0,
+    "max |input|": 0.17865343581339807,
+    "normalized sep, sign-aligned adjoint (idealized family)": 1.2440653629485805,
+    "normalized sep, uniform head adjoint": 0.7057383947167519
+   }
+  ],
+  "bias_tax_tanh_shift_b=.05": {
+   "autonomous state h*": 0.5020701025578996,
+   "autonomous gate 1-h*^2": 0.7479256121175002,
+   "||bias credit|| after 400 zero-input steps": 2.967082925005982,
+   "geometric ceiling 1/(1-gate)": 3.967082925005982,
+   "note": "non-port blocks receive no input, so they cannot be held neutral at any cost"
+  },
+  "R=1_no_shift_cost": [
+   {
+    "n": 64,
+    "m": 64,
+    "T necessary >": 0.22857142857142856,
+    "mT necessary >": 14.628571428571428,
+    "mT_nec/n^1.5": 0.02857142857142857,
+    "T0 sufficient (kappa=1)": 8
+   },
+   {
+    "n": 256,
+    "m": 256,
+    "T necessary >": 0.45714285714285713,
+    "mT necessary >": 117.02857142857142,
+    "mT_nec/n^1.5": 0.02857142857142857,
+    "T0 sufficient (kappa=1)": 12
+   },
+   {
+    "n": 1024,
+    "m": 1024,
+    "T necessary >": 0.9142857142857143,
+    "mT necessary >": 936.2285714285714,
+    "mT_nec/n^1.5": 0.02857142857142857,
+    "T0 sufficient (kappa=1)": 19
+   },
+   {
+    "n": 4096,
+    "m": 4096,
+    "T necessary >": 1.8285714285714285,
+    "mT necessary >": 7489.828571428571,
+    "mT_nec/n^1.5": 0.02857142857142857,
+    "T0 sufficient (kappa=1)": 34
+   },
+   {
+    "n": 16384,
+    "m": 16384,
+    "T necessary >": 3.657142857142857,
+    "mT necessary >": 59918.62857142857,
+    "mT_nec/n^1.5": 0.02857142857142857,
+    "T0 sufficient (kappa=1)": 63
+   },
+   {
+    "n": 65536,
+    "m": 65536,
+    "T necessary >": 7.314285714285714,
+    "mT necessary >": 479349.02857142856,
+    "mT_nec/n^1.5": 0.02857142857142857,
+    "T0 sufficient (kappa=1)": 122
+   }
+  ],
+  "expansive_amplification_R=1": {
+   "rows": [
+    {
+     "n": 64,
+     "horizon T": 4,
+     "log n": 4.1588830833596715,
+     "mT (m=n)": 256,
+     "mT/n^1.5": 0.5
+    },
+    {
+     "n": 1024,
+     "horizon T": 6,
+     "log n": 6.931471805599453,
+     "mT (m=n)": 6144,
+     "mT/n^1.5": 0.1875
+    },
+    {
+     "n": 16384,
+     "horizon T": 8,
+     "log n": 9.704060527839234,
+     "mT (m=n)": 131072,
+     "mT/n^1.5": 0.0625
+    },
+    {
+     "n": 1048576,
+     "horizon T": 13,
+     "log n": 13.862943611198906,
+     "mT (m=n)": 13631488,
+     "mT/n^1.5": 0.0126953125
+    }
+   ],
+   "closed form check err": 1.0658141036401503e-14,
+   "endpoint": 0.0
+  }
+ },
+ "K_fixed_feature_transplant": {
+  "autograd_vs_formula_max_err": 2.0816681711721685e-17,
+  "scaling": [
+   {
+    "R": 8,
+    "m": 8,
+    "n_mem": 64,
+    "n_tot": 128,
+    "T": 1568,
+    "max input width": 8,
+    "mT/n_tot": 98.0,
+    "min d_F (normalized fixed-feature, sign query)": 0.6540303069229092,
+    "Corollary 4.3 bound (code-lemma constants)": 0.008950313574927753,
+    "min d_F/(proved inequality)": 1.7366170640862622
+   },
+   {
+    "R": 16,
+    "m": 16,
+    "n_mem": 256,
+    "n_tot": 512,
+    "T": 3136,
+    "max input width": 16,
+    "mT/n_tot": 98.0,
+    "min d_F (normalized fixed-feature, sign query)": 0.6434378168118635,
+    "Corollary 4.3 bound (code-lemma constants)": 0.008950313574927753,
+    "min d_F/(proved inequality)": 1.8247372981378196
+   },
+   {
+    "R": 32,
+    "m": 32,
+    "n_mem": 1024,
+    "n_tot": 2048,
+    "T": 6272,
+    "max input width": 32,
+    "mT/n_tot": 98.0,
+    "min d_F (normalized fixed-feature, sign query)": 0.5345802415207349,
+    "Corollary 4.3 bound (code-lemma constants)": 0.008950313574927753,
+    "min d_F/(proved inequality)": 1.549148223482183
+   }
+  ]
+ },
+ "J_misc": {
+  "rounds to blow-up from +0.01": 209,
+  "2/eps for eps=0.01": 200.0,
+  "rounds to blow-up from +0.001": 2012,
+  "2/eps for eps=0.001": 2000.0,
+  "perturbed initial state: endpoint error is second order": [
+   {
+    "|delta|": 0.01,
+    "||h_T - Phi delta|| / ||delta||^2": 0.8731263361836834
+   },
+   {
+    "|delta|": 0.001,
+    "||h_T - Phi delta|| / ||delta||^2": 0.7835994567799507
+   },
+   {
+    "|delta|": 0.0001,
+    "||h_T - Phi delta|| / ||delta||^2": 0.5272810879150535
+   }
+  ]
+ },
+ "runtime_seconds": 24.6
+}
