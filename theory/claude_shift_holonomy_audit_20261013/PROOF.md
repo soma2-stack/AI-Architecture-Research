@@ -4,8 +4,9 @@ Claude (Opus 5.5), 2026-10-13. Independent audit, requested by the owner, of the
 "Port-Localized Shift-Holonomy Recurrence" attributed to Gemini 4 Argon. The construction
 was supplied in the owner's brief; no Gemini folder for it exists in the repository.
 
-Status labels used below: **[PROVED]** = proof written here, author-derived, pending
-independent hostile review; **[NUMERICAL]** = finite-size evidence from `checks.py`
+Status labels used below: **[VERIFIED IN STATED SCOPE]** = independently reviewed proof
+under the assumptions stated at the claim; **[PROVED]** = other proof written here,
+author-derived and not independently reviewed; **[NUMERICAL]** = finite-size evidence from `checks.py`
 (diagnostic only); **[INTERPRETATION]**; **[CONJECTURE]**. Nothing here changes the status
 of the original strict-budget problem for the frozen dense tanh family: it remains **OPEN**.
 
@@ -281,9 +282,10 @@ window, each orbit meets at most one gate of size at most `3/2`, so
 
 * (a) A robust bias section in `A_ne(T)` at `epsilon` needs `T > epsilon/w_b`. Robustness
   for `theta_0` needs `w_theta0 > epsilon`. Always `D <= mT`.
-* (b) *Gemini's schedule is refuted under normalized metrics.* With
+* (b) *Gemini's schedule is refuted under the specified QSR bias metric.* With
   `w_b = c n^(-1/2)`, `d_b <= 6cR/sqrt(n)`. For `R = O(log log n)` (Gemini's choice) this
-  tends to zero: beyond an explicit threshold no robust section of any dimension exists.
+  tends to zero: beyond an explicit threshold no robust section of any dimension exists in
+  this stated QSR metric and query family.
   [NUMERICAL: at fixed `R = 2, 3` the observed value halves each time `n` quadruples.]
 * (c) *Without the shift* (`R = 1`, `m = n`) inside `A_ne`, any robust section needs
   `mT = nT > epsilon n/w_b = (epsilon/c) n^(3/2)`. With `c = .035` this is
@@ -302,7 +304,7 @@ The zero state is invariant under zero input, so Theorem 1.3 applies to the shif
 and `h_T = 0` exactly. The inputs lie in `[-rho, rho - rho^2/2]`, contained in
 `[-1/2, 3/8]`. The port states lie in `[-rho,0]`, so the history (5.1) is in `A_ne(T)`.
 
-**Lemma 5.1 (exact pair difference) [PROVED; NUMERICAL error <= 1.4e-15].** Let `z, z'` be
+**Lemma 5.1 (exact pair difference) [VERIFIED IN STATED SCOPE; NUMERICAL error <= 1.4e-15].** Let `z, z'` be
 two write tensors and let `mu` be the common `lambda_T`. Put `Dz := z - z'` and let
 `mu^(j)` denote the blocks of `mu`. Then
 
@@ -326,7 +328,7 @@ For `t <= qR` every gate equals 1, so the difference is `(S^T)^(qR-t) delta_0`. 
 `sum_(t=1..qR) (S^T)^(qR-t) = q sum_(k=0..R-1) S^k = q (J_R (x) I_m)`, and
 `(J_R (x) I_m) delta_0 = 1_R (x) a`. QED
 
-**Lemma 5.2 (realizable adjoints) [PROVED; NUMERICAL error 5.6e-17].** Start from
+**Lemma 5.2 (realizable adjoints) [VERIFIED IN STATED SCOPE; NUMERICAL error 5.6e-17].** Start from
 `h_T = 0`. Apply future port inputs `v^(1..R)` in `[-rho_f,0]^m`, then one zero step, with
 head `n^(-1/2) 1`. The resulting adjoint is `mu = lambda_T` with
 `mu^(R+1-r) = (1 + v^(r))/sqrt(n)`, and this query is in `Q_ne`.
@@ -339,7 +341,7 @@ QED
 Consequently `a = n^(-1/2) sum_r Dz^(r) . (1 + v^(r))`: the r-th future input gates the
 r-th written block.
 
-**Lemma 5.3 (thick odd code) [PROVED].** Let `N >= 520` and `1 <= D <= N/1000`. There is
+**Lemma 5.3 (thick odd code) [VERIFIED IN STATED SCOPE].** Let `N >= 520` and `1 <= D <= N/1000`. There is
 `G` in `{-1,+1}^(N x D)` such that every unit `y` in `R^D` has at least `N/16` indices with
 `|(Gy)_i| >= 1/4`. Define `theta(y) := (clip(4Gy), y)` in `[-1,1]^(N+D)`, clipped
 coordinatewise to `[-1,1]`. Then `theta` is continuous, odd and injective on `B^D`, and
@@ -372,7 +374,7 @@ Lemma 1) can replace Lemma 5.3 with `D = floor(n/10^9)`, `n >= 10^10` and satura
 saturated fractions `.49`-`.76` even at `D = N/8`, so Lemma 5.3's `1/16` and
 `D <= N/1000` are very conservative.]
 
-**Theorem 5.4 (linear robust bias credit at linear coordinate-time in QSR) [PROVED].**
+**Theorem 5.4 (linear robust bias credit at linear coordinate-time in QSR) [VERIFIED IN STATED SCOPE].**
 Hypotheses:
 
 * `m, R, q >= 1`, `n = mR`, `1 <= D <= n/1001`, `n - D >= 520`, and `rho, rho_f` in
@@ -427,13 +429,14 @@ Combining these with `||Dz||_1 >= rho(n-D)/16` gives (5.3). For (iii),
 [NUMERICAL, checks F: for `n = R^2 = 64, 256, 1024, 4096`, `q = 193` and
 `w_b = .035/sqrt(n)`, the normalized separation is `.93`-`1.15`, constant in `n`. The
 theorem's bound there is `.035`, and the actual value exceeds the proved inequality (5.3),
-evaluated at the sample's own `||Dz||`, by a factor of at least `1.32`. The sign query is
-within `5%` of the best vertex query (exhaustive search for `n <= 16`).]
+evaluated at the sample's own `||Dz||`, by a factor of at least `1.32`. The sign-query
+ratios in the finite samples are diagnostic only; there is no general constant-factor
+approximation claim for the prescribed sign query.]
 
-**Corollary 5.5 (strict budget in QSR, with tightness) [PROVED].** Let `w_b = c n^(-1/2)`
+**Corollary 5.5 (strict budget in QSR, with tightness) [VERIFIED IN STATED SCOPE].** Let `w_b = c n^(-1/2)`
 with `c >= .0021`, and let `n >= 10^6`. Put `R := floor(sqrt n)`, `m := floor(n/R)` and
 `n' := mR`. Add `p := n - n' < R` inert coordinates: identity transport, no input, and
-bias-gradient differences identically zero. Take `D = floor(n'/1001) >= n/1002`, `q = 193`
+bias-gradient differences identically zero. Take `D = floor(n'/1001) >= n/1004`, `q = 193`
 and `rho = rho_f = 1/2`. Then:
 
 * `d_b^(Q_ne)(H(y), H(-y)) >= 1.0063 w_b R sqrt(n'/n) >= c > .002` for every `y` in
@@ -452,11 +455,15 @@ width. Repeating Theorem 5.4's estimate gives main term
 `R/sqrt(n) >= 1 - n^(-1/2)` and `n'/n > 1 - n^(-1/2)`, and
 `1.0063 (1 - 10^(-3))^(3/2) > 1`. QED
 
-The same proof works for any weight `w_b` in `[C/n, 1]` with `R ~ .0021/w_b`, provided
-`R <= n`. The optimum is then `T = Theta(1/w_b)` and `mT = Theta(n)`.
+The following broader weight statement is an author-derived extension, not part of the
+independently verified claim above: the same proof appears to work for the explicitly
+defined QSR bias-gradient metric and fixed weights `w_b` in `[C/n, 1]` with
+`R ~ .0021/w_b`, provided `R <= n`. The independent review verifies the stated
+`w_b = c/sqrt(n)` specialization in Corollary 5.5, not this full weight range.
 
-**Corollary 5.6 (the original normalization, transplanted) [PROVED; NUMERICAL autograd
-error 2.1e-17].** Augment QSR as follows.
+**Corollary 5.6 (a full-group normalization and fixed-feature metric transplanted to the
+augmented QSR model) [VERIFIED IN STATED SCOPE; NUMERICAL autograd error 2.1e-17].** Augment
+QSR as follows.
 
 * *State and parameters.* Add a source block `s` in `R^l` with `l := n_mem := mR` and
   dynamics `s_t = s_(t-1) + xi_t`. The recurrent matrix is `W_full = [[S, K],[0, I_l]]`,
@@ -475,9 +482,12 @@ With the codes of Theorem 5.4 (`D <= n_mem/1001`), for every `y` in `S^(D-1)`,
 
     d_F(H(y), H(-y)) >= (sigma/(2 sqrt(n_tot))) rho R (q rho_f/32.032 - 2).                   (5.4)
 
-For `sigma = 1/20`, `rho = rho_f = 1/2`, `q = 193` and `R = sqrt(n_mem)`, this gives
-`d_F >= .00895 > .002`. The input width never exceeds `m = sqrt(n_mem)`, `T = 196R`, and
-`mT = 196 n_mem = 98 n_tot`.
+For the asymptotic specialization `n_mem=k=R^2=m^2 >= 10^6`, choose
+`D = floor(k/1001) >= k/1004`. With `sigma = 1/20`, `rho = rho_f = 1/2` and `q = 193`, this gives
+`d_F >= .00895 > .002`. The schedule has at most `m` nonzero addressed input coordinates
+per step, `T = 196R`, and `mT = 196k = 98 n_tot`. The source-preparation inputs address
+different source blocks at different public times; this is a changing-support coordinate
+schedule, not a claim that one fixed m-coordinate port drives the identity source block.
 
 *Proof.* At `K = 0`, `h` and `s` do not interact. By (3.2) the projection equals
 `n_tot^(-1) sum_t (f_s^T s_(t-1)) lambda_t^mem`. After preparation `f_s^T s = sigma sqrt(l)`,
@@ -524,9 +534,10 @@ vanilla tanh RNN `h_t = tanh(S h_(t-1) + E_1 x_t + b)` with zero frozen bias and
   `coth^2 x <= x^(-2) + 2/3 + x^2/15` on `(0,1]` with `zeta^2 <= 1/R`. A full proof is not
   written here; this item is numerical evidence for the novelty verdict, not a theorem.
 
-The property "`D = Theta(n)` at `mT = Theta(n)`" therefore survives replacing the quadratic
-port by an ordinary tanh RNN with a permutation recurrent matrix. The quadratic port only
-makes the algebra single-gate and exact.
+These finite numerical results do not prove that the uniform property survives replacement
+by the tanh recurrence. They use an idealized adjoint family and sampled histories. A proof
+of legal adjoint realization and separation for every boundary point is absent; architectural
+equivalence on this credit claim therefore remains unproved numerical evidence.
 
 **7.3 Prior art (bibliographic entries verified by web search on 2026-10-13).**
 
@@ -547,10 +558,12 @@ makes the algebra single-gate and exact.
   constructs. I did not search literature on them exhaustively, so their originality is
   marked **UNVERIFIED** rather than claimed.
 
-**7.4 Classification.** QSR is **not novel: an existing mechanism**, namely a delay-line
-RNN with a nonlinear port. The claimed architectural property is preserved by the ordinary
-decomposition of Section 7.2, so the AGENTS.md architecture gates fail. It is **not a new
-primitive**.
+**7.4 Classification.** QSR uses known operations and has the familiar structure of a
+delay line with a localized nonlinear port; the new-primitive claim is not supported. The
+vanilla tanh ablation in Section 7.2 is numerical evidence only and does not establish that
+the robust-credit property survives that decomposition. Thus this record does not certify
+either architectural equivalence on the claimed theorem or a new architecture. The original
+problem remains open.
 
 ## 8. Relation to the original frozen dense tanh contract
 
@@ -558,7 +571,7 @@ primitive**.
 family, and the theorems of Sections 4-5 concern a different model under explicitly
 different metrics. They do not solve (O).
 
-**Lemma 8.1 (zero-input neutrality is not free in the frozen reference model) [PROVED].**
+**Lemma 8.1 (local unweighted trace deficit in the frozen reference model) [VERIFIED IN STATED SCOPE].**
 Let `R_0 = diag(aO, delta I_l)` with `O` orthogonal, `W = I`, and `b = .05*1`. Suppose a
 memory coordinate `i` has `x_t(i) = 0` and `|h_t(i)| <= eta <= .01`. Then
 
@@ -570,6 +583,10 @@ Let `N_t` be the number of memory coordinates with zero input and `|h_t| <= .01`
 
 For the actual dense `R` (`||R - R_0|| <= 4/(10^8 n^2)`), the constant changes by less
 than `1e-7`.
+
+This is a one-step, unweighted trace-deficit statement under the displayed reference
+structure and perturbation bound. It does not bound credit-weighted contraction, total
+input use over time, or the neutral-path tax conjecture.
 
 *Proof.* `atanh(h_t(i)) = a (O h_(t-1))_i + .05` and `|atanh(h_t(i))| < .010001`. Sum the
 squares of these coordinates of `O h_(t-1)`, and use `||O h|| = ||h||`. QED
@@ -584,7 +601,7 @@ squares of these coordinates of `O h_(t-1)`, and use `||O h|| = ||h||`. QED
   neutrality by input instead costs about `.05` per coordinate per step.
 * The project's own accumulate-then-gate construction for (O)
   (`../reachable_fixed_feature_width_20261002/`: warmup `N = 3n`, one pulse,
-  `D >= floor(n/8)`) pays exactly this tax. Its memory is held at `0` by input `-.05` on
+  `D >= floor(n/8)`) incurs a holding cost of this order. Its memory is held at `0` by input `-.05` on
   about `n/2` coordinates for `3n` steps, so `mT ~ 1.5 n^2`.
 * Theorem 5.4 is that construction transplanted into a model with no tax and a narrow
   port.
@@ -613,8 +630,8 @@ that is possible at `mT = o(n^(3/2))` is the open problem itself.
 | `mT = 2n` for `T = 2R` | Correct |
 | `R ~ log log n`, `T ~ sqrt(nR)`, `mT = Theta(n^(3/2)/sqrt R)` | Not derived; post-padding is inert |
 | Learning-credit theorem as stated (initial state, `(1/2)||h||^2`) | Not a parameter-gradient theorem; true but trivial under its own unnormalized metric (R=1 suffices) |
-| Same schedule under normalized parameter metrics, `R = O(log log n)` | REFUTED (Corollary 4.5b) |
-| "Solves the original problem" | REFUTED as stated: no reduction; Lemma 8.1 blocks the mechanism's transfer |
-| Repaired QSR: `D = Theta(n)`, `mT = Theta(n)`, `T = Theta(sqrt n)` (normalized bias metric and transplanted fixed-feature metric) | PROVED for the new architecture (author-derived; pending review); tight up to constants in `A_ne` |
+| Same schedule under the specified QSR bias weight `w_b=c/sqrt(n)` and `Q_ne`, `R = O(log log n)` | REFUTED in that stated metric (Corollary 4.5b) |
+| "Solves the original problem" | REFUTED as stated: no reduction to the original contract; Lemma 8.1 rules out this exact neutral-holding route, not every possible mechanism |
+| Repaired QSR: `D = Theta(n)`, `mT = Theta(n)`, `T = Theta(sqrt n)` | VERIFIED in the stated QSR bias metric; the augmented fixed-feature bound is verified under its stated full-group normalization and `Q_ne`. These results do not certify architectural novelty. |
 | Original (O) strict-budget problem | OPEN (unchanged) |
-| Architecture novelty | Existing mechanism (delay line plus nonlinear port); property preserved by an ordinary tanh RNN |
+| Architecture novelty | Delay-line/nonlinear-port structure has prior analogues; preservation of the uniform credit theorem by the tanh ablation remains unproved numerical evidence |

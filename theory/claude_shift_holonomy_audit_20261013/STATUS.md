@@ -1,19 +1,22 @@
 # Status — claude_shift_holonomy_audit_20261013
 
-**Type:** independent audit of Gemini's proposal, plus new author-derived theorems for a
-modified architecture. **Repository status:** PENDING INDEPENDENT REVIEW.
+**Type:** audit of Gemini's proposal and proof of a modified QSR result.
+**Independent review:** completed; see PR #25 and `REVIEW_HANDOFF.md`.
 
 | Item | Status |
 |---|---|
 | Original strict-budget problem (frozen dense tanh) | **OPEN**, unchanged |
-| Gemini: "solves the original problem" | **REFUTED as stated** (different model and metric; no reduction; Lemma 8.1) |
-| Gemini: forward cancellation, Jacobian, singular values | **VERIFIED** (exact) |
-| Gemini: input admissibility | **DEFECT** (`5/8 > 1/2`), repairable |
-| Gemini: learning-credit theorem | Not a parameter-gradient statement. Trivial under its own unnormalized metric. **REFUTED** for its schedule under normalized metrics |
-| Repaired QSR: `D = Theta(n)`, `mT = Theta(n)`, `T = Theta(sqrt n)`, tight in the nonexpansive class | **PROVED (author)**, pending review; new architecture and explicit metrics only |
-| Novelty | Existing mechanism (delay line plus nonlinear port); the property is preserved by an ordinary tanh RNN (numerical ablation) |
-| Neutral-path tax for the original model | **CONJECTURE** (stated, not claimed) |
+| Gemini: claim to solve the original problem | **REFUTED as stated**: different architecture and metric; no reduction to the unchanged contract |
+| QSR: exact cancellation and Jacobian identities | **VERIFIED**, exact and in stated scope |
+| Lemmas 5.1–5.3 and Theorem 5.4 | **VERIFIED** for QSR, its stated history/input boxes, realizable `Q_ne` futures, code-existence condition, and positive bias weight |
+| Corollary 5.5 | **VERIFIED asymptotically after correction**: `D=floor(n'/1001) >= n/1004`; the former `n/1002` floor claim was false at `n=1,000,999` |
+| Corollary 5.6 | **VERIFIED in the augmented QSR model**, for the stated full recurrent-group RMS ratio, fixed-feature projection, and `Q_ne`; source preparation uses a public changing-support schedule and `m` denotes maximum simultaneously addressed coordinates |
+| Normalization claims | Bias result: `w_b=c/sqrt(n)`, `c>=.0021`, over `Q_ne`; transplant: stated full-group RMS ratio and projected fixed-feature metric over `Q_ne`; no all-group or universal-weight claim |
+| Tanh architectural equivalence | **UNPROVED numerical evidence**: the adjoint family is idealized and the samples do not prove uniform boundary separation |
+| Lemma 8.1 | **VERIFIED local trace bound** in its reference/dense-perturbation scope; it does not prove a credit-weighted tax |
+| Neutral-path tax | **CONJECTURE**, not established |
+| Architecture novelty | Not certified by this record; QSR has known-operation and delay-line/nonlinear-port analogues, while equivalence of the robust-credit theorem remains unproved |
 
-**Next action.** Run an independent hostile review of PROOF.md Lemmas 5.1-5.3, Theorem 5.4
-and Corollary 5.6 (see REVIEW_HANDOFF.md). For the original problem, the actionable
-question is the neutral-path tax conjecture (PROOF.md section 8.3).
+**Exact next action.** Preserve this scope and the OPEN original-problem status in any later
+revision. Any stronger tanh-equivalence, global normalization, or neutral-path-tax claim
+requires a separate proof.

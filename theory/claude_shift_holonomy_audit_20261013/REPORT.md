@@ -4,8 +4,9 @@ Claude (Opus 5.5), 2026-10-13. Full proofs: [PROOF.md](PROOF.md). Numerical chec
 [CHECKS.md](CHECKS.md), [checks.py](checks.py), [checks_result.json](checks_result.json).
 Review instructions: [REVIEW_HANDOFF.md](REVIEW_HANDOFF.md).
 
-Everything labeled PROVED is author-derived and pending independent hostile review.
-Numerical results are diagnostic only.
+The QSR results below have received an independent hostile review; their scope and
+one finite-size statement have been corrected accordingly. Numerical results remain
+diagnostic only. See [REVIEW_HANDOFF.md](REVIEW_HANDOFF.md) and the linked review PR.
 
 ---
 
@@ -14,22 +15,23 @@ Numerical results are diagnostic only.
 | Question | Verdict |
 |---|---|
 | **Original conjecture**: `D = Omega(n)` with `mT = o(n^(3/2))` for the frozen dense tanh contract | **OPEN.** Unchanged; this audit gives no reduction from the new architecture to it. |
-| **Gemini's claim to have solved the original problem** | **REFUTED as stated.** The construction is a different model under a different metric. There is no reduction, and its key resource (free neutral accumulation) is unavailable in the frozen family (Lemma 8.1). |
+| **Gemini's claim to have solved the original problem** | **REFUTED as stated.** The construction is a different model under a different metric, with no reduction to the original contract. Lemma 8.1 rules out the exact neutral-holding route; it does not rule out every possible mechanism. |
 | **Gemini's new-architecture theorem** | **PARTIALLY PROVED.** Details in the four rows below. |
 | — Forward cancellation, Jacobian formula, singular values in `[1/2,3/2]` | **PROVED** (exactly correct; checked in exact rational arithmetic). |
 | — Complexity statements | Partly wrong: `mT = 2n` is right, but the `R ~ log log n`, `T ~ sqrt(nR)` accounting is not derived from the construction. |
 | — Input admissibility | **Defective**: the cancellation input reaches `5/8 > 1/2`. Repairable. |
-| — The "learning-credit" theorem | Not a parameter-gradient statement. True but trivial under its own unnormalized metric (`R = 1` suffices), and **REFUTED** for Gemini's schedule under any normalized parameter-gradient metric. |
-| **Repaired new-architecture theorem** (this audit) | **PROVED** for a modified QSR family under explicitly defined metrics: `D = Theta(n)`, `mT = Theta(n)`, `T = Theta(sqrt n)`. This includes the original normalization conventions transplanted to the new architecture. Tight up to constants in the nonexpansive class. It is not a result about the original model. |
-| **Architecture novelty** | Existing mechanism: a delay-line RNN with one nonlinear port. The property is preserved by an ordinary zero-bias tanh RNN with a permutation recurrent matrix. Neither a new primitive nor a new architecture under AGENTS.md. |
+| — The "learning-credit" theorem | Not a parameter-gradient statement. True but trivial under its own unnormalized metric (`R = 1` suffices), and **REFUTED** for Gemini's schedule under the specified normalized QSR bias metric and query family. |
+| **Repaired QSR theorem** | **VERIFIED in stated scope:** under the defined nonexpansive QSR histories, `Q_ne`, code existence, and positive bias weight `w_b=c/sqrt(n)`, `D=Theta(n)`, `mT=Theta(n)`, `T=Theta(sqrt(n))`. The augmented fixed-feature inequality is verified under its specified full-group RMS normalization and projected feature metric. Neither result concerns the original model. |
+| **Architecture novelty** | QSR uses known operations and has delay-line/nonlinear-port prior analogues. The tanh ablation is numerical evidence only; it does not prove the uniform robust-credit property is preserved. Architectural equivalence and architectural novelty are not established by this audit. |
 
-The main contribution of the audit is diagnostic. In the shift architecture, linear robust
-credit at linear coordinate-time cost is achievable, and provably optimal, under every
-reasonable normalization. The reason is that `h = 0` is a zero-input, exactly neutral
+The main result is scoped to the shift architecture's explicitly defined credit metrics.
+For the QSR bias metric and, separately, the augmented fixed-feature metric below, linear
+robust credit at linear coordinate-time cost is achievable and is optimal up to constants
+within the stated nonexpansive QSR class and legal query families. The reason is that `h = 0` is a zero-input, exactly neutral
 (gate 1, isometric) fixed point, and a narrow `m ~ sqrt(n)` port addresses the full state
-through the shift. The frozen dense tanh model lacks the first ingredient because of its
-bias `b = .05*1`. This points to the precise obstacle in the original problem (a
-"neutral-path tax", section IX).
+through the shift. The frozen dense tanh model lacks this exact zero-input fixed point because
+of its bias `b = .05*1`. This motivates, but does not prove, the neutral-path tax conjecture
+(section IX).
 
 ---
 
@@ -196,7 +198,7 @@ This section has:
 *Resulting scaling.* With `w_b = c/sqrt(n)` and `c >= .0021`, take `R = floor(sqrt n)`.
 For `n >= 10^6` this gives:
 
-* `D >= n/1002` robust at `epsilon = .001`;
+* `D >= n/1004` robust at `epsilon = .001`;
 * `T = 195R <= 195 sqrt(n)` and `m <= sqrt(n) + 2`;
 * **`mT <= 195n`**, with at most `2n` nonzero input coordinate-times.
 
@@ -204,11 +206,18 @@ For `n >= 10^6` this gives:
 (Theorem 4.4) and `mT >= D`. So `T = Theta(sqrt n)` and `mT = Theta(n)` are optimal up to
 constants.
 
-*Transplanted original normalization.* Use the original conventions: group-RMS weight
+*Transplanted normalization conventions.* Use the full-group RMS ratio from the original
+contract and its fixed uniform head, together with the explicitly defined `Q_ne` family
+and projected fixed-source feature metric:
 `w_W/beta = 1/n_tot`, uniform head, fixed source feature `f_s = 1/sqrt(l)`, source value
-`sigma = 1/20`, and a trainable coupling `K` from a constant source block (input width
-never above `m`). Then `d_F >= .00895 > .002` at `mT = 98 n_tot`. The observed values are
-`d_F = .53`-`.65`.
+`sigma = 1/20`, and a trainable coupling `K` from the source block. For square
+`n_mem=R^2=m^2>=10^6`, choose `D=floor(n_mem/1001)>=n_mem/1004`; then
+`d_F >= .00895 > .002` at `mT=98 n_tot`. The observed values are `d_F=.53`-`.65`.
+This is not the original model's source dynamics, endpoint, complete legal query contract, or
+all-group memory metric. During source preparation, input support changes publicly from one
+source block to the next. The reported `m` bounds the number of simultaneously addressed
+coordinates, not a fixed m-coordinate input port. The cost `mT=98 n_tot` uses this
+coordinate-time convention.
 
 *Not claimed.* This does not concern the frozen dense tanh family, says nothing about
 expansive histories, and makes no claim of practical learning benefit.
@@ -229,12 +238,13 @@ expansive histories, and makes no claim of practical learning benefit.
 5. **The cube fails under a fixed head.** Boundary point `z = e_1/2`: `d <= w/sqrt(n)`.
 6. **The initial-state gradient is not robust under normalization.** It is a single
    injection time, and Theorem 4.4 gives `d <= 2w`.
-7. **The original model cannot host the mechanism by zero-input holding (Lemma 8.1).**
+7. **The exact free neutral state is unavailable in the original model (Lemma 8.1).**
    In the frozen reference model, a zero-input memory coordinate with `|h_t| <= .01` forces
    `(O h_(t-1))_i < -.0399`. So `N_t` such coordinates force a total gate deficit of at
-   least `.00159 N_t` at time `t-1`.
-8. **`R = 1` costs `n^(3/2)` under normalization.** Inside the nonexpansive class, any
-   robust section needs `mT > (epsilon/c) n^(3/2)`.
+   least `.00159 N_t` at time `t-1`. This is an unweighted trace deficit, not a bound on
+   credit-weighted contraction or all possible mechanisms.
+8. **`R = 1` costs `n^(3/2)` in the specified bias metric.** Inside the nonexpansive QSR
+   class with `w_b=c/sqrt(n)`, any robust section needs `mT > (epsilon/c) n^(3/2)`.
 
 ---
 
@@ -254,10 +264,13 @@ expansive histories, and makes no claim of practical learning benefit.
    `||q 1 (x) a|| >= (q R rho_f/(2n)) ||Dz||_1`, while the window term is at most
    `R ||Dz||_2/sqrt(n)`. The code makes `||Dz||_1 >= rho n/16.02`.
 3. **Fixed-feature recurrent coupling from a constant source (Corollary 5.6).** This
-   reproduces the original's parameter type and normalization. The source is prepared
-   through `m`-wide inputs.
-4. **Zero-bias tanh RNN with a cyclic-shift recurrent matrix (ablation).** It reproduces
-   the property (numerically `d = .59`-`1.78`), so the quadratic port is inessential.
+   transplants the stated full-group RMS ratio and fixed-feature projection into the
+   augmented QSR model. Source preparation uses a public changing-support coordinate
+   schedule, not a specified fixed m-coordinate input port.
+4. **Zero-bias tanh RNN with a cyclic-shift recurrent matrix (ablation).** Numerical
+   samples show separations `d=.59`-`1.78` under an idealized adjoint family. Legal
+   realization and uniform all-boundary separation are unproved; architectural
+   equivalence remains numerical evidence only.
 5. **Expansive holding (`R = 1`).** Credit is amplified by `(1+a)^T`: `T = O(log n)`,
    `mT = Theta(n log n)`. This is outside the nonexpansive class, and the exploding
    sensitivities are not allowed in the original contract.
@@ -270,12 +283,12 @@ expansive histories, and makes no claim of practical learning benefit.
 
 | Quantity | Gemini (literal) | Repaired QSR (Cor. 5.5) | Fixed-feature transplant (Cor. 5.6) |
 |---|---|---|---|
-| `D` | `n` (cube) | `>= n/1002` | `>= n_mem/1001` |
-| `m` (input width) | `n/R` | `<= sqrt(n) + 2` | `sqrt(n_mem)` |
+| `D` | `n` (cube) | `>= n/1004` | `floor(n_mem/1001) >= n_mem/1004` in the square asymptotic specialization |
+| `m` (input width / active support) | `n/R` | `<= sqrt(n) + 2` | `sqrt(n_mem)` simultaneous addressed coordinates; source input support changes publicly during preparation |
 | `T` | `2R` | `195 floor(sqrt n)` | `196 sqrt(n_mem)` |
 | `mT` | `2n` | `<= 195n` | `98 n_tot` |
 | nonzero input coordinate-times | `2n` | `2n` | `n_mem` (source) `+ 2n_mem` |
-| `||X||_2` | `<= .80 sqrt(n)` (writes `1/2`, cancels `5/8`) | `<= (5/8) sqrt(n)` | `<= .63 sqrt(n_mem)` |
+| `||X||_2` | `<= .80 sqrt(n)` (writes `1/2`, cancels `5/8`) | `<= (5/8) sqrt(n)` | `<= .63 sqrt(n_mem)` for the explicitly scheduled source coordinate inputs |
 | trainable parameters | none (`h_0` implicit) | bias, `n` | coupling block `K` |
 | arithmetic / step | `O(m)` | `O(m)` | `O(m)` |
 | margin (proved) | `1/2` (unnormalized) | `>= c` (`= .035` at the original scale) | `>= .00895` |
@@ -288,34 +301,41 @@ The uniform separation is proved in PROOF.md: Lemma 5.1 (exact identity), Lemma 
 Dilution factors summarized:
 
 * cube sections under a fixed head: `1/sqrt(n)` per saturated coordinate;
-* any section, normalized weight `c/sqrt(n)`: factor `T/sqrt(n)`;
-* with the original group-RMS `1/n` and an `O(sqrt n)`-norm source: `1/sqrt(n)` per unit of
-  accumulated time.
+* for the stated QSR bias-gradient metric and legal family `Q_ne`, weight `c/sqrt(n)`:
+  the upper-bound factor is `T/sqrt(n)`;
+* with the transplanted full-group RMS ratio `1/n_tot` and the specified source feature:
+  the bound is the explicit one in Corollary 5.6, for `Q_ne`.
 
-In every case the repair compensates by accumulating `Theta(sqrt n)` steps at zero input
-cost.
+For the QSR bias theorem, neutral accumulation has zero input cost. Corollary 5.6 separately
+charges the changing-support source preparation. Neither cost statement transfers to the
+original dense-tanh contract.
 
 ---
 
 ## VII. Original-model compatibility
 
-* **Original frozen dense tanh contract: NOT APPLICABLE.** QSR is not in the frozen
-  family, and the metrics differ. No reduction exists in this audit, and approximate
+* **Original frozen dense tanh contract: NOT ESTABLISHED.** QSR is not in the frozen
+  family, and the metrics differ. No reduction is provided in this audit, and approximate
   simulation would not give exact endpoints.
   * The repair needs `n` coordinates at a zero-input, exactly neutral (gate 1, isometric)
     fixed point for `Theta(sqrt n)` steps.
-  * Lemma 8.1 shows this is impossible in the frozen reference model: with bias `.05`,
-    zero-input near-neutral coordinates force non-neutral mass at the previous step.
+  * Lemma 8.1 shows that the exact zero-input neutral fixed point is unavailable in the
+    frozen reference model: with bias `.05`, zero-input near-neutral coordinates force
+    non-neutral mass at the previous step.
   * The project's own single-pulse accumulate-then-gate construction for the original
     model (`reachable_fixed_feature_width_20261002`, `D >= floor(n/8)`) holds memory at `0`
-    with input `-.05` on about `n/2` coordinates for `3n` steps (`mT ~ 1.5n^2`). That is
-    exactly this "bias tax".
-* **Modified smooth recurrent architecture: APPLIES.** The repaired QSR (polynomial,
-  smooth) and the zero-bias tanh RNN with a cyclic-shift recurrent matrix both satisfy the
-  modified-metric theorem. The tanh case is numerical.
-* **Restricted auxiliary model: APPLIES.** The nonexpansive QSR class with the bias or
-  fixed-feature metric has a complete `Theta` characterization: `T = Theta(1/w)`,
-  `mT = Theta(n)`.
+    with input `-.05` on about `n/2` coordinates for `3n` steps (`mT ~ 1.5n^2`). This
+    illustrates the holding cost of that construction; it does not prove a general tax.
+* **Modified QSR model: VERIFIED IN STATED SCOPE.** The quadratic recurrence and its
+  explicitly defined bias and augmented fixed-feature metrics satisfy the repaired
+  theorem. The zero-bias tanh RNN ablation is numerical evidence only; legal adjoint
+  realization and uniform boundary separation remain unproved.
+* **Restricted auxiliary model: scoped results only.** The reviewed bias result is for
+  `w_b = c/sqrt(n)` (`c >= .0021`) and `Q_ne`, with `D = Theta(n)`,
+  `T = Theta(sqrt(n))`, and `mT = Theta(n)`. The augmented fixed-feature result is for
+  its displayed full-group RMS ratio, projected feature metric, `Q_ne`, and square
+  asymptotic specialization. Neither establishes a complete characterization across
+  arbitrary weights or parameter groups.
 
 ---
 
@@ -324,9 +344,13 @@ cost.
 * **New primitive? No.** The Jacobians are monomial (permutation times diagonal gates).
   The "holonomy" is the ordinary BPTT/RTRL product of diagonal port Jacobians in a rotating
   frame. There is no new operation, state semantics, transition rule or learning rule.
-* **New architecture? No.** The property ("linear robust credit at linear coordinate-time")
-  is preserved by an ordinary decomposition: a vanilla zero-bias tanh RNN with `W = S`
-  (numerical, `n <= 1024`).
+* **Architectural equivalence? Not established by this audit.** The zero-bias tanh RNN
+  ablation is numerical evidence only: it uses an idealized adjoint family, and its sampled
+  separation does not prove the property for every boundary point. Delay-line reservoirs,
+  cyclic reservoirs, and shift recurrent systems are relevant structural prior analogues,
+  but they do not by themselves prove equivalence of the stated robust-credit theorem.
+  Therefore neither a new-architecture claim nor equivalence of the full claimed property
+  is certified here.
 * **Existing mechanism: yes.** Prior art (bibliographic entries checked on 2026-10-13):
   * delay-based reservoir computing with a single nonlinear node in a delay loop:
     Appeltant et al., *Nat. Commun.* 2, 468 (2011);
@@ -353,46 +377,45 @@ AGENTS.md candidate standard (abbreviated):
 | 7 | Closest primitive | Monomial-Jacobian recurrence (permutation times diagonal gates) |
 | 8 | Closest architecture | Single-node delay reservoir; cycle reservoir; permutation-matrix RNN |
 | 9 | Closest system | Delay-line memory plus nonlinear readout node |
-| 10 | Known machine reproduces it? | Yes: zero-bias tanh RNN with `W` = cyclic shift (numerical) |
-| 11 | Property lost under decomposition | None identified |
+| 10 | Known machine reproduces it? | The zero-bias tanh cyclic-shift ablation is numerical evidence; actual legal adjoint realization and uniform separation are unproved |
+| 11 | Property lost under decomposition | Not decided by the present evidence |
 | 12 | Guarantee or separation | Resource law `mT = Theta(n)`, but shared by the ordinary decomposition |
 | 13 | Novelty only a schedule or wrapper? | Yes (accumulate/write/cancel schedule) |
 | 14 | Historical prior art | Delay-dynamical reservoirs (2011); cycle reservoirs (2011) |
 | 15 | Modern prior art | Orthogonal/permutation RNNs (2016); shift SSMs (2023) |
-| 16 | Falsifies the primitive claim | Lemma 1.2 (monomial reduction): falsified |
-| 17 | Falsifies the architecture claim | Ordinary tanh-RNN ablation: falsified |
-| 18 | Smallest test | Done: checks I1 |
+| 16 | Falsifies the primitive claim | Lemma 1.2 identifies ordinary monomial/Jacobian operations; no new primitive is established |
+| 17 | Falsifies the architecture claim | The tanh ablation would need legal adjoint realization and uniform all-boundary separation; current numerical checks are insufficient |
+| 18 | Smallest test | Numerical ablation done; proof-level equivalence test remains open |
 
-**Reason for death:** true architectural equivalence (delay line plus nonlinear port), and
-general mechanism prior art. The useful content is diagnostic for (O).
+**Current classification:** known operations and a delay-line/nonlinear-port structure with
+historical analogues; the uniform architectural-equivalence claim is unproved. The useful
+content is diagnostic for (O), whose status remains OPEN.
 
 ---
 
 ## IX. Remaining proof gaps
 
-For the new-architecture theorem:
+For the modified-QSR theorem:
 
-* independent hostile review;
 * a deterministic code, or substituting Codex's reviewed Lemma 1, in place of the
   probabilistic Lemma 5.3 (existence is already rigorous);
-* an upper bound for the full all-group gradient metric (bias and fixed-feature groups are
-  done; the `W`/`U` groups have the same `O(T/sqrt n)` order by
-  `||p||, ||x|| = O(sqrt n)`, a one-line extension that is not written out);
-* a written proof of the tanh ablation, which is currently numerical plus a sketch.
+* no all-group gradient theorem is claimed; results are limited to the specified bias
+  group or the specified projected fixed-feature group;
+* a written proof of legal adjoint realization and uniform separation for the tanh ablation.
 
 **For the original problem, the smallest precise obstacle.** QSR's mechanism needs credit
 to accumulate on `Theta(n)` coordinates with neutral gates and zero input for
 `Theta(sqrt n)` steps. Lemma 8.1 shows that zero-input neutrality at time `t` in the frozen
-model forces a gate deficit of at least `.0016` per such coordinate at `t-1`. The precise
-open statement is the **neutral-path tax conjecture**:
+model forces an unweighted gate-trace deficit of at least `.00159` per such coordinate at
+`t-1`. This local statement does not bound credit-weighted contraction. The separate
+**neutral-path tax conjecture**, which remains unproved, is:
 
 > every robust `D`-section of the frozen family at `epsilon = .001` has
 > `sum_t #{i : x_t(i) != 0} >= c D sqrt(n)`.
 
-This would settle the strict-budget problem negatively at `D = Theta(n)`. Any construction
-that evades it must accumulate credit through the frozen dense part of `R` (e.g. the
-Householder twist) rather than through neutral holding, and still reach `Theta(n)`
-independently gate-modulated, query-visible directions.
+If true, this would settle the strict-budget problem negatively at `D = Theta(n)`. This is
+one possible obstruction, not an exhaustive classification: the original OPEN problem may
+also be resolved by another construction or by another scoped lower bound.
 
 ---
 

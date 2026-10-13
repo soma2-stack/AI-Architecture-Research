@@ -47,3 +47,19 @@ Two caveats.
   is evidence for the novelty verdict, not a theorem.
 * Section H's adversarial search finds an upper estimate of the minimum saturated fraction,
   not a certificate. The certificate is Lemma 5.3.
+
+## Independent-review scope and adversarial diagnostic
+
+The table above is the author's original finite diagnostic output; its empirical rows are
+not universal claims. The independent review found that the finite exhaustive/coordinate-
+ascent sign-query comparison in F4 does not justify a worst-case constant-factor statement.
+For example, at `R=5, m=1, q=1, rho=rho_f=1/2` and
+`dz=(1/2,0,0,0,-1/2)`, the prescribed sign query has value `1/sqrt(10)` times the
+best vertex-query value (`0.3162...`). This is a diagnostic counterexample to that broader
+interpretation, not to Theorem 5.4's stated worst-case window-subtraction bound. The
+independent review's exact-rational and forward-tangent reproduction instructions and
+scope are recorded in [REVIEW_HANDOFF.md](REVIEW_HANDOFF.md) and [PR #25](https://github.com/soma2-stack/AI-Architecture-Research/pull/25).
+
+The tanh rows remain numerical evidence only: the sign-aligned adjoints in I1 are
+idealized, and these finite samples do not establish legal future-query realization or
+uniform separation over every boundary point. No training was performed.

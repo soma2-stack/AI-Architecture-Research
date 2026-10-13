@@ -5,7 +5,18 @@
  "requested_by": "owner (soma2-stack), direct audit request",
  "audit_target": "Port-Localized Shift-Holonomy Recurrence attributed to Gemini 4 Argon, as specified in the owner's brief; no repository folder for the proposal exists",
  "type": "Independent audit + author-derived theorems for a modified architecture",
- "repository_status": "PENDING INDEPENDENT REVIEW",
+ "repository_status": "INDEPENDENTLY REVIEWED; corrections incorporated on the PR #24 branch",
+ "independent_review": {
+  "pull_request": "https://github.com/soma2-stack/AI-Architecture-Research/pull/25",
+  "status": "complete; author record corrected to reviewed scope",
+  "findings": [
+   "Lemmas 5.1-5.3 and Theorem 5.4 verified in stated QSR scope",
+   "Corollary 5.5 finite-size lower bound corrected to D >= n/1004 for n >= 10^6",
+   "Corollary 5.6 limited to augmented-QSR full-group RMS ratio and projected fixed-feature metric over Q_ne; source preparation uses changing public support",
+   "tanh equivalence remains unproved numerical evidence; neutral-path tax remains conjectural",
+   "Lemma 8.1 is a local unweighted trace-deficit result; original frozen dense-tanh problem remains OPEN"
+  ]
+ },
  "original_problem_status": "OPEN (unchanged)",
  "base_commit": "f8a96fb8b8dfe0c072e82dc57b8c23cbc20de89c",
  "branch": "claude/shift-holonomy-audit-20261013",
