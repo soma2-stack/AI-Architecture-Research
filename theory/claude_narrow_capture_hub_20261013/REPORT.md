@@ -42,7 +42,7 @@ channels, or has decayed below threshold.
 **Theorem 1.** Let `n >= 10^8` and let the section be robust, with a public schedule and a
 K-probe certificate.
 
-* If `m <= 5e-5 n`, then `D <= 10^6 (K+2)(m+1)(1 + ln K + ln+((T+1)/sqrt n))`.
+* If `m <= 5e-5 n` **and** `T < Tcrit = 2.9e-10*n^(3/2)/(1+ln K)`, then `D <= 10^6 (K+2)(m+1)(1 + ln K + ln+((T+1)/sqrt n))`.
 * In all cases, `mT >= 2.9e-10 D sqrt(n)/((K+2)(1+ln K))`.
 
 **Proof idea.**
@@ -52,13 +52,20 @@ K-probe certificate.
    * the global scalars `J`, `Sum`, `c` and their credit analogues at each step;
    * the state and credit of the public protected set at the window start.
 2. Borsuk–Ulam gives a code `theta*` where all listed scalars vanish.
-3. There, protected rows carry nothing odd (induction), while all other rows contract by
-   `1 - 1.5e-4` per step, because the bath floor keeps their state `>= .0124`.
-4. So the pair is not separated, and `D` is at most the number of listed scalars.
+3. When `W=T`, the listed input differences force the *entire histories*
+   and their gradients to coincide exactly (Codex P2 repair).
+4. When `W<T`, an auxiliary local recurrence kills protected odd parts
+   and contracts unprotected ones by `1-1.5e-4`. A new coupled
+   perturbation argument bounds hidden-state **and gate-mediated**
+   effects of the actual dense `R-R0` by `3.3e-7` in projected distance
+   (Codex P1 repair), for `T<Tcrit`.
+5. For `T>=Tcrit`, the resource bound follows directly from `D<=nK`.
+   This is why the sharpened dimension bound is now stated only for `T<Tcrit`.
 
-The background lemmas are exact one-dimensional comparisons: every undriven row is an
-iterate of the same map `F_t` as a virtual bath trajectory, so gaps to the bath are
-monotone.
+The background comparisons are exact for R0. For actual dense R, each
+undriven chain is within `T*4e-8/n^(3/2) <= 4e-8` of its virtual
+one-dimensional comparison trajectory in the nontrivial range.
+That error is included in the bath-floor induction.
 
 ## Implications
 
@@ -103,3 +110,13 @@ Use a magnitude argument of suffix-product type (`D < 16000 mT/sqrt n` in
 `codex_suffix_product_kernel_attack_20261003` is the template). Otherwise, exhibit
 `o(n)` protected rows whose parameter-direction profiles carry `Theta(n)` robust
 dimensions.
+
+## Codex review repairs (2026-10-14)
+
+Codex's opening review flagged (P1) the missing state-to-gate-to-credit
+perturbation and (P2) the false use of `exp(kappa W)>=Q^2` for `W=T`.
+Both now have explicit proposed repairs in PROOF.md §3. The theorem's
+resource lower bound (ii) is unchanged; the quantitative dimension
+bound (i) is limited to `T<Tcrit`, since longer horizons already
+satisfy (ii) trivially. **These are author repairs, not a completed
+independent validation; request a new hostile review before merging.**
