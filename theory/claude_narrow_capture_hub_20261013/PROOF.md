@@ -273,9 +273,11 @@ distance is zero, contradicting robustness. Hence `D<=N`
 immediately in this case. In the remaining proof assume `W<T`,
 so `W=ceil((2/kappa)ln Q)` and `exp(kappa W)>=Q^2` is valid.
 
-**Claim 1 (protected rows carry no odd part).** For every `t` in `[t0, T]` and every
-`j in P_t`, the odd state and credit difference of row `j` vanish. This holds up to the
-actual-R error `eta`, bounded below.
+**Claim 1 (reference skeleton: protected rows).** When the dense residual
+`R-R0` is omitted from the *difference recurrences* while retaining the
+L1–L3 cancellations, the protected-row odd state and credit are zero.
+For actual R they need not be exactly zero; the quantitative comparison
+(3.1)–(3.8) bounds their state and credit leakage.
 
 *Proof by induction on `t`.* At `t0` it is (L3). At step `t`:
 
@@ -291,8 +293,10 @@ actual-R error `eta`, bounded below.
 
 QED
 
-**Claim 2 (unprotected rows decay).** Let `j >= 2` be a memory row outside `P_t`. Its
-predecessor is either protected (odd part 0) or unprotected.
+**Claim 2 (reference skeleton: unprotected-row decay).** Let `j>=2`
+be a memory row outside `P_t`. In the auxiliary reference difference
+recurrences, its predecessor is either protected (odd part zero) or
+unprotected. The dense-R error is controlled separately in (3.1)–(3.8).
 
 * *Odd state.* `J_o = 0` and the slope bound of Lemma 2.5 give
   `|h_t(j)_o| <= (1-kappa)|h_(t-1)(pred)_o| <= 2(1-kappa)^(t-t0)`. The odd part is the
@@ -311,10 +315,12 @@ to unprotected memory rows obeys
 
 QED
 
-**Remainder.** Each step adds `c_t E V` with `|c_t| <= 1/sigma` (`|f_s^T h| <= sqrt l`),
+**Reference-skeleton remainder.** Each step adds `c_t E V` with `|c_t| <= 1/sigma` (`|f_s^T h| <= sqrt l`),
 so `||B_t||_F <= sqrt(K) t/sigma`. Then
 
     ||Delta B_T(theta*)||_F <= (1-kappa)^W sqrt(K)(2T + 4W(T+1))/sigma + eta.
+
+Here eta is the actual-R error, now explicitly bounded in (3.5)–(3.8).
 
 If `t0 = 0` the first term is absent, because `h_0 = 0` and `B_0 = 0` carry no odd part.
 
