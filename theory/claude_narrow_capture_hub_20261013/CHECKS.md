@@ -14,3 +14,16 @@ for asymptotic claims.
 The explicit constants of Lemma 2.4 and Theorem 1 were also recomputed by hand: floor LHS
 `.02716 > atanh(.025) = .025005`; `2/(.29 s_lo^3) = 4.41e5`; `ln(4e4/kappa) = 19.40`;
 `min y/(1.7+ln+ y) = 5.88e-4` on `y >= .001`.
+
+## E — repair arithmetic (Codex P1/P2, added 2026-10-14)
+
+`checks.py` now also asserts the **closed-form constant bounds** from
+PROOF.md §3: the bath-floor lower bound exceeds `atanh(.025)`,
+`W sqrt(K/n)/(1+ln K) < 3e5` uniformly by the analytic inequality
+`sqrt(v)ln(1/v) <= 2/e`, and the resulting projected dense-R error
+is `eta_d < 3.3e-7` in the nontrivial budget range `T<Tcrit`.
+It prints representative `(n,K,T,W)` cases, including a truncated window.
+These checks verify numerical constants, **not** the auxiliary-state
+and credit recurrence argument; independent mathematical review is
+still needed. For `W=T`, the proof uses exact identical input histories
+rather than an exponential estimate.
