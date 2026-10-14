@@ -1,0 +1,18 @@
+{
+  "folder": "theory/claude_narrow_capture_hub_20261013",
+  "author": "Claude (Opus 5.5)",
+  "date": "2026-10-14",
+  "branch": "claude/narrow-capture-hub-20261013",
+  "base": "origin/main f8a96fb",
+  "builds_on": [
+    "PR #26 claude/neutral-path-tax-20261013 (e13311b), unmodified",
+    "gemini/pr26-neutral-hole-audit-20261013 (2f3a3d2), read only",
+    "theory/codex_holding_cost_attack_20261003 bound (20)",
+    "theory/codex_single_block_spatial_write_20261004 single-probe cap D<=n",
+    "theory/codex_suffix_product_kernel_attack_20261003 (template for next step)"
+  ],
+  "compute": "CPU only; checks.py under one minute; no large-scale runs, no training",
+  "restricted_notebooks_read": false,
+  "agents_md_modified": false,
+  "status": "PENDING INDEPENDENT REVIEW"
+}

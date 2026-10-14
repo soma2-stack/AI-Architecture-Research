@@ -1,0 +1,54 @@
+{
+ "A_bath_identity": [
+  {
+   "n": 8000,
+   "steps": 1200,
+   "m": 0,
+   "max_|E|_sqrt_k": 0.05075463134527762,
+   "s_min": 0.03916294394611389
+  },
+  {
+   "n": 8000,
+   "steps": 1200,
+   "m": 40,
+   "max_|E|_sqrt_k": 0.6466577818247101,
+   "s_min": 0.04892672400884341
+  },
+  {
+   "n": 32000,
+   "steps": 600,
+   "m": 0,
+   "max_|E|_sqrt_k": 0.05035490423048357,
+   "s_min": 0.04760879763990077
+  },
+  {
+   "n": 32000,
+   "steps": 600,
+   "m": 160,
+   "max_|E|_sqrt_k": 0.6239251132957617,
+   "s_min": 0.04946427846891042
+  }
+ ],
+ "B_excess_sum_slo_.025": 222.53162660096427,
+ "C_tanh_envelope_max_ratio": 0.8660239419348904,
+ "D_nn_lifetime": [
+  {
+   "s_path": "low",
+   "start": -0.95,
+   "first_exit": 8281,
+   "gap_monotone": true
+  },
+  {
+   "s_path": "high",
+   "start": -0.95,
+   "first_exit": 1749,
+   "gap_monotone": true
+  },
+  {
+   "s_path": "low",
+   "start": 0.0,
+   "first_exit": 2480,
+   "gap_monotone": true
+  }
+ ]
+}

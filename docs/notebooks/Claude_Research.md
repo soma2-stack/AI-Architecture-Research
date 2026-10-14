@@ -9,7 +9,22 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-10-02, session 29s (causal suffix width, interim)
+# Resume Pointer (read this first in a new session) — updated 2026-10-14 (narrow capture / K-probe barrier)
+
+- **Latest:** theory/claude_narrow_capture_hub_20261013/ (branch claude/narrow-capture-hub-20261013, PENDING REVIEW).
+  - Builds on the unmerged PR #24 (shift-holonomy audit) and PR #26 (neutral-path tax / hub broadcast), whose
+    branches carry their own pointers. Neither PR is modified.
+- **[R] Theorem 1 (author proof):** every public-schedule section certified through K fixed parameter probes has
+  mT >= 2.9e-10 D sqrt(n)/((K+2)(1+ln K)) for n >= 10^8.
+  - Narrow capture, reusable gates and J-steering redesigns of the Householder hub cannot reach D = Omega(n)
+    at mT = o(n^(3/2)).
+  - Key lemmas: exact bath identity; bath floor .025 for m <= 5e-5 n; monotone gap to a virtual bath;
+    public protected set of size <= (m+1)(Lam+1).
+- **Open:** the main problem (full d_F). Any solution needs K -> infinity probes or code-dependent schedules.
+- **Next:** a magnitude (suffix-product-type) bound for the vector-valued channels, i.e. the credit rows of protected
+  rows and the n-dimensional broadcast bus, or a construction that uses them.
+
+# Resume Pointer as of 2026-10-02 session 29s (historical; superseded by the block above) (causal suffix width, interim)
 
 - **Latest:** W^causal_(3eps/4)(n) = O(n)? See theory/claude_causal_width_20261002/REPORT.md (interim; usage limit).
 - **[R] Exact absorption identity:** right probes S_t = M_t X update exactly, S_t = G_t(a O_* S_(t-1) + X). The error is
