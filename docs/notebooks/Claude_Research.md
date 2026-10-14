@@ -9,7 +9,29 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-10-02, session 29s (causal suffix width, interim)
+# Resume Pointer (read this first in a new session) — updated 2026-10-13 (neutral-path tax / hub broadcast)
+
+- **Latest:** owner-requested frontier study of the neutral-path tax in the ORIGINAL frozen
+  model. Evidence: theory/claude_neutral_path_tax_20261013/ (PROOF.md, REPORT.md,
+  hubcore.py, run_checks.py). Branch claude/neutral-path-tax-20261013.
+- **Proved:**
+  - Exact Householder identities: O e_(d-1) broadcasts row d-1 uniformly; O u -> front row 1.
+  - Exactly neutral "holes" cost one driven coordinate per step (Lemma 2.1).
+  - Prop. 2.2: one neutral path's credit feeds Theta(n) query-visible coordinates.
+  - Consequence: "one held path per direction" and Lemma 8.1 cannot prove the tax.
+- **Candidate (conjecture) — Theorem H:**
+  - Construction: W adjacent holes broadcast while balanced pairs on ~n/2 rows are held
+    for W steps, then one reset; exact common endpoint.
+  - Resources: driven coordinate-time ~(3/4)Wn; inputs < .45.
+  - Separation: hole-term d_F ~.0025 (vertex) / .0024 (code), flat for n = 8k–64k;
+    autograd-validated.
+  - Model: the mass-equilibrium reduced model gives ceiling .00268.
+  - Status: margin only ~1.25x; no rigorous proof yet.
+- **Status:** the tax and the main problem are both OPEN.
+- **Next:** prove the held-window equilibrium bound (PROOF.md §7, obligations 2–4) with
+  explicit constants.
+
+# Resume Pointer as of 2026-10-02 session 29s (historical; superseded by the block above) — causal suffix width, interim
 
 - **Latest:** W^causal_(3eps/4)(n) = O(n)? See theory/claude_causal_width_20261002/REPORT.md (interim; usage limit).
 - **[R] Exact absorption identity:** right probes S_t = M_t X update exactly, S_t = G_t(a O_* S_(t-1) + X). The error is
