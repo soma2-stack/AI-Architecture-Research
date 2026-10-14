@@ -10,9 +10,30 @@
     "theory/codex_holding_cost_attack_20261003 bound (20)",
     "theory/codex_suffix_product_kernel_attack_20261003 (related suffix-product channel bound)"
   ],
-  "references": ["J. Matousek, Using the Borsuk-Ulam Theorem, Springer 2003 (Z2-index, Ch. 5)"],
-  "compute": "CPU only; exp_identities.py under one minute; no large-scale runs, no training",
+  "references": [
+    "J. Matousek, Using the Borsuk-Ulam Theorem, Springer 2003 (Z2-index, Ch. 5)"
+  ],
+  "compute": "CPU only; exp_identities.py and exp_bus_checks.py each under one minute; no large-scale runs, no training",
   "restricted_notebooks_read": false,
   "agents_md_modified": false,
-  "status": "PENDING INDEPENDENT REVIEW"
+  "status": "PENDING INDEPENDENT REVIEW; main problem OPEN; Theorem 4 CONDITIONAL on Hypothesis B (OPEN)",
+  "repairs": [
+    {
+      "date": "2026-10-14",
+      "responds_to": [
+        "Codex review of ddf5f52 (2 x P2)",
+        "owner-posted independent review (GPT-6) of 6ce7026, items 1-5"
+      ],
+      "files": [
+        "PROOF.md (Lemma 1.2, Lemma 1.2', Lemma 3.0, Lemma 3.1, Lemma 3.4, Theorem 2, Cor. 3.5, section 6 notes, new section 7)",
+        "REVIEW_RESPONSE.md",
+        "exp_bus_checks.py",
+        "exp_bus_checks_result.json",
+        "STATUS.md",
+        "CHECKS.md",
+        "REVIEW_HANDOFF.md",
+        "REPORT.md"
+      ]
+    }
+  ]
 }

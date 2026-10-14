@@ -9,22 +9,29 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-10-14 (multi-probe memory, code-dependent schedules)
+# Resume Pointer (read this first in a new session) — updated 2026-10-14, repair of PR #28 (multi-probe memory, bus problem)
 
-- **Latest:** theory/claude_multiprobe_memory_20261014/ (branch claude/multiprobe-memory-20261014, PENDING REVIEW).
+- **Latest:** theory/claude_multiprobe_memory_20261014/ (branch claude/multiprobe-memory-20261014, PR #28, PENDING REVIEW).
   - Builds on the unmerged PRs #26 (hub broadcast) and #27 (K-probe barrier; P1/P2 repairs verified at 118b1e6).
-    Those branches carry their own pointers.
-- **[R] Theorem 2:** code-dependent schedules change the K-probe barrier by at most a factor 2, via a sparse
-  Borsuk-Ulam argument on the cross-polytope skeleton.
-- **[R] Theorem 3:** chain-memory capacity D <= 4300c^2(pL/n)^2 + 4p.
-  - Parameter-direction profiles of protected rows are monotone suffix profiles, and <= L+b paths meet a block.
-  - So multi-probe chain memory also needs mT = Omega(n^(3/2)) for linear D.
-- **[R] Exact readout:** every memory row except d-1 is read with weight <= .345, and row d-1 with up to .94 sqrt(k)
-  (the gather).
-- **[X] Refuted as routes:** gather-chain, synchronised-station (an n^(11/8) heuristic was withdrawn), bus-capture
-  and standing-pattern designs.
-- **Open:** the main problem (full d_F). Reduced in outline to one bus-capture lemma (PROOF.md §6).
-- **Next:** prove or refute that lemma. A positive construction would have to use bus capture with pT >~ 200n.
+  - Repaired after Codex (2 x P2) and GPT-6 (items 1-5) reviews, all of which were correct; see REVIEW_RESPONSE.md.
+- **[R] Theorem 2:** code-dependent schedules change the K-probe barrier by a factor < 2(1+3e-6), via a sparse
+  Borsuk-Ulam argument on the cross-polytope skeleton. PROVED relative to PR #27's lemmas.
+- **[R] Lemma 3.0:** own-injection paths end at row d-1 (no wrap); returns through the Householder are bus content.
+- **[R] Theorem 3** (abstract chain capacity) PROVED. **Cor. 3.5** CONDITIONAL on (H1)-(H5): D <= 8400c^2(pL/n)^2 + 2p
+  (one-step queries), mT >= 1.38e-10 D sqrt(n). The first version's 4300c^2(pL/n)^2 + 4p and 7e-11 were not
+  derivable and are withdrawn.
+- **[R] Readout:** rows 0 and d-1 are separate exceptions (row 0: weight a g_0, zero reference credit). Lemma 1.2':
+  every legal F-step query reads non-spike rows with weight <= 1.2; spikes are <= F_s ~ 8 ln n rows.
+- **[R] Section 7 (bus):** dense term < 1e-7 sqrt(n) for all T; in U-coordinates paths exchange information only
+  through a rank-two coupling X_t (Lemma 7.1); capture budget (7.2); code-dependent source negligible below the
+  barrier (7.3).
+- **[C] Theorem 4:** IF Hypothesis B (bus part <= tau/4 at the zeros of a state-only listing), THEN
+  mT >= 4.7e-11 D sqrt(n) min(1, 890/ln n) for all schedules and legal queries.
+- **[X] Refuted as routes:** gather-chain, synchronised-station (an n^(11/8) heuristic was withdrawn), bus-capture,
+  bus-relay and standing-pattern designs.
+- **Open:** Hypothesis B, hence the main problem (full d_F).
+- **Next:** prove or refute Hypothesis B. Most promising: treat wrapped U-paths as extended own paths (section 7.6),
+  leaving the X_t transfers and a column-uniform piece.
 
 # Resume Pointer as of 2026-10-02 session 29s (historical; superseded by the block above) (causal suffix width, interim)
 
