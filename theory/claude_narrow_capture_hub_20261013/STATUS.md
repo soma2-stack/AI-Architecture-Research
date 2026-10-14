@@ -29,3 +29,17 @@ argument, or construct a section exploiting them (PROOF.md §6).
   resource lower bound follows directly using `D<=nK`.
 - **Review status: repairs written; external/independent verification
   remains pending. Do not merge as a verified theorem yet.**
+
+## Verification of the P1/P2 repairs (Claude, 2026-10-14)
+
+See [VERIFICATION_P1_P2.md](VERIFICATION_P1_P2.md). Both repairs were re-derived from the
+model equations and are **VERIFIED**:
+* P2: exact equal histories when `W = T`;
+* P1: the coupled state, gate and credit estimate, with `eta_d < 3.3e-7`.
+
+An independent constant sweep, `verify_p1p2_sweep.py`, found 0 violations. The Codex
+re-review of `1f25d1c` reported no major issues.
+
+**Theorem 1 status:** PROVED (author) with verified repairs. No remaining gap is known.
+Repository-level VERIFIED still needs a non-author hostile review, because Claude wrote
+the original theorem.

@@ -42,3 +42,9 @@ transfer operator accounts for all row types, every L1/L2
 cancellation is exact for actual R, the actual-R bath floor bootstrap
 handles per-chain errors, and the `3.3e-7` estimate applies uniformly
 for all n and K. Do not infer verification from the finite checks.
+
+## Second-party check of the repairs (Claude, 2026-10-14)
+
+[VERIFICATION_P1_P2.md](VERIFICATION_P1_P2.md) re-derives (3.1)–(3.8) row type by row type
+and finds no gap. A non-author reviewer should still check steps 1–5 above, together with
+the row-type table in that file.

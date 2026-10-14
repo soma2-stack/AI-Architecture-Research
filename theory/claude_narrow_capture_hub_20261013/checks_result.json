@@ -1,4 +1,52 @@
 {
+ "E_repaired_bounds": {
+  "bath_lower": 0.027164959000000006,
+  "bath_target": 0.02500521028733069,
+  "Wratio_sup": 297739.88079822564,
+  "eta_sup": 3.223530442775456e-07,
+  "examples": [
+   {
+    "n": 100000000,
+    "K": 1,
+    "T": 289,
+    "W": 289,
+    "window_truncated": true,
+    "projected_dense_R_bound": 1.5644533333333338e-14
+   },
+   {
+    "n": 10000000000,
+    "K": 1,
+    "T": 289999,
+    "W": 272883,
+    "window_truncated": false,
+    "projected_dense_R_bound": 1.47720664e-12
+   },
+   {
+    "n": 1000000000000,
+    "K": 1,
+    "T": 289999999,
+    "W": 334286,
+    "window_truncated": false,
+    "projected_dense_R_bound": 1.809601546666667e-13
+   },
+   {
+    "n": 1000000000000,
+    "K": 10000,
+    "T": 28402578,
+    "W": 364709,
+    "window_truncated": false,
+    "projected_dense_R_bound": 1.9336195544420537e-12
+   },
+   {
+    "n": 1000000000000,
+    "K": 1000000000000,
+    "T": 10128872,
+    "W": 473766,
+    "window_truncated": false,
+    "projected_dense_R_bound": 8.957602538673603e-09
+   }
+  ]
+ },
  "A_bath_identity": [
   {
    "n": 8000,
