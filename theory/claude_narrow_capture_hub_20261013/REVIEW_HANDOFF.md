@@ -20,3 +20,25 @@ satisfies `mT >= 2.9e-10 D sqrt(n)/((K+2)(1+ln K))` (`n >= 10^8`).
 **Do not edit** this folder; write a separate review folder.
 **Expected output:** VERIFIED / GAP / COUNTEREXAMPLE for each of steps 1–5, with explicit
 constants where a gap is found.
+
+## Review of repairs to original Codex P1/P2 findings
+
+The original review identified (P1) an omitted gate-mediated dense-R
+perturbation and (P2) a false exponential inequality when `W=T`.
+PROOF.md §3 now contains:
+
+- P2: if `W=T`, vanishing listed input odd parts force identical
+  complete input histories and gradients, exactly for actual R.
+- P1: auxiliary odd states `u` with an explicit coupled bound
+  `||Delta h-u||_infinity<=3 delta sqrt(n)/kappa`; auxiliary credit
+  `Z` and an error recurrence give projected dense-R error
+  `eta_d <= (7/kappa) delta W sqrt(K)(T+1) < 3.3e-7`.
+- The proof is used in the narrowed short-budget range
+  `T<Tcrit=2.9e-10*n^(3/2)/(1+ln K)`, while larger T imply the
+  resource lower bound directly from `D<=nK`.
+
+**Independent reviewer:** verify in particular that the auxiliary
+transfer operator accounts for all row types, every L1/L2
+cancellation is exact for actual R, the actual-R bath floor bootstrap
+handles per-chain errors, and the `3.3e-7` estimate applies uniformly
+for all n and K. Do not infer verification from the finite checks.
