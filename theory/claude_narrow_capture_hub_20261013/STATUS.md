@@ -16,3 +16,16 @@ horizon budget. **Repository status:** PENDING INDEPENDENT REVIEW.
 **Exact next action.** Bound the robust dimension carried by the vector-valued channels
 (credit rows of the protected rows, the n-dimensional broadcast bus) by a magnitude
 argument, or construct a section exploiting them (PROOF.md §6).
+
+## Update: Codex findings P1/P2
+
+- P2 (truncated window): corrected by an exact equal-input-history
+  argument when `W=T`.
+- P1 (dense perturbation): a new auxiliary-state/credit argument in
+  PROOF.md §3 bounds the joint gate-mediated and direct perturbation
+  by `3.3e-7` in projected distance when `T<Tcrit`.
+- The fine dimension estimate now requires
+  `T<Tcrit=2.9e-10*n^(3/2)/(1+ln K)`; for `T>=Tcrit`, the
+  resource lower bound follows directly using `D<=nK`.
+- **Review status: repairs written; external/independent verification
+  remains pending. Do not merge as a verified theorem yet.**
