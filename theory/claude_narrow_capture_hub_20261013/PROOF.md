@@ -318,13 +318,110 @@ so `||B_t||_F <= sqrt(K) t/sigma`. Then
 
 If `t0 = 0` the first term is absent, because `h_0 = 0` and `B_0 = 0` carry no odd part.
 
-The actual-R leak satisfies `eta <= W ||R-R0|| sqrt(K) T/sigma + (odd-state leaks of the
-same order)`. Using `T <= n^(3/2)` and `K <= n` (WLOG: replace the probes by an orthonormal
-basis of their span), it contributes at most `3e-6` to the projected distance.
+**Dense-R perturbation, including changes to the gates (P1 repair).**
+Here all listed quantities at `theta*` come from the *actual* R dynamics.
+Write `delta=||R-R0||<=4e-8/n^2`, `q=1-kappa`, and
+`Delta h_t=h_t^+-h_t^-` (unhalved difference). For each row let
+`ell_(t,i)` denote tanh's divided-difference slope between its two
+actual preactivations. Then `0<=ell<=1`, and
+`ell_(t,i)<=q` on unprotected memory rows by Lemma 2.5.
+
+Construct an auxiliary odd-state vector `u_t`. Initially
+`u_(t0)=Delta h_(t0)` outside `P_(t0)` and row 0, and zero on
+those protected rows. At later times set `u_t=0` on `P_t` and row 0;
+on unprotected memory rows use the local reference predecessor
+recurrence `u_t(i)=ell_(t,i) a u_(t-1)(pred i)`, and on source
+rows use `u_t(i)=ell_(t,i) lam u_(t-1)(i)`.
+The R0 global terms vanish by L1, the freshly driven predecessor/input
+differences vanish by L2, and every undriven protected predecessor
+belongs to `P_(t-1)`. The reference shift is a partial injection.
+Since `lam<=q` and initial differences have absolute value at most 2,
+
+    ||u_(t0+s)||_2 <= 2 sqrt(n) q^s.                         (3.1)
+
+Put `e_s=||Delta h_(t0+s)-u_(t0+s)||_infinity`, so `e_0=0`.
+On every row, the local error propagates with slope at most 1,
+and the extra dense term has absolute value at most
+`delta ||Delta h_(t0+s-1)||_2`. Consequently
+
+    e_s <= (1+delta sqrt(n)) e_(s-1) + 2 delta sqrt(n) q^(s-1).
+
+As `W<=T<=n^(3/2)`, `delta sqrt(n) W<=4e-8`. Summing gives
+
+    e_s <= (2 delta sqrt(n)/kappa) exp(4e-8)
+        <= 3 delta sqrt(n)/kappa.                           (3.2)
+
+This bound includes the *gate changes* because, exactly,
+`Delta g_(t,i)=r_(t,i) Delta h_t(i)` with
+`r_(t,i)=-(h_t^+(i)+h_t^-(i))`, `|r_(t,i)|<=2`.
+
+Write `Bbar=(B^++B^-)/2` and
+`Xbar_t=R Bbar_(t-1)+cbar_t EV`. The norm bounds
+`||R||<=1`, `||EV||_F<=sqrt(K)`, `|c_t|<=1/sigma` imply
+
+    ||Delta B_t||_F <= 2 sqrt(K) T/sigma,
+    ||Xbar_t||_F <= sqrt(K)(T+1)/sigma.                      (3.3)
+
+Construct an auxiliary odd-credit matrix `Z_t` initially equal
+to `Delta B_(t0)` outside `P_(t0)` and row 0, and zero on those
+protected rows (which have zero actual difference by L3). For
+`t>t0` set `Z_t=0` on protected memory rows and row 0.
+On unprotected memory rows and source rows respectively, evolve
+with the local `a*gbar` predecessor shift or `lam*gbar` self-map,
+plus the source term `r_(t,i) u_t(i) Xbar_t(i,:)`.
+This operator has norm at most 1; it contracts by `q` on every
+row where `Z_t` is nonzero (on source rows `lam<=q`).
+Equation (3.1) then gives
+
+    ||Z_T||_F <= q^W sqrt(K) [2T+4W(T+1)]/sigma.            (3.4)
+
+To compare with the true `Delta B_t`, observe that
+`Delta c_t=0`, `J(Delta B_(t-1))=0`, and
+`sum_j Delta B_(t-1)(j,r)=0` by L1 for every step and probe.
+Driven predecessors vanish by L2, the front is covered by the
+two global scalars, and undriven protected predecessors are
+protected at the preceding time. Thus, after subtracting the
+auxiliary recurrence, the remaining reference transfer is a
+norm-at-most-one partial shift/self-map. Its only new forcing terms
+are the **direct** `gbar (R-R0) Delta B_(t-1)` and the
+**gate-mediated** `r_(t,i)(Delta h_t(i)-u_t(i))Xbar_t(i,:)`.
+Using (3.2)–(3.3) and summing `W` steps,
+
+    ||Delta B_T-Z_T||_F
+      <= delta W sqrt(K)[2T+6 sqrt(n)(T+1)/kappa]/sigma.    (3.5)
+
+The legal-query projection factor is `sigma sqrt(l)/n`,
+with `l<=n`. Therefore the projected dense-R error is
+
+    eta_d <= (7/kappa) delta W sqrt(K)(T+1).                (3.6)
+
+We only use the dimension estimate (i) if
+`T<Tcrit=2.9e-10*n^(3/2)/(1+ln K)`.
+Then `T+1<=2T` (because `T>=1`). We may take `K<=n` by
+orthonormalizing the probe span. Set `v=K/n<=1` and
+`A=4e4/kappa`. From the definition of `Q`,
+
+    ln Q <= ln A+ln 2+1.5 ln K+ln(n/K).
+
+Since `sqrt(v)*ln(1/v)<=2/e`, `W<=ceil((2/kappa)ln Q)`
+implies
+
+    W sqrt(K/n)/(1+ln K)
+      <= (2/kappa)(ln A+ln 2+1.5+2/e)+1
+      < 3.0e5.                                              (3.7)
+
+Substituting (3.7), `delta<=4e-8/n^2`, and `T<Tcrit`
+into (3.6) gives the **uniform quantitative bound**
+
+    eta_d < 3.3e-7.                                       (3.8)
+
+This replaces the unsupported `3e-6` assertion and explicitly
+includes state-to-gate-to-credit feedback; it uses no assumption
+that perturbations only enter the credit recurrence directly.
 
 For **any** legal query the projected distance is `<= (sigma sqrt l/n)||Delta B_T||_F` (§0).
-For `W<T`, the exponential estimate is valid. The reference
-contribution (3.3) in the dense-R repair below is at most
+For `W<T`, the exponential estimate is valid. The auxiliary
+contribution (3.4) in the dense-R repair above is at most
 `2.1e-4` in projected distance, and the corrected dense-R
 error is below `3.3e-7`, for a total below `.002`.
 For `W=T`, the exact equal-input argument above applies.
