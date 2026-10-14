@@ -123,8 +123,41 @@ def nn_lifetime(s_lo=0.025, start=-0.95, s_path="low", steps=400000):
     return {"s_path": s_path, "start": start, "first_exit": None, "gap_monotone": mono}
 
 
+
+def repaired_constants():
+    """Arithmetic sanity checks for the uniform P1/P2 proof bounds.
+
+    The analytic supremum uses sqrt(v)*ln(1/v) <= 2/e, for 0<v<=1.
+    These tests verify arithmetic, NOT the recurrence proof.
+    """
+    kap = 1.5e-4
+    c = 2.9e-10
+    A = 4e4 / kap
+    Wratio_cap = (2 / kap) * (math.log(A) + math.log(2) + 1.5 + 2 / math.e) + 1
+    eta_cap = (7 / kap) * (4e-8) * 2 * c * Wratio_cap
+    bath_lower = 0.05 - 0.02241 - 0.000425 - 4.1e-8
+    assert Wratio_cap < 3e5
+    assert eta_cap < 3.3e-7
+    assert bath_lower > math.atanh(.025)
+    cases = []
+    for n, K in [(10**8, 1), (10**10, 1), (10**12, 1),
+                 (10**12, 10**4), (10**12, 10**12)]:
+        Tcrit = c * (n ** 1.5) / (1 + math.log(K))
+        T = max(1, int(Tcrit) - 1)
+        Q = A * math.sqrt(K) * max(1, (T+1)/math.sqrt(n))
+        W = min(T, math.ceil((2/kap)*math.log(Q)))
+        delta = 4e-8 / (n*n)
+        eta = (7/kap)*delta*W*math.sqrt(K)*(T+1)
+        if W < T:
+            assert eta <= eta_cap + 1e-15
+        cases.append({"n": n, "K": K, "T": T, "W": W, "window_truncated": W == T,
+                      "projected_dense_R_bound": eta})
+    return {"bath_lower": bath_lower, "bath_target": math.atanh(.025),
+            "Wratio_sup": Wratio_cap, "eta_sup": eta_cap, "examples": cases}
+
 def main():
     out = {}
+    out["E_repaired_bounds"] = repaired_constants()
     out["A_bath_identity"] = [
         bath_identity(8000, 1200, 0, 1),
         bath_identity(8000, 1200, 40, 2),
