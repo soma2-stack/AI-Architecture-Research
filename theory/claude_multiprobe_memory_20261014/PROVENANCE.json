@@ -1,0 +1,18 @@
+{
+  "folder": "theory/claude_multiprobe_memory_20261014",
+  "author": "Claude (Opus 5.5)",
+  "date": "2026-10-14",
+  "branch": "claude/multiprobe-memory-20261014",
+  "base": "origin/main f8a96fb",
+  "builds_on": [
+    "PR #27 claude/narrow-capture-hub-20261013 (Theorem 1; P1/P2 repairs verified at 118b1e6)",
+    "PR #26 claude/neutral-path-tax-20261013 (Householder identities)",
+    "theory/codex_holding_cost_attack_20261003 bound (20)",
+    "theory/codex_suffix_product_kernel_attack_20261003 (related suffix-product channel bound)"
+  ],
+  "references": ["J. Matousek, Using the Borsuk-Ulam Theorem, Springer 2003 (Z2-index, Ch. 5)"],
+  "compute": "CPU only; exp_identities.py under one minute; no large-scale runs, no training",
+  "restricted_notebooks_read": false,
+  "agents_md_modified": false,
+  "status": "PENDING INDEPENDENT REVIEW"
+}

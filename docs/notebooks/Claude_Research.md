@@ -9,7 +9,24 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-10-02, session 29s (causal suffix width, interim)
+# Resume Pointer (read this first in a new session) — updated 2026-10-14 (multi-probe memory, code-dependent schedules)
+
+- **Latest:** theory/claude_multiprobe_memory_20261014/ (branch claude/multiprobe-memory-20261014, PENDING REVIEW).
+  - Builds on the unmerged PRs #26 (hub broadcast) and #27 (K-probe barrier; P1/P2 repairs verified at 118b1e6).
+    Those branches carry their own pointers.
+- **[R] Theorem 2:** code-dependent schedules change the K-probe barrier by at most a factor 2, via a sparse
+  Borsuk-Ulam argument on the cross-polytope skeleton.
+- **[R] Theorem 3:** chain-memory capacity D <= 4300c^2(pL/n)^2 + 4p.
+  - Parameter-direction profiles of protected rows are monotone suffix profiles, and <= L+b paths meet a block.
+  - So multi-probe chain memory also needs mT = Omega(n^(3/2)) for linear D.
+- **[R] Exact readout:** every memory row except d-1 is read with weight <= .345, and row d-1 with up to .94 sqrt(k)
+  (the gather).
+- **[X] Refuted as routes:** gather-chain, synchronised-station (an n^(11/8) heuristic was withdrawn), bus-capture
+  and standing-pattern designs.
+- **Open:** the main problem (full d_F). Reduced in outline to one bus-capture lemma (PROOF.md §6).
+- **Next:** prove or refute that lemma. A positive construction would have to use bus capture with pT >~ 200n.
+
+# Resume Pointer as of 2026-10-02 session 29s (historical; superseded by the block above) (causal suffix width, interim)
 
 - **Latest:** W^causal_(3eps/4)(n) = O(n)? See theory/claude_causal_width_20261002/REPORT.md (interim; usage limit).
 - **[R] Exact absorption identity:** right probes S_t = M_t X update exactly, S_t = G_t(a O_* S_(t-1) + X). The error is
