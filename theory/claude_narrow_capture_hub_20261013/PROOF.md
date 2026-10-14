@@ -122,16 +122,21 @@ By PR #26 Lemma 1.1(e), applied to `h - h_0 e0`:
 * an undriven off-cycle row `j >= d` obeys `h_(t+1)(j) = F_t(h_t(j))`;
 * row 1 obeys `h_(t+1)(1) = tanh(beta_t + a gamma Sum'_t/sqrt(k) + x_(t+1)(1))`.
 
-For the actual `R` every preactivation is perturbed by at most
-`rho = 4e-8 n^(-3/2)` (`||R-R0|| ||h||`). All thresholds below have slack `>= 1e-5`, so
-perturbations accumulated over `<= n^(3/2)` steps (`<= 4e-8`) are absorbed.
+For actual `R`, put `H=R-R0`, `delta=||H||<=4e-8/n^2`, and
+`rho=delta sqrt(n)<=4e-8 n^(-3/2)`. Every preactivation has
+additional error at most `rho`. By tanh's 1-Lipschitz property, a
+chain of age `A` is within `A rho` of its reference `F_t`-iterate.
+For `T<=n^(3/2)` this is at most `4e-8` per row. The reference
+row identities below are exact for R0 and hold with this stated
+comparison error for actual R. The virtual bath uses J from the actual
+history and still satisfies the algebraic identity in Lemma 2.1.
 
 **Lemma 2.1 (exact bath identity).** Let `s_1 = tanh(.05)` and `s_(t+1) = F_t(s_t)`: the
 virtual bath, i.e. the state of a never-driven off-cycle chain. Define the excess mass
 `M_t = sum_(j=1)^(k-1) (h_t(j) - s_t)`. Then exactly
 
     s_(t+1) = tanh(.05 - a gamma^2 M_t/k + E_t),
-    E_t = -2 a s_t/(sqrt(k)-1) + a gamma h_t(d-1)/sqrt(k),   |E_t| <= 3/sqrt(k)  (k >= 16).
+    E_t = -2 a s_t/(sqrt(k)-1) + a gamma h_t(d-1)/sqrt(k),   |E_t| <= 3 gamma/sqrt(k) <= 4/sqrt(k)  (k >= 16).
 
 *Proof.* `Sum'_t = (k-1)s_t + M_t` and `gamma^2 (k-1)/k = (sqrt(k)+1)/(sqrt(k)-1)
 = 1 + 2/(sqrt(k)-1)`. Substitute into `beta_t + a s_t`. QED
@@ -146,8 +151,10 @@ start* `(i0, tau)`, and
     h_t(j) = F_(t-1) o ... o F_tau (h_tau(i0)).
 
 A chain start has at most one successor at each later time, and cycle chains end at row
-`d-1`. Hence for every `t` and every age `alpha >= 1` at most `m + 1` undriven rows have a
-type-(i)/(ii) chain start of age `alpha`. Undriven rows with a type-(iii) start equal `s_t`.
+`d-1`. Hence for every `t` and every age `alpha>=1` at most `m+1` undriven rows
+have a type-(i)/(ii) chain start of age `alpha`. Type-(iii) starts equal
+`s_t` for R0. For actual R every chain deviates from its corresponding
+reference iterate by at most `T rho<=4e-8`.
 
 **Lemma 2.3 (gaps).** Assume `s_u >= s_lo := .025` for all `u` in the range used.
 
@@ -181,8 +188,12 @@ above using the hypothesis for earlier times:
   `(m+1) sum_(alpha>=1) min(tanh^alpha(1), (1-s_lo^2)^alpha) <= 223 (m+1)` (check B: 222.5);
 * below-bath rows contribute negatively.
 
-So `M_t <= 224 (m+1)`. For `m <= 5e-5 n` and `n >= 10^8` we have `(m+1)/k <= 1.0001e-4`.
-With `gamma^2 <= 1 + 3/sqrt(k)` and Lemma 2.1,
+For R0, `M_t<=224(m+1)`. For actual R, the chain comparison
+adds at most `k T rho <= 4e-8 k`, including rows whose reference
+excess is negative: `M_t<=224(m+1)+4e-8 k`. For
+`m<=5e-5 n`, `n>=10^8`, `(m+1)/k<=1.0001e-4`.
+Using `gamma^2<=1+3/sqrt(k)`, `3 gamma/sqrt(k)<0.000425`,
+and `gamma^2*4e-8<4.1e-8`, Lemma 2.1 yields
 
     .05 - a gamma^2 M_t/k + E_t >= .05 - .02241 - .00043 = .0272 > atanh(.025) = .025005.
 
@@ -199,7 +210,7 @@ Note: large *negative* mass only raises `beta_t` and therefore the bath. No lowe
 
 Then `|P_t| <= (m+1)(Lam+1)` and `P_t` is determined by the schedule alone. Under the
 hypotheses of Lemma 2.4, every memory row `j >= 2` outside `P_t` has `h_t(j) >= .0124` in
-**every** history. Consequently:
+**every** history, including actual R (chain error at most `4e-8`). Consequently:
 * its gate is `<= 1 - kappa`, `kappa := 1.5e-4`;
 * if two histories have the same `beta` at the preceding step, they map its predecessor's
   states through a slope `<= 1 - kappa`.
@@ -214,7 +225,7 @@ below-bath start older than `Lam` is `>= s_lo/2 - s_lo/n`. Two states that are b
 section of the original model with a public schedule, peak width `m`, horizon
 `T <= n^(3/2)`, and a K-probe certificate.
 
-* (i) If `m <= c0 n` (`c0 = 5e-5`), then
+* (i) If `m <= c0 n` (`c0 = 5e-5`) **and** `T < Tcrit := 2.9e-10*n^(3/2)/(1+ln K)`, then
 
       D <= (K+2)(m+1)(2W + Lam + 1),   W := min(T, ceil((2/kappa) ln Q)),
       Q := 4e4 sqrt(K) max(1, (T+1)/sqrt(n)) / kappa,
@@ -251,8 +262,16 @@ The count is
     N <= W(3+2K) + mW(2+K) + (1+K)((m+1)(Lam+1)+1) <= (K+2)(m+1)(2W + Lam + 1).
 
 `Phi(theta)` = (all listed scalars) is continuous and odd on `S^(D-1)`. If `D > N`,
-Borsuk–Ulam gives `theta*` with `Phi(theta*) = 0`. Work at `theta*`; inputs in the window
-are then even.
+Borsuk–Ulam gives `theta*` with `Phi(theta*)=0`; window inputs are even.
+
+**Truncated-window repair (P2).** If `W=T`, (L2) makes *every*
+scheduled input equal for the two antipodal histories, and all
+non-scheduled inputs are identically zero. Since `h_0=0` and
+`R` is fixed, both full histories and their gradients are
+**exactly identical**, without any approximation. Their projected
+distance is zero, contradicting robustness. Hence `D<=N`
+immediately in this case. In the remaining proof assume `W<T`,
+so `W=ceil((2/kappa)ln Q)` and `exp(kappa W)>=Q^2` is valid.
 
 **Claim 1 (protected rows carry no odd part).** For every `t` in `[t0, T]` and every
 `j in P_t`, the odd state and credit difference of row `j` vanish. This holds up to the
@@ -304,12 +323,12 @@ same order)`. Using `T <= n^(3/2)` and `K <= n` (WLOG: replace the probes by an 
 basis of their span), it contributes at most `3e-6` to the projected distance.
 
 For **any** legal query the projected distance is `<= (sigma sqrt l/n)||Delta B_T||_F` (§0).
-The choice of `W` gives `e^(kappa W) >= Q^2` and `W <= 2Q/kappa`, hence
-
-    (sigma sqrt l/n)||Delta B_T(theta*)||_F <= 4.25 sqrt(K) W (T+1) e^(-kappa W)/sqrt(n) + 3e-6
-                                         <= 2.1e-4 + 3e-6 < .002.
-
-So the antipode `(theta*, -theta*)` is not separated. This contradiction gives `D <= N`.
+For `W<T`, the exponential estimate is valid. The reference
+contribution (3.3) in the dense-R repair below is at most
+`2.1e-4` in projected distance, and the corrected dense-R
+error is below `3.3e-7`, for a total below `.002`.
+For `W=T`, the exact equal-input argument above applies.
+This contradiction gives `D<=N` in the range stated in (i).
 
 The displayed simplification uses
 `2W <= 2.67e4(19.4 + .5 ln K + ln+((T+1)/sqrt n)) + 2` and `Lam + 1 <= 4.6e5`. QED
@@ -318,9 +337,13 @@ The displayed simplification uses
 antipodal half-distance is `<= T/sqrt(n)`, so robustness needs `T > .001 sqrt(n)`. Let
 `y = T/sqrt n >= .001`.
 
-* If `m > c0 n`: the K-probe response lies in `R^(nK)`, so `D <= nK` and
-  `mT > c0 n * .001 sqrt(n) >= 5e-8 D sqrt(n)/K`.
-* Otherwise: from (i), using `m + 1 <= 2m`, `ln+((T+1)/sqrt n) <= ln 2 + ln+ y` and
+* By Borsuk–Ulam the K-probe response space gives `D<=nK`.
+  If `T>=Tcrit=2.9e-10*n^(3/2)/(1+ln K)`, then
+  `mT>=T>=2.9e-10*D*sqrt(n)/((K+2)(1+ln K))`.
+  Thus long horizons require no perturbation estimate.
+* If `m>c0 n`, the repository horizon bound gives
+  `mT>5e-8 D sqrt(n)/K`.
+* Otherwise `T<Tcrit`, so (i) applies. From (i), using `m + 1 <= 2m`, `ln+((T+1)/sqrt n) <= ln 2 + ln+ y` and
   `1.7 + ln K + ln+ y <= (1 + ln K)(1.7 + ln+ y)`,
 
       D <= 2e6 (K+2)(1+ln K) m (1.7 + ln+ y).
