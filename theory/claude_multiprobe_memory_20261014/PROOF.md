@@ -403,3 +403,68 @@ when `.0025 T p/k` is not small. This happens only for long horizons, `pT >~ 200
 * *Consequence:* this lemma, together with a written-out Reduction 6.1 and Theorem 3, would give the
   full-d_F barrier `mT = Omega(n^(3/2))` for `D = Omega(n)`, up to the `Lam`, `W` constants,
   for public and code-dependent schedules alike.
+
+**Exact chain decomposition (used above) [PROVED].** Unroll (0.1) along the credit path
+of an alive row `l`. A drive does not cut the credit path; the front does when it is
+saturated. This gives exactly
+
+    B_T(l,:) = sum_t P_l(t) u_t,   u_t = c_t e_(pos_l(t)) + a J_(t-1)(B),
+    P_l(t) = a^(T-t) prod_(s>=t) g_l(s),
+
+hence
+
+    Delta B_T(l,:) = sum_t [ Delta P_l(t) ubar_t + Pbar_l(t) Delta u_t ].
+
+So the own injections and the **common** bus deliveries `a Jbar` enter with the *same*
+suffix-difference weights `Delta P_l`, which have total variation `<= 2`. The odd bus
+deliveries `a Delta J` enter with the common weights `Pbar_l`. Because `J` contains the
+mean subtraction `-gamma^2 sum_j B(j,:)/k`, a row keeps only `(g_l - gbar)` times each
+delivery; for a hole this is `~ .0025` per step.
+
+**The strongest unrefuted design: bus relay [ANALYSIS].**
+* *Construction:* holes of length `L` reach `d-1` on successive steps. Each carries one
+  code scalar `phi_t` in its suffix product. `p` alive holes capture the bus until `T`.
+* *Magnitude:* the readout's bus part is at most `T p .345 (.0025)(gamma/sqrt k) c sqrt(L)`.
+  Robustness needs `p T sqrt(L) >~ 47 n^(3/2)/c`.
+* *Dimension:* up to one per broadcast step, so `D <~ T`. With `p, L <= m` and `T ~ n`
+  this would allow `m ~ n^(1/3)` and `mT ~ n^(4/3)`, **if** the `T` broadcast scalars
+  stayed independent in the readout.
+* *Obstruction:* every broadcaster's path ends at row `d-1`. Their credit rows are
+  therefore almost the same vector (the last `L` coordinates before `d-1`, weighted by
+  the common path decay). Every alive hole captures the same deliveries with the same
+  coefficient. The readout sees essentially `sum_t phi_t` times one vector, so `D = O(1)`.
+* *Escape attempts:*
+  * Distinct broadcaster profiles: holes on distinct sub-intervals of the last `L`
+    coordinates. These have smaller norms and shrink the magnitude.
+  * Time-varying capture coefficients: these put the dimension back into the hidden index
+    of `<= p` rows, where the single-probe count applies.
+* *Status:* neither escape is proved impossible in general. This is precisely the open
+  bus-capture lemma: bound the robust rank of `theta -> sum_t beta(t) a Delta J_t` read
+  through `<= p` capture rows.
+
+**Bus relay with non-collapsing profiles, and the gather variant [ANALYSIS: both fail by
+magnitude].**
+
+*Non-collapsing profiles.*
+* A hole that receives a balanced pair of modulations at path positions `m1 < m2`
+  (`g1(theta) g2(theta) = g1(-theta) g2(-theta)` to first order) carries a difference
+  supported **only** on the block `[m1, m2)`. Broadcasters can therefore be given
+  disjoint difference blocks, so the profiles need not collapse.
+* Every route to the readout still pays two factors:
+  * the bus dilution `gamma/sqrt(k)`;
+  * the hole capture coefficient `1 - gbar ~ .0025`, the bath gate deficit. This holds
+    because a row keeps `(g_l - gbar)` times each delivery (exact decomposition above).
+* *Through `p` alive holes* (weights `<= .345`): robustness needs
+  `p .345 (.0025) (gamma/sqrt k) c delta sqrt(L) >= .0566 n`, i.e.
+  `p sqrt(L) >~ 47 n^(3/2)/(c delta)`. With `p, L <= n` this is impossible.
+* *Through the gather chain* (weight `sqrt(k)`, which cancels the dilution): the readout
+  is `~ .0019 c delta sqrt(L)`. It needs `L >~ 900 n^2/(c delta)^2`, far above
+  `L <= d = n/4`.
+
+*Raising the capture coefficient.* This requires a darker bath (`s >> .05`), i.e. a
+negative excess mass of order `k`. Each write of a row to `-.9` supplies only about
+`12` row-steps of negative mass before the row returns to the bath. Holding a mass of
+`.25k` therefore costs width `m >~ .005 n`.
+
+So every concrete bus design fails. The open lemma is a statement about **all** designs,
+and is the only gap left between Theorems 1–3 and a full resolution.

@@ -10,7 +10,7 @@ INDEPENDENT REVIEW.
 | Theorem 3 / Cor. 3.5 (chain-memory capacity) | PROVED (author) |
 | Lemmas 1.1–1.3, 3.1, 3.2, 3.4 | PROVED (identities verified by autograd) |
 | Cor. 3.3 (gather capacity) | CONDITIONAL |
-| §4 designs | REFUTED as routes below `n^(3/2)` |
+| §4 and §6 designs (incl. bus relay) | REFUTED as routes below `n^(3/2)` (analysis) |
 | §6 reduction of the full-d_F problem | ANALYSIS (outline) + precise open lemma |
 
 **Exact next action.** Prove or refute the bus-capture lemma of PROOF.md §6.

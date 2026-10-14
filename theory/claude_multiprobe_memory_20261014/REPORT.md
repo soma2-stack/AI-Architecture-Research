@@ -39,7 +39,7 @@ PR #27 left two escape routes from the `n^(3/2)` barrier: certificates that use
 | TV capacity of one chain; block Borsuk–Ulam width | PROVED |
 | Theorem 3 / Cor. 3.5: chain-memory capacity, `n^(3/2)` for multi-probe chain memory | PROVED (author), pending review |
 | Gather-channel capacity `<= 553` per query step | CONDITIONAL |
-| Gather-chain, synchronised-station, bus-capture, standing-pattern, multi-gather designs | REFUTED as sub-`n^(3/2)` routes |
+| Gather-chain, synchronised-station, bus-capture, bus-relay (incl. non-collapsing and gather variants), standing-pattern, multi-gather designs | REFUTED as sub-`n^(3/2)` routes (resource analysis) |
 | Main problem (full d_F, any schedule) | **OPEN**; conjecture `mT >= c D sqrt(n)/polylog n` |
 
 A heuristic estimate `mT ~ n^(11/8)` for a synchronised K-probe hole design was found
@@ -52,7 +52,10 @@ Prove the bus-capture lemma of PROOF.md §6. It says that bus mixing cannot rais
 chain-memory capacity by more than a constant factor. Together with a written-out
 state-only reduction (§6.1), it would settle the main problem negatively for every
 schedule. Otherwise, a counterexample must use bus capture on horizons
-`T >~ 200 n/p`; that is the only place left to look for a positive construction.
+`T >~ 200 n/p`; that is the only place left to look for a positive construction. Every concrete
+bus design I tried, including the strongest candidate (a "bus relay" of modulated
+broadcasters), fails by magnitude. The capture coefficient of a neutral row is the bath
+gate deficit `~ .0025`, and the broadcast dilutes by `1/sqrt(k)`.
 
 ## Reproduction
 
