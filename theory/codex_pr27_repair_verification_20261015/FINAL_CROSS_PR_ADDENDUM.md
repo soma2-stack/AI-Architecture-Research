@@ -35,7 +35,8 @@ Run `python -I theory/codex_pr27_repair_verification_20261015/check_full_post_ga
 The new checker imports no author code. It checks the full recurrence for 160 steps
 over odd/even small sizes and a scalar theorem-scale zero-input counterexample.
 The corrected maximum residual is below 1.8e-14; the old formula fails.
-Results and the proof's byte hash are in `full_post_gate_results.json`.
+Results and the proof's SHA-256 (UTF-8, universal-newline LF normalization) are in
+`full_post_gate_results.json`, so Windows checkout line endings do not change it.
 
 The previous independent foundation and repair suites were rerun without replacing
 their historical outputs. The final companion record is on PR #28 in

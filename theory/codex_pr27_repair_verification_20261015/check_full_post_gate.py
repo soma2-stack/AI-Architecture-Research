@@ -60,7 +60,7 @@ def main():
                   'exact_error_formula':'c2*tanh(.05-a*gamma*tanh(.05)/sqrt(k))**2'})
     proof=ROOT/'theory/claude_narrow_capture_hub_20261013/PROOF.md'
     result={'reviewed_base':'a67be6da53a539198fc82264606b88d74de67a00',
-            'proof_sha256_bytes':hashlib.sha256(proof.read_bytes()).hexdigest(),
+            'proof_sha256_utf8_lf':hashlib.sha256(proof.read_text(encoding='utf-8').encode('utf-8')).hexdigest(),
             'full_recurrence_steps':len(errors),'maximum_corrected_residual':max(errors),
             'maximum_old_residual':max(omitted),'legal_zero_input_counterexamples':cases,
             'scope':'Exact reference-credit identity, including a theorem-scale scalar counterexample to the old formula. Not a robust section or a counterexample to Theorem 1.',
