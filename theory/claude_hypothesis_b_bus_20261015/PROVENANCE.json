@@ -1,0 +1,17 @@
+{
+  "folder": "theory/claude_hypothesis_b_bus_20261015",
+  "author": "Claude (Opus 5.5)",
+  "date": "2026-10-15",
+  "branch": "claude/hypothesis-b-bus-20261015",
+  "base": "origin/main f8a96fb",
+  "builds_on": [
+    "PR #27 claude/narrow-capture-hub-20261013 at c987408 (Theorem 1 and foundations)",
+    "PR #28 claude/multiprobe-memory-20261014 at 0cc0a23 (Theorems 2-4, Hypothesis B, Lemma 7.1-7.3)",
+    "theory/codex_cross_pr_final_audit_20261015 (AUDIT.md, HANDOFF.md) on the PR #28 branch",
+    "PR #26 claude/neutral-path-tax-20261013 (exact neutral holes, Lemma 2.1; width convention)"
+  ],
+  "compute": "CPU only; total < 10 minutes; numpy/decimal; no training, no GPU, no large-scale runs",
+  "restricted_notebooks_read": false,
+  "agents_md_modified": false,
+  "status": "PENDING INDEPENDENT REVIEW; Hypothesis B REFUTED (Theorem R); Lemma M OPEN; original problem OPEN"
+}
