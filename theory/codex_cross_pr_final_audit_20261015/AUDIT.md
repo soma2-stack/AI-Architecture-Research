@@ -363,7 +363,9 @@ prior independent suites take about 7.5 seconds together. No theorem-scale dense
 matrix is allocated. The previous compressed n=100000001 histories and exact
 infinite-tail certificates also rerun successfully.
 
-`results.json` and `regression_results.json` retain detailed outcomes. Historical
+`results.json` and `regression_results.json` retain detailed outcomes. New proof and
+source SHA-256 values use UTF-8 with universal-newline LF normalization, so they
+also match Git blobs independently of Windows checkout line endings. Historical
 checkers are imported only for regression; no author implementation is imported.
 The manually initialized comparison fixture is not a robust common-endpoint section;
 its premise fails at step 13, which remains a negative control, not admitted evidence.

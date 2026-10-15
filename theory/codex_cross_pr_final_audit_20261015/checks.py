@@ -285,7 +285,7 @@ if __name__=='__main__':
             'front_identity':front_identity(),'blocks':blocks(),'release':release(),
             'release_constants':release_constants()}
     proof=ROOT/'theory/claude_multiprobe_memory_20261014/PROOF.md'
-    result.update({'proof_sha256_bytes':hashlib.sha256(proof.read_bytes()).hexdigest(),
+    result.update({'proof_sha256_utf8_lf':hashlib.sha256(proof.read_text(encoding='utf-8').encode('utf-8')).hexdigest(),
                    'training':False,'gpu':False,'seconds':time.perf_counter()-started})
     (HERE/'results.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(result,indent=2))

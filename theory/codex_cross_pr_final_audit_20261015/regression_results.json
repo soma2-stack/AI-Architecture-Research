@@ -638,10 +638,11 @@
   "source_hashes": {
     "check_foundations.py_codex_pr27_repair_verification_20261015": "055543d02458a698cf4d27cdbc1bd5242963d132d3018e0e7ac65289298388c9",
     "check_repairs.py_codex_pr27_repair_verification_20261015": "68cd7d9667b109e96127ceb69abaae2aa460fab967bfa9bfe6f9d92b96dba95a",
-    "checks.py_codex_pr28_repair_verification_20261014": "7ed21298da36fe2f421bd9b2edaac1ebf7593538fca43ef09a5823782ed74a3b"
+    "checks.py_codex_pr28_repair_verification_20261014": "7c3f6318ac7eac6774459a78c740ef63e983502bbcd4441574c77365f8310928"
   },
-  "seconds": 7.5052750000031665,
+  "seconds": 7.482394500024384,
   "training": false,
   "gpu": false,
+  "source_hash_convention": "SHA-256 of UTF-8 with universal-newline LF normalization",
   "scope": "Regression of pinned independent code; historical counterexample labels are not current theorem claims. Small comparison fixture loses its premises at step 13; only steps 1-12 are admitted."
 }
