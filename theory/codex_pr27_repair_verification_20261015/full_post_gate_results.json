@@ -1,0 +1,56 @@
+{
+  "reviewed_base": "a67be6da53a539198fc82264606b88d74de67a00",
+  "proof_sha256_bytes": "ebd35788714856b89c6938b32bce9f6eada0095cab056fa66696c39368bb8084",
+  "full_recurrence_steps": 160,
+  "maximum_corrected_residual": 1.7763568394002505e-14,
+  "maximum_old_residual": 0.07800181949046331,
+  "legal_zero_input_counterexamples": [
+    {
+      "n": 32,
+      "T": 2,
+      "inputs": "all zero",
+      "c2": 0.9996882801929857,
+      "gate_at_probe": 0.9988538616481678,
+      "old_identity_error_l2": 0.0011457810778064588,
+      "exact_error_formula": "c2 * (1-g2[d])"
+    },
+    {
+      "n": 33,
+      "T": 2,
+      "inputs": "all zero",
+      "c2": 0.9996977262405937,
+      "gate_at_probe": 0.9988549279319138,
+      "old_identity_error_l2": 0.001144725942847452,
+      "exact_error_formula": "c2 * (1-g2[d])"
+    },
+    {
+      "n": 64,
+      "T": 2,
+      "inputs": "all zero",
+      "c2": 0.9998441400356735,
+      "gate_at_probe": 0.9984461216322504,
+      "old_identity_error_l2": 0.001553636180322619,
+      "exact_error_formula": "c2 * (1-g2[d])"
+    },
+    {
+      "n": 129,
+      "T": 2,
+      "inputs": "all zero",
+      "c2": 0.9999226741110265,
+      "gate_at_probe": 0.9981602693175611,
+      "old_identity_error_l2": 0.0018395884236284917,
+      "exact_error_formula": "c2 * (1-g2[d])"
+    },
+    {
+      "n": 100000000,
+      "T": 2,
+      "inputs": "all zero; scalar formula, no large array",
+      "old_identity_error_l2": 0.0024951350099755615,
+      "exact_error_formula": "c2*tanh(.05-a*gamma*tanh(.05)/sqrt(k))**2"
+    }
+  ],
+  "scope": "Exact reference-credit identity, including a theorem-scale scalar counterexample to the old formula. Not a robust section or a counterexample to Theorem 1.",
+  "training": false,
+  "gpu": false,
+  "seconds": 0.02353980002226308
+}

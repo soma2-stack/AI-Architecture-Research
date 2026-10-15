@@ -2,6 +2,10 @@
 
 Updated by Codex, 2026-10-15, after the independent foundation audit of 118b1e6.
 
+Final cross-PR audit of a67be6d: a further omitted injection gate is corrected in
+Lemma 1.3, `c_t U G_t Ev`. Theorem 1 and its constants are preserved. See the
+[addendum](../codex_pr27_repair_verification_20261015/FINAL_CROSS_PR_ADDENDUM.md).
+
 **Current lens:** preserve independently verified frozen-model mathematics and correct
 auxiliary claims, arithmetic and scope. **Stage:** audit-driven repair and verification.
 **Strongest surviving result:** Theorem 1, the fixed-K public-schedule support-count barrier.

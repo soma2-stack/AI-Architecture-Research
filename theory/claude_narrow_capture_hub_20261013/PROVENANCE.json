@@ -15,6 +15,13 @@
   "restricted_notebooks_read": false,
   "agents_md_modified": false,
   "status": "SCOPED THEOREM INDEPENDENTLY VERIFIED WITH AUDIT-DRIVEN CORRECTIONS; ORIGINAL PROBLEM OPEN",
+  "final_cross_pr_addendum": {
+    "reviewed_head": "a67be6da53a539198fc82264606b88d74de67a00",
+    "date": "2026-10-15",
+    "correction": "Lemma 1.3 injection is c_t U G_t Ev, not c_t U Ev",
+    "verification": "../codex_pr27_repair_verification_20261015/FINAL_CROSS_PR_ADDENDUM.md",
+    "theorem_constants_and_assumptions_changed": false
+  },
   "repairs": {
     "editor": "Codex",
     "date": "2026-10-15",

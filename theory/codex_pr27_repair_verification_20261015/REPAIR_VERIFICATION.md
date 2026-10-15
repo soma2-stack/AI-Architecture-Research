@@ -1,5 +1,10 @@
 # PR #27 audit-driven corrections and verification
 
+**Final cross-PR addendum:** [FINAL_CROSS_PR_ADDENDUM.md](FINAL_CROSS_PR_ADDENDUM.md)
+corrects a further missing gate on the injection in Lemma 1.3. The historical
+snapshot and results below are preserved; the new full-recurrence regression is
+`check_full_post_gate.py`. Theorem 1 and the imported foundations are unchanged.
+
 Codex, 2026-10-15. Repair base: `118b1e66ea327af0738249fc613208a544c4df60`, branch
 `claude/narrow-capture-hub-20261013`. Compatibility target: PR #28 at
 `3746747137bb681ceda9c0f21b19e66d264165d1`.

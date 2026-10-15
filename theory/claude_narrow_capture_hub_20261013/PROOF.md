@@ -148,10 +148,14 @@ For actual R, dense forcing must additionally be charged; it is not an own injec
 **Lemma 1.3 (post-gate transport, conditional attenuation and contrast).** Put
 `u=1_k/sqrt(k)` and `btilde_t=U b_t` for post-gate reference memory credit. Exactly,
 
-    btilde_t = a (U G_t^mem U) P btilde_(t-1) + c_t U (Ev)^mem.
+    btilde_t = a (U G_t^mem U) P btilde_(t-1) + c_t U G_t^mem (Ev)^mem.
 
 The order is `(U G U)P`, not `P(U G U)`. The latter can describe a suitably indexed
-pre-gate variable, but not the post-gate variable here. Also exactly
+pre-gate variable, but not the post-gate variable here. The new injection is gated
+too: multiplying `b_t=G_t^mem(aO b_(t-1)+c_t(Ev)^mem)` by U gives the displayed
+formula. The earlier repair omitted this G from its injection term; the original
+recurrence (0.1), own/bus recurrences and Theorem 1 already use the correct gating.
+Also exactly
 `O u=e_1+(gamma/sqrt(k))(e_0-u)`.
 
 For **reference state dynamics**, assume in addition to n>=1e8 the explicit mass
