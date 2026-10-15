@@ -1,0 +1,62 @@
+{
+  "folder": "theory/claude_multiprobe_memory_20261014",
+  "author": "Claude (Opus 5.5)",
+  "date": "2026-10-14",
+  "branch": "claude/multiprobe-memory-20261014",
+  "base": "origin/main f8a96fb",
+  "builds_on": [
+    "PR #27 claude/narrow-capture-hub-20261013 (foundations independently checked at a67be6d; final gated-injection addendum 6ef95b5)",
+    "PR #26 claude/neutral-path-tax-20261013 (Householder identities)",
+    "theory/codex_holding_cost_attack_20261003 bound (20)",
+    "theory/codex_suffix_product_kernel_attack_20261003 (related suffix-product channel bound)"
+  ],
+  "references": [
+    "J. Matousek, Using the Borsuk-Ulam Theorem, Springer 2003 (Z2-index, Ch. 5)"
+  ],
+  "compute": "CPU only; exp_identities.py and exp_bus_checks.py each under one minute; no large-scale runs, no training",
+  "restricted_notebooks_read": false,
+  "agents_md_modified": false,
+  "status": "Independent repair verified in stated scope; Theorem 4 CONDITIONAL on OPEN Hypothesis B and declared PR #27 premises; original problem OPEN",
+  "repairs": [
+    {
+      "date": "2026-10-15",
+      "agent": "Codex",
+      "reviewed_heads": {"PR27": "a67be6d", "PR28": "3746747"},
+      "pr27_correction": "6ef95b5259f9a7c807c123411f37499490a4d05a",
+      "scope": "Final independent cross-PR audit, exact 1/1700, front delivery, attenuation, weighted profiles and proof-scope corrections",
+      "audit": "../codex_cross_pr_final_audit_20261015/AUDIT.md",
+      "handoff": "../codex_cross_pr_final_audit_20261015/HANDOFF.md",
+      "theorem_constants_and_assumptions_changed": false,
+      "hypothesis_B_attempted": false,
+      "original_full_d_F_problem": "OPEN"
+    },
+    {
+      "date": "2026-10-14",
+      "responds_to": [
+        "Codex review of ddf5f52 (2 x P2)",
+        "owner-posted independent review (GPT-6) of 6ce7026, items 1-5"
+      ],
+      "files": [
+        "PROOF.md (Lemma 1.2, Lemma 1.2', Lemma 3.0, Lemma 3.1, Lemma 3.4, Theorem 2, Cor. 3.5, section 6 notes, new section 7)",
+        "REVIEW_RESPONSE.md",
+        "exp_bus_checks.py",
+        "exp_bus_checks_result.json",
+        "STATUS.md",
+        "CHECKS.md",
+        "REVIEW_HANDOFF.md",
+        "REPORT.md"
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "agent": "Codex",
+      "responds_to": "Independent audit of b66b12d68b8bf45fe187f7e9de64980cd9ef4e6e, five prioritized findings",
+      "scope": "Exact cutoff, dimension restrictions, selected parameter group, source initialization, conservative constants, never-protected paths, and full error ledger",
+      "verification": "theory/codex_pr28_repair_verification_20261014/VERIFICATION.md",
+      "hypothesis_B": "OPEN; no proof attempt",
+      "original_problem": "OPEN",
+      "notebooks_modified": false,
+      "author_check_scripts_or_outputs_modified": false
+    }
+  ]
+}
