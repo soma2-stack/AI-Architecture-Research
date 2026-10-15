@@ -1,0 +1,17 @@
+{
+  "folder": "theory/claude_lemma_m_bus_capacity_20261015",
+  "author": "Claude (Opus 5.5)",
+  "date": "2026-10-15",
+  "branch": "claude/lemma-m-bus-capacity-20261015",
+  "base": "origin/main f8a96fb",
+  "builds_on": [
+    "PR #29 claude/hypothesis-b-bus-20261015 at bd166b2 (Lemma 1.2, own/bus split, Theorems R and R_D; independently verified)",
+    "PR #27 claude/narrow-capture-hub-20261013 at c987408 (Lemmas 2.1-2.5: bath identity, chains, gaps, bath floor, protected set)",
+    "PR #28 claude/multiprobe-memory-20261014 at 0cc0a23 (Theorem 4, Hypothesis B, Lemma 1.2')",
+    "theory/codex_pr29_independent_audit_20261015 and theory/codex_pr29_dense_transfer_audit_20261015 (on the PR #29 branch)"
+  ],
+  "compute": "CPU only; about two minutes; numpy/decimal; no training, no GPU",
+  "restricted_notebooks_read": false,
+  "agents_md_modified": false,
+  "status": "PENDING INDEPENDENT AUDIT; Theorem M (first-order gather capacity) PROVED by author; Lemma M original form likely false (analysis); Lemma M_rest OPEN; original problem OPEN"
+}
