@@ -9,7 +9,26 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-10-02, session 29s (causal suffix width, interim)
+# Resume Pointer (read this first in a new session) — updated 2026-10-15 (Hypothesis B refuted; bus mechanism)
+
+- **Latest:** theory/claude_hypothesis_b_bus_20261015/ (branch claude/hypothesis-b-bus-20261015, PR #29). Theorem R (Hypothesis B refuted, D=1) repaired after Codex round-1 review (Lemma E, REVIEW_RESPONSE.md); Theorem R_D: transfer to the prescribed dense R with actual-input support (§2.4). Independently VERIFIED by Codex (original listing (i)-(v); Prop. 0.2 extension OPEN). Next: Lemma M (separate branch).
+  - Builds on the unmerged checkpoints PR #27 (c987408) and PR #28 (0cc0a23); those branches carry their own pointers.
+- **[R] Theorem R: Hypothesis B is FALSE.**
+  - For n>=1.5e18 and R=R0 there is a legal D=1 sub-barrier section whose pair is a zero of Theorem 4's listing,
+    while its bus readout exceeds 2.08 tau.
+  - Mechanism: drift capture by the gather spike. A hole keeps s^2/sqrt(k) of every arrival; the uniform query
+    reads the spike with gain sqrt(k).
+- **[R] Exact bus structure.**
+  - Uniform F-step queries read exactly U-coordinate d-F, with gain (ag)^F sqrt(k).
+  - Exact U-row recursion: own transport, capture, O(1/k) leak, injection.
+  - Theorem 4 extends to the full fixed-feature group with one listed scalar.
+- **Open:**
+  - Lemma M (bus capacity by dimension), the precise missing inequality for the barrier;
+  - log-gap removal;
+  - the main problem.
+- **Next:** prove or refute Lemma M for the gather spikes. This needs a neutral-path cost bound for long arrival profiles.
+
+# Resume Pointer as of 2026-10-02 session 29s (historical; superseded by the block above) (causal suffix width, interim)
 
 - **Latest:** W^causal_(3eps/4)(n) = O(n)? See theory/claude_causal_width_20261002/REPORT.md (interim; usage limit).
 - **[R] Exact absorption identity:** right probes S_t = M_t X update exactly, S_t = G_t(a O_* S_(t-1) + X). The error is

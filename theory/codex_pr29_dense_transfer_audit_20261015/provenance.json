@@ -1,0 +1,26 @@
+{
+  "author_copy_sha256": {
+    "constants_check.py": "44f433943b9d927fc237a484972facae7e76343a90da38b7a858344035e2e159",
+    "exp_dense_transfer.py": "a544194e6d043c04637c18a5d3f043bb0407b7c46fb88f387d0930425bfdd4f9",
+    "exp_dense_transfer_mp.py": "d7df60d700cc13e2bda4af1b64920be1930fea7dfb30884c9e81d46716c0b83b",
+    "exp_drift_capture.py": "7aaef1aeb615a317f78117c7f1aa3a6d08cb081ab7e5de370b34aa5d3aed32e5",
+    "exp_error_bounds.py": "cb938cfd5963f02b432ac2c32691cd7b677e024098c7264e6c00a6d64b300718",
+    "exp_identities_u.py": "613009e4f95c9850a5b4463c30640b0f2138663fec77cc49cbf86a7fc6d23a4f",
+    "exp_spike_decomposition.py": "68738c2dd7a8efef766339f6eb58cb190ba3f9c275679298eb937519b1f2be29"
+  },
+  "targets": {
+    "ai-hb": {
+      "head": "2e46b02d61b8b2cc713546461d1232b578690b8f",
+      "status": ""
+    },
+    "ai-mpm": {
+      "head": "0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88",
+      "status": ""
+    },
+    "ai-ncap": {
+      "head": "c9874081461139373a276efeb47394d50781c0e3",
+      "status": ""
+    }
+  },
+  "compute": "CPU only, one BLAS thread; no training/GPU; no Lemma M research"
+}
