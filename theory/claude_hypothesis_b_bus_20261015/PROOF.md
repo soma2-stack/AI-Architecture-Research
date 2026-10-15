@@ -18,7 +18,8 @@ Labels:
 
 ## Summary of results
 
-1. **Hypothesis B is false** [PROVED, Theorem R in §2]. For every `n >= 1.5e18`
+1. **Hypothesis B is false** [PROVED, Theorem R in §2; error analysis repaired after review,
+   Lemma E]. For every `n >= 1.5e18`
    divisible by 4 and `R = R0`, there is a legal one-dimensional section in the domain of
    PR #28's Theorem 4 with the following properties:
    * peak width `m <= 120001` and `mT <= 2.5e-5 n^(3/2)`;
@@ -225,10 +226,11 @@ boundary `{+1,-1}`.
 
 ### 2.2 Theorem R
 
-**Theorem R (Hypothesis B fails) [PROVED; author-checked, pending independent review].**
+**Theorem R (Hypothesis B fails) [PROVED; error analysis rewritten after Codex review of `6c2a882` (Steps 9–10, Lemma E); pending independent re-review].**
 `C(n)` satisfies the following.
-* (a) **Legality.** All past reference inputs satisfy `|x| <= .4732 < .5`. The two histories
-  `theta = +1, -1` have the same exact endpoint and start at `h_0 = 0`.
+* (a) **Legality.** All past inputs satisfy `|x| <= .4732 < .5` for every `theta in [-1,1]`
+  (with `R = R0` the actual and reference inputs coincide). All members start at `h_0 = 0`
+  and share one exact endpoint.
 * (b) **Budget.** At every step the driven set is the same in both histories, with
   `m <= ell + 1 = 120001`. Also `T <= .2501 n`. Hence `m <= c0 n` and
   `mT <= 30012 n <= 2.5e-5 n^(3/2)`, so the section lies in the sub-barrier domain of
@@ -236,7 +238,7 @@ boundary `{+1,-1}`.
 * (c) **Listing zero.** `theta* = +1` is a zero of Theorem 4's listing `Phi`, and of its
   one-scalar extension in Proposition 0.2.
 * (d) **Bus readout.** The uniform one-step legal query, with all future gates `HI`, has
-  readout `Gamma = Delta B_T^T nu` with `||Gamma||_2 >= .1178 n > 2.08 tau`. Every own profile
+  readout `Gamma = Delta B_T^T nu` with `||Gamma||_2 >= .1179 n > 2.08 tau`. Every own profile
   of a memory row at `T` agrees in the two histories, so **all of `Gamma` is bus content**:
   `|| sum_l nu_l bus_l || > 2.08 tau`.
 
@@ -246,24 +248,56 @@ The section is also robust, since its pair distance exceeds `2 eps`.
 ### 2.3 Proof of Theorem R
 
 Numbers marked `[c]` are certified in `constants_check.py`: 50-digit decimal arithmetic,
-then rounded outward.
+rounded outward.
+
+Conventions:
+* Norms of row vectors are Euclidean over the memory columns.
+* `c_t <= 1` for all `t`: the source state increases monotonically to `sigma`, and
+  `c_t = s^src_(t-1)/sigma`.
+* `c_t >= 1 - 1e-12` for `t >= 3`.
+* `q := 1/sqrt(k)` and `gb := 1/(1-q) >= gamma`.
+
+*Revision note.* Steps 8–10 were rewritten after Codex's review of `6c2a882`; see
+`REVIEW_RESPONSE.md`. The earlier version asserted the arrival-error fixed point
+`max ||E'|| <= 1e-4 c` without deriving it. It also bounded the spike leak with an
+undefined quantity `A_s`. Steps 9–10 below replace both with explicit recurrences and a
+certified majorant system (Lemma E).
 
 **Step 1 (global terms, bath, front, wake).** Write `beta_t := a J(h_(t-1)) + .05`, the
-common part of every preactivation of a memory row `>= 1`. Off-cycle rows are never driven
-and start at 0, so they all equal one value `s_t` with `s_t = tanh(a s_(t-1) + beta_t)`; this
-is the bath. Every other cycle row is one of three kinds:
+common part of every preactivation of a memory row `>= 1`.
+
+*The bath.* Off-cycle rows are never driven and start at 0. So they all equal one value
+`s_t`, with `s_t = tanh(a s_(t-1) + beta_t)`; this is the bath. Undriven cycle diagonals
+that never met the front also start at `h_0 = 0` and obey the same recursion, so they equal
+`s_t` exactly.
+
+*Other cycle rows.* Every other cycle row is one of three kinds:
 * a driven hole or modulated position;
 * row 1 (the front, never driven);
 * an undriven *front-chain* value on a diagonal that left the front, with
   `y_r(t) = tanh(a y_(r-1)(t-1) + beta_t)`.
 
-*Mass.* Let `M_t := sum_(j>=1) (h_t(j) - s_t)`.
-* Front-chain diagonals stay above the bath (PR #27 Lemma 2.3(a)). Their total excess over
-  all ages is `< 223` (the audit's upward-rounded certificate for chains started at `<= 1`).
-* Holes contribute `-s_t` each, and there are at most `ell + 1` of them.
-* Modulated positions come in pairs `+-tanh(.45(1+theta)/2)`, contributing `-2 s_t` per pair.
+*Lemma 1.5 (front-chain excess) [PROVED; constants [c]].*
+* *Statement.* Let `z_r := y_r(t) - s_t` at age `r`. Then `0 <= z_r <= zeta_r`, where
+  `zeta_1 = 1` and `zeta_r = (1 - s_lo^2) tanh(zeta_(r-1))`.
+* *Proof.* Put `x := a s_(t-1) + beta_t >= 0` and `D := a z_(r-1) >= 0`. Then
+  `tanh(x+D) - tanh(x) = tanh(D)(1 - tanh^2 x)/(1 + tanh(x) tanh(D)) <= (1 - s_t^2) tanh(z_(r-1))`,
+  and induction on `r` finishes it. QED
+* *Consequences* [c]: `sum_(r>=1) zeta_r <= 51.7` and `sum_(r>=2) zeta_r (zeta_r + 2 s_hi) <= 11.82`.
+  * The excess of all front-chain values present at one time is `<= 51.7`.
+  * Their gate deviations satisfy `sum |delta| = sum (y^2 - s^2) <= 11.82`. The same bound
+    holds along any one diagonal.
+  * Every front-chain gate is `<= 1 - s_t^2 <= 1 - s_lo^2`.
 
-Hence `|M_t| <= 223 + .051(ell + 9) <= 6.35e3`.
+  This self-contained bound replaces the imported audit certificate (`< 223`) of the
+  previous version.
+
+*Mass.* Let `M_t := sum_(j>=1) (h_t(j) - s_t)`.
+* Front chains contribute `[0, 51.7]`.
+* Holes contribute `-s_t` each, and there are at most `ell + 1` of them.
+* Modulated pairs `+-tanh(.45(1+theta)/2)` contribute `-2 s_t` per pair.
+
+Hence `|M_t| <= 51.7 + .0501(ell + 9) <= 6.07e3` [c]. We use the weaker bound `6.35e3` below.
 
 *Global term.* With `J(h) = gamma h(d-1)/sqrt(k) - gamma^2 Sum'(h)/k`,
 `Sum' = (k-1)s + M` and `gamma^2(k-1)/k = gamma(1 + 1/sqrt k)`:
@@ -275,15 +309,17 @@ and `beta_1 = .05`.
 *Consequences.*
 * `|s_t - tanh(.05)| <= 1.5e-9` for all `t >= 1`, so `s_t^2 in [.0024958, .0024959]` [c] and
   `beta_t in [4.1622e-5, 4.1628e-5]` for `t >= 2` [c].
-* The front preactivation is `beta_t + a gamma Sum'(h_(t-1))/sqrt(k) >= .0498 sqrt(k) >= 4.3e7`,
-  so `h_t(1) >= tanh(4.3e7)` for `t >= 2`.
-* The wake values obey `y_2 <= .76162`, `y_3 <= .64205`, `y_4 <= .56633`, `y_5 <= .51269`,
+* *Front.* For `t >= 2` the front preactivation is
+  `beta_t + a gamma Sum'(h_(t-1))/sqrt(k) >= .0498 sqrt(k) >= 4.3e7`.
+  * So `h_t(1) >= tanh(4.3e7)`.
+  * Its gate satisfies `g_1(t) <= 4 exp(-.0996 sqrt(k))`, which we call `g1max`.
+* *Wake.* `y_2 <= .76162`, `y_3 <= .64205`, `y_4 <= .56633`, `y_5 <= .51269`,
   `y_6 <= .47207` [c].
 * A front-chain diagonal of age `>= d/2` is within `2e-9` of the bath
   (`y - s <= tanh^(age)(1)`).
 
 **Step 2 (legality).** Every driven position has one of the following predecessors on its
-own diagonal (hole diagonals are disjoint and never meet the spike, see below).
+own diagonal. (Hole diagonals are disjoint and never meet the spike; see below.)
 * *Hole after hole:* `|x| = beta_t <= 4.2e-5`.
 * *Arrival-hole start* at row `d - ell`, from a front-chain value within `2e-9` of the bath:
   `|x| <= .0500 + 4.2e-5`.
@@ -292,14 +328,16 @@ own diagonal (hole diagonals are disjoint and never meet the spike, see below).
 * *Later modulated steps:* `|x| <= .45 - a tanh(.45) + beta <= .0282` [c].
 * *Reset after modulation:* `|x| = a tanh(.45(1+theta)/2) + beta <= .42195` [c].
 
-So `max |x| <= .4732 < .5`.
+So `max |x| <= .4732 < .5`, for every `theta in [-1,1]`.
 
-The spike row is `i_t = 7 + (t - T_s)`. While arrival holes are in flight
-(`t <= t_end + 1`), `i_t <= d - W_tail - 16 < d - ell`. So the spike never meets the hole
-block (rows `>= d - ell`), and after `t_end + 1` no hole other than the spike is driven.
+The spike row is `i_t = 7 + (t - T_s)`.
+* While arrival holes are in flight (`t <= t_end + 1`), `i_t <= d - W_tail - 16 < d - ell`.
+  So the spike never meets the hole block (rows `>= d - ell`).
+* After `t_end + 1`, no hole other than the spike is driven.
 
-**Step 3 (only modulated positions differ; exact endpoint).** By induction on `t`, the two
-histories agree at every position that is not modulated at time `t`.
+**Step 3 (only modulated positions differ; exact endpoint).** By induction on `t`, any two
+members `theta, theta'` of the section agree at every position that is not modulated at time
+`t`.
 * Driven, non-modulated targets do not depend on `theta`.
 * An undriven row's preactivation depends on `h_(t-1)` only through its predecessor on the
   same diagonal and through `J(h_(t-1))` and `Sum'(h_(t-1))`.
@@ -309,13 +347,18 @@ histories agree at every position that is not modulated at time `t`.
     `Sum'(Delta h) = 0` and `Delta h(d-1) = 0`, hence `J` and `Sum'` agree.
 * Row 0 and the source rows are undriven and decoupled.
 
-No modulation occurs after `t_end - J_OFF`, so `h_T^+ = h_T^-`. Gates differ only at
-modulated positions, by at most `1 - sech^2(.45) <= .1780` [c].
+No modulation occurs after `t_end - J_OFF`, so `h_T(theta)` is the same for all `theta`.
+Gates differ only at modulated positions.
+* For `theta = +1` such a gate is `sech^2(.45)`; for `theta = -1` it is 1.
+* The difference is `1 - sech^2(.45) <= .1780` [c].
 
 **Step 4 (budget).**
-* The driven set at time `t` is the spike plus the arrival holes in flight, which are at most
-  `ell`, and it is the same in both histories.
-* `T <= n/4 + ell + W_tail + 41 <= .2501 n`, using `W_tail <= (30 + ln n)/kappa + 1`.
+* The driven set at time `t` is the spike plus the arrival holes in flight. There are at
+  most `ell` holes (the diagonals with `t_A in [t, t+ell-1]`). The set is the same in both
+  histories.
+* With `R = R0` the actual input equals the reference input, so `m` counts the actual raw
+  support in either width convention: `m <= ell + 1 = 120001`.
+* `T <= n/4 + ell + W_tail + 33 <= .2501 n`, using `W_tail <= (30 + ln n)/kappa + 1` [c].
 * So `mT <= 120001 * .2501 n <= 30013 n`. This is `<= 2.5e-5 n^(3/2)` exactly when
   `n >= 1.442e18` [c]. Also `m <= c0 n` and `T > .001 sqrt(n)`.
 
@@ -326,11 +369,14 @@ modulated positions, by at most `1 - sech^2(.45) <= .1780` [c].
 
 Every modulation and its reset happens at times `<= t_end - J_OFF + 1 < T - W = t0`.
 
-Each listed odd part vanishes at `theta = +1`:
+Each listed quantity of PR #28 Theorem 4, Step 1 is (even weight) × (odd part). Every odd
+part vanishes at `theta = +1`:
 * (i) the window values of the state `J`, the state `Sum'` and `c`;
 * (ii) window inputs and predecessor states;
-* (iii) the states at `t0`. All three are by Step 3.
-* (iv)–(v) own profiles of carrying and spike rows at `T`.
+* (iii) the states at `t0`, including rows 0 and 1 and the front chains. Items (i)–(iii)
+  follow from Step 3.
+* (iv)–(v) the own suffix-product profiles (PR #28 Lemma 3.0, (3.0')) of the carrying rows
+  and spike rows at `T`, and the full own scalars of off-cycle rows.
   * A modulated position `(r, tau)` on the arrival diagonal of `t_A` continues along its
     diagonal to row `r + (T - tau) = d - 1 + (T - t_A) > d-1`.
   * So it lies on no local path of a row at `T`. Off-cycle rows are never modulated.
@@ -338,105 +384,310 @@ Each listed odd part vanishes at `theta = +1`:
     weights.
 * (vi) the extra scalar of Proposition 0.2: row 0 never differs.
 
+So `Phi(+1) = 0` exactly. The soft weights multiply vanishing odd parts, so their values do
+not matter.
+
 **Step 6 (the readout is bus content).**
 * By Lemma 1.1 with `F = 1, g = HI`, the memory readout of the uniform query is
   `Gamma = a HI sqrt(k) Delta Y_T(d-1,:)`.
+* This query is legal: future gates in `[LO,HI]^n` are exactly the legal one-step queries
+  (PR #28 §0).
 * The source rows contribute nothing, since their gates and `c_t` agree. `R = R0` leaves no
   dense term.
-* Every own part vanishes by Step 5, so in Theorem 4's decomposition
-  `Gamma = sum_l nu_l bus_l`.
+* Every own part vanishes at `T` (Step 5). So in Theorem 4's decomposition
+  `Gamma = sum_l nu_l bus_l`, and the R0 readout equals the actual readout.
 
 **Step 7 (the spike path).** Along the spike `g_(i_t)(t) = 1`, so `delta_t(i_t) = s_t^2`.
-Lemma 1.2 gives, for `t in (T_s, T]`:
+Put `i_(T_s - 1) := 6`, the spike's predecessor on its diagonal. Lemma 1.2 gives, for
+`t in [T_s, T]`:
 
     Y_t(i_t) = a(1 - gamma s_t^2/k) Y_(t-1)(i_(t-1)) + kap_t Y_(t-1)(d-1)
              - (gamma a/k) sum_(j>=1, j != i_t) delta_t(j) Y_(t-1)(pi^-1 j)
-             + c_t (e_(i_t) - (gamma/k) g_t)^T,
+             + c_t (e_(i_t) - (gamma/k) g_t)^T,                               (7.1)
 
-with `kap_t = (gamma a/sqrt k)(s_t^2 - gamma sum_j delta_t(j)/k)`. The spike's own leak
-term (`j = i_t`) has been folded into its transport factor.
+with `kap_t = (gamma a/sqrt k)(s_t^2 - gamma sum_j delta_t(j)/k)`. The spike's own leak term
+(`j = i_t`) has been folded into its transport factor.
 
-Unrolling from `T_s` with `rho_t := prod_(u in (t,T]) a(1 - gamma s_u^2/k)`:
-
-    Delta Y_T(d-1) = sum_t rho_t kap_t^+ Delta Y_(t-1)(d-1)                  [main]
-                   + rho_(T_s) Delta Y_(T_s)(7)                               [init]
-                   + sum_t rho_t Delta kap_t Y^-_(t-1)(d-1)                   [kappa]
-                   + sum_t rho_t Delta L_t + sum_t rho_t (gamma c_t/k) Delta g_t   [leak, w-inj].
-
-Here `Delta(e_(i_t)) = 0` (hole) and `c` agrees.
-
-Bounds on the coefficients:
-* `|sum_j delta_t(j)| <= .0025(ell + 1) + 8(.18) + 447 <= 750`: holes; modulated rows; the
-  front and the wake, where `sum (y^2 - s^2) <= 2 * 223 + 1`.
-* Hence `kap_t^+ >= (a/sqrt k)(.0024958 - 1e-12)`.
-* `(1 - gamma s^2/k)^T >= 1 - 1.3e-3`.
+Coefficient bounds:
+* `|sum_j delta_t(j)| <= Sigma := 314` (Step 9, (O4)).
+* Hence `kap_t^+ >= (a/sqrt k)(.0024958 - gb 314 q^2)`, and `kap_t^+ <= gb q (s^2 + gb 314 q^2)`.
+* `|Delta kap_t| <= gb^2 mu q^3`, with `mu := 8(.1780)`.
+* `prod_t (1 - gamma s_t^2/k) >= 1 - 1.3e-3` [c].
 
 **Step 8 (main term).**
-* *Arrival profiles.* Fix `t_A in A`, and an offset `10 <= j <= ell - 1` from row `d-1`
-  (column `r_j := d-1-j`). The injection at `(r_j, t_A - j)` reaches `(d-1, t_A)` along the
-  arrival diagonal. It crosses only hole positions (gate 1) and the 7 modulated positions
-  (gate `sech^2(.45)` for `theta = +1`, gate 1 for `theta = -1`). This holds for both holes
-  of a pair, whose modulation offsets are `2..8` and `3..9`. By Lemma 1.2 the own part of
-  `Delta Y_(t_A)(d-1, r_j)` is therefore exactly
+* *Own part of an arrival.* Fix `t_A in A` and an offset `10 <= j <= ell - 1` from row `d-1`
+  (column `r_j := d-1-j`).
+  * The own injection at `(r_j, t_A - j)` reaches `(d-1, t_A)` along the arrival diagonal.
+  * On the way it crosses only hole positions (gate 1) and the 7 modulated positions (gate
+    `sech^2(.45)` for `theta = +1`, gate 1 for `theta = -1`). This holds for both holes of a
+    pair, whose modulation offsets are `2..8` and `3..9`.
+  * So the own part (Step 9, (9.1)) of `Delta Y_(t_A)(d-1)` on column `r_j` is exactly
 
-      -(1 - sech^2(.45)^7) c_(t_A - j) a^j = -.746424... c a^j            [c].
+        Delta O_(t_A)(d-1, r_j) = -(1 - sech^2(.45)^7) c_(t_A - j) a^j = -.7464245... c a^j    [c].
 
-* *Coherence.* All arrivals of `A` produce this same sign on the same columns.
-* *Arrival errors.* Let `E'` be the rest of `Delta Y_(t_A)(d-1)`: captures, leaks,
-  w-injection and the front passage along the arrival diagonal.
-  * These are forced at most once per step, and they accumulate with the path's gates.
-  * The pre-hole part of the diagonal (front chain, gates `<= ghat`) accumulates at most
-    `1/(1 - a ghat) <= 401` steps' worth, and the hole part at most `ell`.
-  * The per-step forcing is at most `1.01 s^2/sqrt(k)` times the largest arrival difference
-    (capture), plus `1.01(301 A_h + .51)/k` (leak and w-injection). Here
-    `A_h <= 259 c + max ||E'||` bounds hole contents: the own-profile norm is at most
-    `c sqrt(.558 ell + 7 + .558 * 401)`.
-  * The front passage adds at most `1.01/sqrt(k)` times the same.
+* *The main vector.* Put
 
-  The resulting fixed-point inequality gives `max ||E'|| <= 1e-4 c` for `n >= 1.5e18`.
-* *Main readout per column.* The main readout on each column `r_j` is at least
+      main := sum_(t_A in A) rho_(t_A + 1) kap^+_(t_A + 1) Delta O_(t_A)(d-1),
+      rho_t := prod_(u in (t,T]) a (1 - gamma s_u^2/k).
 
-      a^2 HI .746424 (1 - 1.3e-3) a^(T + ell) .0024958 |A| (1 - 2e-6) >= 3.403e-4 n,
+  All arrivals contribute the same sign on every column of
+  `C := {r_j : 10 <= j <= ell-1}`. So there is no cancellation inside `main` on `C`.
+* *Per column.* The readout of `main` on each `r_j in C` is at least
 
-  using `a^(T+ell+2) >= .7785`, `c_t >= 1 - 1e-12` for `t >= 3`, and
+      HI (1 - sech^2(.45)^7)(1 - 1.3e-3) a^(T+ell+2) (.0024958 - gb 314 q^2)(1 - 1e-12) |A|
+          >= 3.403e-4 n                                                               [c].
+
+  This uses `a^(T+ell+2) >= .7785`, `c_t >= 1 - 1e-12` for `t >= 3`, and
   `|A| >= d - W_tail - 26 >= .249999 n` [c].
-* *Main readout norm.* Over the `ell - 10 = 119990` columns:
-  `||main readout|| >= 3.403e-4 * 346.39 n >= .11790 n` [c].
+* *Norm.* Over the `ell - 10 = 119990` columns:
+  `a HI sqrt(k) ||main|_C|| >= 3.403e-4 * 346.39 n >= .11791 n` [c].
 
-**Step 9 (error terms, in readout units `a HI sqrt(k) * ...`).**
-* *init.* Before `T_s + 1` no arrival is modulated, so the broadcast mode carries no
-  difference. The spike diagonal crosses the front at `T_s - 6`; its gate `<= 4e^(-8.6e7)`
-  removes all earlier content. Only leaks during `<= 8` steps remain:
-  `<= .94 sqrt(k) * 8 * 1.01 * 301 * 259 c/k < 1e-3`.
-* *kappa.* `|Delta kap_t| <= 1.43/k^(3/2)` and `||Y^-(d-1)|| <= 351 c`, so the term is
-  `<= .94 * .2501 n * 1.43 * 351 * 2 c/n <= 240`.
-* *leak.* At most `d` steps of `1.01(301 A_h + .0025 A_s/sqrt(k) * ...)/k`, which is
-  `<= 3.7e4 sqrt(k) c`, i.e. a fraction `<= 2.2e5/sqrt(n) <= 2e-4` of the main term.
-  The spike's own leak was folded in (Step 7). Leaked copies on bath paths saturate at
-  `1/s^2` steps, so their round trip through arrivals has relative size
-  `<= .53/sqrt(n)`.
-* *front leak.* The leak sum also contains `j = 1`, whose source is the broadcast mode
-  (`pi^-1(1) = 0`). It contributes at most `(1.01/k) ||Delta Y_(t-1)(0)||` per step, with
-  `Delta Y(0) = Delta Sum'(B')/sqrt(k)`. That is at most
-  `(ell * 259 c + ||Delta Y(spike)||)/sqrt(k)` per step. Over `d` steps this is a relative
-  change `<= .7/sqrt(n)` of the spike content, plus `< 1e-3` in readout.
-* *w-injection.* `<= .94 sqrt(k) * 1.01 d * .502/k <= .25 sqrt(k) <= 1e-8 n`.
-* *non-arrival times.* At most `W_tail + 60` steps, each of size
-  `<= .94 * .0025 * 1.2e-4 c`, for a total `< 1`.
+**Step 9 (own/bus split and a priori bounds).**
 
-In total, `||Gamma|| >= .11790 n (1 - 2e-4) - 1e-6 n >= .1178 n`. Since
-`tau = .002 n/(sigma sqrt(1/2)) <= .05662 n`, this is `> 2.08 tau` [c]. QED
+*(9.1) Own and bus parts.* For each history and each memory U-row `i >= 1`, define the own
+part by `O_0 = 0` and
+
+    O_t(i) = g_i(t) a O_(t-1)(i-1) + c_t g_i(t) e_i^T     (2 <= i <= d-1),
+    O_t(1) = c_t g_1(t) e_1^T,     O_t(i) = g_i(t) a O_(t-1)(i) + c_t g_i(t) e_i^T   (i >= d).
+
+This is PR #28's own suffix-product profile (3.0') of the local skeleton `S`, written in
+U-row indexing. The bus part is `Z_t(i) := Y_t(i) - O_t(i)`. Subtracting from Lemma 1.2,
+
+    Z_t(i) = g_i(t) a Z_(t-1)(i-1) + F_t(i)    (2 <= i <= d-1),     Z_t(1) = g_1(t) a Y_(t-1)(0) + F_t(1),
+    F_t(i) = (gamma/sqrt k)(delta_t(i) - gamma sum_j delta_t(j)/k) V_t(0)
+             - (gamma/k) sum_(j>=1) delta_t(j) V_t(j) - (gamma/k) c_t g_t^T.               (9.1)
+
+Here `V_t(j) = a Y_(t-1)(pi^-1 j)` are full (own + bus) contents.
+
+*(9.2) Differences.* Use `Delta` for `(+) - (-)`, and expand each product as
+`x^+ y^+ - x^- y^- = x^+ Delta y + (Delta x) y^-`:
+
+    Delta Z_t(i) = g^+_i a Delta Z_(t-1)(i-1) + (Delta g_i) a Z^-_(t-1)(i-1) + Delta F_t(i),
+    Delta F_t(i) = (gamma/sqrt k)(delta^+_i - gamma sum delta^+/k) Delta V(0)
+                 + (gamma/sqrt k)(Delta delta_i - gamma sum Delta delta/k) V^-(0)
+                 - (gamma/k) sum_j [ delta^+_j Delta V(j) + (Delta delta_j) V^-(j) ]
+                 - (gamma/k) c_t Delta g_t^T.                                        (9.2)
+
+*(9.3) Broadcast identity [PROVED].* For every `t`,
+
+    Y_t(0) = ghat_t V_t(0) + (1/sqrt k) sum_(i>=1) delta_t(i) V_t(i)
+           + (gamma/k)(sum_(i>=1) delta_t(i)) V_t(0) + (c_t/sqrt k) g_t^T.
+
+*Proof.*
+* `u^T Y = 0` gives `Y(0) = -sum_(i>=1) Y(i)`.
+* Sum Lemma 1.2 over `i >= 1`, using `sum_(i>=1) V(i) = -V(0)` and
+  `gamma(1 - 1/k) = 1 + 1/sqrt(k)`:
+  * own transport gives `-ghat V(0) + sum delta_i V(i)`;
+  * capture gives `-(gamma/k)(sum delta) V(0)`;
+  * leak gives `-(1 + 1/sqrt k) sum delta_j V(j)`;
+  * injection gives `-(c/sqrt k) g^T`.
+
+QED **[NUMERICAL]** X2 holds to `<= 8.4e-15` (`exp_error_bounds.py`).
+
+So the broadcast mode is the previous arrival (`ghat V(0)`), plus `O(1/sqrt k)` deviation
+terms.
+
+*(O1) Own contents.*
+* Gates differ only at modulated positions, where `g^+ = sech^2(.45) < g^- = 1` (Step 3).
+  A local path contains at most 7 of them, so entrywise
+  `0 <= O^- - O^+ <= (1 - sech^2(.45)^7) O^-`.
+* `Delta O_t(i) != 0` only on an arrival diagonal after its first modulated position, that
+  is only for `i in [d-10, d-1]`. **[NUMERICAL]** X3: support exactly in `d-10..d-1`.
+* Norms:
+  * for every non-spike cycle row and either history,
+    `||O_t(i)|| <= Oh := sqrt(ell + ghat^2/(1-ghat^2)) <= 346.70` [c]. There are at most
+    `ell` hole injections of size `<= 1`, and the front-chain part is a geometric series with
+    ratio `<= ghat_max = 1 - s_lo^2`;
+  * `||Delta O_t(i)|| <= OD := .746425 Oh <= 258.79` [c];
+  * for the spike, `||O_t(i_t)|| <= sqrt(k/2 + 194)`.
+
+*(O4) Budgets.* These hold in either history, at every time, and along every non-spike
+diagonal.
+* `Sigma`: `sum_(j>=1) |delta_t(j)| <= 1 + 11.82 + .0024959(ell+1) + 8(.1756) <= 314` [c].
+  * The four terms are the front, the front chains (Lemma 1.5), the holes and spike, and the
+    modulated positions.
+  * At most 8 positions are modulated at a time: at most 4 pairs have their 7-step window
+    covering `t`.
+* `Dbar`: along one non-spike diagonal, `sum |delta| <= 1 + 11.82 + .0024959(ell - 7) + 7(.1756) <= 314`.
+* `Lam`: along one non-spike diagonal,
+  `sum_tau prod_(u in (tau,t]) a g_u <= ell + 1/s_lo^2 <= ell + 401 = 120401`.
+  There are at most `ell` hole steps with gate `<= 1`, and front-chain gates are
+  `<= 1 - s_lo^2`.
+* Gate changes:
+  * `mu := sum_j |Delta delta_t(j)| <= 8(.1780)`;
+  * along one diagonal, `mu_d := 7(.1780)`;
+  * `w := ||Delta g_t|| <= sqrt(8)(.1780) <= .50347` [c].
+* `nu_N`: the rows `j` whose source `pi^-1 j` carries an own difference are
+  `j in [d-9, d-1]`. Their `sum |delta^+_j| <= 8(.1756) + .0024959 <= 1.41`.
+* Off-cycle rows have `delta = 0` exactly. They feed neither capture, nor leak, nor (9.3).
+
+**Lemma E (a priori bounds) [PROVED].**
+
+*Quantities.* All sups are over the whole horizon. The *spike positions* are `(i_t, t)` for
+`t in [T_s, T]`.
+* `zeta := sup ||Delta Z_t(i)||` over all other cycle positions `i in [1, d-1]`, including
+  `(6, T_s - 1)`.
+* `B0 := sup ||Delta Y_t(0)||`.
+* `S := sup_(t >= T_s - 1) ||Delta Y_t(i_t)||`.
+* `zeta-`, `B0-`, `S-`: the same with the full contents `Z^-`, `Y^-(0)`, `Y^-(i_t)` of the
+  `theta = -1` history.
+* `A := sup_(t<T) ||Delta Y_t(d-1)|| <= OD + zeta` and
+  `A- := sup_(t<T) ||Y^-_t(d-1)|| <= Oh + zeta-`.
+
+*Statement.* With `s2 := .0024959` and `Lam, Sigma, Dbar, mu, mu_d, w, nu_N, Oh, OD` from
+(O1), (O4):
+
+    (E1)  zeta <= g1max B0 + gb q (Dbar + gb Sigma Lam q^2) A + gb q (mu_d + gb mu Lam q^2) A-
+                  + gb Lam q^2 [B0 + s2 S + Sigma zeta + nu_N OD + mu (Oh + zeta-) + w] + mu_d zeta-
+    (E2)  B0   <= A + q [B0 + s2 S + Sigma zeta + nu_N OD + mu (Oh + zeta-)] + gb q^2 (Sigma A + mu A-) + q w
+    (E3)  S    <= zeta + (k/2) [ gb q (s2 + gb Sigma q^2) A + gb^2 mu q^3 A-
+                  + gb q^2 (B0 + Sigma zeta + nu_N OD + mu (Oh + zeta-) + w) ]
+    (E4)  zeta- <= g1max B0- + gb q (Dbar + gb Sigma Lam q^2) A- + gb Lam q^2 [B0- + s2 S- + Sigma (Oh + zeta-)] + gb Lam q
+    (E5)  B0-  <= A- + q [B0- + s2 S- + Sigma (Oh + zeta-)] + gb q^2 Sigma A- + 1
+    (E6) S-   <= sqrt(k/2 + 194) + zeta- + (k/2) [ gb q (s2 + gb Sigma q^2) A- + gb q^2 (B0- + Sigma (Oh + zeta-)) + gb q ]
+
+*Proof.*
+* *Non-spike positions, (E1).*
+  * Fix a non-spike cycle position `(i,t)`. Its diagonal either entered at row 1 at some time
+    `t_1` or existed at `t = 0`.
+  * In the first case its bus content at entry is `g_1 a Y_(t_1 - 1)(0) + F_(t_1)(1)`. The
+    front is never modulated, so the first term's difference is `<= g1max B0`. In the second
+    case the initial content is 0.
+  * Unroll (9.2) along the diagonal. Every transport factor `a g^+` lies in `[0,1]`, so
+    `||Delta Z_t(i)||` is at most `g1max B0` plus the sum over the diagonal's steps `tau` of
+    `prod (a g^+) * ||Delta F_tau|| + |Delta g| ||Z^-||`.
+  * Bound the parts of `Delta F_tau` at the diagonal's row `i(tau)` as follows.
+    * *Capture.* `(gamma/sqrt k)(|delta^+_(i(tau))| + gb Sigma q^2) A`. Summed along the
+      diagonal, with the row-specific part unweighted and the uniform part weighted by
+      `<= Lam`: `gb q (Dbar + gb Sigma Lam q^2) A`.
+    * *Capture change.* `gb q (|Delta delta_(i(tau))| + gb mu q^2) A-`, summing to
+      `gb q (mu_d + gb mu Lam q^2) A-`.
+    * *Leak.* `(gamma/k) sum_j [|delta^+_j| ||Delta V(j)|| + |Delta delta_j| ||V^-(j)||]`.
+      Its sources are as follows:
+      * `j = 1` reads U-row 0, with `|delta_1| <= 1`: at most `B0`;
+      * `j = i_t` reads the spike, with `delta = s^2`: at most `s2 S`;
+      * every other `j` reads a non-spike row, with `Delta Y = Delta O + Delta Z` and
+        `Delta O != 0` only for the `nu_N` rows: at most `Sigma zeta + nu_N OD`;
+      * changed coefficients sit at modulated `j`, whose source is a non-spike hole row
+        (own `<= Oh`, bus `<= zeta-`): at most `mu (Oh + zeta-)`.
+
+      Weighted by `<= Lam`: `gb Lam q^2 [...]`.
+    * *w-injection.* `(gamma/k) c ||Delta g|| <= gb q^2 w`, the last term in the bracket.
+  * *Modulated transport.* `sum_tau |Delta g_(i(tau))| ||Z^-|| <= mu_d zeta-`.
+* *(E4).* This is the same argument for the full `theta = -1` contents.
+  * The capture coefficient uses `|delta^-|`.
+  * The leak sources are `B0-`, `s2 S-` and `Sigma (Oh + zeta-)`.
+  * The full w-injection satisfies `(gamma/k) c ||g_t|| <= gb q`, because `||g_t|| <= sqrt(k)`.
+* *(E2), (E5).* Take norms in (9.3) and in its difference, with the same source bounds.
+  Use `ghat <= 1`, `(c/sqrt k)||Delta g|| <= q w` and `(c/sqrt k)||g|| <= 1`.
+* *(E3), (E6).*
+  * Unroll (7.1) from `(6, T_s - 1)` over `d - 7 <= k/2` steps, with transport `<= 1`.
+  * The initial term is `<= zeta`. For the full content it is `||O^-|| + zeta-`, with the
+    spike's own part `<= sqrt(k/2 + 194)`.
+  * Per step:
+    * capture `kap <= gb q (s2 + gb Sigma q^2)` times `A`, resp. `A-`;
+    * capture change `|Delta kap| <= gb^2 mu q^3` times `A-`;
+    * the leak as above, without the spike's own term, which is folded into the transport;
+    * the w-injection.
+
+QED
+
+*Solution of the system [PROVED; constants [c]].*
+* *Scaling.* Put `zeta^ := sqrt(k) zeta`, `S^ := S/sqrt(k)`, `zeta^- := sqrt(k) zeta-` and
+  `S^- := S-/sqrt(k)`. Then (E1)–(E6) read `X <= b + M X` with `X = (zeta^, B0, S^,
+  zeta^-, B0-, S^-)`.
+* *Monotonicity.* Every entry of `b` and `M` is a polynomial with nonnegative coefficients
+  in `q`, `gb`, `sqrt(1/2 + 194 q^2)` and `g1max/q = 4 sqrt(k) e^(-.0996 sqrt k)`. Each is
+  non-increasing in `k` for `k >= 7.5e17`.
+* *Certified super-solution.* `constants_check.py` evaluates the system at `k0 = 7.5e17`
+  (that is, `n = 1.5e18`) and certifies a vector `x*` with `b + M x* < x*` componentwise:
+
+      zeta^ <= 3.6809e5,  B0 <= 258.80,  S^ <= .32296,  zeta^- <= 2.2978e5,  B0- <= 347.71,  S^- <= 1.6399.
+
+* *Conclusion.* `X` is finite, since the horizon is finite. Since `M >= 0` and
+  `M x* < x*` with `x* > 0`, the spectral radius of `M` is `< 1` (Collatz–Wielandt). Hence
+  `X <= (I-M)^(-1) b <= x*`.
+  * By monotonicity the same `x*` bounds `X` for every `n >= 1.5e18`.
+  * In particular every non-spike bus difference satisfies
+    `zeta <= 3.7e5/sqrt(k) <= 4.3e-4`. That is `<= 1.7e-6` of an arrival's own difference
+    norm (`~258.8`).
+
+This is the rigorous form of the arrival-error bound. The fixed point is solved with all
+couplings present: spike ↔ arrival paths, broadcast ↔ front, and full contents ↔
+modulated coefficients.
+
+**Step 10 (error assembly).** Unroll (7.1) from `(6, T_s - 1)` and split every captured
+arrival into its own and bus parts:
+
+    Delta Y_T(d-1) = main + init + E_arr + E_kap + E_leak + E_w,
+
+where:
+* `init = rho_(T_s - 1) Delta Y_(T_s - 1)(6)`, with norm `<= zeta`;
+* `E_arr = sum_t rho_t kap^+_t Delta Z_(t-1)(d-1)`, with norm
+  `<= (k/2) gb q (s2 + gb Sigma q^2) zeta`. This covers every capture step; at
+  non-arrival times `Delta O_(t-1)(d-1) = 0`;
+* `E_kap = sum_t rho_t (Delta kap_t) Y^-_(t-1)(d-1)`, with norm `<= (k/2) gb^2 mu q^3 A-`;
+* `E_leak`, the leak of (7.1), with norm
+  `<= (k/2) gb q^2 [B0 + Sigma zeta + nu_N OD + mu (Oh + zeta-)]`;
+* `E_w`, the w-injection, with norm `<= (k/2) gb q^2 w`.
+
+Every bound is a triangle inequality over all `<= k/2` capture steps and all rows. No
+cancellation between arrivals, or between arrivals and the main vector, is assumed. So the
+coherent accumulation over the `~n/4` arrivals is included at full strength. With the
+certified `x*`:
+
+    E_Y := ||Delta Y_T(d-1) - main||
+         <= zeta + (gb/2)(s2 + gb Sigma q^2) zeta^ + (gb^2 mu q/2) A-
+            + (gb/2) [B0 + Sigma zeta + nu_N OD + mu (Oh + zeta-) + w]  <=  1019     [c].   (10.1)
+
+The pieces of (10.1), in units `c_max = 1`:
+
+| Term | Size |
+|---|---|
+| arrival bus `E_arr` | `459` |
+| front leak `B0/2` | `129` |
+| modulated-coefficient leak `mu Oh/2` | `247` |
+| near-arrival own-difference leak `nu_N OD/2` | `182` |
+| everything else | `< 1` |
+
+*Conclusion.* By Steps 6 and 8,
+
+    ||Gamma|| >= ||Gamma|_C|| >= a HI sqrt(k) (||main|_C|| - E_Y)
+              >= .11791 n - HI 1019 sqrt(n/2) >= (.11791 - 5.6e-7) n >= .11790 n     [c].
+
+The subtracted term is `<= 5.6e-7 n` at `n = 1.5e18`, and its ratio to `n` decreases with
+`n`. With `tau <= .05662 n` this gives `||Gamma|| >= 2.082 tau > 2.08 tau` [c]. QED
+
+*What the error analysis shows.*
+* The bus content of every arrival path is `<= 1.7e-6` of its own difference.
+* The total leak into the spike over the whole hold is a constant (`<= ~560`, in units of
+  `c`), against a main term of order `sqrt(k)`.
+* The previous version counted all `~ell` holes in flight at the full arrival difference. That
+  overstated the leak about 60-fold: before its modulation, a hole carries only bus
+  differences of size `zeta`.
+
+The threshold `n >= 1.5e18` comes from the budget (Step 4). The error analysis would allow
+much smaller `n`.
 
 **[NUMERICAL]** `exp_drift_capture.py` runs scaled versions (`n = 4096 ... 65536`):
 * all inputs `<= .4726`;
 * endpoints equal to `2e-16`;
 * zero gate differences on local paths at `T`;
 * the first-order drift-capture prediction matches the exact adjoint readout with relative
-  error `.60, .33, .165` as `ell/sqrt(k)` decreases `.35, .18, .12`.
+  error `.60, .33, .165` as `ell/sqrt(k)` decreases `.35, .18, .12`. The predictor's arrival
+  set was corrected after review (Codex P2); the corrected run reproduces these numbers to
+  `<= 1e-14`.
 
-The exact recursion and the uniform-query identity were checked to `1e-11` and `3e-13` by
-`exp_spike_decomposition.py`. At these small `n` the readout is `< tau` (`Gamma/tau ~ .06-.11`).
-The theorem's regime `n >= 1.5e18` is reached only by the proof.
+`exp_error_bounds.py` (`n = 512, 1024, 2048`, and `2048` with `ell = 32`):
+* Lemma 1.2 holds for every U-row and step to `<= 6.5e-16`.
+* The broadcast identity (9.3) holds to `<= 8.4e-15`.
+* Own differences are supported exactly on rows `d-10..d-1`.
+* The unrolled decomposition of Step 10 reproduces `Delta Y_T(d-1)` to `<= 3.4e-13`.
+* Every inequality (E1)–(E6) and (10.1) holds when evaluated with the measured sups and
+  the measured small-`n` constants.
+
+At these sizes `sqrt(k) <= 32`, so bus contents are of the same order as own contents and
+the readout is `< tau`. The theorem's regime `n >= 1.5e18` is reached only by the proof.
 
 ## 3. What the failure of B means, and the corrected target
 
@@ -510,6 +761,50 @@ The theorem's regime `n >= 1.5e18` is reached only by the proof.
 rows, long arrival holes) each pay a factor `sqrt(k)`, `n` or `D^2` in width or horizon in
 the estimates above. None is close to `o(n^(3/2))` for linear `D`.
 
+### 3.4 Lemma M after the repair of Theorem R [ANALYSIS]
+
+**Theorem R is consistent with Lemma M.**
+* Its section has `D = 1`. Its whole bus readout is the explicit vector
+  `main = sum_(t_A) rho kap^+ Delta O_(t_A)(d-1)` (Step 8) up to an error
+  `<= 5.6e-7 n`, which is `5e-6` relative (Step 10).
+* `main` is one aggregated vector on the `ell + O(1/s^2)` columns next to `d-1`.
+* A listing that block-averages the odd part of the spike U-coordinate on those columns
+  removes it at count `<= m + 450`. That is the size Lemma M allows.
+
+**What the repair adds, as evidence for the spike part of Lemma M.**
+* In this construction the bus content that matters is *captured own content*: the own
+  differences that arrival rows carried when they passed `d-1`.
+* Everything else is uniformly negligible:
+  * the bus differences on all non-spike rows are `<= 4.3e-4`, against own differences of
+    about 259;
+  * leak, broadcast, w-injection and capture-coefficient changes together contribute
+    `<= 560 c` to the spike, against a main term of order `sqrt(k)`.
+* This supports the strategy of listing the captured own content of gather spikes, as
+  opposed to listing arbitrary bus content.
+
+**What it does not test.**
+* *Dimension.* With `D = 1`, nothing is learned about how many robust directions captured
+  content can carry per unit cost. The `D^3` heuristic of §3.2 is unchanged.
+* *Neutral-path cost.* The construction uses only driven holes, so each captured column
+  costs one drive per step (`m >= ell`). Undriven near-zero chains, the open neutral-path
+  question of PR #26, are not exercised.
+* *Leak control in general.* Lemma E closes for two reasons:
+  * only `<= 10` rows carry own differences at any time;
+  * `Sigma <= 314`, because `m ~ 1.2e5 << sqrt(k)`.
+
+  So the total leak into the spike is `O(1)` against a capture of order `sqrt(k)`.
+  * In a general section, up to `m` held rows could carry own differences.
+  * Their leak over a hold of `~k/2` steps is then `~ s^2 m/2` times an own difference,
+    against a capture of `~ s^2 sqrt(k)/2` times one. That ratio is `~ m/sqrt(k)`.
+  * When `m >~ sqrt(n)` the leak can therefore rival capture (as it does at small `n` in
+    `exp_spike_decomposition.py`). A general Lemma M must either list such leaks or show
+    that they cannot carry robust directions cheaply.
+
+**Verdict.** The repaired Theorem R is weak, construction-specific evidence *for* the
+spike-listing strategy of Lemma M. It is no evidence on Lemma M's dimension bound, which
+stays **OPEN**. Refuting Hypothesis B does **not** refute the `n^(3/2)` memory barrier: the
+counterexample has `D = 1`, and the barrier is a statement about `D = Theta(n)`.
+
 ### 3.3 A second scope note on Theorem 4 [ANALYSIS]
 
 PR #26 and the frontier construction use the reference-input width (Remark 0.1). In that
@@ -574,8 +869,11 @@ sections. Removing the logarithm is subordinate to Lemma M.
 | Lemma 1.1: uniform `F`-step queries read exactly one U-coordinate, `chi_F = (ag)^F sqrt(k) e_(d-F)` | PROVED; checked to `1.3e-13` |
 | Lemma 1.2: exact U-row recursion (own, capture `(gamma/sqrt k)(delta_i - gamma sum delta/k)`, leak, injection) | PROVED; checked to `4e-16` and in full simulation to `1e-11` |
 | Lemma 1.3: bus inputs are the arrival and the broadcast mode | PROVED |
-| **Theorem R: Hypothesis B is false** (`n >= 1.5e18`, `R = R0`, `D = 1`, `m <= 120001`, `mT <= 2.5e-5 n^(3/2)`, bus `> 2.08 tau` at a listing zero) | **PROVED** (author-checked; constants certified; independent review needed) |
-| Lemma M (bus capacity), the precise missing inequality | **OPEN** |
+| Lemma 1.5: front-chain excess `<= 51.7`, front-chain gate deviations `<= 11.82` (self-contained; replaces the imported audit certificate) | PROVED; constants certified |
+| Broadcast identity (9.3) and own/bus split (9.1)–(9.2) | PROVED; checked to `<= 8.4e-15` |
+| Lemma E: a priori bounds on all bus contents of the construction (certified super-solution of a 6-variable majorant system, uniform in `n >= 1.5e18`) | PROVED; constants certified; small-`n` inequality audit passes |
+| **Theorem R: Hypothesis B is false** (`n >= 1.5e18`, `R = R0`, `D = 1`, `m <= 120001`, `mT <= 2.5e-5 n^(3/2)`, bus `>= .1179 n > 2.08 tau` at a listing zero) | **PROVED** (error analysis rewritten after Codex review of `6c2a882`: Steps 9–10; constants certified; independent re-review needed) |
+| Lemma M (bus capacity), the precise missing inequality | **OPEN** (§3.4: Theorem R is consistent with it and weakly supports its spike-listing strategy; no evidence on the dimension bound) |
 | Removal of the `log n` loss | **OPEN** (obstruction to the naive weighted listing recorded) |
 | Original problem `D = Omega(n)`, `mT = o(n^(3/2))`, full d_F | **OPEN** |
 

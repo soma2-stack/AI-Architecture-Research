@@ -10,8 +10,21 @@
     "theory/codex_cross_pr_final_audit_20261015 (AUDIT.md, HANDOFF.md) on the PR #28 branch",
     "PR #26 claude/neutral-path-tax-20261013 (exact neutral holes, Lemma 2.1; width convention)"
   ],
-  "compute": "CPU only; total < 10 minutes; numpy/decimal; no training, no GPU, no large-scale runs",
+  "compute": "CPU only; total ~5 minutes; numpy/decimal; threads capped at 4; no training, no GPU, no large-scale runs",
   "restricted_notebooks_read": false,
   "agents_md_modified": false,
-  "status": "PENDING INDEPENDENT REVIEW; Hypothesis B REFUTED (Theorem R); Lemma M OPEN; original problem OPEN"
+  "status": "PENDING INDEPENDENT RE-REVIEW; Hypothesis B REFUTED (Theorem R, error analysis repaired: Lemma E, ||Gamma||>=.11790n>=2.0826 tau); Lemma M OPEN; original problem OPEN",
+  "review_rounds": [
+    {
+      "round": 1,
+      "reviewer": "Codex",
+      "reviewed_commit": "6c2a882",
+      "findings": [
+        "P1 arrival-error fixed point not derived (PROOF.md:396)",
+        "P1 spike-leak estimate with undefined A_s (PROOF.md:414)",
+        "P2 predictor arrival set includes ahi+1 (exp_drift_capture.py:123)"
+      ],
+      "resolution": "all valid; repaired in PROOF.md section 2.3 Steps 9-10 (Lemma E) and exp_drift_capture.py; see REVIEW_RESPONSE.md"
+    }
+  ]
 }

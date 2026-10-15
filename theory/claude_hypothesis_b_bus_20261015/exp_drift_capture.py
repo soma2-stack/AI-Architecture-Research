@@ -120,7 +120,7 @@ def lockstep_readout(S, cks, sig, gf, svals):
     nu = np.empty(n); nu[:k] = a * gf * OT_apply(np.ones(k), k, d, gam); nu[k:] = lam * gf
     phi = {1: nu.copy(), -1: nu.copy()}; psi = {1: np.zeros(k), -1: np.zeros(k)}
     Gam = {1: np.zeros(n), -1: np.zeros(n)}; pred = {1: np.zeros(n), -1: np.zeros(n)}
-    arrivals = set(range(S["alo"], S["ahi"] + 2))
+    arrivals = set(range(S["alo"], S["ahi"] + 1))   # scheduled arrivals are exactly alo..ahi (Codex P2)
     bounds = sorted(cks[1].keys()); nbad = 0; hits = 0
     for i in range(len(bounds) - 1, 0, -1):
         ta, tb = bounds[i - 1] + 1, bounds[i]

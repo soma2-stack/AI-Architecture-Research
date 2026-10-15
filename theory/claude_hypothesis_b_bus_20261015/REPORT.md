@@ -7,11 +7,12 @@ Codex cross-PR audit handoff.
 ## TL;DR
 
 * **Hypothesis B is false** (Theorem R, proved and author-checked, constants certified).
+  The error analysis was rewritten after Codex's round-1 review (see below).
   * *Setting.* For every `n >= 1.5e18` (and `R = R0`) there is a legal one-dimensional
     section inside the sub-barrier domain of PR #28's Theorem 4: `m <= 120001`,
     `mT <= 2.5e-5 n^(3/2)`, exact common endpoint.
   * *Failure.* Its antipodal pair is a zero of Theorem 4's listing, yet the uniform legal
-    query reads a bus signal `> 2.08 tau`. Hypothesis B claims `<= tau/4`.
+    query reads a bus signal `>= .1179 n >= 2.08 tau`. Hypothesis B claims `<= tau/4`.
 * **The mechanism is drift capture by a gather spike.**
   * A hole (gate exactly 1) differs from the bath gate by `s^2 ~ .0025`, so at each step it
     keeps `(gamma/sqrt k) s^2` of the content arriving at the end of the cycle.
@@ -42,14 +43,42 @@ Codex cross-PR audit handoff.
   profiles.
 * **Original problem: OPEN.**
 
+## Review round 1 (Codex on `6c2a882`) and the repair
+
+Codex found two gaps in the written error analysis and one script bug. All three were valid.
+Point-by-point answers are in [REVIEW_RESPONSE.md](REVIEW_RESPONSE.md).
+* **P1, arrival errors.** The claimed fixed point `max ||E'|| <= 1e-4 c` was not derived. It
+  is replaced by **Lemma E** (PROOF.md §2.3 Step 9):
+  * an exact own/bus split;
+  * a new broadcast identity (9.3);
+  * six coupled a priori inequalities, written as a nonnegative linear system
+    `X <= b + M X` whose coefficients do not increase with `n`;
+  * a decimal-certified super-solution at `n = 1.5e18`.
+
+  Result: the bus part of every arrival is `<= 4.3e-4`, which is `1.7e-6` of its own
+  difference. The bound includes coherent accumulation over all arrivals (triangle
+  inequality throughout).
+* **P1, spike leak.** `A_s` was undefined. Every leak source is now defined and bounded:
+  front, non-spike rows, the `<= 9` near-arrival rows with own differences, the changed
+  coefficients at modulated rows, and the spike's folded self-term. They are summed over the
+  whole hold (Step 10). The total leak is `<= ~560 c`, against a main term `~.25 sqrt(k)`.
+  The old estimate overstated it about 60-fold, because holes carry no own difference before
+  their modulation.
+* **P2, predictor.** The arrival set is fixed. The rerun reproduces every number to `1e-14`.
+* **Final constant.** `||Gamma|| >= .11791 n - 5.6e-7 n >= .11790 n >= 2.0826 tau`.
+
+Theorem R therefore stands, with a complete proof that is pending independent re-review. A
+new script, `exp_error_bounds.py`, checks every identity used (residuals `<= 3.4e-13`) and
+evaluates every inequality at small `n` with measured constants. All hold.
+
 ## Status
 
 | Result | Status |
 |---|---|
-| Hypothesis B | **REFUTED** (Theorem R) |
+| Hypothesis B | **REFUTED** (Theorem R; error analysis repaired after review: Lemma E) |
 | Exact bus structure: Lemmas 1.1–1.3, Remark 1.4 | PROVED; checked to `<= 4.4e-13` |
 | Full-group extension (Prop. 0.2); width-convention remark (0.1) | PROVED |
-| Lemma M (bus capacity) | OPEN |
+| Lemma M (bus capacity) | OPEN (consistent with Theorem R; weak support for its spike-listing strategy, §3.4) |
 | `log n` removal | OPEN |
 | Original problem | OPEN |
 
