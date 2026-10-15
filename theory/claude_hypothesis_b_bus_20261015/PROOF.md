@@ -1009,11 +1009,18 @@ With the adversarial `eta = 1e-3` they still differ only by `.008` (`n = 256`) a
     2.1); for undriven near-zero chains the cost depends on the bath drift.
   * A near/far split with `lambda ~ n^(3/4)` then suggests a count `o(n)` in the
     sub-barrier domain.
-  * The undriven case is the unproved part. It is the **neutral-path cost** question: the
-    near-zero drift `beta_t ~ s^3/3` can be cancelled for a while by moving the bath, so a
-    uniform statement needs control of bath manipulation. This is the same object as PR
-    #26's neutral-path tax, which is conjectural (and conjectured false in PR #26's
-    high-width hub regime).
+  * *(Corrected 2026-10-15.)* The first version called the undriven case "the unproved part".
+    That was wrong in the sub-barrier domain.
+    * PR #27's independently verified Lemma 2.5 already gives the cost: outside the protected
+      set, every memory row has gate `<= 1 - kappa`.
+    * The protected set holds at most `Lam + 1` positions per drive or front start.
+    * The bath cannot be made neutral cheaply, because PR #27's floor and the new ceiling of
+      PR #31 (Lemma B) confine it.
+    * Only the constant `Lam = 4.5e5` is conservative.
+    * PR #26's neutral-path tax concerns the high-width hub regime, outside this domain.
+    * The Lemma M work continues in PR #31 (`theory/claude_lemma_m_bus_capacity_20261015`),
+      which proves the first-order gather part (Theorem M). It also indicates that Lemma M's
+      original `(mT/n)^2` form is too strong.
 
 **What would refute Lemma M.** A legal sub-barrier section whose bus readout keeps
 `> tau/4` at some zero of every listing of the stated size. That would need the bus to carry
