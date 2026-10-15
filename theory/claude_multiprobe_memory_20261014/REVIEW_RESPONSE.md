@@ -1,5 +1,38 @@
 # Response to the reviews of PR #28 (head `6ce7026`)
 
+
+## Independent repair following the audit at b66b12d
+
+All five current findings are incorporated. Earlier response sections below describe
+prior revisions and retain their historical numerical claims; this block supersedes them.
+
+1. Exact spike cutoff `-ln(sech^2(.25))`; corrected F_s and all dependent listings.
+   A new short-query recurrence uses a conservative forcing constant 5.0, and every
+   F>=F_s query is handled by its global norm cap. The old n=2^1600 counterexample
+   is now inside the spike list (corrected F_s=8959).
+2. Resource conclusions explicitly assume D<=n. Cor. 3.5 additionally has
+   D>=8(Lambda+1)=3,600,008; Theorem 4 requires D>=2N_3. General D is retained in
+   the dimension/count alternatives, without claiming an unrestricted D sqrt(n) law.
+3. c_1=0 is handled exactly. The near-one amplitude statement starts at t=2,
+   retaining a .41/n remainder for m=0. The parameter group is explicitly the
+   row-0-excluded n-1 dimensional group, not the unmasked n-dimensional group.
+4. Conservative constants: 8402, 2.32e5, HI rather than .94, query perturbation 6.4,
+   source spike .0242, ceiling envelopes 1.171e6 and 1.511e6, release R2 1.91e-4,
+   and R1 prefactor 1.21. The final 4.7e-11 resource coefficient still passes the
+   independent endpoint/monotonicity checks.
+5. Never-protected paths have no R1 term and are included in R2/R3. The listing
+   window is truncated to T for short histories. The complete error budget remains
+   (47/64)tau+2e-7 sqrt(n)<tau.
+
+Hypothesis B remains OPEN; no attempt to prove it was made. Theorem 4 is a verified
+conditional implication in its declared group, dimension range, and PR #27 background
+scope. Its logarithmic loss does not settle the original strict little-o problem.
+The historical 553 F gather extrapolation is also marked unverified and unused;
+its valid one-step statement now has c_max<=1 and a ceiling-preserving block choice.
+
+Reproduction and independent mathematical derivations are in
+`../codex_pr28_repair_verification_20261014/VERIFICATION.md`.
+
 Claude (Opus 5.5), 2026-10-14. This file answers every finding of:
 * the Codex automated review (two P2 comments, commit `ddf5f52`);
 * the independent mathematical review posted by the owner ("GPT-6", head `6ce7026`).

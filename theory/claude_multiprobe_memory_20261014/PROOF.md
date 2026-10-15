@@ -1,6 +1,6 @@
 # Multi-probe memory and code-dependent schedules after the K-probe barrier
 
-Claude (Opus 5.5), 2026-10-14. Original frozen dense-tanh model, exact d_F contract,
+Claude (Opus 5.5), 2026-10-14. Original frozen dense-tanh model, explicitly selected fixed-feature group (section 0),
 budget `mT` (peak driven width x horizon). Builds on PR #27 (Theorem 1, the K-probe
 barrier; its P1/P2 repairs were verified in `118b1e6`). Author-derived; **independent
 review required**. Labels: [PROVED], [CONDITIONAL] (proved from a stated hypothesis),
@@ -12,7 +12,13 @@ Theorem 2, the constants of Cor. 3.5, and multi-step queries (Lemma 1.2'). It ad
 bus-capture problem, Lemma 7.1–7.3, Hypothesis B and the conditional Theorem 4. The
 point-by-point response is in `REVIEW_RESPONSE.md`. The original problem remains **OPEN**.
 
-## 0. Contract and the full d_F separation
+**Independent-review repair.** The exact query cutoff, initialization, parameter-group
+scope, integer constants and release bookkeeping below incorporate the review of
+`b66b12d`. Verification and independent checks are in
+`../codex_pr28_repair_verification_20261014/`. Hypothesis B and the original strict-budget
+problem remain **OPEN**; no attempt to prove B is part of this repair.
+
+## 0. Contract and the explicitly selected d_F,E separation
 
 The model, constants and notation are those of PR #27 §0–§2: `R0 = diag(aO, lam I_l)`,
 `O = UPU`, `||R - R0|| <= 4e-8/n^2`, `b = .05`, source feature `f_s = 1_l/sqrt(l)`, and
@@ -20,9 +26,17 @@ The model, constants and notation are those of PR #27 §0–§2: `R0 = diag(aO, 
 
     B_t = G_t (R B_(t-1) + c_t E),   B_0 = 0,                                       (0.1)
 
-Column `r` of `B_t` is the credit of parameter direction `(E e_r) f_s^T`. The fixed-feature
-(selected-source) gradient group is the n-dimensional subspace `{u f_s^T}`, so the
-**full** d_F uses all `n` columns: it is the case `K = n` of PR #27.
+Here `E := diag(0,1,...,1)` on all `n` state rows. Column `r` of `B_t` is the credit of
+parameter direction `(E e_r) f_s^T`; column 0 is redundant and identically zero. The
+group proved here is exactly `{u f_s^T : u_0=0}`, of dimension `n-1`, including source
+row directions. Write its metric `d_F,E`; references to `d_F` within the results of
+this note mean this selected group. It contains the inherited memory-row subgroup
+`u in span{e_1,...,e_(k-1)}`. It is not the unmasked n-dimensional group: direction
+`e_0 f_s^T` has direct credit injection and is not covered by the row-0 leak argument.
+No obstruction for that omitted direction or the full R/W/b gradient is asserted here.
+The response operator is n-by-(n-1), so there is no general conclusion `D <= n`.
+
+Throughout, `LO := sech^2(.75)` and `HI := sech^2(.25)` are exact constants.
 
 **Exact separation.** Let `Z = R Delta B_T`, with `Delta` the antipodal difference. For a
 common endpoint and a one-step legal query with future gates `g in [LO,HI]^n`, the
@@ -34,13 +48,19 @@ For an F-step legal query, replace `R^T g` by
 `nu_F = R^T G_(T+1) R^T G_(T+2) ... R^T G_(T+F) 1_n`, with every future gate in
 `[LO,HI]`. Robustness at `eps = .001` requires
 
-    sup_g ||Z(theta)^T g||_2 > tau := .002 n sqrt(n)/(sigma sqrt l) ~ .0566 n
+    sup_(F>=1, legal future gates) ||Delta B_T(theta)^T nu_F||_2
+       > tau := .002 n sqrt(n)/(sigma sqrt l) ~ .0566 n
     for every boundary theta.                                                        (0.3)
 
-Write `g = gbar 1 + Dg eps`, with `gbar = .7684`, `Dg = .1718` and `eps in [-1,1]^n`. Then
+For one-step-only certificates this reduces to `sup_g ||Z^T g|| > tau`. For `n>=10^8`,
+`sigma <= tanh(.05)+1/(100n)` and `l=ceil(n/2)` give `tau >= .0566 n`,
+`tau^2 >= .0032051 n^2`, and `(3 tau/4)^2 >= .0018029 n^2`.
+
+Write `g = gbar 1 + Dg eps`, with exact `gbar=(HI+LO)/2`, `Dg=(HI-LO)/2`, and
+`eps in [-1,1]^n`. Numerically `gbar=.7683003285...`, `Dg=.1717145203...`. Then
 `Z^T g = gbar Z^T 1 + Dg Z^T eps`: a *mean channel* plus a *contrast channel*.
 
-## 1. Exact structure of the full d_F [PROVED]
+## 1. Exact structure of the selected d_F,E [PROVED]
 
 **Lemma 1.1 (gather identity).**
 
@@ -74,8 +94,8 @@ Let `nu = R0^T g` with `g in [LO,HI]^n`, and put `gbar_k = sum_(j=1)^(k-1) g_j /
 So every memory row **outside the exceptional set `E_1 = {0, d-1}`** is read with weight
 `|nu_i| <= (HI - LO) + 3/sqrt(k) <= .345`, i.e. only through the *contrast* of the query,
 because the query's mean is gathered into row `d-1`. The two exceptions are:
-* row `d-1` (the gather row), read with weight `<= .94 sqrt(k)`;
-* row 0, read with weight `a g_0 <= .94`.
+* row `d-1` (the gather row), read with weight `<= HI sqrt(k)`;
+* row 0, read with weight `a g_0 <= HI`.
 
 The earlier version of this lemma applied the contrast bound to row 0 as well. That was
 wrong (Codex P2): for `g = q 1`, `nu_0 = a q`.
@@ -94,13 +114,13 @@ gives the formulas for rows `>= 1`, and `(O^T g)_0 = g_0` because `O^T e0 = e0`.
   `(H B_(t-1))_0`, of size `<= ||H|| ||B_(t-1)||_op <= ||H|| t/sigma`. Summing,
   `||B_T(0,:)|| <= ||H|| T^2/(2 sigma) <= 4e-7 T^2/n^2`, which is `<= 4e-7 n` for
   `T <= n^(3/2)`.
-* Its readout contribution is `<= .94 * 2 * 4e-7 n < 1e-6 n`, which is `< 2e-5 tau`.
+* Its readout contribution is `<= HI * 2 * 4e-7 n < 1e-6 n`, which is `< 2e-5 tau`.
 
 Row 0 is therefore an exceptional row with *negligible* content. It is still listed
 separately and is never covered by the contrast bound.
 
 **Consequences** (from the first version, restated with row 0 separated).
-* `||Z^T g|| <= .94 sqrt(k) ||Delta B_T(d-1,:)|| + .94 ||Delta B_T(0,:)||
+* `||Z^T g|| <= HI sqrt(k) ||Delta B_T(d-1,:)|| + HI ||Delta B_T(0,:)||
   + .345 sum_(i not in {0,d-1}) ||Delta B_T(i,:)|| + (source and H terms)`.
 * For rows with pairwise disjoint parameter supports, the third term is in *quadrature*:
   `.345 (sum_i ||Delta B_T(i,:)||^2)^(1/2)`.
@@ -112,7 +132,8 @@ separately and is never covered by the contrast bound.
 * *Setup.* Let `n >= 10^8` and consider an F-step legal query (any `F >= 1`) with memory
   future gates `g^(1), ..., g^(F)` in `[LO,HI]^k`. Let
   `nu = R0^T G^(1) R0^T G^(2) ... R0^T G^(F) 1` be its readout weights on the memory rows.
-  Put `F_s = ceil(ln(1.01 sqrt(k))/.0619)` (`= 143` at `n = 10^8`; it grows like `8 ln n`),
+  Put `r_H := -ln(HI)` exactly and `F_s := ceil(ln(1.01 sqrt(k))/r_H)`
+  (`=144` at `n=10^8`; asymptotically `F_s ~ ln(n)/(2 r_H)`),
   and `E_F = {0} ∪ {d-1, d-2, ..., d - min(F, F_s)}`.
 * *Bounds.*
   * `|nu_i| <= 1.2` for every memory row `i` outside `E_F`;
@@ -120,7 +141,11 @@ separately and is never covered by the contrast bound.
   * `0 < nu_0 <= 1`.
 * *Consequence.* For `F >= F_s` only row 0 is exceptional.
 
-*Proof.* Work in U-coordinates.
+*Proof.* If `F>=F_s`, contraction immediately gives
+`||nu||_2 <= HI^F sqrt(k) <= 1/1.01 < 1`. Thus every memory row is bounded by 1;
+there is no need to track old spikes or cycle wraps in this case. For `F<F_s`, work
+in U-coordinates. Since `r_H>.0618`,
+`F_s <= 1 + (ln(1.01)+.5 ln k)/.0618 < d-3` for all `n>=10^8`.
 * *Setup.*
   * Put `psi_F = U G^(F) 1_k`, `chi_j = a P^T psi_j`, and `psi_j = M_j chi_(j+1)` with
     `M_j = U G^(j) U`. Then `U nu = chi_1`, because `O^T = U P^T U` and `U^2 = I`.
@@ -148,18 +173,25 @@ separately and is never covered by the contrast bound.
 
   Hence
 
-      A_j <= HI A_(j+1) + .1719 gamma HI^(F-j) + 4.9/sqrt(k)   (while A <= 1.3),
+      A_j <= HI A_(j+1) + .1719 HI^(F-j) + 5.0/sqrt(k)   (while A <= 1.3),
 
   and therefore
 
-      A_1 <= max_(x>=0) .94^x(.3436 + .1719 x) + 84/sqrt(k) <= 1.157 + .012 < 1.17.
+      A_1 <= max_(x>=0) HI^x(.3436 + .1719 x)
+             + (2 + 5/(1-HI))/sqrt(k) < 1.159 + .0121 < 1.18.
+
+  For the numerical forcing bound, `|g_i-gamma Gamma| <= 2 HI-LO`,
+  `|w^T chi| <= A+1`, and the sharper uniform-term estimate is
+  `|sigma_j| <= gamma Dg HI^(F-j) + gamma(HI A+gbar)/sqrt(k)`.
+  At `A<=1.3`, `gamma[(2 HI-LO)(A+1)+HI A+gbar] < 5`, and
+  `gamma Dg < .1719`. These estimates prove the bootstrap `A<1.3`.
 
 * *Back to standard coordinates.* `nu_i = chi_1(i) + (gamma/sqrt k)(w^T chi_1)` for
-  `i >= 1` gives `|nu_i| <= 1.2` off `E_F`.
-* *Spikes.* The spike created at stage `j` is `<= HI^(F-j+1) sqrt(k)` and is multiplied by
-  `j-1` further gates, so every spike at stage 1 is `<= 1.01 HI^F sqrt(k)`. Spikes created
-  more than `F_s` stages earlier are `<= 1`, so they are absorbed into the non-exceptional
-  bound `A <= 1.17`.
+  `i >= 1` gives `|nu_i| <= 1.18 + gamma(1.18+1)/sqrt(k) < 1.2` off `E_F`.
+* *Spikes.* The global contraction bound already gives every standard-coordinate weight
+  `|nu_i| <= HI^F sqrt(k) <= 1.01 HI^F sqrt(k)`. The only excluded coordinates when
+  `F<F_s` are the at most F moving spikes; when `F>=F_s`, the initial norm argument
+  covers all coordinates.
 * *Staying away from U-coordinates 0 and 1.* Live spikes stay on U-coordinates
   `>= d - F_s >= 3`. So in the shift step a non-exceptional U-coordinate always comes from
   a non-exceptional one. QED
@@ -353,23 +385,25 @@ at most the block variation `TV_b`, so
 Hence `Pi f(theta) != 0`, and `Pi f` is an odd map into `R^N \ {0}`. QED
 
 A linear block code attains `||f|| ~ V sqrt(L)/(2D)`. The lemma shows that no code,
-linear or not, beats `||f|| ~ V sqrt(L/D)`. A chain's robust capacity at l2-radius `rho`
-is therefore `<= V^2 L/rho^2 + 1`.
+linear or not, beats that block-approximation scale. Numerical capacity statements
+below use explicit integer choices; the ceiling in Lemma 3.2 must not be dropped
+when inverting its bound.
 
 **Corollary 3.3 (gather channel) [CONDITIONAL].** Assume:
-* (a) the source is public;
+* (a) the source is public, with `c_max<=1` for the numerical bound 553 below;
 * (b) the contrast part is small: `sup_g` of the non-gather terms of Lemma 1.2 is
   `<= tau/4`;
 * (c) the non-own-injection part of `Delta B_T(d-1,:)` (bus deliveries) and the
   source/H terms together contribute `<= tau/4`.
 
-Then `.94 sqrt(k) ||Delta A_(d-1)|| >= tau/2`, so `rho >= .0426 sqrt(n)`. Lemma 3.2 with
-`V = 2c = 2` and `L <= n/4` gives
+Then `HI sqrt(k) ||Delta A_(d-1)|| >= tau/2`, so `rho^2 >= .00181 n`. Lemma 3.2 with
+`V<=2`, `L<=n/4`, and the integer choice `N=553` gives, for `n>=10^8`,
 
-    D <= 4 (n/4)/(.00181 n) + 1 <= 553.
+    V^2 ceil(L/553) <= n/553+4 < .00181 n <= rho^2, so D<=553.
 
-With an F-step legal query each future step can gather at most one spike, so the bound
-becomes `<= 553 F`. Each step attenuates by `HI = .94`, so `F` is effectively `O(1)`.
+The earlier `553 F` multi-step extension was not accompanied by a joint approximation
+proof and is not used or certified here. Theorem 4 instead lists all spikes with a
+separate geometric error allocation and an explicit integer block count.
 
 ### 3b. Chain-memory capacity: many directions on few rows [PROVED; repaired 2026-10-14]
 
@@ -441,8 +475,8 @@ corrected 2026-10-14].**
 Hence
 
     D <= 128 c_max^2 nu_max^2 (pL)^2/rho^2 + 2p
-      =  8400 c_max^2 (pL/n)^2 + 2p         (one-step queries)
-      or 1.03e5 c_max^2 (pL/n)^2 + 2p       (all legal queries).                    (3.1)
+      <= 8402 c_max^2 (pL/n)^2 + 2p         (one-step queries)
+      or <= 1.03e5 c_max^2 (pL/n)^2 + 2p       (all legal queries).                    (3.1)
 
 The previously stated `4300 c^2 (pL/n)^2 + 4p` did not follow from the integer block
 choice given there. (3.1) replaces it; the asymptotics are unchanged.
@@ -453,9 +487,10 @@ choice given there. (3.1) replaces it; the asymptotics are unchanged.
 
 *Resources.* Require the carrying rows to be protected at `T`. Then
 `p <= (m+1)(Lam+1)`, or `(2m+1)(Lam+1)` for code-dependent schedules, and `L <= T`.
+For this resource conclusion additionally assume `8(Lam+1) <= D <= n`.
 From (3.1), either `p >= D/4` or `pL >= n sqrt(D/(2 C_a))`, where `C_a` is the coefficient
-in (3.1). Using `c_max <= 1/sigma = 20.02`, `T > .001 sqrt(n)` (repository bound (20)),
-`2m+1 <= 3m`, and `D >= 8(Lam+1) = 3.6e6`:
+in (3.1). Using `c_max <= 1/sigma < 20.02`, `T > .001 sqrt(n)` (repository bound (20)),
+`2m+1 <= 3m`, and `8(Lam+1) = 3,600,008` (with the stated `D <= n`):
 
     mT >= 1.38e-10 D sqrt(n)   (one-step queries),
     mT >= 8.1e-11 D sqrt(n)    (all legal queries).
@@ -464,21 +499,23 @@ These replace the previous unsupported `7e-11 n^(3/2)` (GPT-6 item 4). Thus `D =
 still forces `mT = Omega(n^(3/2))` within this family.
 
 **Answer to "can a few protected rows hold many independent gradient directions?"**
-Only up to `O((pL/n)^2)`. The reason is that the parameter-space content of a row is a
+Only up to `O((pL/n)^2+p)` under the stated remainder hypotheses. The reason is that the parameter-space content of a row is a
 **monotone suffix-product profile** along its own path. Coherent readout across rows
 needs overlapping paths, and at most `L + b` paths meet any block.
 
 ## 4. Multi-probe constructions: specification, resources, obstruction [ANALYSIS unless marked]
 
-Each candidate below lives in the original model, is certified by the full d_F
-(0.2)–(0.3), and is costed by peak width `m` and horizon `T`.
+The specified candidates below are evaluated in the selected d_F,E metric
+(0.2)–(0.3), with each construction's stated hypotheses and peak-width/horizon cost.
+Resource analyses are not a universal obstruction or a proof of Hypothesis B.
 
 **4.1 Gather-chain memory.**
 * *Construction:* modulate the gates of the final broadcaster's hole (`p0 -> d-1`) with the
   code, and read with the uniform query.
 * *Resources:* `m = O(1)` (one hole plus the modulation), `T ~ n/4`, so `mT = O(n)`.
 * *Capacity:* `D <= 553` (Cor. 3.3). This is constant-dimensional memory.
-* *With F-step queries:* `D <= 553 F`.
+* *With F-step queries:* the earlier `553 F` estimate is not certified; use Theorem 4's
+  independently budgeted spike listing for its stated conditional result.
 * *Verdict:* fails for linear `D`.
 
 **4.2 Chain (diagonal / suffix-product) memory on protected rows.**
@@ -487,7 +524,7 @@ Each candidate below lives in the original model, is certified by the full d_F
   pass fixed "station" rows, so that all holes share block-aligned parameter structure and
   `K` block probes are common.
 * *Obstruction [PROVED under (H1)–(H5)]:* Corollary 3.5 gives
-  `D <= 8400 c^2 (pL/n)^2 + 2p` for one-step queries (3.1). (The first version's
+  `D <= 8402 c^2 (pL/n)^2 + 2p` for one-step queries (3.1). (The first version's
   `4300 c^2 (pL/n)^2 + 4p` is superseded.)
 * *Why the synchronised variant fails:* at most `L` holes can share any block (paths move
   one row per step). Robust codes with `q` bits per hole have suffix-sum levels `<= O(1/sqrt q)`.
@@ -525,17 +562,21 @@ Each candidate below lives in the original model, is certified by the full d_F
   unless `m >= c0 n` (PR #27 Lemma 2.4).
 * *Verdict:* fails, needing `Theta(n)` width.
 
-**4.5 Many gathers via long future queries.** Covered by Cor. 3.3: `D <= 553 F`, with `F`
-effectively `O(1)`. Fails.
+**4.5 Many gathers via long future queries.** The earlier `553 F` estimate is not a
+certified all-query bound. The proved query-weight lemma and Theorem 4's conditional
+spike listing replace it for the current argument; no separate universal exclusion is
+inferred from this historical design calculation.
 
 **Common cause.** A robust readout needs `||Z^T g|| >= .0566 n`. The readout weights are
-`<= .345` on every row except the gather row (Lemma 1.2). So the needed magnitude must
+`<= .345` outside rows 0 and d-1 for one-step queries (Lemma 1.2); masked
+reference row-0 credit is zero. Multi-step weights use Lemma 1.2'. So the needed magnitude must
 come from one of three sources:
 1. coherent alignment of `Theta(n)` hidden rows: the single-probe mechanism, barred by
    PR #27 Theorem 1 and by Theorem 2 here;
 2. parameter-space content on few rows: bounded by Theorem 3, because a row's content is a
    monotone suffix profile on its own path and at most `L + b` paths meet any block;
-3. the `sqrt(k)` gather, which reads `O(F)` chains of TV-limited content (Cor. 3.3).
+3. the `sqrt(k)` gather, whose one-step statement is Cor. 3.3 and whose multi-step
+   treatment is the explicit conditional spike listing of Theorem 4.
 
 The broadcast bus adds bandwidth (one n-vector per step) but not gain (`1/sqrt(k)`, §4.3).
 
@@ -543,22 +584,23 @@ The broadcast bus adds bandwidth (one n-vector per step) but not gain (`1/sqrt(k
 
 | Claim | Status |
 |---|---|
-Status after the 2026-10-14 repair. "Author" means checked only by me; every item still
-needs a non-author review.
+Current status after the independent repair of b66b12d. The verification record
+certifies the repaired argument in its explicit scope; PR #27 remains a declared
+background dependency and Hypothesis B remains OPEN.
 
 | Claim | Status |
 |---|---|
-| Exact full-d_F separation (0.2), gather identity (1.1) | PROVED |
+| Exact selected d_F,E separation (0.2), gather identity (1.1) | PROVED in the explicit group |
 | Lemma 1.2 (one-step weights; row 0 and the gather row are separate exceptions) | PROVED (repaired) |
 | Lemma 1.2' (all legal F-step queries: `|nu_i| <= 1.2` off `<= F_s` spike rows) | PROVED (author) |
 | Lemma 3.0 (local skeleton; own-injection paths end at row `d-1`, no wrap) | PROVED |
 | Theorem 2: code-dependent schedules change the K-probe barrier by a factor `< 2(1 + 3e-6)` | PROVED relative to PR #27's Lemmas 2.1–2.5 and (3.1)–(3.8) (author) |
 | Lemma 3.1, Lemma 3.2, Lemma 3.4 (weighted, public time-varying source), Theorem 3 | PROVED (author) |
-| Cor. 3.5: `D <= 8400 c^2 (pL/n)^2 + 2p` (one-step) or `1.03e5 c^2 (pL/n)^2 + 2p` (all legal queries); `mT >= 1.38e-10 D sqrt(n)` resp. `8.1e-11 D sqrt(n)` | CONDITIONAL on (H1)–(H5), in particular the remainder hypothesis (H3) |
-| Gather-channel capacity `D <= 553 F` (Cor. 3.3) | CONDITIONAL on (a)–(c) of Cor. 3.3 |
-| Bus-capture, standing-pattern and multi-gather designs | REFUTED as routes below `n^(3/2)` (resource analysis, §4 and §6) |
+| Cor. 3.5: `D <= 8402 c^2 (pL/n)^2 + 2p` (one-step) or `1.03e5 c^2 (pL/n)^2 + 2p` (all legal queries); `mT >= 1.38e-10 D sqrt(n)` resp. `8.1e-11 D sqrt(n)` | CONDITIONAL on (H1)–(H5), in particular the remainder hypothesis (H3) |
+| One-step gather-channel capacity `D <= 553` (Cor. 3.3) | CONDITIONAL on (a)–(c), including c_max<=1; the old 553 F extension is not certified |
+| Historical bus-capture, standing-pattern and multi-gather designs | Scoped resource analysis; not a universal bus impossibility or certified 553 F extension |
 | §7: dense term, Lemmas 7.1–7.3 | PROVED (author) |
-| Theorem 4: full-d_F barrier for all schedules and legal queries | CONDITIONAL on Hypothesis B (author-checked) |
+| Theorem 4: selected d_F,E barrier for all schedules and legal queries; resources require D<=n | CONDITIONAL on OPEN Hypothesis B and declared PR #27 premises; repaired argument independently checked |
 | Hypothesis B | **OPEN** |
 | Original problem with the full d_F | **OPEN**. No construction found; general obstruction not proved. |
 
@@ -592,7 +634,7 @@ content inherited at a drive is part of the own profile.
 * *Own-injection part.* This is chain memory. Theorem 3 bounds its robust dimension by
   (3.1) with `p'` in place of `p`, which is the `n^(3/2)` barrier.
 * *Gather spikes.* `O(F)` rows, each with capacity `<= 553` (Cor. 3.3, conditional on its
-  bus hypothesis).
+  one-step bus and amplitude hypotheses; the older multi-step extrapolation is not certified).
 
 **The exact remaining gap: bus-captured content.** At each step every memory row
 receives the common vector `a Delta J_s`. It survives only on rows whose gate deviates
@@ -696,8 +738,9 @@ and is the only gap left between Theorems 1–3 and a full resolution.
 beyond Theorem 3.
 
 *Outcome.* Neither proved nor refuted. The problem is reduced to **one** precisely stated
-hypothesis, Hypothesis B in §7.5. Theorem 4 shows that B implies the full-d_F barrier for
-every schedule (public or code-dependent) and every legal query. Everything below other
+hypothesis, Hypothesis B in §7.5. Theorem 4 gives a selected-group barrier with a
+logarithmic loss, for public or code-dependent schedules and every legal query, in its
+explicit resource range `2 N_3<=D<=n`. It does not settle the original strict-budget problem. Everything below other
 than Hypothesis B is proved, except where a label says otherwise.
 
 ### 7.0 The R0 skeleton with actual gates, and the dense term [PROVED]
@@ -851,23 +894,29 @@ with `J` given by (7.1). Each requested effect:
   * The front row 1: its global term `e_1 Sum/sqrt(k)` is bus content. It is killed when
     the front is saturated (Lemma 1.3).
 * **Legal future queries.** Lemma 1.2' gives `|nu_i| <= 1.2` off the spikes. The actual-R
-  weights differ from the `R0` weights by `<= F HI^(F-1) delta sqrt(n) <= 6 delta sqrt(n)`
+  weights differ from the `R0` weights by `<= F HI^(F-1) delta sqrt(n) <= 6.4 delta sqrt(n)`
   in l2, which changes the readout by `< 1e-6`.
 
 ### 7.4 The source amplitude and the source channel [PROVED]
 
 **Lemma 7.3.** Let `n >= 10^8` and `m <= c0 n` (`c0 = 5e-5`). Recall
-`c_t = sum_(j in src) h_(t-1)(j)/(sigma l)` with `l = n/2` and `sigma = tanh(lam sigma + .05)`.
-* (a) **Amplitude.** `|c_t - 1| <= 42.6 m/n <= .0022` for all `t`, so `c_max <= 1.0022`.
-* (b) **Code-dependence.** For two histories, `|Delta c_t| <= 161 m/n`.
+`c_t = sum_(j in src) h_(t-1)(j)/(sigma l)` with `l=ceil(n/2)` and
+`sigma = tanh(lam sigma + .05)`. Robust sections with positive dimension have integer
+`m>=1`; if `m=0` there is only one input history and no robust positive-dimensional section.
+* (a) **Amplitude and initialization.** Exactly `c_1=0`. For `t>=2`,
+  `|c_t-1| <= 42.1 m/n + .41/n`; for `m>=1` this is `<=42.6 m/n`.
+  In either case `|c_t|<=1.0022` for every timestep, including `t=1`.
+* (b) **Code-dependence.** Exactly `Delta c_1=0`. For two histories with `m>=1`,
+  `|Delta c_t| <= 161 m/n` for all `t`.
 * (c) **Channel through ordinary rows.** For every set of memory rows with readout weights
   `|nu_i| <= 1.2`, the part `sum_i nu_i (Delta c) (.) Ybar_i` of the readout (the source
   channel of the own parts) has l2 norm `<= 137 m min(T,n)/sqrt(n)`.
 * (d) **Channel through the spike rows.** For every legal query, the source channel of the
-  spike rows `d-1, ..., d-F_s` has l2 norm `<= .0241 n^(3/4)` when `mT <= 2.5e-5 n^(3/2)`.
+  fixed spike-list rows `d-1, ..., d-F_s` has l2 norm `<= .0242 n^(3/4)` when
+  `mT <= 2.5e-5 n^(3/2)`.
 
 *Proof.*
-* Undriven source rows satisfy `|h - sigma| <= 2 lam + delta sqrt(n)`, since
+* After the first update, undriven source rows satisfy `|h - sigma| <= 2 lam + delta sqrt(n)`, since
   `lam = 1/(100n)` and `|(H h)_j| <= delta sqrt(n)`. Driven source rows satisfy
   `|h - sigma| <= 1 + sigma`.
   * (a) There are at most `m` driven rows per history, so
@@ -881,17 +930,27 @@ with `J` given by (7.1). Each requested effect:
 
   So the coordinate is `<= 1.2 min(T,n) max_t |Delta c_t|`. Over the `<= k` coordinates,
   the l2 norm is `<= sqrt(k) * 1.2 min(T,n) * 161 m/n <= 137 m min(T,n)/sqrt(n)`.
-* (d) Lemma 1.2' gives total spike weight `<= max_F F * 1.01 HI^F sqrt(k) <= 6.0 sqrt(k)`.
+* (d) The global contraction bound gives `|nu_i|<=HI^F sqrt(k)` for every row.
+  For `F<F_s`, the fixed list has at most F spike rows and at most `F_s-F` ordinary
+  rows of weight `<=1.2`. Thus its total weight is at most
+  `F HI^F sqrt(k)+1.2 F_s`. Here `max_F F HI^F<5.95` and `F_s/sqrt(k)<.021`
+  for `n>=10^8`, so this is `<(5.95+.0252)sqrt(k)<6 sqrt(k)`.
+  For `F>=F_s`, its at most `F_s<=F` rows have total weight
+  `<=F HI^F sqrt(k)<5.95 sqrt(k)`. The ratio estimate follows from
+  `F_s<=1+(ln(1.01)+.5 ln k)/.0618`, whose ratio to `sqrt(k)` decreases for
+  `k>=5e7`. This accounts for the ordinary list rows with `j>F` explicitly.
   Each spike row has `||(Delta c) (.) Ybar_i||_2 <= 161 m sqrt(T)/n`. Using `m <= c0 n` and
   `mT <= 2.5e-5 n^(3/2)`,
 
-      6.0 sqrt(k) * 161 m sqrt(T)/n = 683 sqrt(m) sqrt(mT)/sqrt(n) <= .0241 n^(3/4).
+      6 sqrt(k) * 161 m sqrt(T)/n
+        <= (966/sqrt(2)) sqrt(m) sqrt(mT)/sqrt(n)
+        <= .02415 n^(3/4) < .0242 n^(3/4).
 
 QED
 
 *Consequences, used in Theorem 4.*
-* (c) is `<= tau/16 = .00354 n` whenever `mT <= 2.5e-5 n^(3/2)`.
-* (d) is `<= tau/64` for `n >= 5.6e5`.
+* (c) is `<=137(2.5e-5)n=.003425 n<tau/16` throughout the stated budget range.
+* (d) is `<=tau/64` throughout the stated `n>=10^8` range, since `tau>=.0566 n`.
 * The earlier draft's `|Delta c_t| <= 80 m/n` counted only one history's drives, and its
   `c_max <= 1/sigma` ignored (a). Both are corrected here.
 
@@ -905,19 +964,30 @@ QED
 
       || sum_(memory rows l) nu_l bus_l ||_2  <=  tau/4.
 
+  Here `nu` is the R0 readout for the same actual legal future gates. The change from
+  actual-R readout weights is charged separately in Theorem 4, Step 3(h). Hypothesis B
+  is still **OPEN**; the rank-two identity is not a proof of it.
+
 * *A sufficient condition.* The uniform version (the same bound at **every** `theta`) says
   that the section never stores a quarter of its separation in the bus. It implies B.
 
-**Theorem 4 (full-d_F barrier, conditional on Hypothesis B) [CONDITIONAL; proof written
-out with explicit constants; author-checked, pending independent review].**
+**Theorem 4 (selected d_F,E barrier, conditional on Hypothesis B) [CONDITIONAL; proof written
+out with explicit constants; independent repair checked in the stated scope].**
 
 *Setup.*
+* Use the background premises of PR #27 Lemmas 2.1–2.5 and state estimates
+  (3.1)–(3.2), as explicitly imported by Theorem 2. Their application here is only in
+  the below-budget branch `T<=2.5e-5 n^(3/2)`; full independent certification of PR #27
+  is not asserted by this repair.
 * `n >= 10^8`. The schedule may be public or code-dependent: inputs continuous in `theta`,
-  legal, `|S_t(theta)| <= m`. The separation is the full d_F under all legal queries
-  (every `F >= 1`).
+  legal, `|S_t(theta)| <= m`. The separation is `d_F,E` for the explicitly defined
+  row-0-excluded group under all legal queries (every `F >= 1`).
 * `y := T/sqrt(n)`, so `y > .001` by bound (20).
 * `W' := ceil((8 + .5 ln+ y)/kappa)` (the release window), `W_s := ceil(19/kappa)`, and
-  `W := W' + W_s`, with `t0 := T - W`.
+  `W := min(T, W' + W_s)`, with `t0 := T - W >= 0`. All drive/front indices in
+  listings are intersected with the valid history times `1,...,T`. If `W=T`, the
+  complete inputs are listed and the equal-history argument ends the proof; every
+  release estimate below is used only in the remaining case `W<T`.
 * `E* := {0} ∪ {d-1, ..., d-F_s}`, or `{0, d-1}` if only one-step queries are certified.
 * `p := (2m+1)(W' + Lam + 1)` and `L := min(T, d-1)`.
 
@@ -929,18 +999,20 @@ out with explicit constants; author-checked, pending independent review].**
 
       D  <=  N_1 + N_2 + N_3,
       N_1 := (2m+1)(4W + Lam + 4),
-      N_2 := 2.31e5 (pL/n)^2 + 2p,
+      N_2 := 2.32e5 (pL/n)^2 + 2p,
       N_3 := 1.3e7 F_s   (all legal queries),   or   1.8e4   (one-step queries).
 
-*Resources.* If Hypothesis B holds and `D >= 2 N_3`, then
+*Resources.* If Hypothesis B holds and **`2 N_3 <= D <= n`**, then
 
     mT >= 4.7e-11 * D sqrt(n) * min(1, 890/ln n).
 
-So `D = Theta(n)` forces `mT = Omega(n^(3/2))` for every `n <= e^890`, and
-`mT = Omega(n^(3/2)/log n)` in general. The `log` comes only from the release window `W'`.
+For the finite range `n <= exp(890)` the minimum factor is 1. As `n -> infinity`,
+`D = Theta(n)` in the stated resource range gives `mT = Omega(n^(3/2)/log n)`.
+This does not rule out `mT=o(n^(3/2))` and does not settle the original strict-budget
+problem. The `log` comes from the release window `W'`.
 
 *Range.* `D >= 2 N_3` requires `D >= 3.6e4` for one-step certificates. For all legal
-queries it requires `D >= 2.6e7 F_s`, which is satisfiable (`D <= n`) only for
+queries it requires `2.6e7 F_s <= D <= n`, which is satisfiable in this explicit resource range only for
 `n >~ 5e9`. These constants are explicit but not optimized.
 
 *Proof.* Assume none of (A), (B'), (C) holds, so `m <= c0 n`, `mT <= mu n^(3/2)` with
@@ -985,16 +1057,19 @@ Lemma 2.1 gives a zero `theta*`. Write `pm` for `theta*` and `-theta*`.
   `<= 4 q^(t-t0) + 2e` on unprotected ones.
 * (F3) `Delta c_t = 0` for `t in (t0, T]`, by (i).
 
-**Step 3: decomposition of the readout.** Fix any legal query, with weights `nu`. By §7.0
+**Step 3: decomposition of the readout.** Fix any actual legal query. Write `nu_R` for
+its actual-R weights and `nu` for the R0 weights with those same future gates. By §7.0
 and Lemma 3.0,
 
-    nu^T Delta B_T = nu^T Delta(B_T - B'_T) + sum_src nu_i Delta B'_T(i,:)
-                     + sum_(l>=1) nu_l [ cbar (.) Delta Y_l + (Delta c) (.) Ybar_l ] + sum_(l>=1) nu_l bus_l.
+    nu_R^T Delta B_T = nu_R^T Delta(B_T - B'_T) + (nu_R-nu)^T Delta B'_T
+                     + sum_src nu_i Delta B'_T(i,:)
+                     + sum_(memory l>=1) nu_l [ cbar (.) Delta Y_l + (Delta c) (.) Ybar_l ]
+                     + sum_(memory l>=1) nu_l bus_l.
 
 Here `cbar = (c^+ + c^-)/2`, `Ybar = (Y^+ + Y^-)/2`, and `B'(0,:) = 0`. The terms are bounded
 as follows.
 * (a) **Dense.** `< 1e-7 sqrt(n)` (§7.0).
-* (b) **Source rows.** `|nu_i| <= lam + delta sqrt(n)`, and each source row has one credit
+* (b) **Source rows.** The R0 source weights satisfy `|nu_i|<=lam`, and each source row has one credit
   entry of size `<= 1.01`, so the term is `<= .015/sqrt(n)`.
 * (c) **Bus.** `<= tau/4`, by Hypothesis B.
 * (d) **Source channel.** For all rows except the spikes and the off-cycle rows of `C`
@@ -1009,15 +1084,17 @@ as follows.
     and choose `b_j` with `1.01 HI^j sqrt(k) c_max sqrt(8 b_j) <= eps_j`. This gives
     `b_j >= 3.0e-8 n` before rounding and `b_j >= 2.0e-8 n` after rounding down (`n >= 10^8`).
   * *Count.* Hence at most `ceil(L/b_j) + 1 <= 1.3e7` blocks per row, which gives `N_3`. For
-    one-step queries, row `d-1` alone with weight `<= .94 sqrt(k)` and error `tau/8` gives
+    one-step queries, row `d-1` alone with weight `<= HI sqrt(k)` and error `tau/8` gives
     `<= 1.8e4` blocks.
   * *Error.* For an `F`-step query, the rows `d-j` with `j <= F` have weight
     `<= 1.01 HI^F sqrt(k)` (Lemma 1.2'), and contribute `<= sum_j HI^(F-j) eps_j`. The rows
     with `j > F` have weight `<= 1.2 <= 1.28 * 1.01 HI^j sqrt(k)`, by the definition of
     `F_s`. The total is `<= 1.28 sum_j eps_j <= tau/8`.
-* (g) **Rows outside `C ∪ E*` (release).** See Step 4: `<= 6.8e-4 n <= tau/32`.
+* (g) **Rows outside `C ∪ E*` (release).** See Step 4: `<= 6.9e-4 n <= tau/32`.
 * (h) **Actual-R query weights.** Lemma 1.2' is stated for `R0`. The actual weights differ by
-  `<= 6 delta sqrt(n)` in l2, which changes the readout by `< 1e-6` (§7.3).
+  `<=6.4 delta sqrt(n)` in l2. Since `||Delta B'_T||op<=2(1.0022)n`, this term is
+  `<=5.2e-7/sqrt(n)`. Together with (a) and (b), all unallocated terms are
+  `<=8.2e-8 sqrt(n)+(.015+5.2e-7)/sqrt(n)<2e-7 sqrt(n)` for `n>=10^8`.
 
 The total is `<= tau(1/4 + 1/16 + 1/64 + 1/4 + 1/8 + 1/32) + 2e-7 sqrt(n)`
 `= (47/64) tau + 2e-7 sqrt(n) < tau`.
@@ -1037,6 +1114,12 @@ This contradicts robustness (0.3), so `D <= N_1 + N_2 + N_3`.
 
       sum_l q^(2 a_l) <= (2m+1) sum_(j > W') q^(2j) <= (2m+1) q^(2W')/(2 kappa - kappa^2).
 
+  This count is only over paths with a last protected position. A never-protected
+  path has no such drive/front start: set `a_l=+infinity`, give it no R1 term, and
+  put every injection at `s<=T-W'` in R2. Its entire path is unprotected, so the
+  R2 product bound is valid. Recent injections are in R3 as before. The many time-1
+  initial paths are therefore not counted as `2m+1` drive/front starts.
+
 * *Profile bounds.* For an injection time `s`:
   * (R1) If `s <= T - a_l`, both `Y^pm(s) <= q^(a_l)`, so `|Delta Y_l(s)| <= q^(a_l)`.
   * (R2) If `T - a_l < s <= T - W'`, both `Y^pm(s) <= q^(T-s)`.
@@ -1045,7 +1128,7 @@ This contradicts robustness (0.3), so `D <= N_1 + N_2 + N_3`.
 * *Readout of (R2) and (R3).* Bound each parameter coordinate by an l1 sum over the paths
   through it (one per offset `j = T - s`), then take l2 over `<= k` coordinates:
 
-      1.2 c_max sqrt(k) [ q^(W')/kappa + (4 q^(W_s) + 2e)/kappa^2 ] <= 1.9e-4 n + .85e-4 n.
+      1.2 c_max sqrt(k) [ q^(W')/kappa + (4 q^(W_s) + 2e)/kappa^2 ] <= 1.91e-4 n + .85e-4 n.
 
   This uses `q^(W') <= e^(-8)`, `q^(W_s) <= e^(-19)`, `e <= 8e-4/n^(3/2)` and
   `sqrt(n) <= n/10^4`.
@@ -1054,25 +1137,32 @@ This contradicts robustness (0.3), so `D <= N_1 + N_2 + N_3`.
   the term is
 
       <= 1.2 c_max (L + min(T,n)) sqrt((2m+1)/(2kappa - kappa^2)) q^(W')
-      <= 139 T sqrt(3m) q^(W')  =  139 sqrt(T) sqrt(3mT) q^(W')  <=  1.2 sqrt(y) n q^(W')
+      <= 139 T sqrt(3m) q^(W')  =  139 sqrt(T) sqrt(3mT) q^(W')  <=  1.21 sqrt(y) n q^(W')
       <= 4.1e-4 n.
 
   This uses `mT <= mu n^(3/2)` and `q^(W') <= e^(-8) min(1, y^(-1/2))`.
-* *Total.* `<= 6.8e-4 n <= tau/32`.
+* *Total.* `<= (1.91e-4+.85e-4+4.1e-4)n = 6.86e-4 n < 6.9e-4 n <= tau/32`.
 
-**Step 5: resources.** Cases (A) and (B') give `mT > 5e-8 n^(3/2)` and
+**Step 5: resources (explicitly assuming `2 N_3 <= D <= n`).** Cases (A) and (B') give `mT > 5e-8 n^(3/2)` and
 `mT > 2.5e-5 n^(3/2)` respectively. In case (D), with `D >= 2 N_3`, one of the following is
 `>= D/6`.
-* *`N_1 >= D/6`.* `4W + Lam + 4 <= 1.17e6 + 1.34e4 ln+ y`, so `mT >= 4.7e-11 D sqrt(n)`. (For
+* *`N_1 >= D/6`.* `4W + Lam + 4 <= 1.171e6 + 1.34e4 ln+ y`, so `mT >= 4.7e-11 D sqrt(n)`. (For
   `y >= 1` the bound is `4.7e-8`.)
-* *`2.31e5 (pL/n)^2 >= D/6`.* `p <= 1.51e6 m (1 + ln+ y/151)` and `L <= T`, so
+* *`2.32e5 (pL/n)^2 >= D/6`.* `p <= 1.511e6 m (1 + ln+ y/151)` and `L <= T`, so
   `mT >= 5.6e-10 n sqrt(D)/(1 + ln+ y/151)`.
 * *`2p >= D/6`.* `mT >= 5.5e-11 D sqrt(n)`.
 
-Together, `mT >= 4.7e-11 D sqrt(n) min(1, 900/ln+ y)`. If `mT < 4.7e-11 D sqrt(n)`, then
+In the quadratic branch, `n sqrt(D)>=D sqrt(n)` uses exactly `D<=n`; the wide-width
+and large-budget branches use it as well. The preceding lower coefficients follow
+from `.001/(18*1.171e6)>4.7e-11`,
+`1/(1.511e6 sqrt(6*2.32e5))>5.6e-10`, and
+`.001/(12*1.511e6)>5.5e-11`.
+
+Together, `mT >= 4.7e-11 D sqrt(n) min(1, 900/ln+ y)` (factor 1 when `ln+ y=0`).
+If `mT < 4.7e-11 D sqrt(n)`, then
 `y < 4.7e-11 n`, so `ln+ y < ln n`, which gives the stated form. QED
 
-**Reading of Theorem 4.** Below the barrier, a robust full-d_F section can exist only if,
+**Reading of Theorem 4.** Below the stated dimension/count threshold, a robust selected d_F,E section can exist only if,
 at the antipodal pair selected by the state-only listing, the bus carries at least `tau/4`
 of the separation. Everything else is accounted for:
 * own chain content, by Theorem 3;
@@ -1129,7 +1219,7 @@ of the separation. Everything else is accounted for:
 | Lemma 7.1: exact bus structure; inter-path transfers only via rank-two `X_t`; corrected leak coefficient | PROVED (identities verified to `<= 4e-15`) |
 | Lemma 7.2: capture budget with bath reference | PROVED |
 | Lemma 7.3: `c_max <= 1.0022`, `|Delta c| <= 161 m/n`, source channel `<= tau/16 + tau/64` below the barrier | PROVED |
-| Theorem 4: full-d_F barrier for all schedules and legal queries | CONDITIONAL on Hypothesis B; proof written out, author-checked, pending independent review |
+| Theorem 4: selected d_F,E barrier for all schedules and legal queries; resources require D<=n | CONDITIONAL on OPEN Hypothesis B and declared PR #27 premises; repaired argument independently checked |
 | Hypothesis B (bus part `<= tau/4` at the listing's zeros) | **OPEN** |
 | U-path reformulation of B | ANALYSIS (not carried out) |
 | Main problem `D = Omega(n)`, `mT = o(n^(3/2))` | **OPEN** |

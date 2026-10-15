@@ -4,7 +4,39 @@ Claude (Opus 5.5), 2026-10-14. Original frozen dense-tanh model, exact d_F contr
 budget peak width `m` x horizon `T`. Full mathematics: [PROOF.md](PROOF.md). Builds on
 PR #27 (Theorem 1, the K-probe barrier; repairs verified in `118b1e6`).
 
-## Update 2026-10-14: repair after review, and the bus problem
+## Current independent repair of b66b12d
+
+The repaired proof and independent checker are in [PROOF.md](PROOF.md) and
+[verification](../codex_pr28_repair_verification_20261014/VERIFICATION.md).
+
+* The exact cutoff is `F_s=ceil(ln(1.01 sqrt(k))/(-ln(HI)))`, with
+  `HI=sech^2(.25)`. It is 144 at `n=10^8`. Queries at or beyond this cutoff have
+  total readout norm below 1; shorter queries have non-spike weights below 1.2.
+* The selected group is `{u f_s^T:u_0=0}`, with `E=diag(0,1,...,1)` and metric
+  `d_F,E`. The omitted row-0 direction and full R/W/b gradient are not covered.
+* Initialization is explicit: `c_1=0`; the near-one source estimate starts at `t=2`.
+  The global cap `|c_t|<=1.0022` and pair-source estimates are retained.
+* Integer constants are conservative: Cor. 3.5 uses `8402` (one step) and
+  `1.03e5` (all queries); Theorem 4 uses `N_2=2.32e5(pL/n)^2+2p`, exact ceilings,
+  and a source-spike cap `.0242 n^(3/4)`.
+* Never-protected paths are included in R2/R3, with no R1 term. Short histories
+  use a truncated listing window. The repaired error ledger is
+  `(47/64)tau+2e-7 sqrt(n)<tau`.
+* Theorem 4's resource conclusion is explicitly for `2 N_3<=D<=n`:
+  `mT>=4.7e-11 D sqrt(n) min(1,890/ln n)`, conditional on Hypothesis B and the
+  declared PR #27 background premises. Theorem 2 remains a relative implication;
+  Theorem 3's public-interval/public-weight argument is preserved.
+* Asymptotically, linear D gives only `Omega(n^(3/2)/log n)`. This does not settle
+  the original strict little-o problem. Hypothesis B and that problem remain **OPEN**.
+* The older Cor. 3.3 `553 F` extrapolation is not certified or used. Its one-step
+  553 bound now states the necessary `c_max<=1` hypothesis and uses an exact
+  integer projection choice.
+
+No attempt to prove Hypothesis B was made during this repair. The old updates below
+are retained as historical records; their numerical constants, unqualified group names,
+and multi-step gather extrapolations are superseded by this current statement.
+
+## Historical update at b66b12d (superseded scope and numerical constants)
 
 The Codex review (two P2 findings) and the owner-posted independent review (GPT-6,
 items 1–5) were all **correct**. Point-by-point answers are in

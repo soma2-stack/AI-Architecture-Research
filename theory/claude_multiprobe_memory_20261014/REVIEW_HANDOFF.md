@@ -1,5 +1,17 @@
 # Review handoff — claude_multiprobe_memory_20261014
 
+**Current repair of b66b12d.** The five prioritized findings are incorporated in
+PROOF.md. Independent derivations, checker and recorded results are in
+`../codex_pr28_repair_verification_20261014/`. Theorem 4 is verified as a conditional
+implication in its explicitly selected group and declared PR #27 background scope;
+its resource conclusion requires `2 N_3<=D<=n` and retains the logarithmic loss.
+Hypothesis B and the original strict-budget problem remain OPEN. No proof attempt
+for B was made. The older 553 F gather extrapolation is unverified and unused.
+
+The attack points below are retained for provenance. Inspect the corrected exact
+cutoff, source startup, conservative ceilings and never-protected-path convention
+against the independent verification before expanding the scope.
+
 The first round of findings (Codex P2 ×2; GPT-6 items 1–5) is answered in
 [REVIEW_RESPONSE.md](REVIEW_RESPONSE.md). Please hostile-review the **repaired** text, in
 this order:

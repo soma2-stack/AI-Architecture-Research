@@ -26,6 +26,33 @@ finite samples only**. The asymptotic theorems rest on the proofs.
 Check F was added after my own first draft of §7 used the wrong leak coefficient
 (`gamma/k`); the draft was corrected before commit.
 
-The arithmetic of Theorem 4's constants (block lengths `b_j`, the release terms
-R1–R3 `<= 6.8e-4 n < tau/32`, the source-channel margins, the resource cases) was
-spot-checked in the session with a short script. Those checks are arithmetic, not proofs.
+The original session spot-checks were not independent certification; their rounded
+constants are superseded by the repair below. The author tables above are historical
+finite diagnostics for the masked E group, not the omitted unmasked row-0 direction.
+
+## Independent repair verification
+
+Run from the repository root:
+
+```powershell
+python -I theory/codex_pr28_repair_verification_20261014/checks.py
+```
+
+The script imports no author code and writes only its separate `independent_results.json`.
+The complete mathematical derivations and scope are in
+[VERIFICATION.md](../codex_pr28_repair_verification_20261014/VERIFICATION.md).
+
+| Check | Result |
+|---|---|
+| Correct exact spike cutoff; old n=2^1600 counterexample | F_s=8959; old F=8954 spike now listed; corrected tail norm below 1 |
+| Short-query recurrence and Householder correction | Non-spike majorant below 1.2; long queries use the global norm cap |
+| Source initialization | c_1=Delta c_1=0; later near-one estimate and all-timestep upper cap treated separately |
+| 109 independently implemented exact-structure float64 checks | Maximum error <8e-15 |
+| 36 adversarial future-query samples | No new finite counterexample; samples are diagnostic |
+| Integer block choices / weighted profiles | 700 / 250 checks pass |
+| Two-history release schedules, including never-protected paths | 300 checks pass |
+| Corrected error ledger | <=(47/64)tau+2e-7 sqrt(n)<tau |
+| Corrected resource constants and ceilings | All conservative majorants pass; conversion explicitly uses D<=n |
+
+Runtime is approximately one second on CPU; no training or GPU. Hypothesis B is **OPEN**
+and was not tested or proved as a conjecture during this repair.
