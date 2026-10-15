@@ -1,0 +1,44 @@
+{
+  "folder": "theory/claude_narrow_capture_hub_20261013",
+  "author": "Claude (Opus 5.5)",
+  "date": "2026-10-14",
+  "branch": "claude/narrow-capture-hub-20261013",
+  "base": "origin/main f8a96fb",
+  "builds_on": [
+    "PR #26 claude/neutral-path-tax-20261013 (e13311b), unmodified",
+    "gemini/pr26-neutral-hole-audit-20261013 (2f3a3d2), read only",
+    "theory/codex_holding_cost_attack_20261003 bound (20)",
+    "theory/codex_single_block_spatial_write_20261004 single-probe cap D<=n",
+    "theory/codex_suffix_product_kernel_attack_20261003 (template for next step)"
+  ],
+  "compute": "CPU only; independent rational certificates and small structural checks; no training or GPU",
+  "restricted_notebooks_read": false,
+  "agents_md_modified": false,
+  "status": "SCOPED THEOREM INDEPENDENTLY VERIFIED WITH AUDIT-DRIVEN CORRECTIONS; ORIGINAL PROBLEM OPEN",
+  "final_cross_pr_addendum": {
+    "reviewed_head": "a67be6da53a539198fc82264606b88d74de67a00",
+    "date": "2026-10-15",
+    "correction": "Lemma 1.3 injection is c_t U G_t Ev, not c_t U Ev",
+    "verification": "../codex_pr27_repair_verification_20261015/FINAL_CROSS_PR_ADDENDUM.md",
+    "theorem_constants_and_assumptions_changed": false
+  },
+  "repairs": {
+    "editor": "Codex",
+    "date": "2026-10-15",
+    "base_pr27_head": "118b1e66ea327af0738249fc613208a544c4df60",
+    "compatible_pr28_head": "3746747137bb681ceda9c0f21b19e66d264165d1",
+    "audit": "../codex_pr27_repair_verification_20261015/AUDIT_20261014.md",
+    "verification": "../codex_pr27_repair_verification_20261015/REPAIR_VERIFICATION.md",
+    "theorem_constants_preserved": true,
+    "model_and_normalization_changed": false,
+    "hypothesis_B_attempted": false,
+    "pr28_modified": false,
+    "withdrawn_claims": [
+      "total hole credit bounded by own injections",
+      "exact finite uniform destruction",
+      "post-gate operator aP(UGU)",
+      "round zero subsphere",
+      "upward-rounded .33n threshold"
+    ]
+  }
+}
