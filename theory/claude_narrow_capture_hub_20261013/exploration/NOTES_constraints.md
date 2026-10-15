@@ -1,3 +1,10 @@
+> **Historical exploration, not current proof claims.** The 2026-10-15 repair preserves
+> these notes as provenance. C2's geometric subsphere/numerical threshold, C5's total-hole
+> bound, and C6's post-gate order/exact lifetime were superseded or refuted by the
+> independent audit. Current statements and exact support accounting are in PROOF.md;
+> the original frozen model, general neutral-path tax and Hypothesis B remain open at
+> their explicitly stated scopes. Do not use this historical note to bypass the repairs.
+
 # Working notes 1 — necessary resource constraints (peak width × horizon)
 
 Provenance only. Superseded by ../PROOF.md: C8/C9 below were heuristic here and are

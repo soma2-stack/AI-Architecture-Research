@@ -1,45 +1,34 @@
 # Status — claude_narrow_capture_hub_20261013
 
-**Type:** author proof (theory) on the original frozen dense-tanh contract, peak width x
-horizon budget. **Repository status:** PENDING INDEPENDENT REVIEW.
+Updated by Codex, 2026-10-15, after the independent foundation audit of 118b1e6.
+
+**Current lens:** preserve independently verified frozen-model mathematics and correct
+auxiliary claims, arithmetic and scope. **Stage:** audit-driven repair and verification.
+**Strongest surviving result:** Theorem 1, the fixed-K public-schedule support-count barrier.
+**Closed claims:** total hole credit bounded by own injections; exact finite destruction;
+the old post-gate operator order; the old subsphere/numerical-threshold inference.
+**Unresolved questions:** unrestricted multi-probe bus content, Hypothesis B, general
+neutral-path tax, and the original frozen dense-tanh strict-budget problem.
+**Next action:** review the committed correction record; keep B OPEN. This phase does
+not attempt B or introduce a new research/training direction.
 
 | Item | Status |
 |---|---|
-| Original strict-budget problem `D = Omega(n)`, `mT = o(n^(3/2))` (full d_F) | **OPEN** (unchanged) |
-| Candidate Theorem H of PR #26 | OPEN; its schedule fails `mT` (`~ n^2/8`) |
-| Constraints: Lemmas 1.1–1.3 | PROVED (author) |
-| Background: Lemmas 2.1–2.5 (bath identity, floor `.025` for `m <= 5e-5 n`, gaps, protected set) | PROVED (author) |
-| Theorem 1: public-schedule K-probe barrier `mT >= 2.9e-10 D sqrt(n)/((K+2)(1+ln K))` | PROVED (author), pending review |
-| Narrow-capture / reusable-gate / J-steering redesigns of the hub (1-probe, public schedule) | REFUTED by Theorem 1 |
-| Escapes not covered | `K -> infinity` probes (full d_F), code-dependent schedules |
+| Original frozen dense-tanh problem | OPEN |
+| Candidate Theorem H of PR #26 | OPEN; no new proof supplied here |
+| Exact functional, own-path and contrast bounds | PROVED in the corrected scopes |
+| Front attenuation | PROVED under an explicit mass condition, with leakage retained |
+| Bath, chain and protected-set foundations | PROVED; all-horizon bath comparison and rational certificates incorporated |
+| Coupled state/gate/credit estimate | PROVED in its stated horizon and short-budget scopes |
+| Theorem 1 | PROVED in the stated orthonormal-probe/public-envelope scope; 2.9e-10 coefficient preserved |
+| Strict-budget fixed-single-probe public redesigns | Excluded by Theorem 1 when all its hypotheses hold |
+| General neutral-path tax | CONJECTURAL |
+| PR #28 Theorem 4 | CONDITIONAL on OPEN Hypothesis B; explicit group, D range and log loss retained |
+| Full-gradient, absolute-energy or architecture conclusion | Not established |
 
-**Exact next action.** Bound the robust dimension carried by the vector-valued channels
-(credit rows of the protected rows, the n-dimensional broadcast bus) by a magnitude
-argument, or construct a section exploiting them (PROOF.md §6).
-
-## Update: Codex findings P1/P2
-
-- P2 (truncated window): corrected by an exact equal-input-history
-  argument when `W=T`.
-- P1 (dense perturbation): a new auxiliary-state/credit argument in
-  PROOF.md §3 bounds the joint gate-mediated and direct perturbation
-  by `3.3e-7` in projected distance when `T<Tcrit`.
-- The fine dimension estimate now requires
-  `T<Tcrit=2.9e-10*n^(3/2)/(1+ln K)`; for `T>=Tcrit`, the
-  resource lower bound follows directly using `D<=nK`.
-- **Review status: repairs written; external/independent verification
-  remains pending. Do not merge as a verified theorem yet.**
-
-## Verification of the P1/P2 repairs (Claude, 2026-10-14)
-
-See [VERIFICATION_P1_P2.md](VERIFICATION_P1_P2.md). Both repairs were re-derived from the
-model equations and are **VERIFIED**:
-* P2: exact equal histories when `W = T`;
-* P1: the coupled state, gate and credit estimate, with `eta_d < 3.3e-7`.
-
-An independent constant sweep, `verify_p1p2_sweep.py`, found 0 violations. The Codex
-re-review of `1f25d1c` reported no major issues.
-
-**Theorem 1 status:** PROVED (author) with verified repairs. No remaining gap is known.
-Repository-level VERIFIED still needs a non-author hostile review, because Claude wrote
-the original theorem.
+The earlier pending-review notices and author P1/P2 verification are historical.
+The non-author [audit](../codex_pr27_repair_verification_20261015/AUDIT_20261014.md)
+found valid foundations plus specific errors, now corrected in PROOF.md.
+[REPAIR_VERIFICATION.md](../codex_pr27_repair_verification_20261015/REPAIR_VERIFICATION.md)
+records what was changed, independently checked, preserved and left open.
+AGENTS.md and all lane notebooks are untouched. Neither PR is merged.

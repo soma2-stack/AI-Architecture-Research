@@ -1670,5 +1670,43 @@
     ],
     "status_basis": "Mixed independent review evidence; verified only in the explicitly stated scope",
     "status_evidence_note": "Source excerpts are descriptive; status and status_basis record the current scoped disposition."
+  },
+  {
+    "folder": "theory/claude_narrow_capture_hub_20261013",
+    "date": "2026-10-15",
+    "agent": "Codex audit/repairs; Claude original proof",
+    "topic": "PR #27 mathematical foundation repair",
+    "type": "Proof with audit-driven corrections",
+    "status": "VERIFIED IN STATED SCOPE WITH CORRECTIONS",
+    "reviewed_by": [
+      "codex_pr27_repair_verification_20261015"
+    ],
+    "reviews_target": "",
+    "superseded_by": "",
+    "summary": "Theorem 1 and imported foundations preserved; auxiliary own/bus, operator, attenuation, finite-size and scope errors corrected. Original problem and B remain OPEN.",
+    "evidence_file": "theory/codex_pr27_repair_verification_20261015/REPAIR_VERIFICATION.md",
+    "status_evidence": [
+      "Scoped Theorem 1 preserved; Hypothesis B and original frozen problem OPEN."
+    ],
+    "status_basis": "Independent foundation audit plus explicit corrections and exact mathematical certificates",
+    "status_evidence_note": "No additional third-party review of the repair commit is claimed."
+  },
+  {
+    "folder": "theory/codex_pr27_repair_verification_20261015",
+    "date": "2026-10-15",
+    "agent": "Codex audit/repairs; Claude original proof",
+    "topic": "PR #27 mathematical foundation repair",
+    "type": "Independent audit and repair verification",
+    "status": "MIXED VERDICTS; SCOPED THEOREM PRESERVED",
+    "reviewed_by": [],
+    "reviews_target": "claude_narrow_capture_hub_20261013",
+    "superseded_by": "",
+    "summary": "Independent foundation audit, counterexamples, rational certificates and repair-specific CPU checks. No PR #28 changes or attempt to prove B.",
+    "evidence_file": "theory/codex_pr27_repair_verification_20261015/REPAIR_VERIFICATION.md",
+    "status_evidence": [
+      "Scoped Theorem 1 preserved; Hypothesis B and original frozen problem OPEN."
+    ],
+    "status_basis": "Independent foundation audit plus explicit corrections and exact mathematical certificates",
+    "status_evidence_note": "No additional third-party review of the repair commit is claimed."
   }
 ]

@@ -1,4 +1,4 @@
-"""Independent constant sweep for the P1/P2 repairs (Claude, 2026-10-14).
+"""Author constant sweep for the P1/P2 repairs (Claude, 2026-10-14).
 Checks, on a log grid of n in [1e8,1e30], K in [1,n], T in [.001 sqrt n, Tcrit):
 exp(kappa W) >= Q^2 when W<T; the projected (3.5) error is <= the (3.6) bound;
 the totals; W sqrt(K/n)/(1+ln K); and the simplification used in Theorem 1(i).

@@ -1,0 +1,73 @@
+{
+  "tested_pr27_base": "118b1e66ea327af0738249fc613208a544c4df60",
+  "tested_repaired_proof_sha256": "a791d70e88c159bc10fafc2a41f645ff077e31312d9b58b2b5f2270a93e775aa",
+  "own_and_bus": {
+    "max_own_plus_bus_identity_error": 1.180860964566932e-13,
+    "max_cycle_bound_ratio": 0.9993825696604732,
+    "max_offcycle_bound_ratio": 0.7195181244250438,
+    "max_input": 0.49974577235064477,
+    "sizes": [
+      32,
+      33,
+      64,
+      101
+    ],
+    "steps_per_size": 60
+  },
+  "transport_and_contrast": {
+    "max_correct_postgate_error": 6.080179010715364e-15,
+    "max_wrong_order_gap": 2.7050959403525865,
+    "max_contrast_identity_error": 5.551115123125783e-17,
+    "max_attenuation_bound_violation": 0.0
+  },
+  "explicit_front_condition": {
+    "cases": 288,
+    "minimum_absolute_preactivation_margin": 1.4499560479331848,
+    "max_log_gate_bound_violation": -2.8999120958663696,
+    "requires_explicit_mass_condition": true
+  },
+  "scalar_box": {
+    "vertices": 64,
+    "vectors": 200,
+    "maximum_box_identity_error": 8.881784197001252e-16,
+    "limit_tau_over_Dg": 0.3297081400313439
+  },
+  "horizon_and_integer_edges": {
+    "integer_edge_cases": 9,
+    "largest_geometric_ratio": 1.0,
+    "resource_ratio_exact": "1/1700",
+    "public_coefficient": 2.941176470588235e-10,
+    "union_coefficient": 1.9607843137254903e-10
+  },
+  "fresh_source_reset": {
+    "actual_source_predecessor_difference": 0.0,
+    "nonzero_auxiliary_predecessor": -1.4106828114219766e-08,
+    "fresh_source_forcing_identity_error": 3.0607947484979194e-17,
+    "initial_state_is_a_comparison_window_fixture": true
+  },
+  "pr28_compatibility": {
+    "pr28_head": "3746747137bb681ceda9c0f21b19e66d264165d1",
+    "pr28_proof_sha256": "4add1626bfe78c8008874fdfc7c578cf7339047d4c3ee3b4f4e30c6ba20f460e",
+    "modified_pr28": false,
+    "theorem4_status": "CONDITIONAL ON OPEN HYPOTHESIS B",
+    "imported_constants_preserved": {
+      "c0": 5e-05,
+      "s_lo": 0.025,
+      "Lambda": 450000,
+      "kappa": 0.00015
+    },
+    "union_final_coefficient_preserved": true,
+    "unfixed_intermediate_rounding": "5.9e-4 should be 1/1700",
+    "error_allocation": "47/64",
+    "resource_dimension_range": "2N3<=D<=n",
+    "asymptotic_linear_D_consequence": "Omega(n^(3/2)/log n)"
+  },
+  "remaining_open": [
+    "Hypothesis B",
+    "general neutral-path tax",
+    "original frozen dense-tanh problem"
+  ],
+  "training": false,
+  "gpu": false,
+  "wall_seconds": 0.12370130000635982
+}

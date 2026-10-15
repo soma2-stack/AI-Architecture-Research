@@ -1,14 +1,16 @@
 """Small exact/1-D checks for the narrow-capture obstruction (no large-scale runs).
 
-A. Exact bath identity: s_(t+1) = tanh(.05 - a gamma^2 M_t/k + E_t), |E_t| <= 2/sqrt(k),
+A. Exact bath identity: s_(t+1) = tanh(.05 - a gamma^2 M_t/k + E_t), |E_t| <= 3 gamma/sqrt(k),
    on the zero-input background and on a background with sparse random drives.
 B. Particle-excess sum  E_Sigma = sum_a min(tanh^a(1.06), 1.06 (1-s_lo^2)^a)  (s_lo = .025).
 C. tanh-iterate envelope tanh^a(x0) <= sqrt(2/a) for x0 <= 1.06 (checked a <= 10^6).
-D. Below-bath gap monotonicity and an explicit NN-lifetime bound, simulated in 1-D with
-   the worst admissible drift sequence family used in the proof (beta_t = atanh(s_(t+1)) - a s_t).
+D. Stationary-bath examples of gap monotonicity and exit time. These examples do not
+   prove that a stationary bath is worst-case; PROOF.md handles arbitrary moving baths.
+E. Corrected finite-size arithmetic and the scoped dense-error constants.
 Run: python -I checks.py   (writes checks_result.json next to this file)
 """
 import json, math, os, sys
+from fractions import Fraction
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -104,8 +106,8 @@ def tanh_envelope(x0=1.06, amax=10 ** 6):
 
 
 def nn_lifetime(s_lo=0.025, start=-0.95, s_path="low", steps=400000):
-    """1-D: bath s_t kept at its floor s_lo (slowest admissible rise) or at .05.
-    beta_t = atanh(s_(t+1)) - a s_t with a = 1 (worst case).  Particle y follows
+    """1-D diagnostic: bath s_t kept at its floor s_lo or at .05.
+    beta_t = atanh(s_(t+1)) - a s_t with a = 1. Particle y follows
     y_(t+1) = tanh(beta_t + y_t).  Return first time y >= s_lo/2 and gap monotonicity."""
     s = s_lo if s_path == "low" else 0.05
     y = start
@@ -135,10 +137,18 @@ def repaired_constants():
     A = 4e4 / kap
     Wratio_cap = (2 / kap) * (math.log(A) + math.log(2) + 1.5 + 2 / math.e) + 1
     eta_cap = (7 / kap) * (4e-8) * 2 * c * Wratio_cap
-    bath_lower = 0.05 - 0.02241 - 0.000425 - 4.1e-8
+    gamma_upper = Fraction(7071, 7070)
+    ratio_upper = Fraction(10002, 99999999)
+    bath_lower_exact = (Fraction(1, 20) - gamma_upper**2 *
+                        (224 * ratio_upper + Fraction(4, 10**12)) - Fraction(3, 7070))
+    s = Fraction(1, 40)
+    bath_target_upper = s + s**3/(3*(1-s*s))
+    bath_lower = float(bath_lower_exact)
     assert Wratio_cap < 3e5
     assert eta_cap < 3.3e-7
-    assert bath_lower > math.atanh(.025)
+    assert bath_lower_exact > bath_target_upper
+    assert Fraction(1, 1700*2_000_000) > Fraction(29, 10**11)
+    assert Fraction(1, 1700*3_000_000) > Fraction(19, 10**11)
     cases = []
     for n, K in [(10**8, 1), (10**10, 1), (10**12, 1),
                  (10**12, 10**4), (10**12, 10**12)]:
@@ -152,7 +162,9 @@ def repaired_constants():
             assert eta <= eta_cap + 1e-15
         cases.append({"n": n, "K": K, "T": T, "W": W, "window_truncated": W == T,
                       "projected_dense_R_bound": eta})
-    return {"bath_lower": bath_lower, "bath_target": math.atanh(.025),
+    return {"bath_lower": bath_lower, "bath_lower_exact": str(bath_lower_exact),
+            "bath_target": math.atanh(.025), "bath_target_rational_upper": str(bath_target_upper),
+            "minimum_resource_ratio": "1/1700",
             "Wratio_sup": Wratio_cap, "eta_sup": eta_cap, "examples": cases}
 
 def main():
@@ -170,7 +182,8 @@ def main():
                             nn_lifetime(start=-0.95, s_path="high"),
                             nn_lifetime(start=0.0, s_path="low")]
     for r in out["A_bath_identity"]:
-        assert r["max_|E|_sqrt_k"] <= 2.0, r
+        gamma = 1/(1-1/math.sqrt(r["n"]//2))
+        assert r["max_|E|_sqrt_k"] <= 3*gamma, r
     assert out["C_tanh_envelope_max_ratio"] <= 1.0
     for r in out["D_nn_lifetime"]:
         assert r["gap_monotone"] and r["first_exit"] is not None

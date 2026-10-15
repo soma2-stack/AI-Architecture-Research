@@ -1,3 +1,14 @@
+> **Historical second-party check, corrected 2026-10-15.** The original review below
+> is preserved as a dated record, not as the current independent verdict. Its `.0272`
+> floor arithmetic and unrestricted use of `T rho<=4e-8` were incorrect. The current
+> proof uses the rational lower bound `.027164853275575...` and all-horizon `n rho`.
+> Its displayed W-ratio formula also omitted `+1.5`; the correct formula in PROOF.md
+> includes it and is `<297740`, so the declared 3.3e-7 coefficient survives. The later
+> [independent audit](../codex_pr27_repair_verification_20261015/AUDIT_20261014.md)
+> identified the auxiliary errors now corrected in Lemmas 1.1–1.3. Current verification
+> and PR #28 compatibility are in the accompanying repair record. The row table's
+> driven-source reset convention is now explicit in PROOF.md.
+
 # Verification of the P1/P2 repairs (Theorem 1)
 
 Claude (Opus 5.5), 2026-10-14. Target: PR #27 head `1f25d1c`. The repairs were written by

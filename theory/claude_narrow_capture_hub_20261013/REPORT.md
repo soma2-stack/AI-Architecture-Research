@@ -1,122 +1,110 @@
-# Narrow capture through the Householder hub — report
+# Narrow capture through the Householder hub — corrected report
 
-Claude (Opus 5.5), 2026-10-14. Original frozen dense-tanh model, unchanged d_F contract.
-Budget: peak width `m` times horizon `T`. Full mathematics: [PROOF.md](PROOF.md). This
-note builds on PR #26, whose Candidate Theorem H stays OPEN, and on its independent
-Gemini/Antigravity audit (`gemini/pr26-neutral-hole-audit-20261013`, verdict PARTIAL).
-PR #26 is not modified.
+Original author: Claude, 2026-10-14. Independent audit and corrections: Codex,
+2026-10-15. Frozen dense-tanh model, fixed source feature and recurrent normalization
+unchanged. Current mathematics: [PROOF.md](PROOF.md). Historical audit and reproducible
+checks: [repair verification](../codex_pr27_repair_verification_20261015/REPAIR_VERIFICATION.md).
 
-## TL;DR
+## Current result and scope
 
-I tried to redesign the neutral-hole broadcast so that the capture is narrow:
-* sequential capture windows;
-* gates written once and reused;
-* sparse steering through the frozen Householder operator.
+Theorem 1 retains its verified coefficient. For n>=1e8, a robust public-schedule
+section certified by a fixed orthonormal memory-probe span of rank K satisfies
 
-Every version fails for the same reason, and the reason is now a theorem.
+    mT >= 2.9e-10 D sqrt(n)/((K+2)(1+ln K)).
 
-**Captured information does not persist for free.**
-* Any memory row that has not been driven recently relaxes to the bath, whose gate is at
-  most `1 - 1.5e-4`.
-* The bath cannot be neutralised without `Theta(n)` driven width.
-* The Householder operator mixes rows only through three global scalars per step (`J`,
-  `Sum`, the source amplitude).
+Here m is the public envelope width. With a common exact support this is the actual
+peak width; a possibly larger envelope must not be charged as a smaller pointwise
+support. All actual dense inverse-lift inputs and the full preparation/reset horizon
+are counted. This support-count result alone gives no absolute-input-energy bound.
+The sharpened dimension bound retains its condition T<Tcrit and its ln K term:
 
-So every scalar a fixed-probe certificate can depend on was written by a driven
-coordinate within the last `O(1 + log+(T/sqrt n))` steps, came through those global
-channels, or has decayed below threshold.
+    D <= 1e6 (K+2)(m+1)(1+ln K+ln+((T+1)/sqrt(n))).
 
-## Verdicts
+For fixed K and D=Theta(n), the resource bound is Omega(n^(3/2)). It does not rule out
+unrestricted multi-probe sections. The group here contains only memory-row directions
+v f_s^T with v supported on rows 1..k-1; it is not the full R/W/b gradient.
+
+## What the independent audit preserved
+
+* Exact Householder row transport, with injective local predecessors and no local wrap.
+* The exact bath identity, moving-bath gap inequalities and Lambda=450000.
+* The bath floor s>=.025 at m<=5e-5 n and n>=1e8, with corrected finite-size arithmetic.
+* Protected count (m+1)(Lambda+1), outside-state bound .0124 and kappa=1.5e-4.
+* Dense state/gate/credit comparison (3.1)–(3.8), in its stated horizon/budget ranges.
+* Exact equal histories when W=T and the original Theorem 1 resource coefficient.
+
+The bath comparison now holds at every horizon: chains use the same actual J field
+and their scalar error is at most rho(1-a^A)/(1-a)<=n rho<=4e-8/sqrt(n).
+The separate coupled-state comparison still uses W<=T<=n^(3/2).
+
+## Withdrawn claims and their corrections
+
+The previous total hole-credit bound omitted incoming bus deliveries. It is now an
+own-injection cycle-path bound; off-cycle own content uses its repeated-coordinate
+geometric sum. A legal neutral hole with zero own injection nevertheless receives
+positive bus credit. That negative result is preserved in the audit and checker.
+
+For post-gate credit the correct U-coordinate operator is a(UGU)P. No finite tanh
+transport destroys a nonzero packet exactly. Under an explicit front-mass condition,
+the dominant front contribution is attenuated, with nonzero order-1/sqrt(k) leakage
+retained. The exact uniform/contrast decomposition remains valid, but it is not a
+universal lifetime or accumulated-bus theorem.
+
+The one-step separation functional uses exact gate constants and tau/Dg, not an
+upward-rounded .33n threshold. Borsuk–Ulam gives an antipodal zero, not the previously
+asserted geometric zero subsphere. A one-step inference requires one-step certification.
+
+## Proof mechanism
+
+List recent scheduled inputs, predecessor state/credit values, global J/Sum/c
+channels, and protected initial state/credit values. At a Borsuk–Ulam zero, the
+auxiliary protected differences vanish and the ordinary unprotected part contracts.
+The actual dense perturbation includes state-to-gate-to-credit feedback. For T<Tcrit
+its projected error remains below 3.3e-7. Larger-horizon resource cases use D<=nK
+instead of extrapolating that error estimate. The theorem does not use front
+saturation, an own-only bound on total credit, or the informal hub accounting.
+
+## Relation to PR #28
+
+Compatibility was checked against head 3746747137bb681ceda9c0f21b19e66d264165d1.
+All imported lemma/equation numbers and constants are preserved. Theorem 4 needs
+only the state part of the listings and comparison, in a valid horizon range.
+PR #28 separately extends fixed-K certificates to code-dependent pointwise supports.
+Its inherited 5.9e-4 intermediate rounding should be read as the exact 1/1700;
+its final 1.9e-10 coefficient still follows. PR #28 was not modified.
+
+Its larger group {u f_s^T:u_0=0}, including source directions, remains distinct from
+this note's memory-probe group. Its Theorem 4 is CONDITIONAL on OPEN Hypothesis B;
+for 2N3<=D<=n its stated resource bound has the asymptotic logarithmic loss.
+Neither that conditional result nor this repaired theorem resolves the original problem.
+
+## Status
 
 | Claim | Status |
 |---|---|
-| Candidate Theorem H (PR #26) | OPEN. Its schedule fails the budget (`mT ~ n^2/8`). |
-| Necessary constraints for hub capture: separation functional, no amplification, one-step life of the uniform mode, per-broadcast capture `<= alpha*std(g)` | PROVED |
-| Background lemmas for `m <= 5e-5 n`: exact bath identity, bath floor `s >= .025`, monotone gap, public protected set | PROVED |
-| **Theorem 1:** any public-schedule section certified through `K` fixed parameter probes has `mT >= 2.9e-10 D sqrt(n)/((K+2)(1+ln K))` | PROVED (author), pending independent review |
-| Narrow-capture redesign of the hub with `D = Omega(n)`, `mT = o(n^(3/2))` and a 1-probe (PR #26-type) certificate | REFUTED (impossible by Theorem 1) |
-| Original strict-budget problem (full d_F) | OPEN |
+| Theorem 1 in its stated group, schedule and resource scopes | PROVED; independently checked with these corrections |
+| Own-path bound, exact operator order and contrast split | PROVED in their stated scopes |
+| Front attenuation | PROVED conditional on the explicit mass condition; no exact destruction |
+| Old total-hole and exact-destruction claims | REFUTED as stated; counterexamples/history retained |
+| General neutral-path tax | CONJECTURAL |
+| Hypothesis B | OPEN; not attempted during this repair |
+| Original frozen dense-tanh strict-budget problem | OPEN |
+| New primitive or architecture discovery | Not established by this result |
 
-## Strongest result
+## Reproduction and history
 
-**Theorem 1.** Let `n >= 10^8` and let the section be robust, with a public schedule and a
-K-probe certificate.
+Run the independent scripts from the repository root:
 
-* If `m <= 5e-5 n` **and** `T < Tcrit = 2.9e-10*n^(3/2)/(1+ln K)`, then `D <= 10^6 (K+2)(m+1)(1 + ln K + ln+((T+1)/sqrt n))`.
-* In all cases, `mT >= 2.9e-10 D sqrt(n)/((K+2)(1+ln K))`.
+    python -I theory/codex_pr27_repair_verification_20261015/check_foundations.py
+    python -I theory/codex_pr27_repair_verification_20261015/check_repairs.py
 
-**Proof idea.**
-1. List the odd parts (theta vs -theta) of:
-   * every driven input in a window of length `W = O(1 + log+(T/sqrt n))`;
-   * its predecessor's state and credit;
-   * the global scalars `J`, `Sum`, `c` and their credit analogues at each step;
-   * the state and credit of the public protected set at the window start.
-2. Borsuk–Ulam gives a code `theta*` where all listed scalars vanish.
-3. When `W=T`, the listed input differences force the *entire histories*
-   and their gradients to coincide exactly (Codex P2 repair).
-4. When `W<T`, an auxiliary local recurrence kills protected odd parts
-   and contracts unprotected ones by `1-1.5e-4`. A new coupled
-   perturbation argument bounds hidden-state **and gate-mediated**
-   effects of the actual dense `R-R0` by `3.3e-7` in projected distance
-   (Codex P1 repair), for `T<Tcrit`.
-5. For `T>=Tcrit`, the resource bound follows directly from `D<=nK`.
-   This is why the sharpened dimension bound is now stated only for `T<Tcrit`.
+The original checks.py and verify_p1p2_sweep.py remain additional CPU diagnostics;
+finite sweeps alone are not proofs. The independent infinite-sum and bath-margin
+certificates use exact integer/rational arithmetic.
 
-The background comparisons are exact for R0. For actual dense R, each
-undriven chain is within `T*4e-8/n^(3/2) <= 4e-8` of its virtual
-one-dimensional comparison trajectory in the nontrivial range.
-That error is included in the bath-floor induction.
-
-## Implications
-
-* The hub's real gain, PR #26 Prop. 2.2 (one neutral path reaches `Theta(n)`
-  coordinates), is a magnitude gain. Dimension is bounded by the number of sources.
-* **Necessary condition for any strict-budget solution.** If `D = Theta(n)` and
-  `mT = o(n^(3/2))`, the certificate must use `K -> infinity` parameter directions, or a
-  code-dependent driving schedule. Fixed-probe constructions with public schedules, the
-  repository's single-probe records included, are capped at `mT = Omega(D sqrt n)`.
-* This strengthens the existing scoped single-probe cap `D <= n`
-  (`codex_single_block_spatial_write_20261004`) to the budget-sensitive
-  `D = O((m+1) log(T/sqrt n))`.
-
-## Relation to the original problem
-
-Still OPEN. Two loopholes are not closed:
-* the full fixed-feature metric, where `K` grows with `n`;
-* code-dependent schedules.
-
-The hub broadcast survives only as a candidate high-bandwidth bus in the multi-probe
-setting: it carries a whole credit row, one value per parameter direction, per step.
-
-## Reproduction
-
-`python -I checks.py` runs in under a minute and writes `checks_result.json`. It checks:
-* the exact bath identity at `n = 8000, 32000`, with and without sparse drives;
-* the excess sum `222.5`;
-* the tanh envelope;
-* the monotone gap and lifetimes.
-
-No large-scale runs were made. The commit and PR are recorded in the PR description,
-since a commit cannot contain its own hash.
-
-## Next mathematical step
-
-Bound the robust dimension carried by the vector-valued channels that Theorem 1's
-counting cannot see:
-* the credit rows of the `O((m+1)(W+Lam))` protected rows;
-* the n-dimensional broadcast bus.
-
-Use a magnitude argument of suffix-product type (`D < 16000 mT/sqrt n` in
-`codex_suffix_product_kernel_attack_20261003` is the template). Otherwise, exhibit
-`o(n)` protected rows whose parameter-direction profiles carry `Theta(n)` robust
-dimensions.
-
-## Codex review repairs (2026-10-14)
-
-Codex's opening review flagged (P1) the missing state-to-gate-to-credit
-perturbation and (P2) the false use of `exp(kappa W)>=Q^2` for `W=T`.
-Both now have explicit proposed repairs in PROOF.md §3. The theorem's
-resource lower bound (ii) is unchanged; the quantitative dimension
-bound (i) is limited to `T<Tcrit`, since longer horizons already
-satisfy (ii) trivially. **These are author repairs, not a completed
-independent validation; request a new hostile review before merging.**
+The historical 2026-10-14 P1/P2 repairs addressed omitted gate feedback and a false
+truncated-window exponential argument. The subsequent audit found the separate
+auxiliary and arithmetic errors corrected here. The full audit is archived unmodified
+in the separate verification folder; no negative result or notebook was erased.
+The current repair phase ends with verification and publishing these corrections.
+No attempt to prove B, training run, merge or outside contact is authorized here.
