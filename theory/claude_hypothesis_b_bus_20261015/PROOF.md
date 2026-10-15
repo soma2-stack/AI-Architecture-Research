@@ -19,9 +19,11 @@ Labels:
 ## Summary of results
 
 1. **Hypothesis B is false** [PROVED, Theorem R in §2; error analysis repaired after review,
-   Lemma E]. For every `n >= 1.5e18`
-   divisible by 4 and `R = R0`, there is a legal one-dimensional section in the domain of
-   PR #28's Theorem 4 with the following properties:
+   Lemma E; transferred to the prescribed dense matrix with actual-input support, Theorem
+   R_D in §2.4]. For every `n >= 1.5e18` divisible by 4, there is a legal one-dimensional
+   section in the domain of PR #28's Theorem 4. This holds both for `R = R0` and for the
+   prescribed fully dense `R = alpha (R0 + eta 1 1^T/n)`, with every nonzero actual input
+   counted. The section has the following properties:
    * peak width `m <= 120001` and `mT <= 2.5e-5 n^(3/2)`;
    * its antipodal pair is a zero of Theorem 4's listing `Phi`;
    * for the uniform legal query, the bus part of the readout exceeds `2 tau`
@@ -84,15 +86,20 @@ of a common-endpoint antipodal pair is `sup` over legal queries of
     state-comparison error `e` is 0.
   * `R - R0` enters only the credit recursion. PR #28 §7.0 bounds it by `< 1e-7 sqrt(n)` in
     readout for all `T`.
-* *Literal reading as the support of the actual input.* Suppose
-  `h_(t-1)^+ != h_(t-1)^-` and `h_t^+ = h_t^-`. Then `x_t^+ - x_t^- = -R (h_(t-1)^+ - h_(t-1)^-)`,
-  because tanh is injective. So when `R - R0` has no zero entries, the merging step of any
-  exact common endpoint drives (generically) every coordinate. Under this reading,
-  Theorem 4's case (A) covers every section built on such an `R`. The theorems stay
-  meaningful for `R = R0` and for structured `R`.
+* *Literal reading as the support of the actual input* (the contract of PR #27 §0, which
+  charges every nonzero actual input).
+  * Suppose `h_(t-1)^+ != h_(t-1)^-` and `h_t^+ = h_t^-`. Then
+    `x_t^+ - x_t^- = -R (h_(t-1)^+ - h_(t-1)^-)`, because tanh is injective.
+  * The first version of this remark concluded that, for dense `R`, the merging step drives
+    every coordinate. **That conclusion was wrong for the prescribed matrix** (corrected in
+    §2.4). The prescribed `R` is `alpha (R0 + eta q q^T)` with `q ∝ 1_n` (Lemma D1). So
+    `R Dh = alpha R0 Dh` whenever `1^T Dh = 0` (Lemma D2), and zero-sum state differences can
+    merge with sparse actual inputs.
+  * The obstruction does apply to a generic dense `R` (§2.4, last paragraph).
 
-This note uses the repository convention. All constructions below use `R = R0`, which
-satisfies `||R - R0|| <= 4e-8/n^2`, so the two conventions agree for them.
+The constructions of §2.1–2.3 use `R = R0`. §2.4 transfers them to the prescribed dense `R`
+with actual-input support. All three readings then agree: reference support, actual support,
+and `R = R0`.
 
 **Proposition 0.2 (the full fixed-feature group) [PROVED].**
 * *Statement.* Theorem 4 of PR #28 and its conditional resource law hold for the full group
@@ -689,6 +696,211 @@ much smaller `n`.
 At these sizes `sqrt(k) <= 32`, so bus contents are of the same order as own contents and
 the readout is `< tau`. The theorem's regime `n >= 1.5e18` is reached only by the proof.
 
+### 2.4 Transfer to the prescribed dense matrix (Theorem R_D) [PROVED]
+
+Theorem R uses `R = R0`. The contract instead fixes one specific dense matrix, and it charges
+the support of the **actual** input `x_t = atanh(h_t) - R h_(t-1) - b`. Any nonzero entry
+counts, however small. This section shows that the construction transfers to that exact
+matrix. No reference-support accounting is used anywhere.
+
+**The prescribed matrix.** The contract's `R` is the "frozen dense recipe": PR #27/#28 §0 and
+`reachable_fixed_feature_width_20261002` §2 point to it, and it was introduced in
+`gamma_c_over_n_quadratic_20261001` §7 (here with `c = 1`, `a = 1 - 1/n`).
+* *Power vectors.* Let `u_* = (1, t, ..., t^(n-1))` and `v_*` (of the same form) use the first
+  integer `t` in `{1, ..., n(n-1)+1}` for which every entry of `R0^-1 u_*`, resp.
+  `v_*^T R0^-1`, is nonzero. Put `C = u_* v_*^T/(||u_*|| ||v_*||)`.
+* *Rank-one shift.* `B = R0 + eta_j C`, with `eta_j = 2^-j/(10^8 n^2)` for the first `j` such
+  that `B` and `B^-1` have no zero entry.
+* *Rescaling.* `R = (a/||B||op) B`.
+
+**Lemma D1 (the recipe selects the all-ones direction) [PROVED].**
+* *Statement.* For every `n >= 8` the base `t = 1` is admissible for both vectors. Hence
+  `C = 1_n 1_n^T/n` and
+
+      R = alpha (R0 + eta q q^T),   q = 1_n/sqrt(n),   eta = eta_j in (0, 1e-8/n^2],
+      alpha = a/||B||op in [1 - 2 eta, 1).
+
+  Nothing below depends on which `j` is selected.
+* *Proof.*
+  * We have `R0^-1 1_n = (O^T 1_k / a, 1_l/lam)`.
+  * By `U 1_k = sqrt(k) e0`, `P^T e0 = e_(d-1)` and `U e_(d-1) = e_(d-1) + (gamma/sqrt k) w`, we
+    get `O^T 1_k = sqrt(k) e_(d-1) + gamma w`.
+  * Its entries are `gamma(1 - 1/sqrt k) = 1` (index 0), `(k - gamma)/sqrt(k)` (index `d-1`) and
+    `-gamma/sqrt(k)` (all others). None vanishes, since `1 < gamma < 2 < k`.
+  * Likewise `O 1_k = sqrt(k) e_1 + gamma w` has entries `1`, `(k - gamma)/sqrt k`,
+    `-gamma/sqrt k`. With the opposite cycle orientation the roles of `e_1` and `e_(d-1)` swap.
+    So `t = 1` is admissible for `u_*` and for `v_*`, and `C = q q^T`.
+  * *Bounds on `alpha`.* `a - eta <= ||B|| <= a + eta`, so `alpha >= a/(a+eta) >= 1 - 2 eta`.
+    For `x = (p + r)/||p + r||` with `p = q|_mem` and `r = O^T p`, we have `p^T r = 0` and
+    `||B x||^2 >= a^2 + 2 eta (q^T x)(q^T R0 x) > a^2`. So `||B|| > a` and `alpha < 1`.
+
+QED
+
+**[NUMERICAL]** D1 in `exp_dense_transfer.py` (`n = 256, 512, 1024`), with the dense matrices
+built explicitly:
+* `min |R0^-1 1| = .097, .067, .046`;
+* `R` and `R^-1` have no zero entry;
+* `||R||op = a` to `1.7e-14`.
+
+**Lemma D2 (the dense part is a common field) [PROVED].**
+* *Field identity.* For every `h in R^n`,
+
+      R h = alpha R0 h + phi(h) 1_n,   phi(h) := (alpha eta/n) 1^T h.
+
+  So the forward dynamics `h_t = tanh(R h_(t-1) + x_t + b)` is the R0 skeleton dynamics with:
+  * `a, lam` replaced by `a' := alpha a`, `lam' := alpha lam`;
+  * the bias `.05` replaced by the common, time-varying bias `.05 + phi_t`, where
+    `phi_t := phi(h_(t-1))` and `|phi_t| <= eta` (since `|h| <= 1`).
+
+  Every memory row `i >= 1` has preactivation `a'(O h)_i + .05 + phi_t + x_t(i)`. Row 0 has
+  `a' h(0) + .05 + phi_t`. Every source row has `lam' h(i) + .05 + phi_t + x_t(i)`.
+* *Zero-sum identity.* If `1^T Dh = 0`, then `R Dh = alpha R0 Dh`.
+* *Proof.* Expand `q q^T h = (1^T h/n) 1_n`. QED
+
+The absolute trajectories therefore **are** changed by the dense part: through `a'`, `lam'`
+and `phi_t`. They are changed by a scalar rescaling and a field common to all `n`
+coordinates. All structural facts of §2.3 are statements about equalities between
+coordinates that receive the same common terms, so they survive exactly. Only the numerical
+ranges move, by `O(eta)`.
+
+**The dense construction `C_D(n)`.**
+* *Targets and schedule.* Exactly those of `C(n)` (§2.1): spike, arrival holes, paired
+  modulations.
+* *Actual inputs.* On the driven set `S_t` (spike plus arrival holes in flight),
+  `x_t(i) := atanh(target_t(i)) - (R h_(t-1) + b)_i`. Off `S_t`, `x_t(i) := 0` **exactly**.
+* *No inverse lift.* Undriven coordinates evolve autonomously under the dense `R`.
+
+**Lemma D3 (structure of the dense trajectory) [PROVED].** For every `theta in [-1,1]`:
+* (a) **Support.** `supp x_t subseteq S_t`, so the actual peak width is `m <= ell + 1 = 120001`.
+* (b) **Bath and chains.**
+  * All off-cycle rows are equal (`= s_t`), and so are all undriven cycle diagonals that never
+    met the front. All source rows are equal.
+  * Front chains obey `y_r(t) = tanh(a' y_(r-1)(t-1) + beta'_t)`, with
+    `beta'_t := a' J(h_(t-1)) + .05 + phi_t`.
+  * Lemma 1.5 holds verbatim: its proof uses only `x = a' s + beta' >= 0` and
+    `0 <= a' z <= z`.
+* (c) **Ranges.**
+  * `beta'_t = .05 - s_(t-1) + eps'_t` with `|eps'_t| <= 1.2/sqrt(k) + 3 eta <= 1.4e-9`.
+  * Hence `s_t^2 in [.0024958, .0024959]` and `beta'_t in [4.1622e-5, 4.1628e-5]`.
+  * The front preactivation is `>= .0498 sqrt(k)`.
+  * The wake and input bounds of Steps 1–2 hold with `+3 eta` margins [c].
+  * The source credit satisfies `c_t <= c_max := 1 + 1e-40` for all `t`, and
+    `c_t >= 1 - 1e-12` for `t >= 2`.
+  * *Proof of the source bounds.* Let `sigma'` be the fixed point of
+    `x = tanh(lam x + .05 + eta)`, so `sigma' - sigma <= 1.01 eta`. Then
+    `0 <= s^src_t <= sigma'` by induction, because `alpha <= 1`.
+* (d) **Only modulated positions differ; exact endpoint.**
+  * By induction on `t`, any two members agree outside the positions modulated at time `t`.
+  * The modulated states come in pairs `+-tanh(.45(1+theta)/2)` on memory rows `< d-1`, so
+    `1^T Dh_(t-1) = 0`. By Lemma D2, `R Dh_(t-1) = alpha R0 Dh_(t-1) = a' P Dh_(t-1)`, because
+    `Dh(d-1) = 0` and `Sum'(Dh) = 0` kill both global terms of `O`.
+  * So `R Dh_(t-1)` is supported on the successors of modulated positions. These are driven
+    (holes or resets), so every undriven preactivation agrees.
+  * Driven targets other than modulated ones do not depend on `theta`.
+  * Consequently `h_T(theta)` is the same for all `theta`, the start is `h_0 = 0`, and gates
+    differ only at modulated positions (by `1 - sech^2(.45)`).
+* (e) **Continuity and injectivity.** The inputs are continuous in `theta`, since they are
+  compositions of continuous maps. Distinct `theta` give distinct modulated states.
+
+*Proof.* (a) holds by definition. (b)–(e) are §2.3 Steps 1–3 with Lemma D2 substituted:
+`a -> a'` and `.05 -> .05 + phi_t`. The new error terms are the `O(eta)` shifts. QED
+
+**[NUMERICAL]** D2/D3 in `exp_dense_transfer.py`, with the explicit dense `R`, at `n = 256,
+512, 1024` and `eta in {1e-8/n^2, 1e-6, 1e-3}`:
+* the actual support lies in the driven set;
+* `max |x| <= .452`;
+* state differences off the modulated positions are `<= 7.8e-15`;
+* `|1^T Dh| <= 1.2e-13`;
+* `||R Dh - alpha R0 Dh|| <= 1.7e-16`;
+* the endpoint difference over `theta in {+-1, 0, .5}` is `<= 5e-15`.
+
+`exp_dense_transfer_mp.py` (`n = 256`, contract `eta`, 50 digits): the off-modulation
+differences, `1^T Dh` and the endpoint difference are all **exactly 0** at working precision.
+
+**Theorem R_D (Hypothesis B fails for the prescribed dense matrix) [PROVED].**
+* *Setting.* Let `n >= 1.5e18` be divisible by 4, and let `R` be the prescribed dense matrix
+  (whatever `eta_j` the recipe selects). Then `C_D(n)` is a legal continuous injective `D = 1`
+  section.
+* *Properties.*
+  * Every actual input satisfies `|x| <= .4732 + 1e-40 < .5`, and the actual support is
+    `<= 120001` coordinates.
+  * The section starts at `h_0 = 0` and has one exact common endpoint.
+  * `mT <= 2.5e-5 n^(3/2)`, and `m <= c0 n`.
+  * `theta* = +1` is a zero of PR #28 Theorem 4's listing `Phi` (and of its Prop. 0.2
+    extension).
+  * For the uniform legal query (future gates `HI`):
+
+        || sum_l nu_l bus_l || = a HI sqrt(k) ||Delta Y'_T(d-1)|| >= .11790 n >= 2.0826 tau,
+        || nu_R^T Delta B_T ||  >= .11789 n >= 2.082 tau          (actual dense readout).
+
+    Here `B'` is Theorem 4's R0-skeleton credit with the actual gates and `nu` the R0
+    weights, as in Hypothesis B. `B` is the actual dense credit and `nu_R` the actual
+    weights.
+* *Conclusion.* Hypothesis B is false under the original fixed dense contract with
+  actual-input support, and the section is robust.
+
+*Proof.*
+* *Legality, budget, endpoint.* Lemma D3 (a)–(e), and §2.3 Steps 2 and 4 with
+  `+3 eta` margins [c].
+* *Listing zero.* Exactly as in §2.3 Step 5. Every listed quantity of Theorem 4 (i)–(v) and
+  (vi) is (even weight) × (odd part), and every odd part vanishes:
+  * states, inputs, `J`, `Sum'`, and `c` (the source states agree) agree by Lemma D3(d);
+  * the own suffix-product profiles at `T` agree, because no modulated position lies on a
+    local path at `T`.
+* *Bus readout.* Lemmas 1.1–1.2, Lemma E and Steps 6–10 are statements about the R0-skeleton
+  credit `B'` driven by a given gate sequence and source sequence. They use only these facts
+  about the gates:
+  * holes have gate exactly 1, and modulated positions have `sech^2(.45)` or `1`;
+  * off-cycle rows have `delta = 0` exactly;
+  * the front-chain bounds (Lemma 1.5) and `g1max`;
+  * the range of `s_t`;
+  * `c_t`.
+
+  Lemma D3 gives all of them for the dense trajectory. `c_max = 1 + 1e-40` multiplies every
+  injection-linear bound, so `X <= c_max x*` and `E_Y <= 1019 c_max`. The main term uses
+  `c >= 1 - 1e-12` and is unchanged. Hence
+  `||Gamma'|| >= .11791 n - c_max HI 1019 sqrt(n/2) >= .11790 n`.
+* *Actual dense readout.* Put `D_t := B_t - B'_t`, so that
+  `D_t = G_t (R D_(t-1) + (R - R0) B'_(t-1))`.
+  * Since `||B'_t||_F <= c_max sqrt(n)/(1-a) = c_max n^(3/2)`, we get
+    `||D_T||_F <= e_R c_max n^(5/2) <= 4e-8 c_max sqrt(n)`, with `e_R <= 4 eta`.
+  * Hence `|nu_R^T Delta D_T| <= sqrt(n) * 8e-8 c_max sqrt(n) <= 8.1e-8 n`.
+  * Also `||nu_R - nu|| <= e_R HI sqrt(n)`, so
+    `|(nu_R - nu)^T Delta B'_T| <= 4e-8 n^-2 sqrt(n) * 2 c_max n^(3/2) <= 1e-7`.
+  * Therefore `||nu_R^T Delta B_T|| >= .11790 n - 8.1e-8 n - 1e-7 >= .11789 n` [c].
+
+QED
+
+**[NUMERICAL]** D5 in `exp_dense_transfer.py` (`n = 256, 512`, contract `eta`):
+* the actual dense readout `nu_R^T Delta B_T` and the bus readout `nu^T Delta B'_T` agree to
+  `5.5e-12`;
+* there are 0 gate differences on local paths at `T`.
+
+With the adversarial `eta = 1e-3` they still differ only by `.008` (`n = 256`) and `.05`
+(`n = 512`).
+
+**What the transfer uses, and where it would fail.**
+* *What it uses.* Only one structural fact about `R - R0`: the dense part is
+  `alpha eta q q^T` with `q ∝ 1_n`, plus a scalar rescaling. Its right factor annihilates the
+  zero-sum state differences of the balanced modulation. Its left factor makes the absolute
+  perturbation a field common to all coordinates.
+* *Adversarial checks (D4, H2).*
+  * For `C = 1 v^T/(...)` with a generic positive `v`, the same sparse inputs miss a common
+    endpoint by `~eta`, and differences spread to every coordinate: dense corrections would be
+    needed.
+  * For the power base `t = 2` (the recipe's next candidate), `v^T Dh ~ eta 2^-(n-1-i)`. The
+    defect is invisible in float64 (endpoint difference `1.7e-15`) but nonzero in exact
+    arithmetic: `4.9e-64` at 110 digits. A floating-point "exact endpoint" check would have
+    accepted a false endpoint here.
+
+  The recipe selects `t = 1`, so neither case arises for the prescribed `R`.
+* *Generic dense `R` [ANALYSIS].* With an arbitrary dense perturbation, exact merging with
+  `m`-sparse actual inputs forces `R Dh_(t-1)` to vanish on all `n - m` undriven
+  coordinates. That confines `Dh_(t-1)` to an `R`-dependent `<= m`-dimensional subspace,
+  which generically has full support. The transfer above would not apply; whether another
+  construction would is open. The obstruction raised in Remark 0.1 is therefore real for
+  generic `R`, but absent for the prescribed recipe.
+
 ## 3. What the failure of B means, and the corrected target
 
 ### 3.1 Consequences [PROVED]
@@ -873,6 +1085,8 @@ sections. Removing the logarithm is subordinate to Lemma M.
 | Broadcast identity (9.3) and own/bus split (9.1)–(9.2) | PROVED; checked to `<= 8.4e-15` |
 | Lemma E: a priori bounds on all bus contents of the construction (certified super-solution of a 6-variable majorant system, uniform in `n >= 1.5e18`) | PROVED; constants certified; small-`n` inequality audit passes |
 | **Theorem R: Hypothesis B is false** (`n >= 1.5e18`, `R = R0`, `D = 1`, `m <= 120001`, `mT <= 2.5e-5 n^(3/2)`, bus `>= .1179 n > 2.08 tau` at a listing zero) | **PROVED** (error analysis rewritten after Codex review of `6c2a882`: Steps 9–10; constants certified; independent re-review needed) |
+| **Theorem R_D: Hypothesis B is false for the prescribed dense matrix** (Lemma D1: recipe gives `C = 1 1^T/n`; Lemma D2: dense part = common field, invisible to zero-sum differences; actual support `<= 120001`, exact endpoint, listing zero; bus `>= .11790 n`, actual dense readout `>= .11789 n >= 2.082 tau`) | **PROVED** (author; constants certified; explicit dense and 50-digit checks pass; independent review needed) |
+| Remark 0.1, literal-reading claim "dense `R` forces dense merging" | **CORRECTED**: false for the prescribed recipe (§2.4); true in spirit for generic dense `R` [ANALYSIS] |
 | Lemma M (bus capacity), the precise missing inequality | **OPEN** (§3.4: Theorem R is consistent with it and weakly supports its spike-listing strategy; no evidence on the dimension bound) |
 | Removal of the `log n` loss | **OPEN** (obstruction to the naive weighted listing recorded) |
 | Original problem `D = Omega(n)`, `mT = o(n^(3/2))`, full d_F | **OPEN** |

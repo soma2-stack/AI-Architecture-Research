@@ -71,11 +71,43 @@ Theorem R therefore stands, with a complete proof that is pending independent re
 new script, `exp_error_bounds.py`, checks every identity used (residuals `<= 3.4e-13`) and
 evaluates every inequality at small `n` with measured constants. All hold.
 
+## Phase 4: transfer to the prescribed dense matrix (Theorem R_D, PROOF.md §2.4)
+
+*The matrix.* The contract's frozen recipe (`gamma_c_over_n_quadratic_20261001` §7) selects
+the power base `t = 1` (Lemma D1). So the prescribed matrix is exactly
+`R = alpha (R0 + eta 1 1^T/n)`, with `eta <= 1e-8/n^2` and `alpha in [1 - 2 eta, 1)`.
+
+*Two identities (Lemma D2).*
+* `R h = alpha R0 h + (alpha eta/n)(1^T h) 1`: the dense part is a field common to all
+  coordinates.
+* `R Dh = alpha R0 Dh` whenever `1^T Dh = 0`.
+
+*The forward construction.*
+* Use the same targets as before, with **actual** inputs only on driven coordinates and
+  exactly zero elsewhere.
+* Then all the old structure holds exactly for the dense trajectory: a uniform bath,
+  differences only at modulated positions, an exact common endpoint, and a listing zero.
+  The numerical ranges move by `O(eta)`.
+* Lemma E applies verbatim to Hypothesis B's R0-skeleton credit with the dense trajectory's
+  gates.
+
+*Result.*
+* The bus readout is `>= .11790 n`.
+* The actual dense readout is `>= .11789 n >= 2.082 tau`. The dense credit difference costs
+  `<= 8.1e-8 n`.
+* So **Hypothesis B is false under the original dense contract, with actual-input support.**
+
+*Checks.* Explicit dense-matrix runs and 50-digit runs agree. An adversarial `C` whose right
+factor is not `∝ 1` breaks exact endpoints. With power base 2 this happens only below float64
+resolution (`4.9e-64`).
+
+*Scope.* `D = 1`, so the `n^(3/2)` barrier is untouched.
+
 ## Status
 
 | Result | Status |
 |---|---|
-| Hypothesis B | **REFUTED** (Theorem R; error analysis repaired after review: Lemma E) |
+| Hypothesis B | **REFUTED** (Theorem R; error analysis repaired after review: Lemma E; transferred to the prescribed dense matrix with actual support: Theorem R_D) |
 | Exact bus structure: Lemmas 1.1–1.3, Remark 1.4 | PROVED; checked to `<= 4.4e-13` |
 | Full-group extension (Prop. 0.2); width-convention remark (0.1) | PROVED |
 | Lemma M (bus capacity) | OPEN (consistent with Theorem R; weak support for its spike-listing strategy, §3.4) |

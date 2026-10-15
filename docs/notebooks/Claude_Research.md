@@ -11,7 +11,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 # Resume Pointer (read this first in a new session) — updated 2026-10-15 (Hypothesis B refuted; bus mechanism)
 
-- **Latest:** theory/claude_hypothesis_b_bus_20261015/ (branch claude/hypothesis-b-bus-20261015, PR #29). Theorem R (Hypothesis B refuted, D=1) repaired after Codex round-1 review (Lemma E, REVIEW_RESPONSE.md); PENDING RE-REVIEW. Next: Lemma M.
+- **Latest:** theory/claude_hypothesis_b_bus_20261015/ (branch claude/hypothesis-b-bus-20261015, PR #29). Theorem R (Hypothesis B refuted, D=1) repaired after Codex round-1 review (Lemma E, REVIEW_RESPONSE.md); Theorem R_D: transfer to the prescribed dense R with actual-input support (§2.4). PENDING RE-REVIEW. Next: Lemma M.
   - Builds on the unmerged checkpoints PR #27 (c987408) and PR #28 (0cc0a23); those branches carry their own pointers.
 - **[R] Theorem R: Hypothesis B is FALSE.**
   - For n>=1.5e18 and R=R0 there is a legal D=1 sub-barrier section whose pair is a zero of Theorem 4's listing,

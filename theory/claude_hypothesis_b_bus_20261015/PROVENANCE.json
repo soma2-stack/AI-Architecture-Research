@@ -8,12 +8,13 @@
     "PR #27 claude/narrow-capture-hub-20261013 at c987408 (Theorem 1 and foundations)",
     "PR #28 claude/multiprobe-memory-20261014 at 0cc0a23 (Theorems 2-4, Hypothesis B, Lemma 7.1-7.3)",
     "theory/codex_cross_pr_final_audit_20261015 (AUDIT.md, HANDOFF.md) on the PR #28 branch",
-    "PR #26 claude/neutral-path-tax-20261013 (exact neutral holes, Lemma 2.1; width convention)"
+    "PR #26 claude/neutral-path-tax-20261013 (exact neutral holes, Lemma 2.1; width convention)",
+    "theory/gamma_c_over_n_quadratic_20261001 section 7 (the prescribed dense recipe)"
   ],
   "compute": "CPU only; total ~5 minutes; numpy/decimal; threads capped at 4; no training, no GPU, no large-scale runs",
   "restricted_notebooks_read": false,
   "agents_md_modified": false,
-  "status": "PENDING INDEPENDENT RE-REVIEW; Hypothesis B REFUTED (Theorem R, error analysis repaired: Lemma E, ||Gamma||>=.11790n>=2.0826 tau); Lemma M OPEN; original problem OPEN",
+  "status": "PENDING INDEPENDENT REVIEW; Hypothesis B REFUTED for R=R0 (Theorem R) and for the prescribed dense R with actual-input support (Theorem R_D); Lemma M OPEN; original problem OPEN",
   "review_rounds": [
     {
       "round": 1,
@@ -26,5 +27,6 @@
       ],
       "resolution": "all valid; repaired in PROOF.md section 2.3 Steps 9-10 (Lemma E) and exp_drift_capture.py; see REVIEW_RESPONSE.md"
     }
-  ]
+  ],
+  "phase4_dense_transfer": "Theorem R_D (PROOF.md section 2.4): prescribed dense R from gamma_c_over_n_quadratic_20261001 section 7 (c=1) selects C=11^T/n; actual-input construction; exp_dense_transfer.py, exp_dense_transfer_mp.py; constants_check.py section F"
 }

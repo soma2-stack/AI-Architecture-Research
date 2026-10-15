@@ -10,6 +10,7 @@ Sections:
   C. gate/delta budgets Sigma, Dbar, nu_N, mu, mu_d, w, Lambda, own-content norms (Step 9)
   D. the majorant system of Lemma E at k0 = 7.5e17, solved and verified (Step 9)
   E. main term, error assembly, final ratio to tau, budget threshold (Steps 4, 8, 10)
+  F. transfer to the prescribed dense matrix: eta margins, c_max, dense readout (section 2.4)
 Run: python -I constants_check.py   (writes constants_check_result.json)
 """
 import json, os
@@ -35,10 +36,15 @@ def main():
     # ---------------- A. bath, beta, wake, inputs, modulation factor
     t05 = tanh(D("0.05"))
     r["tanh(.05)"] = str(t05)
+    # dense transfer (section 2.4): eta <= 1e-8/n^2 <= ETA at n >= 1.5e18; every range below is
+    # widened by 3*ETA so that it covers both R = R0 and the prescribed dense R (Lemma D3(c)).
+    ETA = D(1) / (D(10) ** 8 * D("1.5e18") ** 2)
+    k0 = D("7.5e17")
+    assert D("1.2") / k0.sqrt() + 3 * ETA <= D("1.4e-9")       # |eps'_t| <= 1.2/sqrt(k) + 3 eta
     s_lo, s_hi = t05 - D("1.5e-9"), t05 + D("1.5e-9")          # |s_t - tanh(.05)| <= 1.5e-9
     r["s^2 range"] = [str(s_lo * s_lo), str(s_hi * s_hi)]
     assert s_lo * s_lo >= D("0.0024958") and s_hi * s_hi <= D("0.0024959")
-    b_lo = D("0.05") - s_hi - D("1.4e-9"); b_hi = D("0.05") - s_lo + D("1.4e-9")
+    b_lo = D("0.05") - s_hi - D("1.4e-9") - 3 * ETA; b_hi = D("0.05") - s_lo + D("1.4e-9") + 3 * ETA
     r["beta range"] = [str(b_lo), str(b_hi)]
     assert b_lo >= D("4.1622e-5") and b_hi <= D("4.1628e-5")
     y = D(1); ys = []
@@ -48,7 +54,7 @@ def main():
     bounds = [D(".76162"), D(".64205"), D(".56633"), D(".51269"), D(".47207")]
     assert all(v <= b for v, b in zip(ys, bounds))
     spike_start = ys[-1] + b_hi
-    later_mod = D("0.45") - tanh(D("0.45")) + b_hi + D("1e-18")
+    later_mod = D("0.45") - tanh(D("0.45")) + b_hi + D("1e-18") + 3 * ETA   # (1 - a') tanh(.45) <= 1/n + 2 eta
     reset = tanh(D("0.45")) + b_hi
     first_mod = D("0.45") + b_hi
     r["inputs"] = {"spike_start": str(spike_start)[:10], "first_mod": str(first_mod)[:10],
@@ -179,6 +185,21 @@ def main():
     Wt = (30 + n0.ln()) / D("1.5e-4") + 1
     assert (ell + 33 + Wt) / n0 <= D("1e-4") and (2 * ell + 35 + Wt) / n0 <= D("2e-4")
     assert (Wt + 27) / n0 <= D("1e-6")
+    # ---------------- F. dense transfer (section 2.4, Theorem R_D)
+    cmax = 1 + 21 * ETA                                         # c_t <= sigma'/sigma <= 1 + 1.01 eta/sigma
+    assert cmax <= 1 + D("1e-40")
+    r["dense: eta max at n=1.5e18"] = format(ETA, ".4e"); r["dense: c_max - 1"] = format(cmax - 1, ".3e")
+    EYd = EY * cmax
+    assert EYd <= D("1019")
+    err_frac_d = HI * D(1019) / (2 * n0).sqrt()
+    bus_d = D(".11791") - err_frac_d
+    assert bus_d >= D(".11790")
+    # actual dense readout: |nu_R^T Delta D_T| <= 8e-8 c_max n, |(nu_R - nu)^T Delta B'_T| <= 1e-7
+    act_d = D(".11790") - D("8.1e-8") - D("1e-7") / n0
+    r["dense: bus readout / n lower"] = str(bus_d)[:10]
+    r["dense: actual readout / n lower"] = str(act_d)[:10]
+    r["dense: actual ratio to tau"] = str(act_d / tau_over_n)[:8]
+    assert act_d >= D(".11789") and act_d / tau_over_n >= D("2.082")
     with open(os.path.join(HERE, "constants_check_result.json"), "w") as f:
         json.dump(r, f, indent=1)
     print(json.dumps(r, indent=1))

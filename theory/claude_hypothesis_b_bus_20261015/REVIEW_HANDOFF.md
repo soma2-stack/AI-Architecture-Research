@@ -4,6 +4,18 @@ Round 2 (after Codex's round-1 review of `6c2a882`; see [REVIEW_RESPONSE.md](REV
 The construction is unchanged. The error analysis (Steps 9–10) is new and needs a hostile
 re-review.
 
+Round 3 (Phase 4, dense contract). The new **§2.4, Theorem R_D**, needs review first:
+* Lemma D1: does the §7 recipe of `gamma_c_over_n_quadratic_20261001` really select power
+  base `t = 1`, so that `C = 1 1^T/n`? Is that recipe the contract's prescribed matrix?
+* Lemma D2: the common-field and zero-sum identities.
+* Lemma D3 (d): only modulated positions differ under the dense dynamics, with actual inputs
+  exactly zero off the driven set.
+* The actual dense readout bound (`D_t = B_t - B'_t`).
+* The claim that Lemma E's hypotheses hold verbatim for the dense trajectory.
+
+Checks: `exp_dense_transfer.py` (explicit dense matrices) and `exp_dense_transfer_mp.py`
+(50/110 digits).
+
 Please hostile-review, in this order:
 0. **Steps 9–10 of PROOF.md §2.3 (new):**
    * the own/bus split (9.1)–(9.2) and the broadcast identity (9.3);
