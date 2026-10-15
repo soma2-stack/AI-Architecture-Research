@@ -4,6 +4,12 @@ Round 2 (after Codex's round-1 review of `6c2a882`; see [REVIEW_RESPONSE.md](REV
 The construction is unchanged. The error analysis (Steps 9–10) is new and needs a hostile
 re-review.
 
+Round 4 (after Codex's two final audits). Theorem R, Lemma E and Theorem R_D (original
+listing (i)–(v)) are independently verified. Every requested correction is applied
+(REVIEW_RESPONSE.md, Round 3). What remains open on this PR is the optional Prop. 0.2
+extended-listing zero for dense `R`, which is not needed for Hypothesis B. Lemma M work
+continues on a separate branch.
+
 Round 3 (Phase 4, dense contract). The new **§2.4, Theorem R_D**, needs review first:
 * Lemma D1: does the §7 recipe of `gamma_c_over_n_quadratic_20261001` really select power
   base `t = 1`, so that `C = 1 1^T/n`? Is that recipe the contract's prescribed matrix?

@@ -18,9 +18,10 @@ Labels:
 
 ## Summary of results
 
-1. **Hypothesis B is false** [PROVED, Theorem R in §2; error analysis repaired after review,
-   Lemma E; transferred to the prescribed dense matrix with actual-input support, Theorem
-   R_D in §2.4]. For every `n >= 1.5e18` divisible by 4, there is a legal one-dimensional
+1. **Hypothesis B is false** [PROVED and independently verified by Codex: Theorem R in §2
+   for `R = R0`, and Theorem R_D in §2.4 for the prescribed dense matrix with actual-input
+   support. The R_D scope is the original listing (i)–(v); its optional Prop. 0.2 extension is
+   OPEN]. For every `n >= 1.5e18` divisible by 4, there is a legal one-dimensional
    section in the domain of PR #28's Theorem 4. This holds both for `R = R0` and for the
    prescribed fully dense `R = alpha (R0 + eta 1 1^T/n)`, with every nonzero actual input
    counted. The section has the following properties:
@@ -44,7 +45,8 @@ Labels:
      broadcast mode with coefficient `(gamma a/sqrt k)(delta_i - gamma sum delta/k)`, a
      deviation-weighted leak, and the injection. A `ghat`-part of the capture cancels
      exactly against the uniform term because `u^T Y = 0`.
-   * A saturated front blocks the X-free wrap channel.
+   * A saturated front exponentially attenuates the X-free wrap channel (by the front gate
+     `g_1 <= 4 exp(-.0996 sqrt k)`; the channel is not destroyed, and Lemma E keeps it).
 3. **Scope repairs** [PROVED, §0].
    * The extension from the selected group `d_F,E` to the full fixed-feature group costs one
      listed scalar.
@@ -95,11 +97,18 @@ of a common-endpoint antipodal pair is `sup` over legal queries of
     §2.4). The prescribed `R` is `alpha (R0 + eta q q^T)` with `q ∝ 1_n` (Lemma D1). So
     `R Dh = alpha R0 Dh` whenever `1^T Dh = 0` (Lemma D2), and zero-sum state differences can
     merge with sparse actual inputs.
-  * The obstruction does apply to a generic dense `R` (§2.4, last paragraph).
+  * Density alone does not force dense merging. Even for the prescribed `R`, an off-cycle
+    difference `v = e_i - e_j` satisfies `R v = alpha a v` (Codex audit). So no general
+    "dense `R` puts every section in case (A)" inference holds. For a generic dense `R` the
+    construction below does not transfer (§2.4, last paragraph), but no impossibility is
+    claimed.
 
-The constructions of §2.1–2.3 use `R = R0`. §2.4 transfers them to the prescribed dense `R`
-with actual-input support. All three readings then agree: reference support, actual support,
-and `R = R0`.
+The constructions of §2.1–2.3 use `R = R0`. For `R = R0` actual and reference inputs
+coincide. §2.4 transfers the construction to the prescribed dense `R` with **actual-input**
+support: there the actual inputs are exactly sparse by definition. The reference inputs
+`x_ref = x_actual + (R - R0) h_(t-1)` are **dense** — for example, at `t = 2` every source
+row has `x_ref = s[alpha eta - (1-alpha) lam] > 0`. They are not used. The two support
+notions do **not** agree for the dense construction, and only actual support is claimed.
 
 **Proposition 0.2 (the full fixed-feature group) [PROVED].**
 * *Statement.* Theorem 4 of PR #28 and its conditional resource law hold for the full group
@@ -113,8 +122,9 @@ and `R = R0`.
   * List the odd part of the actual scalar `B_T(0,0)`; it is continuous and odd. At a joint
     zero the row-0 term of readout coordinate 0 vanishes.
   * The rest of that coordinate is the dense leak:
-    `sum_s a^(T-s) delta ||b_(s-1)|| <= 1.01 c_max delta n^2 < 4.1e-8`, read with
-    `||nu|| <= sqrt(n)`.
+    `sum_s a^(T-s) delta ||b_(s-1)|| <= 1.01 c_max delta n^2 < 4.1e-8` per history, read with
+    `||nu|| <= sqrt(n)`. The antipodal difference therefore costs `< 8.2e-8 sqrt(n)` in
+    readout (corrected after Codex's audit; the ledger below still covers it).
   * The other `n-1` columns are those of `d_F,E`, untouched.
   * The ledger becomes `47 tau/64 + 3e-7 sqrt(n) < tau`.
 
@@ -174,7 +184,9 @@ QED **[NUMERICAL]**
   (`exp_spike_decomposition.py`).
 
 *Reading.*
-* Bath rows (`delta = 0`) neither capture nor leak.
+* Bath rows (`delta = 0`) contribute nothing *as sources* (`delta_j V_j = 0`). *As
+  receivers* they still get the uniform corrections `-gamma^2 q^3 (sum delta) V(0)` and
+  `-gamma q^2 sum_j delta_j V(j)` (`q = 1/sqrt k`). Lemma E keeps these terms.
 * A **hole** (gate exactly 1, PR #26 Lemma 2.1) has `delta = s_t^2` and keeps
   `(gamma/sqrt k) s_t^2` of every arrival, at every step it is held. This is *drift capture*.
 * A strongly driven row captures `O(1/sqrt k)`, but at most `O(1)` in total along a path
@@ -190,13 +202,16 @@ identity `nu^T Delta D_T = sum_t (Kbar_t Delta R_t + Delta K_t Rbar_t)` has
 (PR #28 Lemma 7.1(a)). The whole bus is driven by the end-of-cycle arrival `Y(d-1,:)` and
 the broadcast mode `Y(0,:)`. *Proof:* (7.1) of PR #28 and `Sum(B') = sqrt(k) Y(0,:)`. QED
 
-**Remark 1.4 (a saturated front blocks the X-free wrap).**
+**Remark 1.4 (a saturated front attenuates the X-free wrap).**
 * In U-coordinates the X-free part of the bus is wrap transport `d-1 -> 0 -> 1 -> 2 ...`.
   The step `0 -> 1` is multiplied by the front gate `g_1(t)`.
 * When `|Sum'(h_(t-1))| >= s_lo k/2`, PR #28 Lemma 1.3 (as repaired by the audit) gives
   `g_1(t) <= 4 exp(-s_lo sqrt(k) + 4)`.
-* In the construction of §2, `Sum' ~ k s`, so the wrap channel is dead. What survives is
-  capture and leak. Lemma 1.2 shows that capture alone already defeats Hypothesis B.
+* In the construction of §2, `Sum' ~ k s`, so the wrap channel is attenuated by a factor
+  `<= 4 exp(-.0996 sqrt k)` per passage. It is not destroyed: every finite preactivation has
+  `sech^2 > 0`, and Lemma E keeps the term as `g1max B0`. What remains, up to this
+  attenuation, is capture and leak. Lemma 1.2 shows that capture alone already defeats
+  Hypothesis B.
 
 ## 2. Hypothesis B is false
 
@@ -240,10 +255,11 @@ boundary `{+1,-1}`.
   and share one exact endpoint.
 * (b) **Budget.** At every step the driven set is the same in both histories, with
   `m <= ell + 1 = 120001`. Also `T <= .2501 n`. Hence `m <= c0 n` and
-  `mT <= 30012 n <= 2.5e-5 n^(3/2)`, so the section lies in the sub-barrier domain of
+  `mT <= 30013 n <= 2.5e-5 n^(3/2)`, so the section lies in the sub-barrier domain of
   PR #28's Theorem 4: it is in none of the cases (A), (B') there.
-* (c) **Listing zero.** `theta* = +1` is a zero of Theorem 4's listing `Phi`, and of its
-  one-scalar extension in Proposition 0.2.
+* (c) **Listing zero.** `theta* = +1` is a zero of Theorem 4's listing `Phi` (items
+  (i)–(v), the listing of Hypothesis B). For `R = R0` it is also a zero of the one-scalar
+  extension of Proposition 0.2 (Step 5 (vi)).
 * (d) **Bus readout.** The uniform one-step legal query, with all future gates `HI`, has
   readout `Gamma = Delta B_T^T nu` with `||Gamma||_2 >= .1179 n > 2.08 tau`. Every own profile
   of a memory row at `T` agrees in the two histories, so **all of `Gamma` is bus content**:
@@ -389,7 +405,11 @@ part vanishes at `theta = +1`:
   * So it lies on no local path of a row at `T`. Off-cycle rows are never modulated.
   * Hence every own profile at `T` (and `c`) agrees in both histories, whatever the soft
     weights.
-* (vi) the extra scalar of Proposition 0.2: row 0 never differs.
+* (vi) the extra scalar of Proposition 0.2 (`R = R0` only).
+  * Since `O e0 = O^T e0 = e0`, the full-group column 0 of the actual credit stays on `e0`:
+    `b_t = g_0(t)(a b_(t-1)(0) + c_t) e0`.
+  * `g_0` and `c_t` are common, so `Delta B_T(0,0) = 0`.
+  * This argument fails for the dense `R`; see the remark after Theorem R_D.
 
 So `Phi(+1) = 0` exactly. The soft weights multiply vanishing odd parts, so their values do
 not matter.
@@ -726,7 +746,8 @@ matrix. No reference-support accounting is used anywhere.
   * By `U 1_k = sqrt(k) e0`, `P^T e0 = e_(d-1)` and `U e_(d-1) = e_(d-1) + (gamma/sqrt k) w`, we
     get `O^T 1_k = sqrt(k) e_(d-1) + gamma w`.
   * Its entries are `gamma(1 - 1/sqrt k) = 1` (index 0), `(k - gamma)/sqrt(k)` (index `d-1`) and
-    `-gamma/sqrt(k)` (all others). None vanishes, since `1 < gamma < 2 < k`.
+    `-gamma/sqrt(k)` (all others). None vanishes, since `1 < gamma <= 2 < k` (`gamma = 2`
+    exactly at `k = 4`, i.e. `n = 8, 9`).
   * Likewise `O 1_k = sqrt(k) e_1 + gamma w` has entries `1`, `(k - gamma)/sqrt k`,
     `-gamma/sqrt k`. With the opposite cycle orientation the roles of `e_1` and `e_(d-1)` swap.
     So `t = 1` is admissible for `u_*` and for `v_*`, and `C = q q^T`.
@@ -780,12 +801,17 @@ ranges move, by `O(eta)`.
   * Lemma 1.5 holds verbatim: its proof uses only `x = a' s + beta' >= 0` and
     `0 <= a' z <= z`.
 * (c) **Ranges.**
-  * `beta'_t = .05 - s_(t-1) + eps'_t` with `|eps'_t| <= 1.2/sqrt(k) + 3 eta <= 1.4e-9`.
-  * Hence `s_t^2 in [.0024958, .0024959]` and `beta'_t in [4.1622e-5, 4.1628e-5]`.
-  * The front preactivation is `>= .0498 sqrt(k)`.
+  * *Time-1 exceptions.* Since `h_0 = 0`, `phi_1 = 0`, `beta'_1 = .05`, the front
+    preactivation at `t = 1` is `.05`, and `c_1 = 0`. The bounds below hold for `t >= 2`.
+    Lemma E is unaffected, because its first incoming credit is 0.
+  * For `t >= 2`: `beta'_t = .05 - s_(t-1) + eps'_t` with
+    `|eps'_t| <= 1.2/sqrt(k) + 3 eta <= 1.4e-9`.
+  * Hence `s_t^2 in [.0024958, .0024959]` for `t >= 1`, and
+    `beta'_t in [4.1622e-5, 4.1628e-5]` for `t >= 2`.
+  * The front preactivation is `>= .0498 sqrt(k)` for `t >= 2`.
   * The wake and input bounds of Steps 1–2 hold with `+3 eta` margins [c].
   * The source credit satisfies `c_t <= c_max := 1 + 1e-40` for all `t`, and
-    `c_t >= 1 - 1e-12` for `t >= 2`.
+    `c_t >= 1 - 1e-12` for `t >= 2` (and `c_1 = 0`).
   * *Proof of the source bounds.* Let `sigma'` be the fixed point of
     `x = tanh(lam x + .05 + eta)`, so `sigma' - sigma <= 1.01 eta`. Then
     `0 <= s^src_t <= sigma'` by induction, because `alpha <= 1`.
@@ -826,12 +852,15 @@ differences, `1^T Dh` and the endpoint difference are all **exactly 0** at worki
     `<= 120001` coordinates.
   * The section starts at `h_0 = 0` and has one exact common endpoint.
   * `mT <= 2.5e-5 n^(3/2)`, and `m <= c0 n`.
-  * `theta* = +1` is a zero of PR #28 Theorem 4's listing `Phi` (and of its Prop. 0.2
-    extension).
+  * `theta* = +1` is a zero of PR #28 Theorem 4's listing `Phi`, items (i)–(v). This is
+    exactly the listing of Hypothesis B. Whether it is also a zero of the optional
+    Prop. 0.2 extension is **not** claimed (OPEN; see the remark below).
   * For the uniform legal query (future gates `HI`):
 
-        || sum_l nu_l bus_l || = a HI sqrt(k) ||Delta Y'_T(d-1)|| >= .11790 n >= 2.0826 tau,
-        || nu_R^T Delta B_T ||  >= .11789 n >= 2.082 tau          (actual dense readout).
+        || sum_l nu_l bus_l || = a HI sqrt(k) ||Delta Y'_T(d-1)|| >= .11790944 n > 2.0826 tau,
+        || nu_R^T Delta B_T ||  >= .11790936 n > 2.0826 tau        (actual dense readout).
+
+    The bound must be used before rounding: `.11790 n` alone gives only `> 2.0824 tau`.
 
     Here `B'` is Theorem 4's R0-skeleton credit with the actual gates and `nu` the R0
     weights, as in Hypothesis B. `B` is the actual dense credit and `nu_R` the actual
@@ -842,8 +871,8 @@ differences, `1^T Dh` and the endpoint difference are all **exactly 0** at worki
 *Proof.*
 * *Legality, budget, endpoint.* Lemma D3 (a)–(e), and §2.3 Steps 2 and 4 with
   `+3 eta` margins [c].
-* *Listing zero.* Exactly as in §2.3 Step 5. Every listed quantity of Theorem 4 (i)–(v) and
-  (vi) is (even weight) × (odd part), and every odd part vanishes:
+* *Listing zero.* Exactly as in §2.3 Step 5. Every listed quantity of Theorem 4 (i)–(v) is
+  (even weight) × (odd part), and every odd part vanishes:
   * states, inputs, `J`, `Sum'`, and `c` (the source states agree) agree by Lemma D3(d);
   * the own suffix-product profiles at `T` agree, because no modulated position lies on a
     local path at `T`.
@@ -867,9 +896,28 @@ differences, `1^T Dh` and the endpoint difference are all **exactly 0** at worki
   * Hence `|nu_R^T Delta D_T| <= sqrt(n) * 8e-8 c_max sqrt(n) <= 8.1e-8 n`.
   * Also `||nu_R - nu|| <= e_R HI sqrt(n)`, so
     `|(nu_R - nu)^T Delta B'_T| <= 4e-8 n^-2 sqrt(n) * 2 c_max n^(3/2) <= 1e-7`.
-  * Therefore `||nu_R^T Delta B_T|| >= .11790 n - 8.1e-8 n - 1e-7 >= .11789 n` [c].
+  * Therefore `||nu_R^T Delta B_T|| >= .11790944 n - 8.1e-8 n - 1e-7 >= .11790936 n` [c].
 
 QED
+
+**Remark (the Prop. 0.2 extended listing under the dense `R`) [OPEN; corrected after Codex's
+dense-transfer audit].**
+* The first version of Theorem R_D also claimed a zero of the extended listing. That listing
+  adds the odd part of the *actual* full-group credit scalar `B_T(0,0)`. Equal states do not
+  give equal credit.
+* With `b_t` the full-group column 0 of the actual dense credit,
+
+      Delta b_t(0) = g_0(t) [ (alpha a + alpha eta/n) Delta b_(t-1)(0)
+                             + (alpha eta/n) sum_(j>=1) Delta b_(t-1)(j) ].
+
+  The last feedback term was omitted.
+* Zero-sum *state* differences do not make the *credit* differences sum to zero. Paired `+z`
+  and `-z` states have the same gate, so their changed-gate credit terms add.
+* Codex exhibits an exact short history in which states merge exactly but
+  `Delta b_4(0) = -2 g_0(4)(alpha eta/n)^2 c_2 g_0(2)(1 - g_mod) < 0`. On a scaled
+  long schedule it measures `Delta B_T(0,0) = 2.33e-31`, stable at 80 and 110 digits.
+* Neither is a theorem-scale counterexample, so the claim is **OPEN**, not refuted.
+* It is not needed: Hypothesis B uses only items (i)–(v).
 
 **[NUMERICAL]** D5 in `exp_dense_transfer.py` (`n = 256, 512`, contract `eta`):
 * the actual dense readout `nu_R^T Delta B_T` and the bus readout `nu^T Delta B'_T` agree to
@@ -898,8 +946,8 @@ With the adversarial `eta = 1e-3` they still differ only by `.008` (`n = 256`) a
   `m`-sparse actual inputs forces `R Dh_(t-1)` to vanish on all `n - m` undriven
   coordinates. That confines `Dh_(t-1)` to an `R`-dependent `<= m`-dimensional subspace,
   which generically has full support. The transfer above would not apply; whether another
-  construction would is open. The obstruction raised in Remark 0.1 is therefore real for
-  generic `R`, but absent for the prescribed recipe.
+  construction would is open. This is not an impossibility statement: special directions can
+  still merge sparsely (Remark 0.1). For the prescribed recipe the issue is absent.
 
 ## 3. What the failure of B means, and the corrected target
 
@@ -1083,9 +1131,10 @@ sections. Removing the logarithm is subordinate to Lemma M.
 | Lemma 1.3: bus inputs are the arrival and the broadcast mode | PROVED |
 | Lemma 1.5: front-chain excess `<= 51.7`, front-chain gate deviations `<= 11.82` (self-contained; replaces the imported audit certificate) | PROVED; constants certified |
 | Broadcast identity (9.3) and own/bus split (9.1)–(9.2) | PROVED; checked to `<= 8.4e-15` |
-| Lemma E: a priori bounds on all bus contents of the construction (certified super-solution of a 6-variable majorant system, uniform in `n >= 1.5e18`) | PROVED; constants certified; small-`n` inequality audit passes |
-| **Theorem R: Hypothesis B is false** (`n >= 1.5e18`, `R = R0`, `D = 1`, `m <= 120001`, `mT <= 2.5e-5 n^(3/2)`, bus `>= .1179 n > 2.08 tau` at a listing zero) | **PROVED** (error analysis rewritten after Codex review of `6c2a882`: Steps 9–10; constants certified; independent re-review needed) |
-| **Theorem R_D: Hypothesis B is false for the prescribed dense matrix** (Lemma D1: recipe gives `C = 1 1^T/n`; Lemma D2: dense part = common field, invisible to zero-sum differences; actual support `<= 120001`, exact endpoint, listing zero; bus `>= .11790 n`, actual dense readout `>= .11789 n >= 2.082 tau`) | **PROVED** (author; constants certified; explicit dense and 50-digit checks pass; independent review needed) |
+| Lemma E: a priori bounds on all bus contents of the construction (certified super-solution of a 6-variable majorant system, uniform in `n >= 1.5e18`) | PROVED; **INDEPENDENTLY VERIFIED** by Codex (`codex_pr29_independent_audit_20261015`: exact rational certificate, `E_Y < 1018.375`) |
+| **Theorem R: Hypothesis B is false** (`n >= 1.5e18`, `R = R0`, `D = 1`, `m <= 120001`, `mT <= 2.5e-5 n^(3/2)`, bus `>= .1179 n > 2.08 tau` at a listing zero) | **PROVED; INDEPENDENTLY VERIFIED** for `R = R0` by Codex (`codex_pr29_independent_audit_20261015`) |
+| **Theorem R_D: Hypothesis B is false for the prescribed dense matrix** (Lemma D1: recipe gives `C = 1 1^T/n`; Lemma D2: dense part = common field, invisible to zero-sum differences; actual support `<= 120001`, exact endpoint, zero of the original listing (i)–(v); bus `>= .11790944 n > 2.0826 tau`, actual dense readout `>= .11790936 n`) | **PROVED; INDEPENDENTLY VERIFIED** by Codex (`codex_pr29_dense_transfer_audit_20261015`) in this scope |
+| Zero of the optional Prop. 0.2 extended listing for the dense `R` | **OPEN** (removed from Theorem R_D; the state-equality argument is invalid, see the remark after Theorem R_D) |
 | Remark 0.1, literal-reading claim "dense `R` forces dense merging" | **CORRECTED**: false for the prescribed recipe (§2.4); true in spirit for generic dense `R` [ANALYSIS] |
 | Lemma M (bus capacity), the precise missing inequality | **OPEN** (§3.4: Theorem R is consistent with it and weakly supports its spike-listing strategy; no evidence on the dimension bound) |
 | Removal of the `log n` loss | **OPEN** (obstruction to the naive weighted listing recorded) |

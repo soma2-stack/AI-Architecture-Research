@@ -15,7 +15,7 @@ by the proof in PROOF.md §2: Lemma E plus the decimal certificate.
 | `exp_drift_capture.py` | Scaled construction (`n` up to 65536): legality, exact common endpoint, equal window states, no gate difference on any local path at `T` (so the readout is all bus), and agreement with the first-order drift-capture prediction. **Round 2:** predictor arrival set corrected (Codex P2) and rerun. | max input `.4726`; endpoint diff `<= 2.2e-16`; 0 local-path hits; prediction error `.60/.33/.165` at `ell/sqrt(k) = .35/.18/.12` (unchanged to `1e-14` by the fix) |
 | `exp_dense_transfer.py` (Phase 4) | EXPLICIT dense `R = (a/||B||)(R0 + eta C)` at `n = 256, 512, 1024`, `eta in {1e-8/n^2, 1e-6, 1e-3}`; actual inputs on driven coordinates only. **D1:** `t = 1` admissible (`min|R0^-1 1| = .046–.097`), `R`, `R^-1` without zero entries, `||R|| = a`. **D2/D3:** support within driven set, `max|x| <= .452`, `Delta h` off modulated positions `<= 7.8e-15`, `|1^T Delta h| <= 1.2e-13`, `R Dh = alpha R0 Dh` to `1.7e-16`, endpoint over `theta in {+-1,0,.5}` `<= 5e-15`. **D4:** adversarial generic `v` gives endpoint miss `~eta` and dense spreading. **D5:** actual dense readout = bus readout to `5.5e-12` (contract `eta`); 0 local-path gate differences | all pass |
 | `exp_dense_transfer_mp.py` (Phase 4) | 50-digit dense run, contract `eta`, `n = 256`; 110-digit adversarial power-base-2 `C` | prescribed `C`: off-modulation diff, `1^T Dh`, endpoint all exactly 0 at working precision; base 2: endpoint miss `4.9e-64` (invisible in float64) |
-| `constants_check.py` | Decimal certificates (50 digits) of every constant in the proofs of Theorems R and R_D, in six groups (details below). | all assertions pass; `||Gamma|| >= .11790 n >= 2.0826 tau`; dense actual readout `>= .11789 n >= 2.0824 tau` |
+| `constants_check.py` | Decimal certificates (50 digits) of every constant in the proofs of Theorems R and R_D, in six groups (details below). | all assertions pass; `||Gamma|| >= .11790944 n > 2.0826 tau` (the rounded `.11790 n` gives only `> 2.0824 tau`); dense actual readout `>= .11790936 n > 2.0826 tau` |
 
 The six groups certified by `constants_check.py`:
 * **(A)** bath, `beta`, wake, inputs, modulation factor;
@@ -27,6 +27,15 @@ The six groups certified by `constants_check.py`:
   the budget threshold;
 * **(F)** dense transfer: all ranges widened by `3 eta`, `c_max <= 1 + 1e-40`, actual dense
   readout `>= .11789 n`.
+
+**Schedule note (Codex P3).** The scaled scripts end arrivals at `T - wsim - 2 J_M`. The
+written construction ends them at `T - W_tail - 2 J_M - 2`, so the scripts test two extra
+arrivals. Codex's independent implementation (`codex_pr29_independent_audit_20261015`) uses the written schedule and passes.
+The theorem rests on the proof, not on these runs.
+
+**Independent audits.** These are recorded in this branch as separate folders:
+* `../codex_pr29_independent_audit_20261015/` (R0 theorem, Lemma E: VERIFIED);
+* `../codex_pr29_dense_transfer_audit_20261015/` (dense transfer: VERIFIED for listing (i)–(v); Prop. 0.2 extension OPEN).
 
 **Reading the small-`n` runs.**
 * At the simulated sizes (`sqrt(k) <= 181`) the bus readout stays below `tau`

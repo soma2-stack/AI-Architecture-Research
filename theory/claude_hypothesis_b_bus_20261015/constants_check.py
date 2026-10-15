@@ -195,11 +195,14 @@ def main():
     bus_d = D(".11791") - err_frac_d
     assert bus_d >= D(".11790")
     # actual dense readout: |nu_R^T Delta D_T| <= 8e-8 c_max n, |(nu_R - nu)^T Delta B'_T| <= 1e-7
-    act_d = D(".11790") - D("8.1e-8") - D("1e-7") / n0
+    act_d = bus_d - D("8.1e-8") - D("1e-7") / n0               # use the bound before rounding
     r["dense: bus readout / n lower"] = str(bus_d)[:10]
     r["dense: actual readout / n lower"] = str(act_d)[:10]
     r["dense: actual ratio to tau"] = str(act_d / tau_over_n)[:8]
-    assert act_d >= D(".11789") and act_d / tau_over_n >= D("2.082")
+    assert act_d >= D(".11790936") and act_d / tau_over_n > D("2.0826")
+    # the rounded value .11790 n does NOT give 2.0826 tau (Codex audits, P2): record it
+    r["rounding check: .11790/(tau/n)"] = str(D(".11790") / tau_over_n)[:10]
+    assert D(".11790") / tau_over_n < D("2.0826")
     with open(os.path.join(HERE, "constants_check_result.json"), "w") as f:
         json.dump(r, f, indent=1)
     print(json.dumps(r, indent=1))

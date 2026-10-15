@@ -98,7 +98,8 @@ The previous version claimed `.1178 n > 2.08 tau`.
    * This is **not** dismissed because of the `1/k`. It is bounded explicitly and compared with
      the main term `~.25 sqrt(k)`.
 4. *Recomputed lower bound.* `||Gamma|| >= .11791 n - HI * 1019 sqrt(n/2) >= .11790 n`, which
-   is `>= 2.0826 tau` [c].
+   is `> 2.0826 tau` [c]. (Corrected later: this must use `.11790944 n`; the rounded
+   `.11790 n` gives only `> 2.0824 tau`.)
 
 **Finding beyond the review.** The old estimate (`3.7e4 sqrt(k) c` in readout units) counted
 all `~ell` holes in flight at the full arrival difference. Before its modulation, a hole's
@@ -132,7 +133,7 @@ theorem, but it was not a derivation.
 | 1. Legality of every input, every `theta in [-1,1]` | Step 2; `constants_check.py` §A | `max |x| <= .4732 < .5` |
 | 2. Width and horizon budget | Step 4 | `m <= 120001` actual support (`R = R0`, so actual = reference); `T <= .2501 n`; `mT <= 2.5e-5 n^(3/2)` iff `n >= 1.442e18` |
 | 3. Start at 0, same exact endpoint | Step 3 | holds for all `theta` (pairs balance `Sum'`, `J`) |
-| 4. Zero of Theorem 4's complete listing | Step 5, checked against PR #28 Theorem 4 Step 1 (i)–(v) and Prop. 0.2 (vi) | every listed quantity is (even weight) × (odd part), and every odd part vanishes |
+| 4. Zero of Theorem 4's complete listing | Step 5, checked against PR #28 Theorem 4 Step 1 (i)–(v); Prop. 0.2 (vi) only for `R = R0` | every listed quantity is (even weight) × (odd part), and every odd part vanishes |
 | 5. Readout difference is bus content | Steps 5–6 | no modulated position lies on any local path at `T`; own profiles (3.0') agree |
 | 6. Uniform query legal | Step 6; PR #28 §0 | future gates `HI 1 in [LO,HI]^n` |
 | 7. Bounds for every `n >= 1.5e18` | Steps 4, 8, 10; Lemma E monotonicity | certified at `n = 1.5e18`; every coefficient non-increasing in `k`; horizon fractions non-increasing in `n` |
@@ -158,3 +159,26 @@ Other points the review asked us to watch:
 * Lemma M stays **OPEN**. PROOF.md §3.4 evaluates it: the repaired construction is
   consistent with Lemma M and weakly supports its spike-listing strategy. It gives no
   evidence on the dimension bound.
+
+## Round 3 — Codex's two final audits (`codex_pr29_independent_audit_20261015`, `codex_pr29_dense_transfer_audit_20261015`)
+
+Both audits are recorded as separate folders on this branch. Their verdicts:
+* **Theorem R (`R0`) and Lemma E: VERIFIED.**
+* **Lemmas D1–D3 and the dense counterexample to the original Hypothesis B: VERIFIED.**
+
+Corrections applied to PR #29:
+
+| Finding | Correction |
+|---|---|
+| P1 (dense audit): zero of the Prop. 0.2 extended listing claimed from state equality | Removed from Theorem R_D. Now **OPEN**, with the exact missing feedback term and Codex's short-history counterexample to the inference (remark after Theorem R_D). It still holds for `R = R0` (Step 5 (vi)). |
+| P2 (both): `.11790 n >= 2.0826 tau` is false | Theorem statements use `.11790944 n > 2.0826 tau`. `constants_check.py` asserts the rounded value is `< 2.0826`. |
+| P2 (dense): actual and reference support "agree" | Deleted. Only actual support is claimed; the dense construction's reference inputs are dense. |
+| P2 (R0): bath rows "neither capture nor leak" | Bath *sources* contribute nothing; bath *receivers* get the uniform corrections. |
+| P2 (R0): wrap channel "dead" | Exponentially attenuated, not destroyed (kept as `g1max` in Lemma E). |
+| P2 (R0): generic dense merge | No impossibility claimed. Codex's sparse merge `R(e_i - e_j) = alpha a (e_i - e_j)` is cited. |
+| P3: `1 < gamma < 2 < k` | `1 < gamma <= 2 < k` (`gamma = 2` at `n = 8, 9`). |
+| P3: time-1 exceptions | Stated in Lemma D3(c): `beta'_1 = .05`, front `.05`, `c_1 = 0`. |
+| P3: `30012 n` | `30013 n`. |
+| P3: Prop. 0.2 leakage | `< 8.2e-8 sqrt(n)` antipodal (was `4.1e-8`, one history). |
+| P3: scripts test two extra arrivals | Documented in CHECKS.md; Codex's written-schedule reproduction passes. |
+

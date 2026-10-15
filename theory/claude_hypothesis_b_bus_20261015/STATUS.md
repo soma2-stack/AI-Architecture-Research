@@ -1,7 +1,7 @@
 # Status — claude_hypothesis_b_bus_20261015
 
 **Type:** author theory, with exact-identity checks and scaled simulations. **Repository
-status:** PENDING INDEPENDENT RE-REVIEW. Builds on the checkpoints PR #27 `c987408` and PR #28
+status:** Theorem R, Lemma E and Theorem R_D (original listing) INDEPENDENTLY VERIFIED; corrections from both final Codex audits applied. Builds on the checkpoints PR #27 `c987408` and PR #28
 `0cc0a23`.
 
 **Review round 1 (Codex on `6c2a882`).** Three findings, all valid, all resolved. See
@@ -14,7 +14,9 @@ status:** PENDING INDEPENDENT RE-REVIEW. Builds on the checkpoints PR #27 `c9874
 | Item | Status |
 |---|---|
 | Hypothesis B of PR #28 | **REFUTED** (Theorem R: `n >= 1.5e18`, `R = R0`, `D = 1`, sub-barrier, bus `>= .1179 n >= 2.08 tau` at a listing zero; error analysis repaired: Lemma E) |
-| **Dense transfer (Theorem R_D, PROOF.md §2.4)** | **PROVED** (author): for the PRESCRIBED dense `R = alpha (R0 + eta 1 1^T/n)` (Lemma D1), with actual-input support `<= 120001`, exact common endpoint, listing zero; bus `>= .11790 n`, actual dense readout `>= .11789 n >= 2.082 tau`. Pending independent review |
+| **Dense transfer (Theorem R_D, PROOF.md §2.4)** | **PROVED; INDEPENDENTLY VERIFIED** (Codex, `codex_pr29_dense_transfer_audit_20261015`): for the PRESCRIBED dense `R = alpha (R0 + eta 1 1^T/n)` (Lemma D1), with actual-input support `<= 120001`, exact common endpoint, zero of the original listing (i)–(v); bus `>= .11790944 n > 2.0826 tau`, actual dense readout `>= .11790936 n` |
+| Zero of the optional Prop. 0.2 extended listing (dense `R`) | **OPEN** (claim removed; state equality does not give credit equality) |
+| Theorem R and Lemma E (`R = R0`) | **INDEPENDENTLY VERIFIED** (Codex, `codex_pr29_independent_audit_20261015`) |
 | Arrival-error and leak bounds of Theorem R | PROVED (Lemma E: arrival bus `<= 4.3e-4`, `1.7e-6` relative; total error `<= 5.6e-7 n` in readout) |
 | Theorem 4 of PR #28 | still a correct dichotomy; its case (C) occurs |
 | Full fixed-feature group (direction `e0 f_s^T`) | Theorem 4 extends with one listed scalar (Prop. 0.2) |

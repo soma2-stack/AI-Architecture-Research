@@ -28,7 +28,7 @@ Codex cross-PR audit handoff.
     `(gamma/sqrt k)(delta_i - gamma sum delta/k)`, an `O(1/k)` deviation-weighted leak, and
     the injection.
   * The whole bus is driven by two U-coordinates, the arrival and the broadcast mode.
-  * A saturated front blocks the X-free wrap channel.
+  * A saturated front exponentially attenuates the X-free wrap channel (it is not destroyed).
 * **Scope.** Theorem 4 extends to the full fixed-feature group, including `e0 f_s^T`, with
   one more listed scalar. Under the repository's reference-input width convention the
   state dynamics is exactly `R0`.
@@ -65,7 +65,8 @@ Point-by-point answers are in [REVIEW_RESPONSE.md](REVIEW_RESPONSE.md).
   The old estimate overstated it about 60-fold, because holes carry no own difference before
   their modulation.
 * **P2, predictor.** The arrival set is fixed. The rerun reproduces every number to `1e-14`.
-* **Final constant.** `||Gamma|| >= .11791 n - 5.6e-7 n >= .11790 n >= 2.0826 tau`.
+* **Final constant.** `||Gamma|| >= .11791 n - 5.6e-7 n >= .11790944 n > 2.0826 tau`. The
+  rounded `.11790 n` gives only `> 2.0824 tau`.
 
 Theorem R therefore stands, with a complete proof that is pending independent re-review. A
 new script, `exp_error_bounds.py`, checks every identity used (residuals `<= 3.4e-13`) and
@@ -101,13 +102,35 @@ the power base `t = 1` (Lemma D1). So the prescribed matrix is exactly
 factor is not `∝ 1` breaks exact endpoints. With power base 2 this happens only below float64
 resolution (`4.9e-64`).
 
-*Scope.* `D = 1`, so the `n^(3/2)` barrier is untouched.
+*Scope.*
+* `D = 1`, so the `n^(3/2)` barrier is untouched.
+* The claim is a zero of the original listing (i)–(v) only. The zero of the optional
+  Prop. 0.2 extended listing was removed: it is **OPEN** (Codex dense-transfer audit).
+* Only actual-input support is claimed. The dense construction's reference inputs are dense.
+
+## Independent verification (Codex, 2026-10-15)
+
+* `codex_pr29_independent_audit_20261015`: Theorem R and Lemma E for `R = R0` are **VERIFIED**. It has an exact rational
+  certificate with `E_Y < 1018.375`.
+* `codex_pr29_dense_transfer_audit_20261015`: Lemmas D1–D3 and the counterexample to the original Hypothesis B for the
+  prescribed dense `R` are **VERIFIED**. The Prop. 0.2 extension is INCOMPLETE and now marked
+  OPEN.
+* All presentation corrections from both audits are applied:
+  * the rounding chain;
+  * bath receivers getting uniform corrections;
+  * front attenuation rather than destruction;
+  * actual versus reference support;
+  * the generic-merge remark;
+  * `gamma <= 2`;
+  * the time-1 exceptions;
+  * `30013`;
+  * `8.2e-8`.
 
 ## Status
 
 | Result | Status |
 |---|---|
-| Hypothesis B | **REFUTED** (Theorem R; error analysis repaired after review: Lemma E; transferred to the prescribed dense matrix with actual support: Theorem R_D) |
+| Hypothesis B | **REFUTED**, independently verified (Theorem R for `R0`; Theorem R_D for the prescribed dense `R` with actual support; original listing (i)–(v)) |
 | Exact bus structure: Lemmas 1.1–1.3, Remark 1.4 | PROVED; checked to `<= 4.4e-13` |
 | Full-group extension (Prop. 0.2); width-convention remark (0.1) | PROVED |
 | Lemma M (bus capacity) | OPEN (consistent with Theorem R; weak support for its spike-listing strategy, §3.4) |
