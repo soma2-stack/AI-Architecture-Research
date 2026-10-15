@@ -1,5 +1,29 @@
 # Response to the reviews of PR #28 (head `6ce7026`)
 
+## Final cross-PR audit of a67be6d / 3746747 — 2026-10-15
+
+The [independent audit](../codex_cross_pr_final_audit_20261015/AUDIT.md) rechecks the
+imported foundations, all target constants, query bounds, source startup, release
+and resource conversion. This block supersedes earlier unqualified statements.
+
+* Theorem 2 now uses 1/1700 exactly; 1/(1700*3e6)>1.9e-10.
+* Section 6's exact unrolling is corrected for B' with the front bus delivery;
+  actual dense forcing remains separately charged. Finite front transport is
+  attenuated, not killed. Theorem 4 already kept both bus terms in Hypothesis B.
+* Corollary 3.3 projects the unweighted suffix profile, retaining time-varying
+  public c and its 553 bound. The weighted profile need not have variation <=2.
+* Lemma 3.2 does not establish matching optimality. Lemma 7.2 is a capture upper
+  bound, not a capture floor. Historical full-metric/logarithm-free conclusions
+  are withdrawn explicitly; the public-set condition in Corollary 3.5 is retained.
+* PR #27's additional missing injection gate is fixed at 6ef95b5. It did not enter
+  Theorem 4's imported foundations. Those foundations now pass independent checks.
+
+Theorem 4 remains a rigorous **conditional** implication from B for d_F,E, with
+2N3<=D<=n and Omega(n^(3/2)/log n) for linear D. B and the original full-d_F
+strict-budget problem remain OPEN. No new assumptions or proof attempt for B.
+Exact future proof/counterexample targets are in
+[HANDOFF.md](../codex_cross_pr_final_audit_20261015/HANDOFF.md).
+
 
 ## Independent repair following the audit at b66b12d
 

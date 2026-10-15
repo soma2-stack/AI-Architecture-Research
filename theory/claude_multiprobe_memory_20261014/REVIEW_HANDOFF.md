@@ -1,5 +1,11 @@
 # Review handoff — claude_multiprobe_memory_20261014
 
+The final cross-PR audit supersedes this earlier review queue:
+[AUDIT.md](../codex_cross_pr_final_audit_20261015/AUDIT.md).
+The precise **next research** targets for B and the logarithmic loss are in
+[HANDOFF.md](../codex_cross_pr_final_audit_20261015/HANDOFF.md).
+Neither was attempted during this audit. The original full-d_F question remains OPEN.
+
 **Current repair of b66b12d.** The five prioritized findings are incorporated in
 PROOF.md. Independent derivations, checker and recorded results are in
 `../codex_pr28_repair_verification_20261014/`. Theorem 4 is verified as a conditional
@@ -24,11 +30,11 @@ this order:
 2. **Lemma 7.1** (U-coordinates): the claim that information moves between U-paths only
    through `X_t`, and the three-term split.
 3. **Lemma 1.2'** (all legal queries): the recursion
-   `A_j <= HI A_(j+1) + .1719 gamma HI^(F-j) + 4.9/sqrt(k)` and the spike bookkeeping.
+   `A_j <= HI A_(j+1) + .1719 HI^(F-j) + 5.0/sqrt(k)` and the exact cutoff/spike bookkeeping.
 4. **Cor. 3.5**: the integer block choice and the corrected constants; whether (H3) can be
    discharged for natural constructions.
 5. **Theorem 2**: written out relative to PR #27; it needs PR #27's lemmas to be
-   independently verified.
+   independently verified (completed in the final cross-PR audit).
 6. **Hypothesis B** (open): attempt a proof, e.g. via the U-path reformulation of §7.6, or
    a counterexample. A counterexample must store `>= tau/4` of the separation in the bus
    at the zeros of the state-only listing.

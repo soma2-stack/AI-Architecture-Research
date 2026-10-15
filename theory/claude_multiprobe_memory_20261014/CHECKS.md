@@ -1,5 +1,28 @@
 # Checks — claude_multiprobe_memory_20261014
 
+## Final cross-PR independent audit (2026-10-15)
+
+The current [audit](../codex_cross_pr_final_audit_20261015/AUDIT.md) and
+[handoff](../codex_cross_pr_final_audit_20261015/HANDOFF.md) supersede prior unqualified
+scope/optimality comments. Historical numerical records below are preserved.
+
+```powershell
+python -I theory/codex_cross_pr_final_audit_20261015/checks.py
+python -I theory/codex_cross_pr_final_audit_20261015/regressions.py --pr27-root PATH_TO_PR27_CHECKOUT
+```
+
+New checks: exact rational gate/constant/ceiling certificates, 48 adversarial query
+cases, 480 strict integer choices, 2560 worst-sign weighted-profile cases, 100 release
+schedules including never-protected paths, and a two-bus-channel identity regression.
+Prior independent foundation/repair suites also pass, including the infinite-tail
+bath certificate. Their historical outputs are not overwritten. Fresh and regression
+results are in the separate audit folder; no author implementation is imported.
+Runtime is about .2 seconds plus 7.5 seconds, CPU only, one thread.
+
+The exact 1/1700 correction preserves Theorem 2's 1.9e-10. Theorem 4's complete
+47tau/64 ledger and 4.7e-11 resource coefficient remain valid **conditional on B**,
+in the explicitly selected group and resource range 2N3<=D<=n. No B proof was attempted.
+
 Two scripts, both CPU, each under a minute, float64. They verify **exact identities and
 finite samples only**. The asymptotic theorems rest on the proofs.
 

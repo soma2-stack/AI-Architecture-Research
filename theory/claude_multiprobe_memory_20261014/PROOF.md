@@ -2,8 +2,9 @@
 
 Claude (Opus 5.5), 2026-10-14. Original frozen dense-tanh model, explicitly selected fixed-feature group (section 0),
 budget `mT` (peak driven width x horizon). Builds on PR #27 (Theorem 1, the K-probe
-barrier; its P1/P2 repairs were verified in `118b1e6`). Author-derived; **independent
-review required**. Labels: [PROVED], [CONDITIONAL] (proved from a stated hypothesis),
+barrier; the foundations were independently rechecked at `a67be6d`, with the full
+post-gate injection corrected in the final cross-PR addendum). Author-derived, with
+independent reviews recorded below. Labels: [PROVED], [CONDITIONAL] (proved from a stated hypothesis),
 [ANALYSIS] (resource calculation for a specified construction), [HEURISTIC], [OPEN].
 
 **Repair of 2026-10-14.** This version answers GPT-6's independent review and Codex's
@@ -17,6 +18,12 @@ scope, integer constants and release bookkeeping below incorporate the review of
 `b66b12d`. Verification and independent checks are in
 `../codex_pr28_repair_verification_20261014/`. Hypothesis B and the original strict-budget
 problem remain **OPEN**; no attempt to prove B is part of this repair.
+
+**Final cross-PR audit, 2026-10-15.** The imported bath/protected/state foundations,
+Theorems 2–3 and the conditional argument of Theorem 4 were independently rechecked.
+Theorem 2 uses the exact ratio `1/1700`. Corrections to auxiliary exact identities
+and overstatements do not change the theorem constants or add hypotheses. See
+[AUDIT.md](../codex_cross_pr_final_audit_20261015/AUDIT.md) and its separate CPU checks.
 
 ## 0. Contract and the explicitly selected d_F,E separation
 
@@ -208,7 +215,9 @@ Parameter coordinate `r` collects the time-integrated adjoint at hidden unit `r`
 transport shifts the adjoint from row `j` to row `j-1` along the cycle, gathers the uniform
 part into row `d-1`, and is attenuated by the gates. Row 1 (the front) has gate
 `<= 4 exp(-s_lo sqrt(k)+4)` whenever `|Sum'| >= s_lo k/2`, so in that regime backward
-transport cannot pass row 1. *Proof:* transpose (0.1). QED
+transport through that row is attenuated by this positive factor, not annihilated.
+The mass condition is explicit and is not inferred from the bath floor alone.
+Global bus terms and finite leakage remain. *Proof:* transpose (0.1). QED
 
 ## 2. Code-dependent schedules give no advantage to bounded-probe certificates [PROVED]
 
@@ -226,6 +235,11 @@ simplices are `conv{eps_1 e_(i_1), ..., eps_s e_(i_s)}` with distinct indices. `
 free `Z_2`-simplicial complex of dimension `s-1`, so `ind_(Z2)(C_s) <= s-1`. Since
 `ind_(Z2)(S^(D-1)) = D-1` by Borsuk–Ulam, an odd map `S^(D-1) -> C_s` forces
 `D-1 <= s-1` (Matoušek, *Using the Borsuk–Ulam Theorem*, Ch. 5). QED
+
+An elementary alternative avoids the index machinery: choose an `s`-by-`M`
+Vandermonde matrix A with distinct nodes. Every set of at most s columns is linearly
+independent. Thus A Phi is an odd continuous nonzero map into R^s, and ordinary
+Borsuk–Ulam gives D<=s. Its conditioning is irrelevant to this exact existence argument.
 
 **Theorem 2 [PROVED relative to PR #27; dependency explicit, GPT-6 item 3].** Assume:
 * the lemmas of PR #27: 2.1–2.5 (bath floor, chains, gaps, protected set) and the
@@ -316,7 +330,9 @@ Lemma 2.1 gives `theta*` with `Phi(theta*) = 0`. Write `pm` for the two historie
 This contradiction gives `D <= s`, which is (i).
 
 For (ii), argue as in PR #27 with `2m+1 <= 3m` in place of `m+1 <= 2m`. The constant becomes
-`5.9e-4/(3e6) = 1.97e-10`; I state the conservative `1.9e-10`. The cases `T >= Tcrit` and
+`1/(1700*3e6) = 1.960784313725...e-10`; the stated `1.9e-10` is conservative.
+Indeed `inf_(y>=.001) y/(1.7+ln+ y)=1/1700`, which is smaller than the old
+intermediate `5.9e-4`. The cases `T >= Tcrit` and
 `m > c0 n` use only `D <= nK` and bound (20), so they are unchanged. QED
 
 **Consequence.** The secondary direction is closed for bounded-probe certificates.
@@ -384,10 +400,10 @@ at most the block variation `TV_b`, so
 
 Hence `Pi f(theta) != 0`, and `Pi f` is an odd map into `R^N \ {0}`. QED
 
-A linear block code attains `||f|| ~ V sqrt(L)/(2D)`. The lemma shows that no code,
-linear or not, beats that block-approximation scale. Numerical capacity statements
-below use explicit integer choices; the ceiling in Lemma 3.2 must not be dropped
-when inverting its bound.
+A linear block code can have `||f|| ~ V sqrt(L)/(2D)`. This does not establish
+optimality: the lemma's upper bound for D>1 is only `V sqrt(ceil(L/(D-1)))`.
+These have different D dependence. Numerical capacity statements below use explicit
+integer choices; the ceiling in Lemma 3.2 must not be dropped when inverting its bound.
 
 **Corollary 3.3 (gather channel) [CONDITIONAL].** Assume:
 * (a) the source is public, with `c_max<=1` for the numerical bound 553 below;
@@ -396,8 +412,11 @@ when inverting its bound.
 * (c) the non-own-injection part of `Delta B_T(d-1,:)` (bus deliveries) and the
   source/H terms together contribute `<= tau/4`.
 
-Then `HI sqrt(k) ||Delta A_(d-1)|| >= tau/2`, so `rho^2 >= .00181 n`. Lemma 3.2 with
-`V<=2`, `L<=n/4`, and the integer choice `N=553` gives, for `n>=10^8`,
+Then `HI sqrt(k) ||Delta A_(d-1)|| >= tau/2`, so `rho^2 >= .00181 n`.
+Apply Lemma 3.2 to the **unweighted** odd profile `Delta Y_(d-1)`: its norm is
+at least `||c (.) Delta Y_(d-1)||=||Delta A_(d-1)||`, because c is public and
+`c_max<=1`. Its variation is <=2 even when public c_t varies; the weighted profile
+itself need not have bounded variation. With `V<=2`, `L<=n/4`, and `N=553`, for `n>=10^8`,
 
     V^2 ceil(L/553) <= n/553+4 < .00181 n <= rho^2, so D<=553.
 
@@ -440,7 +459,8 @@ Then
 
     D <= p (ceil(L/b) + 1).
 
-*Proof.* The map `theta -> (Pi_b Y_l(theta))_l` is odd and continuous and lives on at most
+*Proof.* List one block-mean coefficient per touched block (not the repeated entries
+of each block-constant vector). The map `theta -> (Pi_b Y_l(theta))_l` is odd and continuous and lives on at most
 `p(ceil(L/b) + 1)` public coordinates. If it vanished at `theta*`, then by Lemma 3.4 the
 readout would be `< rho/2` for every admissible `nu`, a contradiction. Apply Borsuk–Ulam.
 (With `b = 1`, `Pi_1 = I` and no condition is needed.) QED
@@ -458,7 +478,7 @@ corrected 2026-10-14].**
 * **(H3) Remainder.** For every `theta` and every legal query, everything other than the
   own-injection differences of rows in `C` contributes at most `tau/4` to the readout. This
   includes exceptional rows, bus terms (`1 J` and `e_1 Sum`), source rows, dense-`H`
-  residuals, and rows outside `C`. So `rho = 3 tau/4`, `rho^2 = .0018029 n^2`.
+  residuals, and rows outside `C`. So `rho = 3 tau/4`, `rho^2 >= .0018029 n^2`.
 * **(H4) Readout weights.** `nu_max = .344` for one-step queries (Lemma 1.2), or
   `nu_max = 1.2` for all legal queries (Lemma 1.2').
 * **(H5)** `n >= 10^8`, and `M <= L + b` (intervals with distinct right ends).
@@ -486,7 +506,10 @@ choice given there. (3.1) replaces it; the asymptotics are unchanged.
 `p >= n/8` carrying rows or `pL >= .0054 n^(3/2)/c`.
 
 *Resources.* Require the carrying rows to be protected at `T`. Then
-`p <= (m+1)(Lam+1)`, or `(2m+1)(Lam+1)` for code-dependent schedules, and `L <= T`.
+`p <= (m+1)(Lam+1)`, or the weaker union bound `(2m+1)(Lam+1)` for code-dependent
+schedules, and `L <= T`. Hypothesis (H1) still requires a public carrying set;
+an arbitrary code-dependent carrying set is handled by Theorem 4's soft listing,
+not by silently dropping (H1) here.
 For this resource conclusion additionally assume `8(Lam+1) <= D <= n`.
 From (3.1), either `p >= D/4` or `pL >= n sqrt(D/(2 C_a))`, where `C_a` is the coefficient
 in (3.1). Using `c_max <= 1/sigma < 20.02`, `T > .001 sqrt(n)` (repository bound (20)),
@@ -607,7 +630,12 @@ background dependency and Hypothesis B remains OPEN.
 **Conjecture (full-d_F barrier).** For every section (any schedule) of the original
 model, `mT >= c D sqrt(n)/polylog(n)`.
 
-## 6. Reduction of the full-d_F problem, and the exact remaining gap
+## 6. Historical reduction attempt, and the exact remaining gap
+
+This section preserves the earlier exploratory argument. It is not an additional
+theorem: the old full-d_F and logarithm-free conclusions below are withdrawn.
+The current certified implication is Theorem 4 for d_F,E, with its stated logarithmic
+loss and dimension range. The bus estimates in this historical discussion are not B.
 
 **Reduction 6.1 (state-only listing) [superseded 2026-10-14: now written out as the proof of
 Theorem 4 in §7].**
@@ -656,21 +684,28 @@ when `.0025 T p/k` is not small. This happens only for long horizons, `pT >~ 200
   `<= C (pT/n)^(1/2) sqrt(L/N) c`. Equivalently, bus mixing cannot raise the chain-memory
   capacity by more than a constant factor.
 * *Consequence:* this lemma, together with a written-out Reduction 6.1 and Theorem 3, would give the
-  full-d_F barrier `mT = Omega(n^(3/2))` for `D = Omega(n)`, up to the `Lam`, `W` constants,
-  for public and code-dependent schedules alike.
+  proposed full-d_F barrier. That consequence is not established: W can grow
+  logarithmically, and the omitted parameter directions require their own analysis.
+  The actual conditional conclusion is the selected-group Theorem 4 below.
 
-**Exact chain decomposition (used above) [PROVED].** Unroll (0.1) along the credit path
-of an alive row `l`. A drive does not cut the credit path; the front does when it is
-saturated. This gives exactly
+**Exact chain decomposition [PROVED, with the front delivery included].** Unroll the
+reference recurrence for B' along the local memory path of row l. A drive does not
+cut that path. The skeleton has no predecessor at row 1 and stops at row d-1;
+finite front saturation does not destroy credit. With p_l(t) the path position,
 
-    B_T(l,:) = sum_t P_l(t) u_t,   u_t = c_t e_(pos_l(t)) + a J_(t-1)(B),
+    B'_T(l,:) = sum_t P_l(t) u_(l,t),
+    u_(l,t) = c_t e_(p_l(t)) + a J_(t-1)(B')
+              + 1_{p_l(t)=1} (a gamma/sqrt(k)) Sum'(B'_(t-1)),
     P_l(t) = a^(T-t) prod_(s>=t) g_l(s),
 
 hence
 
-    Delta B_T(l,:) = sum_t [ Delta P_l(t) ubar_t + Pbar_l(t) Delta u_t ].
+    Delta B'_T(l,:) = sum_t [ Delta P_l(t) ubar_(l,t) + Pbar_l(t) Delta u_(l,t) ].
 
-So the own injections and the **common** bus deliveries `a Jbar` enter with the *same*
+The sums run only over the existing local path (a cycle path has length <=d-1);
+source rows use their separate lambda recurrence. The old formula omitted the
+front delivery, so it was not an exact total-credit identity even for R0.
+The own injections and the **common** bus deliveries `a Jbar` enter with the *same*
 suffix-difference weights `Delta P_l`, which have total variation `<= 2`. The odd bus
 deliveries `a Delta J` enter with the common weights `Pbar_l`.
 
@@ -854,11 +889,13 @@ total size at most
 
     (gamma/sqrt k) [ 1 + sum_t s_t^2 prod_(s>t) g(s) + gamma sum_t |sum_j delta_t(j)|/k ].
 
-So a path absorbs `O(1)` of "strong" captures in total, plus a **bath drift** of `s_t^2`
-per surviving step.
-* At the rest bath `s ~ .05` the drift is `~ .0025` per step.
-* The bath floor gives `s_t >= .025`, so the drift is at least `6.25e-4` per step.
-* A darker bath raises the drift, but needs a negative excess mass of order `k` (§6).
+This is an **upper bound** on the accumulated coefficients, not a positive lower
+bound on actual capture. Its drift summand is `s_t^2 prod_(s>t) g(s)`.
+* At the rest bath `s ~ .05`, the coefficient s_t^2 in this majorant is `~ .0025`.
+* The bath floor gives `s_t^2 >= 6.25e-4`, but suffix attenuation can make a summand
+  arbitrarily small. Uniform gates g_t=ghat_t have zero actual capture despite this floor.
+* The darker-bath resource discussion in §6 is a design heuristic, not a lower bound
+  on actual capture derived from this lemma.
 
 ### 7.3 The two terms `Delta P_i(s) Jbar_s + Pbar_i(s) Delta J_s`
 
@@ -872,8 +909,8 @@ with `J` given by (7.1). Each requested effect:
 * **`Delta P Jbar`.** The weights `Delta P_i(s)` are suffix-product differences along row
   `i`'s path, of variation `<= 2`. The vectors `Jbar` are common to all rows. So the readout
   of this term is `sum_s beta(s) a Jbar_(s-1)`, with `beta(s) = sum_i nu_i Delta P_i(s)`: a
-  time-weighted mix of the common broadcasts. Distinct directions need distinct broadcast
-  profiles, i.e. public hole broadcasters (the bus-relay analysis of §6).
+  time-weighted mix of the common broadcasts. Public hole broadcasters are one
+  proposed source of distinct profiles (§6); their necessity has not been proved.
 * **`Pbar Delta J`.** The code-dependent broadcast
   `Delta J = (gamma/sqrt k)(Delta Y(d-1) - Delta Y(0))` reaches every row with the common
   weights `Pbar_i`. By Lemma 7.1(c), in U-coordinates it either continues as wrap-around
@@ -891,8 +928,9 @@ with `J` given by (7.1). Each requested effect:
 * **Exceptional rows.**
   * Row 0: `B'(0,:) = 0` exactly (§7.0); its dense leak is in the `B - B'` term.
   * Gather spikes: the `<= F_s` rows `d-1, ..., d-F_s`, listed separately in Theorem 4.
-  * The front row 1: its global term `e_1 Sum/sqrt(k)` is bus content. It is killed when
-    the front is saturated (Lemma 1.3).
+  * The front row 1: its global term `e_1 Sum/sqrt(k)` is bus content. At finite
+    preactivations it is attenuated under Lemma 1.3's explicit mass condition,
+    and remains part of Hypothesis B; no zero front term is used in Theorem 4.
 * **Legal future queries.** Lemma 1.2' gives `|nu_i| <= 1.2` off the spikes. The actual-R
   weights differ from the `R0` weights by `<= F HI^(F-1) delta sqrt(n) <= 6.4 delta sqrt(n)`
   in l2, which changes the readout by `< 1e-6`.
@@ -976,9 +1014,9 @@ out with explicit constants; independent repair checked in the stated scope].**
 
 *Setup.*
 * Use the background premises of PR #27 Lemmas 2.1–2.5 and state estimates
-  (3.1)–(3.2), as explicitly imported by Theorem 2. Their application here is only in
-  the below-budget branch `T<=2.5e-5 n^(3/2)`; full independent certification of PR #27
-  is not asserted by this repair.
+  (3.1)–(3.2), as explicitly imported by Theorem 2 and independently checked at
+  `a67be6d` with the final injection addendum. Their application here is only in
+  the below-budget branch `T<=2.5e-5 n^(3/2)`.
 * `n >= 10^8`. The schedule may be public or code-dependent: inputs continuous in `theta`,
   legal, `|S_t(theta)| <= m`. The separation is `d_F,E` for the explicitly defined
   row-0-excluded group under all legal queries (every `F >= 1`).

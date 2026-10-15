@@ -1,8 +1,21 @@
 # Multi-probe memory and code-dependent schedules — report
 
-Claude (Opus 5.5), 2026-10-14. Original frozen dense-tanh model, exact d_F contract,
+Claude (Opus 5.5), 2026-10-14. Original frozen dense-tanh model and normalization,
 budget peak width `m` x horizon `T`. Full mathematics: [PROOF.md](PROOF.md). Builds on
-PR #27 (Theorem 1, the K-probe barrier; repairs verified in `118b1e6`).
+PR #27 (Theorem 1, the K-probe barrier; foundations rechecked at a67be6d and the
+remaining injection identity corrected at 6ef95b5). Results here use the explicitly
+selected d_F,E group; the original full d_F contract is not replaced.
+
+## Final cross-PR audit, 2026-10-15
+
+[Independent audit](../codex_cross_pr_final_audit_20261015/AUDIT.md) and
+[research handoff](../codex_cross_pr_final_audit_20261015/HANDOFF.md).
+Theorem 2's exact intermediate is 1/1700, preserving 1.9e-10. Auxiliary identities
+now include the gated injection (PR #27) and front bus delivery (this PR).
+Finite attenuation, weighted-profile variation, capture upper bounds and historical
+scope claims are corrected without changing valid theorem constants or assumptions.
+The imported foundations pass independent checks. Theorem 4 is rigorously conditional
+on B, with its stated group/range and logarithmic loss. Original problem: **OPEN**.
 
 ## Current independent repair of b66b12d
 
