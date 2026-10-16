@@ -3,7 +3,7 @@
 For one history at a time (the statements are per-history), with the R0-skeleton credit B' and the
 actual gates of an R0 forward trajectory driven by a random sparse schedule (holes held along
 diagonals, a held gather spike with gaps, off-cycle holes, random large-amplitude drives), checks:
-  (S1) the exact eight-part decomposition of the gather row's bus content (section 3):
+  (S1) the exact nine-term decomposition of the gather row's bus content (section 3):
        Z_T(d-1) = K_pos + K_neg + K_uni + K_bus + L_own_cyc + L_own_off + L_bus + W + F_ent;
   (S2) K_pos is non-decreasing in the cycle column index r = 1..d-1 and zero off the cycle
        (monotone in the offset from d-1), relative violation reported;
@@ -55,6 +55,7 @@ def run(n, T, m, seed):
     tf = max(1, T - d + 2)
     acc = {nm: np.zeros(k) for nm in ("K_pos", "K_neg", "K_uni", "K_bus", "L_own_cyc", "L_own_off", "L_bus", "W", "F_ent")}
     SigmaP = 0.0; maxtvO = 0.0; maxoff = 0.0; ceil_viol = 0.0; mass_viol = 0.0; max_drive = 0
+    max_raw_input=0.0
     for t in range(1, T + 1):
         hm = h[:k]
         Jt = gam * hm[d - 1] / sk - gam ** 2 * hm[1:].sum() / k
@@ -85,6 +86,7 @@ def run(n, T, m, seed):
         drv = dict(list(drv.items())[:m])
         max_drive = max(max_drive, len(drv))
         for r, tgt in drv.items():
+            max_raw_input=max(max_raw_input,abs(math.atanh(tgt)-pre[r]))
             hn[r] = tgt
         s = s_new
         ghat = 1 - s * s
@@ -136,6 +138,9 @@ def run(n, T, m, seed):
     cmax = 1.0
     tv_bound = (6 * gam * cmax / k + 4 * gam ** 2 * cmax / k ** 1.5) * SigmaP
     return {"n": n, "T": T, "m": m, "seed": seed, "max_drives_per_step": max_drive,
+            "max_abs_raw_input":max_raw_input,
+            "legal_past_cube":bool(max_raw_input<.5),
+            "scope":"algebraic stress test; small n and possibly illegal raw inputs, not a theorem-scale legal witness",
             "S1_decomposition_rel_residual": float(np.abs(recon - ZT).max() / max(1e-300, np.abs(ZT).max())),
             "S2_K_pos_monotone_rel_violation": viol, "S2_K_pos_offcycle_max": float(np.abs(off).max()),
             "S3_TV_ratio_cycle_sources": tv(bv[1:]) / tv_bound, "S3_max_TV_cycle_own_profile": maxtvO,
@@ -148,6 +153,14 @@ def run(n, T, m, seed):
 if __name__ == "__main__":
     out = []
     for n, T, m, seed in [(256, 300, 12, 1), (512, 400, 20, 2), (512, 700, 30, 3), (1024, 600, 40, 4)]:
-        r = run(n, T, m, seed); print(json.dumps(r), flush=True); out.append(r)
+        r = run(n, T, m, seed)
+        assert r['S1_decomposition_rel_residual']<1e-10
+        assert r['S2_K_pos_monotone_rel_violation']<1e-12
+        assert r['S3_TV_ratio_cycle_sources']<=1+1e-10
+        assert r['S3_max_TV_cycle_own_profile']<=2+1e-10
+        assert r['S3_offcycle_leak_supported_on_offcycle_cols']
+        assert r['S4_ceiling_violation(<=0 ok)']<=1e-10
+        assert r['S4_mass_violation(<=0 ok)']<=1e-10
+        print(json.dumps(r), flush=True); out.append(r)
     with open(os.path.join(HERE, "exp_gather_structure_result.json"), "w") as f:
         json.dump(out, f, indent=1)

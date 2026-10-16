@@ -13,5 +13,14 @@
   "compute": "CPU only; about two minutes; numpy/decimal; no training, no GPU",
   "restricted_notebooks_read": false,
   "agents_md_modified": false,
-  "status": "PENDING INDEPENDENT AUDIT; Theorem M (first-order gather capacity) PROVED by author; Lemma M original form likely false (analysis); Lemma M_rest OPEN; original problem OPEN"
+  "status": "VERIFIED IN CORRECTED SCOPE by Codex 2026-10-16; Theorem M first-order/one-step/undriven-source, public schedule for (d); Lemma M and M_rest OPEN; original full-metric problem OPEN",
+  "repair_audit": {
+    "author": "Codex, repair engineer and independent verifier; Claude remains lead researcher",
+    "date": "2026-10-16",
+    "reviewed_commit": "b32a2ecae06ec1d762f2cd81a11a0e21d90fe9bb",
+    "record": "theory/codex_pr31_repair_audit_20261016/AUDIT.md",
+    "shared_resume": "RESUME.md",
+    "restricted_notebook_unchanged": true,
+    "push": "requires owner approval"
+  }
 }

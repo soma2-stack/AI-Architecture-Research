@@ -67,7 +67,8 @@ def main():
     E = 3 * g / D(7071)                            # |E_t| <= 3 gamma/sqrt k
     nrho = D("4e-12")
     s_hi_cand = D("0.1009")
-    val = tanh(D("0.05") + g2 * mk * (1 + s_hi_cand + Sneg) + g2 * nrho + E) * UP
+    eta_max = D("1e-8") / D("1e8")**2
+    val = tanh(D("0.05") + g2 * mk * (1 + s_hi_cand + Sneg) + g2 * nrho + E + eta_max) * UP
     r["B: ceiling map at candidate .1009"] = str(val)[:10]
     assert val <= s_hi_cand                        # induction closes with s_hi = .1009
     s_hi = s_hi_cand
@@ -84,19 +85,35 @@ def main():
     Lam1 = D(450001)                               # Lam + 1, PR #27 Lemma 2.5
     kap = D("1.5e-4")
     s2 = s_hi * s_hi
-    cmax = 1 + D("1e-30")                          # undriven source, R0 or prescribed dense R
+    cmax = 1 + D("1e-12")                          # c_* bounds amplitudes AND dense cycle-profile TV
+    eta_max = D("1e-8") / D("1e8")**2
+    assert 21*eta_max <= D("2.1e-23")
+    assert 21*D("1e8")*eta_max <= D("1e-12")
+    assert D('.99')/D('1e8')-42*eta_max>0          # discounted source ordering, uniform n>=1e8
+    gap = HI-LO
+    centered = gap*(1+1/D("5e7").sqrt())           # drop the negative gamma/k term
+    r["M1: exact legal gate gap"] = str(gap)
+    r["M1: centered weight upper bound"] = str(centered)
+    assert centered <= D(".3435") and HI+D(".3435") < D("1.29")
     # near residual: HI * gamma * s_hi^2 * (d-1) * sqrt(b) <= tau/16 with d <= n/4, b = 2
     near = HI * g * s2 * cmax * D("0.25") * D(2).sqrt()
     r["M: near residual / n (b = 2)"] = str(near)[:10]
-    assert near <= tau_n / 16
+    assert near <= D(".003385")
+    assert near+D("2e-9")/D("1e8")**D("1.5") <= tau_n / 16
+    floor_map=tanh(D(".05")-g2*mk*224-E-eta_max)
+    r["B: dense floor lower comparison"] = str(floor_map)
+    assert floor_map>D(".025")
     # far-long (front protection handled by lambda >= 4(Lam+1)): long arrivals have N_t >= (j+1)/(4(Lam+1)),
     # readout <= 8 HI gamma s_hi^2 cmax (Lam+1) mT/sqrt(lambda) <= tau/64
     #   <=> lambda >= (512 HI gamma s_hi^2 cmax (Lam+1) mT/tau)^2
     cl = 512 * HI * g * s2 * Lam1 * cmax / tau_n
-    coefK = (cl * cl / 2) * UP                     # count ceil(lambda/2)
+    chosen_cl=D(38970000)
+    assert cl <= chosen_cl
+    coefK = (chosen_cl * chosen_cl / 2) * UP       # certify the ACTUALLY CHOSEN cutoff
     r["M: far-long coefficient c_l (lambda >= (c_l mT/n)^2)"] = format(cl, ".4e")
     r["M: count coefficient for (mT/n)^2, captured-own part"] = format(coefK, ".4e")
     assert coefK <= D("7.6e14")
+    r["M: chosen cutoff coefficient"] = str(chosen_cl)
     lam_min = max(D(100000), 4 * Lam1)
     r["M: lambda floor max(lambda_s, 4(Lam+1))"] = str(lam_min)
     assert lam_min == D(1800004)
@@ -110,23 +127,26 @@ def main():
     kneg = 2 * HI * g * D("1.26") * cmax * (nmin.sqrt() / 2) / nmin
     r["M: K^neg residual / n at n = 1e8"] = format(kneg, ".4e")
     assert kneg <= tau_n / 256
-    # BV part: readout <= HI sqrt(k) sqrt(b_L) 2 (TV) with TV <= (6 gamma cmax/k + 4 gamma^2 cmax/k^1.5) Sigma_P,
-    #          Sigma_P <= 2 (1 + C_chain) mT.  Require <= tau/64:
-    #          sqrt(b_L) <= tau sqrt(k) / (64 * HI * 2 * 6.0001 gamma cmax * 2 (1 + C_chain) mT)
-    cb = 64 * HI * 2 * D("6.0001") * g * cmax * 2 * (1 + C_chain)
-    # count = ceil((k-1)/b_L) <= (k-1) (cb mT)^2/(tau^2 k) + 2 <= (cb mT/tau)^2 + 2
+    # Actual TV <= (4 gamma/k + 2 gamma^2/k^1.5)c_* Sigma_P <=6 gamma c_* Sigma_P/k.
+    # Integer b_L=ceil(B_L), B_L=(tau sqrt(k)/(cb mT))^2. For B_L>=1,
+    # b_L<=2B_L and the sharper block residual sqrt(b_L) TV/2 absorbs rounding.
+    assert 4+2*g/D("5e7").sqrt() <= 6
+    cb = 64 * HI * 2 * D(6) * g * cmax * 2 * (1 + C_chain)
+    assert cb <= D("8.1e5")
     coefL = (cb / tau_n) ** 2 * UP
     r["M: BV constant c_b"] = format(cb, ".4e")
     r["M: count coefficient for (mT/n)^2, BV part"] = format(coefL, ".4e")
-    assert coefL <= D("4.0e14")
+    assert coefL <= D("2.1e14")
     # (d) off-cycle leak sources (public schedules): list the columns of off-cycle rows with N_j >= N_0.
     #     unlisted readout <= 4 HI gamma cmax (1 + C_chain)(Lam+1) N_0^(3/2) sqrt(mT)/sqrt(k) <= tau/64
-    #     count = mT/N_0 = (mT)^(4/3) [256 HI gamma cmax (1+C_chain)(Lam+1)/(tau sqrt(k))]^(2/3)
+    #     N_0=ceil(x), unlisted INTEGER N_j<x; count=mT/N_0 <=mT/x (no floor loss).
     #     with tau sqrt(k) >= .0566 n sqrt(n/2):  count <= c_d (mT)^(4/3)/n
     cd_inner = 256 * HI * g * cmax * (1 + C_chain) * Lam1 / (tau_n * D("0.5").sqrt())   # times n^(-3/2)
     c_d = (cd_inner ** (D(2) / 3)) * UP
     r["M: count coefficient for (mT)^(4/3)/n, off-cycle part"] = format(c_d, ".4e")
-    assert c_d <= D("1.6e8")
+    assert c_d <= D("1.4e8")
+    assert coefK+coefL <= D("9.7e14")
+    assert lam_min/2+1 <= D("9.1e5")
     ledger = D(1) / 16 + D(1) / 64 + D(1) / 256 + D(1) / 256 + D(1) / 64 + D(1) / 64
     r["M: first-order gather ledger (x tau)"] = str(ledger)
     assert ledger == D(30) / D(256)

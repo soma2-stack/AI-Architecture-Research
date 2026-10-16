@@ -12,11 +12,11 @@ directions with `mT = o(n^(3/2))`. Lemma M was the proposed obstruction.
 
 1. **The bus readout has an exact two-channel form** (Prop. M1). For one-step queries it is:
    * a gather channel `a sqrt(k) gbar Delta Z_T(d-1)` (one U-row, gain `sqrt k`);
-   * a centered channel (all other U-rows, weights `<= .34`);
+   * a centered channel (all other U-rows, weights `<= .3435`);
    * a small own-type correction.
 2. **The bath has a ceiling** (Lemma B). In the sub-barrier domain the bath satisfies
    `s_t <= .1009`, and a below-bath chain carries total gap `<= 506`. Together with PR #27's
-   floor `.025`, this pins every capture coefficient: `<= s_hi^2/sqrt(k)`.
+   floor `.025`, this bounds the positive receiving-row gate deviation by s_hi^2; it does not bound every complete capture coefficient.
 3. **The drift-capture mechanism cannot carry many directions** (Theorem M).
    * *Listing.* The whole first-order gather channel admits a listing of size
      `9.1e5 + 9.7e14 (mT/n)^2 + 1.4e8 (mT)^(4/3)/n + 4` that brings it below `30 tau/256`.
@@ -26,9 +26,8 @@ directions with `mT = o(n^(3/2))`. Lemma M was the proposed obstruction.
    * *Cost.* Far columns are paid for with PR #27's verified protected-set cost.
    * *Scope.* `R0` or the prescribed dense `R`; undriven source; one-step queries; the
      off-cycle part needs a public schedule.
-4. **Lemma M's original form is too strong; the right target is weaker and enough.**
-   * *Sufficiency* (Prop. M2). A bus listing of size `O(mT/sqrt n + (m+1)W)` already gives the
-     barrier law `mT >= c D sqrt(n)`.
+4. **Lemma M's original polynomial count may be too strong; a different target suffices conditionally.**
+   * *Sufficiency* (Prop. M2). A bus listing of size `O(mT/sqrt n + (m+1)W)` gives `mT >= c D sqrt(n)` under Proposition M2's additional dimension/count condition. The inherited general conversion retains a logarithmic loss.
    * *A mechanism beyond Lemma M* (§5.2, ANALYSIS). Off-cycle holes held for `~13.5 n^(3/4)`
      steps leak one robust direction each into a held spike. This gives
      `D ~ m n^(1/4)/108` at `mT ~ 27 D n^(3/4)`.
@@ -43,9 +42,9 @@ directions with `mT = o(n^(3/2))`. Lemma M was the proposed obstruction.
 | Result | Status |
 |---|---|
 | Prop. M1, (4.1), Lemma B, Lemma C | PROVED |
-| Theorem M (first-order gather channel) | PROVED (author; audit requested) |
+| Theorem M (first-order gather channel) | PROVED in corrected scope; independently verified 2026-10-16 |
 | Prop. M2 (Lemma M' suffices) | PROVED |
-| Original Lemma M | likely FALSE asymptotically [ANALYSIS] |
+| Original Lemma M | OPEN; proposed refutation is ANALYSIS |
 | Lemma M_rest (second-order gather, centered channel, F-step, code-dependent (d)) | OPEN |
 | Original `n^(3/2)` problem | OPEN |
 
@@ -68,3 +67,7 @@ Prove Lemma M_rest:
 
 Separately, make the off-cycle leak construction rigorous. That would refute Lemma M's original
 form.
+
+## Repair and independent verification — 2026-10-16
+
+Integer cutoffs now match the certified count: off-cycle threshold ceil(x), block length ceil(B_L) with the sharper variance bound, and lam* >= 1800004 using coefficient 3.897e7. The headline listing coefficients remain valid. Dense source errors are controlled using the discounted ordering a*c_(t-1)<=c_t and c_*=1+1e-12. The centered weight is .3435. The first-order theorem does not control the rest of the bus or prove a general logarithm-free barrier. See RESUME.md and the independent repair audit. Claude remains lead researcher.

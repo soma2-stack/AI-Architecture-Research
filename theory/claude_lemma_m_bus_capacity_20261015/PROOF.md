@@ -1,4 +1,4 @@
-# Lemma M: the first-order gather theorem, a corrected target, and why the original form is too strong
+# Lemma M: the first-order gather theorem, a corrected target, and the open status of the original form
 
 Claude (Opus 5.5), 2026-10-15. This note continues PR #29 (`claude/hypothesis-b-bus-20261015`, head
 `bd166b2`). It uses that PR's exact U-row recursion (Lemma 1.2), its own/bus split ((9.1)–(9.2))
@@ -7,7 +7,10 @@ and its counterexample to Hypothesis B (Theorems R and R_D). The inherited found
   set;
 * PR #28 (`0cc0a23`): §0 contract, Theorem 4, and Hypothesis B's exact statement.
 
-Everything here is author-derived and needs an independent audit.
+Claude remains the lead researcher. Codex repaired and independently audited this note on
+2026-10-16; the original statements and negative findings are preserved in
+`../codex_pr31_repair_audit_20261016/AUDIT.md`. The verified scopes and open tasks are in
+`STATUS.md` and the unrestricted `RESUME.md`.
 
 Labels:
 * [PROVED] — a complete proof is given;
@@ -26,9 +29,9 @@ whole bus.
    * For every one-step legal query, the bus readout of Hypothesis B is the sum of two channels
      and an own-type correction:
      * a *gather* channel `a sqrt(k) gbar Delta Z_T(d-1)`, amplified by `sqrt(k)` on one U-row;
-     * a *centered* channel `a sum_(i != d-1) eps_i Delta Z_T(i)`, with `|eps_i| <= .3404`;
+     * a *centered* channel `a sum_(i != d-1) eps_i Delta Z_T(i)`, with `|eps_i| <= .3435`;
      * a correction `O(1/sqrt k) sum_i Delta O_T(i)`.
-   * The gather row's bus content splits exactly into eight parts:
+   * The gather row's bus content splits exactly into nine terms:
      * captured own arrivals (positive, negative and uniform parts);
      * captured bus of arrivals;
      * leaked own contents, from cycle and from off-cycle sources;
@@ -43,7 +46,7 @@ whole bus.
      needs a public schedule.
    * *Listing.* An odd continuous listing `Psi_M` of size
 
-         |Psi_M| <= 9.1e5 + 7.6e14 (mT/n)^2 + 2.1e14 (mT/n)^2 + 1.4e8 (mT)^(4/3)/n
+         |Psi_M| <= 9.1e5 + 7.6e14 (mT/n)^2 + 2.1e14 (mT/n)^2 + 1.4e8 (mT)^(4/3)/n + 4
 
      makes the whole first-order part of the gather channel `<= (30/256) tau` at every zero, for
      every one-step legal query.
@@ -55,7 +58,7 @@ whole bus.
      * Off-cycle-source leaks are listed column by column for long-held rows.
    * *Consequence.* The single-direction mechanism of PR #29 cannot carry many directions:
      everything it captures from own arrivals is listable at this cost.
-4. **The original Lemma M is too strong; the corrected target suffices** [Prop. M2 PROVED;
+4. **The original Lemma M may be too strong; the corrected target suffices** [Prop. M2 PROVED;
    counterexample sketch ANALYSIS].
    * *A sufficient target.* A bus listing of size `O(mT/sqrt n + m polylog n)` is enough for
      the barrier resource law `mT >= c D sqrt(n)`. Call this Lemma M'.
@@ -89,7 +92,8 @@ The model, credit and query contract are those of PR #28 §0 and PR #29 §0–§
 `B'_t = G_t(R0 B'_(t-1) + c_t E)` with the **actual** gates `G_t`.
 * `Y = U B'` on the memory block.
 * `O` is the own (local-skeleton) part, in U-row indexing (PR #29 (9.1)).
-* `Z = Y - O` is the bus part, with `Z(0) = Y(0)`.
+* `Z = Y - O`, with `Z(0) = Y(0)`, is the transformed remainder. It is generally not
+  `U(B'-O)`; Proposition M1 retains the resulting own-type correction.
 * `bus_l = B'_l - own_l` in standard rows.
 
 *Matrices.* `R` is either `R0` or the prescribed dense matrix `alpha(R0 + eta 1 1^T/n)`
@@ -105,9 +109,14 @@ The model, credit and query contract are those of PR #28 §0 and PR #29 §0–§
 * The source rows are undriven.
   * For `R0`, `c_t` is non-decreasing, with `c_1 = 0` and `c_t <= 1`.
   * For dense `R`, `c_t = c^0_t + e_t`. Here `c^0` is the monotone `R0` source credit and
-    `|e_t| <= 21 eta <= 1e-42`, because the common field shifts the source fixed point by
-    `<= 1.01 eta`. So `c_t <= c_max <= 1 + 1e-30`.
-* Part (d) of Theorem M also assumes a public schedule (`S_t` independent of `theta`).
+    `|e_t| <= 21 eta <= 2.1e-23`. The one-step forcing error is
+    `<= eta + (1-alpha) lam <= eta(1+2 lam)` and the source map is a lam-contraction;
+    division by `sigma >= .0499` gives the displayed bound. No monotonicity of the
+    actual dense source is assumed.
+  * Use `c_* := 1+1e-12` to bound c_max and the variation factor in (G2). Also c_t>=.99
+    for t>=2, from source states >=tanh(.05-eta) and the original sigma bound.
+* Part (d) also assumes public sets `S_t`, independent of `theta`, containing each actual
+  support and satisfying `|S_t|<=m`. Scheduled zero controls count in these envelopes.
 
 Constants marked `[c]` are certified in `constants_check.py` (50-digit decimals).
 Additionally `LO = sech^2(.75)`, `HI = sech^2(.25)`, `tau >= .0566 n`, `kappa = 1.5e-4` and
@@ -127,7 +136,7 @@ Additionally `LO = sech^2(.75)`, `HI = sech^2(.25)`, `tau >= .0566 n`, `kappa = 
       sum_l nu_l bus_l = a sqrt(k) gbar Delta Z_T(d-1) + a sum_(i != d-1) eps_i Delta Z_T(i)
                          + (gamma/sqrt k)(w^T nu) sum_(i>=1) Delta O_T(i),               (1.1)
 
-  with `|eps_i| <= .3404` and `|w^T nu| <= 1.29`.
+  with `|eps_i| <= .3435` and `|w^T nu| <= 1.29`.
 
 *Proof.*
 * `nu^T B' = (U nu)^T Y` and `U nu = a U U P^T U g = a P^T U g =: chi`. Both formulas for `Ug`
@@ -136,7 +145,10 @@ Additionally `LO = sech^2(.75)`, `HI = sech^2(.25)`, `tau >= .0566 n`, `kappa = 
 * Write `sum_l nu_l bus_l = chi^T Delta Y - nu^T Delta O = chi^T Delta Z + (chi - nu)^T Delta O`.
   For `i >= 1`, `(chi - nu)_i = -gamma w_i (w^T nu) = (gamma/sqrt k)(w^T nu)`.
 * `w^T nu = -a (P w)^T U g = -a ((Ug)_1 - g_0)`, because `P w = e_1 - u` and `u^T U g = g_0`.
-* The bounds use `HI - LO = .34029...` and `gamma - 1 <= 1.2e-4`.
+* Exactly, `HI-LO = .343429040525...` and `gamma-1 <= 1.415e-4`. A nonzero row of U
+  has zero row sum and positive coefficient sum `1+1/sqrt(k)-gamma/k`. Thus the legal-box
+  extremum is `(HI-LO)(1+1/sqrt(k)-gamma/k) <= .3435` for `k>=5e7`.
+  Also `|w^T nu| <= HI+.3435 < 1.29`.
 
 QED **[NUMERICAL]** `exp_two_channel_identity.py`: residual `<= 5.8e-15` at `k = 32, 200, 1000`.
 
@@ -167,9 +179,11 @@ legal query.
 * *Statement.* Assume Lemma M' for the queries in question, with constants `A_i`. Then every
   robust section in Theorem 4's sub-barrier domain with
   `D >= 2(N_1 + N_2 + N_3 + 1 + A_2 (m+1) W + A_3)` satisfies `mT >= D sqrt(n)/(4 A_1)`.
-* *Corollary.* For `D = Theta(n)`, Theorem 4's conditional resource law then holds
-  unconditionally: `mT = Omega(n^(3/2)/log n)`, or `Omega(n^(3/2))` when the `A_1` term
-  dominates.
+* *Corollary, conditional on OPEN Lemma M'.* In Theorem 4's explicit dimension range
+  `2N_3<=D<=n`, adding this listing removes the separate Hypothesis B assumption. The
+  inherited resource conversion gives `Omega(n^(3/2)/log n)` for `D=Theta(n)`.
+  The stronger `Omega(n^(3/2))` conclusion here requires the displayed additional
+  dimension/count condition (or a separate improvement of the inherited counts).
 
 *Proof.*
 * Theorem 4, Step 3, with Hypothesis B replaced by Lemma M', bounds the readout by
@@ -184,14 +198,16 @@ QED
 * `(mT/n)^2 = (mT/sqrt n)(mT/n^(3/2)) <= mu mT/sqrt n`;
 * `(mT)^(4/3)/n <= mu^(1/3) mT/sqrt n`.
 
-So Lemma M' is strictly weaker than Lemma M and still gives the barrier law. §5.2 indicates that
-Lemma M itself is false for astronomically large `n`. Lemma M' is the right target.
+Thus the budget-dependent polynomial terms of M are bounded by a constant times mT/sqrt(n).
+The logarithmic overheads differ: log^2(n) is not automatically absorbed by (m+1)W, so these
+observations do not prove a literal implication between the two complete targets. Section 5.2
+is evidence for testing the polynomial count, not a proof that M is false.
 
 ## 3. Foundations: bath floor, protected set, bath ceiling, deviation budget
 
 *Imported, verified* (PR #27 §2; for dense `R`, PR #29 Lemma D3 and Codex's dense-transfer audit
 confirm the margins with the common field `|phi_t| <= eta`):
-* **(F1) Bath floor** (PR #27 Lemma 2.4): `s_t >= s_lo = .025` for all `t`.
+* **(F1) Bath floor** (PR #27 Lemma 2.4): `s_t >= s_lo = .025` for `t>=1`; `s_0=0`.
 * **(F2) Protected set** (PR #27 Lemma 2.5): every memory row `j >= 2` outside
   `P_t = S_t ∪ {1} ∪ {undriven rows on a chain started by a scheduled or row-1 step of age <= Lam}`
   has gate `<= 1 - kappa`. Positions on chains started above the bath also have gate
@@ -233,7 +249,12 @@ confirm the margins with the common field `|phi_t| <= eta`):
     `s_(t+1) = tanh(.05 - a gamma^2 M_t/k + E_t)` with `|E_t| <= 3 gamma/sqrt(k)`.
   * *Induction.* With `(m+1)/k <= 10002/99999999` and `gamma <= 7071/7070`, the map at the
     candidate `.1009` gives `.100815... <= .1009` [c]. The base case is `s_1 = tanh(.05)`.
-  * For dense `R`, add `|phi_t| <= eta`, far inside the margin.
+  * For dense `R`, use `a'=alpha a` and add `|phi_t|<=eta`; the same exact bath identity
+    holds with a' in place of a. The imported floor also persists: its lower comparison
+    is `tanh(.05-gamma^2((m+1)/k)*224-3 gamma/sqrt(k)-eta)>.025` [c]. The chain
+    comparisons use only `a'<=1`, so the floor/ceiling induction and protected lifetime
+    close with the same constants. This argument is for arbitrary histories under (H),
+    not just the special construction of PR #29.
 
 QED **[NUMERICAL]** `exp_gather_structure.py` S4: the ceiling and mass inequalities hold in every
 random adversarial history.
@@ -298,14 +319,15 @@ random adversarial histories, with holes, a gapped spike, off-cycle holes and la
 * **(G1)** The arrival own profile `O_(t-1)(d-1)` lives on cycle columns. On column `r` it equals
   `c_tau Q_t(r)`, with injection time `tau = t-1-(d-1-r)` and
   `Q_t(r) = g(tau) prod a g` over the path from `tau` to `t-1`.
-  * Both factors are non-decreasing in `r`: each step back multiplies by `a g <= 1`, `c` is
-    non-decreasing in `tau`, and `c_1 = 0` only zeroes the oldest entry.
-  * So every arrival profile is non-decreasing in the cycle column index, with values in
-    `[0, c_max]`.
-  * For dense `R` the profile is `c^0 Q + e Q` with `|e| <= 21 eta`. Its non-monotone part
-    contributes `<= 21 eta HI gamma s_hi^2 d^(3/2) <= 1e-9/sqrt(n)` to any readout below,
-    which is absorbed.
-* **(G2)** A cycle-row own profile has total variation `<= 2 c_max` in ascending column order.
+  * Adjacent columns share their later path. Moving one column back introduces an extra
+    factor `a g<=a`. For R0, c is monotone. For dense R, although c need not be monotone,
+    for tau>=3 the source bounds imply
+    `c_tau-a c_(tau-1) >= .99/n-42 eta > 0`. For tau=2 use c_1=0.
+    Thus `a c_(tau-1)<=c_tau` in BOTH cases, so the full weighted own profile is
+    non-decreasing in the cycle column index, with values in `[0,c_max]`.
+* **(G2)** A cycle-row own profile has total variation `<= 2 c_*` in ascending column order.
+  It increases on its cycle support by (G1) and is zero outside that support, so its
+  variation is <=2c_max<=2c_* for dense R as well.
   An off-cycle own content is a single-column scalar, `O_t(j) e_j`.
 * **(G3)** `0 <= delta_t(p_t)^+ <= 1 - ghat_t = s_t^2 <= s_hi^2` (Lemma B).
 * **(G4)** `sum_t rho_t (1 - g_(p_t)(t)) <= 1`. This telescopes: `rho_(t-1) = a g_(p_t) rho_t`
@@ -326,22 +348,24 @@ continuous listing `Psi_M`, built from the two histories, such that:
       a sqrt(k) gbar || Delta (K_pos + K_neg + K_uni + L_cyc + L_off + W) || <= (30/256) tau.
 
 The listing has four parts.
+If mT=0, all histories are identical autonomous histories; the empty listing suffices.
+The formulas below apply to mT>0 (and thus integer m,T>=1).
 
 **(a) Captured own arrivals: near blocks and far cost.**
 * Let `j := d-1-r` be the offset of cycle column `r` from the gather row.
-* Put `lam* := max(1.8e6, (3.9e7 mT/n)^2)` [c]. *Near* columns have `j < lam*`, *far* columns
+* Put `lam* := max(1800004, (3.897e7 mT/n)^2)` [c]. *Near* columns have `j < lam*`, *far* columns
   `j >= lam*`.
 * `Psi_a` lists the block averages, over blocks of `2` near columns, of
   `K_pos(theta) - K_pos(-theta)`. Count `<= lam*/2 + 1`.
 * *Near residual.*
-  * `K_pos` is a nonnegative combination of profiles monotone in `r` (G1), so it is monotone.
-  * Its range is `V <= c_max (gamma/sqrt k) s_hi^2 (d-1)` (G3).
+  * `K_pos` is a nonnegative combination of monotone profiles (G1), for R0 and dense R.
+  * Its range is `V <= c_* (gamma/sqrt k) s_hi^2 (d-1)` (G3).
   * For a monotone vector of range `V`, the residual from block averaging over blocks of
     length `b` has norm `<= V sqrt(b)/2`. Since each block's oscillation is `<= V`, the sum of
     oscillations is `<= V`, and the variance in a block of values in an interval of length
     `L` is `<= L^2/4`.
   * At a zero, the near residual of the difference is `<= V sqrt(2)`. Its readout is
-    `<= HI gamma s_hi^2 c_max (d-1) sqrt(2) <= .003384 n <= tau/16` [c].
+    `<= HI gamma s_hi^2 c_* (d-1) sqrt(2) <= .003385 n <= tau/16` [c].
 * *Far, short arrivals.*
   * Let `pi_t(j)` be the number of positions with gate `> 1 - kappa` among arrival `t`'s
     last `j+1` path positions. Then `Q_t(j) <= (1 - kappa)^(j+1-pi_t(j))`.
@@ -361,26 +385,31 @@ The listing has four parts.
   * For both histories the readout is `<= 8 HI gamma s_hi^2 c_max (Lam+1) mT/sqrt(lam*) <= tau/64`
     by the choice of `lam*` [c].
 * *Total.* `|Psi_a| <= 9.1e5 + 7.6e14 (mT/n)^2`. If `lam* >= d-1`, all cycle columns are near
-  and the far terms vanish.
+  and the far terms vanish. The count certifies the actual chosen coefficient:
+  `(3.897e7)^2/2=7.5933045e14<7.6e14`, and `1800004/2+1<9.1e5`.
 
 **(b) Negative capture.** By (G4),
-`||K_neg|| <= (gamma/sqrt k) 1.26 max_t ||O_(t-1)(d-1)|| <= (gamma/sqrt k) 1.26 sqrt(d)`. Both
-histories give readout `<= 2 HI gamma 1.26 sqrt(d) <= tau/256` for `n >= 10^8` [c]. Nothing is
+`||K_neg|| <= (gamma/sqrt k) 1.26 max_t ||O_(t-1)(d-1)|| <= (gamma/sqrt k) 1.26 c_* sqrt(d)`. Both
+histories give readout `<= 2 HI gamma 1.26 c_* sqrt(d) <= tau/256` for `n >= 10^8` [c]. Nothing is
 listed.
 
 **(c) Bounded-variation part: `K_uni + L_cyc + W`.**
 * *Total variation.* In ascending order of the memory columns `1..k-1`:
-  * `TV(K_uni) <= (2 gamma^2 c_max/k^(3/2)) sum_t |S_t|`, by (G2) applied to arrival profiles;
-  * `TV(L_cyc) <= (2 gamma c_max/k) Sigma_P`, by (G2) for cycle sources;
-  * `TV(W) <= (gamma c_max/k) sum_t TV(g_t) <= (2 gamma c_max/k) Sigma_P`, because
+  * `TV(K_uni) <= (2 gamma^2 c_*/k^(3/2)) sum_t |S_t|`, by (G2) applied to arrival profiles;
+  * `TV(L_cyc) <= (2 gamma c_*/k) Sigma_P`, by (G2) for cycle sources;
+  * `TV(W) <= (gamma c_*/k) sum_t TV(g_t) <= (2 gamma c_*/k) Sigma_P`, because
     `g_t = ghat_t 1 + delta_t` and a constant vector has no variation.
 
-  So `TV <= (4 gamma c_max/k + 2 gamma^2 c_max/k^(3/2)) Sigma_P`, with
+  So `TV <= (4 gamma c_*/k + 2 gamma^2 c_*/k^(3/2)) Sigma_P <= (6 gamma c_*/k) Sigma_P`, with
   `Sigma_P <= 2(1 + C_chain) mT` (Lemma C).
-* *Listing.* `Psi_c` lists block averages over consecutive blocks of `b_L` memory columns.
-* *Residual.* For a vector of total variation `V'`, the block residual has norm
-  `<= sqrt(b_L) V'`. At a zero the readout is `<= 2 HI sqrt(k) sqrt(b_L) TV <= tau/64` when
-  `sqrt(b_L) <= tau sqrt(k)/(c_b mT)`, with `c_b <= 8.1e5` [c].
+* *Listing.* Let `B_L := [tau sqrt(k)/(c_b mT)]^2`, where
+  `c_b=64*2*HI*6*gamma*c_* *2(1+C_chain)<=8.1e5` [c]. Use integer
+  `b_L=max(1,ceil(B_L))`, capped by the number k-1 of memory columns.
+  `Psi_c` lists averages over consecutive blocks of that length.
+* *Residual.* A block residual has norm `<=sqrt(b_L) V'/2`, by the same block-variance
+  argument as (a), for any vector of total variation V'. For `B_L<1`, singleton blocks
+  have zero residual. Otherwise `b_L<=2B_L`, so the pair residual reads at most
+  `HI sqrt(k) sqrt(b_L) TV <= 2 HI sqrt(k) sqrt(B_L) TV <= tau/64`.
 * *Count.* `|Psi_c| <= (c_b mT/tau)^2 + 2 <= 2.1e14 (mT/n)^2 + 2` [c].
 
 **(d) Off-cycle leak sources (public schedules).**
@@ -391,16 +420,20 @@ listed.
   geometrically.
 * *Deviation.* By Lemma C applied to row `j`, `sum_t |delta_t(j)| <= (1 + C_chain) N_j`.
   Never-driven off-cycle rows equal the bath, so they have `delta = 0`.
-* *Listing.* Put `N_0 := floor([tau sqrt(k)/(256 HI gamma c_max (1+C_chain)(Lam+1) sqrt(mT))]^(2/3))`.
+* *Listing.* Put `x := [tau sqrt(k)/(256 HI gamma c_* (1+C_chain)(Lam+1) sqrt(mT))]^(2/3)`
+  and `N_0 := max(1,ceil(x))`.
   `Psi_d` lists `l_j(theta) - l_j(-theta)` exactly for the public set `{j : N_j >= N_0}`, which
-  has `<= mT/N_0` elements. (If `N_0 < 1`, every off-cycle row with `N_j >= 1` is listed.)
-* *Unlisted rows.* They have
-  `S_j := sum_t |delta_t(j)| O_(t-1)(j) <= 2 c_max (Lam+1)(1+C_chain) N_0 N_j`. So
+  has `<=mT/N_0<=mT/x` elements. If x<=1, every driven off-cycle row is listed.
+* *Unlisted rows.* Their integer counts satisfy `N_j<=ceil(x)-1<x`, even when x is
+  integral. For N_j>=1, use `1/kappa<=Lam+1` to bound the own scalar by
+  `2c_*(Lam+1)N_j`; never-driven rows have delta=0. Therefore
+  `S_j := sum_t |delta_t(j)| O_(t-1)(j) <= 2 c_* (Lam+1)(1+C_chain) x N_j`. So
 
       readout <= HI sqrt(k) (2 gamma/k) sqrt(sum S_j^2)
-              <= 4 HI gamma c_max (1+C_chain)(Lam+1) N_0^(3/2) sqrt(mT)/sqrt(k) <= tau/64.
+              <= 4 HI gamma c_* (1+C_chain)(Lam+1) x^(3/2) sqrt(mT)/sqrt(k) = tau/64.
 
-* *Count.* `mT/N_0 <= 1.4e8 (mT)^(4/3)/n` [c], using `tau sqrt(k) >= .0566 n sqrt(n/2)`.
+* *Count.* `mT/N_0 <= mT/x <= 1.4e8 (mT)^(4/3)/n` [c], using
+  `tau sqrt(k) >= .0566 n sqrt(n/2)`. There is no flooring loss.
 
 *Ledger.* `1/16 + 1/64 + 1/256` (part (a)) `+ 1/256` (b) `+ 1/64` (c) `+ 1/64` (d)
 `= 30/256` [c].
@@ -416,11 +449,12 @@ QED
 ### 4.3 What Theorem M says about drift capture
 
 *Capacity.*
-* Theorem R's mechanism (PR #29) lives entirely in `K_pos`: own arrival profiles captured by a
+* Theorem R's leading drift-capture term (PR #29) is `K_pos`: own arrival profiles captured by a
   held gather spike.
 * At a zero of `Psi_M` it is `<= tau/16 + tau/64 + tau/256` in readout. So **a gather spike can
   hold at most `|Psi_a| <= 9.1e5 + 7.6e14 (mT/n)^2` robust directions from captured own
-  arrivals**.
+  arrivals**, for sections certified by this isolated channel at the stated error threshold.
+  This does not bound the dimension of a section whose separation uses other channels.
 * The one gather row, many arrivals structure carries one monotone profile per history. Its
   robust dimension is limited by how far arrival profiles reach (`lam*`) and by how fine the
   needed resolution is (`b = 2`, because the range `V sqrt(k)` can be `~ s_hi^2 n/4`).
@@ -455,9 +489,11 @@ positions.
 * **(d) Do long near-neutral paths cost compute?**
   * Yes, in the sub-barrier domain: one drive per `Lam + 1` protected positions (PR #27 Lemma
     2.5, verified).
-  * The bath cannot be made neutral cheaply. Neutrality needs the drift `beta ~ x^3/3` near 0,
-    where `x = .05 - 2M/n`. Lemma B and (F1) confine `x` to `[.025, .1]`. The average drift of a
-    zero chain over `L` steps is therefore `>= s_lo^3/3 - .045/L - 1/n`.
+  * The rigorous implication here is the protected-set count, not a general neutral-path tax.
+    Since `beta'_u=atanh(s_u)-a' s_(u-1)`, telescoping over an interval after time 1 gives
+    `average beta' >= s_lo^3/3-(s_hi-s_lo)/L = s_lo^3/3-.0759/L`.
+    This uses `atanh(s)-s>=s^3/3` and `1-a'>=0`. It does not identify the bath s with
+    the instantaneous preactivation or prove the conjectural tax outside (H).
   * PR #29 §3.2 called the undriven case "the unproved part". That was wrong: PR #27 Lemma 2.5
     already covers it in this domain. Its constant `Lam = 4.5e5` is very conservative; a free
     chain after a reset is near-neutral for `~10^3`–`10^4` steps.
@@ -492,8 +528,9 @@ positions.
   `(gamma a/k) s^2 Delta O_j` on column `j` every step. That is
   `~ .19 s^2 H^2/k + .75 H/k` in total.
 * The readout per direction is `~ 3.1e-4 H^2/sqrt(n)`, which reaches `tau` at `H ~ 13.5 n^(3/4)`.
-* Different pairs use different columns, so the directions are orthogonal. Robustness over the
-  whole sphere needs only that each full-scale component reaches `tau`.
+* Different pairs use different columns, so their ideal outputs are orthogonal. Full-scale
+  component separation alone does not prove uniform sphere robustness: a proof also needs
+  a bound `|F(z)-F(-z)|>=c|z|` on the entire coordinate interval and a uniform coupled-error bound.
 
 *Resources.*
 * `D` directions need `~2 D H` hole-steps inside the hold, hence width
@@ -508,7 +545,7 @@ positions.
 * `exp_offcycle_leak.py` illustrates the channel at `n = 1024` (**[NUMERICAL]**):
   * the off-cycle leak `L_off` is the dominant part of the gather row's difference on the
     modulated column, and it grows with `H` (`.370, .388, .420, .478` for `H = 25..200`);
-  * the endpoint is exact, and the eight parts reconstruct the difference to `4e-15`;
+  * the endpoint is exact, and the nine terms reconstruct the difference to `4e-15`;
   * at this `n` the bath-accumulated scalar (`~285`) dominates, so the `H^2` law
     (`H >~ 1500`) is not tested.
 
@@ -553,30 +590,35 @@ positions.
   `<= (34/256) tau` for every one-step legal query. The F-step version uses PR #28's geometric
   allocation over the gather rows `d-1, ..., d-F_s`.
 
-Theorem M, Lemma M_rest and Proposition M2 together would give the selected-group barrier
-`mT >= c D sqrt(n)` for one-step certificates. It would still leave open the F-step queries,
-the full `d_F` metric (the full `R/W/b` gradient) and the strict `o(n^(3/2))` question.
+Theorem M and this OPEN target would control the one-step bus in their common scope (part (d)
+still requires public schedules). The extra unspecified polylogarithm in this target is not
+automatically allowed by Lemma M'. To apply Proposition M2 as stated, the remaining listing
+must fit `A_1 mT/sqrt(n)+A_2(m+1)W+A_3`, and its additional dimension/count condition must
+hold for the logarithm-free conclusion. No general `mT>=cD sqrt(n)` result follows here.
+F-step queries, code-dependent off-cycle schedules, the full gradient metric and the original
+strict-budget question remain OPEN.
 
 ## 6. Status
 
 | Item | Status |
 |---|---|
 | Prop. M1: exact two-channel decomposition of the one-step bus readout | PROVED; checked to `5.8e-15` |
-| (4.1): exact eight-part decomposition of the gather row's bus | PROVED; checked to `8.6e-15` |
+| (4.1): exact nine-term decomposition of the gather row's bus | PROVED; checked to `8.6e-15` |
 | Lemma B: bath ceiling `s_t <= .1009`, below-bath gap sum `<= 506` (sub-barrier domain) | PROVED; constants certified |
 | Lemma C: deviation budget `Sigma_P <= 2(1+558) mT` | PROVED |
-| **Theorem M: first-order gather channel listable, size `9.1e5 + 9.7e14 (mT/n)^2 + 1.4e8 (mT)^(4/3)/n + 4`, residual `<= 30 tau/256` (one-step queries; (d) for public schedules)** | **PROVED** (author; constants certified; structural checks pass; independent audit requested) |
+| **Theorem M: first-order gather channel listable, size `9.1e5 + 9.7e14 (mT/n)^2 + 1.4e8 (mT)^(4/3)/n + 4`, residual `<= 30 tau/256` (one-step queries; (d) for public schedules)** | **PROVED** in corrected scope; independently verified 2026-10-16 (see repair audit) |
 | Prop. M2: Lemma M' (`O(mT/sqrt n)` bus listing) suffices for the barrier law | PROVED |
-| Lemma M in its original form (`C_0 m + C_1 (mT/n)^2 + C_2 log^2 n`) | **likely FALSE** for astronomically large `n` (off-cycle leak capture, §5.2) [ANALYSIS] |
+| Lemma M in its original form (`C_0 m + C_1 (mT/n)^2 + C_2 log^2 n`) | **OPEN**; candidate refutation for astronomically large `n` (off-cycle leak capture, §5.2) [ANALYSIS] |
 | Magnitude bound on the centered channel at listing zeros | heuristically false for `n >~ 1e20` (§5.3) [ANALYSIS] |
 | Lemma M_rest (second-order gather, entry, centered channel, F-step, code-dependent (d)) | **OPEN** |
 | PR #29 §3.2 claim that undriven neutral paths are unproved | corrected: covered by PR #27 Lemma 2.5 in the sub-barrier domain |
 | Original problem: `D = Omega(n)`, `mT = o(n^(3/2))`, full `d_F` | **OPEN** |
 
 **Next action.**
-* Prove Lemma M_rest's second-order gather part. A Lemma-E-style a priori fixed point for
-  general sections, in the regime `m <= epsilon sqrt(k)`, closes it; the regime
-  `m > epsilon sqrt(k)` forces `T < d` for small `mu`.
+* Investigate whether a Lemma-E-style a priori fixed point can control the second-order
+  gather part for general sections when `m <= epsilon sqrt(k)`. No closure is proved here.
+  For larger m, the resource inequality gives `T<mu sqrt(2)n/epsilon`; this is less than d
+  only when the fixed epsilon exceeds `4 sqrt(2)mu`.
 * Then attack the centered channel with a time-grid listing for held rows.
 * In parallel, make §5.2 rigorous. That would refute Lemma M's original form, and it would also
   probe whether off-cycle leaks can reach the barrier rate.

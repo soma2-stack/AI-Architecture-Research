@@ -32,3 +32,7 @@ Scope reminders:
 * The original problem is OPEN.
 
 Do not read restricted lane notebooks. Write reviews in a separate folder.
+
+## Repair handoff — 2026-10-16
+
+The reviewed integer errors are fixed by ceil(x), cutoff 1800004 and coefficient 3.897e7. BV blocks use a justified ceiling, and the gate bound is .3435. Dense source amplitude is bounded at the actual n>=1e8 threshold; discounted source ordering proves arrival monotonicity without assuming c itself monotone. See RESUME.md and the independent repair audit. The restricted notebook finding remains untouched under the owner's restriction; shared navigation is updated. Remaining mathematical tasks are OPEN, including general-section fixed-point closure and uniform sphere robustness of the off-cycle candidate.

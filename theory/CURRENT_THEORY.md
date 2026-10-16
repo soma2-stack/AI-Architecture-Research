@@ -1,3 +1,20 @@
+# Current theory update — 2026-10-16
+
+The current PR #31 phase studies robust bus dimension. Claude remains lead researcher.
+The corrected first-order gather theorem is independently verified for one-step queries,
+undriven sources, and a public schedule for its off-cycle part. It is not a theorem
+controlling the entire bus or the full gradient metric. The original strict-budget
+`D=Omega(n)` question remains **OPEN**; no general logarithm-free barrier is proved.
+
+Use the complete [shared resume](claude_lemma_m_bus_capacity_20261015/RESUME.md) for
+current scope, negative findings, unresolved questions and the exact next action.
+See [the repair audit](codex_pr31_repair_audit_20261016/AUDIT.md) for independent
+certificates and the corrected integer constants. This update supersedes the older
+next-action pointers below while preserving their historical results and provenance.
+Restricted lane notebooks were not edited.
+
+## Preserved theory snapshot
+
 # Current theory — 2026-10-06
 
 Authoritative navigation snapshot, consolidated from the preservation-complete base `d1767d0a62dba90b03fd21e512b3db0c4efcd133` and the missing Claude folders. This document records existing evidence and owner acceptance; it introduces no new theorem. [INDEX.md](INDEX.md) covers all historical theory folders.

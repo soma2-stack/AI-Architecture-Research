@@ -8,7 +8,7 @@ legal gates g in [LO, HI]^k, verifies
 
 where nu = a O^T g (memory block of R0^T g), bus = B' - O (standard rows), Y = U B', Z = Y - O
 (Z(0) = Y(0)), gbar = mean of g over memory rows 0..k-1, eps_i = (Ug)_(P(i)) (eps_(d-1) := 0).
-It also checks |eps_i| <= .3404 and |w^T nu| <= 1.29.
+It checks the finite-k box bounds; the theorem's n>=1e8 bound is .3435.
 Exact algebra; numerical residuals are floating-point only.
 Run: python -I exp_two_channel_identity.py
 """
@@ -58,7 +58,9 @@ def main():
             worst = max(worst, float(np.abs(lhs - rhs).max() / np.abs(lhs).max()))
             eps_max = max(eps_max, float(np.abs(eps).max())); wn_max = max(wn_max, abs(float(w @ nu)))
         rec = {"n": n, "rel_residual": worst, "max_abs_eps": eps_max, "max_abs_wTnu": wn_max}
-        assert eps_max <= .3404 and wn_max <= 1.29
+        box_eps=(HI-LO)*(1+1/math.sqrt(k)-gam/k)
+        assert eps_max <= box_eps+1e-12 and wn_max <= HI+box_eps+1e-12
+        rec['finite_k_eps_bound']=box_eps
         print(json.dumps(rec)); out.append(rec)
     with open(os.path.join(HERE, "exp_two_channel_identity_result.json"), "w") as f:
         json.dump(out, f, indent=1)
