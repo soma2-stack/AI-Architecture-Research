@@ -11,7 +11,7 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 # Resume Pointer (read this first in a new session) — updated 2026-10-02, session 29s (causal suffix width, interim)
 
-- **Latest:** W^causal_(3eps/4)(n) = O(n)? See theory/claude_causal_width_20261002/REPORT.md (interim; usage limit).
+- **Latest:** theory/claude_lemma_m_bus_capacity_20261015/ (branch claude/lemma-m-bus-capacity-20261015): Theorem M (first-order gather capacity) proved; Lemma M' (O(mT/sqrt n) bus listing) suffices; original Lemma M likely too strong; Lemma M_rest OPEN. Builds on PR #29 (Hypothesis B refuted, independently verified).
 - **[R] Exact absorption identity:** right probes S_t = M_t X update exactly, S_t = G_t(a O_* S_(t-1) + X). The error is
   static, with no accumulation, and these probes are the ONLY exact linear quotients (left-ideal kernel).
 - **[N] Harmonic column content is visible like sqrt(n):** Fourier probe v_f with d dense rows, read in l1 by
