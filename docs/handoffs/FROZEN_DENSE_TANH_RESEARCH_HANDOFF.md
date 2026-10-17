@@ -14,7 +14,7 @@
 - Resource: $m$ is the **peak actual past-input support** across every step and section parameter, multiplied by the **entire horizon** $T$. Preparation, driven holding, resets, and tails count. Every tiny nonzero actual input counts. **This is not** additive coordinate-time cost $\sum_t |\operatorname{supp} x_t|$.
 - Past input cube: individual amplitudes bounded by $1/2$. Future query contract is separate: legal future preactivations lie in $[0.25,0.75]$, and future raw inputs are held fixed under differentiation.
 - Accuracy/error target: $\varepsilon=0.001$. Preserve the original group-RMS gradient normalization and distinguish the selected group $d_{F,E}$, with $E=\operatorname{diag}(0,1,\dots,1)$, from the **full** $d_F$ metric.
-- Source of the repository-wide contract: [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) and [AGENTS.md](AGENTS.md). The former is a 2026-10-06 navigation snapshot and predates PR #29; its historical status lines should not override later scoped independent audits.
+- Source of the repository-wide contract: [theory/CURRENT_THEORY.md](../../theory/CURRENT_THEORY.md) and [AGENTS.md](../../AGENTS.md). The former is a 2026-10-06 navigation snapshot and predates PR #29; its historical status lines should not override later scoped independent audits.
 - Repository convention: author-written “PROVED” is not automatically independently **VERIFIED**; label the exact theorem and quantifier scope.
 
 ## 2. Executive status: what can be used now?
@@ -143,7 +143,7 @@ Do not reuse PR #28’s already-refuted universal Hypothesis B, do not assume ra
 **Read these in order when resuming:**
 
 1. [This handoff](FROZEN_DENSE_TANH_RESEARCH_HANDOFF.md) — verdict and source map.
-2. [Original contract and baseline](theory/CURRENT_THEORY.md) — read with date caveat.
+2. [Original contract and baseline](../../theory/CURRENT_THEORY.md) — read with date caveat.
 3. [Original Hypothesis B and Theorem 4](https://github.com/soma2-stack/AI-Architecture-Research/blob/0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88/theory/claude_multiprobe_memory_20261014/PROOF.md) — exact quantifiers.
 4. [Latest PR #29 proof](https://github.com/soma2-stack/AI-Architecture-Research/blob/2e46b02d61b8b2cc713546461d1232b578690b8f/theory/claude_hypothesis_b_bus_20261015/PROOF.md) — Lemma E, D1–D3, Theorem R_D and the **unfixed optional overclaim**.
 5. Independent **R0 Codex audit** (user-supplied file AUDIT(1).md, 2026-10-15) — verified Lemma E and first set of corrections.

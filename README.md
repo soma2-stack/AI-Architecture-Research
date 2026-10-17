@@ -22,16 +22,17 @@ In plain language: can robust learning-credit dimension scale linearly with mode
 
 **Current status: OPEN.**
 
-Read in this order:
+**Start here for current work:**
 
-1. [README.md](README.md)
-2. [AGENTS.md](AGENTS.md) — repository governance
-3. [04_RESEARCH_STATE.md](04_RESEARCH_STATE.md) — brief resume point
-4. [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) — authoritative current theory
-5. [theory/INDEX.md](theory/INDEX.md) — all theory folders and evidence relationships
-6. [experiments/INDEX.md](experiments/INDEX.md) — finite-size evidence and limits
-7. [theory/codex_linear_dimension_frontier_20261006/PROOF.md](theory/codex_linear_dimension_frontier_20261006/PROOF.md) — current proof record
-8. [docs/history/SHARED_RESEARCH_MAP.md](docs/history/SHARED_RESEARCH_MAP.md) — current checkpoint followed by historical context
+1. [AGENTS.md](AGENTS.md) — binding research and agent rules (do not edit without the owner's explicit instruction)
+2. [RESEARCH_START_HERE.md](RESEARCH_START_HERE.md) — five-step checklist before starting work
+3. [theory/RESEARCH_ATLAS.md](theory/RESEARCH_ATLAS.md) — canonical findings, corrections, and open questions
+4. [theory/EXPERIMENT_HISTORY.md](theory/EXPERIMENT_HISTORY.md) — completed tests, failures, and work not yet run
+5. [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) — mathematical contract and earlier theory snapshot
+6. [04_RESEARCH_STATE.md](04_RESEARCH_STATE.md) — brief historical resume note
+7. [theory/INDEX.md](theory/INDEX.md) and [experiments/INDEX.md](experiments/INDEX.md) — detailed evidence catalogs
+
+Past missions, handoffs, protocols, audits, and research notebooks remain preserved under [docs/](docs/README.md). The root lane notebooks are retained as required by AGENTS.md.
 
 `theory/` contains proofs, scoped derivations, reviews, and drafts. `experiments/` contains diagnostic and certification code, frozen inputs, replay outputs, and other experimental evidence. Experiments do not automatically validate a theorem or establish an architecture.
 
