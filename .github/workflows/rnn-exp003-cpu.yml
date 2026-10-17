@@ -1,0 +1,67 @@
+name: RNN Experiment 003 — contradictory bit distractors
+
+on:
+  push:
+    branches:
+      - prototype/rnn-llm-architecture-v0-20261007
+    paths:
+      - 'prototypes/rnn_llm_architecture/experiment_003.py'
+      - 'prototypes/rnn_llm_architecture/test_experiment_003.py'
+      - '.github/workflows/rnn-exp003-cpu.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rnn-exp003-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  interfering-bit-memory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - name: Checkout commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            numpy==2.4.6 scipy==1.17.1 pytest==9.1.1 \
+            filelock typing-extensions setuptools sympy networkx jinja2 fsspec
+          python -m pip install --disable-pip-version-check \
+            --index-url https://download.pytorch.org/whl/cpu \
+            --no-deps 'torch==2.14.1+cpu'
+          python -c 'import torch; assert torch.version.cuda is None and not torch.cuda.is_available(); print(torch.__version__)'
+      - name: Complete architecture and experiment test suite
+        run: python -m pytest -o addopts= -q -p no:cacheprovider prototypes/rnn_llm_architecture/
+      - name: Bounded interfering-distractor experiment
+        run: |
+          python -m prototypes.rnn_llm_architecture.experiment_003 \
+            --output "${RUNNER_TEMP}/rnn-exp003-results.json" \
+            --steps 150 --batch 16 --eval-batch 512 \
+            --train-delay 64 --eval-delays 64,128,256 \
+            --max-wall-seconds 540
+      - name: Package exact source
+        if: always()
+        run: tar -czf "${RUNNER_TEMP}/rnn-exp003-source.tar.gz" AGENTS.md prototypes/rnn_llm_architecture
+      - name: Upload complete evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rnn-exp003-evidence
+          path: |
+            ${{ runner.temp }}/rnn-exp003-results.json
+            ${{ runner.temp }}/rnn-exp003-source.tar.gz
+          if-no-files-found: warn

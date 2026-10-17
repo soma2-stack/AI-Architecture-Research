@@ -1,0 +1,92 @@
+{
+  "reviewed_commits": {
+    "PR27": "a67be6da53a539198fc82264606b88d74de67a00",
+    "PR28": "3746747137bb681ceda9c0f21b19e66d264165d1"
+  },
+  "exact_certificates": {
+    "gate_HI_interval": [
+      0.940014848806378,
+      0.940014848806378
+    ],
+    "gate_LO_interval": [
+      0.5965858082813315,
+      0.5965858082813315
+    ],
+    "certified_log_rate_interval": [
+      0.061859,
+      0.06186
+    ],
+    "union_coefficient_exact": "1/5100000000",
+    "tau_squared_coefficient_lower": 0.003205334621252384,
+    "rho_squared_coefficient_lower": 0.001803000724454466,
+    "spike_block_length_coefficient_lower": 3.037023993597708e-08,
+    "count_intercept": 1170012.0,
+    "p_intercept": 1510006.0,
+    "error_allocation": "47/64"
+  },
+  "queries": {
+    "analytic_ordinary_majorant": 1.1689115523458145,
+    "cutoffs": [
+      {
+        "n": "100000000",
+        "Fs": 144,
+        "tail_amplitude": 0.9569380138818553
+      },
+      {
+        "n": "100000001",
+        "Fs": 144,
+        "tail_amplitude": 0.9569380138818553
+      },
+      {
+        "n": "10000000000",
+        "Fs": 181,
+        "tail_amplitude": 0.970215530467752
+      },
+      {
+        "n": "100000000000000000000",
+        "Fs": 367,
+        "tail_amplitude": 0.9770684992863632
+      },
+      {
+        "n": "2**1600",
+        "Fs": 8959,
+        "tail_amplitude": 0.9713674981754183
+      }
+    ],
+    "adversarial_endpoint_gate_cases": 48,
+    "maximum_finite_nonspike": 0.553625977765257,
+    "uniform_query_identity_residual": 6.394884621840902e-14
+  },
+  "front_identity": {
+    "n": 64,
+    "T": 8,
+    "full_own_plus_two_bus_terms_error": 7.494005416219807e-15,
+    "omitted_front_term_max_l2": 2.3309345593276083,
+    "scope": "Zero-input reference history with its actual source recurrence and c1=0; not a constructed robust section."
+  },
+  "blocks": {
+    "strict_integer_choices": 480,
+    "weighted_worst_sign_cases": 2560,
+    "maximum_residual_squared_bound_ratio": 0.002850187876848246,
+    "public_weight_TV_counterexample": {
+      "TV_Y": 0,
+      "TV_cY": 19,
+      "c_max": 1
+    }
+  },
+  "release": {
+    "adversarial_schedules": 100,
+    "never_protected_paths": 2763,
+    "maximum_age_sum_ratio": 0.4321139722785822
+  },
+  "release_constants": {
+    "release_R2_over_n": 0.00019018380512190368,
+    "release_R3_over_n": 8.470381960182397e-05,
+    "R1_prefactor": 138.87411342454521,
+    "release_total_allocated_over_n": 0.000686
+  },
+  "proof_sha256_utf8_lf": "ad22bd20011f0400d4a0b696d75af05dbff4f7c571810fb74277c7bdf21b3b9a",
+  "training": false,
+  "gpu": false,
+  "seconds": 0.19668619998265058
+}

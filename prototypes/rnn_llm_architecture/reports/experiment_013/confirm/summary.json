@@ -1,0 +1,510 @@
+{
+  "conditions": {
+    "A": {
+      "architecture": "protected",
+      "label": "learned gate",
+      "runs": 9,
+      "incomplete": [],
+      "live_parameters": 8016,
+      "allocated_parameters": 8016,
+      "learned": 6,
+      "success": 2,
+      "mean_whole_varied": {
+        "64": 0.35601427043891615,
+        "128": 0.3623623616165585,
+        "256": 0.3522297822766834,
+        "512": 0.2642983125212292
+      },
+      "mean_per_slot64": 0.8185221354166666,
+      "matrix": {
+        "17:17": {
+          "wv64": 0.0022935778833925724,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5950080543756485
+        },
+        "17:29": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5913430366516113
+        },
+        "17:43": {
+          "wv64": 0.0022935778833925724,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5987085161209106
+        },
+        "29:17": {
+          "wv64": 0.25229358673095703,
+          "outcome": "partial",
+          "onset": 1900,
+          "final_loss": 0.40550953572988513
+        },
+        "29:29": {
+          "wv64": 0.12385321408510208,
+          "outcome": "partial",
+          "onset": 1200,
+          "final_loss": 0.4131669061779976
+        },
+        "29:43": {
+          "wv64": 0.39908257126808167,
+          "outcome": "partial",
+          "onset": 1300,
+          "final_loss": 0.2814511384963989
+        },
+        "43:17": {
+          "wv64": 0.4288990795612335,
+          "outcome": "partial",
+          "onset": 1850,
+          "final_loss": 0.24656293457746506
+        },
+        "43:29": {
+          "wv64": 1.0,
+          "outcome": "success",
+          "onset": 1550,
+          "final_loss": 0.00037958835338940843
+        },
+        "43:43": {
+          "wv64": 0.9954128265380859,
+          "outcome": "success",
+          "onset": 2250,
+          "final_loss": 0.21264427826181054
+        }
+      },
+      "init_means_wv": {
+        "17": 0.001529051922261715,
+        "29": 0.2584097906947136,
+        "43": 0.8081039686997732
+      },
+      "data_means_wv": {
+        "17": 0.2278287480585277,
+        "29": 0.37461773802836734,
+        "43": 0.4655963252298534
+      },
+      "learned_by_init": {
+        "17": 0,
+        "29": 3,
+        "43": 3
+      },
+      "partition_wv": {
+        "init": 0.8006528766931053,
+        "data": 0.06787221166516444,
+        "remainder": 0.1314749116417303
+      },
+      "age_accuracy64": {
+        "rewritten": 0.8458446778166732,
+        "initial_only": 0.7988618341263177
+      },
+      "success_wv_by_delay": {
+        "64": 0.997706413269043,
+        "128": 0.9977477490901947,
+        "256": 0.9512471556663513,
+        "512": 0.5578231364488602
+      },
+      "mean_train_wall_s": 208.64888888888888
+    },
+    "B": {
+      "architecture": "protected_fixed_0474",
+      "label": "fixed g = sigmoid(-3) = 0.0474",
+      "runs": 9,
+      "incomplete": [],
+      "live_parameters": 7488,
+      "allocated_parameters": 8016,
+      "learned": 1,
+      "success": 0,
+      "mean_whole_varied": {
+        "64": 0.036952088276545204,
+        "128": 0.037037038140826754,
+        "256": 0.03854875432120429,
+        "512": 0.03451751105280386
+      },
+      "mean_per_slot64": 0.6912977430555556,
+      "matrix": {
+        "17:17": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5951146427392959
+        },
+        "17:29": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5917618863582611
+        },
+        "17:43": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.6005567699670792
+        },
+        "29:17": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5958639892339707
+        },
+        "29:29": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.594078645825386
+        },
+        "29:43": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.6018053082227707
+        },
+        "43:17": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5963854098320007
+        },
+        "43:29": {
+          "wv64": 0.33256879448890686,
+          "outcome": "partial",
+          "onset": 1800,
+          "final_loss": 0.38176693350076674
+        },
+        "43:43": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5985323445796966
+        }
+      },
+      "init_means_wv": {
+        "17": 0.0,
+        "29": 0.0,
+        "43": 0.11085626482963562
+      },
+      "data_means_wv": {
+        "17": 0.0,
+        "29": 0.11085626482963562,
+        "43": 0.0
+      },
+      "learned_by_init": {
+        "17": 0,
+        "29": 0,
+        "43": 1
+      },
+      "partition_wv": {
+        "init": 0.25000000000000006,
+        "data": 0.25000000000000006,
+        "remainder": 0.49999999999999994
+      },
+      "age_accuracy64": {
+        "rewritten": 0.7263062362245559,
+        "initial_only": 0.6661069129582984
+      },
+      "success_wv_by_delay": null,
+      "mean_train_wall_s": 308.69
+    },
+    "C": {
+      "architecture": "protected_fixed_005",
+      "label": "fixed g = 0.005",
+      "runs": 9,
+      "incomplete": [],
+      "live_parameters": 7488,
+      "allocated_parameters": 8016,
+      "learned": 4,
+      "success": 1,
+      "mean_whole_varied": {
+        "64": 0.23139653504929608,
+        "128": 0.22047046753060487,
+        "256": 0.18216175037539667,
+        "512": 0.13000755723462337
+      },
+      "mean_per_slot64": 0.7694227430555556,
+      "matrix": {
+        "17:17": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5959057463407517
+        },
+        "17:29": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5911958774328232
+        },
+        "17:43": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5998920936584473
+        },
+        "29:17": {
+          "wv64": 0.0022935778833925724,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5967925921678543
+        },
+        "29:29": {
+          "wv64": 0.12385321408510208,
+          "outcome": "partial",
+          "onset": 1550,
+          "final_loss": 0.4134756277799606
+        },
+        "29:43": {
+          "wv64": 0.3899082541465759,
+          "outcome": "partial",
+          "onset": 2800,
+          "final_loss": 0.44009376525878907
+        },
+        "43:17": {
+          "wv64": 0.47018349170684814,
+          "outcome": "partial",
+          "onset": 1200,
+          "final_loss": 0.2400877203643322
+        },
+        "43:29": {
+          "wv64": 0.09633027762174606,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5784549225568771
+        },
+        "43:43": {
+          "wv64": 1.0,
+          "outcome": "success",
+          "onset": 1300,
+          "final_loss": 0.0156707800636068
+        }
+      },
+      "init_means_wv": {
+        "17": 0.0,
+        "29": 0.17201834870502353,
+        "43": 0.5221712564428648
+      },
+      "data_means_wv": {
+        "17": 0.15749235653008023,
+        "29": 0.07339449723561604,
+        "43": 0.46330275138219196
+      },
+      "learned_by_init": {
+        "17": 0,
+        "29": 2,
+        "43": 2
+      },
+      "partition_wv": {
+        "init": 0.46390921387000233,
+        "data": 0.2758393527977713,
+        "remainder": 0.2602514333322264
+      },
+      "age_accuracy64": {
+        "rewritten": 0.8073382600803838,
+        "initial_only": 0.7421401250116615
+      },
+      "success_wv_by_delay": {
+        "64": 1.0,
+        "128": 0.9977477192878723,
+        "256": 0.875283420085907,
+        "512": 0.48072561621665955
+      },
+      "mean_train_wall_s": 273.4711111111111
+    },
+    "D": {
+      "architecture": "protected_no_retain",
+      "label": "forced overwrite (g = 1)",
+      "runs": 9,
+      "incomplete": [],
+      "live_parameters": 7488,
+      "allocated_parameters": 8016,
+      "learned": 0,
+      "success": 0,
+      "mean_whole_varied": {
+        "64": 0.00025484198704361916,
+        "128": 0.00025025025630990666,
+        "256": 0.0,
+        "512": 0.0005039052727321783
+      },
+      "mean_per_slot64": 0.6761067708333334,
+      "matrix": {
+        "17:17": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5949978783130646
+        },
+        "17:29": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5913721487522126
+        },
+        "17:43": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.598614391207695
+        },
+        "29:17": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5949480444192886
+        },
+        "29:29": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5910117764472961
+        },
+        "29:43": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.599800220489502
+        },
+        "43:17": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.59422837972641
+        },
+        "43:29": {
+          "wv64": 0.0,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.5906582075357437
+        },
+        "43:43": {
+          "wv64": 0.0022935778833925724,
+          "outcome": "plateau_only",
+          "onset": null,
+          "final_loss": 0.598797657251358
+        }
+      },
+      "init_means_wv": {
+        "17": 0.0,
+        "29": 0.0,
+        "43": 0.0007645259611308575
+      },
+      "data_means_wv": {
+        "17": 0.0,
+        "29": 0.0,
+        "43": 0.0007645259611308575
+      },
+      "learned_by_init": {
+        "17": 0,
+        "29": 0,
+        "43": 0
+      },
+      "partition_wv": {
+        "init": 0.25,
+        "data": 0.25,
+        "remainder": 0.5
+      },
+      "age_accuracy64": {
+        "rewritten": 0.7077661091663425,
+        "initial_only": 0.6533258699505551
+      },
+      "success_wv_by_delay": null,
+      "mean_train_wall_s": 200.08333333333334
+    }
+  },
+  "pairs": {
+    "A_vs_B": {
+      "complete": true,
+      "x_higher_class_cells": 6,
+      "x_lower_class_cells": 0,
+      "mean_wv64_diff_x_minus_y": 0.3190621821623709,
+      "learned": [
+        6,
+        1
+      ],
+      "success": [
+        2,
+        0
+      ],
+      "verdict": "A outperforms B"
+    },
+    "A_vs_C": {
+      "complete": true,
+      "x_higher_class_cells": 2,
+      "x_lower_class_cells": 0,
+      "mean_wv64_diff_x_minus_y": 0.12461773538962007,
+      "learned": [
+        6,
+        4
+      ],
+      "success": [
+        2,
+        1
+      ],
+      "verdict": "inconclusive"
+    },
+    "B_vs_D": {
+      "complete": true,
+      "x_higher_class_cells": 1,
+      "x_lower_class_cells": 0,
+      "mean_wv64_diff_x_minus_y": 0.036697246289501585,
+      "learned": [
+        1,
+        0
+      ],
+      "success": [
+        0,
+        0
+      ],
+      "verdict": "comparable"
+    },
+    "C_vs_D": {
+      "complete": true,
+      "x_higher_class_cells": 4,
+      "x_lower_class_cells": 0,
+      "mean_wv64_diff_x_minus_y": 0.23114169306225246,
+      "learned": [
+        4,
+        0
+      ],
+      "success": [
+        1,
+        0
+      ],
+      "verdict": "C outperforms D"
+    },
+    "B_vs_C": {
+      "complete": true,
+      "x_higher_class_cells": 1,
+      "x_lower_class_cells": 4,
+      "mean_wv64_diff_x_minus_y": -0.19444444677275088,
+      "learned": [
+        1,
+        4
+      ],
+      "success": [
+        0,
+        1
+      ],
+      "verdict": "inconclusive"
+    },
+    "A_vs_D": {
+      "complete": true,
+      "x_higher_class_cells": 6,
+      "x_lower_class_cells": 0,
+      "mean_wv64_diff_x_minus_y": 0.35575942845187253,
+      "learned": [
+        6,
+        0
+      ],
+      "success": [
+        2,
+        0
+      ],
+      "verdict": "A outperforms D"
+    }
+  },
+  "skipped": [],
+  "preregistered_interpretation": {
+    "1_learned_gate_necessary (A outperforms both B and C)": false,
+    "2_fixed_retention_sufficient (B or C comparable to or better than A)": false,
+    "3_retention_per_se_matters (B or C outperforms D)": true,
+    "4a_stronger_retention_prevents_updating (B>C and C rewritten < initial-only)": false,
+    "4b_stronger_retention_helps (C outperforms B)": false
+  }
+}

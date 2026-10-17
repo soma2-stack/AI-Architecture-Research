@@ -1,0 +1,19 @@
+250 0.671 unequal@64 0.009
+500 0.576 unequal@64 0.077
+750 0.005 unequal@64 1.0
+1000 0.002 unequal@64 1.0
+1250 0.001 unequal@64 1.0
+1500 0.0 unequal@64 1.0
+1750 0.0 unequal@64 1.0
+2000 0.0 unequal@64 1.0
+protected_w32 two_slot 126s
+eval 32 1.0 same 0.506 {'random': 0.28458496928215027, 'last_marked_write': 0.0, 'last_bit_token': 0.0, 'initial_values_only': 0.37154150009155273, 'sticky_address': 0.48616600036621094}
+eval 64 1.0 same 0.457 {'random': 0.2050359696149826, 'last_marked_write': 0.0, 'last_bit_token': 0.0, 'initial_values_only': 0.38129496574401855, 'sticky_address': 0.4208633005619049}
+eval 128 1.0 same 0.477 {'random': 0.23880596458911896, 'last_marked_write': 0.0, 'last_bit_token': 0.0, 'initial_values_only': 0.38432836532592773, 'sticky_address': 0.38432836532592773}
+eval 256 1.0 same 0.502 {'random': 0.25882354378700256, 'last_marked_write': 0.0, 'last_bit_token': 0.0, 'initial_values_only': 0.3607843220233917, 'sticky_address': 0.3176470696926117}
+eval 512 1.0 same 0.508 {'random': 0.26923078298568726, 'last_marked_write': 0.0, 'last_bit_token': 0.0, 'initial_values_only': 0.38461539149284363, 'sticky_address': 0.3162393271923065}
+gates L 0 {"marked_value": {"mean": 0.0494, "fraction_exactly_zero": 0.0}, "unmarked_bit": {"mean": 0.0494, "fraction_exactly_zero": 0.0}, "write_marker": {"mean": 0.0566, "fraction_exactly_zero": 0.0}, "benign_distractor": {"mean": 0.0435, "fraction_exactly_zero": 0.0}, "log_retention_per_nonwrite_token": -0.04691311717033386, "implied_retention_after_512_nonwrite_tokens": 3.7021733227097465e-11}
+gates L 1 {"marked_value": {"mean": 0.1481, "fraction_exactly_zero": 0.0}, "unmarked_bit": {"mean": 0.0929, "fraction_exactly_zero": 0.0}, "write_marker": {"mean": 0.25, "fraction_exactly_zero": 0.0}, "benign_distractor": {"mean": 0.0827, "fraction_exactly_zero": 0.0}, "log_retention_per_nonwrite_token": -0.13578350841999054, "implied_retention_after_512_nonwrite_tokens": 6.417197986831474e-31}
+fast retention L 0 distractor mean 0.715 max-channel 0.753
+fast retention L 1 distractor mean 0.705 max-channel 0.99
+{"features": 64, "train": {"paired_on_unequal": 1.0, "slot_accuracy": [1.0, 1.0]}, "test": {"paired_on_unequal": 1.0, "slot_accuracy": [1.0, 1.0]}, "transfer": {"paired_on_unequal": 1.0, "slot_accuracy": [1.0, 1.0]}, "transfer_delay": 256}

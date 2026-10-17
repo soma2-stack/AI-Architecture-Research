@@ -1,0 +1,105 @@
+{
+ "E_repaired_bounds": {
+  "bath_lower": 0.027164853275575194,
+  "bath_lower_exact": "3771756835877705105555449/138846943055975000000000000",
+  "bath_target": 0.02500521028733069,
+  "bath_target_rational_upper": "2399/95940",
+  "minimum_resource_ratio": "1/1700",
+  "Wratio_sup": 297739.88079822564,
+  "eta_sup": 3.223530442775456e-07,
+  "examples": [
+   {
+    "n": 100000000,
+    "K": 1,
+    "T": 289,
+    "W": 289,
+    "window_truncated": true,
+    "projected_dense_R_bound": 1.5644533333333338e-14
+   },
+   {
+    "n": 10000000000,
+    "K": 1,
+    "T": 289999,
+    "W": 272883,
+    "window_truncated": false,
+    "projected_dense_R_bound": 1.47720664e-12
+   },
+   {
+    "n": 1000000000000,
+    "K": 1,
+    "T": 289999999,
+    "W": 334286,
+    "window_truncated": false,
+    "projected_dense_R_bound": 1.809601546666667e-13
+   },
+   {
+    "n": 1000000000000,
+    "K": 10000,
+    "T": 28402578,
+    "W": 364709,
+    "window_truncated": false,
+    "projected_dense_R_bound": 1.9336195544420537e-12
+   },
+   {
+    "n": 1000000000000,
+    "K": 1000000000000,
+    "T": 10128872,
+    "W": 473766,
+    "window_truncated": false,
+    "projected_dense_R_bound": 8.957602538673603e-09
+   }
+  ]
+ },
+ "A_bath_identity": [
+  {
+   "n": 8000,
+   "steps": 1200,
+   "m": 0,
+   "max_|E|_sqrt_k": 0.05075463134527762,
+   "s_min": 0.03916294394611389
+  },
+  {
+   "n": 8000,
+   "steps": 1200,
+   "m": 40,
+   "max_|E|_sqrt_k": 0.6466577818247101,
+   "s_min": 0.04892672400884341
+  },
+  {
+   "n": 32000,
+   "steps": 600,
+   "m": 0,
+   "max_|E|_sqrt_k": 0.05035490423048357,
+   "s_min": 0.04760879763990158
+  },
+  {
+   "n": 32000,
+   "steps": 600,
+   "m": 160,
+   "max_|E|_sqrt_k": 0.6239251132957617,
+   "s_min": 0.049464278468910446
+  }
+ ],
+ "B_excess_sum_slo_.025": 222.53162660096427,
+ "C_tanh_envelope_max_ratio": 0.8660239419348904,
+ "D_nn_lifetime": [
+  {
+   "s_path": "low",
+   "start": -0.95,
+   "first_exit": 8281,
+   "gap_monotone": true
+  },
+  {
+   "s_path": "high",
+   "start": -0.95,
+   "first_exit": 1749,
+   "gap_monotone": true
+  },
+  {
+   "s_path": "low",
+   "start": 0.0,
+   "first_exit": 2480,
+   "gap_monotone": true
+  }
+ ]
+}
