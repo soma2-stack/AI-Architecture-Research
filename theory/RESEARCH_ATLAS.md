@@ -644,13 +644,19 @@ One row per distinct theory folder (123 total). Main links are repository-relati
 | `866df3e25694b3271e7bfc31338d3bb00015511a` | 2026-10-06 | Prove scoped robust two-control repeated near-critical filter writes | Codex_Research.md, theory/codex_repeated_nearcritical_filter_write_20261005/CHECKS.md |
 | `eb0374622b332149cd0f67dbb492f203f67c42a0` | 2026-10-06 | Prove scoped robust K=3 and K=4 time-varying filter writes and derive growing-K dilution barrier | theory/gemini_time_varying_nearcritical_filter_bank_20261006/CHECKS.md, theory/gemini_time_varying_nearcritical_filter_bank_20261006/FAILED_ROUTES.md |
 
+### Consolidation state (2026-10-17)
+
+The local integration commit is `c5b958f73ab947769308643d6961d97cb3567709`. Its tree contains all 5,585 paths present across the 82 original local-branch, remote-branch, and PR-head trees, plus this research entry page (5,586 paths total). It has all 57 distinct original tip commits as parents; 495 distinct commits are reachable from the 82 source heads and 496 from the integration commit. The only active local branch names are `main`, `research/active`, and `research/review`; each points to the consolidated line of history.
+
+All 32 original local tips remain pinned under `refs/archive/local/<branch>`, all 18 fetched remote branch tips under `refs/archive/remote-heads/<branch>`, and PR heads #1–32 under `refs/archive/pr-heads/<number>`. The verified pre-change bundle is `C:\Users\coler\OneDrive\Desktop\AI-Architecture-Research-recovery-20261017\AI-Architecture-Research-all-refs-20261017.bundle` (SHA-256 `CBB608CD9D295D22388782C20A4052E682D0B77CF0B9D0640C82993BF3284EE0`). GitHub refs and PRs were not changed. Existing worktrees were retained; old branch worktrees were detached at their same commits with their status preserved. The 142 paths present only in private `refs/codex/turn-diffs` snapshots are retained in the backup bundle and excluded from the canonical source tree.
+
 ### Repository inventories and exclusions
 
-- Concrete remote refs inspected: 82 = 32 mirrored local heads + 18 GitHub branch heads + 32 PR heads. The `origin/HEAD` symbolic ref is excluded from concrete-ref counts.
-- Distinct commits reachable from those refs: 494; distinct tracked paths in their tree union: 5583.
+- Concrete source refs inspected: 82 = 32 original local heads + 18 GitHub branch heads + 32 PR heads. The `origin/HEAD` symbolic ref is excluded from concrete-ref counts.
+- Distinct commits reachable from those refs: 495; distinct tracked paths in their tree union: 5585.
 - Local-only reachable commit objects: 9; all are listed above. Unreachable-object scan: none found.
 - Distinct theory folders: 123; main folders: 106; off-main folders: 17. Experiment collections: 46.
-- Branch-name reconciliation: the primary checkout had 32 local branches and GitHub had 18 branches. Fifteen names overlap, 17 are local-only, and three are GitHub-only. The branch tables identify each head SHA.
+- Pre-consolidation branch-name reconciliation: the primary checkout had 32 local branches and GitHub had 18 branches. Fifteen names overlapped, 17 were local-only, and three were GitHub-only. The branch tables identify each original head SHA; the current local branch set has the three roles above.
 - PR coverage: all current PRs #1–32; #1–22 merged, #23–32 open, no closed PRs appeared in the queried inventory. PR title/state/head SHA are recorded above.
 - Primary-checkout untracked files are outside these ref/tree counts: 17 generated GAS-0 workspaces not exhaustively inspected, two duplicated local PR29 audit trees checked byte-for-byte against tracked counterparts, and one local-only joint audit inspected at summary level.
 - The only deleted historical root file found was `PERPLEXITY_WRITE_TEST.md`, a create/edit/delete test artifact, not a research result.
