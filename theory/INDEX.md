@@ -1,5 +1,9 @@
 # Theory index
 
+> **Cross-branch research archive:** [RESEARCH_ATLAS.md](RESEARCH_ATLAS.md) maps the full accessible branch/PR history, scoped results, counterexamples, open questions, experiments, overlaps, and coverage limits. This index is a 2026-10-06 snapshot; the atlas includes PRs #23–32.
+
+> **Experiment history:** [EXPERIMENT_HISTORY.md](EXPERIMENT_HISTORY.md) inventories all 46 experiment collections, the 16 PR23 prototypes, saved outcomes, failed and unrun work, duplicates, and coverage limitations.
+
 Snapshot: 2026-10-06. Existing entries are preserved; newly consolidated folders are listed below without moving or rewriting their internal contents. Read [CURRENT_THEORY.md](CURRENT_THEORY.md) for the current conclusions. Structured evidence: [INDEX_LEDGER.json](INDEX_LEDGER.json).
 
 Status describes the scoped result summarized here, not every sentence in a folder. Owner disposition and independent review are separate axes: ACCEPTED records explicit owner acceptance, while VERIFIED requires independent review evidence in the stated scope. A proof row may therefore remain ACCEPTED while the `Reviewed by` column records independent review. Author-local words such as `PROVED` inside preserved reports do not by themselves create repository-level VERIFIED status, and numerical checks alone do not qualify. Review folders retain mixed verdicts, corrections, and numerical evidence. SUPERSEDED preserves a valid older bound or incomplete attempt; REFUTED below concerns the stated general-solution claim, not all auxiliary lemmas. PENDING REVIEW and CONDITIONAL do not become accepted through preservation. Models are named only where recorded.
