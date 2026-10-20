@@ -1,0 +1,46 @@
+{
+ "runs": [
+  {
+   "n": 512,
+   "T": 300,
+   "m": 24,
+   "seed": 1,
+   "C1 nine-term relative residual (max over rows d-1..d-6)": 1.4132317413106874e-15,
+   "C2 F-step identity relative residual": 5.711092762688342e-15,
+   "C2 max |nu^T Delta bus| (nonzero: the histories differ)": 14.120961137036986,
+   "C2 max ||chi||_2 / (HI^F sqrt k)  (must be <= 1)": 0.9980468750000019,
+   "C2 max non-spike |chi_i|  (Lemma 1.2' asymptotic 1.159 + O(1/sqrt k))": 0.19401174366084822,
+   "C2 max |w^T chi|  (proof uses <= A_1 + 1)": 1.0895637896052615,
+   "C3 Lemma D max abs residual": 1.4210854715202004e-13,
+   "C3 Lemma D max abs hole-sum": 159.00397672621642
+  },
+  {
+   "n": 512,
+   "T": 420,
+   "m": 40,
+   "seed": 2,
+   "C1 nine-term relative residual (max over rows d-1..d-6)": 1.9773256086716163e-15,
+   "C2 F-step identity relative residual": 1.084650964161747e-14,
+   "C2 max |nu^T Delta bus| (nonzero: the histories differ)": 6.972437409896784,
+   "C2 max ||chi||_2 / (HI^F sqrt k)  (must be <= 1)": 0.9980468750000019,
+   "C2 max non-spike |chi_i|  (Lemma 1.2' asymptotic 1.159 + O(1/sqrt k))": 0.20271632342554682,
+   "C2 max |w^T chi|  (proof uses <= A_1 + 1)": 1.1095580226449375,
+   "C3 Lemma D max abs residual": 1.4210854715202004e-13,
+   "C3 Lemma D max abs hole-sum": 181.18077967702834
+  },
+  {
+   "n": 1024,
+   "T": 600,
+   "m": 48,
+   "seed": 3,
+   "C1 nine-term relative residual (max over rows d-1..d-6)": 3.577393874616754e-15,
+   "C2 F-step identity relative residual": 1.1686474071745753e-14,
+   "C2 max |nu^T Delta bus| (nonzero: the histories differ)": 10.229167533909209,
+   "C2 max ||chi||_2 / (HI^F sqrt k)  (must be <= 1)": 0.9990234375000047,
+   "C2 max non-spike |chi_i|  (Lemma 1.2' asymptotic 1.159 + O(1/sqrt k))": 0.19139725558376325,
+   "C2 max |w^T chi|  (proof uses <= A_1 + 1)": 0.9390968655555675,
+   "C3 Lemma D max abs residual": 2.8421709430404007e-13,
+   "C3 Lemma D max abs hole-sum": 279.15882008195274
+  }
+ ]
+}
