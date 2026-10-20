@@ -1,0 +1,85 @@
+name: PR35 practical memory CPU screen
+
+on:
+  push:
+    branches: [codex/pr35-trainable-balanced-memory-20261020]
+    paths:
+      - 'prototypes/pr35_memory/**'
+      - '.github/workflows/pr35-memory-cpu.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr35-memory-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        seed: [17, 29, 43]
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install fixed CPU environment
+        run: |
+          python -m pip install --disable-pip-version-check numpy==2.1.3 pytest==8.3.4
+          python -m pip install --disable-pip-version-check --index-url https://download.pytorch.org/whl/cpu torch==2.5.1+cpu
+          python -c "import torch; assert torch.version.cuda is None; print(torch.__version__)"
+      - name: Validate reused baselines and new mechanism
+        run: |
+          python -m pytest -q -o addopts= -p no:cacheprovider \
+            prototypes/rnn_llm_architecture/test_model.py \
+            prototypes/rnn_llm_architecture/test_candidates.py \
+            prototypes/rnn_llm_architecture/test_gated.py \
+            prototypes/rnn_llm_architecture/test_capacity_010.py \
+            prototypes/pr35_memory/test_memory.py
+      - name: Read-only pinned theorem source checkout
+        uses: actions/checkout@v4
+        with:
+          ref: aa47ca5ec782d4a70047793d00a44f2f47816f49
+          path: _pr35_reference
+          persist-credentials: false
+          sparse-checkout: theory/claude_dense_transfer_20261020
+      - name: Small literal reference simulation (outside theorem-size regime)
+        run: |
+          cd _pr35_reference/theory/claude_dense_transfer_20261020
+          python -I exp_skeleton.py 1024 50 2
+      - name: Fixed-budget training and delay evaluation
+        run: |
+          python -m prototypes.pr35_memory.run \
+            --output "${RUNNER_TEMP}/pr35-memory-seed${{ matrix.seed }}" \
+            --seed ${{ matrix.seed }} --steps 600 --batch 12 \
+            --histories 256 --max-seconds 900
+      - name: Preserve exact source and environment
+        if: always()
+        run: |
+          mkdir -p "${RUNNER_TEMP}/pr35-source"
+          git rev-parse HEAD > "${RUNNER_TEMP}/pr35-source/COMMIT.txt"
+          python -m pip freeze > "${RUNNER_TEMP}/pr35-source/pip-freeze.txt"
+          tar -czf "${RUNNER_TEMP}/pr35-source/source.tar.gz" prototypes/pr35_memory prototypes/rnn_llm_architecture AGENTS.md .github/workflows/pr35-memory-cpu.yml
+      - name: Upload results, checkpoints and sources
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr35-memory-seed${{ matrix.seed }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/pr35-memory-seed${{ matrix.seed }}
+            ${{ runner.temp }}/pr35-source
+            _pr35_reference/theory/claude_dense_transfer_20261020/exp_skeleton_result_n1024.json
+          if-no-files-found: warn
