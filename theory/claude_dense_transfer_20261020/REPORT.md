@@ -1,7 +1,9 @@
 # Report — dense transfer of the sequential memory construction (2026-10-20)
 
 Claude (Opus 5.5). Proofs are in `PROOF.md`, checks in `CHECKS.md`. The PR #34 result is used
-unchanged and not edited. Nothing here is independently audited yet.
+unchanged and not edited. Codex independently audited PR #35 at commit `b984ef9` on
+2026-10-20: the principal dense-transfer and cube-root theorems survived in the
+exact-real contract; auxiliary scope and precision corrections are documented here.
 
 ## Milestone verdict: Outcome A (transfer possible)
 
@@ -9,7 +11,7 @@ unchanged and not edited. Nothing here is independently audited yet.
   prescribed matrix, `R = alpha (R0 + eta 1 1^T/n)`, `eta <= 1e-8/n^2`, every entry nonzero. Inputs
   were accounted as the actual nonzero inputs. Its robustness theorem and the refutation of
   Lemma M were then re-derived for that matrix.
-* **Did it work?** **PROVED** (author; audit pending):
+* **Did it work?** **PROVED** (author; independent Codex audit of `b984ef9` supports these scoped claims):
   * **Theorem 6.1D.** For every `n >= 10^18`, the same schedule has 3 active input coordinates,
     horizon `n/2`, exactly common endpoints, and `D >= n^(1/4)/161` robust memory directions in
     the actual dense selected metric.
@@ -23,10 +25,11 @@ unchanged and not edited. Nothing here is independently audited yet.
     always have the same sum.
   * So dense mixing is literally invisible to the memory differences. Separation, sparse inputs
     and exact endpoints survive *exactly*, not approximately.
-  * The only new effect is a tiny correction in the learning credit, at most `1.5e-8` per memory,
-    against a signal of order `n`.
-* **What's next?** A Codex audit of the transfer (focus: the list of gate facts G1–G8 in
-  Lemma 3.1D).
+  * The dense matrix also shifts common states and gates, controlled by the prescribed
+    small-coupling bounds. The resulting learning-credit correction is at most `1.5e-8`
+    per memory column, against a signal of order `n`.
+* **What's next?** The independent Codex audit passed the transfer, including G1–G8.
+  The remaining research target is the centered and second-order bus channels.
 
 ## Second development: a better memory code (`n^(1/4)` -> `n^(1/3)`)
 
@@ -37,15 +40,17 @@ unchanged and not edited. Nothing here is independently audited yet.
   * Any `D` rows of `M` are independent, so every memory direction drives at least `D` pairs to
     full amplitude (Lemma 9.1).
   * The readout then grows like `sqrt(D)`, and each pair needs only `~250 n^(2/3)` steps.
-* **Did it work?** **PROVED** (author; exact rational certificate; audit pending), Theorem 9.2:
+* **Did it work?** **PROVED** under the exact-real continuous-antipodal contract
+  (author certificate; independently supported by Codex at `b984ef9`), Theorem 9.2:
   * dimension `D = floor(floor(n^(1/3))/2400)` with the same 3 active inputs and cost `mT = 1.5 n`;
   * this holds for every `n >= 10^16`, for `R0` and for the prescribed dense matrix;
   * the second-order part is `<= .381` of the first-order signal, and the robustness ratio is
     `.0610 > .0567`.
 * **What did we learn?**
-  * (a) The first-order off-cycle channel's capacity at constant width is `Theta(n^(1/3))`.
-    Theorem M(d)'s upper listing `(mT)^(4/3)/n` is sharp in order (Cor. 9.4). The old
-    one-memory-per-pair code wasted a factor `n^(1/12)`.
+  * (a) For the **first-order gather listing task at m = 3, T = n/2**, the matching
+    lower and upper listing orders are `Theta(n^(1/3))` (Cor. 9.4).
+    This is not an upper bound on all gradient-memory capacity or a general-width theorem.
+    The old one-memory-per-pair code wasted a factor `n^(1/12)`.
   * (b) The Lemma M failure threshold improves from `10^80` to `10^63` (Cor. 9.3).
   * (c) Even with this code, linear dimension would need `mT ~ n^(3/2)` (Remark 9.5, ANALYSIS):
     the barrier scale, not below it.
@@ -58,23 +63,26 @@ unchanged and not edited. Nothing here is independently audited yet.
 
 * **A. Does dense mixing destroy separation?** No, for the prescribed matrix.
   * Memory differences sum to zero, so `R Delta h = alpha R0 Delta h` exactly (Lemma 2.1D).
-  * Checked exactly at 60 digits, and at `1e-16` on the explicit matrix.
+  * Algebraically exact by Lemma 2.1D; 60-digit numerical checks returned zero within
+    their arithmetic precision, and explicit-matrix checks gave residuals `<= 1e-16`.
   * For a *generic* dense matrix (a different problem) local erasure is impossible in one step
     (Prop. 6.1). Controls spread the differences to 236–511 of 512 coordinates.
-* **B. Can the inputs stay sparse?** Yes: the physical input support is 3 at every step.
+* **B. Can the inputs stay sparse?** Yes: the physical input support is at most 3 at every step.
   * Internal state activity is all `n` coordinates: the dense field and the bath move every unit,
     but these are not inputs.
   * The "reference" input `x + (R - R0)h` is dense, but it is not the contract's measure.
   * The public support envelope is the 3 driven rows.
-* **C. Exact endpoints?** Yes, exactly, for every `alpha` and `eta` (Lemma 2.1D). This is
-  verified as exactly 0 at 60 digits.
+* **C. Exact endpoints?** Yes, algebraically, for every `alpha` and `eta` where the
+  structural target schedule is well-defined (Lemma 2.1D). The 60-digit check is
+  numerical confirmation, not the proof of exactness.
 * **D. Additional interference?**
   * The dense credit term obeys `||B - B'|| <= T ||R - R0|| c n <= 1.5e-8` per column
     (Lemma 3.2D; measured `3e-9`).
   * The front-gate and second-order bounds of PR #34 transfer verbatim (Lemmas 2.3D, 3.1D).
-  * *Caution* (stress tests): the state facts hold for any `eta`, but at an off-contract
-    `eta = 1e-3` the credit term destroys the readout (1.5% left). The contract's tiny `eta` is
-    what protects the gradient memory.
+  * *Caution* (stress tests): exact zero-sum locality and endpoints hold for arbitrary
+    all-ones coupling; **bath, source, front-gate, input-amplitude legality and credit
+    bounds are only proved under the prescribed tiny coupling**. At off-contract
+    `eta = 1e-3`, the measured readout fell to 1.5% of baseline.
 * **E. Full readout?** Lower bounds pass upward.
   * The full fixed-feature readout contains the selected columns.
   * The full R-gradient's Frobenius norm dominates its fixed-feature projection.
@@ -90,7 +98,8 @@ unchanged and not edited. Nothing here is independently audited yet.
   * Theorem 6.1D and Corollary 6.2D (prescribed dense matrix);
   * Prop. 5.1 (full metrics, lower bounds);
   * Prop. 6.1 (one-step merge obstruction for m-generic matrices);
-  * Prop. 7.2 (a reusable dense-transfer principle for balanced constructions);
+  * Prop. 7.2 (structural dense-transfer principle; quantitative bound restricted
+    to prescribed normalization, source and gate conditions);
   * Lemma 9.1, Theorem 9.2, Corollaries 9.3 and 9.4 (saturation code, `n^(1/3)`, sharpness of
     Theorem M(d)).
 * **REFUTED:**
@@ -114,9 +123,14 @@ unchanged and not edited. Nothing here is independently audited yet.
 
 ## Next research steps
 
-1. **Codex audit:** Theorem 6.1D, Lemma 3.1D (G1–G8 against PR #34), Prop. 5.1.
-2. **Tight rate of this channel: done at constant width** (§9). The saturation code matches
-   Theorem M(d)'s `(mT)^(4/3)/n`. The remaining work is the general-width second-order analysis
-   (Remark 9.5).
-3. **Rigorous no-go for gather-certified mechanisms below the barrier:** this requires
-   Lemma M_rest (centered channel, second-order terms) at the listing zeros.
+1. **Codex audit: completed** at `b984ef9` for both main results; the auxiliary
+   scope, precision and numerical-summary issues were corrected afterward.
+2. **Centered and second-order bus channels:** investigate their behavior at joint
+   listing zeros under the full query contract (Lemma M_rest, still OPEN).
+3. **Concurrent pairs (optional):** extend second-order analysis beyond width 3;
+   the sharp `n^(1/3)` rate is already established for the first-order listing task
+   at `m = 3, T = n/2`, not arbitrary budgets.
+
+**Precision limitation:** The Vandermonde saturation code is an exact-real existence
+construction. The independent audit found a required gain above `10^50` already at
+`D = 89`; no ordinary finite-precision memory implementation is established.

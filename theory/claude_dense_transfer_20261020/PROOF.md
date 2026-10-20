@@ -277,8 +277,12 @@ dynamics enters those proofs. QED
 equals the R0-skeleton readout to relative `<= 4.1e-11` on the memory columns.
 
 **[NUMERICAL] What the size of `eta` controls (`exp_dense_large.py`, `n = 16384`, field identity).**
-The **state** facts are exact for every `eta`: endpoint 0, support 3, Lemma 2.3D facts, at
-`eta = 3.7e-17` (contract), `1e-6` and `1e-3`. The **credit** correction is not:
+The **structural** facts (zero-sum locality, common endpoints, and input support at most 3)
+hold algebraically for arbitrary `eta` when the targets are well-defined. Bath, source, and
+front-gate bounds in Lemma 2.3D are **only proved under the prescribed small-coupling
+contract**; they were also observed for the three tested values `eta = 3.7e-17` (contract),
+`1e-6`, and `1e-3`, which is not a universal assertion. The **credit** correction is not
+uniformly small outside the contract:
 
 | eta | eta n^2 | max norm of B - B' per column | bound T ‖R-R0‖ c n | actual readout / R0-skeleton readout |
 |---|---|---|---|---|
@@ -286,7 +290,8 @@ The **state** facts are exact for every `eta`: endpoint 0, support 3, Lemma 2.3D
 | 1e-6 (stress) | 268 | .93 | 403 | .994 |
 | 1e-3 (stress) | 2.7e5 | 365 | 4.0e5 | .015 |
 
-* So memory separation and exact endpoints survive *any* rank-one field along `1`.
+* Zero-sum locality and exact endpoint equality survive *any* rank-one field along `1`;
+  robustness of the learning-gradient readout does not automatically survive.
 * The robust *readout* survives because the contract fixes `eta <= 1e-8/n^2`, which makes
   `T ||R - R0|| c_* n <= 1.5e-8`.
 * A dense matrix with `eta n^2 = Theta(1)` or larger along `1` would preserve the states but
@@ -295,7 +300,7 @@ The **state** facts are exact for every `eta`: endpoint 0, support 3, Lemma 2.3D
 ## 4. Theorem 6.1D and Corollary 6.2D
 
 **Theorem 6.1D (robust sequential section for the prescribed dense matrix) [PROVED by the
-author; pending independent audit].**
+author; independent Codex audit of `b984ef9` passed].**
 * *Setting.* `R` is the prescribed dense matrix; `4 | n`, `n >= 10^18`; `H = ceil(40 n^(3/4))`;
   `D = floor((n/4 - 41)/(H+1)) >= n^(1/4)/161`.
 * *Claim.* The section S(n, H), with actual inputs, has:
@@ -324,7 +329,7 @@ author; pending independent audit].**
 * *Threshold.* `tau <= .0567 n`. QED
 
 **Corollary 6.2D (the original Lemma M is false for the prescribed dense matrix) [PROVED by
-the author; pending independent audit].**
+the author; independent Codex audit of `b984ef9` passed].**
 * *Claim.* For every `C_0, C_1, C_2 >= 0` and every `n >= n_1(C)` with `4 | n`, Lemma M's
   conclusion fails on S(n) under the prescribed dense `R` and actual-input accounting. Here
   `n_1 = 10^80` for `max C_i <= 10^12`, `10^100` for `<= 10^18`, `10^150` for `<= 10^30`
@@ -343,14 +348,18 @@ the author; pending independent audit].**
 
 **Proposition 5.1 (lower bounds pass to the full metrics) [PROVED].** Let `P` be any pair of
 histories with a common endpoint and frozen past inputs, and let `g` be a legal one-step query.
+Distinguish the **full** credit `B^full_t = G_t(R B^full_(t-1) + c_t I)` from the **selected**
+credit `B^E_t = G_t(R B^E_(t-1) + c_t E)`, both starting at zero. For every selected memory
+column `r >= 1`, `B^full_t(:,r) = B^E_t(:,r)` by the same column recurrence; the
+row/column-0 component of the full credit is not assumed to equal the selected one.
 * *(a) Full fixed-feature group.* The full fixed-feature readout vector
-  `(nu_R^T Delta B_T(:, r))_(r = 0..n-1)` contains the selected memory columns as a sub-vector,
-  with the same normalization `sigma sqrt l/(n sqrt n)` (PR #29 Prop. 0.2). So the full `d_F`
-  pair distance is at least the selected one.
+  `(nu_R^T Delta B^full_T(:, r))_(r = 0..n-1)` contains the selected memory-column
+  readout as a sub-vector, with the same normalization `sigma sqrt l/(n sqrt n)`
+  (PR #29 Prop. 0.2). So the full `d_F` pair distance is at least the selected one.
 * *(b) Full R/W/b metric.* Let `L = q^T h_(T+1)/beta` (the query's head). For the parameter
   direction `e_r f_s^T` in `R`,
 
-      < Delta grad_R L, e_r f_s^T > = (sigma sqrt l/(beta sqrt n)) nu_R^T Delta B_T(:, r).
+      < Delta grad_R L, e_r f_s^T > = (sigma sqrt l/(beta sqrt n)) nu_R^T Delta B^full_T(:, r).
 
   Multiply by `w_R = ||R||_F/n` and use `beta = ||R||_F` (`n >= 200`). This is exactly the
   normalized fixed-feature readout `Gamma` of PR #28 (0.2).
@@ -364,8 +373,8 @@ histories with a common endpoint and frozen past inputs, and let `g` be a legal 
 
 *Proof of the identity in (b).* Perturb `R` by `eps e_r f_s^T`. With inputs frozen,
 `dh_t = G_t(R dh_(t-1) + e_r f_s^T h_(t-1)) eps`, and `f_s^T h_(t-1) = sigma sqrt(l) c_t`. So
-`dh_t = eps sigma sqrt(l) B_t(:, r)` and
-`dL/deps = sigma sqrt(l)(HI q/beta)^T (R B_T(:, r) + c_(T+1) e_r)`. The last term is common to the
+`dh_t = eps sigma sqrt(l) B^full_t(:, r)` and
+`dL/deps = sigma sqrt(l)(HI q/beta)^T (R B^full_T(:, r) + c_(T+1) e_r)`. The last term is common to the
 two histories (same endpoint, same source). QED
 
 **[NUMERICAL]** `exp_dense_S.py` E5 computes the full R-gradient by exact backpropagation through
@@ -424,7 +433,7 @@ inputs):
 * The dense field cannot be used as a memory channel in this section: its total credit effect
   here is `<= 1.5e-8` per column.
 
-## 7. Capacity: why this mechanism cannot reach the long-term target
+## 7. Capacity: limits of the present certification route toward the long-term target
 
 * *Scaling of the mechanism.*
   * Each memory costs a hold of `H ~ 40 n^(3/4)` pair-steps, and all memories share one gather
@@ -466,24 +475,38 @@ given by driven sets `S_t` (independent of `theta`) and targets on them. Assume:
 * **(P2) state-independent or bath-type targets.** Every other target is either independent of
   `theta` or equal to the state of an undriven row whose preactivation is common to all members.
 
-Then, for **every** `R = alpha(R0 + eta 1 1^T/n)` and actual inputs on `S_t`:
+Then, for **every** `R = alpha(R0 + eta 1 1^T/n)` for which the target schedule is
+well-defined, using actual inputs on `S_t`:
 * member differences are exactly `v_t`;
-* the actual support is `max |S_t|`;
+* the **actual input support is at most** `max_t |S_t|` (it need not equal the scheduled
+  support envelope if a driven target coincides with the undriven next state);
 * the endpoint agrees exactly whenever `v_T = 0`.
 
-If moreover the `R0`-skeleton readout margin over the `q` certified credit columns exceeds
-`2 HI sqrt(n) (3 eta T c_* n) sqrt(q) + 3 eta HI sqrt(n) 2.1 c_* n sqrt(q)`, robustness transfers to
-the actual dense metric, provided the gate facts the `R0` proof uses survive `a -> alpha a` and a
-common bias shift `|phi_t| <= eta`.
+These are structural conclusions, **not** universal claims of input-amplitude legality,
+bath/source bounds, gate saturation, or robust gradient separation.
 
-*Proof.* The induction of Lemma 2.1D, with Lemma 1.1(b) applied to `v_(t-1)`, and Lemma 3.2D for
-general `T` and `q`. QED
+For a **quantitative readout transfer**, additionally assume the **prescribed normalized
+matrix** of §0: `alpha = a/||R0 + eta 1 1^T/n||op`, `0 < eta <= 1e-8/n^2`,
+`||R||op = a <= 1`, and `||R-R0||op <= 3 eta`. Assume also the actual source
+credit satisfies `|c_t| <= c_*` and all gate facts used by the skeleton proof hold.
+Under these hypotheses, if the `R0`-skeleton readout margin over the `q`
+certified credit columns exceeds
+`2 HI sqrt(n) (3 eta T c_* n) sqrt(q) + 3 eta HI sqrt(n) 2.1 c_* n sqrt(q)`,
+the actual dense readout retains the required margin. No such `3 eta` conclusion
+is asserted for arbitrary `alpha`: for example `alpha = .6`, `eta = 0`
+has `||R-R0||op = .4 ||R0||op > 0` despite `3 eta = 0`.
 
-*Caution.* With the contract `eta <= 1e-8/n^2` the margin condition reads
-`6e-8 HI c_* (T/n) sqrt(nq) + ... < margin`. It is automatic for `T = O(n)` and `q <= n`. But it
-is **not** automatic for horizons near `n^(3/2)` with `q ~ n` columns at astronomically large `n`.
-There the crude bound `||B'_t(:,c)|| <= c_* n` must be sharpened. This is not needed for
-Theorem 6.1D (`T = n/2`, `q = D`).
+*Proof.* The structural statements follow from the induction of Lemma 2.1D, using
+Lemma 1.1(b) on `v_(t-1)`. For the **prescribed normalization only**, use the
+credit-correction estimate in Lemma 3.2D and the corresponding readout
+decomposition as in Theorem 6.1D. QED
+
+*Caution.* With the prescribed `eta <= 1e-8/n^2`, the margin correction is bounded by
+`6e-8 HI c_* (T/n) sqrt(nq) + ...`, and must be compared with the **actual**
+skeleton margin; the required check is supplied for Theorems 6.1D and 9.2.
+This does **not** prove a general theorem for arbitrary `alpha` or arbitrary
+`T,q`. In particular, near `T = n^(3/2)`, `q ~ n`, the crude bound
+`||B'_t(:,c)|| <= c_* n` may require sharpening.
 
 ## 9. Next step: a saturation code raises the capacity to `n^(1/3)` and makes Theorem M(d) sharp
 
@@ -510,7 +533,7 @@ the robustness. The tool is a nonlinear, topological code.
   Vandermonde matrix on `r` equispaced nodes in `[-1, 1]`.
 
 **Theorem 9.2 (`n^(1/3)` robust section; `R0` and the prescribed dense matrix) [PROVED by the
-author; certificate `skeleton_certificate.py`; pending audit].**
+author; certificate `skeleton_certificate.py`; independent Codex audit of `b984ef9` passed].**
 * *Setting.* `4 | n` and `n >= 10^16`, so `y := n^(1/12) >= 21.5`.
 * *Claim.* `S_K(n)` has:
   * peak actual support `m = 3`, horizon `T = n/2`, `mT = 1.5 n`;
@@ -540,7 +563,8 @@ author; certificate `skeleton_certificate.py`; pending audit].**
     * `F* >= .495 (250)^2 s_lo^2 (1 - y_*^-4)^4 (1 - 14/H_lo*)^2 y^4/e_2`;
     * `eps_g <= c_g (y/y_*)^-40`.
 
-    The result is `eps_SO <= .38063` (exponent `<= 0`).
+    The result is `eps_SO <= .38064` (exponent `<= 0`; exact certificate value
+    `.3806342584...`). The theorem uses the looser `.3807` bound.
   * *Robustness.* `||Delta Z'(d-1, C)|| >= (1 - eps_SO) ||Delta F1(C)|| >= (1 - eps_SO) F* Pi(1) sqrt(j)`
     with `j >= D`. Through (4.2) this gives
     `(1 - .3807) c_R Pi(1) sqrt(j) (H/2 - 7)^2/n^(3/2) >= .0610 > .0567` [c].
@@ -573,7 +597,8 @@ matrix) for every `n >= 10^63` when `max C_i <= 10^12`, and for `n >= 10^78` whe
   channel's capacity is `Theta((mT)^(4/3)/n)` (constant width proved), which is `o(n)` whenever
   `mT = o(n^(3/2))`.
 
-**[NUMERICAL]** `exp_skeleton.py` (`n = 65536`, `D = 3`, `r = 5`, `H = 2000`, exact `delta_*`) runs
+**[NUMERICAL]** `exp_skeleton.py` (`n = 65536`, `D = 3`, `r = 5`, `H = 2000`,
+finite-precision SVD approximation of `delta_*`) runs
 `R0`, the contract dense field, and the stress `eta = 1e-3`. It checks saturation counts, support,
 endpoint and readouts for random and adversarial `theta` (see CHECKS.md).
 
@@ -587,14 +612,14 @@ endpoint and readouts for random and adversarial `theta` (see CHECKS.md).
 | Lemma 2.3D dense front gate `g_1 <= 4.009 e^(-.05 sqrt(n/2))` | PROVED |
 | Lemma 3.1D all PR #34 `B'`-statements hold verbatim (gate facts G1–G8) | PROVED |
 | Lemma 3.2D dense credit correction `<= 1.5e-8 c_*` per column | PROVED; numerically 3e-9 |
-| **Theorem 6.1D robust `D >= n^(1/4)/161` section of the actual dense `d_F,E`, `m = 3`, `mT = 1.5n`, `n >= 1e18`** | **PROVED (author); pending audit** |
-| **Cor. 6.2D original Lemma M false for the prescribed dense matrix** | **PROVED (author); pending audit** |
+| **Theorem 6.1D robust `D >= n^(1/4)/161` section of the actual dense `d_F,E`, `m = 3`, `mT = 1.5n`, `n >= 1e18`** | **PROVED (author); independent Codex audit of `b984ef9` passed** |
+| **Cor. 6.2D original Lemma M false for the prescribed dense matrix** | **PROVED (author); independent Codex audit of `b984ef9` passed** |
 | Prop. 5.1 lower bounds pass to the full fixed-feature `d_F` and the full R/W/b metric | PROVED; backprop identity checked to `1e-12` |
 | Prop. 6.1 one-step merging obstruction for m-generic matrices | PROVED (different class of matrices) |
-| Prop. 7.2 dense transfer principle (balanced sections, any alpha, eta; credit margin condition) | PROVED |
-| Stress: state facts exact for every eta; credit correction destroys the readout at `eta n^2 ~ 3e5` (not the contract) | NUMERICAL |
+| Prop. 7.2 structural principle (balanced sections, arbitrary alpha and eta); quantitative transfer only for prescribed normalization and gate/source bounds | PROVED with corrected scope |
+| Stress: structural endpoints and input support remain exact for all-ones coupling; off-contract gate/bath bounds observed only in finite tests, and credit correction can destroy readout at `eta n^2 ~ 3e5` | NUMERICAL; theorem only for prescribed small coupling |
 | Lemma 9.1 saturation code (clipped Vandermonde; `>= r - D + 1` saturated coordinates) | PROVED |
-| **Theorem 9.2 robust `D = floor(floor(n^(1/3))/2400)` section, `m = 3`, `mT = 1.5n`, `n >= 1e16`, R0 and prescribed dense R** | **PROVED (author); exact certificate; pending audit** |
+| **Theorem 9.2 robust `D = floor(floor(n^(1/3))/2400)` section, `m = 3`, `mT = 1.5n`, `n >= 1e16`, R0 and prescribed dense R** | **PROVED (author); exact certificate; independent Codex audit of `b984ef9` passed** |
 | Cor. 9.3 Lemma M fails for `n >= 1e63` (`C <= 1e12`) | PROVED (author) |
 | Cor. 9.4 Theorem M(d)'s `(mT)^(4/3)/n` order is sharp at constant width | PROVED (author) |
 | Remark 9.5 general width `D ~ (mT)^(4/3)/n`, linear only at `mT = Theta(n^(3/2))` | ANALYSIS (concurrent-pair second order OPEN) |

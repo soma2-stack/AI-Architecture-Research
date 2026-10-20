@@ -2,7 +2,9 @@
 
 r = 2D - 1 off-cycle pairs, one at a time (same timing as S). Pair c pulses with amplitude
 z_c(theta) = clip(L (M theta)_c) for an r x D Vandermonde M with nodes in [-1, 1]. L = 1/delta_*, with
-delta_* = min over D-row subsets I of sigma_min(M_I)/sqrt(D) (Lemma 9.1; exact for these small r).
+delta_* = min over D-row subsets I of sigma_min(M_I)/sqrt(D) (Lemma 9.1).
+Here NumPy SVD **approximates** delta_* for small r; no certified singular-value
+bound or arbitrary-precision implementation is claimed by this experiment.
 Checks (run at n = 16384, D = 3, r = 5, H = 700), for random and adversarial unit theta, under R0 and under the dense field (contract eta and
 stress eta = 1e-3):
   * at least D of the r pairs saturate (|z_c| = 1) for every tested theta (Lemma 9.1);
