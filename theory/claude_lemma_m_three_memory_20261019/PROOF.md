@@ -313,7 +313,7 @@ the difference (history `theta`) minus (history `-theta`):
 
 `Delta F1(c_i)` is odd in `z_i`, and for `z >= 0` it is a sum of nonnegative terms (see (4.1)).
 
-*Proof.* Write `x_+- = v(+-z)^2`, so `0 <= x_- <= x_+ <= tanh^2(.38) = .1316 < 1/7` [c]. Write
+*Proof.* Write `x_+- = v(+-z)^2`, so `0 <= x_- <= x_+ <= tanh^2(.38) < .1316 < 1/7` [c]. Write
 `o^+-` for the own scalars of column `c = c_i` and `e_t := o^-_t - o^+_t`.
 * *Common pieces.* For `t >= Ts`, `rho_t = prod_(u in (t,T]) a g_(p_u)(u) = a^(T-t)`, since spike
   gates are 1. Before `pi_i` the two histories coincide. After parking, row `c` has gate exactly
@@ -677,8 +677,11 @@ function is used, so Codex's rounding pair `n0, n1` is harmless. QED
   `eps_g(n) sqrt k -> 0` super-exponentially.
 * No term of the final envelope grows.
 
-**[NUMERICAL consistency, not part of the proof]** The same chain, evaluated pointwise in
-high-precision decimals with the exact `H, D, gamma, a^(-d), F*`, is dominated by the envelope both
+**[NUMERICAL consistency, not part of the proof]** The same chain is evaluated at each
+test dimension using exact integer `H, D` and high-precision decimal approximations for
+`gamma, a^(-d), F*`. The exponentially tiny but strictly positive front-gate term is retained
+through a proved positive rational **upper bound**, rather than evaluated as an exact exponential
+or replaced by zero. This conservative pointwise bound lies below the envelope both
 at `x_*` and at each `n`'s own `x = n^(1/4)`. This holds at all 23 adversarial dimensions tested:
 
 | n | pointwise eps_SO | envelope at own x |
@@ -728,8 +731,9 @@ pending independent re-audit].**
 * *Threshold.* `tau <= .0567 n`.
 * *Bus versus full readout.* The own part of the uniform readout on column `c` is
   `nu_c Delta o_T(c)`.
-  * Here `|nu_c| <= 2 HI/sqrt(k)` (PR #28 Lemma 1.2; Codex: `a HI gamma/sqrt k`), and
-    `|Delta o_T(c)| <= c_*(Q + H + 1)`.
+  * Here `|nu_c| <= a HI gamma/sqrt(k)` (PR #28 Lemma 1.2), and
+    `|Delta o_T(c)| <= c_*(Q + H + 1)`. Since `a gamma c_* < 2` in this range,
+    the product is at most `2 HI (Q + H + 1)/sqrt(k)`.
   * Over `D` columns this is `<= 2 HI (Q + H + 1) sqrt(D)/sqrt(k) <= 4e3 n^(3/8)`. QED
 
 **Corollary 6.2 (the original Lemma M is false for `R = R0`) [PROVED by the author after the

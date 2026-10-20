@@ -324,7 +324,7 @@ def main():
     E = r["eps_SO"]
     assert E.maxexp() <= 0, "final envelope not nonincreasing"
     val = E.value()
-    assert val <= F(1, 2)
+    assert val <= F(".3747"), "the theorem's stated second-order margin must hold"
     out["x_star"] = XS
     out["n_star = x_star^4"] = str(XS ** 4)
     out["certified: eps_SO(n) <= value for all n >= x_star^4"] = float(val)
