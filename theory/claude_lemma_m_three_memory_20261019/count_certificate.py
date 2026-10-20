@@ -82,11 +82,20 @@ def smallest_decade(C0, C1, C2):
     """Smallest integer e such that the certificate holds at u1 = rational lower bound of ln(10^e)."""
     LN10_LO = F("2.302585")                                # ln 10 >= 2.302585
     assert exp_upper_small(LN10_LO / 4) ** 4 <= 10
-    for e in range(18, 400):
-        u1 = e * LN10_LO
-        if certify(C0, C1, C2, u1):
-            return e
-    return None
+    # A successful certificate remains successful at larger e: g, g', g'' are
+    # all positive and increasing from that point onward. Doubling finds a
+    # passing upper endpoint without imposing an arbitrary exponent cutoff.
+    lo, hi = 17, 18
+    while not certify(C0, C1, C2, hi * LN10_LO):
+        lo, hi = hi, 2 * hi
+    # The threshold is monotone, so recover its first passing integer decade.
+    while hi - lo > 1:
+        mid = (lo + hi) // 2
+        if certify(C0, C1, C2, mid * LN10_LO):
+            hi = mid
+        else:
+            lo = mid
+    return hi
 
 
 def main():
@@ -101,6 +110,13 @@ def main():
         rows.append({"C0,C1,C2": list(C), "certified for all n >= 10^e, e =": e})
         print(json.dumps(rows[-1]))
     out["thresholds"] = rows
+    # Regression for Codex F1: the old search returned None above exponent 399.
+    huge_e = smallest_decade(10 ** 200, 0, 0)
+    ln10_lo = F("2.302585")
+    assert huge_e > 399
+    assert certify(10 ** 200, 0, 0, huge_e * ln10_lo)
+    assert not certify(10 ** 200, 0, 0, (huge_e - 1) * ln10_lo)
+    out["arbitrary-constant regression (C0=10^200)"] = huge_e
     # a lower check: at n = 1e79 the sufficient condition fails for C = 0 (so the threshold ~1e80 is not loose by decades)
     LN10_HI = F("2.302586")
     u = 79 * LN10_HI

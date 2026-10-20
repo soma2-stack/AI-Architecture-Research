@@ -17,9 +17,12 @@ Method (exact rational arithmetic, no floating point in the certificate path).
 * Coefficients are rounded UP to 40 significant digits (outward), which preserves validity.
 
 The SAME bound chain `chain(A)` is also evaluated pointwise in high-precision Decimal at given
-integers n with the exact H, D, gamma, a^(-d), F* (`pointwise`). That evaluation is NOT part of
-the proof; it is a consistency test that the envelope dominates the pointwise formula, run at
-the adversarial dimensions from the audit (rounding points, 1e166, 1e168, 1e180, ...).
+integers n with exact integer H and D, and high-precision gamma, a^(-d), F*. The exponentially
+small, strictly positive front gate is retained via a proven positive rational upper bound:
+a direct Decimal exponential cannot represent it at the largest dimensions. Thus the
+pointwise calculation is a conservative upper-bound consistency test, NOT an exact evaluation
+of the front gate, and NOT part of the proof. Test dimensions include the audit's rounding
+points, 1e166, 1e168, 1e180, ... .
 
 Run: python -I envelope_certificate.py   (writes envelope_certificate_result.json)
 """
@@ -152,7 +155,7 @@ class EnvArith:
 
 
 class DecArith:
-    """Exact-geometry pointwise evaluation at one integer n (consistency test only)."""
+    """Exact integer geometry and conservative Decimal upper-bound evaluation at n (not a proof)."""
 
     def __init__(self, n):
         assert n % 4 == 0
@@ -169,8 +172,14 @@ class DecArith:
         self.H1, self.invH = Dd(H + 1), 1 / Dd(H)
         self.Dm = Dd((n // 4 - 41) // (H + 1))
         self.D = (n // 4 - 41) // (H + 1)
-        x = (-(Dd(1) / 20) * sk)
-        self.epsg = self.c(EG0) * x.exp() if x > Dd(-10 ** 6) else Dd(0)
+        # Keep the positive front-gate term. Decimal exp(-.05*sqrt(k)) underflows at
+        # theorem-scale n; use the proven rational envelope bound instead of zero.
+        # n >= XS^4 and NEXP=40 give eps_g(n) <= c_g*(XS^4/n)^10, with c_g>0.
+        xs = 31622
+        assert n >= xs ** 4 and NEXP % 4 == 0
+        cg = EG0 / exp_lower_big((F(1, 20) / R_HI) * xs ** 2)
+        self.epsg = self.c(cg) * (Dd(xs ** 4) / Dd(n)) ** (NEXP // 4)
+        assert self.epsg > 0
         lna = (1 - 1 / Dd(n)).ln()
         self.inv_ad = (-(self.dd) * lna).exp()
         Fs = self.gam / k * ((2 * self.dd + 1) * lna).exp() * Dd("0.99") * self.c(S_LO) ** 2 \
@@ -344,6 +353,7 @@ def main():
         xr = Decimal(n) ** (Decimal(1) / 4) / Decimal(XS)
         Ex = sum(Decimal(cf.numerator) / Decimal(cf.denominator) * xr ** p for p, cf in E.t.items())
         rec = {"n": sci(n, 20), "H": sci(P.H, 30), "D": sci(P.D, 30),
+               "front_gate_upper_bound_positive": bool(P.epsg > 0),
                "envelope_at_own_x": float(Ex), "dominated_at_own_x": bool(rp["eps_SO"] <= Ex),
                "eps_SO_pointwise": float(rp["eps_SO"]), "e_pointwise": float(rp["e"]),
                "envelope_bound": float(val), "dominated": bool(rp["eps_SO"] <= Decimal(val.numerator) / Decimal(val.denominator))}
