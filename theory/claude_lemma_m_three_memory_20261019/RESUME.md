@@ -1,32 +1,46 @@
-# Resume — three-memory / sequential off-cycle phase (2026-10-19)
+# Resume — sequential off-cycle construction, repaired (2026-10-20)
 
-The branch is `claude/lemma-m-three-memory-20261019`, stacked on PR #32
-(`claude/lemma-m-rest-20261016`), which is stacked on PR #31. Neither PR is modified. Restricted
-lane notebooks were neither read nor edited.
+* **Branch:** `claude/lemma-m-sequential-repair-20261020`, stacked on PR #33
+  (`claude/lemma-m-three-memory-20261019`, `d6801c2`).
+* **Audit:** Codex's audit of PR #33 is copied unchanged to
+  `../codex_pr33_independent_audit_20261019/`.
+* Restricted lane notebooks were neither read nor edited.
 
-- **Search lens:** robust bus capacity under the actual peak-width-times-horizon resource `mT`,
-  frozen dense tanh RNN, selected `d_F,E`.
-- **Stage:**
-  * the owner's external three-memory probe has been verified and scoped;
-  * a rigorous sequential off-cycle construction refutes the original Lemma M (author proof,
-    unaudited).
-- **Strongest results:**
-  * Theorem 6.1: `D ~ n^(1/4)/160` robust directions at `m = 3`, `mT = 1.5 n`, for `n >= 1e18`
-    (R0);
-  * Cor. 6.2: Lemma M's `C_0 m + C_1 (mT/n)^2 + C_2 log^2 n` form fails for large `n`;
-  * Prop. 2.3: cross-memory interactions are exactly second order.
+## Current position
+
+- **Search lens:** robust bus capacity under the actual resource `mT` (peak width times horizon),
+  in the frozen dense-tanh RNN, with the selected `d_F,E` metric.
+- **Stage:** repair after the audit.
+  * The `n`-dependent front-gate bound (Lemma 5.0R) is in place.
+  * Every birth term is explicit.
+  * An exact all-n envelope certificate (Prop. 5.4) replaces the refuted grid certificate.
+  * Cor. 6.2 now uses the combined count.
+- **Strongest results (author; re-audit pending):**
+  * Theorem 6.1 (R0): `D >= n^(1/4)/161` robust directions at `m = 3`, `mT = 1.5 n`, for every
+    `n >= 10^18`.
+  * Cor. 6.2 (R0): the original Lemma M is false for every choice of constants, for all
+    `n >= n_1(C)` (`10^80` if `C <= 10^12`).
 - **Closed / negative:**
-  * the probe's growth of the second-order share and its timing effect are small-n artifacts;
-  * the probe is outside (H) and below `tau`.
-- **Open:**
-  * the dense-matrix transfer;
-  * a Codex audit of §4–§6;
-  * Lemma M' tightness (how many directions per unit `mT`);
-  * Lemma M_rest operator form (centered channel);
-  * the log loss;
-  * the original problem.
-- **Exact next action:**
-  * Request the Codex audit of Theorem 6.1 / Cor. 6.2 (focus: Lemma 5.1(d), the Lemma 5.2
-    pulse sources, the `eps_SO` monotonicity).
-  * Then write the dense transfer (PR #29 Lemma D1 style).
-  * Then study concurrent-plus-sequential leak packing against Lemma M'.
+  * Codex F1–F4 findings on the first version: the grid certificate, the separate-count rule,
+    the row-20 description, and the all-`t` gate statement.
+
+## Open
+
+- An independent re-audit of Lemma 5.0R, the explicit births, `envelope_certificate.py` and
+  `count_certificate.py`.
+- The dense transfer (Remark 6.4).
+- Lemma M' tightness.
+- Lemma M_rest in operator form (PR #32).
+- The log loss.
+- The original problem.
+
+## Exact next action
+
+1. Request Codex's re-audit of the repair. Focus on:
+   * the transcription of `chain()` against PROOF §5;
+   * the primitive envelopes;
+   * Lemma 5.0R's induction.
+2. If the re-audit passes, write the dense transfer:
+   * a dense Lemma 5.0R;
+   * a `B - B'` estimate in the style of PR #29 Lemma D1;
+   * the readout term.

@@ -1,0 +1,92 @@
+{
+  "runs": [
+    {
+      "script": "constants_seq.py",
+      "args": [],
+      "returncode": 0,
+      "seconds": 0.4246099000010872
+    },
+    {
+      "script": "constants_so.py",
+      "args": [],
+      "returncode": 0,
+      "seconds": 0.3836579999915557
+    },
+    {
+      "script": "exp_exact_checks.py",
+      "args": [],
+      "returncode": 0,
+      "seconds": 0.44802580001123715
+    },
+    {
+      "script": "exp_verify_probe.py",
+      "args": [],
+      "returncode": 0,
+      "seconds": 0.7367376000038348
+    },
+    {
+      "script": "external_20261018/lemma_m_three_memory_probe.py",
+      "args": [],
+      "returncode": 0,
+      "seconds": 0.6590003000019351
+    },
+    {
+      "script": "exp_S_check.py",
+      "args": [
+        "16384",
+        "700",
+        "5"
+      ],
+      "returncode": 0,
+      "seconds": 27.116975099997944
+    }
+  ],
+  "adversarial": [
+    {
+      "n": "1e18",
+      "epsSO": 0.3746807476664495,
+      "e": 0.006422105107216883,
+      "valid": true
+    },
+    {
+      "n": "1e40",
+      "epsSO": 0.006570804672446859,
+      "e": 0.0050904092112,
+      "valid": true
+    },
+    {
+      "n": "1e160",
+      "epsSO": 0.007382572780225337,
+      "e": 0.005716685075850277,
+      "valid": true
+    },
+    {
+      "n": "1e164",
+      "epsSO": 0.09326813283744374,
+      "e": 0.06771841258502767,
+      "valid": true
+    },
+    {
+      "n": "1e165",
+      "epsSO": 0.3273259822840471,
+      "e": 0.20313755428698882,
+      "valid": true
+    },
+    {
+      "n": "1e166",
+      "epsSO": 2.199215479617742,
+      "e": 0.6313704808502767,
+      "valid": false
+    },
+    {
+      "n": "1e168",
+      "exception": "AssertionError",
+      "message": ""
+    },
+    {
+      "n": "1e180",
+      "exception": "AssertionError",
+      "message": ""
+    }
+  ]
+}
