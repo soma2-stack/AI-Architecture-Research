@@ -1,0 +1,24 @@
+[
+ {
+  "n": 256,
+  "alpha": 0.9999999999996948,
+  "eta": 1.52587890625e-13,
+  "min|R_ij|": "5.9605e-16",
+  "max |Dh| off pulse rows": "0.0",
+  "max |1^T Dh|": "0.0",
+  "endpoint max |Dh_T|": "0.0",
+  "max nonzero inputs per step": 3,
+  "digits": 60
+ },
+ {
+  "n": 256,
+  "alpha": 0.999,
+  "eta": 0.01,
+  "min|R_ij|": "3.9023e-5",
+  "max |Dh| off pulse rows": "0.0",
+  "max |1^T Dh|": "0.0",
+  "endpoint max |Dh_T|": "0.0",
+  "max nonzero inputs per step": 3,
+  "digits": 60
+ }
+]

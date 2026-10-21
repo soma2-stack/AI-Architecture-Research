@@ -1,0 +1,105 @@
+{
+ "author": "Claude (Opus 5.5)",
+ "date": "2026-10-20",
+ "branch": "claude/dense-transfer-20261020",
+ "base_commit": "f515e48 (PR #34 head)",
+ "python": "3.11.9",
+ "numpy": "2.4.6",
+ "platform": "Windows-10-10.0.26300-SP0",
+ "files": {
+  "CHECKS.md": {
+   "sha256": "f258187f9bc59d55e42e6ace18395ac6dfc9e7bc43322e9c97bd70eb08e552b3",
+   "sha256_lf_normalized": "dbd5ce53255fa8dbbf8dc9b64b94206c168288ef1e5a92f9ba18a2d06a4e1736"
+  },
+  "PROOF.md": {
+   "sha256": "389b835775d346b353317b4d4c45630310e139c60158dda885226cddbcef88cb",
+   "sha256_lf_normalized": "b3696104ddfb2b1263424898dfd3567ec0d548c2a62b8b674469508e063cbac5"
+  },
+  "REPORT.md": {
+   "sha256": "117afca152ed53c7bfe92518f1e8e4d4b6c8afe691af1c0550583acd29c2e5f8",
+   "sha256_lf_normalized": "a4154fd499188818950df0c11c2507840a3dfae787567d1284cf6e2f6069a1ff"
+  },
+  "RESUME.md": {
+   "sha256": "581adef3e6e2c696a02c6805e2ed34486f7c39156019bbc6774366304592e5d2",
+   "sha256_lf_normalized": "581adef3e6e2c696a02c6805e2ed34486f7c39156019bbc6774366304592e5d2"
+  },
+  "STATUS.md": {
+   "sha256": "5371182579324e7f8186995fa5cb2f607167310784aac0f57466eb3fcc2088ec",
+   "sha256_lf_normalized": "c36baefa87af5712800fe28c46a421f37d357cccafa710ac25c78be298270345"
+  },
+  "constants_dense.py": {
+   "sha256": "d66d5cefe15e307a77ef7bc6644e59f84819a0787a21a36c1e284b77b76706b8",
+   "sha256_lf_normalized": "8cdd2c2901a5513a6aead0e19cfa3eb629a6e7e8d7ac895fb1ed0f1918c7d54a"
+  },
+  "constants_dense_result.json": {
+   "sha256": "6540a090bdbeef388daa1c852a473ef4f1c8875d64194649a2409ae16be1ebdb",
+   "sha256_lf_normalized": "748f4bc34d46b05e28eae15e2a6d8c4463eb2f60012483b524f4e55e8b96b1ab"
+  },
+  "count_skeleton.py": {
+   "sha256": "7d454b8f284116880345675578aaac8cb95df39f832680be1a5b18c0b1299aec",
+   "sha256_lf_normalized": "7d454b8f284116880345675578aaac8cb95df39f832680be1a5b18c0b1299aec"
+  },
+  "count_skeleton_result.json": {
+   "sha256": "0274d8613b76d5cf2495c1173aec755b50e631f7b5a43375234552279f30908e",
+   "sha256_lf_normalized": "df6fd6c1e415c14677e91d19233e23f5522aa5e01b62f0afb3b7dbe2ca44f3fe"
+  },
+  "dense_tools.py": {
+   "sha256": "7708fcdc96a65b76671dedefc7f7c6c8a406ef0e74081c20ba8ffd461339eee5",
+   "sha256_lf_normalized": "1b8ca003ead4644a49018e24cc29babe9d065cfcc2a131eaad966f093080755d"
+  },
+  "exp_dense_S.py": {
+   "sha256": "56815fadccf8066c3a80d28b5e4f7298b9b156c1f46b4058de72bd0118032835",
+   "sha256_lf_normalized": "56815fadccf8066c3a80d28b5e4f7298b9b156c1f46b4058de72bd0118032835"
+  },
+  "exp_dense_S_result.json": {
+   "sha256": "2b52f55abd7f65d4a318ac8babace367e9704f65de71a2127a2160c9b19d7174",
+   "sha256_lf_normalized": "171d1ceec691fba4bee2547ca4455a5a76dcb0f23ee0c3563e926b2900cc5b6f"
+  },
+  "exp_dense_exact_mp.py": {
+   "sha256": "c263af53bb12145a9ff3afc54174ce2e8cb1c855ff636698afd4fd2647d1093b",
+   "sha256_lf_normalized": "0db512ed3536d3320c8509ae35447f89f3b222b888b8305b304bf6c6eb951fe1"
+  },
+  "exp_dense_exact_mp_result.json": {
+   "sha256": "7c536083c3741a8104a4f0c1d031d2924b53877c68d3f83fd9619e1f6f50ba64",
+   "sha256_lf_normalized": "22127f363c57efc16dbd1cb514b5d4c0dd1a99944b9144c30381829e810b1d2e"
+  },
+  "exp_dense_large.py": {
+   "sha256": "67348f956333d4b90bdf8c8628c4927dbc705485496157b79f0d52933d5f1851",
+   "sha256_lf_normalized": "67348f956333d4b90bdf8c8628c4927dbc705485496157b79f0d52933d5f1851"
+  },
+  "exp_dense_large_result.json": {
+   "sha256": "3e13226906c04a7848a0e9147f6712360b12e70f2a99ec5fc18f14c44bdeaec3",
+   "sha256_lf_normalized": "f9f5c57a50ab402c89e6f321be4fdf6f7ffde8adadbe2d61bcdccca8f1f1576a"
+  },
+  "exp_generic_control.py": {
+   "sha256": "c6ecfc8a5caa1b69ff81a6c758eedf74e094347e0e0743bd0b71d07126af34e9",
+   "sha256_lf_normalized": "7338876b96c1a7af6e3b46219923a156e253d86e58b507f87cfa1373a309b1ba"
+  },
+  "exp_generic_control_result.json": {
+   "sha256": "9c9d3c1fd33fb36302109391b3b4c08b07b4c2e618b713a9881bf6629cfeeba7",
+   "sha256_lf_normalized": "f7eb1565a04284c77c89756b8b0828afa9aa013886ca43db88d7acdd7fcc8619"
+  },
+  "exp_skeleton.py": {
+   "sha256": "b9f77f11958fa47cd3939d075a9502143c8770fa7ffc8ad52c58404cc51e9dd1",
+   "sha256_lf_normalized": "b9f77f11958fa47cd3939d075a9502143c8770fa7ffc8ad52c58404cc51e9dd1"
+  },
+  "exp_skeleton_result_n16384.json": {
+   "sha256": "91e2641d2a05c6afdbe9344bc4ed2627840ca8f366641654a0d637ae253ec211",
+   "sha256_lf_normalized": "be0ec734ec3d9d6a0ff84317e41d13aa61462f2d92a7228c388951121a7acf79"
+  },
+  "skeleton_certificate.py": {
+   "sha256": "43ecf4bde039ce795178cdcf0157c1036fe5a4cd5a7675217c87a4ec4773df96",
+   "sha256_lf_normalized": "43ecf4bde039ce795178cdcf0157c1036fe5a4cd5a7675217c87a4ec4773df96"
+  },
+  "skeleton_certificate_result.json": {
+   "sha256": "0d90b1e263e1f014a49dad4c495ad5230ba5e3b9ad2f8f24aca472c27ce6120e",
+   "sha256_lf_normalized": "6ad21ac34d004e1ed4d801c00f7a76da66e67590722557bf1c605538536222f6"
+  }
+ },
+ "imported_unchanged_from_PR34 (lf-normalized sha256)": {
+  "envelope_certificate.py": "635fec951baaac7cb28251469c287d6ba96cb30afd268b749a4b9a4eabcc097d",
+  "count_certificate.py": "12e5fc4c8b9d513131a42131a7ead74c232845b6a82e095a363988998270dfd8",
+  "PROOF.md": "56337bf3c7117e04339035f8b3f901d6b4bf5713872dabf8c55bbe70474b236c"
+ },
+ "note": "Working-tree bytes at commit time; core.autocrlf normalizes CRLF to LF in blobs."
+}

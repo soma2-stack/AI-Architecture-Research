@@ -1,0 +1,76 @@
+{
+  "matrix": {
+    "eta": "1/26214400000000",
+    "alpha_80digit": "0.999999999999990444593933463659515243781160555556584219322548226703563617029",
+    "j0_inverse_correction_upper": "1/5120000",
+    "matrix_min_absolute": 7.450580596923757e-17,
+    "integer_orthogonality_exact": true
+  },
+  "finite_dense_checks": [
+    {
+      "z": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "endpoint_error": 3.3306690738754696e-16,
+      "max_actual_input": 0.38034264958089053,
+      "peak_support": 3,
+      "max_credit_correction_per_column": 1.3335498524192555e-10,
+      "readout_difference_norm": 1.3940970248779028e-11,
+      "full_metric_projection_identity_error": 4.2327252813834093e-16,
+      "full_R_norm": 0.13155165613378342,
+      "fixed_feature_norm": 0.03496408260723035,
+      "scope": "n512 finite consistency evidence; outside theorem dimension and bath regime"
+    },
+    {
+      "z": [
+        0.0,
+        1.0,
+        -1.0
+      ],
+      "endpoint_error": 3.885780586188048e-16,
+      "max_actual_input": 0.38031167322726345,
+      "peak_support": 3,
+      "max_credit_correction_per_column": 1.447857194263234e-10,
+      "readout_difference_norm": 1.1982403955637391e-11,
+      "full_metric_projection_identity_error": 1.4519635493925875e-15,
+      "full_R_norm": 0.10997945060844427,
+      "fixed_feature_norm": 0.029041489753363573,
+      "scope": "n512 finite consistency evidence; outside theorem dimension and bath regime"
+    },
+    {
+      "z": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "endpoint_error": 4.0245584642661925e-16,
+      "max_actual_input": 0.38034264958089053,
+      "peak_support": 3,
+      "max_credit_correction_per_column": 1.3019254847440425e-10,
+      "readout_difference_norm": 1.1478826488746702e-11,
+      "full_metric_projection_identity_error": 3.5388358909926865e-16,
+      "full_R_norm": 0.1074347261260747,
+      "fixed_feature_norm": 0.028547389879700836,
+      "scope": "n512 finite consistency evidence; outside theorem dimension and bath regime"
+    }
+  ],
+  "off_contract_blanket_state_fact_counterexample": {
+    "eta": "100",
+    "alpha_80digit": "0.00997997072431351804731566985619395366554032740379446659426726392025436021894",
+    "j0_inverse_correction_upper": "512000000",
+    "matrix_min_absolute": 0.0019049442383414059,
+    "integer_orthogonality_exact": true,
+    "row1_pre_at_time2": 0.10778688718617274,
+    "claimed_front_lower": 0.399
+  },
+  "arbitrary_alpha_credit_bound_failure": {
+    "alpha": 0.6,
+    "eta": 0,
+    "T": 3,
+    "norm_D3": 0.39710333088996563,
+    "claimed_3eta_based_bound": 0,
+    "scope": "quantitative extension beyond prescribed normalization, not main theorem"
+  }
+}

@@ -1,0 +1,68 @@
+[
+ {
+  "matrix": "P",
+  "eps": 0.001,
+  "min|R_ij|": 1.94921875e-06,
+  "endpoint max|Dh_T|": 6.106226635438361e-16,
+  "#coords |Dh_T| > 1e-12": 0,
+  "max |1^T Dh_t|": 1.3052059433249497e-14,
+  "max off-pulse |Dh_t|": 6.730727086790012e-16,
+  "extra inputs a one-step merge would need at last reset": 0,
+  "actual support (max)": 3
+ },
+ {
+  "matrix": "V",
+  "eps": 0.001,
+  "min|R_ij|": 9.363749289118215e-07,
+  "endpoint max|Dh_T|": 2.1622632573325973e-07,
+  "#coords |Dh_T| > 1e-12": 255,
+  "max |1^T Dh_t|": 8.666827975664648e-05,
+  "max off-pulse |Dh_t|": 1.5214255889572925e-06,
+  "extra inputs a one-step merge would need at last reset": 509,
+  "actual support (max)": 3
+ },
+ {
+  "matrix": "G",
+  "eps": 0.001,
+  "min|R_ij|": 2.411473012644285e-10,
+  "endpoint max|Dh_T|": 0.00036319114141700193,
+  "#coords |Dh_T| > 1e-12": 511,
+  "max |1^T Dh_t|": 0.0016378886476990165,
+  "max off-pulse |Dh_t|": 0.00039422536577481126,
+  "extra inputs a one-step merge would need at last reset": 509,
+  "actual support (max)": 3
+ },
+ {
+  "matrix": "P",
+  "eps": 1e-06,
+  "min|R_ij|": 1.9531210937500002e-09,
+  "endpoint max|Dh_T|": 5.273559366969494e-16,
+  "#coords |Dh_T| > 1e-12": 0,
+  "max |1^T Dh_t|": 1.790234627208065e-14,
+  "max off-pulse |Dh_t|": 9.992007221626409e-16,
+  "extra inputs a one-step merge would need at last reset": 0,
+  "actual support (max)": 3
+ },
+ {
+  "matrix": "V",
+  "eps": 1e-06,
+  "min|R_ij|": 9.519884377565884e-10,
+  "endpoint max|Dh_T|": 2.926019149196435e-11,
+  "#coords |Dh_T| > 1e-12": 236,
+  "max |1^T Dh_t|": 9.224865343826494e-08,
+  "max off-pulse |Dh_t|": 1.6242575062719311e-09,
+  "extra inputs a one-step merge would need at last reset": 508,
+  "actual support (max)": 3
+ },
+ {
+  "matrix": "G",
+  "eps": 1e-06,
+  "min|R_ij|": 1.6604284553134983e-13,
+  "endpoint max|Dh_T|": 3.657631996167865e-07,
+  "#coords |Dh_T| > 1e-12": 255,
+  "max |1^T Dh_t|": 1.7382860623763041e-06,
+  "max off-pulse |Dh_t|": 3.9153432067340344e-07,
+  "extra inputs a one-step merge would need at last reset": 509,
+  "actual support (max)": 3
+ }
+]
