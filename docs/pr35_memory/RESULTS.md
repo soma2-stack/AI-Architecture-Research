@@ -1,5 +1,10 @@
 # PR #35 practical memory experiment — final CPU report
 
+**Current disposition (2026-10-21): FROZEN. The proposed 3,000-update rerun is
+WITHDRAWN; all historical next-step suggestions below are inactive.** Check
+[the canonical claim register in PR38](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing any work.
+
 **EXPERIMENTAL RESULT: the trainable surrogate ran, but did not improve memory.**
 All 123 runs completed 600 updates, across 3 seeds. No architecture or breakthrough claim.
 [Draft PR #36](https://github.com/soma2-stack/AI-Architecture-Research/pull/36) /
@@ -141,7 +146,20 @@ For the sampled widths, a=1-1/n rounds to 1 infloat32at n=10^8; at n=65536 the c
 
 **Pinned author reference:**15 cases at n=1024,H=50,D=2 in each job, using the unchanged original script. Support<=3, max|x|<=0.380094, at least 2 saturated coordinates, endpoint residual<=2.23 e-16. This uses its small-n field/normalization surrogate and is outside theorem-size/gate conditions; its credit readouts are 14.93–18.91, not forward recall scores and not a theorem-scale margin certificate.
 
-## What to test next
+## Owner freeze and withdrawal — 2026-10-21
+
+**The proposed 600-versus-3,000-update rerun is WITHDRAWN.** Task 1 found it was a
+proposal, not an active or queued research job at the inspected time. The existing
+123-run negative result remains the result; no further training is authorized.
+Read the [canonical claim register in PR38](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing research or experiments. A failed fixed budget is not a universal
+capacity theorem, but it does not authorize another budget study.
+
+The suggestions below are preserved as **historical proposals, inactive under the
+owner's research freeze**. They are not a current recommendation or automatic next
+action. New work requires explicit owner authorization after checking the register.
+
+### Historical proposals (withdrawn)
 
 1. Distinguish optimization speed from capacity using a new preregistered CPU budget study on 2 facts (e.g.600 versus 3000 updates), matched GRU/LSTM controls and separate initialization/data seed factors. Reuse this dataset and state the new budget before training.
 2. Include an explicitly compressed contrast implementation. Verify prediction/gradient/optimizer equivalence with the redundant encoding; do not credit pair duplication with extra memory.
