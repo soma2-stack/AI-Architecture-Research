@@ -1,9 +1,11 @@
 # Report — the remaining memory channels (Steps 3, 3.5, 3.6, 3.7)
 
 * **Branch:** `claude/remaining-channels-20261020`, draft PR #37.
-* **Audits:** all three Codex audits (`ac759bb`, `c48640d`, `18f8005`) are copied verbatim and not
-  edited.
-* **Verification:** the Step 3.7 additions are not yet independently verified.
+* **Audits:** the three earlier Codex audits (`ac759bb`, `c48640d`, `18f8005`) and the independent
+  Step 3.7 audit are preserved verbatim; none was edited.
+* **Verification:** Step 3.7 was audited against source commit
+  `1a8203e2ced0a68017f27e507c1a92c4fb9c91ad`; its audit and supporting records are in
+  `theory/codex_pr37_step37_audit_20261021/`.
 
 ## Step 3.7: repairs (PROOF.md §R3; `repairs3_check.py`)
 
@@ -16,45 +18,38 @@
 | Cor. 10.2 | `1 <= W <= L`, `<=` at `W = L`; explicit initial-vector norm |
 | Prop. 10.4, Lemma 7.2, `phase2_check` note | first-step boundary; `a' s_t/2`; nominal `P` capped at 3000 |
 
-## Step 3.7: new mathematics (PROOF.md §11; `filtered_check.py`)
+## Step 3.7: new mathematics (PROOF.md §11; independent Codex audit)
 
-* **Theorem 11.3 — variation ceiling** (PROVED).
-  * *Scope:* any gates (holes, anti-holes, switching), nonautonomous bath, signed feedback,
-    initial vector, captures, any query; `eps P <= 1`.
-  * *Bound:* `|chi^T y_T| <= A V(phi) + 2A(||y_(t1)||_1 + sum_t ||c_t||_1)`, where
-    `phi = k F^ext/(gamma s~^2)` and `V` is its total variation (plus the first value).
-  * *Proof:* exact adjoint representation, then a **sliding-box lemma**: backward partial sums of
-    `eps s~^2 pi` stay in `[min(chi,0), max(chi,0)]`. Then one Abel summation.
-  * *What it removes:* the factor `P`, the horizon, and the unweighted tails.
-  * *Corollary:* Prop. 10.3's ceiling holds for **every** transient with constant forcing.
-* **Prop. 11.6 — tightness** (operator level, NUMERICAL + ANALYSIS).
-  * *Construction:* a nested-hold staircase (holes and bath rows only) with `K` forcing
-    reversals.
-  * *Result:* `2.81, 4.62, 6.43, 8.23, 11.81x` the stationary ceiling for `K = 1, 2, 3, 4, 6`;
-    `.91`–`.99` of the variation bound.
-  * *Consequence:* any transient bound of the form "universal `C` times the stationary ceiling"
-    is **REFUTED**.
-  * *Within the barrier budget:* `K = O(log n)` (ANALYSIS).
-* **Prop. 11.7 — cross-history split** (PROVED). The readout difference is the forcing difference
-  plus the kernel difference plus initial and capture differences. The kernel term is
-  `<= R_chi Gamma + V(psi)`, where `Gamma = sum |Delta r| |z|` is a gate-difference budget.
-* **Legal checks** (NUMERICAL, `n = 16384`).
-  * The credit reduces exactly to the population operator (residual `<= 6.9e-14`), and the
-    theorem holds in all legal histories.
-  * *Example (E):* equal input support, same source schedule, exact common endpoints. The kernel
-    term is `-2100` of a difference of `-2039` (`.42` of the stationary scale). Tail or forcing
-    listing zeros do not control it.
-  * *Legal two-history staircase (F):* exact gaps `0`; it did **not** realize the operator
-    amplification (`.88`–`1.19x` one sustained level).
+* **Theorem 11.3 — PASS in scope.** The exact variation bound includes initial and capture terms.
+  Its valid scope is eps P <= 1, 0 <= r <= 1, and a nonnegative bath reference strictly below
+  one; anti-holes, signed feedback, and a nonautonomous bath are allowed within those conditions.
+  The literal negative-bath extension is **FAIL** and outside the theorem.
+* **Corollary 11.5 — PARTIAL.** The constant-forcing ceiling requires both constant Fext and a
+  constant bath. The general signed-monotone factor-two claim is **FAIL**: phi=(-1,+1) has
+  V(phi)=3 > 2 max|phi|=2. Factor two holds for fixed-sign monotone sequences; the general factor
+  is three.
+* **Proposition 11.6 — PARTIAL, operator-level.** Finite operator gains pass; the claimed universal
+  constant-times-stationary-ceiling bound is **FAIL** at operator level. Near-attainment requires joint hierarchy,
+  settling-time, and system-size limits. The published .9 scaled largest group and rho_N=20 give
+  total scaled population about .9474, above physical off-cycle capacity about .5; rescaling the
+  largest group to .4 fits and retains similar finite gains. The conditional cost argument is not a
+  universal resource ceiling.
+* **Proposition 11.7 — PASS in scope.** The exact split and kernel bound use a common query. Distinct
+  queries require an additional terminal term. A useful cost-dependent bound on the kernel remains
+  **OPEN**.
+* **Legal staircase — PARTIAL.** The earlier pulse schedule (F) failed, but an independent
+  matched-forcing legal construction gives population-L1 gains of 2.315760x / 3.044170x at two /
+  three stages, and legal retainer-readout gains of 2.011900x / 2.533122x. For the three-stage
+  n=1e12 run, the selected full-column response is 69.4441 but normalizes to only 2.4532e-12.
+  These are finite numerical results, not a robust dimension theorem.
 
 ## Meaning for the original target
 
-* Per history, the centered memory of a column is now bounded **exactly and tightly** by the
-  variation of its external forcing.
-* Across histories, Lemma M_rest's centered channel reduces to (i) `V(Delta phi)` and (ii) the
-  kernel term, which is controlled by `Gamma`.
-* Neither is yet bounded by listable or cost quantities in the barrier regime.
-* No dimension theorem and no full-metric bound. **The original problem remains OPEN.**
+* Per-history response is bounded by normalized forcing variation plus explicit initial and
+  capture terms, under the audited positive-bath assumptions.
+* Across histories, the remaining terms include forcing variation and the kernel difference. Neither
+  has a useful bound in terms of legal resource cost here.
+* No dimension theorem or full-metric bound is established. **The original problem remains OPEN.**
 
 ## Earlier steps (unchanged in substance)
 
@@ -63,9 +58,9 @@
 * *Step 3.6:* Theorem 7.5', Theorem 10.1, Cor. 10.2, Prop. 10.3 (frozen bath), Prop. 10.4, and
   the contrast-pump experiment (saturates).
 
-## Next audit
+## Step 3.7 closeout
 
-PROOF.md §5:
-* C1–C4: Lemma 11.2, Theorem 11.3, Prop. 11.6, Prop. 11.7.
-* C5: legal staircase at large `n`.
-* C6: `Gamma` versus cost.
+The independent audit is preserved at theory/codex_pr37_step37_audit_20261021/AUDIT.md. Its raw
+results and verification manifest are alongside the report. The cost-dependent kernel bound,
+variation-versus-cost reduction, and robust dimension result remain open. No further experiments are
+included in this update.

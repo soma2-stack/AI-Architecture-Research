@@ -36,9 +36,11 @@ Nothing in this note has been independently verified, except where a Codex audit
 * §R3 lists the repairs; `repairs3_check.py` reproduces both (10.6) counterexamples and every
   presentation fix.
 * (10.6) and Conjecture 10.5 are withdrawn.
-* §11 is new research: Theorem 11.3 bounds the actual filtered response by the variation of the
-  external forcing. The bound is tight (Prop. 11.6). Prop. 11.7 gives the exact cross-history
-  kernel-difference term. Checks are in `filtered_check.py`.
+* §11's variation bound and cross-history split have been independently audited. The per-history
+  bound retains explicit initial and capture terms. Proposition 11.6 is an operator-level staircase
+  result with qualified limits; legal matched-forcing examples show finite amplification but no robust
+  dimension law. Proposition 11.7 leaves the cost-dependent kernel bound open. See the audit at
+  `theory/codex_pr37_step37_audit_20261021/AUDIT.md`.
 
 ## Summary
 
@@ -144,21 +146,17 @@ Nothing in this note has been independently verified, except where a Codex audit
 8. **Step 3.7** [§R3, §11].
    * *Withdrawn.* (10.6) and Conjecture 10.5 are **REFUTED**: Codex's exact scalar witness and
      legal zero-input family are reproduced. Unweighted forcing tails are not retained memory.
-   * *New and rigorous.* **Theorem 11.3 (variation ceiling).** For **any** gates (anti-holes
-     included), any nonautonomous bath, signed feedback, initial vector and captures, every query
-     satisfies `|chi^T y_T| <= A V(phi) + 2A(||y_(t1)||_1 + sum ||c_t||_1)`. Here
-     `phi = k F^ext/(gamma s~^2)` and `V` is its total variation. There is no factor `P`, no
-     horizon factor, and no unweighted tail. Prop. 10.3's ceiling now holds for every transient
-     with constant forcing (Cor. 11.5).
-   * *Tight.* A nested-hold staircase (holes and bath rows only) reaches `(2K+1)x` the stationary
-     ceiling with `K` forcing reversals, and `.91`–`.99` of the bound (Prop. 11.6, operator
-     level). So any "universal constant times the stationary ceiling" transient bound is
-     **REFUTED**. Within the barrier budget this mechanism gives at most `O(log n)` (ANALYSIS).
-   * *Cross-history.* Prop. 11.7 gives an exact split into forcing-difference, kernel-difference,
-     initial and capture terms. The kernel term is bounded by a gate-difference budget `Gamma`.
-     A legal equal-support pair with exact common endpoints has an own-sized kernel term
-     (`.42` of the stationary scale) that dominates the readout difference. Tail-listing zeros
-     therefore do not control it.
+   * *Independently audited.* Lemma 11.2 and Theorem 11.3 **PASS** for `eps P <= 1`, `0 <= r <= 1`,
+     and a nonnegative bath reference strictly below one; initial and capture terms remain in the
+     bound. Corollary 11.5 is **PARTIAL**: constant external forcing requires a constant bath too;
+     its factor-two claim for signed-monotone forcing is **REFUTED**. Proposition 11.6 is **PARTIAL**
+     and operator-level; its tight-limit statement needs joint hierarchy, settling-time, and size
+     limits. Proposition 11.7 **PASSES** for a common query, while a useful cost-dependent kernel
+     bound remains **OPEN**.
+   * *Legal staircase.* The earlier pulse schedule (F) failed to amplify, but the independent
+     matched-forcing construction found finite legal gains: `2.316x`/`3.044x` in population L1
+     for two/three stages and `2.012x`/`2.533x` in legal retainer readout. At `n = 1e12`, the
+     selected full-column signal is only `2.4532e-12`; this is not a robust dimension result.
 9. **Status.**
    * Lemma M_rest (U1, U2) remains **OPEN**.
    * The original problem (`D = Omega(n)` at `mT = o(n^(3/2))`, full `d_F`) remains **OPEN**.
@@ -914,32 +912,12 @@ dimension satisfies `D <= C (mT)^(4/3)/n + C' log^2 n`, and this order is attain
   * Measure `P max|Psi| / (k max|F^ext|/(gamma s~^2))` and the readout against the stationary ceiling.
   * A ratio growing with cycles or with `n` would refute the conjecture.
 
-**Next audit targets (Step 3.7).** Codex's Step-3.6 audit covered B1–B6 (B6 refuted (10.6)).
-* **C1 — Lemma 11.2 (sliding box).**
-  * Check both one-step inequalities, the uses of `eps P <= 1` (`M~ >= eps pi`, `eps pi >= m~`)
-    and the clipping at 0.
-  * Check the resulting box `S_t in [mt_T, Mt_T]` and `||p^(t)||_inf <= R_chi`.
-  * Note that no gate sign is used: are anti-holes and `r_t(l)` near 0 really covered?
-* **C2 — Theorem 11.3.**
-  * Check the Abel step and the reduction of the R0 credit (any reference `ghat`) to the
-    population operator, including the definition of `F^ext` and the off-cycle identity
-    `v = a y_(t-1)`.
-  * Check whether `P < k/gamma` is needed beyond `eps P <= 1`.
-  * Rerun `filtered_check.py` (A) exactly, and test adversarial gates of your own.
-* **C3 — Prop. 11.6 (tightness).**
-  * Independently evaluate the staircase (`K = 1..6`) and confirm that the ratio to the
-    stationary ceiling grows like `2K+1`.
-  * Check the cost analysis (`K = O(log n)` within `mT <= c n^(3/2)`).
-* **C4 — Prop. 11.7 (cross-history split).**
-  * Check the perturbation identity and the bound `R_chi Gamma + V(psi)`.
-  * Rebuild Example (E) independently: equal support, exact common endpoints, dominant kernel
-    term.
-* **C5 — experiment.** Try to realize Prop. 11.6 legally: a two-history staircase with
-  hierarchical holds and balanced source pulses, at larger `n` (class reduction), with stage
-  levels of `Delta phi` matched. Does the difference readout exceed `A |Delta phi|` by a factor
-  growing with `K`?
-* **C6 — `Gamma` versus cost.** Bound the gate-difference budget by input differences, relaxation
-  and common-field contributions, or find a legal family where `Gamma` is large at small `mT`.
+**Step 3.7 independent audit (Codex; exact source commit `1a8203e2ced0a68017f27e507c1a92c4fb9c91ad`).** The audit is preserved at `theory/codex_pr37_step37_audit_20261021/`.
+* Lemma 11.2 / Theorem 11.3: **PASS** for `eps P <= 1`, `0 <= r <= 1`, `0 <= rhat < 1`; the literal negative-bath extension is **FAIL**.
+* Corollary 11.5: **PARTIAL**. Constant `F^ext` and constant bath pass; the signed-monotone factor-two claim is **FAIL**.
+* Proposition 11.6: **PARTIAL**, operator-level; near-tightness needs joint limits. The published mass does not fit physical off-cycle capacity.
+* Proposition 11.7: **PASS** for a common query; distinct queries need a terminal term, and a cost-dependent kernel bound is **OPEN**.
+* Legal matched-forcing staircase: **PARTIAL**, finite numerical gains only; no robust dimension conclusion. See the audit and §11.5.
 
 ## 7. Heterogeneous retention with sparse staggered resets (Step 3.5, separate research section)
 
@@ -1498,9 +1476,9 @@ anti-holes, `n` up to `1e8`):
   readout above the own-sized ceiling `A k |F^ext|/(gamma s~^2)`.
 * No adiabatic extension is claimed: there is no rate or error argument.
 * *Transients (Step 3.7).*
-  * With constant forcing, Cor. 11.5 gives the same ceiling for **every** transient.
+  * With constant external forcing **and constant bath**, Cor. 11.5 gives the same ceiling for **every** transient.
   * Time-varying forcing can exceed it, but only by the variation `V(phi)` (Theorem 11.3).
-  * That excess is attained (Prop. 11.6).
+  * Operator-level examples approach that variation scale under qualified limits (Prop. 11.6); legal matched-forcing examples are finite and do not establish a robust dimension result.
 
 ### 10.5 Proposition 10.4 (no internal amplification by positive-deviation populations) [PROVED]
 
@@ -1668,21 +1646,24 @@ This was read as support for Conjecture 10.5, which is now withdrawn (§10.6).
   * That is below the gather scale `HI (gamma/sqrt k) S_j` once `m << sqrt(k)/(Lam+1)`. In that
     narrow-width regime retention could not outrun the gather channel.
   * This is a route, not a theorem: anti-hole members and the window forcing remain.
-* *Mechanism search.* The pump (§10.7) and Codex's 66 E7 configurations (up to virtual
-  `n = 1e12`) found no legal heterogeneous mechanism exceeding the stationary ceiling.
+* *Historical mechanism search (Step 3.6).* The pump (§10.7) and Codex's 66 E7 configurations
+  (up to virtual `n = 1e12`) found no legal heterogeneous mechanism exceeding the stationary
+  ceiling in those tested cases. This was not a general negative result: the independent Step 3.7
+  matched-forcing construction below demonstrates finite legal gains for a different schedule.
 * **The original problem remains OPEN.**
 
 ## 11. Step 3.7: the actual filtered response
 
-§10.6's unweighted-tail bound is false (§R3, item 1). This section bounds the quantity that
-matters instead: the **filtered, query-weighted response**
-`sup_(chi legal) |sum_u Lambda_u(chi) Psi_u|`, with Theorem 10.1's exact age weights kept.
-The bound is exact up to one Abel summation, it covers every case Step 3.7 lists, and it is tight.
+§10.6's unweighted-tail bound is false (§R3, item 1). This section bounds the **filtered,
+query-weighted response** `sup_(chi legal) |sum_u Lambda_u(chi) Psi_u|`, keeping Theorem 10.1's
+exact age weights. Theorem 11.3 is independently verified under the assumptions stated below; its
+Abel-summation step is exact. The audit does not establish a bound outside that scope or a cost or
+dimension result.
 
-*Setting.* §10's setting, with `P < k/gamma`, i.e. `eps P <= 1` for `eps := gamma/k`.
-* Write `r_t(l) := a g_t(l)` in `(0, 1]` for `l in Hs`.
-* Write `rhat_t := a ghat_t` for the bath reference (any reference in `(0,1)`; §10 uses the
-  undriven off-cycle gate), and `s~^2_t := 1 - rhat_t > 0`.
+*Setting.* The abstract theorem assumes `eps P <= 1`, where `eps := gamma/k`; this permits `P <= k/gamma`, including equality. The physical model may impose the stricter `P < k/gamma`; the audit confirms the lemma at the equality boundary as well.
+* Write `r_t(l) := a g_t(l)` in `[0, 1]` for `l in Hs`.
+* Write `rhat_t := a ghat_t` for the bath reference, with `0 <= rhat_t < 1` (so
+  `s~^2_t := 1 - rhat_t > 0`); §10 uses the undriven off-cycle gate.
 * Off the cycle, `v_t(l) = a y_(t-1)(l)`, so the `Hs` part of `F_t` equals
   `-eps sum_(l in Hs) (r_t(l) - rhat_t) y_(t-1)(l)`.
 * The row recursion of Theorem 10.1 becomes the **population operator**:
@@ -1692,9 +1673,9 @@ The bound is exact up to one Abel summation, it covers every case Step 3.7 lists
   * `F^ext_t := F_t + eps sum_(Hs) (r_t(l) - rhat_t) y_(t-1)(l)` is the forcing from outside
     `Hs` (Prop. 10.4's `F^ext`: source leak, front rows, other deviating rows, injection);
   * `c_t(i) := kappa_t(i) v_t(0)` are the captures.
-* *Allowed in full generality:* gates (time-varying, heterogeneous, holes, partial holes,
-  anti-holes); the bath (nonautonomous); signed feedback; the initial vector; captures;
-  injections; and the query `chi` (any real vector, `A := max|chi_i|`).
+* *Allowed within the stated assumptions:* gates (time-varying, heterogeneous, holes, partial
+  holes, anti-holes); a nonautonomous bath reference satisfying `0 <= rhat_t < 1`; signed feedback;
+  the initial vector; captures; injections; and the query `chi` (any real vector, `A := max|chi_i|`).
 
 ### 11.1 Exact adjoint representation [PROVED]
 
@@ -1717,7 +1698,7 @@ genuinely external to `Hs` (it may still depend on the history).
 
 **Lemma 11.2.**
 * *Notation.* `Mt_t := max(max_l p^(t)(l), 0)` and `mt_t := min(min_l p^(t)(l), 0)`.
-* *Assumptions.* `eps P <= 1`, `0 <= r_t(l) <= 1`, `rhat_t <= 1`.
+* *Assumptions.* `eps P <= 1`, `0 <= r_t(l) <= 1`, `0 <= rhat_t < 1` (so `0 < s~^2_t <= 1`).
 * *Statement.* For every `t`,
 
       Mt_(t-1) <= Mt_t - eps s~^2_t pi_t,        mt_(t-1) >= mt_t - eps s~^2_t pi_t.
@@ -1737,17 +1718,18 @@ genuinely external to `Hs` (it may still depend on the history).
   this is `>= (1 - r_l)(eps pi - m~)`.
   * This is `>= 0`: for `pi >= 0` since `m~ <= 0`, and for `pi < 0` since `pi >= P m~`.
 * *Clipping at 0 is harmless.* `M~ - eps s~^2 pi >= 0` always, since
-  `eps s~^2 pi <= eps P s~^2 M~ < M~`; symmetrically `m~ - eps s~^2 pi <= 0`.
+  `eps s~^2 pi <= eps P s~^2 M~ <= M~`; symmetrically `m~ - eps s~^2 pi <= 0`.
+  The non-strict inequality includes `eps P = 1` and `rhat = 0`.
 * *Box.* Summing from `T` gives `Mt_t <= Mt_T - S_t` and `mt_t >= mt_T - S_t`. Combined with
   `mt_t <= 0 <= Mt_t`, this gives the box.
 
 QED
 
-No gate sign is used. Anti-holes, signed feedback and a nonautonomous bath are all covered.
+**Scope.** The bath reference must satisfy `0 <= rhat_t < 1`. A negative reference is not covered: at `P = eps = r = p = 1`, `rhat = -1`, the clipped next maximum is `0` while the claimed upper endpoint is `-1`. No gate sign is used within the stated scope; anti-holes, signed feedback and a nonautonomous nonnegative bath are covered.
 
 ### 11.3 Theorem 11.3 (variation ceiling for the filtered response) [PROVED]
 
-**Theorem 11.3.**
+**Theorem 11.3.** Assume the hypotheses of Lemma 11.2 at every step: `eps P <= 1`, `0 <= r_t(l) <= 1`, and `0 <= rhat_t < 1`.
 * *Normalized forcing.* `phi_t := F^ext_t / (eps s~^2_t) = k F^ext_t / (gamma (1 - a ghat_t))`.
 * *Variation.* `V(phi) := |phi_(t1+1)| + sum_(t=t1+1)^(T-1) |phi_(t+1) - phi_t|`.
 * *Exact form.* `chi^T y_T = sum_t phi_t (S_(t-1) - S_t) + p^(t1) . y_(t1) + sum_t p^(t) . c_t`.
@@ -1772,12 +1754,15 @@ QED
 
     |sum_u Lambda_u(chi) Psi_u|  <=  A V(phi) + 3A ( ||y_(t1)||_1 + sum_t ||c_t||_1 ).
 
-**Corollary 11.5 (Prop. 10.3 for every transient).**
+**Corollary 11.5 (constant forcing and constant bath).**
 * *Statement.* If `F^ext` and the bath are constant on `I`, then `V(phi) = |phi|` and
   `|chi^T y_T| <= A k |F^ext| / (gamma s~^2) + 2A(||y_(t1)||_1 + sum_t ||c_t||_1)`.
 * *Scope.* This holds for **arbitrary time-varying heterogeneous gates**, anti-holes included.
-* *Meaning.* It is Prop. 10.3's stationary ceiling, now with no stationarity assumption. More
-  generally, a monotone `phi` gives `V(phi) <= 2 max|phi|`.
+* *Meaning.* It is Prop. 10.3's stationary ceiling, now with no gate-stationarity assumption,
+  provided both `F^ext` and the bath reference are constant.
+* *Signed-monotone variation.* The claimed factor two for arbitrary signed-monotone `phi` is
+  **false**: `phi = (-1,+1)` has `V(phi) = 3 > 2 max|phi| = 2`. In general a monotone sequence has
+  `V(phi) <= 3 max|phi|`; factor two holds when it is monotone with fixed sign.
 
 *Reading.*
 * Retained memory is bounded by the **variation** of the external forcing in ceiling units, not by
@@ -1805,9 +1790,9 @@ QED
 * *(B) Float stress.* 300 cases (anti-holes, switching blocks, nonautonomous bath, initial
   vectors, captures): worst ratio to the bound `.989`, decomposition residual `<= 9.4e-15`.
 
-### 11.4 Tightness: the nested-hold staircase [NUMERICAL + ANALYSIS; operator level]
+### 11.4 Operator staircase: amplification and near-attainment [NUMERICAL + ANALYSIS]
 
-**Proposition 11.6 (transients exceed the stationary ceiling by the variation).**
+**Proposition 11.6 (operator-level staircase amplification).**
 * *Construction.* Groups `G_0, ..., G_K` with sizes `N_0 < N_1 < ... < N_K`, ratio `rho_N`,
   and `eps N_K = .9`.
 * *Gates.* Group `c` is a bath row (`r = rhat`) before stage `c`, and a hole (`r = a`) from
@@ -1817,7 +1802,9 @@ QED
 * *Mechanism.* In stage `c` the holders' common mode swings from `-+C` to `+-C`
   (`C := f/(eps s~^2)`, Lemma D). The swing is shared equally per row, so the newest (dominant)
   group takes almost all of `2C`, and the older groups keep their contents.
-* *Outcome.* The final L1 content is `~ (C + 2KC)`, i.e. `(2K+1) C`, while `V(phi) = (2K+1) C`.
+* *Ideal outcome.* With negligible settling and attenuation error, final L1 content approaches
+  `(C + 2KC) = (2K+1) C`, matching `V(phi) = (2K+1) C`. The finite operator evaluations below
+  report the actual gains and their limits.
 
 *Exact class-operator evaluation* (matrix powers of the augmented map; `n_eff = 2e12`,
 `s~^2 = .0025`):
@@ -1829,28 +1816,30 @@ QED
 
 (`rho_N = 20` except the last column.)
 
+**Scope and physical capacity.** These are operator-level calculations with prescribed forcing,
+not legal histories. In the published `rho_N = 20` example, `eps N_K = .9` gives total scaled
+population about `.9474`, above physical off-cycle capacity about `.5`. Rescaling the largest
+scaled group to `.4` restores capacity and gives similar gains, about `2.80827` for `K = 1` and
+`6.42532` for `K = 3`.
+
 *Consequences.*
 * No inequality `filtered response <= C A max|phi|` with a universal `C` holds for transients. It
   is **REFUTED** at the operator level, numerically with large margin for `C < 11.8`, and for
   every `C` by the idealised analysis.
 * `V(phi)` cannot be replaced by `max|phi|`.
-* The ratio to Theorem 11.3's bound tends to 1 as `rho_N` grows.
+* The ratio does **not** tend to 1 by increasing `rho_N` alone. At fixed settling parameter `8`, the ideal `a -> 1`, `K = 1`, `rho_N -> infinity` limit is `2.998664846178466` against ceiling `3` (ratio `.999554948726`). Near-attainment requires joint limits in hierarchy, settling time and system size.
 
 *What this is not.*
 * It is an operator construction with prescribed forcing.
 * It is not a legal history, not a two-history section and not a robust dimension.
-* The cost analysis below shows it is at most logarithmic in `n` within the barrier budget.
+* The cost discussion below is scoped analysis for this fixed geometric family; it is not a universal resource ceiling.
 
-*Cost [ANALYSIS].*
-* *Time.* The smallest group's stage sets `T >~ rho_N^K / s~^2`.
-* *Width.* The last stage holds `N_K ~ k` rows for `L_K ~ 9/s~^2` steps. Theorem 7.3 charges
-  near-exact retention at least one input per row in an expanded window of length `Lam + L_K`,
-  so `m >~ N_K/(Lam + L_K)`.
-* *Budget.* Hence `mT >~ k rho_N^K / ((Lam + L_K) s~^2)`. The budget `mT <= c n^(3/2)` then
-  allows only `K <~ log(c (Lam + L_K) s~^2 sqrt(n)) / log rho_N = O(log n)`.
-* *Conclusion.* This mechanism yields at most a **logarithmic** factor over the own-sized ceiling
-  within the barrier budget. A larger amplification would need a different mechanism, and
-  Theorem 11.3 caps every mechanism by `V(phi)`.
+*Cost [SCOPED ANALYSIS].* For fixed geometric ratio `rho_N > 1` and total positive integer group
+size `O(n)`, the size constraint itself gives `K = O(log n)` for this family. A stronger `mT`
+argument is conditional on near-exact retention premises, counting all preparation time, and using
+the protected-set lemma only within its small-width scope; the published continuous-hold widths
+violate that premise. This does not establish a universal logarithmic amplification or cost ceiling.
+At fixed `n`, longer stages eventually attenuate old contents because `a < 1`.
 
 ### 11.5 Legal histories [NUMERICAL]
 
@@ -1889,14 +1878,34 @@ inputs `|x| <= .468`, every nonzero input counted.
   (`max|Delta phi| = 8.8e5`) that dominate both `max|phi|` and `V`. And at `n = 16384` the stages
   cannot be both long and hierarchical.
 * *Scope.* The run is far over the barrier budget (`mT = 2.0e8` vs `n^(3/2) = 2.1e6`).
-* *Verdict.* A legal history exceeding the stationary ceiling by a clear factor was **not found**.
-  The operator-level amplification of Prop. 11.6 remains **unrealized legally**; this is not a
-  proof that it is impossible.
+* *Verdict for this pulse schedule.* This run did not realize operator amplification; it does not
+  show that legal amplification is impossible. A separate matched-forcing legal construction from
+  the independent Step 3.7 audit is recorded below.
+
+**Independent matched-forcing staircase (Codex audit; numerical, not a theorem).** A separate
+balanced-source-pair construction matches the complete normalized external-forcing difference and
+has common endpoints. It gives:
+
+| n | stages K | T | mT / n^(3/2) | population L1 / max Delta phi | legal retainer readout / (A max Delta phi) |
+|---:|---:|---:|---:|---:|---:|
+| 1e8 | 2 | 27775 | .583193 | 2.315760 | 2.011900 |
+| 1e12 | 2 | 27775 | .00583274 | 2.315916 | 2.012238 |
+| 1e12 | 3 | 64951 | .01407270 | 3.044170 | 2.533122 |
+
+In the three-stage `n = 1e12` run, `mT = 14072696764922505`, inputs are below `.057683`,
+and the forcing-match error is below `5.9e-9` in floating arithmetic. The selected full-column
+response is `69.4441`, but its normalized magnitude is only `2.4532e-12`. These finite legal
+examples establish amplification for this construction and query only; they do not give an
+interval-certified construction theorem, a robust section, or a growing-dimensional memory result.
+The earlier pulse schedule's failure remains a valid result for that schedule alone. See
+`theory/codex_pr37_step37_audit_20261021/AUDIT.md`.
 
 ### 11.6 Cross-history kernel differences [PROVED identity and bound; NUMERICAL example]
 
-Two histories `+-` are read with a common query `chi`. With matched endpoints the final gate box,
-hence the frozen legal query, is common.
+The stated split and bound use a **common terminal query** `chi` for both histories. With matched
+endpoints the final gate box, hence the frozen legal query, is common. If histories use different
+queries, splitting with `chi+` adds the terminal term `(chi+ - chi-)^T y-_T`; it cannot be dropped
+in general.
 
 **Proposition 11.7 (exact difference split).**
 * *Identity.* Exactly,
@@ -1930,6 +1939,8 @@ hence the frozen legal query, is common.
   applied to the forcing `-eps (Delta r_s - Delta rhat_s 1) . z_(s-1)`.
 
 QED
+
+**Cost status.** The displayed kernel bound is in terms of `Gamma` and `V(psi)`, not the legal input budget. A useful cost-dependent bound on this kernel term remains **OPEN**.
 
 *Answers to Step 3.7's four questions.*
 * **(a) Bounded by legal input cost?**
@@ -1985,12 +1996,14 @@ dimension count, no budget claim.
     difference and (ii) the gate-difference budget `Gamma`. Neither is yet bounded by listable
     or cost quantities in the barrier regime.
 * **Route B (counterexample search).**
-  * Transient amplification above the stationary ceiling **exists** (Prop. 11.6, operator level)
-    and is attained up to the variation.
-  * Within the barrier budget the staircase gives at most `O(log n)`.
-  * The legal two-history test (F) did **not** realize it: `.88`–`1.19x` one sustained level, with spikes dominating.
-  * No polynomial amplification mechanism is known. Theorem 11.3 rules out any amplification
-    beyond `V(phi)`.
+  * Operator-level transient amplification is supported by staircase calculations, with
+    near-attainment only under joint limits (Prop. 11.6).
+  * The fixed-geometric operator family has `K = O(log n)` from its integer size constraint; the
+    additional resource derivation is conditional and is not a universal ceiling.
+  * The earlier legal test (F) failed for its pulse schedule. Independent matched-forcing legal runs
+    show finite gains in §11.5§, but no robust dimension result.
+  * Theorem 11.3 bounds response by variation plus explicit initial/capture terms; the
+    cost-dependent variation and kernel questions remain open.
 * **Not shown.** No dimension theorem, no full-metric bound, and no robust `D`-dimensional
   construction. **The original problem remains OPEN.**
 
@@ -2029,13 +2042,16 @@ dimension count, no budget claim.
 | **Prop. 10.4** (no internal amplification by positive-deviation populations) | PROVED (Codex PASS) |
 | Unweighted-tail bound (10.6) / Conjecture 10.5 | **REFUTED** (Codex; exact scalar and legal zero-input family, reproduced); withdrawn |
 | §10.8 tail-listing route | **WITHDRAWN** as written (missing kernel term) |
-| **Lemma 11.1, Lemma 11.2** (exact adjoint representation; sliding box, any gates, `eps P <= 1`) | PROVED (new; unaudited) |
-| **Theorem 11.3** (variation ceiling: filtered response `<= A V(phi) + 2A(init + capture)`) | PROVED (new; unaudited) |
-| **Cor. 11.4, 11.5** (Theorem 10.1's forced part; Prop. 10.3's ceiling for every constant-forcing transient) | PROVED (new; unaudited) |
-| Transient bound "`C` times the stationary ceiling" with universal `C` | **REFUTED** at operator level (Prop. 11.6 staircase, `(2K+1)x`; NUMERICAL + ANALYSIS) |
-| Staircase amplification within the barrier budget `<= O(log n)` | ANALYSIS |
-| **Prop. 11.7** (exact cross-history split; kernel term `<= R_chi Gamma + V(psi)`) | PROVED (new; unaudited) |
-| Kernel term controlled by tail/forcing listing zeros | **REFUTED** by a legal equal-support pair (NUMERICAL, Example (E)) |
+| **Lemma 11.1, Lemma 11.2** (adjoint representation and sliding box) | **PASS**, under `eps P <= 1`, `0 <= r <= 1`, `0 <= rhat < 1` (Codex audit) |
+| **Theorem 11.3** (variation ceiling, with initial/capture terms) | **PASS** in the same positive-bath scope (Codex audit) |
+| **Cor. 11.4** (forced-part bound) | **PASS** in its stated scope (Codex audit) |
+| **Cor. 11.5** (constant-forcing transient) | **PARTIAL**: constant bath also required; signed-monotone factor-two extension **FAIL** |
+| **Prop. 11.6** (staircase amplification) | **PARTIAL**: operator-level numerical/analysis; joint limits required; physical and cost scope qualified |
+| Universal transient bound by a constant times stationary ceiling | **REFUTED** at operator level |
+| Legal matched-forcing staircase | **PARTIAL**: finite numerical gains; normalized full-column signal `2.4532e-12`; no robust dimension result |
+| **Prop. 11.7** (exact cross-history split and kernel bound) | **PASS** for a common query; different queries need a terminal term |
+| Cost-dependent bound for the kernel term (`Gamma`) | **OPEN** |
+| Kernel term controlled by tail/forcing listing zeros | **REFUTED** by legal equal-support pair (Example E) |
 | Kernel term bounded by legal input cost (`Gamma` vs cost) | **OPEN** |
 | Contrast pump beats plain retention or the stationary ceiling | **NOT OBSERVED** (NUMERICAL, §10.7) |
 | Strongly heterogeneous retention (`E > 1/4`) ceiling | per history **PROVED** in variation form (Theorem 11.3), tight (Prop. 11.6); across histories reduced to `V(Delta phi)` plus the kernel term (Prop. 11.7), which is **OPEN** quantitatively |

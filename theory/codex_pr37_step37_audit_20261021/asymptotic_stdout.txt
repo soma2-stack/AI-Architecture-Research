@@ -1,0 +1,45 @@
+{
+  "K1_fixed_settle_limit": {
+    "top_mass": ".9",
+    "settle": 8,
+    "last_stage_length": 3556,
+    "gain_limit_interval": [
+      "[2.9986648461784662716564989027952080320430639221238461060435618574, 2.9986648461784662716564989027952080320430639221238461060435618574]",
+      "[2.998664846178466271656498902795208032043063922123846106043563102, 2.998664846178466271656498902795208032043063922123846106043563102]"
+    ],
+    "ratio_to_3_interval": [
+      "[0.99955494872615542388549963426506934401435464070794870201452061913, 0.99955494872615542388549963426506934401435464070794870201452061913]",
+      "[0.99955494872615542388549963426506934401435464070794870201452108586, 0.99955494872615542388549963426506934401435464070794870201452108586]"
+    ],
+    "conclusion": "rho->infinity alone does not give ratio 1, even in the a->1 ideal limit; settle must also grow"
+  },
+  "C6_checks": [
+    {
+      "u": "1/10",
+      "H": 100,
+      "v_over_u_lower": "2/3",
+      "input_L1_upper": "1/2"
+    },
+    {
+      "u": "1/20",
+      "H": 400,
+      "v_over_u_lower": "2/3",
+      "input_L1_upper": "1/4"
+    },
+    {
+      "u": "1/40",
+      "H": 1600,
+      "v_over_u_lower": "2/3",
+      "input_L1_upper": "1/8"
+    },
+    {
+      "u": "1/80",
+      "H": 6400,
+      "v_over_u_lower": "2/3",
+      "input_L1_upper": "1/16"
+    }
+  ],
+  "no_universal_difference_only_bound": "Gamma/(Zinf sum||Delta x||_1) grows at least const/u for n sufficiently large after fixing u, H=floor(1/u^2); see proof",
+  "valid_upper_bound": "Gamma <= 2a sum_t ||z_(t-1)||_2 sum_(v<=t) a^(t-v)||Delta x_v||_2",
+  "resource_warning": "Common maintenance controls are counted in mT even when Delta x=0"
+}

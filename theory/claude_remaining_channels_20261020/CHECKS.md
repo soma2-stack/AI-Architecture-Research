@@ -108,12 +108,21 @@ the `--quick` variant writes `filtered_check_result_quick.json`). Runtime `~6.5`
 **Codex's Step-3.6 audit files** (`theory/codex_pr37_step36_audit_20261020/`, 24 files) are copied
 verbatim. `__pycache__` was omitted. Every copied file is byte-identical (`cmp`). They are not edited.
 
-**Self-review (Step 3.7).**
-* Theorem 11.3 is exact up to one Abel summation. Its only hypotheses are `eps P <= 1`,
-  `0 <= r <= 1` and `rhat < 1`. The exact-rational check includes the boundary `eps P = 1`.
-* Prop. 11.6 is an operator construction with prescribed forcing: NUMERICAL plus an idealised
-  ANALYSIS, not a legal history. Its legal realization (F) failed to show amplification.
+**Author self-review (written before the independent Step 3.7 audit).**
+* Theorem 11.3 was presented as exact up to one Abel summation; its assumption summary omitted
+  the necessary lower bound `rhat >= 0`. The audited scope is `eps P <= 1`, `0 <= r <= 1`, and
+  `0 <= rhat < 1`. The rational check includes `eps P = 1`.
+* Prop. 11.6 is an operator construction with prescribed forcing, not itself a legal history. The
+  earlier legal realization (F) failed for that pulse schedule; the later independent matched-
+  forcing construction found finite legal gains, as recorded below.
 * Example (E) is one legal pair. It shows the kernel term is own-sized; it is not a robust
   section.
-* The legal runs at `n = 16384` are far above the barrier budget. They test identities and
-  bounds, not resource laws.
+* The legal runs at `n = 16384` test identities and bounds, not resource laws.
+
+
+**Independent Step 3.7 audit overlay (Codex; exact source commit 1a8203e2ced0a68017f27e507c1a92c4fb9c91ad).** The verbatim audit and raw records are in theory/codex_pr37_step37_audit_20261021/.
+* Lemma 11.2 / Theorem 11.3: PASS for eps P <= 1, 0 <= r <= 1, 0 <= rhat < 1; the boundary eps P = 1 is covered. Negative bath references are outside scope.
+* Corollary 11.5: constant Fext and constant bath pass; the signed-monotone factor-two statement fails (phi=(-1,+1), V=3 > 2).
+* Proposition 11.6: operator-level finite gains are supported, but near-tightness needs joint limits. The published group mass exceeds physical capacity; a rescaled group fits. No universal cost ceiling follows.
+* Proposition 11.7: exact split/bound pass for a common query; distinct queries add a terminal term. Cost-dependent control of Gamma remains open.
+* The old legal pulse schedule (F) failed. A separate matched-forcing legal construction gives 2.315760x / 3.044170x population-L1 gain at two / three stages and 2.011900x / 2.533122x legal retainer readout gain. At n=1e12, the selected full-column signal normalizes to 2.4532e-12; no robust dimension result is shown.
