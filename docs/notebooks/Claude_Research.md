@@ -9,7 +9,32 @@ I was told **not** to modify `04_RESEARCH_STATE.md` yet, and **not** to read or 
 
 ---
 
-# Resume Pointer (read this first in a new session) — updated 2026-10-02, session 29s (causal suffix width, interim)
+# Resume Pointer (read this first in a new session) — updated 2026-10-13 (shift-holonomy audit)
+
+- **Latest:** an owner-requested independent audit of Gemini 4 Argon's "Port-Localized Shift-Holonomy
+  Recurrence". Evidence: theory/claude_shift_holonomy_audit_20261013/ (REPORT.md, PROOF.md, checks.py).
+  Branch claude/shift-holonomy-audit-20261013.
+- **Current lens:** separate three things that keep getting conflated: (O) the frozen dense tanh contract,
+  (Q) a new architecture, and (M) the metric.
+- **Verified:** Gemini's algebra is exactly right: h_2R = 0, Phi_T = S^(T-2R) diag(1+z), and singular values in
+  [1/2,3/2]. It is a monomial Jacobian, and R = 1 gives the same formula.
+- **Defects:**
+  - The cancellation input reaches 5/8.
+  - The R ~ log log n, T ~ sqrt(nR) cost is not derived from the construction.
+  - The "learning credit" is an initial-state Jacobian under an unnormalized loss. It is trivial at R = 1, and
+    refuted for Gemini's schedule under normalized parameter metrics (d <= 6wR).
+- **Proved (author; pending review), for the new architecture only:**
+  - Construction: accumulate at the free neutral fixed point, write through an m ~ sqrt(n) port, then cancel.
+  - Gives D = Theta(n), mT = Theta(n), T = Theta(sqrt n), tight in the nonexpansive class. This includes the
+    original normalization transplanted (d_F >= .00895).
+- **Novelty:** killed. It is a delay line with a nonlinear port, and a zero-bias tanh RNN with W = cyclic shift
+  reproduces the result numerically.
+- **Diagnostic for (O):** Lemma 8.1. With bias .05, zero-input neutrality is not free (the "bias tax").
+- **Candidate next direction for (O):** prove or refute the neutral-path tax conjecture,
+  sum_t #{i: x_t(i) != 0} >= c D sqrt(n) for robust sections of the frozen family.
+- **Status:** (O) remains OPEN.
+
+# Resume Pointer as of 2026-10-02 session 29s (historical; superseded by the block above) — causal suffix width, interim
 
 - **Latest:** W^causal_(3eps/4)(n) = O(n)? See theory/claude_causal_width_20261002/REPORT.md (interim; usage limit).
 - **[R] Exact absorption identity:** right probes S_t = M_t X update exactly, S_t = G_t(a O_* S_(t-1) + X). The error is
