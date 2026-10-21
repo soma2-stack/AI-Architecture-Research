@@ -6,7 +6,7 @@
 
 > **Central target — OPEN.** Robust growing-dimensional learning-credit separation under the required resource budget remains open: establish a family with D = Ω(n) at peak-width-times-horizon cost mT = o(n^(3/2)), or prove a correctly scoped obstruction. Exact-real credit/gradient distinguishability, selected-subspace bounds, finite synthetic recall, and ordinary prediction accuracy are not interchangeable evidence for this target.
 
-Status counts in this version: **7 VERIFIED (within scope), 15 REFUTED, 7 PARTIAL, 2 OPEN, 2 NOT RUN** (33 records). “VERIFIED” means the stated limited claim has evidence; it does not extend beyond the listed assumptions or commit.
+Status counts in this version: **8 VERIFIED (within scope), 15 REFUTED, 6 PARTIAL, 2 OPEN, 2 NOT RUN** (33 records). “VERIFIED” means the stated limited claim has evidence; it does not extend beyond the listed assumptions or commit.
 
 ## Evidence basis and revision map
 
@@ -143,14 +143,14 @@ Additional pinned revisions relevant to audit scope:
 - **Status:** VERIFIED (within scope)
 - **Evidence:** PR #34, theory/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json and independent audit theory/codex_pr34_fresh_audit_20261020/AUDIT.md at audited commit 39af3a97dab0c20628c837e2b72da8c7e70a4e3d; audit file SHA-256 is recorded above.
 - **Limit:** The checked result is R0-scoped, with D≥n^(1/4)/161, m=3, mT=1.5n, n≥10^18, and envelope ε_SO≤0.374696015. It is not a linear-dimension result.
-- **Further work:** Preserve the scope; see next record for the later PR34 exact-head gap.
+- **Further work:** Preserve the scope. C15 records the narrow exact-commit PASS for Lemma 5.0R and Proposition 5.4; it does not extend this audit verdict to every PR34 result.
 
-#### C15 — The existing independent evidence gives a separate exact-commit PASS for all PR34 changes at f515e48
+#### C15 — Lemma 5.0R and Proposition 5.4 pass at PR34 commit f515e48
 
-- **Status:** PARTIAL
-- **Evidence:** PR #34 final source f515e48ed84f31f525d6b583cc4d9fb9ff8bbeeb; prior independent audit targets 39af3a97dab0c20628c837e2b72da8c7e70a4e3; PR35 audit targets b984ef9347219d62db4dfd39f8f2e263317c9a33 and inspects inherited final PR34 source.
-- **Limit:** Existing evidence does not issue a standalone exact-commit PR34 verdict for the later tightened .3747 assertion and positive front-gate bound. The audit is local-only; PR35’s source inspection does not replace an explicit PR34 verdict.
-- **Further work:** Yes, if exact-commit provenance is required: preserve or publish the existing audit and obtain a narrow review of only those changed assertions. No full proof re-audit is implied.
+- **Status:** VERIFIED (within scope)
+- **Evidence:** PR #34 final source f515e48ed84f31f525d6b583cc4d9fb9ff8bbeeb; independent audit at 39af3a97dab0c20628c837e2b72da8c7e70a4e3; Task 3’s direct comparison of the three files changed between those commits.
+- **Limit:** The Task 3 comparison establishes a narrow exact-commit PASS for Lemma 5.0R and Proposition 5.4, including the reviewed tightened .3747 assertion and positive front-gate bound. It is not a standalone independent audit of every PR34 result. The original audit file remains local-only; this register does not claim a permanent audit artifact exists.
+- **Further work:** No further review is needed for these two claims. Other PR34 claims remain limited to their separately cited audit scope.
 
 #### C16 — PR35’s main dense-transfer and cube-root construction pass independent review at the audited revision
 
@@ -284,6 +284,6 @@ Additional pinned revisions relevant to audit scope:
 
 ## Evidence gaps and use
 
-This register prioritizes the major PR23–37 claims and the October 21 audits. It does not re-derive all proofs, rerun historical scripts, rehash checkpoint binaries, or certify every one of the 106 unique theory folders. Those omissions are intentional and are not positive evidence. The independent PR34/PR35 audit files are identified by exact path and hash but remain local-only; PR34’s later exact-head verdict remains partial. The October 21 mainline reports are evidence inventories, not substitute audits.
+This register prioritizes the major PR23–37 claims and the October 21 audits. It does not re-derive all proofs, rerun historical scripts, rehash checkpoint binaries, or certify every one of the 106 unique theory folders. Those omissions are intentional and are not positive evidence. The independent PR34/PR35 audit files are identified by exact path and hash but remain local-only. Task 3’s direct diff review resolves the exact-commit gap narrowly for Lemma 5.0R and Proposition 5.4 at f515e48; it does not create a permanent audit artifact or a standalone verdict for all PR34 results. The October 21 mainline reports are evidence inventories, not substitute audits.
 
 Do not cite an author status line as independent verification. For each claim, retain the pinned source SHA and the exact audit scope. If a later commit changes a relevant proof, code path, assumption, or result, the verdict does not automatically transfer.
