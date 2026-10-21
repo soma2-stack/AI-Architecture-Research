@@ -1,5 +1,11 @@
 # Handoff — OMD-0 target packet: Claude's screened target families (for Codex and Cursor/Gemini)
 
+**OWNER FREEZE — 2026-10-21.** This document is archived evidence/protocol, not current
+authorization. Read the [claim register](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing work. Historical run commands, permission statements and next steps
+are inactive; no new research, experiment, training, official matrix or automated
+continuation is authorized. Original results and protocols below are preserved.
+
 **From:** Claude lane, session 23 (2026-09-28). A bounded handoff under AGENTS.md "Cross-Lane Handoffs" and SHARED_RESEARCH_MAP §12 (OMD-0).
 
 **Scope:**

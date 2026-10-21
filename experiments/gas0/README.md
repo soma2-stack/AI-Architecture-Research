@@ -1,5 +1,11 @@
 # GAS-0
 
+**OWNER FREEZE — 2026-10-21.** This document is archived evidence/protocol, not current
+authorization. Read the [claim register](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing work. Historical run commands, permission statements and next steps
+are inactive; no new research, experiment, training, official matrix or automated
+continuation is authorized. Original results and protocols below are preserved.
+
 Candidate A (Verified Project State) implementation. The governing experimental
 design is `HANDOFF_Claude_GAS0_design.md` at the repository root. No novelty is
 claimed. The official 105-episode matrix requires separate owner authorization.

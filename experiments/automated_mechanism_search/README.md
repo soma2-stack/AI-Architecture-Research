@@ -1,5 +1,11 @@
 # Automated mechanism search (AMS) — preregistration v8 implementation
 
+**OWNER FREEZE — 2026-10-21.** This document is archived evidence/protocol, not current
+authorization. Read the [claim register](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing work. Historical run commands, permission statements and next steps
+are inactive; no new research, experiment, training, official matrix or automated
+continuation is authorized. Original results and protocols below are preserved.
+
 Protocol: `../../AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md` (v8; v2 package, v3 Task-B gate, v4/v5 Stage-1 calibration, v6/v7 SGD-anchored Stage-2 constructor, v8 C* adaptation AULC and 8-seed confirmation funnel).
 
 Open choices are fixed in `IMPLEMENTATION_DECISIONS.md`, committed before any gate or run.

@@ -1,3 +1,34 @@
+# Research state — 2026-10-21 organizational freeze
+
+**STOP new research, experiments and training.** The owner has authorized evidence
+preservation and documentation cleanup only. The mathematical target remains **OPEN**:
+robust D=Omega(n) under **peak actual input support × complete horizon**
+mT=o(n^(3/2)). Summed support is not this budget.
+
+Read [docs/CLAIM_REGISTER.md](docs/CLAIM_REGISTER.md) **before proposing any work**.
+The consolidation in [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved
+merge and authoritative on main afterward. Its policy overrides historical next-action/authorization wording
+for this owner-directed freeze without editing AGENTS.md.
+
+- Completed Tasks1–6 are preserved; do not restart them.
+- PR36's 3,000-update rerun is WITHDRAWN. PR37's repeat C5 is NO-GO / WITHDRAWN.
+- PR34/PR35 independent audits are publicly preserved on their existing branches.
+  PR34's final-source two-claim PASS and PR35's later-source coverage are distinct.
+- Route7A/private-survivor automatic testing is retired; conditional, pending and
+  inconclusive findings remain precisely recorded.
+- OPEN/PENDING/NOT RUN are evidence states, not automatic work assignments.
+- No scientific PR is merged by this cleanup. Until an owner-approved merge of
+  organizational PR38, the sole authorized next action is the owner's review/merge decision.
+
+Navigation: [theory status](theory/CURRENT_THEORY.md), [theory index](theory/INDEX.md),
+[experiment inventory](experiments/INDEX.md), [governance](AGENTS.md).
+The two October21 audits remain historical evidence inventories; newer pinned
+review/provenance information in the register supersedes their stale gap labels.
+
+## Historical October6 resume point (inactive; preserved verbatim)
+
+All “current direction” wording below is historical, not a research assignment.
+
 # Current research state — 2026-10-06
 
 - **Stage:** near-linear / linear-boundary robust credit-memory frontier.

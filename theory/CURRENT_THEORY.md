@@ -1,3 +1,34 @@
+# Current theory navigation — 2026-10-21
+
+**Research is frozen.** Read the [canonical claim register](../docs/CLAIM_REGISTER.md)
+and its do-not-repeat policy first. The consolidation in
+[PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved merge and authoritative on main afterward.
+
+The original robust D=Omega(n), mT=o(n^(3/2)) target is **OPEN**. Resource means
+peak actual input support multiplied by the complete past-history preparation,
+write, hold and reset horizon. Future-query conventions remain those of the source
+contract; do not silently redefine T. Finite prediction accuracy, a selected
+column gain, a changed recurrence/metric or additive support cost does not establish it.
+
+| Current evidence | Scope and disposition |
+|---|---|
+| PR34 | Existing independent audits preserved; Lemma5.0R and Proposition5.4 additionally have Task3's narrow final-source PASS at f515e48. No blanket final-commit audit of every result is asserted. C14–C15 in the register. |
+| PR35 | Principal results audited at b984ef9 in exact-real, prescribed dense, continuous-antipodal scope. Cube-root dimension at constant width; later aa47ca5 auxiliary edits classified, not automatically re-audited. C16–C19. |
+| PR37 | Step3.7 audit preserved at87af5508; audited assumptions, failed signed-monotone claim, operator/legal-history distinction and common-query restriction retained. Repeat C5 NO-GO. C20–C24. |
+| PR23/PR36 | Finite trainable-memory results are separate from credit-memory theorems. Protected-cell novelty claim closes under Exp016 reduction; PR36 surrogate has no matched advantage at its frozen budget. No longer-budget rerun authorized. |
+| Retired/qualified routes | QSR changed-contract result, PR26 product-budget failure, refuted HypothesisB, invalid PR33 all-n certificate, conditional Route7A and inconclusive private-survivor results remain separately scoped. |
+| Gamma/forcing variation versus cost | OPEN: existing identities and bounds do not close the dimension-useful full-query/cost gap. Recorded limitation only; no future proof task is assigned. |
+
+Source commits, independent report links and status definitions are in the register.
+[INDEX.md](INDEX.md) retains historical folder provenance. No historical author PROVED
+or owner ACCEPTED label is promoted to independent verification here.
+
+## Archived October6 and earlier theory narrative
+
+The text below is preserved history. Its “authoritative/current/next direction”
+language refers to its date and is superseded for navigation by the register above.
+It does not authorize another research task or experiment.
+
 # Current theory — 2026-10-06
 
 Authoritative navigation snapshot, consolidated from the preservation-complete base `d1767d0a62dba90b03fd21e512b3db0c4efcd133` and the missing Claude folders. This document records existing evidence and owner acceptance; it introduces no new theorem. [INDEX.md](INDEX.md) covers all historical theory folders.
