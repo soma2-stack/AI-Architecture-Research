@@ -1,8 +1,8 @@
 # Theory index — current navigation 2026-10-21
 
 **Read [the claim register](../docs/CLAIM_REGISTER.md) before proposing research.**
-The owner freeze is active; [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is the unmerged proposed authoritative
-consolidation. The main target remains OPEN. This index is navigation, not another
+The owner freeze is active; the consolidation in [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved
+merge and authoritative on main afterward. The main target remains OPEN. This index is navigation, not another
 claim ledger, and PENDING entries do not schedule review or experiments.
 
 Current PR23–PR37 findings and exact revisions: [register](../docs/CLAIM_REGISTER.md#claims).

@@ -1,8 +1,8 @@
 # Current theory navigation — 2026-10-21
 
 **Research is frozen.** Read the [canonical claim register](../docs/CLAIM_REGISTER.md)
-and its do-not-repeat policy first. This is the proposed authoritative state in
-[PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38), awaiting the owner's merge decision; it is not yet live on main.
+and its do-not-repeat policy first. The consolidation in
+[PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved merge and authoritative on main afterward.
 
 The original robust D=Omega(n), mT=o(n^(3/2)) target is **OPEN**. Resource means
 peak actual input support multiplied by the complete past-history preparation,

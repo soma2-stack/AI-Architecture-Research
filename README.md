@@ -4,8 +4,8 @@
 before proposing any research or experiment. PR36's 3,000-update rerun is withdrawn;
 PR37's repeat C5 is NO-GO. OPEN questions and historical next-action lists are not
 authorization. [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
-contains the proposed authoritative organizational consolidation and awaits an owner
-merge decision; it is not yet live on main.
+contains the organizational consolidation, which is proposed until an owner-approved
+merge and authoritative on main after that merge.
 
 This repository preserves research on computational mechanisms, architecture novelty, and robust recurrent learning-credit memory. The current theory asks how much continuous learning state is required to answer later normalized gradient queries. It has mathematical constructions and scoped negative results, with substantial open questions.
 

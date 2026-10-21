@@ -1,7 +1,7 @@
 # Documentation archive
 
-Current organizational authority is the [claim register](CLAIM_REGISTER.md), proposed
-in unmerged PR38. Read its research freeze and do-not-repeat policy before any proposal.
+The [claim register](CLAIM_REGISTER.md) in PR38 is proposed until an owner-approved
+merge and authoritative on main afterward. Read its research freeze and do-not-repeat policy before any proposal.
 The research state/theory/experiment indexes are navigation to that single ledger.
 History, protocols and notebook resume blocks below are archival and confer no
 current research authorization.

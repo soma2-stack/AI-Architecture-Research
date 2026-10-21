@@ -19,8 +19,8 @@ experiments are frozen.** This organizational cleanup authorizes documentation a
 evidence preservation only. It does not authorize solving the central theorem or its
 Gamma/variation subproblems. It does not amend AGENTS.md.
 
-This register is the proposed authoritative consolidation in [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38).
-**It is not live on main until the owner approves and merges PR38.** The owner's freeze
+This register in [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved merge.
+**It becomes authoritative on main only when the owner approves and merges PR38.** The owner's freeze
 already applies. The dated October 6 pages and October 21 audits retain historical
 evidence; newer pinned review evidence in this register supersedes stale status wording.
 

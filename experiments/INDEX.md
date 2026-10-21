@@ -1,8 +1,8 @@
 # Experiment inventory — 2026-10-21
 
 **Research freeze. Read [the claim register](../docs/CLAIM_REGISTER.md) BEFORE proposing
-or running any experiment.** It is the proposed authoritative consolidation in
-[PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38), awaiting owner merge. Historical commands, permissions and
+or running any experiment.** The consolidation in
+[PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved merge and authoritative on main afterward. Historical commands, permissions and
 “next test” suggestions in preserved folders are inactive. No new run was made to
 produce this inventory.
 

@@ -6,8 +6,8 @@ robust D=Omega(n) under **peak actual input support × complete horizon**
 mT=o(n^(3/2)). Summed support is not this budget.
 
 Read [docs/CLAIM_REGISTER.md](docs/CLAIM_REGISTER.md) **before proposing any work**.
-It is the proposed authoritative consolidation in [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38), not yet
-live on main. Its policy overrides historical next-action/authorization wording
+The consolidation in [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved
+merge and authoritative on main afterward. Its policy overrides historical next-action/authorization wording
 for this owner-directed freeze without editing AGENTS.md.
 
 - Completed Tasks1–6 are preserved; do not restart them.
@@ -17,8 +17,8 @@ for this owner-directed freeze without editing AGENTS.md.
 - Route7A/private-survivor automatic testing is retired; conditional, pending and
   inconclusive findings remain precisely recorded.
 - OPEN/PENDING/NOT RUN are evidence states, not automatic work assignments.
-- No scientific PR is merged by this cleanup. The sole current action is the
-  owner's review/merge decision for organizational PR38.
+- No scientific PR is merged by this cleanup. Until an owner-approved merge of
+  organizational PR38, the sole authorized next action is the owner's review/merge decision.
 
 Navigation: [theory status](theory/CURRENT_THEORY.md), [theory index](theory/INDEX.md),
 [experiment inventory](experiments/INDEX.md), [governance](AGENTS.md).
