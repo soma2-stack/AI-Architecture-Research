@@ -1,6 +1,6 @@
 """Numerical check of the exact construction S of PROOF.md section 4 at simulable n.
 
-A = .38, gather spike from row R_0 = 20, T = 2d, memories i = 1..D on pairs (d+2i, d+2i+1),
+A = .38, gather spike held from Ts = T - (d - R_0), R_0 = 20, i.e. from ROW 19 (Codex audit F3), T = 2d, memories i = 1..D on pairs (d+2i, d+2i+1),
 sigma_i = Ts + 20 + (i-1)(H+1), pulse at sigma_i + floor(H/2), parking at sigma_i + H.
 Checks, for unit theta:
 * legality (max |x|), peak support m = 3, exact endpoint, parked rows equal to the bath at T;

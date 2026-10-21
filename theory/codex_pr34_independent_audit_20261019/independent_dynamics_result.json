@@ -1,0 +1,162 @@
+[
+  {
+    "n": 8192,
+    "H": 200,
+    "theta": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "plus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.210819088376924,
+      "recursion_residual": 2.5981994333790226e-13,
+      "broadcast_residual": 3.392286451742166e-13,
+      "max_input": 0.38002412208960773,
+      "support": 3,
+      "bath_min": 0.0387663383480787
+    },
+    "minus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.210819088376924,
+      "recursion_residual": 2.774447338538266e-13,
+      "broadcast_residual": 3.6021186033963204e-13,
+      "max_input": 0.2815815109398847,
+      "support": 3,
+      "bath_min": 0.03876633834807869
+    },
+    "endpoint_residual": 1.5959455978986625e-16,
+    "arrival_inequality_min_slack": 0.1658496862982043,
+    "output_inequality_min_slack": 3.3592805910188315e-05,
+    "SO_over_F1": 0.33074423249187773,
+    "scope": "finite algebra/schedule evidence; n below (H), not theorem proof"
+  },
+  {
+    "n": 8192,
+    "H": 200,
+    "theta": [
+      0.5773502691896258,
+      0.5773502691896258,
+      0.5773502691896258
+    ],
+    "plus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.210819088376931,
+      "recursion_residual": 2.6645352591003757e-13,
+      "broadcast_residual": 3.4872105203476167e-13,
+      "max_input": 0.29972074407563576,
+      "support": 3,
+      "bath_min": 0.038766338348078785
+    },
+    "minus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.210819088376933,
+      "recursion_residual": 2.671474153004283e-13,
+      "broadcast_residual": 3.598787934322445e-13,
+      "max_input": 0.2815815109398847,
+      "support": 3,
+      "bath_min": 0.038766338348078785
+    },
+    "endpoint_residual": 1.942890293094024e-16,
+    "arrival_inequality_min_slack": 171.81812145053132,
+    "output_inequality_min_slack": 0.018392450440084293,
+    "SO_over_F1": 0.3252051434114018,
+    "scope": "finite algebra/schedule evidence; n below (H), not theorem proof"
+  },
+  {
+    "n": 8192,
+    "H": 200,
+    "theta": [
+      0.7071067811865475,
+      -0.7071067811865475,
+      0.0
+    ],
+    "plus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.210819088376924,
+      "recursion_residual": 2.811917365619365e-13,
+      "broadcast_residual": 3.547162563677375e-13,
+      "max_input": 0.3243744105150517,
+      "support": 3,
+      "bath_min": 0.03876633834807871
+    },
+    "minus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.21081908837693,
+      "recursion_residual": 2.9523605782344475e-13,
+      "broadcast_residual": 3.574640583536848e-13,
+      "max_input": 0.3243744683413614,
+      "support": 3,
+      "bath_min": 0.03876633834807874
+    },
+    "endpoint_residual": 9.2148511043888e-15,
+    "arrival_inequality_min_slack": 0.2228850906430933,
+    "output_inequality_min_slack": 0.00014112152432201307,
+    "SO_over_F1": 0.3301352602889007,
+    "scope": "finite algebra/schedule evidence; n below (H), not theorem proof"
+  },
+  {
+    "n": 8192,
+    "H": 200,
+    "theta": [
+      1e-10,
+      -0.6,
+      0.8
+    ],
+    "plus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.210819088376928,
+      "recursion_residual": 2.8863023082692507e-13,
+      "broadcast_residual": 3.734235143326714e-13,
+      "max_input": 0.34202419292960695,
+      "support": 3,
+      "bath_min": 0.038766338348078765
+    },
+    "minus": {
+      "mass_slack": 0.14987512487368804,
+      "cycle_slack": 0.0,
+      "inactive_error": 0.0,
+      "front_pre_slack": 1.5849091184108768,
+      "gate_slack": 0.15657557441438572,
+      "front_mass": 9.210819088376933,
+      "recursion_residual": 2.5462965069777965e-13,
+      "broadcast_residual": 4.041489365391726e-13,
+      "max_input": 0.3040241799159175,
+      "support": 3,
+      "bath_min": 0.03876633834807881
+    },
+    "endpoint_residual": 4.440892098500626e-16,
+    "arrival_inequality_min_slack": 0.2337979918869239,
+    "output_inequality_min_slack": 0.0001345949408998189,
+    "SO_over_F1": 0.32546434213276987,
+    "scope": "finite algebra/schedule evidence; n below (H), not theorem proof"
+  }
+]

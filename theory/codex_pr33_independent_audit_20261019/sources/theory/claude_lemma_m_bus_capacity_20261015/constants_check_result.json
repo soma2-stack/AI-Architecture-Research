@@ -1,0 +1,23 @@
+{
+ "b0 = atanh(s_lo)": "0.025005210287",
+ "B: comparison iterations": 8887,
+ "B: Sigma_neg (sum of below-bath gaps along one chain)": "505.694898",
+ "B: ceiling map at candidate .1009": "0.10081525",
+ "B: s_hi": "0.1009",
+ "B: s_hi^2": "0.01018081",
+ "B: C_chain": "557.0554",
+ "M1: exact legal gate gap": "0.34342904052504653027107713834798232321968372832782",
+ "M1: centered weight upper bound": "0.34347760872572886027891963936749919053044312460566",
+ "M: near residual / n (b = 2)": "0.00338402",
+ "B: dense floor lower comparison": "0.027158173337996623049500409985983918250017212455460",
+ "M: far-long coefficient c_l (lambda >= (c_l mT/n)^2)": "3.8962e+7",
+ "M: count coefficient for (mT/n)^2, captured-own part": "7.5933e+14",
+ "M: chosen cutoff coefficient": "38970000",
+ "M: lambda floor max(lambda_s, 4(Lam+1))": "1800004",
+ "M: far-short residual / n at lambda_s = 1e5": "2.1600e-4",
+ "M: K^neg residual / n at n = 1e8": "1.1846e-4",
+ "M: BV constant c_b": "8.0723e+5",
+ "M: count coefficient for (mT/n)^2, BV part": "2.0341e+14",
+ "M: count coefficient for (mT)^(4/3)/n, off-cycle part": "1.3178e+8",
+ "M: first-order gather ledger (x tau)": "0.11718750"
+}

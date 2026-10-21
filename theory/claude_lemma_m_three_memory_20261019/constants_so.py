@@ -1,4 +1,13 @@
-"""Certificate for Lemma 5.1 (background bounds) and Lemma 5.2 (second-order bound) of PROOF.md.
+"""SUPERSEDED / REFUTED (kept unchanged below as a negative result; see PROOF.md section 5R).
+
+Codex audit F1 (../codex_pr33_independent_audit_20261019/AUDIT.md): this certificate uses the FIXED
+row-1 gate bound EPSG = 4e^-200, so a_L contains EPSG*Q*sqrt(k), which grows without bound.
+At n = 10^166 its eps_SO is 2.199 > 1/2, and at 10^168 the bootstrap assertion e < 1 fails. The
+monotonicity sentence below is false (H/n also increases at rounding points). The all-n
+replacement is envelope_certificate.py, with the n-dependent gate bound of Lemma 5.0R.
+
+Original docstring:
+Certificate for Lemma 5.1 (background bounds) and Lemma 5.2 (second-order bound) of PROOF.md.
 
 Evaluates every coefficient of section 5 in 50-digit decimals at a given n, with
 H = ceil(40 n^(3/4)) and D = floor((d - 41)/(H + 1)). It reports eps_SO and checks

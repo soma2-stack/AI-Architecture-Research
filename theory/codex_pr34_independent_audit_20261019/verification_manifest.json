@@ -1,0 +1,22 @@
+{
+  "target_commit": "b47eb08a281b26dc2273ee0e23ad745238e9ad2b",
+  "source_files_hash_verified": 37,
+  "markdown_links_missing": [],
+  "source_changes": [],
+  "repository_head": "b0955a01cb2a38cf57ca77e5e7619ffa8d8e6e69",
+  "git_status": "?? theory/codex_pr33_independent_audit_20261019/\n?? theory/codex_pr34_independent_audit_20261019/\n",
+  "independent_scripts": [
+    "independent_certificate.py",
+    "independent_dynamics.py",
+    "adversarial_checks.py"
+  ],
+  "author_runs": [
+    "envelope_certificate.py",
+    "count_certificate.py",
+    "constants_seq.py",
+    "exp_skeleton_action.py",
+    "exp_repair_checks.py 16384 700 5"
+  ],
+  "gpu_or_training": false,
+  "committed_pushed_or_merged": false
+}

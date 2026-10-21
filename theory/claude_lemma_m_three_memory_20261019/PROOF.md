@@ -5,7 +5,11 @@ Codex-verified) and PR #32 (`cef12b3`, two-stream structure, unaudited). It does
 It answers the owner's request to check the external three-memory experiments of 2026-10-18
 (archived verbatim in `external_20261018/`).
 
-Labels: [PROVED] complete author proof (none of this note is independently verified yet);
+Repaired 2026-10-20 after Codex's independent audit (`../codex_pr33_independent_audit_20261019/`):
+see §8 for the exact changes. Codex verified §2, Lemmas 4.1–4.2 and the local algebra of §5; the
+repaired all-n certificate (Prop. 5.4), Theorem 6.1 and Cor. 6.2 await re-audit.
+
+Labels: [PROVED] complete author proof (independent verification status stated per item in §7);
 [NUMERICAL] finite computation; [ANALYSIS] estimates for a mechanism; [OPEN].
 
 ## Summary
@@ -37,15 +41,19 @@ Labels: [PROVED] complete author proof (none of this note is independently verif
      time to build.
    * At `n >= 1024` timing changes the readout by `< 3%`, in the opposite direction.
    * Extending the hold *before* the pulse raises the readout; extending it after barely does.
-6. **A sequential construction refutes the original Lemma M asymptotically** [PROVED by the
-   author, §4–§6; pending independent audit].
-   * *Construction.* One gather spike plus one off-cycle pair at a time, so `m = 3` and
-     `T = n/2`. It carries `D = floor((n/4 - 41)/(H+1))` memories with `H = ceil(40 n^(3/4))`, so
-     `D ~ n^(1/4)/160`.
-   * *Robustness.* The section is robust in the selected `d_F,E` for the uniform one-step query
-     once `n >= n_*` (an explicit, astronomically large threshold from crude constants).
-   * *Consequence.* A bus listing of size `C0 m + C1 (mT/n)^2 + C2 log^2 n = O(log^2 n)` cannot
-     make the bus readout `<= tau/4` at its zeros. The original Lemma M fails for large `n`.
+6. **A sequential construction refutes the original Lemma M for `R0`** [PROVED by the author,
+   §4–§6, after the 2026-10-20 repair of Codex audit F1–F5; pending independent re-audit].
+   * *Construction.* One gather spike (rows 19..d-1) plus one off-cycle pair at a time, so
+     `m = 3`, `T = n/2` and `mT = 1.5 n`. It carries `D = floor((n/4 - 41)/(H+1)) >= n^(1/4)/161`
+     memories, with `H = ceil(40 n^(3/4))`.
+   * *Robustness.* The section is robust in the selected `d_F,E` for the uniform one-step query,
+     for every `n >= 10^18` (Theorem 6.1). The second-order part is at most `.3747` of the
+     first-order signal, by an exact all-n envelope certificate (Prop. 5.4) built on the
+     `n`-dependent front-gate bound of Lemma 5.0R.
+   * *Consequence.* For every choice of constants and every `n >= n_1(C)` (`10^80` if all
+     `C_i <= 10^12`), a listing `Psi` with `|Phi| + |Psi| < D` has a joint zero with Theorem 4's
+     listing, where the bus readout exceeds `tau`. The original Lemma M is false for `R0`
+     (Cor. 6.2). The dense prescribed matrix is not claimed (Remark 6.4).
    * It is consistent with the barrier (`mT = 1.5 n >> D sqrt n`) and with the verified Theorem M,
      whose off-cycle part (d) uses `(mT)^(4/3)/n` coordinates.
 7. Unchanged: Lemma M' and the barrier program, the centered channel, and the original problem
@@ -234,13 +242,16 @@ another memory's pulse rows. Its size scales like `1/k` at fixed geometry.
 * `||Delta SO|| / ||Delta F1|| = 11–12%`;
 * the first-order part exceeds the analytic bound of Lemma 4.2 (with the measured bath minimum)
   by `6.7–8x`;
-* max input `.472` at row 7, which is why §4 starts the spike at row 20 (then `.400`).
+* max input `.472` at row 7, which is why §4 starts the spike later, at row 19 (then `.400`).
+  (Repair 2026-10-20: this was misdescribed as row 20; the schedule `Ts = T - (d - 20)` starts at
+  row 19, Codex audit F3.)
 
 ## 4. The sequential construction S(n, H) [PROVED: legality, exactness, first-order bound]
 
 **Definition.** Fix `n` with (H), and `H >= 100`. Put `T = 2d`, `R_0 = 20` and `Ts = T - (d - R_0)`.
 Let `A = .38` and `v(z) = tanh(A(1+z)/2)`.
-* *Gather spike.* For `t in [Ts, T]`, set row `p_t = d - 1 - (T - t)` to 0 (rows `20 ... d-1`).
+* *Gather spike.* For `t in [Ts, T]`, set row `p_t = d - 1 - (T - t)` to 0 (rows `19 ... d-1`;
+  `p_Ts = 19`. Repair: the first version said rows `20 ... d-1`, Codex audit F3).
 * *Memories `i = 1..D`.* Use the pair `(j_i, j'_i) = (d + 2i, d + 2i + 1)`, and put
   `sigma_i = Ts + 20 + (i-1)(H+1)` and `pi_i = sigma_i + floor(H/2)`.
   * On `[sigma_i, sigma_i + H)` both rows are set to 0, except on `P_i = [pi_i, pi_i + 7)`, where
@@ -248,7 +259,8 @@ Let `A = .38` and `v(z) = tanh(A(1+z)/2)`.
   * At `t = sigma_i + H` both rows are set to the bath value `s_t` (*parking*). After that they are
     undriven.
 * *Section.* History `theta in S^(D-1)` uses `z_i = theta_i`; the antipode uses `z_i = -theta_i`.
-* *Size.* `D := floor((d - R_0 - 21)/(H+1))`, which ensures `sigma_D + H <= T`.
+* *Size.* `D := floor((d - R_0 - 21)/(H+1))`. The last parking time is
+  `sigma_D + H = T - d + 39 + D(H+1) <= T - 2`.
 
 The parking value `s_t` is the common bath of the history. By Prop. 2.1 it is the same for every
 `theta`, so the inputs are continuous in `theta`.
@@ -270,15 +282,16 @@ The parking value `s_t` is the common bath of the history. By Prop. 2.1 it is th
 * *Spike.*
   * For `t > Ts` the previous position is 0, so the preactivation is `a J_(t-1) + .05` and
     `|x| <= .0763`.
-  * At `t = Ts`, row 20's predecessor is row 19 at age 18 of the front chain born at row 1. Row 1
-    is above the bath: its preactivation is
-    `>= a sp (gamma/sqrt k)(1 - gamma/sqrt k) - a gamma/sqrt k + .05`, with
-    `sp = sum_(l>=1) h(l) >= (k-1) s_lo - 3 s_hi`, which is `> 100` for `k >= 5e7`.
+  * At `t = Ts`, the spike row is row 19. Its predecessor is row 18 at age 17 of the front chain
+    born at row 1. Row 1 is above the bath (Lemma 5.0R: for `t >= 1` its preactivation is
+    `>= .025 sqrt(k) - .001`, and `h_1(1) = s_1`), so every free cycle row is `>= s_t`.
   * The gap `y_u - s_u >= 0` of an above-bath chain obeys
     `y_u - s_u = tanh(B + a(y_(u-1) - s_(u-1))) - tanh(B) <= tanh(y_(u-1) - s_(u-1))`, with
-    `B = atanh(s_u) >= 0`, by subadditivity of `tanh` on `[0, inf)`. So the gap at age 18 is
-    `<= tanh^(18)(1) = .2746` [c].
-  * Then `|x| = |a(y - s_(t-1)) + atanh(s_t)| <= .2746 + .1013 <= .376`.
+    `B = atanh(s_u) >= 0`, by subadditivity of `tanh` on `[0, inf)`. So the gap at age 17 is
+    `<= tanh^(17)(1) = .28180` [c].
+  * Then `|x| = |a(y - s_(t-1)) + atanh(s_t)| <= .28180 + .10124 <= .3831` [c] (rational
+    certificate in the Codex audit). The first version used row 20 / age 18 / `.376`; that index was
+    wrong, and the corrected margin is still far below `.4563`.
 * *Pairs.*
   * Hold start from the bath: `|x| = atanh(s_t) <= .1013`.
   * Hold steps: `<= .0763`.
@@ -300,7 +313,7 @@ the difference (history `theta`) minus (history `-theta`):
 
 `Delta F1(c_i)` is odd in `z_i`, and for `z >= 0` it is a sum of nonnegative terms (see (4.1)).
 
-*Proof.* Write `x_+- = v(+-z)^2`, so `0 <= x_- <= x_+ <= tanh^2(.38) = .1316 < 1/7` [c]. Write
+*Proof.* Write `x_+- = v(+-z)^2`, so `0 <= x_- <= x_+ <= tanh^2(.38) < .1316 < 1/7` [c]. Write
 `o^+-` for the own scalars of column `c = c_i` and `e_t := o^-_t - o^+_t`.
 * *Common pieces.* For `t >= Ts`, `rho_t = prod_(u in (t,T]) a g_(p_u)(u) = a^(T-t)`, since spike
   gates are 1. Before `pi_i` the two histories coincide. After parking, row `c` has gate exactly
@@ -341,10 +354,24 @@ since `rho_t >= a^(T-Ts) >= a^d` on the support of `Delta lambda1`.
     a HI sqrt(k) || Delta F1(C) ||_2  >=  c_R (H/2 - 7)^2 pi_0 ||theta||_2 / sqrt(n),
     c_R = 4.988e-4,  pi_0 = .6272                                                  [c].   (4.2)
 
-## 5. The second-order part is small in S [PROVED; crude constants certified]
+## 5. The second-order part is small in S [REPAIRED 2026-10-20; PROVED by the author, pending re-audit]
 
-Throughout this section, `c = c_i = j_i` is one memory column and `Delta` is the antipodal
-difference.
+*Repair note.* The first version (commit `d6801c2`) used the fixed bound `g_1 <= 4e^(-200)` on the
+row-1 gate and a finite grid plus an argued monotonicity. Codex refuted the resulting all-n claim
+(audit F1). Its coefficient `e(n)` contains `6400 e^(-200) sqrt(n/2)`, so `eps_SO(10^166) > 1.7` and
+the bootstrap fails at `10^168`. The audit also found a rounding counterexample to the
+monotonicity sentence.
+
+This section makes three replacements:
+* the gate bound becomes the `n`-dependent Lemma 5.0R;
+* every row-1 *birth* term is written explicitly (audit §2–§3);
+* the grid is replaced by the exact all-n envelope certificate of Proposition 5.4.
+
+The algebra Codex verified is unchanged: recursions (5.1)–(5.3), the row classes, the carrier
+decomposition and the pulse-source identities. The superseded certificate `constants_so.py` is
+kept, marked REFUTED.
+
+Throughout, `c = c_i = j_i` is one memory column and `Delta` is the antipodal difference.
 
 **5.0 The column recursion.** For every history and every U-row `i >= 1`,
 
@@ -359,35 +386,97 @@ Here `pi^-1 j = j-1` for `2 <= j <= d-1`, `pi^-1 1 = 0`, and `pi^-1 j = j` for `
 * (5.1) is PR #29 Lemma 1.2 (Codex-verified) for column `c`. Its own part
   `g_t(i) a O_(t-1)(pi^-1 i) + c_t g_t(c)[i = c]` is removed, and `O_(t-1)(d-1, c) = 0`.
 * (5.2) is PR #32 Prop. S1(b). *Proof:* `Y_t(0) = (1/sqrt k)(U g_t)^T V_t + (c_t/sqrt k) g_t^T E`
-  with `V_t = a P Y_(t-1)`. Then `1^T V_t = a sqrt(k) B'_(t-1)(0) = 0` lets one subtract
-  `ghat + (gamma/sqrt k) w^T g` from `U g`, and `gamma(1 - 1/sqrt k) = 1`.
-* The first-order leak `lambda1_t` (§4) is the part of `lambda_t` with the bus terms removed. So the
-  spike unrolling of (5.1) gives
+  with `V_t = a P Y_(t-1)`. Since `1^T V_t = a sqrt(k) B'_(t-1)(0) = 0`, one can subtract
+  `ghat + (gamma/sqrt k) w^T g` from `U g`. Then use `gamma(1 - 1/sqrt k) = 1`.
+* The first-order leak `lambda1_t` (§4) is `lambda_t` with the bus terms removed. Unrolling (5.1)
+  along the spike gives
 
       Delta Z_T(d-1, c) = Delta F1(c) + Delta SO(c),
       Delta SO(c) = sum_(t >= Ts) a^(T-t) [kappa^+_t(p_t) Delta A_t + Delta kappa_t(p_t) A^-_t - Delta lambda2_t],     (5.3)
 
-  with `lambda2 := lambda - lambda1`. The term `Delta Z_(Ts-1) = 0` because histories agree
+  with `lambda2 := lambda - lambda1`. The term `Delta Z_(Ts-1) = 0`, because the histories agree
   before `sigma_1 > Ts`.
+
+**Lemma 5.0R (saturated front row; n-dependent) [PROVED].** In S (with `R = R0` and (H)), for
+every history:
+* *(a) Row classes.* For every `t >= 0`:
+  * every free cycle row (`1 <= j <= d-1`, `j != p_t`) satisfies `h_t(j) >= s_t`;
+  * every off-cycle row outside the active pair equals `s_t`;
+  * the two active pair rows sum to 0;
+  * `h_t(d-1) >= 0`.
+* *(b) Mass floor.* For `t >= 1`, `sp_t := sum_(l>=1) h_t(l) >= (k-4) s_t`.
+* *(c) Gate bound.* For `t >= 1`, `pre_1(t+1) >= .025 sqrt(k) - .001`, and hence
+
+      g_1(t+1) <= eps_g(n) := 4.009 exp(-.05 sqrt(n/2))          [c]   (<= e^-352 at n = 1e8).
+
+* *(d) The `t = 1` exception (audit F4).* `h_1(1) = s_1`, so `delta_1(1) = 0`, and
+  `Y_0 = Delta Y_0 = 0`. The gate `g_1(1) = sech^2(.05)` therefore multiplies only zero credit.
+
+*Proof.* Use the exact skeleton action. Put `J(h) := gamma h(d-1)/sqrt(k) - gamma^2 sp(h)/k`. Then:
+* `(O h)_r = h_(r-1) + J` for cycle rows `2 <= r <= d-1`;
+* `(O h)_r = h_r + J` off the cycle;
+* `(O h)_1 = J + gamma sp/sqrt(k) = gamma h(d-1)/sqrt(k) + (gamma/sqrt k)(1 - gamma/sqrt k) sp`;
+* `O e_0 = e_0`.
+
+Row 1 is never driven.
+* *(a), (b): induction on `t`.* At `t = 0` all states are 0, so (a) holds.
+  * Assume (a) at time `t`, and (b) at `t` if `t >= 1`.
+  * The bath row `b` obeys `s_(t+1) = tanh(a(s_t + J_t) + .05)`.
+  * *Off-cycle rows.* Undriven off-cycle rows equal to `s_t` therefore stay equal to the bath.
+    Parking sets a row to `s_(t+1)`, and a new hold uses a never-held pair.
+  * *Free cycle rows `j >= 2`.* The predecessor of a free cycle row `j >= 2` at `t+1` is row `j-1`
+    at `t`. That row is not the spike: the spike's successor `p_t + 1 = p_(t+1)` is the spike at
+    `t+1`, which is driven. So `h_(t+1)(j) = tanh(a(h_t(j-1) + J_t) + .05) >= s_(t+1)`.
+  * *Row 1.* `h_(t+1)(1) = tanh(a(J_t + gamma sp_t/sqrt k) + .05) >= s_(t+1)`. Here
+    `gamma sp_t/sqrt k >= s_t`: both sides are 0 at `t = 0`, and for `t >= 1` this follows from
+    (b), since `(k-4)/sqrt(k) >= 1`.
+  * *Mass floor (b).* Rows `1..k-1` are `k-1` rows, each `>= s_t >= 0`, except the spike (0) and
+    the active pair (sum 0). So `sp_t >= (k-4) s_t`.
+  * `h_t(d-1)` is free (`>= s_t >= 0`) or the spike (`= 0`).
+* *(c)* For `t >= 1`, using `s_t >= s_lo = .025` from (H),
+  `pre_1(t+1) >= a (gamma/sqrt k)(1 - gamma/sqrt k)(k-4) s_lo + .05`.
+  * With `beta = 1/sqrt k`, `gamma(1 - gamma beta) = (1 - 2 beta)/(1 - beta)^2 >= 1 - 2 beta`, and
+    `(1 - 2 beta)(k-4) beta >= sqrt(k) - 2 - 4 beta`.
+  * So `pre_1(t+1) >= .025 sqrt(k) - .1 beta - .025 sqrt(k)/n >= .025 sqrt(k) - .001` for `n >= 1e8` [c].
+  * Finally `sech^2 p <= 4 e^(-2p)` and `4 e^(.002) <= 4.009` [c].
+* *(d)* `h_1(1) = tanh(a (O h_0)_1 + .05) = tanh(.05) = s_1`. QED
+
+This is the mechanism of PR #32 Lemma S4. It is re-proved here directly for S, whose row structure
+gives the mass floor without Lemma B and without S4's sub-domain `m+1 <= 1e-5 n`.
+
+**[NUMERICAL]** `exp_repair_checks.py` checks every claim of (a)–(d) at every `t` along the exact
+recurrence of S, at `n = 16384, 20004, 65536` (and state-only at `262144`).
+* All pass, e.g. `min(sp_t - (k-4)s_t) = .1499`, and margin `min(pre_1 - bound) >= .0011`.
+* `g_1 <= eps_g(n)` holds wherever the bath is `>= .025`.
+* `h_1(1) = s_1` exactly.
 
 **Row classes at time t** (U-rows `i >= 1`; `s_lo, s_hi` from (H)):
 * the *spike* `p_t`: gate 1, `delta = s_t^2`;
 * the *active pair*: the `<= 2` rows of the memory whose window `[sigma, sigma+H)` contains `t`.
-  Gate `<= 1` and `|delta| <= xbar := .1316` (`>= tanh^2(.38), s_hi^2`);
-* *N-rows*: all others. They have gate `<= ghat_t <= 1 - s_lo^2`:
-  * cycle rows other than the spike lie on free front chains, which are above the bath
-    (Lemma 4.1), so `y >= s`;
+  Gate `<= 1`, and `|delta| <= xbar := .1316` (which bounds both `tanh^2(.38)` and `s_hi^2`);
+* *N-rows*: all others. Their gate is `<= ghat_t <= 1 - s_lo^2`:
+  * free cycle rows are on front chains above the bath (Lemma 5.0R(a));
   * off-cycle rows are bath rows (never driven, or parked), with `delta = 0`;
-  * row 1 has gate `<= eps_g := 4 e^(-200)`.
+  * row 1 has gate `<= eps_g(n)` for `t >= 2`, and `delta_1(1) = 0`.
+
+*Births.* The U-row-1 recursion contains the birth term `beta_t := g_t(1) a Y_(t-1)(0)`, and its
+difference `Delta beta_t = g_t(1) a Delta Y_(t-1)(0)` (row-1 gates agree in both histories).
+* Both vanish at `t = 1`, and for `t >= 2` they carry the factor `eps_g(n)`.
+* A birth at time `t` enters exactly one front chain (the one at row 1 at `t`). It is retained by
+  factors `<= q <= 1` per step and never amplified.
+* The first version wrote these terms only partly. Codex's §2 absorbed the missing ones into the
+  `D_f` margin. Below they are explicit.
 
 *Deviation masses* [c].
-* A front chain has `|delta| = gap(y + s) <= gap(2 s_hi + gap)`, with
+* A front chain has `|delta| = gap(y + s) <= gap(2 s_hi + gap)`, where
   `gap_(u+1) <= min(tanh(gap_u), (1 - s_lo^2) gap_u)` and `gap <= 1`.
-* Summed over ages, with row 1 counted with `|delta_1| <= 1`, this is `<= D_f := 39.73`. It bounds
-  both the mass `sum_(cycle j) |delta_t(j)|` at one time and the sum along one chain.
-* Hence `sum_(j>=1) |delta_t(j)| <= Dbar := 40.01` and `|S_t| <= Dbar`.
+* Summed over ages, with row 1 counted as `|delta_1| <= 1`, this is `<= D_f := 39.73`. Codex's
+  rational certificate gives `< 39.723`. It bounds both the cycle mass at one time and the sum
+  along one chain.
+* Hence `sum_(j>=1) |delta_t(j)| <= Dbar := 40.01` and `|S_t| <= Dbar`, since
+  `39.73 + .1009^2 + 2(.1316) < 40.01`.
 
-*Retention.* Put `Q := 1/s_lo^2 = 1600`, so `sum_(w>=0) q^w <= Q` with `q = a(1 - s_lo^2)`. Every
+*Retention.* Put `Q := 1/s_lo^2 = 1600`. Then `sum_(w>=0) q^w <= Q` for `q = a(1 - s_lo^2)`. Every
 N-row loses at least the factor `q` per step.
 
 *Capture constants.*
@@ -397,129 +486,225 @@ N-row loses at least the factor `q` per step.
 * `kappa_s := (gamma/sqrt k)(s_hi^2 + gamma Dbar/k)`: per step on the spike.
 * `kappa_A := (gamma/sqrt k) Dbar (1 + gamma/2)`: sum over distinct rows at one time.
 
-**Lemma 5.1 (background bounds).** In each history, for column `c` and with `lhat := sup_t |lambda_t|`:
-* *(a)* `|A_t|`, and `|Z_t(i)|` on cycle N-rows, are `<= Q_1 lhat`, with
-  `Q_1 = (Q + eps_g sqrt(k)/gamma)/(1 - kappa_c - 2 eps_g)`;
-* never-held off-cycle rows: `<= Q_2 lhat`, with `Q_2 = kappa_b Q_1 + Q`;
-* active pair rows: `<= E_eta lhat`, with `E_eta = Q_2 + (H+1)(kappa_h Q_1 + 1)`;
-* spike: `<= E_pi lhat`, with `E_pi = Q_1 + d(kappa_s Q_1 + 1)`;
-* `|Y_t(0)| <= (1 + gamma Dbar/k) Q_1 lhat + (sqrt(k)/gamma) lhat`.
-* *(b)* `lhat <= f_sup/(1 - c_fb)`, with `f_sup = (gamma/k) c_*(xbar(Q + H + 1) + 1)` and
-  `c_fb = (gamma/k)[(1 + gamma Dbar/k) Q_1 + sqrt(k)/gamma + D_f Q_1 + s_hi^2 E_pi + 2 xbar E_eta]`.
+Put `u_1 := 1 + gamma Dbar/k`.
+
+**Lemma 5.1R (background bounds) [PROVED; Codex verified (a)–(d) of the first version with the
+birth absorption made explicit].** In each history, for column `c`, put `lhat := sup_t |lambda_t|`.
+Whenever the denominators below are positive:
+* *(a) Contents.*
+  * `|A_t|` and `|Z_t(i)|` on cycle N-rows are `<= Q_1 lhat`, with
+    `Q_1 := (Q + eps_g sqrt(k)/gamma)/(1 - kappa_c - eps_g u_1)`.
+  * Never-held off-cycle rows: `<= Q_2 lhat`, with `Q_2 := kappa_b Q_1 + Q`.
+  * Active pair rows: `<= E_eta lhat`, with `E_eta := Q_2 + (H+1)(kappa_h Q_1 + 1)`.
+  * Spike: `<= E_pi lhat`, with `E_pi := Q_1 + d(kappa_s Q_1 + 1)`.
+  * `|Y_t(0)| <= Ybar_0 := u_1 Q_1 lhat + (sqrt(k)/gamma) lhat`.
+* *(b) Leak sup.* `lhat <= f_sup/(1 - c_fb)`, with `f_sup := (gamma/k) c_*(xbar(Q + H + 1) + 1)` and
+  `c_fb := (gamma/k)[u_1 Q_1 + sqrt(k)/gamma + D_f Q_1 + s_hi^2 E_pi + 2 xbar E_eta]`.
 * *(c) Window mass.* Over memory `i`'s own window `I_i = [sigma_i, sigma_i + H]`,
-  `sum_(t in I_i) |lambda_t| <= L_in`, with
+  `sum_(t in I_i) |lambda_t| <= L_in`, where
   `L_in := (gamma/k) c_*[(s_hi^2 (H+1) + 7 xbar)(Q + H + 1) + H + 1] + (H+1) c_fb lhat`.
-  So the content of column `c` in memory `i`'s own pair is `<= eta_self := Q_2 lhat + kappa_h Q_1 lhat (H+1) + L_in`.
-* *(d) Away from its window.* For `t notin I_i`, `|lambda_t| <= l_out`, with
+  The content of column `c` in memory `i`'s own pair is `<= eta_self := Q_2 lhat + kappa_h Q_1 lhat (H+1) + L_in`.
+* *(d) Away from its window.* For `t notin I_i`, `|lambda_t| <= l_out`, where `l_out` is defined by
+  equality (Codex):
 
-      l_out (1 - (gamma/k)(s_hi^2 d + 2 xbar (H+1)))
-        <= (gamma/k) c_* + (gamma/k) s_hi^2 L_in
-           + [1/sqrt k + (gamma/k)((1 + gamma Dbar/k) Q_1 + D_f Q_1 + s_hi^2 Q_1 (1 + d kappa_s) + 2 xbar (Q_2 + (H+1) kappa_h Q_1))] lhat.
+      l_out := { (gamma/k) c_* + (gamma/k) s_hi^2 L_in
+                 + [1/sqrt k + (gamma/k)(u_1 Q_1 + D_f Q_1 + s_hi^2 Q_1 (1 + d kappa_s) + 2 xbar (Q_2 + (H+1) kappa_h Q_1))] lhat }
+               / (1 - (gamma/k)(s_hi^2 d + 2 xbar (H+1))).
 
-  Column `c`'s content in another memory's pair is then
-  `<= eta_oth := Q_2 lhat + kappa_h[(H+1) kappa_c Q_1 lhat + Q L_in + (H+1) Q l_out] + (H+1) l_out`.
+  Column `c`'s content in another memory's pair is
+
+      <= eta_oth := Q_2 lhat + kappa_h [ (H+1) kappa_c Q_1 lhat + Q L_in + (H+1) Q l_out + (H+1) eps_g Ybar_0 ] + (H+1) l_out.
+
+  The term `(H+1) eps_g Ybar_0` is the arrival-window birth sum `B_J` of audit §2.
 
 *Proof.*
-* *(a)* Unroll (5.1) along each row's chain.
-  * A cycle N-row at `t` lies on a front chain born at row 1. Its content is
-    `sum_w q^w (|kappa||A| + |lambda|)_(t-w)` plus the birth term `eps_g a |Y(0)|`.
+* *(a) Unroll (5.1) along each row's chain.*
+  * A cycle N-row at `t` lies on a front chain born at row 1 at time `t_b = t - i + 1`, or on an
+    initial chain with `Z_0 = 0`. Its content is at most
+    `sum_w q^w (|kappa||A| + |lambda|)_(t-w)` plus `|beta_(t_b)|`. The birth term is 0 if
+    `t_b = 1` and `<= eps_g Ybar_0` if `t_b >= 2`.
   * The capture weights along the chain sum to `<= kappa_c`.
-  * The arrival row `d-1` at `t-1 < T` is a cycle N-row.
+  * The arrival row `d-1` at `t-1 < T` is a cycle N-row. Its diagonal meets the spike's only at
+    `t = T+1`.
+  * Hence `A_max <= kappa_c A_max + Q lhat + eps_g(u_1 A_max + (sqrt(k)/gamma) lhat)`. Solving
+    gives `Q_1`.
   * Never-held off-cycle rows start at 0 and have `|kappa| <= kappa_b/Q`.
-  * An active pair starts from bath content and has gate `<= 1` for `H+1` steps.
-  * The spike starts (at `Ts`) from a front row and has gate 1 for `<= d` steps. Its own
-    capture weight is `<= kappa_s`.
-  * `Y(0)` is (5.2).
-  * Solving the two inequalities for `A` and `Y(0)` gives `Q_1`.
-* *(b)* The deviating rows in the `lambda` sum are row 1 (predecessor `Y(0)`), front rows
-  (predecessors cycle N-rows), the spike (`s_hi^2`) and the active pair (`2 xbar`). Bath and parked
-  rows have `delta = 0`. The forcing is `<= (gamma a/k) |delta_t(c)| o_(t-1) + (gamma/k) c_*`, with
-  `o <= c_*(Q + H + 1)` and `|delta_t(c)| <= xbar`.
-* *(c)* Inside `I_i`, `|delta_t(c)| = s_t^2` except on the 7 pulse steps.
-* *(d)* Outside `I_i`, `delta_t(c) = 0`, so the forcing is `<= (gamma/k) c_*`.
-  * The spike remembers `I_i` through at most `L_in` plus later leak mass.
-  * Every other content is bounded as in (a). The single step after `I_i` reads `Y(0)` built
-    from `lambda` in `I_i`; this gives the term `lhat/sqrt(k)`.
-  * The arrivals summed over another window are `<= (H+1) kappa_c Q_1 lhat + Q L_in + (H+1) Q l_out`,
-    by retention. QED
+  * An active pair starts from never-held bath content and has gate `<= 1` for `H+1` steps.
+  * The spike starts at `Ts` from row 18's front content (`<= Q_1 lhat`) and has gate 1 for
+    `<= d` steps. Its own capture weight is `<= kappa_s`.
+  * `Y(0)` is bounded by (5.2).
+* *(b)* The deviating rows in the `lambda` sum are:
+  * row 1 (predecessor `Y(0)`, `|delta_1| <= 1`);
+  * front rows (cycle N-row predecessors, mass `<= D_f`);
+  * the spike (`s_hi^2`, predecessor the previous spike position);
+  * the active pair (`2 xbar`).
 
-**Lemma 5.2 (second-order bound).** Let `Lambda1(c) = sum_t |Delta lambda1_t|`, and
-`Pi_(i') := Pi(|theta_(i')|)`. Then
+  Bath and parked rows have `delta = 0`. The own forcing is
+  `<= (gamma a/k)|delta_t(c)| o_(t-1) + (gamma/k) c_*`, with `|delta_t(c)| <= xbar` and
+  `o <= c_*(Q + H + 1)`.
+* *(c)* Inside `I_i`, `|delta_t(c)| = s_t^2`, except on the 7 pulse steps and at the parking step,
+  where it is 0.
+* *(d)* Outside `I_i`, `delta_t(c) = 0`. Substitute:
+  * `|Z_spike| <= Q_1(1 + d kappa_s) lhat + L_in + d l_out`;
+  * the other active pair, `<= [Q_2 + (H+1) kappa_h Q_1] lhat + (H+1) l_out`;
+  * `Y(0)` into the exact leak.
 
-    |Delta SO(c_i)| <= eps_1 Lambda1(c_i) + Phi_self Pi_i + Phi_oth sum_(i' != i) Pi_(i'),        (5.4)
+  Solve for `l_out`. In another window `J` (`|J| = H+1`), the arrival sum is at most
+  `|J| kappa_c Q_1 lhat + Q L_in + |J| Q l_out + |J| eps_g Ybar_0`, by retention plus births. QED
 
-with `eps_1`, `Phi_self` and `Phi_oth` the explicit expressions of `constants_so.py`. They are
-built from the quantities of Lemma 5.1 as described in the proof.
+**Lemma 5.2R (difference bootstrap) [PROVED; source identities Codex-verified].**
+* *Notation.* `Lambda1 = sum_t |Delta lambda1_t|`, `Lambda2 = sum_t |Delta lambda2_t|`,
+  `Lambda <= Lambda1 + Lambda2`, `Acal = sum_t |Delta A_t|`, `Pi_(i') := Pi(|theta_(i')|)`.
+  `sigma_S := (gamma^2/k^(3/2)) Q_1 lhat sum_t |Delta S_t|`; per unit `Pi` this is
+  `sigmatilde_S := (gamma^2/k^(3/2)) Q_1 lhat 14 c_s`.
+* *(i)* `Acal <= b_A(Lambda + sigma_S)`, with `b_A := (Q + eps_g sqrt k)/(1 - kappa_A - eps_g u_1)`.
+* *(ii)* `Lambda2 <= a_L(Lambda1 + Lambda2) + a_A Acal + R_src`, where
+
+      a_L := 1/sqrt k + (gamma/k)[D_f Q + s_hi^2 d + 2 xbar (H+1)(2 + Q/H)] + D_f eps_g/sqrt k,
+      a_A := (gamma/k)[u_1 (1 + D_f Q gamma/sqrt k + D_f eps_g) + s_hi^2 d kappa_s + 2 xbar (H+1)(kappa_h + kappa_b)],
+      R(eta) := (gamma/k)[(1 + D_f eps_g)(gamma/k) Q_1 lhat 14 c_s + D_f Q sigmatilde_S + s_hi^2 d sigmatilde_S
+                          + 2 xbar (H+1)((2 + Q/H) sigmatilde_S + pulse(eta)) + 14 c_s eta],
+      pulse(eta) := 14 c_s [eta + (gamma/sqrt k)(1 + 2 gamma/k) Q_1 lhat],
+
+  and `R_src <= R(eta_self) Pi_i + R(eta_oth) sum_(i' != i) Pi_(i')`.
+* *(iii)* If `e := a_L + a_A b_A < 1`, then `Lambda2 <= (e Lambda1 + a_A b_A sigma_S + R_src)/(1 - e)`.
+* *(iv)* `|Delta SO(c)| <= kappa_s Acal + Lambda2 + sigma_S`.
+* *Hence*
+
+      |Delta SO(c_i)| <= eps_1 Lambda1(c_i) + Phi(eta_self) Pi_i + Phi(eta_oth) sum_(i' != i) Pi_(i'),           (5.4)
+      eps_1 := kappa_s b_A + (1 + kappa_s b_A) e/(1 - e),
+      Phi(eta) := (1 + kappa_s b_A)(a_A b_A sigmatilde_S + R(eta))/(1 - e) + kappa_s b_A sigmatilde_S + sigmatilde_S.
 
 *Proof.*
-* *Difference sources.* By Prop. 2.1, the two histories differ in gates only at pulse rows
-  during pulses, and in `S_t` only at pulse times. There `|Delta g| = |Delta delta| = |x_+ - x_-|`,
-  which is `<= c_s Pi_(i')` with `c_s = .3331` [c], and `|Delta S_t| <= 2 c_s Pi_(i')`.
-  Subtracting (5.1) for the two histories gives, with `+` gates,
-  * the same recursion for `Delta Z`, `Delta A` and `Delta lambda`, plus the sources
-    `Delta g(r) a Z^-(r)` and `Delta kappa(r) A^-` at pulse rows `r`;
-  * the source `-(gamma^2/k^(3/2)) Delta S_t A^-_t` in every row's capture;
-  * the source `(gamma a/k) Delta delta(r) Z^-(r)` in `Delta lambda`.
+* *Sources (Codex audit §3.1).* The histories differ in gates only at pulse rows during pulses,
+  and in `S_t` only at pulse times. There `|Delta g| = |Delta delta| <= c_s Pi_(i')` per row-step,
+  and `|Delta S_t| <= 2 c_s Pi_(i')`. Each pulse has 14 row-steps. Subtracting (5.1) gives:
+  * the homogeneous recursion with `+` gates;
+  * pulse sources `a Delta g Z^-_pred + (gamma/sqrt k) Delta delta A^-` at pulse rows;
+  * the uniform source `-(gamma^2/k^(3/2)) Delta S A^-` in every row;
+  * the direct leak source `(gamma a/k) Delta delta Z^-_pred`;
+  * the broadcast source `Delta Y(0) = (ghat + gamma S^+/k) Delta A + (sqrt(k)/gamma) Delta lambda + (gamma/k) Delta S A^-`.
+* *(i)* Arrivals are front-chain contents. Unroll them with retention `<= Q` for `Delta lambda` and
+  for the uniform source. Arrival chains at distinct times occupy distinct rows at any earlier time,
+  so their captures sum to `<= kappa_A Acal`. Births give `sum_t |Delta beta_t| <= eps_g sum_t |Delta Y_t(0)|`,
+  and
+  `sum_t |Delta Y_t(0)| <= u_1 Acal + (sqrt(k)/gamma)(Lambda + sigma_S)`,
+  using `(gamma/k) sum|Delta S||A^-| <= (sqrt(k)/gamma) sigma_S`. Collect terms, and use
+  `sqrt(k)/gamma <= sqrt(k)`.
+* *(ii)* Carriers of `Delta lambda2`:
 
-  `Z^-` and `A^-` are bounded by Lemma 5.1: by `eta_self` for `i' = i`, by `eta_oth` otherwise,
-  and by `Q_1 lhat`.
-* *Time sums.* Write `Lambda = sum_t |Delta lambda_t| <= Lambda1 + Lambda2` and
-  `Acal = sum_t |Delta A_t|`.
-  * *(i)* Retention on cycle N-rows, and the distinct-rows capture bound `kappa_A`, give
-    `Acal <= b_A(Lambda + sigma_S)`, with `b_A = Q/(1 - kappa_A - 2 eps_g Q)` and
-    `sigma_S = (gamma^2/k^(3/2)) Q_1 lhat sum_t |Delta S_t|`.
-  * *(ii)* Sort the bus terms of `Delta lambda2` by deviating row.
-    * Row 1, through (5.2) for `Delta Y(0)`: coefficient `1/sqrt k` on `Lambda`.
-    * Front rows: `D_f Q` times their sources, by retention.
-    * The spike: `s_hi^2 d` times its sup, which is `<= kappa_s Acal + Lambda + sigma_S`.
-    * Active pairs: `2 xbar (H+1)` times the sum over memories of each pair's sup. Here
-      `sum_(i') |Delta Z_(sigma_(i')-1)(bath)| <= (1 + Q/H)(Lambda + ...)`, because the windows
-      are `H+1` apart.
-    * The pulse sources directly.
+  | carrier | coefficient on `Lambda` | on `Acal` | direct sources (per unit `Pi`) |
+  |---|---|---|---|
+  | row 1, via `Delta Y(0)` | `1/sqrt k` | `(gamma/k) u_1` | `(gamma/k)^2 Q_1 lhat 14 c_s` |
+  | front rows (mass `<= D_f`, retention `Q`) | `(gamma/k) D_f Q` | `(gamma/k) D_f Q (gamma/sqrt k) u_1` | `(gamma/k) D_f Q sigmatilde_S` |
+  | front births (each enters one chain; chain mass `<= D_f`) | `D_f eps_g/sqrt k` | `(gamma/k) D_f eps_g u_1` | `(gamma/k) D_f eps_g (gamma/k) Q_1 lhat 14 c_s` |
+  | spike (`d` steps, `delta = s_t^2`) | `(gamma/k) s_hi^2 d` | `(gamma/k) s_hi^2 d kappa_s` | `(gamma/k) s_hi^2 d sigmatilde_S` |
+  | active pairs (`2 xbar`, `H+1` steps; bath starts `H+1` apart give `1 + Q/H`) | `(gamma/k) 2 xbar (H+1)(2 + Q/H)` | `(gamma/k) 2 xbar (H+1)(kappa_h + kappa_b)` | `(gamma/k) 2 xbar (H+1)[(2 + Q/H) sigmatilde_S + pulse(eta)]` |
+  | direct pulse leak | — | — | `(gamma/k) 14 c_s eta` |
 
-    This gives `Lambda2 <= a_L(Lambda1 + Lambda2) + a_A Acal + R_src`, with the explicit
-    `a_L, a_A` and source term `R_src` of the certificate.
-  * *(iii)* Put `e = a_L + a_A b_A < 1`. Solving gives
-    `Lambda2 <= (e Lambda1 + a_A b_A sigma_S + R_src)/(1 - e)`.
-  * *(iv)* By (5.3), `|Delta SO| <= kappa_s Acal + Lambda2 + sigma_S`.
-* *Collection.* Every source is proportional to some `Pi_(i')`. The self pulse (`i' = i`) uses
-  `eta_self`, and the others use `eta_oth`. QED
+  For the pair row, `(1 + Q/H) kappa_b/Q <= kappa_b` holds since `H >= 100`. The pair contents at
+  pulse rows are `<= eta_self` (`i' = i`) or `<= eta_oth` (`i' != i`) by Lemma 5.1R.
+* *(iii)* Substitute (i) into (ii).
+* *(iv)* The spike has `|kappa^+(p_t)| <= kappa_s`, and `Delta kappa(p_t) = -(gamma^2/k^(3/2)) Delta S_t`,
+  because the spike gates agree. Use (5.3).
+* Collecting terms gives (5.4). QED
 
 **Corollary 5.3.** For the vector over the `D` memory columns, with `F*` from Lemma 4.2,
 
-    || Delta SO(C) ||_2 <= eps_SO || Delta F1(C) ||_2,     eps_SO := eps_1 a^(-d) + (Phi_self + D Phi_oth)/F*.
+    || Delta SO(C) ||_2 <= eps_SO || Delta F1(C) ||_2,     eps_SO := eps_1 a^(-d) + (Phi(eta_self) + D Phi(eta_oth))/F*.
 
 *Proof.*
 * `||Lambda1||_2 <= a^(-d) ||Delta F1||_2`, by (4.1).
-* `sum_(i' != i) Pi_(i') <= sqrt(D) ||Pi||_2`, and its l2 norm over `D` columns is `<= D ||Pi||_2`.
+* The map `Pi -> (sum_(i' != i) Pi_(i'))_i` is `J - I`, with operator norm `D - 1 <= D`.
 * `||Pi||_2 <= ||Delta F1||_2/F*`, by Lemma 4.2. QED
 
-**[c] Values** (`constants_so.py`; `H = ceil(40 n^(3/4))`, `D = floor((d - 41)/(H+1))`):
+**Proposition 5.4 (all-n certificate) [PROVED; exact rational certificate
+`envelope_certificate.py`].**
+* *Setting.* Let `n >= 31622^4 = 9.999e17` with `4 | n` (in particular, every `n >= 10^18`). Put
+  `H = ceil(40 n^(3/4))` and `D = floor((n/4 - 41)/(H+1))`.
+* *Claim.* Every closure condition of Lemmas 5.1R–5.2R holds:
+  * `kappa_c + eps_g u_1 < 1`;
+  * `c_fb < 1`;
+  * `1 - (gamma/k)(s_hi^2 d + 2 xbar(H+1)) > 0`;
+  * `kappa_A + eps_g u_1 < 1`;
+  * `e < 1`.
 
-| n | D | eps_1 a^-d | Phi_self/F* | D Phi_oth/F* | eps_SO |
-|---|---|---|---|---|---|
-| 3.2e17 | 148 | .0089 | .488 | .0025 | **.499** |
-| 1e18 | 197 | .0083 | .364 | .0019 | **.375** |
-| 1e24 | 6249 | .0066 | .0114 | 6e-5 | **.018** |
-| 1e40 | 6.2e7 | .0066 | 1.1e-6 | 6e-9 | **.0066** |
+  Moreover
 
-* `eps_SO <= 1/2` at every grid point `n = 10^(16 + j/20)` from `3.2e17` up to `1e40`.
-* Each coefficient is a combination, with positive coefficients, of `n^(-1/2)`, `n^(-1)`,
-  `H/n = 40 n^(-1/4)`, `Q/H` and `D/n`, all of which decrease. The integer roundings move
-  `H` and `D` by at most 1. Hence `eps_SO <= 1/2` for all `n >= n_* := 1e18`. (This monotonicity
-  step is argued here, not machine-checked beyond the grid.)
-* *What dominates.* For large `n`, `eps_SO -> .0066`, which is the spike's self-leak
-  `(gamma/k) s_hi^2 d ~ s_hi^2/2` plus the front term. At smaller `n` the self pulse term
-  dominates. That term is memory `i`'s own pulse acting on column `c`'s bus inside its own pair,
-  and it is `~ 264 H/n`.
-* The crude bound is very pessimistic: the measured second-order share is `2.3%` at
-  `n = 65536` (§3).
+      eps_SO(n) <= .37470.
+
+  The same method certifies `eps_SO <= 1/2` for every `n >= 23667^4 = 3.14e17`.
+
+*Proof (envelope method).* Write `x = n^(1/4)` and `x_* = 31622`.
+* *Envelopes.* An *envelope* is `E(x) = sum_p c_p (x/x_*)^p`, with rational `c_p >= 0` and integer
+  `p`. It is an upper bound valid for all real `x >= x_*`.
+* *Primitive envelopes* (exact for all `n >= x_*^4`):
+
+  | quantity | bound |
+  |---|---|
+  | `1/k` | `= 2x^-4` |
+  | `sqrt k` | `= x^2/sqrt 2 <= x^2/1.41421356` |
+  | `1/sqrt k` | `<= 1.41421357 x^-2` |
+  | `gamma` | `<= 1/(1 - 1.41421357/x_*^2)` |
+  | `d` | `= x^4/4` |
+  | `H + 1` | `<= 40x^3 + 2` |
+  | `1/H` | `<= x^-3/40` |
+  | `D` | `<= x/160` |
+  | `a^-d` | `<= exp(1/4 + 1/(4(n_*-1)))` |
+  | `1/F*` | `<= [792 s_lo^2 (1 - .35/x_*^3)^2 x^2 e^(-1/2 - 3/(2(n_*-1)))]^(-1)` |
+  | `eps_g(n)` | `<= c_g (x/x_*)^-40`, `c_g = 4.009/T_20(.05 x_*^2/1.41421357) <= 1.05e-132` |
+
+  Notes on the table:
+  * `F*` uses `(H-1)(H-14) >= (40x^3 - 14)^2` and `a^(2d+1) >= e^(-(n/2+1)/(n-1))`.
+  * `eps_g` uses `T_20` (Taylor partial sum of `exp`) and the inequality
+    `(x/x_*)^40 e^(-c(x^2 - x_*^2)) <= 1` for `c x_*^2 >= 20`.
+* *Composition.* The bound chain of Lemmas 5.1R–5.2R uses only `+`, `x` and `t -> 1/(1-t)`. So
+  envelopes compose, coefficients being rounded up to 40 significant digits.
+* *Closure.* `1/(1-u)` is replaced by the constant `1/(1 - E_u(x_*))`. This is valid because every
+  exponent of `E_u` is checked `<= 0`, so `E_u` is nonincreasing on `[x_*, inf)`, and
+  `E_u(x_*) < 1` is checked.
+* *Result.* The envelope of `eps_SO` has every exponent `<= 0`, so it is nonincreasing, and its
+  value at `x_*` is `.374696 <= .3747`.
+* *Components* (exponent): `eps_1 a^-d <= .00830` (0), `Phi_self/F* <= .36451` (`-1`),
+  `D Phi_oth/F* <= .00189` (`-1`).
+
+Rounding enters only through `H in [40x^3, 40x^3+1]` and `D <= x/160`. No monotonicity of a rounded
+function is used, so Codex's rounding pair `n0, n1` is harmless. QED
+
+*Why the refuted version failed and this one cannot.*
+* Every `eps_g` term now carries `(x/x_*)^-40`.
+* The old term `6400 e^-200 sqrt(n/2)` is replaced by `D_f eps_g(n)/sqrt k`, and
+  `eps_g(n) sqrt k -> 0` super-exponentially.
+* No term of the final envelope grows.
+
+**[NUMERICAL consistency, not part of the proof]** The same chain is evaluated at each
+test dimension using exact integer `H, D` and high-precision decimal approximations for
+`gamma, a^(-d), F*`. The exponentially tiny but strictly positive front-gate term is retained
+through a proved positive rational **upper bound**, rather than evaluated as an exact exponential
+or replaced by zero. This conservative pointwise bound lies below the envelope both
+at `x_*` and at each `n`'s own `x = n^(1/4)`. This holds at all 23 adversarial dimensions tested:
+
+| n | pointwise eps_SO | envelope at own x |
+|---|---|---|
+| 1e18, 1e18 + 4, 1000000000000000280, 1000000000000000284 (H jump) | .374681 | .374690 |
+| 1e24 | .018104 | .018128 |
+| 1e40 | .006571 | .006580 |
+| 1e166 (old certificate: 2.199) | .006570 | .006578 |
+| 1e168, 1e180, 1e300, 1e1000 (old: bootstrap fails) | .006570 | .006578 |
+
+The rounding jumps near `1e30`, `1e60` and `1e166` are also included.
+
+*Measured second-order share* (`exp_repair_checks.py`, exact construction S with `D = 5`; far below
+the theorem regime): `||Delta SO||/||Delta F1|| = .121` (n=16384), `.093` (20004), `.022` (65536).
+In each run, Lemma 5.2R(iv) holds with the measured inputs, with a factor of about 2 to spare.
 
 ## 6. A robust many-direction section at width 3, and the failure of the original Lemma M
 
-**Theorem 6.1 (robust sequential section) [PROVED by the author; pending independent audit].**
-* *Setting.* `R = R0`, `4 | n`, `n >= n_* = 1e18`, `H = ceil(40 n^(3/4))`, and
-  `D = floor((n/4 - 41)/(H+1))`, so `D >= n^(1/4)/161` for these `n`.
+**Theorem 6.1 (robust sequential section) [PROVED by the author after the 2026-10-20 repair;
+pending independent re-audit].**
+* *Setting.* `R = R0`, `4 | n`, `n >= 10^18`, `H = ceil(40 n^(3/4))`, and
+  `D = floor((n/4 - 41)/(H+1))`. Then `D >= n^(1/4)/161` for all these `n`; this is Codex's
+  uniform integer-root proof, audit §4.
 * *Claim.* The section S(n, H) of §4 is legal, with:
   * peak actual support `m = 3`;
   * horizon `T = n/2`, so `mT = 1.5 n`;
@@ -527,86 +712,155 @@ built from the quantities of Lemma 5.1 as described in the proof.
 
   For every `theta in S^(D-1)`, the uniform one-step query `g = HI 1_n` gives
 
-      || Delta B_T(theta)^T R0^T g ||_2  >=  a HI sqrt(k) || Delta Z_T(d-1, C) ||_2  >=  .0625 n (1 - 1/n^(3/4))^2  >  tau.
+      || Delta B_T(theta)^T R0^T g ||_2  >=  a HI sqrt(k) || Delta Z_T(d-1, C) ||_2  >=  .078 n (1 - n^(-3/4))^2  >  tau.
 
   So S is a `D`-dimensional robust section of the selected `d_F,E` at `eps = .001`. Its bus
-  readout (Hypothesis B's quantity) exceeds `tau - 4e3 n^(3/8) > tau/4` at every `theta`.
+  readout (Hypothesis B's quantity) exceeds `.078 n (1 - n^(-3/4))^2 - 4e3 n^(3/8) > tau` at every
+  `theta`.
 
 *Proof.*
-* *Legality, support, endpoint.* Lemma 4.1.
+* *Legality, support, endpoint.* Lemma 4.1, with the row-19 start.
 * *First inequality.* Prop. 2.2: restrict to the memory columns `C`.
 * *Second inequality.*
   * `Delta Z_T(d-1, c) = Delta F1(c) + Delta SO(c)` (Prop. 2.3 and (5.3)).
-  * Corollary 5.3 gives `||Delta SO|| <= eps_SO ||Delta F1|| <= ||Delta F1||/2` for `n >= n_*`.
+  * Corollary 5.3 and Proposition 5.4 give `||Delta SO|| <= .3747 ||Delta F1||` for every
+    `n >= 10^18` (indeed for every `n >= 31622^4`).
   * (4.2) gives `a HI sqrt(k) ||Delta F1|| >= c_R (H/2 - 7)^2 pi_0/sqrt(n)`. With
-    `H/2 - 7 >= 20 n^(3/4) - 7`, this is
-    `(1/2)(4.988e-4)(.6272)(400) n (1 - 7/(20 n^(3/4)))^2 >= .0625 n (1 - n^(-3/4))^2`.
+    `H/2 - 7 >= 20 n^(3/4) - 7`, the readout is
+    `>= (1 - .3747)(4.988e-4)(.6272)(400) n (1 - 7/(20 n^(3/4)))^2 >= .078 n (1 - n^(-3/4))^2`.
 * *Threshold.* `tau <= .0567 n`.
 * *Bus versus full readout.* The own part of the uniform readout on column `c` is
-  `nu_c Delta o_T(c)`. Here `|nu_c| = a HI |1 - gamma^2 (k-1)/k + gamma/sqrt k| <= 2 HI/sqrt(k)`
-  (PR #28 Lemma 1.2) and `|Delta o_T(c)| <= c_*(Q + H + 1)`. Over `D` columns this is
-  `<= 2 HI (Q + H + 1) sqrt(D)/sqrt(k) <= 4e3 n^(3/8)`. QED
+  `nu_c Delta o_T(c)`.
+  * Here `|nu_c| <= a HI gamma/sqrt(k)` (PR #28 Lemma 1.2), and
+    `|Delta o_T(c)| <= c_*(Q + H + 1)`. Since `a gamma c_* < 2` in this range,
+    the product is at most `2 HI (Q + H + 1)/sqrt(k)`.
+  * Over `D` columns this is `<= 2 HI (Q + H + 1) sqrt(D)/sqrt(k) <= 4e3 n^(3/8)`. QED
 
-**Corollary 6.2 (the original Lemma M is false for large n) [PROVED by the author; pending
-audit].**
-* *The lemma.* PR #29 §3.2 / PR #31 §2 state Lemma M as follows. For constants `C_0, C_1, C_2`
-  and every legal section with `m <= c_0 n` and `mT <= mu n^(3/2)`, there is an odd continuous
-  `Psi_bus` with `|Psi_bus| <= C_0 m + C_1 (mT/n)^2 + C_2 log^2 n`. At every joint zero of
-  `(Phi, Psi_bus)` the bus readout must be `<= tau/4` for every legal query.
-* *Claim.* For every choice of constants this fails for all sufficiently large `n` with
-  `4 | n`, on the sections S of Theorem 6.1, and also for the dense prescribed matrix if
-  Remark 6.4 is supplied. More precisely:
-  * *(i)* No odd continuous `Psi` with
-    `|Psi| < D = floor((n/4 - 41)/(H+1)) ~ n^(1/4)/160` has the property that the bus readout is
-    `<= tau/4` at all of its own zeros. Since `m = 3` and `(mT/n)^2 = 2.25`, this covers any
-    `|Psi| <= 3 C_0 + 2.25 C_1 + C_2 log^2 n` once
-    `n^(1/4)/161 > 3 C_0 + 2.25 C_1 + C_2 log^2 n + 1`.
-  * *(ii)* The joint form with Theorem 4's state listing `Phi` fails once additionally
-    `D > N_1 + N_2 + N_3` for this section. Here `m = 3`, so `N_1 = 7(4W + Lam + 4)`,
-    `p = 7(W' + Lam + 1)`, `L = d-1`, `N_2 = 2.32e5 (pL/n)^2 + 2p` and `N_3 = 1.8e4` (PR #28). These
-    grow only like `log^2 n` (through `W'`), so (ii) holds for `n >~ 1e80`.
+**Corollary 6.2 (the original Lemma M is false for `R = R0`) [PROVED by the author after the
+repair; pending independent re-audit].**
+* *The lemma* (PR #29 §3.2 / PR #31 §2). Fix constants `C_0, C_1, C_2`. Let `Phi` be Theorem 4's
+  state listing of PR #28 for all legal queries, so `|Phi| <= N_1 + N_2 + N_3` with
+  `N_3 = 1.3e7 F_s`. Lemma M asserts: for every legal section with `m <= c_0 n` and
+  `mT <= mu n^(3/2)`, there is an odd continuous `Psi_bus` with
+  `|Psi_bus| <= C_0 m + C_1 (mT/n)^2 + C_2 log^2 n`, such that at every **joint** zero of
+  `(Phi, Psi_bus)` the bus readout is `<= tau/4` for every legal query.
+* *Claim.* For `R = R0` and every `C_0, C_1, C_2 >= 0` there is an explicit `n_1(C)`, computed by
+  `count_certificate.py`, such that this conclusion fails on the section S(n) for every
+  `n >= n_1(C)` with `4 | n`.
+  * `n_1 = 10^80` whenever `max(C_0, C_1, C_2) <= 10^12`; `10^100` for `<= 10^18`; `10^150` for
+    `<= 10^30`.
+  * Hence the original Lemma M is false for `R0`, whatever its constants.
 
 *Proof.*
-* By Theorem 6.1 the bus readout of S exceeds `tau/4` at every `theta`.
-* If `|Psi| < D` (resp. `|Phi| + |Psi| < D`), the sparse Borsuk–Ulam lemma (PR #28 Lemma 2.1)
-  gives a zero (resp. a joint zero) on `S^(D-1)`, where the readout still exceeds `tau/4`.
-* The domain conditions hold: `m = 3 <= c_0 n`, and `mT = 1.5 n <= mu n^(3/2)` for
-  `mu = 2.5e-5`. QED
+* *Domain.* `m = 3 <= c_0 n`. `mT = 1.5 n <= 2.5e-5 n^(3/2)` for `n >= 3.6e9`. `T = n/2` lies in
+  Theorem 4's below-budget branch `T <= 2.5e-5 n^(3/2)`.
+* *Count of Phi* [c]. For `m = 3` and `T = n/2`, PR #28's definitions give
+  `|Phi| <= N_1 + N_2 + N_3 <= P_0(ln n)`. Here `P_0` is an explicit quadratic with coefficients
+  `1.784e17, 1.187e15, 1.974e12`, dominated by `N_2 = 2.32e5 (pL/n)^2 + 2p`. The definitions:
+  * `W' = ceil((8 + .5 ln+ y)/kappa)` with `y = sqrt(n)/2`, `W_s = 126667`, `W = W' + W_s`;
+  * `N_1 = 7(4W + Lam + 4)`;
+  * `p = 7(W' + Lam + 1)`, `L = d - 1`;
+  * `F_s = ceil(ln(1.01 sqrt k)/r_H)`, `r_H >= .0618`.
+* *Joint zero.* If `D > |Phi| + |Psi|`, the sparse Borsuk–Ulam lemma (PR #28 Lemma 2.1) applied to
+  the concatenation `(Phi, Psi)` gives a joint zero `theta*`. The combined count is what the argument
+  needs: separate counts `|Psi| < D` and `|Phi| < D` do not suffice (Codex audit F2; the `S^1`
+  example `Phi = x`, `Psi = y`).
+* *Count inequality* [c]. `D >= n^(1/4)/161 > P_0(ln n) + 3 C_0 + 2.25 C_1 + C_2 ln^2 n` for all
+  `n >= n_1(C)`.
+  * The certificate checks `g(u_1) > 0`, `g'(u_1) > 0` and `g''(u_1) > 0`, where
+    `g(u) := e^(u/4)/161 - P_C(u)` and `u_1 <= ln n_1`.
+  * Since `g''` is increasing, this gives `g > 0` on `[u_1, inf)`.
+  * At `n = 10^79` the sufficient inequality fails (`g < 0`), so `10^80` is not loose by decades.
+* *Contradiction.* At `theta*`, Theorem 6.1 gives bus readout `> tau > tau/4` for the legal one-step
+  uniform query. This contradicts the lemma's conclusion.
+* *Variants.*
+  * If Lemma M is read only for one-step queries, with Theorem 4's one-step listing
+    (`N_3 = 1.8e4`), the count is smaller and the same `n_1` works.
+  * If `log` means `log_2`, replace `C_2` by `C_2/(ln 2)^2 <= 2.09 C_2`.
+
+QED
+
+*Repair note.* The first version stated (ii) with separate inequalities `|Psi| < D` and
+`N_1 + N_2 + N_3 < D`, and with the one-step `N_3`. Codex audit F2 refuted that inference. The
+statement above uses the combined count and the all-query listing. The earlier "(i)" (failure at
+zeros of `Psi` alone) is a different, weaker target. It is not the original Lemma M, and it is not
+claimed as its refutation.
 
 *Remarks.*
 * **6.3 (consistency).**
   * *With the barrier.* `mT = 1.5 n` versus `D sqrt(n) ~ n^(3/4)/160`, so `mT >> D sqrt n`, as
-    Lemma M' / Prop. M2 allow.
+    Lemma M' and Prop. M2 allow.
   * *With the verified Theorem M.* Its off-cycle part (d) lists the leak `l_j` of every row with
-    `N_j >= N_0`; the pair rows here have `N_j = H + 1 >> N_0 ~ 1e-8 n^(2/3)`. So Theorem M uses
+    `N_j >= N_0`. The pair rows here have `N_j = H + 1 >> N_0 ~ 1e-8 n^(2/3)`. So Theorem M uses
     `>= 2D` coordinates, within its count `1.4e8 (mT)^(4/3)/n ~ 2.4e8 n^(1/3)`.
   * *Diagnosis.* The original `(mT/n)^2` form fails because one gather spike of width 1 can
-    harvest `~ n^(1/4)` independent off-cycle leaks in sequence (PR #31 §5.2, now made rigorous).
-* **6.4 (dense matrix) [OPEN, expected routine].**
-  * Prop. 2.1 holds for `R = alpha(R0 + eta 1 1^T/n)`: balanced pulses keep `1^T h`, so the dense
-    field is common. The legality margins (`>= .043`) absorb the `O(eta)` changes.
-  * What remains is a credit perturbation estimate in the style of PR #29 Lemma D1 for `B - B'`,
-    and the extra readout term `alpha eta (1^T g/n) 1^T Delta B`.
+    harvest `~ n^(1/4)` independent off-cycle leaks in sequence. This makes PR #31 §5.2 rigorous.
+* **6.4 (dense matrix) [OPEN; not claimed].**
+  * Prop. 2.1 should hold for `R = alpha(R0 + eta 1 1^T/n)`: balanced pulses keep `1^T h`, so the
+    dense field is common. The legality margins (`>= .043`) absorb the `O(eta)` changes.
+  * Still missing:
+    * a credit perturbation estimate in the style of PR #29 Lemma D1 for `B - B'`;
+    * the extra readout term `alpha eta (1^T g/n) 1^T Delta B`;
+    * a dense version of Lemma 5.0R.
+  * Until these are written and checked, Corollary 6.2 is claimed for `R0` only.
 * **6.5 (what the probe could and could not show).**
-  * The external probe sits in the right family of mechanisms (staggered off-cycle pulses read
-    by one gather spike).
-  * But at `n <= 512` and `H = 25` it is `~2–3x` below `tau` and outside (H).
+  * The external probe sits in the right family of mechanisms: staggered off-cycle pulses read
+    by one gather spike.
+  * But at `n <= 512` and `H = 25` it is `~2–3x` below `tau`, and outside (H).
   * Robustness needs `H ~ 40 n^(3/4)` and `n` far beyond simulation. The rigorous statement
     replaces the numerical "distinctness".
 
-## 7. Status
+## 7. Status (after the 2026-10-20 repair)
 
 | Item | Status |
 |---|---|
 | External probe results reproduced (rerun and independent reimplementation) | NUMERICAL, exact |
 | Probe schedules legal (`|x| <= .4511`, `m = 7`, exact endpoint) | NUMERICAL; outside (H), negative bath |
 | Owner's preliminary second-order shares 14% / 30% (n = 256 / 512) | reproduced (14.0% / 29.7%); share peaks ~46% at n = 2048, then decays (~0.44% at n = 262144) |
-| "Arrival timing matters more than hold duration" | reproduced only at n = 256, where it is a horizon artifact; REFUTED as a general effect (n >= 1024: timing changes the readout by `<= 3%`, opposite sign; pre-pulse hold matters more) |
-| Prop. 2.1 locality; Prop. 2.2 uniform query reads exactly `a HI sqrt(k) Z_T(d-1, c)`; Prop. 2.3 first-order separation, interactions purely second order | PROVED; checked numerically to `1e-15` |
-| Lemma 4.1 legality / support / exactness of S | PROVED; constants certified |
-| Lemma 4.2 first-order lower bound `Delta F1 >= F* Pi(theta_i)`, `Pi(z) >= .6272 z` | PROVED; constants certified |
-| Lemma 5.1, Lemma 5.2, Cor. 5.3: `||Delta SO|| <= eps_SO ||Delta F1||`, `eps_SO <= 1/2` for `n >= 1e18` | PROVED (crude constants certified on a grid; monotonicity argued) |
-| **Theorem 6.1: a robust `D ~ n^(1/4)/160`-dimensional selected `d_F,E` section with `m = 3`, `mT = 1.5 n`** | **PROVED by the author; needs independent audit** |
-| **Cor. 6.2: the original Lemma M (`C_0 m + C_1 (mT/n)^2 + C_2 log^2 n`) is false for large n** | **PROVED by the author (R0); dense R: Remark 6.4 OPEN** |
-| Lemma M' / barrier law / Lemma M_rest (operator form) / centered channel / full metric | OPEN (unchanged) |
-| Original problem (`D = Omega(n)` at `mT = o(n^(3/2))`, full `d_F`) | OPEN; nothing here contradicts the barrier |
+| "Arrival timing matters more than hold duration" | reproduced only at n = 256, where it is a horizon artifact; REFUTED as a general effect |
+| Prop. 2.1 locality; Prop. 2.2 uniform query reads exactly `a HI sqrt(k) Z_T(d-1, c)`; Prop. 2.3 first-order separation | PROVED (R0); Codex-verified |
+| Lemma 4.1 legality / support / exactness of S | PROVED; Codex-verified with the corrected row-19 / age-17 bound `.3831` |
+| Lemma 4.2 first-order lower bound `Delta F1 >= F* Pi(theta_i)`, `Pi(z) >= .6272 z` | PROVED; Codex-verified, constants rationally certified |
+| First-version all-n certificate (`constants_so.py`, fixed gate `4e^-200`, grid + monotonicity) | **REFUTED** (Codex audit F1: `eps_SO(1e166) > 1.7`; bootstrap fails at `1e168`; rounding pair `n0, n1`) |
+| First-version count rule (separate `|Psi| < D`, `N_1+N_2+N_3 < D`; one-step `N_3`) | **REFUTED** (Codex audit F2) |
+| Lemma 5.0R: saturated front row, `g_1(t) <= 4.009 e^(-.05 sqrt(n/2))` for `t >= 2`; `delta_1(1) = 0` | PROVED (author); exact-recurrence checks pass at n = 16384–262144 |
+| Lemma 5.1R, Lemma 5.2R, Cor. 5.3 (explicit births) | PROVED (author; first-version algebra Codex-verified under closure) |
+| **Prop. 5.4: all closure conditions and `eps_SO <= .3747` for every `n >= 31622^4` (`<= 1/2` from `23667^4`)** | **PROVED (author); exact rational envelope certificate; pending re-audit** |
+| **Theorem 6.1: robust `D >= n^(1/4)/161`-dimensional selected `d_F,E` section, `m = 3`, `mT = 1.5 n`, `n >= 1e18`** | **PROVED (author, R0); pending independent re-audit** |
+| **Cor. 6.2: original Lemma M false for R0, every constant, all `n >= n_1(C)` (`10^80` if `max C <= 10^12`)** | **PROVED (author, R0); pending independent re-audit** |
+| Dense prescribed matrix: Theorem 6.1 / Cor. 6.2 | **OPEN** (Remark 6.4) |
+| Lemma M' / barrier law / Lemma M_rest (operator form) / centered channel / full metric / log loss | OPEN (unchanged) |
+| Original problem (`D = Omega(n)` at `mT = o(n^(3/2))`, full `d_F`, dense tanh) | **OPEN**; nothing here contradicts the barrier |
+
+## 8. Repair log (2026-10-20), keyed to the Codex audit
+
+The audit is `../codex_pr33_independent_audit_20261019/AUDIT.md`, copied into this branch unchanged.
+
+* **F1 (critical).**
+  * *Cause.* The fixed gate majorant `eps_g = 4e^-200` made `a_L` contain
+    `eps_g Q sqrt(k) = 6400 e^-200 sqrt(n/2)`. `Q_1` and `b_A` also contained growing fixed-`eps_g`
+    terms.
+  * *Repairs:*
+    * the `n`-dependent Lemma 5.0R, `eps_g(n) = 4.009 e^(-.05 sqrt(n/2))`, derived directly from
+      the recurrence of S;
+    * the conservative term `eps_g Q sqrt k` replaced by the derived front-birth coefficients
+      `D_f eps_g/sqrt k` (on `Lambda`) and `(gamma/k) D_f eps_g u_1` (on `Acal`);
+    * `b_A` given its derived birth numerator `Q + eps_g sqrt k`;
+    * the grid replaced by the exact all-n envelope certificate (Prop. 5.4,
+      `envelope_certificate.py`). It handles `H, D` rounding through interval bounds only.
+  * *Effect.* The certified threshold is essentially unchanged (`.3747` from `n = 31622^4`). The
+    certificate is now valid for all larger `n`. The audit's adversarial dimensions
+    (`1e166, 1e168, 1e180`, the rounding pair) all pass as consistency tests.
+* **F2.** Corollary 6.2 now uses the combined count `|Phi| + |Psi| < D` with the all-query
+  Theorem 4 listing (`N_3 = 1.3e7 F_s`). The resulting threshold is `n >= 10^80`, certified by
+  `count_certificate.py` for all larger `n`. The first version's separate-count statement is
+  withdrawn.
+* **F3.** The spike starts at row 19, as printed in the schedule. The description and the
+  legality step are corrected (age 17, `.3831`); the schedule and all numerics are unchanged.
+* **F4.** The `t = 1` row-1 gate exception is stated in Lemma 5.0R(d): `delta_1(1) = 0` and
+  `Y_0 = 0`, so it carries no credit.
+* **F5.** `constants_seq.py` now asserts the manuscript constants `.6272, .3331, 39.73, .0004988,
+  .3831`. The Codex rational certificate remains the rigorous reference for them.
+* **Lemma 5.1(d) birth term.** Made explicit as `(H+1) eps_g Ybar_0` in `eta_oth`, instead of being
+  absorbed into the `D_f` margin.
+* **Resources.** Unchanged: `m = 3`, `T = n/2`, `mT = 1.5 n`, `D >= n^(1/4)/161`.

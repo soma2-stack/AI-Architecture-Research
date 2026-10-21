@@ -1,0 +1,28 @@
+{
+ "author": "Claude (Opus 5.5)",
+ "date": "2026-10-16",
+ "branch": "claude/lemma-m-rest-20261016",
+ "base_commit": "35cdb7a (PR #31 repaired head)",
+ "python": "3.11.9",
+ "numpy": "2.4.6",
+ "platform": "Windows-10-10.0.26300-SP0",
+ "sha256_working_tree_bytes": {
+  "CHECKS.md": "5cb1d0801299c3fff543eb191c50828d1a17cc439693997a88d9b897e66a0b7f",
+  "PROOF.md": "8eb1fbcd055eafc04760dabc0d61221449841138867b68aeeabc6807f693ee1c",
+  "REPORT.md": "1ee12d2b1d82b6ce531b74470ac4a65b7ce33f6ed25d151ce92b481571fe7d6a",
+  "RESUME.md": "f8e209b21f923c8b97cda747700683db18ecd015b4c51dd8e3282a5dfad8c483",
+  "STATUS.md": "fbfb146bc9ad128dd943b93cfa0949eb03b3a01a27cb558b19bfe759f9b456e5",
+  "colsim.py": "63787b8c9362a0489311739c6f848c13bd379177ba012444923a66b4cb8d9a0f",
+  "constants_rest.py": "eb92733d51340c5e7f2744b1bb95d240045346288996f0a6750dfcad330e2e75",
+  "constants_rest_result.json": "fa023e8d9e528170bf737780fd85b3902c863170a54d91eb290821ca15871321",
+  "exp_bath_block.py": "f08898045a07a60226513246517327f2aa2e91d35aebb676d8117e747796b8c4",
+  "exp_bath_block_result.json": "6df6b320b6514ac5afbc14acaa0b66379ea0c970eff5133664d78641bb848ac4",
+  "exp_bath_scan.py": "0e5b9f7cf2a50a7269ec3c1f0c46a431561823b449ec4ee2bb27255212474764",
+  "exp_bath_scan_result.json": "7a3033eea0455fd34a968872c666a01da937256da8e17ac1e4a189200d94be92",
+  "exp_retention_leak.py": "c46381f022a1beab27b9bf89f01ec8a0306df5b0dcfaad38958eeaeddf498d16",
+  "exp_retention_leak_result.json": "f06c86e00fb227273a3010ee8743c8c09b81085ae43cbff288b60b48291fae19",
+  "exp_two_stream_identity.py": "4b0589d58e5aed625a8e125acd1c5b1bf1d601523f140a7b5278defc435fd07c",
+  "exp_two_stream_identity_result.json": "285d17c0b4ef3e2fe1a1e4d3a86d1f0c6c5a485fe5b2f3e6eb94aba2e0812f22"
+ },
+ "note": "Hashes are of working-tree bytes at commit time; with core.autocrlf, compare after normalizing line endings."
+}
