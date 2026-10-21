@@ -1,0 +1,6 @@
+{"P1-P2 n=128 anti": {"reconstruction rel. residual": 2.4099306612726653e-14, "min lambda (>= 0)": 0.0, "max |sum lambda - 1|": 0.0, "max |forced| / max|Psi| (<= 1)": 0.09024119677610493, "row recursion rel. residual (P1)": 6.224846196222632e-14}}
+{"P1-P2 n=256 anti": {"reconstruction rel. residual": 1.655400169747963e-14, "min lambda (>= 0)": 0.0, "max |sum lambda - 1|": 0.0, "max |forced| / max|Psi| (<= 1)": 0.14395387739826457, "row recursion rel. residual (P1)": 2.7197576131981224e-14}}
+{"P1-P2 n=256 mixed": {"reconstruction rel. residual": 8.799620532026728e-14, "min lambda (>= 0)": 0.0, "max |sum lambda - 1|": 0.0, "max |forced| / max|Psi| (<= 1)": 0.7417109230772223, "row recursion rel. residual (P1)": 2.9655073517044882e-15}}
+{"M*/bound(a)": 0.04505267461286545, "|Acq|/bound(b)": 0.18327368087810875, "|total|/bound(c)": 0.1793449900636924}
+{"identity rel. residual": 9.672920935648529e-14, "max theta (< 1)": 0.0006580083286680862, "max|Phi| / sum(|F_ext| + |I|) (<= 1)": 0.4421862577340714}
+{"closed-form rel. residual": 4.9499234030568104e-09, "max |chi^T y*| / ceiling (< 1)": 0.06982880189165452, "min denominator (> 0)": 0.39515933002561415}

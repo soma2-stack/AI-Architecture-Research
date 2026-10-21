@@ -1,0 +1,85 @@
+[
+  {
+    "kwargs": {
+      "n": 4096,
+      "kind": "kernel",
+      "counts": [
+        16,
+        16
+      ],
+      "T": 160
+    },
+    "max_Y_error": 5.276595133052453e-15,
+    "max_Fext_error": 5.713745448998608e-17,
+    "endpoint_float_gap": 2.220446049250313e-16,
+    "input_max": 0.444352896774629,
+    "width": [
+      33,
+      33
+    ],
+    "T": 160,
+    "full_population_sum": -2.794012894371614,
+    "full_population_L1": 2.794012894371614,
+    "class_population_L1": 2.7940128943715985,
+    "legal_query_retainer_component": 0.9651809443903703,
+    "legal_query_full_selected": 1.021502775989558,
+    "selected_query_error_allowing_complement_tie": 6.428191312579656e-14,
+    "input_difference_L1_full": 108.14814423319552,
+    "input_difference_L1_class": 108.14814423319551
+  },
+  {
+    "kwargs": {
+      "n": 4096,
+      "kind": "cost",
+      "warm": 20,
+      "u": 0.1,
+      "H": 100
+    },
+    "max_Y_error": 2.976785484776201e-15,
+    "max_Fext_error": 3.8272336688738307e-17,
+    "endpoint_float_gap": 1.942890293094024e-16,
+    "input_max": 0.1456528773557315,
+    "width": [
+      3,
+      3
+    ],
+    "T": 121,
+    "full_population_sum": -0.040081164147336965,
+    "full_population_L1": 0.040081164147336965,
+    "class_population_L1": 0.04008116414733652,
+    "legal_query_retainer_component": 0.014052025261489569,
+    "legal_query_full_selected": -0.013210338597149159,
+    "selected_query_error_allowing_complement_tie": 1.9007365126277875e-14,
+    "input_difference_L1_full": 0.35253250837111466,
+    "input_difference_L1_class": 0.3525325083710811
+  },
+  {
+    "kwargs": {
+      "n": 8192,
+      "kind": "stair",
+      "K": 1,
+      "rho": 3,
+      "top": 0.2,
+      "settle": 0.02,
+      "warm": 30,
+      "level": 1.0
+    },
+    "max_Y_error": 2.2967738821932926e-15,
+    "max_Fext_error": 2.3689817468808272e-17,
+    "endpoint_float_gap": 5.551115123125783e-17,
+    "input_max": 0.05,
+    "width": [
+      1077,
+      1077
+    ],
+    "T": 183,
+    "full_population_sum": -0.03800408575884955,
+    "full_population_L1": 0.03800408575884955,
+    "class_population_L1": 0.03800408576011576,
+    "legal_query_retainer_component": 0.00977463857055456,
+    "legal_query_full_selected": -0.014264542067104806,
+    "selected_query_error_allowing_complement_tie": 9.474192264047332e-14,
+    "input_difference_L1_full": 0.059845680400956475,
+    "input_difference_L1_class": 0.05984568040095095
+  }
+]

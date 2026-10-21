@@ -1,0 +1,81 @@
+{
+ "n": 65536,
+ "G": 12000,
+ "bath s": 0.05195563420238715,
+ "beta": 4.761811387668513e-05,
+ "rows": [
+  {
+   "mode": "hold",
+   "R": 1,
+   "target": "zero",
+   "G": 12000,
+   "T": 14300,
+   "readout": 8.811337869102584,
+   "peak width m": 2050,
+   "mT": 29315000,
+   "total drives (+)": 28268048,
+   "max|x|": 0.38004762783160906,
+   "bath": 0.05195563420238715
+  },
+  {
+   "mode": "stag",
+   "R": 64,
+   "target": "zero",
+   "G": 12000,
+   "T": 14300,
+   "readout": 8.573557654378824,
+   "peak width m": 34,
+   "mT": 486200,
+   "total drives (+)": 445232,
+   "max|x|": 0.3800473509206932,
+   "bath": 0.05185372691828437,
+   "ratio to hold": 0.97301428928772,
+   "predicted ratio exp(-deficit x H_ret)": 0.9608502054885671
+  },
+  {
+   "mode": "stag",
+   "R": 256,
+   "target": "zero",
+   "G": 12000,
+   "T": 14300,
+   "readout": 5.3189091719280475,
+   "peak width m": 10,
+   "mT": 143000,
+   "total drives (+)": 114008,
+   "max|x|": 0.38004653508546493,
+   "bath": 0.05155107731216717,
+   "ratio to hold": 0.6036437656736646,
+   "predicted ratio exp(-deficit x H_ret)": 0.5278262655823834
+  },
+  {
+   "mode": "stag",
+   "R": 64,
+   "target": "sym",
+   "G": 12000,
+   "T": 14300,
+   "readout": 8.733166719489002,
+   "peak width m": 34,
+   "mT": 486200,
+   "total drives (+)": 445232,
+   "max|x|": 0.3800476321780492,
+   "bath": 0.05195723412830627,
+   "ratio to hold": 0.9911283450056214,
+   "predicted ratio exp(-deficit x H_ret)": 0.9900654876145784
+  },
+  {
+   "mode": "stag",
+   "R": 256,
+   "target": "sym",
+   "G": 12000,
+   "T": 14300,
+   "readout": 7.653322514969256,
+   "peak width m": 10,
+   "mT": 143000,
+   "total drives (+)": 114008,
+   "max|x|": 0.3800476312514035,
+   "bath": 0.05195683062958234,
+   "ratio to hold": 0.8685766711779412,
+   "predicted ratio exp(-deficit x H_ret)": 0.8523593890408966
+  }
+ ]
+}

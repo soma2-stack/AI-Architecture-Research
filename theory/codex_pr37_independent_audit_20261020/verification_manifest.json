@@ -1,0 +1,155 @@
+{
+  "target_commit": "ac759bb3561fe0de6cf2553282d8ebee04018226",
+  "tracked_files_changed": false,
+  "staged_files": [],
+  "audit_status": "?? theory/codex_pr37_independent_audit_20261020/",
+  "source_records": 68,
+  "local_markdown_links": [
+    {
+      "target": "independent_math.py",
+      "exists": true
+    },
+    {
+      "target": "math_results.json",
+      "exists": true
+    },
+    {
+      "target": "independent_ledger.py",
+      "exists": true
+    },
+    {
+      "target": "ledger_results.json",
+      "exists": true
+    },
+    {
+      "target": "retention_probe.py",
+      "exists": true
+    },
+    {
+      "target": "retention_results.json",
+      "exists": true
+    },
+    {
+      "target": "retention_large.json",
+      "exists": true
+    },
+    {
+      "target": "retention_resets.json",
+      "exists": true
+    }
+  ],
+  "E4_runs": 19,
+  "E4_elapsed_seconds_sum": 414.9476551999687,
+  "max_input": 0.380440040819603,
+  "max_centered_over_peak": 0.06470273813680835,
+  "all_mT_products_verified": true,
+  "BLAS_threads_per_process": 1,
+  "maximum_concurrent_BLAS_processes": 3,
+  "GPU_used": false,
+  "subagents_used": false,
+  "push_or_merge": false,
+  "syntax_check": "in-memory compile of all three independent verification scripts passed; each script executed successfully",
+  "bytecode_cache_note": "An optional py_compile cache rename returned Windows access denied; switched to compile() without cache writes. This did not affect executed mathematical checks.",
+  "files": [
+    {
+      "path": "AUDIT.md",
+      "bytes": 33810,
+      "sha256": "3a3c368b54bbc0d8baac39ae2fa5391cf1d04514e1d9cf1467b9357484160b84"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_rest_20261016/colsim.py",
+      "bytes": 4065,
+      "sha256": "27229c9882dc8ada1961a25ed6ca9b7755a4183154acca3861efb5d63f933237"
+    },
+    {
+      "path": "author_runs/claude_remaining_channels_20261020/constants_mf.py",
+      "bytes": 5275,
+      "sha256": "dc60e1cfb28a7f2620f44b4c267d677dd4414b41909957c2665ea6316a5d0372"
+    },
+    {
+      "path": "author_runs/claude_remaining_channels_20261020/constants_mf_result.json",
+      "bytes": 792,
+      "sha256": "43dd213dd7a4b8b1ac3ff74d34878d2b6956f91df9d4136de11dbc81434b91ec"
+    },
+    {
+      "path": "author_runs/claude_remaining_channels_20261020/ledger_check.py",
+      "bytes": 10260,
+      "sha256": "2a10889195cabfd95209a4011592852feb811feceadefbba42d2b673209e4d96"
+    },
+    {
+      "path": "author_runs/claude_remaining_channels_20261020/ledger_check_result.json",
+      "bytes": 1999,
+      "sha256": "739ac40069c91fb812478410c3002210d7a4d75044cfe50b19d341b08dc41221"
+    },
+    {
+      "path": "author_runs/claude_remaining_channels_20261020/lemma_r_check.py",
+      "bytes": 6799,
+      "sha256": "ef2798db90ccbe52f55adf1d83c89dd88b7729c4456d4ded131abf2f7a838ede"
+    },
+    {
+      "path": "author_runs/claude_remaining_channels_20261020/lemma_r_check_result.json",
+      "bytes": 289,
+      "sha256": "157b4f4c64ead0b6861f013e9b82df9e5d35652cfd9d8bd053e4524ac82e0ff3"
+    },
+    {
+      "path": "finalize_records.py",
+      "bytes": 2709,
+      "sha256": "0fae66d20952a356336a03c7245d3c99b09bb517b4a31015fd5b4257d9a892cf"
+    },
+    {
+      "path": "independent_ledger.py",
+      "bytes": 4338,
+      "sha256": "9f65f42652b0b5e5a82f31ebbeeb8a6d5d0fdcd1a3e3dd04bf31eff25c47f484"
+    },
+    {
+      "path": "independent_math.py",
+      "bytes": 8487,
+      "sha256": "d6597c684e30acca75bb1abecd11ac0d2c94f7eb82cde25ae47c477314aa24da"
+    },
+    {
+      "path": "ledger_results.json",
+      "bytes": 462,
+      "sha256": "7438fb3c63c228e558a589fa4831f6e8c9362c10c019853ca4a7e01430b1300d"
+    },
+    {
+      "path": "math_results.json",
+      "bytes": 2524,
+      "sha256": "cccaf5c50dfc473a4f392412c228c965a5a03148ab63d6f5ac8577b68e43ebf7"
+    },
+    {
+      "path": "math_stdout.txt",
+      "bytes": 2526,
+      "sha256": "47d29146cc8f0fe46d10aaa82e95bf30ae1fff0bacc6bd5019c7158d0af2911e"
+    },
+    {
+      "path": "retention_large.json",
+      "bytes": 5553,
+      "sha256": "aa67eb1074de1e3cafd8f210675a79e40994d58d3b51470e95a08d85a46e1d34"
+    },
+    {
+      "path": "retention_probe.py",
+      "bytes": 7485,
+      "sha256": "83e06cd3ae3913d22a7bdcc52037d3a8c64caabbcc5a0cec6cf7f15d32e1b2c4"
+    },
+    {
+      "path": "retention_resets.json",
+      "bytes": 2748,
+      "sha256": "799a2bf758425bff2a61541d537ec4bc0f32adbf94dded8060553b016b15b39d"
+    },
+    {
+      "path": "retention_results.json",
+      "bytes": 17897,
+      "sha256": "a316af3faf93cfeea98186afcc7d8301cfe31f1d267fd632ca450de2fc8b4553"
+    },
+    {
+      "path": "source_manifest.json",
+      "bytes": 25524,
+      "sha256": "bcca2c597105d2909478fbd9846072a052b544942fdf8f4cb494d8ca6ddc8bd7"
+    },
+    {
+      "path": "sources/PR28_PROOF_0cc0a23.md",
+      "bytes": 73910,
+      "sha256": "ad22bd20011f0400d4a0b696d75af05dbff4f7c571810fb74277c7bdf21b3b9a"
+    }
+  ]
+}

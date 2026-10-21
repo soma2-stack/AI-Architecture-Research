@@ -1,0 +1,47 @@
+{
+ "A: n=4096 full-vector": {
+  "S_j(+)": 0.0,
+  "S_j(-)": 0.0,
+  "S'_j(+)": 0.03761529290918285,
+  "S'_j(-)": 0.0023846096783020827,
+  "source-specific readout (full)": 0.0008125295008735834,
+  "endpoint max gap": 0.0,
+  "t=3 gate gap": 0.0,
+  "max |x|": 0.2516039501575321
+ },
+ "A: n=4096 class formula contribution": 0.0008125295008735285,
+ "A: n=4096 relative difference": 6.751832378859763e-14,
+ "A: n=16384 full-vector": {
+  "S_j(+)": 0.0,
+  "S_j(-)": 0.0,
+  "S'_j(+)": 0.03755945384880608,
+  "S'_j(-)": 0.002440521798065071,
+  "source-specific readout (full)": 0.0004061707473053905,
+  "endpoint max gap": 0.0,
+  "t=3 gate gap": 0.0,
+  "max |x|": 0.2521744542771375
+ },
+ "A: n=16384 class formula contribution": 0.00040617074730542346,
+ "A: n=16384 relative difference": 8.114751311417063e-14,
+ "A: n=1e8 response chi^T M_3 w": "-0.919149760425253",
+ "A: n=1e8 source-specific readout difference": "5.20023165147574e-6",
+ "A: n=1e8 max |input|": "0.252725487874",
+ "A: n=1e8 Delta delta_2(j)": "-0.04",
+ "A: n=1e8 c_2": "0.9999999999",
+ "B: claimed acquired part (undamped baseline)": -9.999998550000101e-07,
+ "B: corrected acquired part (damped baseline)": 0.0,
+ "C: F_s(11785591396), F_s(11785591400)": [
+  182,
+  183
+ ],
+ "C: n/F_s left, right": [
+  64755996.68131868,
+  64402138.797814205
+ ],
+ "C: sqrt(1e10/f(1e10)) (needs >= 5357.85)": 7419.180526283085,
+ "D: Lemma 1.3 coefficient at n=1e8": "0.000133344353432",
+ "E: Lemma R one-step bound (all n >= 1e8, S4 domain)": "2.26958462638",
+ "E: Lemma R F-step bound (t < T)": "2.32956977758",
+ "E: Lemma R F-step terminal |chi^T w| <= A_1 + 1": 2.18,
+ "E: terminal one-step |chi^T w| <= HI + .3436": "1.2836148"
+}

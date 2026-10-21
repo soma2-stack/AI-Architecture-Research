@@ -1,0 +1,87 @@
+{
+ "n": 65536,
+ "H_p": 2000,
+ "gap G (s^2 G ~ 7)": 3000,
+ "rows": [
+  {
+   "H_g": 100,
+   "relay readout (B)": 0.06550963619431785,
+   "no-hold control (B0)": 0.04729874608108429,
+   "peak |Delta O_j|": 876.8293895764729,
+   "ceiling HI s peak": 39.86221392856044,
+   "ratio B/ceiling": 0.001643401851982475,
+   "K_bus-only ceiling HI gamma s^2 peak": 1.938558142308662,
+   "common-mode damping exponent gamma s^2 H_g (H_p+G)/k": 0.035887986140633835,
+   "max|x|": 0.38003949502616147,
+   "peak width": 102
+  },
+  {
+   "H_g": 400,
+   "relay readout (B)": 0.020663395665078597,
+   "no-hold control (B0)": 0.04750585874451577,
+   "peak |Delta O_j|": 876.8293895764729,
+   "ceiling HI s peak": 39.86375888433094,
+   "ratio B/ceiling": 0.0005183504075728458,
+   "K_bus-only ceiling HI gamma s^2 peak": 1.9387084121673663,
+   "common-mode damping exponent gamma s^2 H_g (H_p+G)/k": 0.14356307217844502,
+   "max|x|": 0.3800406204231662,
+   "peak width": 402
+  },
+  {
+   "H_g": 1600,
+   "relay readout (B)": 1.2393692646811851,
+   "no-hold control (B0)": 0.04698419705030233,
+   "peak |Delta O_j|": 876.8293895764729,
+   "ceiling HI s peak": 39.86517025403355,
+   "ratio B/ceiling": 0.03108902474976351,
+   "K_bus-only ceiling HI gamma s^2 peak": 1.938845693890398,
+   "common-mode damping exponent gamma s^2 H_g (H_p+G)/k": 0.5742929520456947,
+   "max|x|": 0.3800455733082009,
+   "peak width": 1602
+  },
+  {
+   "H_g": 3200,
+   "relay readout (B)": 3.4114663497217586,
+   "no-hold control (B0)": 0.04586546985375641,
+   "peak |Delta O_j|": 876.8293895764729,
+   "ceiling HI s peak": 39.86523452536742,
+   "ratio B/ceiling": 0.08557497253781217,
+   "K_bus-only ceiling HI gamma s^2 peak": 1.9388519455782034,
+   "common-mode damping exponent gamma s^2 H_g (H_p+G)/k": 1.1485896076354685,
+   "max|x|": 0.3800535066857518,
+   "peak width": 3202
+  },
+  {
+   "H_g": 6400,
+   "relay readout (B)": 2.615318708321069,
+   "no-hold control (B0)": 0.04366980155443282,
+   "peak |Delta O_j|": 876.8293895764729,
+   "ceiling HI s peak": 39.86523520086234,
+   "ratio B/ceiling": 0.06560399543972831,
+   "K_bus-only ceiling HI gamma s^2 peak": 1.9388520112838072,
+   "common-mode damping exponent gamma s^2 H_g (H_p+G)/k": 2.2971792931198656,
+   "max|x|": 0.3800758319420967,
+   "peak width": 6402
+  },
+  {
+   "H_g": 11000,
+   "relay readout (B)": 0.1197647094959467,
+   "no-hold control (B0)": 0.04061783434399526,
+   "peak |Delta O_j|": 876.8293895764729,
+   "ceiling HI s peak": 39.865235200874864,
+   "ratio B/ceiling": 0.003004239380313963,
+   "K_bus-only ceiling HI gamma s^2 peak": 1.9388520112850252,
+   "common-mode damping exponent gamma s^2 H_g (H_p+G)/k": 3.94827691005225,
+   "max|x|": 0.38013583251346167,
+   "peak width": 11002
+  }
+ ],
+ "direct (A), no gap": {
+  "readout": 15.427145796197967,
+  "gather content diff": 0.09066212674639537,
+  "bath s": 0.04863075458711018,
+  "max|x|": 0.38003913274619583,
+  "width": 3,
+  "peak |Delta O_j|": 876.8293895764729
+ }
+}

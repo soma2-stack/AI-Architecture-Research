@@ -1,0 +1,121 @@
+{
+  "Theorem_7_5_zero_initial_exact_certificate": {
+    "denominator_lower": 0.6697484114570161,
+    "inverse_upper": 1.4930979796197383,
+    "exp_over_den_upper": 1.9171757554368594,
+    "claimed_outer_times_inner": 1.918296,
+    "readout_M_coefficient_upper": 1.3210063541719355,
+    "readout_PQ_coefficient_upper": 1.2840254166877414,
+    "all_combined_coefficients_pass": true,
+    "exp_025_exceeds_1_284": true
+  },
+  "repaired_tighter_constants_exact_certificate": {
+    "Lemma_R_one_step_upper": 2.269584626381609,
+    "Lemma_R_F_step_upper": 2.329569777575231,
+    "own_correction_over_tau_upper": 0.00013334435343187353
+  },
+  "I_term_lower_bound_exact_rational": {
+    "lower": 1.6529792361619586e-06,
+    "claimed": 1.6e-06,
+    "warning": "positive I does not imply positive total drift if the bath decreases"
+  },
+  "bootstrap_denominator_zero": "0.527788860046358073873252635301354295224378254088978042468174122068865497022385411528243935",
+  "dense_drift_identity_defect": {
+    "exact_pre_difference_at_y_0": "(1-alpha)*a*s > 0",
+    "reason_alpha_lt_1": "a/||R0+eta11^T/n|| <= a/(a+eta/n) < 1 for the prescribed eta>0",
+    "correct_coefficient": "a_prime=alpha*a; beta_actual=atanh(s_next)-a_prime*s",
+    "scope": "exact algebra for the prescribed matrix; no convenient replacement matrix selected"
+  },
+  "legal_negative_drift": {
+    "n": 100000000,
+    "m": 5000,
+    "T": 3,
+    "mT": 15000,
+    "source_rows": "undriven",
+    "bath_before": "0.0499513264110619190236391715374689950015498202531949734270294774638861380136540680202111368",
+    "bath_after": "0.0499074106415006500466584416526764418758531580656914934241622152424148946351791833436576384",
+    "bath_change": "-0.0000439157695612689769807298847925531256966621875034800028672622214712433784748846765534983849",
+    "retainer_before": "0",
+    "retainer_after_and_drift": "-0.00000241761456465187990126947861141974143362229320605636765839126568320169788911612548254657786",
+    "I_term": "0.0000414976554833529864602701697894180095730898787992211032591366854932670417243884145302716051",
+    "max_input_upper": "0.486067402790946801061710846470333871255314764835268084987013871343399523715941951658821205",
+    "slow_bath_condition": true,
+    "comment": "R0; 4999 positive off-cycle targets and one neutral row at t2; all inputs zero at t1 and t3"
+  },
+  "legal_7_5_nonzero_initial_readout_counterexample": {
+    "n": 100000000,
+    "P": 1,
+    "m": 1,
+    "T": 3,
+    "mT": 3,
+    "I": "(2,3]",
+    "E": "0 exactly",
+    "Q": "0 exactly",
+    "sigma_initial": "-0.0000000199529190666807837214509366476581812570832594707886672834162686689481557826589997581308547",
+    "sigma_final": "-0.0000000399030305148533465085137967849152466666799146760859135429977762591412802933190538689157858",
+    "Lambda": "0.999999989950090277887878496267942661485740249406028547907233149224097158329459880751448437",
+    "forcing_acquired_sigma": "-0.0000000199501116486975980998143860196464610905144741211217573491142741930284405543405911226236295",
+    "legal_chi_on_retainer_A": "0.34342903022120388181051151100258371548126007384994611869515227345301448772675450798408046",
+    "actual_readout": "0.0000000137038590726031906295616339211576050855297027595106783382987103984833047051625044130382105",
+    "literal_claimed_bound": "0.00000000911242517010155549393216656983844579868695845169575666543668965965259081698941363397729297",
+    "violation_factor": "1.50386519689252656509702986737797861317949012877502961364830834707100835944444232115317792",
+    "actual_input_at_t3": "-0.0499929158102272061641806453812780325215957255784806641202974785463412430854250331982948808",
+    "query": "HI on retainer i; LO on every other memory coordinate; legal one-step query",
+    "proof": "B2=c2*g2(j)*e_j; at t3 multiply exact O-column by gates, then Y3=UB3. All n-5 remaining memory rows have the same gate."
+  },
+  "Cor_7_4_b_finite_counterexample": {
+    "n": 100000000,
+    "I": "{3}",
+    "H": 1,
+    "eps": "0.003",
+    "inputs": "none at any time",
+    "local_unforced_retention_a_g3": "0.997504856809423450986324017123274767282439533567380464060039221795272891051179906057114038",
+    "required_retention": "0.997004495503372976012066234097560910741774804898447155907658933027645067000312013221128205",
+    "N_i": 0,
+    "Theorem_7_3_rhs": "-0.0000422221283952702327328161492974460056755429432379039157690760687198472892282461594529789934",
+    "conclusion": "7.3 is valid but vacuous here; the universal finite factor-450001 comparison to continuous driving does not follow"
+  },
+  "cycle_front_boundary_count": {
+    "n": 100000000,
+    "d": 25000000,
+    "Lam": 450000,
+    "H": 24775000,
+    "interval": [
+      25225002,
+      50000001
+    ],
+    "expanded_interval": [
+      24775002,
+      50000001
+    ],
+    "front_times_in_expanded_interval": [
+      25000001,
+      50000001
+    ],
+    "number": 2,
+    "claimed_1_plus_H_over_d": 1.991,
+    "safe_general_count": "1+floor((H+Lam-1)/d)",
+    "scope": "boundary/count defect if the front count is meant to cover all starts in the same expanded window as the drives; otherwise the earlier front-chain protection still needs a charge"
+  },
+  "dimension_column_necessity_counterexample": {
+    "map": "f(theta)=(1.1/sqrt(2))*(theta,theta), theta in S^(D-1), D>=2",
+    "uniform_norm": "1.1 > tau=1",
+    "at_theta_all_ones_over_sqrt_D": "each of 2D coordinates is 1.1/sqrt(2D) < 1/sqrt(D)",
+    "at_theta_e1": "only two coordinates are nonzero, irrespective of D",
+    "scope": "exact continuous odd Euclidean embedding; refutes the claimed topological necessity, not a legal model-memory construction"
+  },
+  "one_column_many_queries_algebra": {
+    "response": "r_g(theta)=C*g^T theta for g in [LO,HI]^D",
+    "uniform_lower_bound": "sup_g |r_g(theta)| >= C*(HI-LO)/2 on the unit sphere",
+    "parameter_columns": 1,
+    "continuous_memory_dimension": "D",
+    "scope": "functional/algebraic example only; no legal-history realization claimed. Shows that query-dependent responses cannot be counted solely by parameter columns."
+  },
+  "linear_drift_period_exact": {
+    "zero_target": "beta^2*(R-1)*(2R-1)/6 for samples r=0,...,R-1",
+    "optimal_discrete_target": "-beta*(R-1)/2",
+    "optimal_deficit": "beta^2*(R^2-1)/12",
+    "author_target": "-beta*R/2 yields beta^2*(R^2+2)/12",
+    "consequence": "fourfold reduction is a large-R linear-drift approximation; nonlinear recurrence needs separate error control"
+  }
+}

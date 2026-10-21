@@ -1,0 +1,30 @@
+[
+  {
+    "n": 16384,
+    "T": 3000,
+    "P": 2000,
+    "eta_upper": "1/26843545600000000",
+    "state_L2_error_upper": 4.291534423828125e-11,
+    "skeleton_column_L2_error_upper": 0.0005152584209293127,
+    "pair_population_L1_error_upper": 0.04637325788363814,
+    "Delta_phi_uniform_error_upper": 70.3677588122338,
+    "actual_dense_full_query_raw_error_upper": 0.13190641350746155,
+    "kernel_raw_error_upper_given_Fext_max_le_0p01": 275.38579850064707,
+    "assumptions": "c<=2, sigma>=.049, reference and dense bath complements>=.002; fixed sparse physical targets; ||R-R0||<=3eta",
+    "evidence_scope": "exact rational perturbation calculation; reference simulation itself is not interval-enclosed"
+  },
+  {
+    "n": 1000000000000,
+    "T": 27775,
+    "P": 209999703016,
+    "eta_upper": "1/100000000000000000000000000000000",
+    "state_L2_error_upper": 8.3325e-22,
+    "skeleton_column_L2_error_upper": 8.571279323537392e-13,
+    "pair_population_L1_error_upper": 7.855714640491196e-07,
+    "Delta_phi_uniform_error_upper": 0.0006388765089590629,
+    "actual_dense_full_query_raw_error_upper": 1.7142558647537704e-06,
+    "kernel_raw_error_upper_given_Fext_max_le_0p01": 0.12136322791465685,
+    "assumptions": "c<=2, sigma>=.049, reference and dense bath complements>=.002; fixed sparse physical targets; ||R-R0||<=3eta",
+    "evidence_scope": "exact rational perturbation calculation; reference simulation itself is not interval-enclosed"
+  }
+]
