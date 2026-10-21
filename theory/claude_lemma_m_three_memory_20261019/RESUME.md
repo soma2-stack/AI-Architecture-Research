@@ -1,5 +1,16 @@
 # Resume — sequential off-cycle construction, repaired (2026-10-20)
 
+## Owner freeze — 2026-10-21
+
+New mathematical research, experiments, training, and automatic follow-up work are frozen.
+Read the [canonical claim register in consolidation PR38](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md) before proposing work.
+Historical next-action lists below are inactive provenance, not authorization. OPEN and
+PENDING describe evidence gaps; they do not assign another task. Only explicit owner
+authorization can reopen a retired direction. This update preserves evidence and does not
+merge a scientific PR or claim that PR38 is already on main.
+
+Current audit provenance is in [STATUS.md](STATUS.md); pending/next-action language below is historical.
+
 * **Branch:** `claude/lemma-m-sequential-repair-20261020`, stacked on PR #33
   (`claude/lemma-m-three-memory-20261019`, `d6801c2`).
 * **Audit:** Codex's audit of PR #33 is copied unchanged to

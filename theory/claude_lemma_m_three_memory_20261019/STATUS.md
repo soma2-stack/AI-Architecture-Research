@@ -1,3 +1,39 @@
+# PR34 current provenance and status — 2026-10-21
+
+## Owner freeze — 2026-10-21
+
+New mathematical research, experiments, training, and automatic follow-up work are frozen.
+Read the [canonical claim register in consolidation PR38](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md) before proposing work.
+Historical next-action lists below are inactive provenance, not authorization. OPEN and
+PENDING describe evidence gaps; they do not assign another task. Only explicit owner
+authorization can reopen a retired direction. This update preserves evidence and does not
+merge a scientific PR or claim that PR38 is already on main.
+
+## Current review coverage
+
+| Evidence | Exact revision and scope |
+|---|---|
+| [Original independent hostile audit](../codex_pr34_independent_audit_20261019/AUDIT.md) | b47eb08a281b26dc2273ee0e23ad745238e9ad2b; the audit's own claim-by-claim verdicts, including checker defects, are preserved verbatim. |
+| [Fresh independent audit](../codex_pr34_fresh_audit_20261020/AUDIT.md) | 39af3a97dab0c20628c837e2b72da8c7e70a4e3d; existing R0-scoped review and independent certificate evidence. |
+| Task 3 final-commit comparison | Comparing 39af3a97dab0c20628c837e2b72da8c7e70a4e3d with f515e48ed84f31f525d6b583cc4d9fb9ff8bbeeb resolves the narrow gap for **Lemma 5.0R and Proposition 5.4: VERIFIED (within scope)**, including the .3747 assertion and positive front-gate bound. This is separate from the earlier audits, not a standalone new audit of every final PR34 result. |
+
+The three changed files in that final comparison are CHECKS.md, PROOF.md, and
+envelope_certificate.py in this folder. Task 3's conclusion was established before this
+cleanup; no proof review was repeated here. The preservation manifest records this
+comparison separately without inventing a pre-existing permanent Task 3 report.
+
+The R0/selected-metric theorem and original Lemma M refutation retain the exact scopes of
+the preserved audits. Dense transfer is a separate PR35 result. The central robust
+D=Omega(n), mT=o(n^(3/2)) problem remains **OPEN**.
+
+The original reports and all necessary source snapshots, independent scripts and saved
+outputs are now preserved in the two linked audit directories. Each PRESERVATION.json
+records byte hashes and a hash-only comparison against immutable Git source; no audit
+scripts were executed in this cleanup.
+
+<details>
+<summary>Historical author status at f515e48 (preserved; superseded for current review coverage)</summary>
+
 # Status — claude_lemma_m_three_memory_20261019 (repaired 2026-10-20)
 
 | Item | Status | Independent check |
@@ -19,3 +55,5 @@
 
 PRs #31, #32 and #33 are unchanged; this repair lives on a separate branch stacked on #33. No
 merge was performed. AGENTS.md and the restricted notebooks were neither read nor edited.
+
+</details>

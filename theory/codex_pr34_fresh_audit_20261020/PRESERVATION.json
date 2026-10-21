@@ -1,0 +1,766 @@
+{
+  "preserved_on": "2026-10-21",
+  "operation": "Existing evidence copied verbatim; hash/provenance checks only; no proof re-audit or script execution",
+  "source_directory": "E:\\AI-Architecture-Research\\theory\\codex_pr34_fresh_audit_20261020",
+  "audited_source_commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+  "audit_sha256": "26a2bbbeb6638d7b40a22c04cd4e419b33dd69b95d9fa2cd249e12f60ca7a186",
+  "source_manifest_entries_verified_against_git": 41,
+  "source_snapshot_verification": [
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/CHECKS.md",
+      "sha256": "ee02595c437967b7dba6c0d83ca80044be42fbea5ddd0a057cc1c1094d30f35c",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/CHECKS.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/PROOF.md",
+      "sha256": "b3740229be1bdb512e91ebf4e0c9e8879d72beec539507c48d0fe2859a00dd0a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/PROOF.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/PROVENANCE.json",
+      "sha256": "2367daba844c1c01957213f2c33af2a01349bbdc94b5a1e7db9c7f32634597e4",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/PROVENANCE.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/REPORT.md",
+      "sha256": "a76358f676d18acc5a93a2b0f2d48ac6193686e06ff49d135a99dba31da973c2",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/REPORT.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/RESUME.md",
+      "sha256": "15a0e0500dc7cc27c59f4abf0858455825f2f6b412131266a0728c6691abd0c1",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/RESUME.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/STATUS.md",
+      "sha256": "24bbd7783410a467cbbac109cd19b0f8302a35fd2355bb2e8055d27c15bad4e3",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/STATUS.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_seq.py",
+      "sha256": "7a0b26f96b18c46d6fefaa07555daa9150f6adbaacd7c562dce6a08723ac2306",
+      "snapshot_paths": [
+        "author_runs/constants_seq.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_seq_result.json",
+      "sha256": "b76d1d50a5f8e0e5f7d30e1a26e7d7aba7888c14d348c3e2644d725b111ac03f",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_so.py",
+      "sha256": "90bd72cecad527dec5b4166d705ba91144290b53c1488601d06b76447561dad0",
+      "snapshot_paths": [
+        "author_runs/constants_so.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_so.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_so_result.json",
+      "sha256": "0c012195c280f972fd33df16c57bb7ccccb454e1b6f5baaf7cbae44268235c3e",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_so_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/count_certificate.py",
+      "sha256": "12e5fc4c8b9d513131a42131a7ead74c232845b6a82e095a363988998270dfd8",
+      "snapshot_paths": [
+        "author_runs/count_certificate.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/count_certificate_result.json",
+      "sha256": "efd9ab006d1a9eaeaf665ca8ca6588ff347f6398a217e207038c788f31bc150a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/envelope_certificate.py",
+      "sha256": "ca334726dbc6c2e0702921141fcf4241a6b2f36761e0fc5c6cb01b48bf98f2c5",
+      "snapshot_paths": [
+        "author_runs/envelope_certificate.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json",
+      "sha256": "28a6e8be2330405d5ff1a8393547e9c37474afacdd0283befcafbb2c9c0fbaf6",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_S_check.py",
+      "sha256": "5650d25887bf448dc3faeefff6a0eb0c3c6e35f0f8fa135ad0317526ee0d52d5",
+      "snapshot_paths": [
+        "author_runs/exp_S_check.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n16384.json",
+      "sha256": "02b1f1b5ba0128afc879bc213457752e67886488e9185c5a24554fdd7245c02f",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n16384.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n65536.json",
+      "sha256": "31fa98981f0eb9375e1b3e3a6591e6befd78aa9ee92c9f9e1e0c8d20bcb77c4a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n65536.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_exact_checks.py",
+      "sha256": "dd30180954ef21efe1f5e7e7c25c2e7344b1d4a54a96daef45a1cc3c311b2e9e",
+      "snapshot_paths": [
+        "author_runs/exp_exact_checks.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_exact_checks_result.json",
+      "sha256": "051367eec6246ccbbd4d00577bd06fef493e9f9f80052836181008460f209fdb",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_repair_checks.py",
+      "sha256": "216590b148c508a4144b8c09308de83e7bc8a2b04e3d14abe399f8f4599cd55a",
+      "snapshot_paths": [
+        "author_runs/exp_repair_checks.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_repair_checks_result.json",
+      "sha256": "ec3d68542a1884e5b918a97b69970c47f4794e64838860c66228f6c88c101b51",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py",
+      "sha256": "ed9c2f66cc3bb77af4fffdd0b9ba1ca9d1e9cf3ced84bced47911e942aa31027",
+      "snapshot_paths": [
+        "author_runs/exp_second_order_scaling.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling_result.json",
+      "sha256": "cf51d122b5d0a5973e2b5104c263b8a936c6a554999dc406c9aad394956ce5e4",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_sequential.py",
+      "sha256": "b8d4e2ea5867f0b98dfee8feaa7ceef61ccd15994ba20f41c55dcc0c6539e3e9",
+      "snapshot_paths": [
+        "author_runs/exp_sequential.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_sequential_result_n16384_D3.json",
+      "sha256": "8646d102f377659512cc428e8c6a5a2c696c3ee32ecab6b4cc27555828e6abb1",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential_result_n16384_D3.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py",
+      "sha256": "9fbe5f3fd8d41ae672651184d9102aabab6421401fdc12c3530b330e88f444ab",
+      "snapshot_paths": [
+        "author_runs/exp_skeleton_action.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action_result.json",
+      "sha256": "90631c709a58ec869eab3223561d0b64c3f0a557236b66cd4cf2d0b9f233885c",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_so_attrib.py",
+      "sha256": "2d048fc78aaf42d8d0610efd5f6bf640a484e1483b2c7e342d28c2cd84252d11",
+      "snapshot_paths": [
+        "author_runs/exp_so_attrib.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_so_attrib_result.json",
+      "sha256": "382a6a9f86f3b039871d21481f3b3cffb028a60187fd4277adea663411b00e4e",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_timing.py",
+      "sha256": "a7937504dae83d99be522f34798f1f095c650feac1b062e3773040b361b486f7",
+      "snapshot_paths": [
+        "author_runs/exp_timing.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_timing_result.json",
+      "sha256": "55d29957b77f76d92fb4af6dddf335876bbb62fb8cdbdd36d096c3139043b029",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_verify_probe.py",
+      "sha256": "98d55cd413ec82f06923b52f1ff1ebc7a5d1d4b096afa94455ae601a4305caee",
+      "snapshot_paths": [
+        "author_runs/exp_verify_probe.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_verify_probe_result.json",
+      "sha256": "fe33b2c0633d576c658d086d748ec56521937b1f3b3e9ef5af4ee706f71d88e5",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe_result.json"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_handoff.md",
+      "sha256": "9155279d5e76d6338c6aee9480c6257d246a1a440c77c337211d0fe2a06bdc6a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_handoff.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_probe.py",
+      "sha256": "e358090e7a903e5ab63b5ee53f78cf6c799f19d5b3f937ad8e9ce212be8445e0",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_probe.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_results.txt",
+      "sha256": "46f2a7b88461e48870ce6ec0a613ccdc0ceb7227fee7885b5e114d254661991f",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_results.txt"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_three_memory_20261019/m3sim.py",
+      "sha256": "f90cc31779f5beab568c051f291d3628ba405003359d39db2f45cbe9312dc7c9",
+      "snapshot_paths": [
+        "author_runs/m3sim.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/m3sim.py"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/CURRENT_THEORY.md",
+      "sha256": "1908fb87bb5ba5d17d08015960d9ce18ebe8043d67c0521bb4135f4aa52d33de",
+      "snapshot_paths": [
+        "sources/theory/CURRENT_THEORY.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_bus_capacity_20261015/PROOF.md",
+      "sha256": "f5694266a76ff231f9afc9b2404461be59ad191be74a7862907443b1efd938d2",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_bus_capacity_20261015/PROOF.md"
+      ]
+    },
+    {
+      "commit": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+      "path": "theory/claude_lemma_m_rest_20261016/PROOF.md",
+      "sha256": "8bc5cbd0bd201e51ca7fc5ea2a81c1c309a00647643f13013f946b577ba6270a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_rest_20261016/PROOF.md"
+      ]
+    },
+    {
+      "commit": "0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88",
+      "path": "theory/claude_multiprobe_memory_20261014/PROOF.md",
+      "sha256": "ad22bd20011f0400d4a0b696d75af05dbff4f7c571810fb74277c7bdf21b3b9a",
+      "snapshot_paths": [
+        "sources/theory/claude_multiprobe_memory_20261014/PROOF.md"
+      ]
+    }
+  ],
+  "existing_result_hash_checks": {},
+  "excluded": [
+    "__pycache__ directories",
+    "*.pyc interpreter caches"
+  ],
+  "files": [
+    {
+      "path": "AUDIT.md",
+      "bytes": 30152,
+      "sha256": "26a2bbbeb6638d7b40a22c04cd4e419b33dd69b95d9fa2cd249e12f60ca7a186"
+    },
+    {
+      "path": "author_constants_stdout.txt",
+      "bytes": 634,
+      "sha256": "6de54dc8041eefc4da004467417ba02e38c2594630c7fa9b4e3e8b31ad0db84a"
+    },
+    {
+      "path": "author_count_stdout.txt",
+      "bytes": 1908,
+      "sha256": "c51c007d370d36932b77cd7561d1f2b78b9cafeb987c663a6d75c32a745f26b5"
+    },
+    {
+      "path": "author_envelope_stdout.txt",
+      "bytes": 8218,
+      "sha256": "8c83f3aca72ffdd465b6cde18cff8388399aaddddc8dddc51c9a89f19c32a686"
+    },
+    {
+      "path": "author_repair_stdout.txt",
+      "bytes": 2487,
+      "sha256": "43c34c8b3919d908a1d3a67df77c6e67ca4d72d44270b8ce50dab3571e787e7c"
+    },
+    {
+      "path": "author_runs/constants_seq.py",
+      "bytes": 5359,
+      "sha256": "7a0b26f96b18c46d6fefaa07555daa9150f6adbaacd7c562dce6a08723ac2306"
+    },
+    {
+      "path": "author_runs/constants_seq_result.json",
+      "bytes": 632,
+      "sha256": "2c235e7d81539f3d6e59be90aea9ab8086a94077142655b06721813869aa664e"
+    },
+    {
+      "path": "author_runs/constants_so.py",
+      "bytes": 6177,
+      "sha256": "90bd72cecad527dec5b4166d705ba91144290b53c1488601d06b76447561dad0"
+    },
+    {
+      "path": "author_runs/count_certificate.py",
+      "bytes": 5968,
+      "sha256": "12e5fc4c8b9d513131a42131a7ead74c232845b6a82e095a363988998270dfd8"
+    },
+    {
+      "path": "author_runs/count_certificate_result.json",
+      "bytes": 1215,
+      "sha256": "778d41958d888d080783914397b64775649f3d1f1ab696e352aba9411f92cf5b"
+    },
+    {
+      "path": "author_runs/envelope_certificate.py",
+      "bytes": 16129,
+      "sha256": "ca334726dbc6c2e0702921141fcf4241a6b2f36761e0fc5c6cb01b48bf98f2c5"
+    },
+    {
+      "path": "author_runs/envelope_certificate_result.json",
+      "bytes": 9383,
+      "sha256": "79597656c6dc58f0d977e2b045574ea8ed11a7e6afa6f14a94291f3f1b8eea50"
+    },
+    {
+      "path": "author_runs/exp_exact_checks.py",
+      "bytes": 2886,
+      "sha256": "dd30180954ef21efe1f5e7e7c25c2e7344b1d4a54a96daef45a1cc3c311b2e9e"
+    },
+    {
+      "path": "author_runs/exp_repair_checks.py",
+      "bytes": 10428,
+      "sha256": "216590b148c508a4144b8c09308de83e7bc8a2b04e3d14abe399f8f4599cd55a"
+    },
+    {
+      "path": "author_runs/exp_repair_checks_result.json",
+      "bytes": 2782,
+      "sha256": "b66a542a163e70174e1a7a432d84a84c0911c9ed18f8d173bb60305e029c91b7"
+    },
+    {
+      "path": "author_runs/exp_S_check.py",
+      "bytes": 3942,
+      "sha256": "5650d25887bf448dc3faeefff6a0eb0c3c6e35f0f8fa135ad0317526ee0d52d5"
+    },
+    {
+      "path": "author_runs/exp_second_order_scaling.py",
+      "bytes": 2560,
+      "sha256": "ed9c2f66cc3bb77af4fffdd0b9ba1ca9d1e9cf3ced84bced47911e942aa31027"
+    },
+    {
+      "path": "author_runs/exp_sequential.py",
+      "bytes": 4457,
+      "sha256": "b8d4e2ea5867f0b98dfee8feaa7ceef61ccd15994ba20f41c55dcc0c6539e3e9"
+    },
+    {
+      "path": "author_runs/exp_skeleton_action.py",
+      "bytes": 1400,
+      "sha256": "9fbe5f3fd8d41ae672651184d9102aabab6421401fdc12c3530b330e88f444ab"
+    },
+    {
+      "path": "author_runs/exp_skeleton_action_result.json",
+      "bytes": 366,
+      "sha256": "428c9c401053357ea5a70b620f8bb98323f4a726228bc45537a2b6c2b04d7e79"
+    },
+    {
+      "path": "author_runs/exp_so_attrib.py",
+      "bytes": 2609,
+      "sha256": "2d048fc78aaf42d8d0610efd5f6bf640a484e1483b2c7e342d28c2cd84252d11"
+    },
+    {
+      "path": "author_runs/exp_timing.py",
+      "bytes": 3372,
+      "sha256": "a7937504dae83d99be522f34798f1f095c650feac1b062e3773040b361b486f7"
+    },
+    {
+      "path": "author_runs/exp_verify_probe.py",
+      "bytes": 4427,
+      "sha256": "98d55cd413ec82f06923b52f1ff1ebc7a5d1d4b096afa94455ae601a4305caee"
+    },
+    {
+      "path": "author_runs/m3sim.py",
+      "bytes": 5888,
+      "sha256": "f90cc31779f5beab568c051f291d3628ba405003359d39db2f45cbe9312dc7c9"
+    },
+    {
+      "path": "author_skeleton_stdout.txt",
+      "bytes": 368,
+      "sha256": "847ce2a3d1972041a7a1212202b4a98caf1e6cea6a86f525c34b5ac83dd729c8"
+    },
+    {
+      "path": "independent_all_size.py",
+      "bytes": 4478,
+      "sha256": "e7054e206c4cf59202f99c5eba8059030ead8bfde6432242760ccedce78983d3"
+    },
+    {
+      "path": "independent_all_size_result.json",
+      "bytes": 1381,
+      "sha256": "27d3d234553c512387b3a27437caca7217de4e0555d051785f2d15524c92973a"
+    },
+    {
+      "path": "independent_counts.py",
+      "bytes": 2149,
+      "sha256": "c51429a583d8ff8045d85876835c72ebd21255a3b6f7ae48af6d5998151785f7"
+    },
+    {
+      "path": "independent_counts_result.json",
+      "bytes": 5535,
+      "sha256": "6b404826572c1f021cfab089d12bb2db25e70a9ca65b7bfcae3d76b6b83e943e"
+    },
+    {
+      "path": "independent_counts_stdout.txt",
+      "bytes": 5537,
+      "sha256": "ff34437124845a9080a11e7860a684c9d358418ee7635157ef79e3528ce91dd8"
+    },
+    {
+      "path": "independent_frozen_query.py",
+      "bytes": 4198,
+      "sha256": "195cf79338fab0a40995ac6b03194832e96a02c669369e5a01d0a19d441574d6"
+    },
+    {
+      "path": "independent_frozen_query_result.json",
+      "bytes": 1974,
+      "sha256": "6edeef7075fe0dbbca9711b94cc4980f3736b1232dbac6f8203d3d2308df8aff"
+    },
+    {
+      "path": "independent_frozen_query_stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "independent_scalar.py",
+      "bytes": 3106,
+      "sha256": "c450d8bbf25d5726879c527fcf062c2e36f224f6ee2f5bffa6d6edb92389cbb5"
+    },
+    {
+      "path": "independent_scalar_result.json",
+      "bytes": 462,
+      "sha256": "124c1bc65a977f6011d436565221ad8fd76e532ff1b6ee525425454376d5ab5e"
+    },
+    {
+      "path": "independent_scalar_stdout.txt",
+      "bytes": 464,
+      "sha256": "561f278acecb3552f03f4f1630c16061d3964676ab0999512b4eeb86dca0eb47"
+    },
+    {
+      "path": "source_manifest.json",
+      "bytes": 9588,
+      "sha256": "1e2d1f2c48b2e33a08bb455ff1ec5883340fb4905b4c47bdb576df80dd01270f"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_bus_capacity_20261015/PROOF.md",
+      "bytes": 36408,
+      "sha256": "f5694266a76ff231f9afc9b2404461be59ad191be74a7862907443b1efd938d2"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_rest_20261016/PROOF.md",
+      "bytes": 32675,
+      "sha256": "8bc5cbd0bd201e51ca7fc5ea2a81c1c309a00647643f13013f946b577ba6270a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/CHECKS.md",
+      "bytes": 7110,
+      "sha256": "ee02595c437967b7dba6c0d83ca80044be42fbea5ddd0a057cc1c1094d30f35c"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq.py",
+      "bytes": 5359,
+      "sha256": "7a0b26f96b18c46d6fefaa07555daa9150f6adbaacd7c562dce6a08723ac2306"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq_result.json",
+      "bytes": 616,
+      "sha256": "b76d1d50a5f8e0e5f7d30e1a26e7d7aba7888c14d348c3e2644d725b111ac03f"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_so.py",
+      "bytes": 6177,
+      "sha256": "90bd72cecad527dec5b4166d705ba91144290b53c1488601d06b76447561dad0"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_so_result.json",
+      "bytes": 191889,
+      "sha256": "0c012195c280f972fd33df16c57bb7ccccb454e1b6f5baaf7cbae44268235c3e"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate.py",
+      "bytes": 5968,
+      "sha256": "12e5fc4c8b9d513131a42131a7ead74c232845b6a82e095a363988998270dfd8"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate_result.json",
+      "bytes": 1149,
+      "sha256": "efd9ab006d1a9eaeaf665ca8ca6588ff347f6398a217e207038c788f31bc150a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate.py",
+      "bytes": 16129,
+      "sha256": "ca334726dbc6c2e0702921141fcf4241a6b2f36761e0fc5c6cb01b48bf98f2c5"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json",
+      "bytes": 9070,
+      "sha256": "28a6e8be2330405d5ff1a8393547e9c37474afacdd0283befcafbb2c9c0fbaf6"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks.py",
+      "bytes": 2886,
+      "sha256": "dd30180954ef21efe1f5e7e7c25c2e7344b1d4a54a96daef45a1cc3c311b2e9e"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks_result.json",
+      "bytes": 177,
+      "sha256": "051367eec6246ccbbd4d00577bd06fef493e9f9f80052836181008460f209fdb"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks.py",
+      "bytes": 10428,
+      "sha256": "216590b148c508a4144b8c09308de83e7bc8a2b04e3d14abe399f8f4599cd55a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks_result.json",
+      "bytes": 8520,
+      "sha256": "ec3d68542a1884e5b918a97b69970c47f4794e64838860c66228f6c88c101b51"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check.py",
+      "bytes": 3942,
+      "sha256": "5650d25887bf448dc3faeefff6a0eb0c3c6e35f0f8fa135ad0317526ee0d52d5"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n16384.json",
+      "bytes": 1024,
+      "sha256": "02b1f1b5ba0128afc879bc213457752e67886488e9185c5a24554fdd7245c02f"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n65536.json",
+      "bytes": 1032,
+      "sha256": "31fa98981f0eb9375e1b3e3a6591e6befd78aa9ee92c9f9e1e0c8d20bcb77c4a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py",
+      "bytes": 2560,
+      "sha256": "ed9c2f66cc3bb77af4fffdd0b9ba1ca9d1e9cf3ced84bced47911e942aa31027"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling_result.json",
+      "bytes": 9645,
+      "sha256": "cf51d122b5d0a5973e2b5104c263b8a936c6a554999dc406c9aad394956ce5e4"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential.py",
+      "bytes": 4457,
+      "sha256": "b8d4e2ea5867f0b98dfee8feaa7ceef61ccd15994ba20f41c55dcc0c6539e3e9"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential_result_n16384_D3.json",
+      "bytes": 3132,
+      "sha256": "8646d102f377659512cc428e8c6a5a2c696c3ee32ecab6b4cc27555828e6abb1"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py",
+      "bytes": 1400,
+      "sha256": "9fbe5f3fd8d41ae672651184d9102aabab6421401fdc12c3530b330e88f444ab"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action_result.json",
+      "bytes": 353,
+      "sha256": "90631c709a58ec869eab3223561d0b64c3f0a557236b66cd4cf2d0b9f233885c"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib.py",
+      "bytes": 2609,
+      "sha256": "2d048fc78aaf42d8d0610efd5f6bf640a484e1483b2c7e342d28c2cd84252d11"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib_result.json",
+      "bytes": 2356,
+      "sha256": "382a6a9f86f3b039871d21481f3b3cffb028a60187fd4277adea663411b00e4e"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing.py",
+      "bytes": 3372,
+      "sha256": "a7937504dae83d99be522f34798f1f095c650feac1b062e3773040b361b486f7"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing_result.json",
+      "bytes": 23067,
+      "sha256": "55d29957b77f76d92fb4af6dddf335876bbb62fb8cdbdd36d096c3139043b029"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe.py",
+      "bytes": 4427,
+      "sha256": "98d55cd413ec82f06923b52f1ff1ebc7a5d1d4b096afa94455ae601a4305caee"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe_result.json",
+      "bytes": 6910,
+      "sha256": "fe33b2c0633d576c658d086d748ec56521937b1f3b3e9ef5af4ee706f71d88e5"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_handoff.md",
+      "bytes": 2716,
+      "sha256": "9155279d5e76d6338c6aee9480c6257d246a1a440c77c337211d0fe2a06bdc6a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_probe.py",
+      "bytes": 3931,
+      "sha256": "e358090e7a903e5ab63b5ee53f78cf6c799f19d5b3f937ad8e9ce212be8445e0"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_results.txt",
+      "bytes": 1947,
+      "sha256": "46f2a7b88461e48870ce6ec0a613ccdc0ceb7227fee7885b5e114d254661991f"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/m3sim.py",
+      "bytes": 5888,
+      "sha256": "f90cc31779f5beab568c051f291d3628ba405003359d39db2f45cbe9312dc7c9"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/PROOF.md",
+      "bytes": 53515,
+      "sha256": "b3740229be1bdb512e91ebf4e0c9e8879d72beec539507c48d0fe2859a00dd0a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/PROVENANCE.json",
+      "bytes": 32999,
+      "sha256": "2367daba844c1c01957213f2c33af2a01349bbdc94b5a1e7db9c7f32634597e4"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/REPORT.md",
+      "bytes": 8558,
+      "sha256": "a76358f676d18acc5a93a2b0f2d48ac6193686e06ff49d135a99dba31da973c2"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/RESUME.md",
+      "bytes": 1918,
+      "sha256": "15a0e0500dc7cc27c59f4abf0858455825f2f6b412131266a0728c6691abd0c1"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/STATUS.md",
+      "bytes": 1871,
+      "sha256": "24bbd7783410a467cbbac109cd19b0f8302a35fd2355bb2e8055d27c15bad4e3"
+    },
+    {
+      "path": "sources/theory/claude_multiprobe_memory_20261014/PROOF.md",
+      "bytes": 73910,
+      "sha256": "ad22bd20011f0400d4a0b696d75af05dbff4f7c571810fb74277c7bdf21b3b9a"
+    },
+    {
+      "path": "sources/theory/CURRENT_THEORY.md",
+      "bytes": 19222,
+      "sha256": "1908fb87bb5ba5d17d08015960d9ce18ebe8043d67c0521bb4135f4aa52d33de"
+    },
+    {
+      "path": "verification_manifest.json",
+      "bytes": 717,
+      "sha256": "346dffd87476a2542e3f0a6abe78f8637609e689aa1c6faa21d36a067fb58da6"
+    }
+  ],
+  "separate_task3_comparison_record": {
+    "provenance": "Owner-confirmed completed Task 3, recorded during organizational cleanup; not a regenerated proof audit",
+    "base": "39af3a97dab0c20628c837e2b72da8c7e70a4e3d",
+    "head": "f515e48ed84f31f525d6b583cc4d9fb9ff8bbeeb",
+    "changed_files": [
+      "theory/claude_lemma_m_three_memory_20261019/CHECKS.md",
+      "theory/claude_lemma_m_three_memory_20261019/PROOF.md",
+      "theory/claude_lemma_m_three_memory_20261019/envelope_certificate.py"
+    ],
+    "verdict": "VERIFIED (within scope): Lemma 5.0R and Proposition 5.4 only, including .3747 assertion and positive front-gate bound",
+    "not_claimed": "Standalone independent audit of every PR34 result; historical Task 3 artifact"
+  }
+}
