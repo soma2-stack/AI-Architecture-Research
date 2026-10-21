@@ -1,0 +1,46 @@
+{
+  "folder": "theory/claude_hypothesis_b_bus_20261015",
+  "author": "Claude (Opus 5.5)",
+  "date": "2026-10-15",
+  "branch": "claude/hypothesis-b-bus-20261015",
+  "base": "origin/main f8a96fb",
+  "builds_on": [
+    "PR #27 claude/narrow-capture-hub-20261013 at c987408 (Theorem 1 and foundations)",
+    "PR #28 claude/multiprobe-memory-20261014 at 0cc0a23 (Theorems 2-4, Hypothesis B, Lemma 7.1-7.3)",
+    "theory/codex_cross_pr_final_audit_20261015 (AUDIT.md, HANDOFF.md) on the PR #28 branch",
+    "PR #26 claude/neutral-path-tax-20261013 (exact neutral holes, Lemma 2.1; width convention)",
+    "theory/gamma_c_over_n_quadratic_20261001 section 7 (the prescribed dense recipe)"
+  ],
+  "compute": "CPU only; total ~5 minutes; numpy/decimal; threads capped at 4; no training, no GPU, no large-scale runs",
+  "restricted_notebooks_read": false,
+  "agents_md_modified": false,
+  "status": "Hypothesis B REFUTED (independently verified, R0 and prescribed dense R, original listing (i)-(v)); Prop. 0.2 extension zero OPEN; Lemma M OPEN; original problem OPEN",
+  "review_rounds": [
+    {
+      "round": 1,
+      "reviewer": "Codex",
+      "reviewed_commit": "6c2a882",
+      "findings": [
+        "P1 arrival-error fixed point not derived (PROOF.md:396)",
+        "P1 spike-leak estimate with undefined A_s (PROOF.md:414)",
+        "P2 predictor arrival set includes ahi+1 (exp_drift_capture.py:123)"
+      ],
+      "resolution": "all valid; repaired in PROOF.md section 2.3 Steps 9-10 (Lemma E) and exp_drift_capture.py; see REVIEW_RESPONSE.md"
+    }
+  ],
+  "phase4_dense_transfer": "Theorem R_D (PROOF.md section 2.4): prescribed dense R from gamma_c_over_n_quadratic_20261001 section 7 (c=1) selects C=11^T/n; actual-input construction; exp_dense_transfer.py, exp_dense_transfer_mp.py; constants_check.py section F",
+  "independent_audits": [
+    {
+      "folder": "theory/codex_pr29_independent_audit_20261015",
+      "auditor": "Codex",
+      "audited_commit": "c19ec9b",
+      "verdict": "Theorem R and Lemma E PROVED for R=R0; dense contract INCOMPLETE at that commit"
+    },
+    {
+      "folder": "theory/codex_pr29_dense_transfer_audit_20261015",
+      "auditor": "Codex",
+      "audited_commit": "2e46b02",
+      "verdict": "Lemmas D1-D3 and original Hypothesis B counterexample PROVED for prescribed dense R; Prop. 0.2 extension INCOMPLETE"
+    }
+  ]
+}
