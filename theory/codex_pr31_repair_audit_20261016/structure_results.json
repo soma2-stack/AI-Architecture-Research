@@ -1,0 +1,126 @@
+{
+  "runs": [
+    {
+      "n": 128,
+      "T": 12,
+      "m": 4,
+      "seed": 1,
+      "dense": false,
+      "max_actual_input": 0.49,
+      "max_actual_support": 4,
+      "nine_term_residual": 6.2727600891321345e-15,
+      "Kpos_monotonicity_violation": 0.0,
+      "two_channel_residual": 4.524158825347513e-15,
+      "max_cycle_TV": 2.0,
+      "terms": {
+        "Kpos": 0.005907757002116989,
+        "Kneg": 0.0,
+        "Kuni": 0.08155254722315237,
+        "Kbus": 0.033056097550751846,
+        "Lcyc": 0.107631872054985,
+        "Loff": 0.204496206071614,
+        "Lbus": 0.13052405908796827,
+        "W": 1.4536612584435806,
+        "entry": 0.0
+      }
+    },
+    {
+      "n": 128,
+      "T": 31,
+      "m": 4,
+      "seed": 2,
+      "dense": false,
+      "max_actual_input": 0.49,
+      "max_actual_support": 4,
+      "nine_term_residual": 1.2434497875801753e-14,
+      "Kpos_monotonicity_violation": 0.0,
+      "two_channel_residual": 2.3314683517128287e-15,
+      "max_cycle_TV": 2.0,
+      "terms": {
+        "Kpos": 0.024511943536497334,
+        "Kneg": 0.0,
+        "Kuni": 0.5708090579062483,
+        "Kbus": 0.39002223280178383,
+        "Lcyc": 0.6533169758376385,
+        "Loff": 1.0074920402287046,
+        "Lbus": 0.9872974803147768,
+        "W": 3.6330899458880626,
+        "entry": 0.0
+      }
+    },
+    {
+      "n": 128,
+      "T": 120,
+      "m": 8,
+      "seed": 3,
+      "dense": false,
+      "max_actual_input": 0.49,
+      "max_actual_support": 8,
+      "nine_term_residual": 1.687538997430238e-14,
+      "Kpos_monotonicity_violation": 0.0,
+      "two_channel_residual": 2.4424906541753444e-15,
+      "max_cycle_TV": 1.9999950929488677,
+      "terms": {
+        "Kpos": 0.11970254933827858,
+        "Kneg": 0.17972912090913312,
+        "Kuni": 0.7301593242398173,
+        "Kbus": 0.5412043347971927,
+        "Lcyc": 0.9647329867754578,
+        "Loff": 2.035202915361858,
+        "Lbus": 2.3422679524988754,
+        "W": 3.3598126236455994,
+        "entry": 0.21776431540918775
+      }
+    },
+    {
+      "n": 192,
+      "T": 160,
+      "m": 12,
+      "seed": 4,
+      "dense": false,
+      "max_actual_input": 0.49,
+      "max_actual_support": 12,
+      "nine_term_residual": 9.769962616701378e-15,
+      "Kpos_monotonicity_violation": 0.0,
+      "two_channel_residual": 1.2434497875801753e-14,
+      "max_cycle_TV": 1.9999999499418435,
+      "terms": {
+        "Kpos": 0.2584282519714974,
+        "Kneg": 0.06312135559467794,
+        "Kuni": 0.8445955253699757,
+        "Kbus": 0.6272149474235776,
+        "Lcyc": 1.2482744906091425,
+        "Loff": 1.903194022219845,
+        "Lbus": 2.1583817428799965,
+        "W": 4.326865111931882,
+        "entry": 1.4325481783584375
+      }
+    },
+    {
+      "n": 128,
+      "T": 120,
+      "m": 8,
+      "seed": 5,
+      "dense": true,
+      "max_actual_input": 0.49,
+      "max_actual_support": 8,
+      "nine_term_residual": 1.176836406102666e-14,
+      "Kpos_monotonicity_violation": 0.0,
+      "two_channel_residual": 3.9968028886505635e-15,
+      "max_cycle_TV": 1.9999918527959106,
+      "terms": {
+        "Kpos": 0.10147683307270915,
+        "Kneg": 0.004229551897054581,
+        "Kuni": 0.9024654205282423,
+        "Kbus": 0.690342888473881,
+        "Lcyc": 1.0696195033639782,
+        "Loff": 1.9805458405677865,
+        "Lbus": 2.2716944973128586,
+        "W": 3.5774343306718865,
+        "entry": 1.6947312235502434
+      }
+    }
+  ],
+  "block_variance_worst_ratio": 1.0,
+  "scope": "Finite legal-input algebra checks; not simulations at theorem-scale n. No author imports."
+}
