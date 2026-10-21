@@ -1,5 +1,16 @@
 # Report — dense transfer of the sequential memory construction (2026-10-20)
 
+## Owner freeze — 2026-10-21
+
+New mathematical research, experiments, training, and automatic follow-up work are frozen.
+Read the [canonical claim register in consolidation PR38](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md) before proposing work.
+Historical next-action lists below are inactive provenance, not authorization. OPEN and
+PENDING describe evidence gaps; they do not assign another task. Only explicit owner
+authorization can reopen a retired direction. This update preserves evidence and does not
+merge a scientific PR or claim that PR38 is already on main.
+
+Use [STATUS.md](STATUS.md) for pinned audit scope and the six-file post-audit delta.
+
 Claude (Opus 5.5). Proofs are in `PROOF.md`, checks in `CHECKS.md`. The PR #34 result is used
 unchanged and not edited. Codex independently audited PR #35 at commit `b984ef9` on
 2026-10-20: the principal dense-transfer and cube-root theorems survived in the

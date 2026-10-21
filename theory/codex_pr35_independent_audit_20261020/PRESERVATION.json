@@ -1,0 +1,1184 @@
+{
+  "preserved_on": "2026-10-21",
+  "operation": "Existing evidence copied verbatim; hash/provenance checks only; no proof re-audit or script execution",
+  "source_directory": "E:\\AI-Architecture-Research\\theory\\codex_pr35_independent_audit_20261020",
+  "audited_source_commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+  "audit_sha256": "7ea8df109fe3ab18004977c488e8b8bd62d8d465fa6f59d733f5ccf0f3f6ccf2",
+  "source_manifest_entries_verified_against_git": 67,
+  "source_snapshot_verification": [
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/CHECKS.md",
+      "sha256": "dbd5ce53255fa8dbbf8dc9b64b94206c168288ef1e5a92f9ba18a2d06a4e1736",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/CHECKS.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/PROOF.md",
+      "sha256": "b3696104ddfb2b1263424898dfd3567ec0d548c2a62b8b674469508e063cbac5",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/PROOF.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/PROVENANCE.json",
+      "sha256": "4a18b954904f7f65d94a91b98cb5ddb01e863c2b7f8fc3bde30a26e35929e636",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/PROVENANCE.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/REPORT.md",
+      "sha256": "a4154fd499188818950df0c11c2507840a3dfae787567d1284cf6e2f6069a1ff",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/REPORT.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/RESUME.md",
+      "sha256": "581adef3e6e2c696a02c6805e2ed34486f7c39156019bbc6774366304592e5d2",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/RESUME.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/STATUS.md",
+      "sha256": "c36baefa87af5712800fe28c46a421f37d357cccafa710ac25c78be298270345",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/STATUS.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/constants_dense.py",
+      "sha256": "8cdd2c2901a5513a6aead0e19cfa3eb629a6e7e8d7ac895fb1ed0f1918c7d54a",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/constants_dense.py",
+        "sources/theory/claude_dense_transfer_20261020/constants_dense.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/constants_dense_result.json",
+      "sha256": "748f4bc34d46b05e28eae15e2a6d8c4463eb2f60012483b524f4e55e8b96b1ab",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/constants_dense_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/count_skeleton.py",
+      "sha256": "7d454b8f284116880345675578aaac8cb95df39f832680be1a5b18c0b1299aec",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/count_skeleton.py",
+        "sources/theory/claude_dense_transfer_20261020/count_skeleton.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/count_skeleton_result.json",
+      "sha256": "df6fd6c1e415c14677e91d19233e23f5522aa5e01b62f0afb3b7dbe2ca44f3fe",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/count_skeleton_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/dense_tools.py",
+      "sha256": "1b8ca003ead4644a49018e24cc29babe9d065cfcc2a131eaad966f093080755d",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/dense_tools.py",
+        "sources/theory/claude_dense_transfer_20261020/dense_tools.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_dense_S.py",
+      "sha256": "56815fadccf8066c3a80d28b5e4f7298b9b156c1f46b4058de72bd0118032835",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/exp_dense_S.py",
+        "sources/theory/claude_dense_transfer_20261020/exp_dense_S.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_dense_S_result.json",
+      "sha256": "171d1ceec691fba4bee2547ca4455a5a76dcb0f23ee0c3563e926b2900cc5b6f",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/exp_dense_S_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_dense_exact_mp.py",
+      "sha256": "0db512ed3536d3320c8509ae35447f89f3b222b888b8305b304bf6c6eb951fe1",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/exp_dense_exact_mp.py",
+        "sources/theory/claude_dense_transfer_20261020/exp_dense_exact_mp.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_dense_exact_mp_result.json",
+      "sha256": "22127f363c57efc16dbd1cb514b5d4c0dd1a99944b9144c30381829e810b1d2e",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/exp_dense_exact_mp_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_dense_large.py",
+      "sha256": "67348f956333d4b90bdf8c8628c4927dbc705485496157b79f0d52933d5f1851",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/exp_dense_large.py",
+        "sources/theory/claude_dense_transfer_20261020/exp_dense_large.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_dense_large_result.json",
+      "sha256": "f9f5c57a50ab402c89e6f321be4fdf6f7ffde8adadbe2d61bcdccca8f1f1576a",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/exp_dense_large_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_generic_control.py",
+      "sha256": "7338876b96c1a7af6e3b46219923a156e253d86e58b507f87cfa1373a309b1ba",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/exp_generic_control.py",
+        "sources/theory/claude_dense_transfer_20261020/exp_generic_control.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_generic_control_result.json",
+      "sha256": "f7eb1565a04284c77c89756b8b0828afa9aa013886ca43db88d7acdd7fcc8619",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/exp_generic_control_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_skeleton.py",
+      "sha256": "b9f77f11958fa47cd3939d075a9502143c8770fa7ffc8ad52c58404cc51e9dd1",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/exp_skeleton.py",
+        "sources/theory/claude_dense_transfer_20261020/exp_skeleton.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/exp_skeleton_result_n16384.json",
+      "sha256": "be0ec734ec3d9d6a0ff84317e41d13aa61462f2d92a7228c388951121a7acf79",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/exp_skeleton_result_n16384.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/skeleton_certificate.py",
+      "sha256": "43ecf4bde039ce795178cdcf0157c1036fe5a4cd5a7675217c87a4ec4773df96",
+      "snapshot_paths": [
+        "author_runs/claude_dense_transfer_20261020/skeleton_certificate.py",
+        "sources/theory/claude_dense_transfer_20261020/skeleton_certificate.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_dense_transfer_20261020/skeleton_certificate_result.json",
+      "sha256": "6ad21ac34d004e1ed4d801c00f7a76da66e67590722557bf1c605538536222f6",
+      "snapshot_paths": [
+        "sources/theory/claude_dense_transfer_20261020/skeleton_certificate_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/CHECKS.md",
+      "sha256": "7fdd1abc6412ece2b8d2276d1ba5b4cda7d8725dc076a8db86768fbb1f5a265e",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/CHECKS.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/PROOF.md",
+      "sha256": "56337bf3c7117e04339035f8b3f901d6b4bf5713872dabf8c55bbe70474b236c",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/PROOF.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/PROVENANCE.json",
+      "sha256": "2367daba844c1c01957213f2c33af2a01349bbdc94b5a1e7db9c7f32634597e4",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/PROVENANCE.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/REPORT.md",
+      "sha256": "a76358f676d18acc5a93a2b0f2d48ac6193686e06ff49d135a99dba31da973c2",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/REPORT.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/RESUME.md",
+      "sha256": "15a0e0500dc7cc27c59f4abf0858455825f2f6b412131266a0728c6691abd0c1",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/RESUME.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/STATUS.md",
+      "sha256": "24bbd7783410a467cbbac109cd19b0f8302a35fd2355bb2e8055d27c15bad4e3",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/STATUS.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_seq.py",
+      "sha256": "7a0b26f96b18c46d6fefaa07555daa9150f6adbaacd7c562dce6a08723ac2306",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/constants_seq.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_seq_result.json",
+      "sha256": "b76d1d50a5f8e0e5f7d30e1a26e7d7aba7888c14d348c3e2644d725b111ac03f",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_so.py",
+      "sha256": "90bd72cecad527dec5b4166d705ba91144290b53c1488601d06b76447561dad0",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/constants_so.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_so.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/constants_so_result.json",
+      "sha256": "0c012195c280f972fd33df16c57bb7ccccb454e1b6f5baaf7cbae44268235c3e",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/constants_so_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/count_certificate.py",
+      "sha256": "12e5fc4c8b9d513131a42131a7ead74c232845b6a82e095a363988998270dfd8",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/count_certificate.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/count_certificate_result.json",
+      "sha256": "efd9ab006d1a9eaeaf665ca8ca6588ff347f6398a217e207038c788f31bc150a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/envelope_certificate.py",
+      "sha256": "635fec951baaac7cb28251469c287d6ba96cb30afd268b749a4b9a4eabcc097d",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/envelope_certificate.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json",
+      "sha256": "28a6e8be2330405d5ff1a8393547e9c37474afacdd0283befcafbb2c9c0fbaf6",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_S_check.py",
+      "sha256": "5650d25887bf448dc3faeefff6a0eb0c3c6e35f0f8fa135ad0317526ee0d52d5",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_S_check.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n16384.json",
+      "sha256": "02b1f1b5ba0128afc879bc213457752e67886488e9185c5a24554fdd7245c02f",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n16384.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n65536.json",
+      "sha256": "31fa98981f0eb9375e1b3e3a6591e6befd78aa9ee92c9f9e1e0c8d20bcb77c4a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n65536.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_exact_checks.py",
+      "sha256": "dd30180954ef21efe1f5e7e7c25c2e7344b1d4a54a96daef45a1cc3c311b2e9e",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_exact_checks.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_exact_checks_result.json",
+      "sha256": "051367eec6246ccbbd4d00577bd06fef493e9f9f80052836181008460f209fdb",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_repair_checks.py",
+      "sha256": "216590b148c508a4144b8c09308de83e7bc8a2b04e3d14abe399f8f4599cd55a",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_repair_checks.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_repair_checks_result.json",
+      "sha256": "ec3d68542a1884e5b918a97b69970c47f4794e64838860c66228f6c88c101b51",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py",
+      "sha256": "ed9c2f66cc3bb77af4fffdd0b9ba1ca9d1e9cf3ced84bced47911e942aa31027",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling_result.json",
+      "sha256": "cf51d122b5d0a5973e2b5104c263b8a936c6a554999dc406c9aad394956ce5e4",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_sequential.py",
+      "sha256": "b8d4e2ea5867f0b98dfee8feaa7ceef61ccd15994ba20f41c55dcc0c6539e3e9",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_sequential.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_sequential_result_n16384_D3.json",
+      "sha256": "8646d102f377659512cc428e8c6a5a2c696c3ee32ecab6b4cc27555828e6abb1",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential_result_n16384_D3.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py",
+      "sha256": "9fbe5f3fd8d41ae672651184d9102aabab6421401fdc12c3530b330e88f444ab",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action_result.json",
+      "sha256": "90631c709a58ec869eab3223561d0b64c3f0a557236b66cd4cf2d0b9f233885c",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_so_attrib.py",
+      "sha256": "2d048fc78aaf42d8d0610efd5f6bf640a484e1483b2c7e342d28c2cd84252d11",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_so_attrib.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_so_attrib_result.json",
+      "sha256": "382a6a9f86f3b039871d21481f3b3cffb028a60187fd4277adea663411b00e4e",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_timing.py",
+      "sha256": "a7937504dae83d99be522f34798f1f095c650feac1b062e3773040b361b486f7",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_timing.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_timing_result.json",
+      "sha256": "55d29957b77f76d92fb4af6dddf335876bbb62fb8cdbdd36d096c3139043b029",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_verify_probe.py",
+      "sha256": "98d55cd413ec82f06923b52f1ff1ebc7a5d1d4b096afa94455ae601a4305caee",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/exp_verify_probe.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/exp_verify_probe_result.json",
+      "sha256": "fe33b2c0633d576c658d086d748ec56521937b1f3b3e9ef5af4ee706f71d88e5",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe_result.json"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_handoff.md",
+      "sha256": "9155279d5e76d6338c6aee9480c6257d246a1a440c77c337211d0fe2a06bdc6a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_handoff.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_probe.py",
+      "sha256": "e358090e7a903e5ab63b5ee53f78cf6c799f19d5b3f937ad8e9ce212be8445e0",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_probe.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_results.txt",
+      "sha256": "46f2a7b88461e48870ce6ec0a613ccdc0ceb7227fee7885b5e114d254661991f",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_results.txt"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_three_memory_20261019/m3sim.py",
+      "sha256": "f90cc31779f5beab568c051f291d3628ba405003359d39db2f45cbe9312dc7c9",
+      "snapshot_paths": [
+        "author_runs/claude_lemma_m_three_memory_20261019/m3sim.py",
+        "sources/theory/claude_lemma_m_three_memory_20261019/m3sim.py"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_bus_capacity_20261015/PROOF.md",
+      "sha256": "f5694266a76ff231f9afc9b2404461be59ad191be74a7862907443b1efd938d2",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_bus_capacity_20261015/PROOF.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/claude_lemma_m_rest_20261016/PROOF.md",
+      "sha256": "8bc5cbd0bd201e51ca7fc5ea2a81c1c309a00647643f13013f946b577ba6270a",
+      "snapshot_paths": [
+        "sources/theory/claude_lemma_m_rest_20261016/PROOF.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/gamma_c_over_n_quadratic_20261001/PROOF.md",
+      "sha256": "e517dcd0475276b4b1b39190d221d3313dba71a2bcb8359f8e250b6978de58f6",
+      "snapshot_paths": [
+        "sources/theory/gamma_c_over_n_quadratic_20261001/PROOF.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/reachable_fixed_feature_width_20261002/PROOF.md",
+      "sha256": "2d8d0b4e27fca8a8f436ded33130446be75c07e844c3c89650293d750e6084cd",
+      "snapshot_paths": [
+        "sources/theory/reachable_fixed_feature_width_20261002/PROOF.md"
+      ]
+    },
+    {
+      "commit": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+      "path": "theory/CURRENT_THEORY.md",
+      "sha256": "1908fb87bb5ba5d17d08015960d9ce18ebe8043d67c0521bb4135f4aa52d33de",
+      "snapshot_paths": [
+        "sources/theory/CURRENT_THEORY.md"
+      ]
+    },
+    {
+      "commit": "2e46b02d61b8b2cc713546461d1232b578690b8f",
+      "path": "theory/claude_hypothesis_b_bus_20261015/PROOF.md",
+      "sha256": "ed4732b8a4c64bc4c16413862190e6e7a152a6f6af0da061e79788ff0b332745",
+      "snapshot_paths": [
+        "sources/theory/claude_hypothesis_b_bus_20261015/PROOF.md"
+      ]
+    },
+    {
+      "commit": "0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88",
+      "path": "theory/claude_multiprobe_memory_20261014/PROOF.md",
+      "sha256": "ad22bd20011f0400d4a0b696d75af05dbff4f7c571810fb74277c7bdf21b3b9a",
+      "snapshot_paths": [
+        "sources/theory/claude_multiprobe_memory_20261014/PROOF.md"
+      ]
+    }
+  ],
+  "existing_result_hash_checks": {
+    "independent_certificate_result.json": true,
+    "independent_code_result.json": true,
+    "independent_counts_result.json": true,
+    "independent_dense_result.json": true
+  },
+  "excluded": [
+    "__pycache__ directories",
+    "*.pyc interpreter caches"
+  ],
+  "files": [
+    {
+      "path": "AUDIT.md",
+      "bytes": 36461,
+      "sha256": "7ea8df109fe3ab18004977c488e8b8bd62d8d465fa6f59d733f5ccf0f3f6ccf2"
+    },
+    {
+      "path": "author_code_stdout.txt",
+      "bytes": 6070,
+      "sha256": "cfe08f16c93f3e7dbb7acc9bec49e70e1f85599d7ff3d914541a19c651a34127"
+    },
+    {
+      "path": "author_count_stdout.txt",
+      "bytes": 384,
+      "sha256": "d01cf11cdc70d16fa8164a07e25a8b195dc32fc86ee198d82fe9088a9f917f28"
+    },
+    {
+      "path": "author_dense_constants_stdout.txt",
+      "bytes": 415,
+      "sha256": "fabd4dbfe2ea7f328a17a667c00ee496b845191b4005606a693fcc74add908fe"
+    },
+    {
+      "path": "author_old_envelope_stdout.txt",
+      "bytes": 8218,
+      "sha256": "8c83f3aca72ffdd465b6cde18cff8388399aaddddc8dddc51c9a89f19c32a686"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/constants_dense.py",
+      "bytes": 4229,
+      "sha256": "8cdd2c2901a5513a6aead0e19cfa3eb629a6e7e8d7ac895fb1ed0f1918c7d54a"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/constants_dense_result.json",
+      "bytes": 413,
+      "sha256": "6540a090bdbeef388daa1c852a473ef4f1c8875d64194649a2409ae16be1ebdb"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/count_skeleton.py",
+      "bytes": 1869,
+      "sha256": "7d454b8f284116880345675578aaac8cb95df39f832680be1a5b18c0b1299aec"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/count_skeleton_result.json",
+      "bytes": 557,
+      "sha256": "0274d8613b76d5cf2495c1173aec755b50e631f7b5a43375234552279f30908e"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/dense_tools.py",
+      "bytes": 6443,
+      "sha256": "1b8ca003ead4644a49018e24cc29babe9d065cfcc2a131eaad966f093080755d"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/exp_dense_exact_mp.py",
+      "bytes": 4255,
+      "sha256": "0db512ed3536d3320c8509ae35447f89f3b222b888b8305b304bf6c6eb951fe1"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/exp_dense_large.py",
+      "bytes": 5979,
+      "sha256": "67348f956333d4b90bdf8c8628c4927dbc705485496157b79f0d52933d5f1851"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/exp_dense_S.py",
+      "bytes": 6796,
+      "sha256": "56815fadccf8066c3a80d28b5e4f7298b9b156c1f46b4058de72bd0118032835"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/exp_generic_control.py",
+      "bytes": 3562,
+      "sha256": "7338876b96c1a7af6e3b46219923a156e253d86e58b507f87cfa1373a309b1ba"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/exp_skeleton.py",
+      "bytes": 3849,
+      "sha256": "b9f77f11958fa47cd3939d075a9502143c8770fa7ffc8ad52c58404cc51e9dd1"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/exp_skeleton_result_n1024.json",
+      "bytes": 7078,
+      "sha256": "f9aca04f346f79582b85c7f2af28de1b4b818bbe9cb88e374c2c219e7ea7282f"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/skeleton_certificate.py",
+      "bytes": 7733,
+      "sha256": "43ecf4bde039ce795178cdcf0157c1036fe5a4cd5a7675217c87a4ec4773df96"
+    },
+    {
+      "path": "author_runs/claude_dense_transfer_20261020/skeleton_certificate_result.json",
+      "bytes": 1804,
+      "sha256": "0d90b1e263e1f014a49dad4c495ad5230ba5e3b9ad2f8f24aca472c27ce6120e"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/constants_seq.py",
+      "bytes": 5359,
+      "sha256": "7a0b26f96b18c46d6fefaa07555daa9150f6adbaacd7c562dce6a08723ac2306"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/constants_so.py",
+      "bytes": 6177,
+      "sha256": "90bd72cecad527dec5b4166d705ba91144290b53c1488601d06b76447561dad0"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/count_certificate.py",
+      "bytes": 5968,
+      "sha256": "12e5fc4c8b9d513131a42131a7ead74c232845b6a82e095a363988998270dfd8"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/envelope_certificate.py",
+      "bytes": 16186,
+      "sha256": "635fec951baaac7cb28251469c287d6ba96cb30afd268b749a4b9a4eabcc097d"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json",
+      "bytes": 9383,
+      "sha256": "79597656c6dc58f0d977e2b045574ea8ed11a7e6afa6f14a94291f3f1b8eea50"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_exact_checks.py",
+      "bytes": 2886,
+      "sha256": "dd30180954ef21efe1f5e7e7c25c2e7344b1d4a54a96daef45a1cc3c311b2e9e"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_repair_checks.py",
+      "bytes": 10428,
+      "sha256": "216590b148c508a4144b8c09308de83e7bc8a2b04e3d14abe399f8f4599cd55a"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_S_check.py",
+      "bytes": 3942,
+      "sha256": "5650d25887bf448dc3faeefff6a0eb0c3c6e35f0f8fa135ad0317526ee0d52d5"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py",
+      "bytes": 2560,
+      "sha256": "ed9c2f66cc3bb77af4fffdd0b9ba1ca9d1e9cf3ced84bced47911e942aa31027"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_sequential.py",
+      "bytes": 4457,
+      "sha256": "b8d4e2ea5867f0b98dfee8feaa7ceef61ccd15994ba20f41c55dcc0c6539e3e9"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py",
+      "bytes": 1400,
+      "sha256": "9fbe5f3fd8d41ae672651184d9102aabab6421401fdc12c3530b330e88f444ab"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_so_attrib.py",
+      "bytes": 2609,
+      "sha256": "2d048fc78aaf42d8d0610efd5f6bf640a484e1483b2c7e342d28c2cd84252d11"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_timing.py",
+      "bytes": 3372,
+      "sha256": "a7937504dae83d99be522f34798f1f095c650feac1b062e3773040b361b486f7"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/exp_verify_probe.py",
+      "bytes": 4427,
+      "sha256": "98d55cd413ec82f06923b52f1ff1ebc7a5d1d4b096afa94455ae601a4305caee"
+    },
+    {
+      "path": "author_runs/claude_lemma_m_three_memory_20261019/m3sim.py",
+      "bytes": 5888,
+      "sha256": "f90cc31779f5beab568c051f291d3628ba405003359d39db2f45cbe9312dc7c9"
+    },
+    {
+      "path": "author_skeleton_stdout.txt",
+      "bytes": 1569,
+      "sha256": "ac62089818999bcbd6a3c5742d0218123277dd499e8f03dfc8ceffbc068e41dd"
+    },
+    {
+      "path": "independent_certificate.py",
+      "bytes": 6235,
+      "sha256": "ddf9370441e764b2310d03b836f639e23497643b408078f896bb180ff2c96699"
+    },
+    {
+      "path": "independent_certificate_result.json",
+      "bytes": 7018,
+      "sha256": "1fb610f67ec7944bddbcd3fc66b544b615eca6d1ea595ae2df85f63df171b10a"
+    },
+    {
+      "path": "independent_certificate_stdout.txt",
+      "bytes": 7020,
+      "sha256": "48cb85e47ef6040130ee622deb767f021cc27b94daa84291802619e74d537547"
+    },
+    {
+      "path": "independent_code.py",
+      "bytes": 2771,
+      "sha256": "8bae4d5df16ff459a082fffe1592e4742a3515b3cd758f9489ea3a067292e968"
+    },
+    {
+      "path": "independent_code_result.json",
+      "bytes": 995,
+      "sha256": "d3ce08a7a255caf23837d7e54aa3cbd9bb152e6b9c70cc6462fedd69a1773286"
+    },
+    {
+      "path": "independent_counts.py",
+      "bytes": 3072,
+      "sha256": "d6b519ad3ec407f83664f0d173827c69fae211da0de26b6e7f3865d1cc6de556"
+    },
+    {
+      "path": "independent_counts_result.json",
+      "bytes": 1801,
+      "sha256": "2901f974783abdce42453da56e8f85e3352a73106d34d4c72ef218f7e0f9a523"
+    },
+    {
+      "path": "independent_counts_stdout.txt",
+      "bytes": 1803,
+      "sha256": "9782b49ce834a2170804a8e4c4ed554e375ca9452e7d9ad4c0559983133a4b79"
+    },
+    {
+      "path": "independent_dense.py",
+      "bytes": 7190,
+      "sha256": "01ab0c866f4e980338fdc8e2a990211f4e3fb6dfb8ef64ea1adaaece9fe83741"
+    },
+    {
+      "path": "independent_dense_result.json",
+      "bytes": 2762,
+      "sha256": "053e7cf2d75a90c5e5a0bda2c8d6de5c91ce8eb0bd2e8e8097361efe8a4ec3ea"
+    },
+    {
+      "path": "independent_dense_stdout.txt",
+      "bytes": 2764,
+      "sha256": "6481ea4b84ce889150f263a39036506176b0b9690be349b69ba0d7fd9c907486"
+    },
+    {
+      "path": "source_manifest.json",
+      "bytes": 15455,
+      "sha256": "c79ae24ffc321f8e752a3e8b72aa2f6b371f57ae8dff04f7f805aef11374b25a"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/CHECKS.md",
+      "bytes": 6357,
+      "sha256": "dbd5ce53255fa8dbbf8dc9b64b94206c168288ef1e5a92f9ba18a2d06a4e1736"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/constants_dense.py",
+      "bytes": 4229,
+      "sha256": "8cdd2c2901a5513a6aead0e19cfa3eb629a6e7e8d7ac895fb1ed0f1918c7d54a"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/constants_dense_result.json",
+      "bytes": 405,
+      "sha256": "748f4bc34d46b05e28eae15e2a6d8c4463eb2f60012483b524f4e55e8b96b1ab"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/count_skeleton.py",
+      "bytes": 1869,
+      "sha256": "7d454b8f284116880345675578aaac8cb95df39f832680be1a5b18c0b1299aec"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/count_skeleton_result.json",
+      "bytes": 522,
+      "sha256": "df6fd6c1e415c14677e91d19233e23f5522aa5e01b62f0afb3b7dbe2ca44f3fe"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/dense_tools.py",
+      "bytes": 6443,
+      "sha256": "1b8ca003ead4644a49018e24cc29babe9d065cfcc2a131eaad966f093080755d"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_dense_exact_mp.py",
+      "bytes": 4255,
+      "sha256": "0db512ed3536d3320c8509ae35447f89f3b222b888b8305b304bf6c6eb951fe1"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_dense_exact_mp_result.json",
+      "bytes": 477,
+      "sha256": "22127f363c57efc16dbd1cb514b5d4c0dd1a99944b9144c30381829e810b1d2e"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_dense_large.py",
+      "bytes": 5979,
+      "sha256": "67348f956333d4b90bdf8c8628c4927dbc705485496157b79f0d52933d5f1851"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_dense_large_result.json",
+      "bytes": 4077,
+      "sha256": "f9f5c57a50ab402c89e6f321be4fdf6f7ffde8adadbe2d61bcdccca8f1f1576a"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_dense_S.py",
+      "bytes": 6796,
+      "sha256": "56815fadccf8066c3a80d28b5e4f7298b9b156c1f46b4058de72bd0118032835"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_dense_S_result.json",
+      "bytes": 13538,
+      "sha256": "171d1ceec691fba4bee2547ca4455a5a76dcb0f23ee0c3563e926b2900cc5b6f"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_generic_control.py",
+      "bytes": 3562,
+      "sha256": "7338876b96c1a7af6e3b46219923a156e253d86e58b507f87cfa1373a309b1ba"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_generic_control_result.json",
+      "bytes": 2055,
+      "sha256": "f7eb1565a04284c77c89756b8b0828afa9aa013886ca43db88d7acdd7fcc8619"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_skeleton.py",
+      "bytes": 3849,
+      "sha256": "b9f77f11958fa47cd3939d075a9502143c8770fa7ffc8ad52c58404cc51e9dd1"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/exp_skeleton_result_n16384.json",
+      "bytes": 7025,
+      "sha256": "be0ec734ec3d9d6a0ff84317e41d13aa61462f2d92a7228c388951121a7acf79"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/PROOF.md",
+      "bytes": 38212,
+      "sha256": "b3696104ddfb2b1263424898dfd3567ec0d548c2a62b8b674469508e063cbac5"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/PROVENANCE.json",
+      "bytes": 5236,
+      "sha256": "4a18b954904f7f65d94a91b98cb5ddb01e863c2b7f8fc3bde30a26e35929e636"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/REPORT.md",
+      "bytes": 7396,
+      "sha256": "a4154fd499188818950df0c11c2507840a3dfae787567d1284cf6e2f6069a1ff"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/RESUME.md",
+      "bytes": 1472,
+      "sha256": "581adef3e6e2c696a02c6805e2ed34486f7c39156019bbc6774366304592e5d2"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/skeleton_certificate.py",
+      "bytes": 7733,
+      "sha256": "43ecf4bde039ce795178cdcf0157c1036fe5a4cd5a7675217c87a4ec4773df96"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/skeleton_certificate_result.json",
+      "bytes": 1726,
+      "sha256": "6ad21ac34d004e1ed4d801c00f7a76da66e67590722557bf1c605538536222f6"
+    },
+    {
+      "path": "sources/theory/claude_dense_transfer_20261020/STATUS.md",
+      "bytes": 2196,
+      "sha256": "c36baefa87af5712800fe28c46a421f37d357cccafa710ac25c78be298270345"
+    },
+    {
+      "path": "sources/theory/claude_hypothesis_b_bus_20261015/PROOF.md",
+      "bytes": 62517,
+      "sha256": "ed4732b8a4c64bc4c16413862190e6e7a152a6f6af0da061e79788ff0b332745"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_bus_capacity_20261015/PROOF.md",
+      "bytes": 36408,
+      "sha256": "f5694266a76ff231f9afc9b2404461be59ad191be74a7862907443b1efd938d2"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_rest_20261016/PROOF.md",
+      "bytes": 32675,
+      "sha256": "8bc5cbd0bd201e51ca7fc5ea2a81c1c309a00647643f13013f946b577ba6270a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/CHECKS.md",
+      "bytes": 7252,
+      "sha256": "7fdd1abc6412ece2b8d2276d1ba5b4cda7d8725dc076a8db86768fbb1f5a265e"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq.py",
+      "bytes": 5359,
+      "sha256": "7a0b26f96b18c46d6fefaa07555daa9150f6adbaacd7c562dce6a08723ac2306"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_seq_result.json",
+      "bytes": 616,
+      "sha256": "b76d1d50a5f8e0e5f7d30e1a26e7d7aba7888c14d348c3e2644d725b111ac03f"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_so.py",
+      "bytes": 6177,
+      "sha256": "90bd72cecad527dec5b4166d705ba91144290b53c1488601d06b76447561dad0"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/constants_so_result.json",
+      "bytes": 191889,
+      "sha256": "0c012195c280f972fd33df16c57bb7ccccb454e1b6f5baaf7cbae44268235c3e"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate.py",
+      "bytes": 5968,
+      "sha256": "12e5fc4c8b9d513131a42131a7ead74c232845b6a82e095a363988998270dfd8"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/count_certificate_result.json",
+      "bytes": 1149,
+      "sha256": "efd9ab006d1a9eaeaf665ca8ca6588ff347f6398a217e207038c788f31bc150a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate.py",
+      "bytes": 16186,
+      "sha256": "635fec951baaac7cb28251469c287d6ba96cb30afd268b749a4b9a4eabcc097d"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/envelope_certificate_result.json",
+      "bytes": 9070,
+      "sha256": "28a6e8be2330405d5ff1a8393547e9c37474afacdd0283befcafbb2c9c0fbaf6"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks.py",
+      "bytes": 2886,
+      "sha256": "dd30180954ef21efe1f5e7e7c25c2e7344b1d4a54a96daef45a1cc3c311b2e9e"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_exact_checks_result.json",
+      "bytes": 177,
+      "sha256": "051367eec6246ccbbd4d00577bd06fef493e9f9f80052836181008460f209fdb"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks.py",
+      "bytes": 10428,
+      "sha256": "216590b148c508a4144b8c09308de83e7bc8a2b04e3d14abe399f8f4599cd55a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_repair_checks_result.json",
+      "bytes": 8520,
+      "sha256": "ec3d68542a1884e5b918a97b69970c47f4794e64838860c66228f6c88c101b51"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check.py",
+      "bytes": 3942,
+      "sha256": "5650d25887bf448dc3faeefff6a0eb0c3c6e35f0f8fa135ad0317526ee0d52d5"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n16384.json",
+      "bytes": 1024,
+      "sha256": "02b1f1b5ba0128afc879bc213457752e67886488e9185c5a24554fdd7245c02f"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_S_check_result_n65536.json",
+      "bytes": 1032,
+      "sha256": "31fa98981f0eb9375e1b3e3a6591e6befd78aa9ee92c9f9e1e0c8d20bcb77c4a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling.py",
+      "bytes": 2560,
+      "sha256": "ed9c2f66cc3bb77af4fffdd0b9ba1ca9d1e9cf3ced84bced47911e942aa31027"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_second_order_scaling_result.json",
+      "bytes": 9645,
+      "sha256": "cf51d122b5d0a5973e2b5104c263b8a936c6a554999dc406c9aad394956ce5e4"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential.py",
+      "bytes": 4457,
+      "sha256": "b8d4e2ea5867f0b98dfee8feaa7ceef61ccd15994ba20f41c55dcc0c6539e3e9"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_sequential_result_n16384_D3.json",
+      "bytes": 3132,
+      "sha256": "8646d102f377659512cc428e8c6a5a2c696c3ee32ecab6b4cc27555828e6abb1"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action.py",
+      "bytes": 1400,
+      "sha256": "9fbe5f3fd8d41ae672651184d9102aabab6421401fdc12c3530b330e88f444ab"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_skeleton_action_result.json",
+      "bytes": 353,
+      "sha256": "90631c709a58ec869eab3223561d0b64c3f0a557236b66cd4cf2d0b9f233885c"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib.py",
+      "bytes": 2609,
+      "sha256": "2d048fc78aaf42d8d0610efd5f6bf640a484e1483b2c7e342d28c2cd84252d11"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_so_attrib_result.json",
+      "bytes": 2356,
+      "sha256": "382a6a9f86f3b039871d21481f3b3cffb028a60187fd4277adea663411b00e4e"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing.py",
+      "bytes": 3372,
+      "sha256": "a7937504dae83d99be522f34798f1f095c650feac1b062e3773040b361b486f7"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_timing_result.json",
+      "bytes": 23067,
+      "sha256": "55d29957b77f76d92fb4af6dddf335876bbb62fb8cdbdd36d096c3139043b029"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe.py",
+      "bytes": 4427,
+      "sha256": "98d55cd413ec82f06923b52f1ff1ebc7a5d1d4b096afa94455ae601a4305caee"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/exp_verify_probe_result.json",
+      "bytes": 6910,
+      "sha256": "fe33b2c0633d576c658d086d748ec56521937b1f3b3e9ef5af4ee706f71d88e5"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_handoff.md",
+      "bytes": 2716,
+      "sha256": "9155279d5e76d6338c6aee9480c6257d246a1a440c77c337211d0fe2a06bdc6a"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_probe.py",
+      "bytes": 3931,
+      "sha256": "e358090e7a903e5ab63b5ee53f78cf6c799f19d5b3f937ad8e9ce212be8445e0"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/external_20261018/lemma_m_three_memory_results.txt",
+      "bytes": 1947,
+      "sha256": "46f2a7b88461e48870ce6ec0a613ccdc0ceb7227fee7885b5e114d254661991f"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/m3sim.py",
+      "bytes": 5888,
+      "sha256": "f90cc31779f5beab568c051f291d3628ba405003359d39db2f45cbe9312dc7c9"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/PROOF.md",
+      "bytes": 53848,
+      "sha256": "56337bf3c7117e04339035f8b3f901d6b4bf5713872dabf8c55bbe70474b236c"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/PROVENANCE.json",
+      "bytes": 32999,
+      "sha256": "2367daba844c1c01957213f2c33af2a01349bbdc94b5a1e7db9c7f32634597e4"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/REPORT.md",
+      "bytes": 8558,
+      "sha256": "a76358f676d18acc5a93a2b0f2d48ac6193686e06ff49d135a99dba31da973c2"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/RESUME.md",
+      "bytes": 1918,
+      "sha256": "15a0e0500dc7cc27c59f4abf0858455825f2f6b412131266a0728c6691abd0c1"
+    },
+    {
+      "path": "sources/theory/claude_lemma_m_three_memory_20261019/STATUS.md",
+      "bytes": 1871,
+      "sha256": "24bbd7783410a467cbbac109cd19b0f8302a35fd2355bb2e8055d27c15bad4e3"
+    },
+    {
+      "path": "sources/theory/claude_multiprobe_memory_20261014/PROOF.md",
+      "bytes": 73910,
+      "sha256": "ad22bd20011f0400d4a0b696d75af05dbff4f7c571810fb74277c7bdf21b3b9a"
+    },
+    {
+      "path": "sources/theory/CURRENT_THEORY.md",
+      "bytes": 19222,
+      "sha256": "1908fb87bb5ba5d17d08015960d9ce18ebe8043d67c0521bb4135f4aa52d33de"
+    },
+    {
+      "path": "sources/theory/gamma_c_over_n_quadratic_20261001/PROOF.md",
+      "bytes": 18290,
+      "sha256": "e517dcd0475276b4b1b39190d221d3313dba71a2bcb8359f8e250b6978de58f6"
+    },
+    {
+      "path": "sources/theory/reachable_fixed_feature_width_20261002/PROOF.md",
+      "bytes": 22220,
+      "sha256": "2d8d0b4e27fca8a8f436ded33130446be75c07e844c3c89650293d750e6084cd"
+    },
+    {
+      "path": "verification_manifest.json",
+      "bytes": 2132,
+      "sha256": "dfa83d9ab7365202309bfb65a84397f58fdee1ae9d5766a020c23de4a0ad426f"
+    }
+  ],
+  "post_audit_source_delta": {
+    "base": "b984ef9347219d62db4dfd39f8f2e263317c9a33",
+    "head": "aa47ca5ec782d4a70047793d00a44f2f47816f49",
+    "classification_only_no_proof_reaudit": true,
+    "files": [
+      {
+        "path": "theory/claude_dense_transfer_20261020/PROOF.md",
+        "coverage": "Scope narrowing for support, arbitrary alpha/eta and precision; full-versus-selected credit notation; certificate rounding and audit labels. Text classified against the existing findings only; corrected proof text has no new exact-head independent verdict."
+      },
+      {
+        "path": "theory/claude_dense_transfer_20261020/CHECKS.md",
+        "coverage": "Reporting/precision and scope qualifications. Does not constitute a new execution or audit."
+      },
+      {
+        "path": "theory/claude_dense_transfer_20261020/REPORT.md",
+        "coverage": "Summary, scope, precision and future-work wording. Does not confer independent verification."
+      },
+      {
+        "path": "theory/claude_dense_transfer_20261020/RESUME.md",
+        "coverage": "Navigation and retrospective audit labels. Historical research next actions withdrawn by freeze."
+      },
+      {
+        "path": "theory/claude_dense_transfer_20261020/STATUS.md",
+        "coverage": "Retrospective review labels. Audited revision remains b984ef9, not a blanket verdict on aa47ca5."
+      },
+      {
+        "path": "theory/claude_dense_transfer_20261020/exp_skeleton.py",
+        "coverage": "Docstring-only precision correction; executable body unchanged in the Git diff. No rerun performed."
+      }
+    ],
+    "certificate_producers_and_results_changed": false,
+    "corrected_auxiliary_proof_verdict": "PENDING exact-revision independent review; no automatic assignment"
+  }
+}

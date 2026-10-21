@@ -1,5 +1,16 @@
 # Resume — dense transfer and saturation-code phase (2026-10-20)
 
+## Owner freeze — 2026-10-21
+
+New mathematical research, experiments, training, and automatic follow-up work are frozen.
+Read the [canonical claim register in consolidation PR38](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md) before proposing work.
+Historical next-action lists below are inactive provenance, not authorization. OPEN and
+PENDING describe evidence gaps; they do not assign another task. Only explicit owner
+authorization can reopen a retired direction. This update preserves evidence and does not
+merge a scientific PR or claim that PR38 is already on main.
+
+Use [STATUS.md](STATUS.md) for pinned audit scope and the six-file post-audit delta.
+
 * **PR:** #35, branch `claude/dense-transfer-20261020`, stacked on PR #34 (`f515e48`).
 * **Independent audit:** Codex reviewed the immutable #35 commit `b984ef9`. Theorem 6.1D,
   Corollary 6.2D, Lemma 9.1, Theorem 9.2 and Corollaries 9.3–9.4 survived in their
