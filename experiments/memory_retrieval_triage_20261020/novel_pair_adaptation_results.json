@@ -1,0 +1,392 @@
+{
+  "protocol": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "arms": [
+      "faded_pretrain",
+      "unguided_pretrain"
+    ],
+    "facts": 8,
+    "novel_mapping": "QUERY_(i+3 mod 8) denotes WRITE_i",
+    "previously_seen_tokens": true,
+    "all_eight_correspondences_unseen_in_pretraining": true,
+    "new_mapping_end_task_labels_during_adaptation": true,
+    "explicit_new_mapping_supervision": false,
+    "optimizer_updates": 240,
+    "batch_size": 12,
+    "heldout_histories": 96,
+    "eval_delay": 256,
+    "cpu_threads": 6,
+    "gpu": false,
+    "lr": 0.003,
+    "checkpoint_sources": "faded_guidance_weights.pt, write_read_alignment_weights.pt, alignment_seed43_weights.pt"
+  },
+  "limitation": "Adapting to unseen correspondence among already-seen tokens using answer labels is NOT zero-shot autonomy or held-out vocabulary generalization.",
+  "runs": [
+    {
+      "seed": 17,
+      "arm": "faded_pretrain",
+      "source": "faded_guidance_weights.pt",
+      "checkpoint_key": "17_8_linear_fade",
+      "parameters": 11507,
+      "steps": 240,
+      "train_wall_seconds": 17.219,
+      "training_loss_first20": 1.96155,
+      "training_loss_last20": 0.33197,
+      "before": {
+        "old_pairs": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.53385,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old_pairs": {
+          "bit": 0.57161,
+          "whole": 0.0,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.78516,
+          "whole": 0.0625,
+          "histories": 96
+        }
+      },
+      "address_after": {
+        "write_ids": [
+          2,
+          4,
+          5,
+          1,
+          7,
+          2,
+          5,
+          6
+        ],
+        "read_ids": [
+          1,
+          3,
+          6,
+          0,
+          4,
+          5,
+          3,
+          7
+        ],
+        "unique_writes": 6,
+        "unique_reads": 7,
+        "paired_matches": 0
+      }
+    },
+    {
+      "seed": 17,
+      "arm": "unguided_pretrain",
+      "source": "write_read_alignment_weights.pt",
+      "checkpoint_key": "17_8_shared",
+      "parameters": 11507,
+      "steps": 240,
+      "train_wall_seconds": 17.641,
+      "training_loss_first20": 1.24958,
+      "training_loss_last20": 0.24013,
+      "before": {
+        "old_pairs": {
+          "bit": 0.89193,
+          "whole": 0.30208,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.56901,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old_pairs": {
+          "bit": 0.57682,
+          "whole": 0.0,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.86328,
+          "whole": 0.22917,
+          "histories": 96
+        }
+      },
+      "address_after": {
+        "write_ids": [
+          5,
+          5,
+          4,
+          0,
+          6,
+          3,
+          5,
+          2
+        ],
+        "read_ids": [
+          3,
+          7,
+          2,
+          0,
+          0,
+          4,
+          0,
+          6
+        ],
+        "unique_writes": 6,
+        "unique_reads": 6,
+        "paired_matches": 1
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "faded_pretrain",
+      "source": "faded_guidance_weights.pt",
+      "checkpoint_key": "29_8_linear_fade",
+      "parameters": 11507,
+      "steps": 240,
+      "train_wall_seconds": 17.218,
+      "training_loss_first20": 1.32859,
+      "training_loss_last20": 0.27539,
+      "before": {
+        "old_pairs": {
+          "bit": 0.9401,
+          "whole": 0.53125,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.52604,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old_pairs": {
+          "bit": 0.52734,
+          "whole": 0.0,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.82161,
+          "whole": 0.10417,
+          "histories": 96
+        }
+      },
+      "address_after": {
+        "write_ids": [
+          1,
+          0,
+          3,
+          2,
+          4,
+          1,
+          2,
+          3
+        ],
+        "read_ids": [
+          5,
+          2,
+          3,
+          1,
+          0,
+          7,
+          2,
+          4
+        ],
+        "unique_writes": 5,
+        "unique_reads": 7,
+        "paired_matches": 2
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "unguided_pretrain",
+      "source": "write_read_alignment_weights.pt",
+      "checkpoint_key": "29_8_shared",
+      "parameters": 11507,
+      "steps": 240,
+      "train_wall_seconds": 17.188,
+      "training_loss_first20": 1.56151,
+      "training_loss_last20": 0.20711,
+      "before": {
+        "old_pairs": {
+          "bit": 0.92708,
+          "whole": 0.41667,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.53385,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old_pairs": {
+          "bit": 0.57422,
+          "whole": 0.01042,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.86589,
+          "whole": 0.22917,
+          "histories": 96
+        }
+      },
+      "address_after": {
+        "write_ids": [
+          5,
+          0,
+          5,
+          2,
+          3,
+          1,
+          6,
+          3
+        ],
+        "read_ids": [
+          1,
+          6,
+          3,
+          7,
+          0,
+          5,
+          2,
+          3
+        ],
+        "unique_writes": 6,
+        "unique_reads": 7,
+        "paired_matches": 1
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "faded_pretrain",
+      "source": "faded_guidance_weights.pt",
+      "checkpoint_key": "43_8_linear_fade",
+      "parameters": 11507,
+      "steps": 240,
+      "train_wall_seconds": 17.14,
+      "training_loss_first20": 1.75786,
+      "training_loss_last20": 0.11643,
+      "before": {
+        "old_pairs": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.49219,
+          "whole": 0.02083,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old_pairs": {
+          "bit": 0.51302,
+          "whole": 0.02083,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.94531,
+          "whole": 0.58333,
+          "histories": 96
+        }
+      },
+      "address_after": {
+        "write_ids": [
+          5,
+          0,
+          3,
+          2,
+          0,
+          7,
+          6,
+          1
+        ],
+        "read_ids": [
+          7,
+          6,
+          1,
+          5,
+          0,
+          3,
+          2,
+          0
+        ],
+        "unique_writes": 7,
+        "unique_reads": 7,
+        "paired_matches": 1
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "unguided_pretrain",
+      "source": "alignment_seed43_weights.pt",
+      "checkpoint_key": "43_8_shared",
+      "parameters": 11507,
+      "steps": 240,
+      "train_wall_seconds": 17.141,
+      "training_loss_first20": 1.7708,
+      "training_loss_last20": 0.19143,
+      "before": {
+        "old_pairs": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.49219,
+          "whole": 0.02083,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old_pairs": {
+          "bit": 0.52344,
+          "whole": 0.02083,
+          "histories": 96
+        },
+        "new_pairs": {
+          "bit": 0.90104,
+          "whole": 0.34375,
+          "histories": 96
+        }
+      },
+      "address_after": {
+        "write_ids": [
+          5,
+          1,
+          3,
+          2,
+          6,
+          5,
+          7,
+          5
+        ],
+        "read_ids": [
+          5,
+          7,
+          5,
+          5,
+          1,
+          3,
+          2,
+          6
+        ],
+        "unique_writes": 6,
+        "unique_reads": 6,
+        "paired_matches": 1
+      }
+    }
+  ],
+  "complete": true,
+  "seconds": 119.235
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-19",
+  "audited_pr": 33,
+  "audited_commit": "d6801c2bb1b311b3d132312535b87c86064d2eb9",
+  "supporting_heads": {
+    "28": "0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88",
+    "31": "35cdb7a4f3c7f3ae1df7ed1941547428a9b774ab",
+    "32": "cef12b3eb6e5a8e6dbc75904253222b57eda188c"
+  },
+  "local_branch": "main",
+  "local_HEAD": "b0955a01cb2a38cf57ca77e5e7619ffa8d8e6e69",
+  "source_files_verified": 63,
+  "target_python_files_read_and_AST_parsed": 11,
+  "target_json_records_parsed": 11,
+  "author_rerun_comparisons": {
+    "constants_seq_result.json": {
+      "identical": true
+    },
+    "constants_so_result.json": {
+      "identical": true
+    },
+    "exp_verify_probe_result.json": {
+      "context_dependence_pct": 0.0,
+      "additivity_error_pct": 0.0,
+      "m_peak": 0
+    },
+    "exp_S_check_result_n16384.json": {
+      "xmax": 0.0,
+      "m_peak": 0,
+      "SO_over_F1": 0.0,
+      "F1_over_Lemma42_bound_min": 0.0
+    }
+  },
+  "audit_broken_local_links": [],
+  "original_research_modified": false,
+  "commit_push_or_merge_performed": false
+}

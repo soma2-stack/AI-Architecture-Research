@@ -1,0 +1,133 @@
+{
+  "checks": [
+    {
+      "seed": 101,
+      "arm": "original_policy",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 2.384185791015625e-07
+    },
+    {
+      "seed": 101,
+      "arm": "gate_repair_policy",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 2.384185791015625e-07
+    },
+    {
+      "seed": 211,
+      "arm": "original_policy",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 2.384185791015625e-07
+    },
+    {
+      "seed": 211,
+      "arm": "gate_repair_policy",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 1.1920928955078125e-07
+    },
+    {
+      "seed": 307,
+      "arm": "original_policy",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 1.4901161193847656e-08
+    },
+    {
+      "seed": 307,
+      "arm": "gate_repair_policy",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 2.384185791015625e-07
+    },
+    {
+      "seed": 101,
+      "arm": "guided_reference",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 0.0
+    },
+    {
+      "seed": 211,
+      "arm": "guided_reference",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 2.384185791015625e-07
+    },
+    {
+      "seed": 307,
+      "arm": "guided_reference",
+      "native_prediction_replay": true,
+      "max_native_logit_error": 2.384185791015625e-07
+    }
+  ],
+  "original_files_unchanged": {
+    "address_diagnostic.json": true,
+    "address_diagnostic.py": true,
+    "alignment_seed43.py": true,
+    "alignment_seed43_results.json": true,
+    "alignment_seed43_weights.pt": true,
+    "ALIGNMENT_THREE_SEED_SUMMARY.md": true,
+    "causal_ablation.py": true,
+    "CAUSAL_REPORT.md": true,
+    "causal_results.json": true,
+    "causal_weights.pt": true,
+    "collision_regularizer.py": true,
+    "collision_regularizer_results.json": true,
+    "collision_regularizer_weights.pt": true,
+    "faded_guidance.py": true,
+    "FADED_GUIDANCE_REPORT.md": true,
+    "faded_guidance_results.json": true,
+    "faded_guidance_weights.pt": true,
+    "fade_long_horizon.py": true,
+    "FADE_LONG_HORIZON_REPORT.md": true,
+    "fade_long_horizon_results.json": true,
+    "FALSE_WRITE_CORRECTED_REPORT.md": true,
+    "false_write_probe.py": true,
+    "false_write_probe_corrected.py": true,
+    "false_write_probe_corrected_results.json": true,
+    "false_write_probe_results.json": true,
+    "guided_causal_check.py": true,
+    "guided_causal_results.json": true,
+    "independent_audit.py": true,
+    "independent_audit_report.md": true,
+    "independent_audit_results.json": true,
+    "learned_address.py": true,
+    "LEARNED_ADDRESS_REPORT.md": true,
+    "learned_gate_repair.py": true,
+    "learned_gate_repair_protocol.md": true,
+    "learned_gate_repair_report.md": true,
+    "learned_gate_repair_results.json": true,
+    "learned_gate_repair_verification.json": true,
+    "learned_gate_repair_verify.py": true,
+    "learned_gate_repair_weights.pt": true,
+    "learned_results.json": true,
+    "learned_verify.py": true,
+    "novel_pair_adaptation.py": true,
+    "NOVEL_PAIR_ADAPTATION_REPORT.md": true,
+    "novel_pair_adaptation_results.json": true,
+    "novel_pair_adaptation_weights.pt": true,
+    "REPORT.md": true,
+    "results.json": true,
+    "run.py": true,
+    "shared_address_probe.json": true,
+    "shared_address_probe.py": true,
+    "SHARED_ADDRESS_REPORT.md": true,
+    "shared_address_sixthreads.json": true,
+    "shared_address_sixthreads.pt": true,
+    "shared_address_sixthreads.py": true,
+    "single_hint_ablation.py": true,
+    "SINGLE_HINT_REPORT.md": true,
+    "single_hint_results.json": true,
+    "single_hint_weights.pt": true,
+    "task_identified_retention.py": true,
+    "TASK_IDENTIFIED_RETENTION_REPORT.md": true,
+    "task_identified_retention_results.json": true,
+    "task_identified_retention_weights.pt": true,
+    "verify.py": true,
+    "write_read_alignment.py": true,
+    "WRITE_READ_ALIGNMENT_REPORT.md": true,
+    "write_read_alignment_results.json": true,
+    "write_read_alignment_weights.pt": true
+  },
+  "cpu_threads": 4,
+  "gpu": false,
+  "source_sha256": "a27da3bc79d401a0e68ccc3a60c619471f53d92b22a0e56876ccec77d6bf01f6",
+  "wall_s": 21.01500000001397,
+  "cpu_s": 66.890625,
+  "peak_working_set_bytes": 639705088
+}

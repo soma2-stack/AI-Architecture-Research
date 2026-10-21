@@ -1,0 +1,274 @@
+{
+  "protocol": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "slots": 8,
+    "arms": [
+      "linear_fade",
+      "fade_by_half"
+    ],
+    "eval_histories": 32,
+    "delays": [
+      256,
+      1024
+    ],
+    "longer_delay_extra_horizon": 4096,
+    "longer_horizon_histories": 16,
+    "cpu_threads": 6,
+    "gpu": false,
+    "read_only": true
+  },
+  "runs": [
+    {
+      "seed": 17,
+      "arm": "linear_fade",
+      "evaluation": {
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 32
+        },
+        "1024": {
+          "bit": 0.92969,
+          "whole": 0.5,
+          "constant": 0.0,
+          "histories": 32
+        },
+        "4096": {
+          "bit": 0.59375,
+          "whole": 0.0625,
+          "constant": 0.625,
+          "histories": 16
+        }
+      },
+      "causal1024": {
+        "normal": {
+          "bit": 0.9375,
+          "whole": 0.5625,
+          "prediction_change": 0.0,
+          "correct_records": 9
+        },
+        "zero_bank": {
+          "bit": 0.52344,
+          "whole": 0.0,
+          "prediction_change": 0.52344,
+          "correct_records": 0
+        },
+        "uniform_read": {
+          "bit": 0.60938,
+          "whole": 0.0,
+          "prediction_change": 0.34375,
+          "correct_records": 0
+        },
+        "max_reference_error": 0.0
+      }
+    },
+    {
+      "seed": 17,
+      "arm": "fade_by_half",
+      "evaluation": {
+        "256": {
+          "bit": 0.95703,
+          "whole": 0.65625,
+          "constant": 0.03125,
+          "histories": 32
+        },
+        "1024": {
+          "bit": 0.92969,
+          "whole": 0.53125,
+          "constant": 0.0,
+          "histories": 32
+        },
+        "4096": {
+          "bit": 0.58594,
+          "whole": 0.0,
+          "constant": 0.625,
+          "histories": 16
+        }
+      },
+      "causal1024": {
+        "normal": {
+          "bit": 0.91406,
+          "whole": 0.4375,
+          "prediction_change": 0.0,
+          "correct_records": 7
+        },
+        "zero_bank": {
+          "bit": 0.53125,
+          "whole": 0.0,
+          "prediction_change": 0.46094,
+          "correct_records": 0
+        },
+        "uniform_read": {
+          "bit": 0.55469,
+          "whole": 0.0,
+          "prediction_change": 0.40625,
+          "correct_records": 0
+        },
+        "max_reference_error": 0.0
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "linear_fade",
+      "evaluation": {
+        "256": {
+          "bit": 0.9375,
+          "whole": 0.5,
+          "constant": 0.0,
+          "histories": 32
+        },
+        "1024": {
+          "bit": 0.92188,
+          "whole": 0.46875,
+          "constant": 0.0,
+          "histories": 32
+        }
+      },
+      "causal1024": {
+        "normal": {
+          "bit": 0.90625,
+          "whole": 0.3125,
+          "prediction_change": 0.0,
+          "correct_records": 5
+        },
+        "zero_bank": {
+          "bit": 0.50781,
+          "whole": 0.0,
+          "prediction_change": 0.47656,
+          "correct_records": 0
+        },
+        "uniform_read": {
+          "bit": 0.57812,
+          "whole": 0.0,
+          "prediction_change": 0.39062,
+          "correct_records": 0
+        },
+        "max_reference_error": 0.0
+      }
+    },
+    {
+      "seed": 29,
+      "arm": "fade_by_half",
+      "evaluation": {
+        "256": {
+          "bit": 0.93359,
+          "whole": 0.46875,
+          "constant": 0.0,
+          "histories": 32
+        },
+        "1024": {
+          "bit": 0.92188,
+          "whole": 0.4375,
+          "constant": 0.0,
+          "histories": 32
+        }
+      },
+      "causal1024": {
+        "normal": {
+          "bit": 0.91406,
+          "whole": 0.3125,
+          "prediction_change": 0.0,
+          "correct_records": 5
+        },
+        "zero_bank": {
+          "bit": 0.50781,
+          "whole": 0.0,
+          "prediction_change": 0.46875,
+          "correct_records": 0
+        },
+        "uniform_read": {
+          "bit": 0.57812,
+          "whole": 0.0,
+          "prediction_change": 0.38281,
+          "correct_records": 0
+        },
+        "max_reference_error": 0.0
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "linear_fade",
+      "evaluation": {
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 32
+        },
+        "1024": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 32
+        }
+      },
+      "causal1024": {
+        "normal": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "prediction_change": 0.0,
+          "correct_records": 16
+        },
+        "zero_bank": {
+          "bit": 0.57031,
+          "whole": 0.0625,
+          "prediction_change": 0.42969,
+          "correct_records": 1
+        },
+        "uniform_read": {
+          "bit": 0.64062,
+          "whole": 0.0,
+          "prediction_change": 0.35938,
+          "correct_records": 0
+        },
+        "max_reference_error": 0.0
+      }
+    },
+    {
+      "seed": 43,
+      "arm": "fade_by_half",
+      "evaluation": {
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 32
+        },
+        "1024": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 32
+        }
+      },
+      "causal1024": {
+        "normal": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "prediction_change": 0.0,
+          "correct_records": 16
+        },
+        "zero_bank": {
+          "bit": 0.5625,
+          "whole": 0.0625,
+          "prediction_change": 0.4375,
+          "correct_records": 1
+        },
+        "uniform_read": {
+          "bit": 0.63281,
+          "whole": 0.0,
+          "prediction_change": 0.36719,
+          "correct_records": 0
+        },
+        "max_reference_error": 0.0
+      }
+    }
+  ],
+  "complete": true,
+  "elapsed_seconds": 23.89
+}

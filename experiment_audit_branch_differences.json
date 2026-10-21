@@ -1,0 +1,240 @@
+[
+    {
+        "branch":  "claude/dense-transfer-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "claude/lemma-m-sequential-repair-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "claude/remaining-channels-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "fix/pr34-checkers-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "fix/pr35-audit-notes-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "main",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "research/active",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "research/review",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/astra/private-survivor-independent-20261008",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/dense-transfer-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/gallant-bardeen-ybxn57",
+        "changed_experiment_files":  360,
+        "sample":  [
+                       "experiments/INDEX.md",
+                       "experiments/claude_8d_review_20261001/REVIEW.md",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/arithmetic.py",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/bounds_192.npz",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/bounds_256.npz",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/development_tests.json",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/exact_bounds_192.json.gz",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/exact_bounds_256.json.gz"
+                   ]
+    },
+    {
+        "branch":  "origin/claude/hypothesis-b-bus-20261015",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/lemma-m-bus-capacity-20261015",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/lemma-m-rest-20261016",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/lemma-m-sequential-repair-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/lemma-m-three-memory-20261019",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/multiprobe-memory-20261014",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/narrow-capture-hub-20261013",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/neutral-path-tax-20261013",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/remaining-channels-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/claude/shift-holonomy-audit-20261013",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/codex/pr24-independent-hostile-review",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/codex/pr35-trainable-balanced-memory-20261020",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/codex/route7a-long-window-20261008",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/docs/claude-research-handoff-20261015",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/gemini/astra-route7a-feedback-audit-20261008",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/gemini/pr26-neutral-hole-audit-20261013",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/main",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    },
+    {
+        "branch":  "origin/preserve/all-research-20261004",
+        "changed_experiment_files":  91,
+        "sample":  [
+                       "experiments/INDEX.md",
+                       "experiments/finite_n_clean_mask_scaling_20261006/SUMMARY.md",
+                       "experiments/finite_n_clean_mask_scaling_20261006/absolute_vs_normalized_crosstalk.png",
+                       "experiments/finite_n_clean_mask_scaling_20261006/alias_count_vs_crosstalk.png",
+                       "experiments/finite_n_clean_mask_scaling_20261006/clean_k_scaling.png",
+                       "experiments/finite_n_clean_mask_scaling_20261006/clean_mask_r_scaling.png",
+                       "experiments/finite_n_clean_mask_scaling_20261006/clear_scaling_clean_masks.png",
+                       "experiments/finite_n_clean_mask_scaling_20261006/cross_talk_vs_r.png"
+                   ]
+    },
+    {
+        "branch":  "origin/preserve/local-theory-20261004",
+        "changed_experiment_files":  360,
+        "sample":  [
+                       "experiments/INDEX.md",
+                       "experiments/claude_8d_review_20261001/REVIEW.md",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/arithmetic.py",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/bounds_192.npz",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/bounds_256.npz",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/development_tests.json",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/exact_bounds_192.json.gz",
+                       "experiments/claude_8d_review_20261001/cleanroom_8d/exact_bounds_256.json.gz"
+                   ]
+    },
+    {
+        "branch":  "origin/prototype/rnn-llm-architecture-v0-20261007",
+        "changed_experiment_files":  0,
+        "sample":  {
+
+                   }
+    }
+]

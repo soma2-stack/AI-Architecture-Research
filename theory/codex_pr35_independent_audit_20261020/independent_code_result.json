@@ -1,0 +1,30 @@
+{
+  "finite_saturation_tests": [
+    {
+      "D": 2,
+      "r": 3,
+      "L_90digit_numeric": "2.288245611270737190400291",
+      "min_saturated": 2,
+      "all_full_spark_determinants_exact_nonzero": true
+    },
+    {
+      "D": 3,
+      "r": 5,
+      "L_90digit_numeric": "12.15917107094196197538091",
+      "min_saturated": 3,
+      "all_full_spark_determinants_exact_nonzero": true
+    },
+    {
+      "D": 4,
+      "r": 7,
+      "L_90digit_numeric": "76.17669849374385144828928",
+      "min_saturated": 4,
+      "all_full_spark_determinants_exact_nonzero": true
+    }
+  ],
+  "conditioning_D89": {
+    "L_lower_gt_10_power": 50,
+    "L_lower_exact": "26323698106131601802827447011898712732781211975623143803097461738211500385005015380267919494987142847094577148271431769636084908032/47601207661214388715477317320332953977113149661733976208228688598918914794921875",
+    "meaning": "rigorous conditioning lower bound, not a counterexample to exact-real code"
+  }
+}

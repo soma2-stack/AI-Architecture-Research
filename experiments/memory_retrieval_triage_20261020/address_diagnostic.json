@@ -1,0 +1,179 @@
+{
+  "scope": "posthoc learned address mapping of individual tag embeddings; no retraining",
+  "runs": [
+    {
+      "seed": 17,
+      "slots": 2,
+      "write_slot_argmax": [
+        1,
+        0
+      ],
+      "query_slot_argmax": [
+        1,
+        0
+      ],
+      "unique_write_destinations": 2,
+      "unique_read_destinations": 2,
+      "matched_write_read_tags": 2,
+      "mean_write_confidence": 0.802,
+      "mean_read_confidence": 1.0,
+      "write_gate_means_by_slot": [
+        0.9964,
+        0.0004
+      ]
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "write_slot_argmax": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "query_slot_argmax": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unique_write_destinations": 3,
+      "unique_read_destinations": 4,
+      "matched_write_read_tags": 3,
+      "mean_write_confidence": 0.9987,
+      "mean_read_confidence": 0.9987,
+      "write_gate_means_by_slot": [
+        0.0014,
+        0.9896,
+        0.9932,
+        0.9938
+      ]
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "write_slot_argmax": [
+        2,
+        7,
+        2,
+        7,
+        6,
+        2,
+        5,
+        4
+      ],
+      "query_slot_argmax": [
+        6,
+        6,
+        6,
+        2,
+        2,
+        7,
+        2,
+        7
+      ],
+      "unique_write_destinations": 5,
+      "unique_read_destinations": 3,
+      "matched_write_read_tags": 0,
+      "mean_write_confidence": 0.9577,
+      "mean_read_confidence": 0.9144,
+      "write_gate_means_by_slot": [
+        0.278,
+        0.3695,
+        0.4009,
+        0.3415,
+        0.3435,
+        0.2254,
+        0.2708,
+        0.253
+      ]
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "write_slot_argmax": [
+        1,
+        0
+      ],
+      "query_slot_argmax": [
+        0,
+        1
+      ],
+      "unique_write_destinations": 2,
+      "unique_read_destinations": 2,
+      "matched_write_read_tags": 0,
+      "mean_write_confidence": 1.0,
+      "mean_read_confidence": 1.0,
+      "write_gate_means_by_slot": [
+        0.7799,
+        0.6233
+      ]
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "write_slot_argmax": [
+        0,
+        1,
+        0,
+        3
+      ],
+      "query_slot_argmax": [
+        0,
+        1,
+        0,
+        3
+      ],
+      "unique_write_destinations": 3,
+      "unique_read_destinations": 3,
+      "matched_write_read_tags": 4,
+      "mean_write_confidence": 0.9988,
+      "mean_read_confidence": 0.9993,
+      "write_gate_means_by_slot": [
+        0.2621,
+        0.9449,
+        0.2973,
+        0.9367
+      ]
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "write_slot_argmax": [
+        4,
+        1,
+        4,
+        2,
+        7,
+        1,
+        6,
+        3
+      ],
+      "query_slot_argmax": [
+        5,
+        0,
+        4,
+        2,
+        7,
+        0,
+        6,
+        3
+      ],
+      "unique_write_destinations": 6,
+      "unique_read_destinations": 7,
+      "matched_write_read_tags": 5,
+      "mean_write_confidence": 0.8597,
+      "mean_read_confidence": 0.9902,
+      "write_gate_means_by_slot": [
+        0.0063,
+        0.8634,
+        0.978,
+        0.9867,
+        0.9889,
+        0.963,
+        0.9799,
+        0.9842
+      ]
+    }
+  ]
+}

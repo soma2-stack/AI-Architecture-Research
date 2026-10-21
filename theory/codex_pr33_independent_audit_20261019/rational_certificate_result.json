@@ -1,0 +1,32 @@
+{
+  "first_order_scalar_certificate": {
+    "Pi_ratio_global_rigorous_lower": ".6272",
+    "monotone_grid_rigorous_lower_approx": 0.6272833001966546,
+    "c_s_rigorous_upper": ".3331",
+    "front_mass_rigorous_upper": "39.723",
+    "front_mass_upper_approx": 39.722286359228946,
+    "c_R_rigorous_lower": ".0004988",
+    "first_pulse_input_rigorous_upper": ".4563",
+    "corrected_age17_input_upper": ".3831",
+    "method": "exact rational Taylor-tail intervals; all assertions use Fraction, not float"
+  },
+  "arithmetic": "fractions.Fraction; rational intervals; exact positive Taylor-tail bounds",
+  "exp_minus_200_strict_interval": [
+    "13838965267367/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "1729870658421/1250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  ],
+  "exp200_taylor_degree": 700,
+  "n_1e166_e_strict_interval": [
+    "0.6313704808502",
+    "0.6313704808504"
+  ],
+  "n_1e166_epsSO_strict_lower_bound": "1.7",
+  "n_1e168_e_strict_lower_bound": "6",
+  "rounding_counterexample": {
+    "n0": "1000000000000000280",
+    "n1": "1000000000000000284",
+    "H0": 1264911064067352,
+    "H1": 1264911064067353,
+    "H_over_n_increases_exactly": true
+  }
+}

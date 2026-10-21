@@ -1,0 +1,371 @@
+{
+  "protocol": {
+    "comparison": "learned address (separate read/write) vs shared projection",
+    "seeds": [
+      17,
+      29
+    ],
+    "slots": [
+      2,
+      4,
+      8
+    ],
+    "models": [
+      "baseline",
+      "shared"
+    ],
+    "steps": 240,
+    "batch": 12,
+    "eval_histories": 96,
+    "eval_delays": [
+      16,
+      64,
+      256
+    ],
+    "cpu_threads": 6,
+    "gpu": false,
+    "lr": 0.003,
+    "training_streams_matched": true
+  },
+  "rows": [
+    {
+      "seed": 17,
+      "slots": 2,
+      "model": "baseline",
+      "parameters": 11831,
+      "elapsed_training_s": 7.484,
+      "loss_last_20": 0.00257,
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 2,
+      "model": "shared",
+      "parameters": 11435,
+      "elapsed_training_s": 8.235,
+      "loss_last_20": 0.00273,
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "model": "baseline",
+      "parameters": 11855,
+      "elapsed_training_s": 10.937,
+      "loss_last_20": 0.00965,
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.96615,
+          "whole": 0.86458,
+          "constant": 0.14583,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "model": "shared",
+      "parameters": 11459,
+      "elapsed_training_s": 10.938,
+      "loss_last_20": 0.43962,
+      "eval": {
+        "16": {
+          "bit": 0.78646,
+          "whole": 0.26042,
+          "constant": 0.46875,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.79688,
+          "whole": 0.28125,
+          "constant": 0.46875,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.78125,
+          "whole": 0.26042,
+          "constant": 0.44792,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "model": "baseline",
+      "parameters": 11903,
+      "elapsed_training_s": 17.219,
+      "loss_last_20": 0.63334,
+      "eval": {
+        "16": {
+          "bit": 0.65234,
+          "whole": 0.03125,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.63151,
+          "whole": 0.02083,
+          "constant": 0.76042,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.63281,
+          "whole": 0.0,
+          "constant": 0.98958,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "model": "shared",
+      "parameters": 11507,
+      "elapsed_training_s": 17.141,
+      "loss_last_20": 0.22884,
+      "eval": {
+        "16": {
+          "bit": 0.8763,
+          "whole": 0.19792,
+          "constant": 0.05208,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.8763,
+          "whole": 0.20833,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.86979,
+          "whole": 0.1875,
+          "constant": 0.0625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "model": "baseline",
+      "parameters": 11831,
+      "elapsed_training_s": 8.343,
+      "loss_last_20": 0.22515,
+      "eval": {
+        "16": {
+          "bit": 0.95312,
+          "whole": 0.90625,
+          "constant": 0.46875,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.82812,
+          "whole": 0.65625,
+          "constant": 0.73958,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.72917,
+          "whole": 0.45833,
+          "constant": 0.97917,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "model": "shared",
+      "parameters": 11435,
+      "elapsed_training_s": 8.25,
+      "loss_last_20": 0.25713,
+      "eval": {
+        "16": {
+          "bit": 0.90625,
+          "whole": 0.8125,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.82292,
+          "whole": 0.65625,
+          "constant": 0.625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.71354,
+          "whole": 0.42708,
+          "constant": 0.63542,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "model": "baseline",
+      "parameters": 11855,
+      "elapsed_training_s": 10.891,
+      "loss_last_20": 0.22596,
+      "eval": {
+        "16": {
+          "bit": 0.85417,
+          "whole": 0.41667,
+          "constant": 0.22917,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.84896,
+          "whole": 0.39583,
+          "constant": 0.22917,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.85677,
+          "whole": 0.4375,
+          "constant": 0.20833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "model": "shared",
+      "parameters": 11459,
+      "elapsed_training_s": 10.984,
+      "loss_last_20": 0.22606,
+      "eval": {
+        "16": {
+          "bit": 0.85417,
+          "whole": 0.41667,
+          "constant": 0.22917,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.85417,
+          "whole": 0.41667,
+          "constant": 0.22917,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.86198,
+          "whole": 0.45833,
+          "constant": 0.1875,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "model": "baseline",
+      "parameters": 11903,
+      "elapsed_training_s": 17.0,
+      "loss_last_20": 0.19458,
+      "eval": {
+        "16": {
+          "bit": 0.86458,
+          "whole": 0.1875,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.86068,
+          "whole": 0.17708,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.88151,
+          "whole": 0.26042,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "model": "shared",
+      "parameters": 11507,
+      "elapsed_training_s": 17.016,
+      "loss_last_20": 0.08753,
+      "eval": {
+        "16": {
+          "bit": 0.92708,
+          "whole": 0.41667,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.92318,
+          "whole": 0.38542,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.92708,
+          "whole": 0.41667,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    }
+  ],
+  "complete": true,
+  "elapsed_s": 145.515,
+  "checkpoint": "shared_address_sixthreads.pt"
+}

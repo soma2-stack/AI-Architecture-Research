@@ -1,0 +1,232 @@
+{
+  "protocol": {
+    "steps": 240,
+    "seeds": "17,29",
+    "slots": "2,4,8",
+    "histories": 96,
+    "delays": [
+      16,
+      64,
+      256
+    ],
+    "cpu_threads": 4,
+    "cuda": false,
+    "oracle_addresses": false,
+    "write_parser_in_forward": false
+  },
+  "warning": "pilot only, not equal compute/memory comparison; explicit oracle old hybrid and delta controls",
+  "runs": [
+    {
+      "seed": 17,
+      "slots": 2,
+      "steps": 240,
+      "parameters": 11831,
+      "state_scalars": 56,
+      "train_seconds": 6.88,
+      "initial_loss": 0.68365,
+      "final_loss": 0.00257,
+      "gate_probe": {
+        "marked_gate": 0.4675,
+        "other_gate": 0.437,
+        "max_query_attention": 1.0
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "steps": 240,
+      "parameters": 11855,
+      "state_scalars": 80,
+      "train_seconds": 9.52,
+      "initial_loss": 0.64513,
+      "final_loss": 0.00965,
+      "gate_probe": {
+        "marked_gate": 0.7742,
+        "other_gate": 0.0054,
+        "max_query_attention": 0.9987
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.96615,
+          "whole": 0.86458,
+          "constant": 0.14583,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "steps": 240,
+      "parameters": 11903,
+      "state_scalars": 128,
+      "train_seconds": 15.16,
+      "initial_loss": 0.69656,
+      "final_loss": 0.63334,
+      "gate_probe": {
+        "marked_gate": 0.3106,
+        "other_gate": 0.0979,
+        "max_query_attention": 0.9144
+      },
+      "eval": {
+        "16": {
+          "bit": 0.65234,
+          "whole": 0.03125,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.63151,
+          "whole": 0.02083,
+          "constant": 0.76042,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.63281,
+          "whole": 0.0,
+          "constant": 0.98958,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "steps": 240,
+      "parameters": 11831,
+      "state_scalars": 56,
+      "train_seconds": 7.34,
+      "initial_loss": 0.68251,
+      "final_loss": 0.22515,
+      "gate_probe": {
+        "marked_gate": 0.6981,
+        "other_gate": 0.0516,
+        "max_query_attention": 1.0
+      },
+      "eval": {
+        "16": {
+          "bit": 0.95312,
+          "whole": 0.90625,
+          "constant": 0.46875,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.82812,
+          "whole": 0.65625,
+          "constant": 0.73958,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.72917,
+          "whole": 0.45833,
+          "constant": 0.97917,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "steps": 240,
+      "parameters": 11855,
+      "state_scalars": 80,
+      "train_seconds": 9.53,
+      "initial_loss": 0.68194,
+      "final_loss": 0.22596,
+      "gate_probe": {
+        "marked_gate": 0.6753,
+        "other_gate": 0.041,
+        "max_query_attention": 0.9993
+      },
+      "eval": {
+        "16": {
+          "bit": 0.85417,
+          "whole": 0.41667,
+          "constant": 0.22917,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.84896,
+          "whole": 0.39583,
+          "constant": 0.22917,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.85677,
+          "whole": 0.4375,
+          "constant": 0.20833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "steps": 240,
+      "parameters": 11903,
+      "state_scalars": 128,
+      "train_seconds": 15.14,
+      "initial_loss": 0.69407,
+      "final_loss": 0.19458,
+      "gate_probe": {
+        "marked_gate": 0.8321,
+        "other_gate": 0.2052,
+        "max_query_attention": 0.9902
+      },
+      "eval": {
+        "16": {
+          "bit": 0.86458,
+          "whole": 0.1875,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.86068,
+          "whole": 0.17708,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.88151,
+          "whole": 0.26042,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    }
+  ],
+  "complete": true,
+  "elapsed_seconds": 73.16
+}

@@ -1,0 +1,71 @@
+[
+  {
+    "n": 512,
+    "H": 61,
+    "theta": [
+      1.0
+    ],
+    "query_identity_error": 5.417888360170764e-14,
+    "fixed_input_gradient_difference_error": 6.827860943303676e-09,
+    "analytic_readout": [
+      7.732812412046068
+    ],
+    "raw_central_difference_error": 2.1295372976126714e-06,
+    "step": 1e-06,
+    "finite_difference_readout": [
+      7.7328124052182075
+    ],
+    "endpoint_error": 2.7755575615628914e-16,
+    "peak_actual_support": 3,
+    "max_input": 0.38031272856211606,
+    "scope": "finite consistency checks; below theorem n and bath may violate H"
+  },
+  {
+    "n": 1024,
+    "H": 101,
+    "theta": [
+      0.6,
+      -0.8
+    ],
+    "query_identity_error": 2.6290081223123707e-13,
+    "fixed_input_gradient_difference_error": 1.0368140124228375e-08,
+    "analytic_readout": [
+      7.712584542271945,
+      -10.077692088954526
+    ],
+    "raw_central_difference_error": 8.512428584239728e-06,
+    "step": 1e-06,
+    "finite_difference_readout": [
+      7.712584552640085,
+      -10.077692093564869
+    ],
+    "endpoint_error": 4.510281037539698e-16,
+    "peak_actual_support": 3,
+    "max_input": 0.34205609657997554,
+    "scope": "finite consistency checks; below theorem n and bath may violate H"
+  },
+  {
+    "n": 1024,
+    "H": 100,
+    "theta": [
+      1e-05,
+      0.99999999995
+    ],
+    "query_identity_error": 3.1441516057384433e-13,
+    "fixed_input_gradient_difference_error": 2.0608847961511856e-08,
+    "analytic_readout": [
+      -0.07096641758879423,
+      11.61835244711377
+    ],
+    "raw_central_difference_error": 5.401785832859218e-06,
+    "step": 1e-06,
+    "finite_difference_readout": [
+      -0.07096641022978172,
+      11.618352426504922
+    ],
+    "endpoint_error": 7.008282842946301e-16,
+    "peak_actual_support": 3,
+    "max_input": 0.3800562075484058,
+    "scope": "finite consistency checks; below theorem n and bath may violate H"
+  }
+]

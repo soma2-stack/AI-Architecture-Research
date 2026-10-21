@@ -1,0 +1,484 @@
+{
+  "protocol": {
+    "seeds": [
+      17,
+      29
+    ],
+    "slots": [
+      2,
+      4,
+      8
+    ],
+    "updates": 240,
+    "batch": 12,
+    "eval_delays": [
+      64,
+      256
+    ],
+    "heldout_histories": 96,
+    "cpu_threads": 4,
+    "gpu": false,
+    "intervention_only_at_evaluation": true
+  },
+  "runs": [
+    {
+      "seed": 17,
+      "slots": 2,
+      "train_wall_s": 8.594,
+      "final_loss": 0.00257,
+      "eval": {
+        "64": {
+          "normal": {
+            "bit": 1.0,
+            "whole": 1.0,
+            "prediction_change": 0.0,
+            "correct_records": 96
+          },
+          "zero_bank": {
+            "bit": 0.76562,
+            "whole": 0.53125,
+            "prediction_change": 0.23438,
+            "correct_records": 51
+          },
+          "reverse_bank": {
+            "bit": 0.73958,
+            "whole": 0.51042,
+            "prediction_change": 0.26042,
+            "correct_records": 49
+          },
+          "uniform_read": {
+            "bit": 1.0,
+            "whole": 1.0,
+            "prediction_change": 0.0,
+            "correct_records": 96
+          },
+          "zero_gru": {
+            "bit": 0.72396,
+            "whole": 0.44792,
+            "prediction_change": 0.27604,
+            "correct_records": 43
+          }
+        },
+        "256": {
+          "normal": {
+            "bit": 1.0,
+            "whole": 1.0,
+            "prediction_change": 0.0,
+            "correct_records": 96
+          },
+          "zero_bank": {
+            "bit": 0.76562,
+            "whole": 0.53125,
+            "prediction_change": 0.23438,
+            "correct_records": 51
+          },
+          "reverse_bank": {
+            "bit": 0.76042,
+            "whole": 0.55208,
+            "prediction_change": 0.23958,
+            "correct_records": 53
+          },
+          "uniform_read": {
+            "bit": 1.0,
+            "whole": 1.0,
+            "prediction_change": 0.0,
+            "correct_records": 96
+          },
+          "zero_gru": {
+            "bit": 0.73958,
+            "whole": 0.47917,
+            "prediction_change": 0.26042,
+            "correct_records": 46
+          }
+        }
+      },
+      "normal_forward_max_logit_error": {
+        "64": 0.0,
+        "256": 0.0
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "train_wall_s": 11.718,
+      "final_loss": 0.00965,
+      "eval": {
+        "64": {
+          "normal": {
+            "bit": 1.0,
+            "whole": 1.0,
+            "prediction_change": 0.0,
+            "correct_records": 96
+          },
+          "zero_bank": {
+            "bit": 0.61719,
+            "whole": 0.14583,
+            "prediction_change": 0.38281,
+            "correct_records": 14
+          },
+          "reverse_bank": {
+            "bit": 0.46354,
+            "whole": 0.23958,
+            "prediction_change": 0.53646,
+            "correct_records": 23
+          },
+          "uniform_read": {
+            "bit": 0.69792,
+            "whole": 0.16667,
+            "prediction_change": 0.30208,
+            "correct_records": 16
+          },
+          "zero_gru": {
+            "bit": 0.89583,
+            "whole": 0.58333,
+            "prediction_change": 0.10417,
+            "correct_records": 56
+          }
+        },
+        "256": {
+          "normal": {
+            "bit": 0.96615,
+            "whole": 0.86458,
+            "prediction_change": 0.0,
+            "correct_records": 83
+          },
+          "zero_bank": {
+            "bit": 0.58073,
+            "whole": 0.11458,
+            "prediction_change": 0.38542,
+            "correct_records": 11
+          },
+          "reverse_bank": {
+            "bit": 0.46094,
+            "whole": 0.20833,
+            "prediction_change": 0.54167,
+            "correct_records": 20
+          },
+          "uniform_read": {
+            "bit": 0.67969,
+            "whole": 0.14583,
+            "prediction_change": 0.30208,
+            "correct_records": 14
+          },
+          "zero_gru": {
+            "bit": 0.88542,
+            "whole": 0.54167,
+            "prediction_change": 0.10677,
+            "correct_records": 52
+          }
+        }
+      },
+      "normal_forward_max_logit_error": {
+        "64": 0.0,
+        "256": 0.0
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "train_wall_s": 18.078,
+      "final_loss": 0.63334,
+      "eval": {
+        "64": {
+          "normal": {
+            "bit": 0.63151,
+            "whole": 0.02083,
+            "prediction_change": 0.0,
+            "correct_records": 2
+          },
+          "zero_bank": {
+            "bit": 0.6263,
+            "whole": 0.0,
+            "prediction_change": 0.10938,
+            "correct_records": 0
+          },
+          "reverse_bank": {
+            "bit": 0.6276,
+            "whole": 0.0,
+            "prediction_change": 0.11589,
+            "correct_records": 0
+          },
+          "uniform_read": {
+            "bit": 0.63151,
+            "whole": 0.0,
+            "prediction_change": 0.09115,
+            "correct_records": 0
+          },
+          "zero_gru": {
+            "bit": 0.52344,
+            "whole": 0.01042,
+            "prediction_change": 0.55078,
+            "correct_records": 1
+          }
+        },
+        "256": {
+          "normal": {
+            "bit": 0.63281,
+            "whole": 0.0,
+            "prediction_change": 0.0,
+            "correct_records": 0
+          },
+          "zero_bank": {
+            "bit": 0.63151,
+            "whole": 0.0,
+            "prediction_change": 0.0013,
+            "correct_records": 0
+          },
+          "reverse_bank": {
+            "bit": 0.63672,
+            "whole": 0.0,
+            "prediction_change": 0.00651,
+            "correct_records": 0
+          },
+          "uniform_read": {
+            "bit": 0.63151,
+            "whole": 0.0,
+            "prediction_change": 0.0013,
+            "correct_records": 0
+          },
+          "zero_gru": {
+            "bit": 0.47656,
+            "whole": 0.0,
+            "prediction_change": 0.54427,
+            "correct_records": 0
+          }
+        }
+      },
+      "normal_forward_max_logit_error": {
+        "64": 0.0,
+        "256": 0.0
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "train_wall_s": 9.188,
+      "final_loss": 0.22515,
+      "eval": {
+        "64": {
+          "normal": {
+            "bit": 0.82812,
+            "whole": 0.65625,
+            "prediction_change": 0.0,
+            "correct_records": 63
+          },
+          "zero_bank": {
+            "bit": 0.72917,
+            "whole": 0.45833,
+            "prediction_change": 0.13021,
+            "correct_records": 44
+          },
+          "reverse_bank": {
+            "bit": 0.66667,
+            "whole": 0.45833,
+            "prediction_change": 0.19271,
+            "correct_records": 44
+          },
+          "uniform_read": {
+            "bit": 0.73438,
+            "whole": 0.46875,
+            "prediction_change": 0.125,
+            "correct_records": 45
+          },
+          "zero_gru": {
+            "bit": 0.53646,
+            "whole": 0.52083,
+            "prediction_change": 0.60417,
+            "correct_records": 50
+          }
+        },
+        "256": {
+          "normal": {
+            "bit": 0.72917,
+            "whole": 0.45833,
+            "prediction_change": 0.0,
+            "correct_records": 44
+          },
+          "zero_bank": {
+            "bit": 0.72917,
+            "whole": 0.45833,
+            "prediction_change": 0.01042,
+            "correct_records": 44
+          },
+          "reverse_bank": {
+            "bit": 0.72917,
+            "whole": 0.45833,
+            "prediction_change": 0.01042,
+            "correct_records": 44
+          },
+          "uniform_read": {
+            "bit": 0.72917,
+            "whole": 0.45833,
+            "prediction_change": 0.01042,
+            "correct_records": 44
+          },
+          "zero_gru": {
+            "bit": 0.48438,
+            "whole": 0.25,
+            "prediction_change": 0.73438,
+            "correct_records": 24
+          }
+        }
+      },
+      "normal_forward_max_logit_error": {
+        "64": 0.0,
+        "256": 0.0
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "train_wall_s": 11.656,
+      "final_loss": 0.22596,
+      "eval": {
+        "64": {
+          "normal": {
+            "bit": 0.84896,
+            "whole": 0.39583,
+            "prediction_change": 0.0,
+            "correct_records": 38
+          },
+          "zero_bank": {
+            "bit": 0.51042,
+            "whole": 0.04167,
+            "prediction_change": 0.47396,
+            "correct_records": 4
+          },
+          "reverse_bank": {
+            "bit": 0.44531,
+            "whole": 0.03125,
+            "prediction_change": 0.53906,
+            "correct_records": 3
+          },
+          "uniform_read": {
+            "bit": 0.66667,
+            "whole": 0.0625,
+            "prediction_change": 0.32292,
+            "correct_records": 6
+          },
+          "zero_gru": {
+            "bit": 0.84896,
+            "whole": 0.40625,
+            "prediction_change": 0.02604,
+            "correct_records": 39
+          }
+        },
+        "256": {
+          "normal": {
+            "bit": 0.85677,
+            "whole": 0.4375,
+            "prediction_change": 0.0,
+            "correct_records": 42
+          },
+          "zero_bank": {
+            "bit": 0.48177,
+            "whole": 0.07292,
+            "prediction_change": 0.49479,
+            "correct_records": 7
+          },
+          "reverse_bank": {
+            "bit": 0.46354,
+            "whole": 0.0625,
+            "prediction_change": 0.53385,
+            "correct_records": 6
+          },
+          "uniform_read": {
+            "bit": 0.67708,
+            "whole": 0.0625,
+            "prediction_change": 0.3099,
+            "correct_records": 6
+          },
+          "zero_gru": {
+            "bit": 0.85417,
+            "whole": 0.41667,
+            "prediction_change": 0.01823,
+            "correct_records": 40
+          }
+        }
+      },
+      "normal_forward_max_logit_error": {
+        "64": 0.0,
+        "256": 0.0
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "train_wall_s": 18.109,
+      "final_loss": 0.19458,
+      "eval": {
+        "64": {
+          "normal": {
+            "bit": 0.86068,
+            "whole": 0.17708,
+            "prediction_change": 0.0,
+            "correct_records": 17
+          },
+          "zero_bank": {
+            "bit": 0.51042,
+            "whole": 0.01042,
+            "prediction_change": 0.47526,
+            "correct_records": 1
+          },
+          "reverse_bank": {
+            "bit": 0.48698,
+            "whole": 0.0,
+            "prediction_change": 0.51953,
+            "correct_records": 0
+          },
+          "uniform_read": {
+            "bit": 0.6237,
+            "whole": 0.0,
+            "prediction_change": 0.34635,
+            "correct_records": 0
+          },
+          "zero_gru": {
+            "bit": 0.85938,
+            "whole": 0.16667,
+            "prediction_change": 0.02734,
+            "correct_records": 16
+          }
+        },
+        "256": {
+          "normal": {
+            "bit": 0.88151,
+            "whole": 0.26042,
+            "prediction_change": 0.0,
+            "correct_records": 25
+          },
+          "zero_bank": {
+            "bit": 0.49219,
+            "whole": 0.0,
+            "prediction_change": 0.48568,
+            "correct_records": 0
+          },
+          "reverse_bank": {
+            "bit": 0.5013,
+            "whole": 0.01042,
+            "prediction_change": 0.50521,
+            "correct_records": 1
+          },
+          "uniform_read": {
+            "bit": 0.61719,
+            "whole": 0.0,
+            "prediction_change": 0.36328,
+            "correct_records": 0
+          },
+          "zero_gru": {
+            "bit": 0.87109,
+            "whole": 0.25,
+            "prediction_change": 0.01823,
+            "correct_records": 24
+          }
+        }
+      },
+      "normal_forward_max_logit_error": {
+        "64": 0.0,
+        "256": 0.0
+      }
+    }
+  ],
+  "complete": true,
+  "elapsed_wall_s": 78.515,
+  "weights_file": "causal_weights.pt"
+}

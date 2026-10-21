@@ -1,0 +1,742 @@
+{
+  "scope": "diagnostic only; hybrid/delta have explicit grammar; not apples-to-apples architecture proof",
+  "protocol": {
+    "train_updates": 180,
+    "batch": 12,
+    "heldout_histories": 96,
+    "slots": "2,4,8",
+    "seeds": "17,29",
+    "width": 32,
+    "eval_delays": [
+      16,
+      64,
+      256
+    ],
+    "cpu_threads": 4,
+    "cuda_visible": false
+  },
+  "runs": [
+    {
+      "seed": 17,
+      "slots": 2,
+      "model": "gru",
+      "params": 7488,
+      "state_scalars": 32,
+      "training_wall_seconds": 2.27,
+      "initial_loss": 0.6989,
+      "final_loss": 0.6312,
+      "evaluation": {
+        "16": {
+          "bit": 0.66146,
+          "whole": 0.42708,
+          "constant": 1.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.53125,
+          "whole": 0.30208,
+          "constant": 0.98958,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.47396,
+          "whole": 0.23958,
+          "constant": 1.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 2,
+      "model": "pair",
+      "params": 2757,
+      "state_scalars": 32,
+      "training_wall_seconds": 3.3,
+      "initial_loss": 0.7279,
+      "final_loss": 0.64,
+      "evaluation": {
+        "16": {
+          "bit": 0.64062,
+          "whole": 0.41667,
+          "constant": 0.9375,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.5625,
+          "whole": 0.3125,
+          "constant": 0.92708,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.53646,
+          "whole": 0.29167,
+          "constant": 0.95833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 2,
+      "model": "hybrid",
+      "params": 7499,
+      "state_scalars": 56,
+      "training_wall_seconds": 3.67,
+      "initial_loss": 0.5109,
+      "final_loss": 0.0357,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 2,
+      "model": "delta",
+      "params": 130,
+      "state_scalars": 64,
+      "training_wall_seconds": 2.62,
+      "initial_loss": 0.6603,
+      "final_loss": 0.0076,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "model": "gru",
+      "params": 7488,
+      "state_scalars": 32,
+      "training_wall_seconds": 3.73,
+      "initial_loss": 0.7084,
+      "final_loss": 0.7026,
+      "evaluation": {
+        "16": {
+          "bit": 0.50521,
+          "whole": 0.0625,
+          "constant": 0.88542,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.47656,
+          "whole": 0.05208,
+          "constant": 0.86458,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.47135,
+          "whole": 0.05208,
+          "constant": 0.85417,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "model": "pair",
+      "params": 2757,
+      "state_scalars": 32,
+      "training_wall_seconds": 4.33,
+      "initial_loss": 0.7116,
+      "final_loss": 0.6516,
+      "evaluation": {
+        "16": {
+          "bit": 0.63542,
+          "whole": 0.15625,
+          "constant": 0.83333,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.57031,
+          "whole": 0.14583,
+          "constant": 0.83333,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.55469,
+          "whole": 0.09375,
+          "constant": 0.86458,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "model": "hybrid",
+      "params": 7523,
+      "state_scalars": 80,
+      "training_wall_seconds": 4.73,
+      "initial_loss": 0.6818,
+      "final_loss": 0.0518,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "model": "delta",
+      "params": 130,
+      "state_scalars": 128,
+      "training_wall_seconds": 6.05,
+      "initial_loss": 0.6588,
+      "final_loss": 0.0075,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.14583,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "model": "gru",
+      "params": 7488,
+      "state_scalars": 32,
+      "training_wall_seconds": 6.06,
+      "initial_loss": 0.7078,
+      "final_loss": 0.6952,
+      "evaluation": {
+        "16": {
+          "bit": 0.48958,
+          "whole": 0.01042,
+          "constant": 0.35417,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.48307,
+          "whole": 0.0,
+          "constant": 0.29167,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.48568,
+          "whole": 0.0,
+          "constant": 0.32292,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "model": "pair",
+      "params": 2757,
+      "state_scalars": 32,
+      "training_wall_seconds": 6.64,
+      "initial_loss": 0.7205,
+      "final_loss": 0.6641,
+      "evaluation": {
+        "16": {
+          "bit": 0.61849,
+          "whole": 0.0,
+          "constant": 0.83333,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.58984,
+          "whole": 0.01042,
+          "constant": 0.78125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.51172,
+          "whole": 0.0,
+          "constant": 0.79167,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "model": "hybrid",
+      "params": 7571,
+      "state_scalars": 128,
+      "training_wall_seconds": 7.45,
+      "initial_loss": 0.5679,
+      "final_loss": 0.0313,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "model": "delta",
+      "params": 130,
+      "state_scalars": 256,
+      "training_wall_seconds": 21.48,
+      "initial_loss": 0.6477,
+      "final_loss": 0.0075,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "model": "gru",
+      "params": 7488,
+      "state_scalars": 32,
+      "training_wall_seconds": 2.73,
+      "initial_loss": 0.6996,
+      "final_loss": 0.5944,
+      "evaluation": {
+        "16": {
+          "bit": 0.67708,
+          "whole": 0.41667,
+          "constant": 0.97917,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.51042,
+          "whole": 0.23958,
+          "constant": 1.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.5,
+          "whole": 0.22917,
+          "constant": 1.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "model": "pair",
+      "params": 2757,
+      "state_scalars": 32,
+      "training_wall_seconds": 3.23,
+      "initial_loss": 0.7348,
+      "final_loss": 0.6222,
+      "evaluation": {
+        "16": {
+          "bit": 0.63542,
+          "whole": 0.36458,
+          "constant": 1.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.52083,
+          "whole": 0.25,
+          "constant": 1.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.48438,
+          "whole": 0.21875,
+          "constant": 0.98958,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "model": "hybrid",
+      "params": 7499,
+      "state_scalars": 56,
+      "training_wall_seconds": 3.53,
+      "initial_loss": 0.7964,
+      "final_loss": 0.0388,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "model": "delta",
+      "params": 130,
+      "state_scalars": 64,
+      "training_wall_seconds": 2.59,
+      "initial_loss": 0.6016,
+      "final_loss": 0.0053,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "model": "gru",
+      "params": 7488,
+      "state_scalars": 32,
+      "training_wall_seconds": 3.62,
+      "initial_loss": 0.7133,
+      "final_loss": 0.6467,
+      "evaluation": {
+        "16": {
+          "bit": 0.625,
+          "whole": 0.0625,
+          "constant": 0.95833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.53646,
+          "whole": 0.01042,
+          "constant": 0.91667,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.51302,
+          "whole": 0.02083,
+          "constant": 0.88542,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "model": "pair",
+      "params": 2757,
+      "state_scalars": 32,
+      "training_wall_seconds": 4.23,
+      "initial_loss": 0.7356,
+      "final_loss": 0.6346,
+      "evaluation": {
+        "16": {
+          "bit": 0.64844,
+          "whole": 0.0625,
+          "constant": 0.84375,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.45573,
+          "whole": 0.0,
+          "constant": 0.98958,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.45573,
+          "whole": 0.0,
+          "constant": 1.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "model": "hybrid",
+      "params": 7523,
+      "state_scalars": 80,
+      "training_wall_seconds": 4.58,
+      "initial_loss": 0.5432,
+      "final_loss": 0.0284,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "model": "delta",
+      "params": 130,
+      "state_scalars": 128,
+      "training_wall_seconds": 6.05,
+      "initial_loss": 0.599,
+      "final_loss": 0.0052,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "model": "gru",
+      "params": 7488,
+      "state_scalars": 32,
+      "training_wall_seconds": 6.0,
+      "initial_loss": 0.7228,
+      "final_loss": 0.692,
+      "evaluation": {
+        "16": {
+          "bit": 0.4974,
+          "whole": 0.0,
+          "constant": 0.73958,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.51432,
+          "whole": 0.01042,
+          "constant": 0.80208,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.50391,
+          "whole": 0.0,
+          "constant": 0.85417,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "model": "pair",
+      "params": 2757,
+      "state_scalars": 32,
+      "training_wall_seconds": 6.59,
+      "initial_loss": 0.721,
+      "final_loss": 0.6605,
+      "evaluation": {
+        "16": {
+          "bit": 0.58333,
+          "whole": 0.0,
+          "constant": 0.77083,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.51693,
+          "whole": 0.0,
+          "constant": 0.95833,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.51172,
+          "whole": 0.0,
+          "constant": 1.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "model": "hybrid",
+      "params": 7571,
+      "state_scalars": 128,
+      "training_wall_seconds": 7.47,
+      "initial_loss": 0.4746,
+      "final_loss": 0.0232,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "model": "delta",
+      "params": 130,
+      "state_scalars": 256,
+      "training_wall_seconds": 21.53,
+      "initial_loss": 0.5872,
+      "final_loss": 0.005,
+      "evaluation": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 176.92,
+  "complete": true
+}

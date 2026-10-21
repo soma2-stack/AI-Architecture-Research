@@ -1,0 +1,461 @@
+{
+  "protocol": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "sources": [
+      "faded_pretrain",
+      "unguided_pretrain"
+    ],
+    "arms": [
+      "new_only",
+      "rehearsal"
+    ],
+    "slots": 8,
+    "old_queries": "14..21, old_i means WRITE_i",
+    "new_queries": "32..39, new_i means WRITE_(i+3 mod 8)",
+    "no_ambiguous_token_targets": true,
+    "explicit_query_task_identity": true,
+    "new_query_tokens_initialized_as_copies_of_old_query_tokens": true,
+    "old_query_tokens_and_embeddings_preserved_at_initialization": true,
+    "answer_cross_entropy_only": true,
+    "explicit_correspondence_guidance": false,
+    "updates": 240,
+    "batch_per_half": 12,
+    "total_histories_per_update": 24,
+    "new_only_batches": "two independent B batches each update",
+    "rehearsal_batches": "one B and one A batch each update",
+    "eval_delay": 256,
+    "histories_per_task": 96,
+    "cpu_threads": 6,
+    "gpu": false,
+    "learning_rate": 0.003
+  },
+  "caveat": "Separate task-specific query tokens provide extra learnable embeddings (8x32 parameters); this is a controlled identifiable retention test, NOT zero-shot symbol generalization.",
+  "runs": [
+    {
+      "seed": 17,
+      "source": "faded_pretrain",
+      "arm": "new_only",
+      "checkpoint_file": "faded_guidance_weights.pt",
+      "checkpoint_key": "17_8_linear_fade",
+      "parameters": 11763,
+      "training_wall_seconds": 31.703,
+      "initial_ce": 1.94662,
+      "final_ce": 0.23551,
+      "before": {
+        "old": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.52344,
+          "whole": 0.02083,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.53516,
+          "whole": 0.02083,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.86849,
+          "whole": 0.26042,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "source": "faded_pretrain",
+      "arm": "rehearsal",
+      "checkpoint_file": "faded_guidance_weights.pt",
+      "checkpoint_key": "17_8_linear_fade",
+      "parameters": 11763,
+      "training_wall_seconds": 31.766,
+      "initial_ce": 1.08975,
+      "final_ce": 0.07647,
+      "before": {
+        "old": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.52344,
+          "whole": 0.02083,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.96875,
+          "whole": 0.76042,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.90625,
+          "whole": 0.35417,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "source": "unguided_pretrain",
+      "arm": "new_only",
+      "checkpoint_file": "write_read_alignment_weights.pt",
+      "checkpoint_key": "17_8_shared",
+      "parameters": 11763,
+      "training_wall_seconds": 32.594,
+      "initial_ce": 1.28355,
+      "final_ce": 0.22896,
+      "before": {
+        "old": {
+          "bit": 0.90365,
+          "whole": 0.34375,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.54688,
+          "whole": 0.02083,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.58984,
+          "whole": 0.02083,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.82552,
+          "whole": 0.11458,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "source": "unguided_pretrain",
+      "arm": "rehearsal",
+      "checkpoint_file": "write_read_alignment_weights.pt",
+      "checkpoint_key": "17_8_shared",
+      "parameters": 11763,
+      "training_wall_seconds": 31.75,
+      "initial_ce": 0.84911,
+      "final_ce": 0.33178,
+      "before": {
+        "old": {
+          "bit": 0.90365,
+          "whole": 0.34375,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.54688,
+          "whole": 0.02083,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.89844,
+          "whole": 0.35417,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.69922,
+          "whole": 0.05208,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "source": "faded_pretrain",
+      "arm": "new_only",
+      "checkpoint_file": "faded_guidance_weights.pt",
+      "checkpoint_key": "29_8_linear_fade",
+      "parameters": 11763,
+      "training_wall_seconds": 31.75,
+      "initial_ce": 1.27891,
+      "final_ce": 0.24176,
+      "before": {
+        "old": {
+          "bit": 0.9401,
+          "whole": 0.53125,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.5026,
+          "whole": 0.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.86849,
+          "whole": 0.22917,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "source": "faded_pretrain",
+      "arm": "rehearsal",
+      "checkpoint_file": "faded_guidance_weights.pt",
+      "checkpoint_key": "29_8_linear_fade",
+      "parameters": 11763,
+      "training_wall_seconds": 31.719,
+      "initial_ce": 0.81151,
+      "final_ce": 0.24497,
+      "before": {
+        "old": {
+          "bit": 0.9401,
+          "whole": 0.53125,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.85807,
+          "whole": 0.17708,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.8138,
+          "whole": 0.09375,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "source": "unguided_pretrain",
+      "arm": "new_only",
+      "checkpoint_file": "write_read_alignment_weights.pt",
+      "checkpoint_key": "29_8_shared",
+      "parameters": 11763,
+      "training_wall_seconds": 31.782,
+      "initial_ce": 1.56461,
+      "final_ce": 0.37398,
+      "before": {
+        "old": {
+          "bit": 0.92969,
+          "whole": 0.4375,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5026,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.61198,
+          "whole": 0.01042,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.77734,
+          "whole": 0.05208,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "source": "unguided_pretrain",
+      "arm": "rehearsal",
+      "checkpoint_file": "write_read_alignment_weights.pt",
+      "checkpoint_key": "29_8_shared",
+      "parameters": 11763,
+      "training_wall_seconds": 31.766,
+      "initial_ce": 0.92467,
+      "final_ce": 0.2908,
+      "before": {
+        "old": {
+          "bit": 0.92969,
+          "whole": 0.4375,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5026,
+          "whole": 0.0,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.85938,
+          "whole": 0.1875,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.77214,
+          "whole": 0.05208,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "source": "faded_pretrain",
+      "arm": "new_only",
+      "checkpoint_file": "faded_guidance_weights.pt",
+      "checkpoint_key": "43_8_linear_fade",
+      "parameters": 11763,
+      "training_wall_seconds": 32.015,
+      "initial_ce": 1.96474,
+      "final_ce": 0.21377,
+      "before": {
+        "old": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5,
+          "whole": 0.01042,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.54036,
+          "whole": 0.01042,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.90755,
+          "whole": 0.3125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "source": "faded_pretrain",
+      "arm": "rehearsal",
+      "checkpoint_file": "faded_guidance_weights.pt",
+      "checkpoint_key": "43_8_linear_fade",
+      "parameters": 11763,
+      "training_wall_seconds": 32.031,
+      "initial_ce": 1.05741,
+      "final_ce": 0.15209,
+      "before": {
+        "old": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5,
+          "whole": 0.01042,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.99089,
+          "whole": 0.92708,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.88411,
+          "whole": 0.3125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "source": "unguided_pretrain",
+      "arm": "new_only",
+      "checkpoint_file": "alignment_seed43_weights.pt",
+      "checkpoint_key": "43_8_shared",
+      "parameters": 11763,
+      "training_wall_seconds": 31.984,
+      "initial_ce": 1.86883,
+      "final_ce": 0.16423,
+      "before": {
+        "old": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5,
+          "whole": 0.01042,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 0.51302,
+          "whole": 0.01042,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.9349,
+          "whole": 0.5625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "source": "unguided_pretrain",
+      "arm": "rehearsal",
+      "checkpoint_file": "alignment_seed43_weights.pt",
+      "checkpoint_key": "43_8_shared",
+      "parameters": 11763,
+      "training_wall_seconds": 31.797,
+      "initial_ce": 1.06765,
+      "final_ce": 0.1481,
+      "before": {
+        "old": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.5,
+          "whole": 0.01042,
+          "histories": 96
+        }
+      },
+      "after": {
+        "old": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "histories": 96
+        },
+        "new": {
+          "bit": 0.87891,
+          "whole": 0.30208,
+          "histories": 96
+        }
+      }
+    }
+  ],
+  "complete": true,
+  "elapsed_seconds": 414.172
+}

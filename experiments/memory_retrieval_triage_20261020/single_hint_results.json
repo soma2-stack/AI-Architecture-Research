@@ -1,0 +1,889 @@
+{
+  "protocol": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "facts": [
+      2,
+      4,
+      8
+    ],
+    "arms": [
+      "align_only",
+      "diversity_only"
+    ],
+    "updates": 240,
+    "batch": 12,
+    "eval_delays": [
+      16,
+      64,
+      256
+    ],
+    "heldout_histories": 96,
+    "cpu_threads": 6,
+    "gpu": false,
+    "align_weight": 0.6,
+    "diversity_weight": 0.4,
+    "reference_arms": "write_read_alignment_results.json plus alignment_seed43_results.json"
+  },
+  "caveat": "align_only has privileged WRITE_i-to-QUERY_i pairing; diversity_only only query-token coverage structure; neither represents unconstrained language memory.",
+  "runs": [
+    {
+      "seed": 17,
+      "facts": 2,
+      "arm": "align_only",
+      "parameters": 11435,
+      "train_seconds": 6.844,
+      "final_loss": 0.00166,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          0,
+          1
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "facts": 2,
+      "arm": "diversity_only",
+      "parameters": 11435,
+      "train_seconds": 7.235,
+      "final_loss": 0.17662,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          1,
+          0
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 0
+      },
+      "eval": {
+        "16": {
+          "bit": 0.96875,
+          "whole": 0.9375,
+          "constant": 0.55208,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.89583,
+          "whole": 0.79167,
+          "constant": 0.73958,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.78646,
+          "whole": 0.57292,
+          "constant": 0.95833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "facts": 4,
+      "arm": "align_only",
+      "parameters": 11459,
+      "train_seconds": 9.641,
+      "final_loss": 0.23942,
+      "final_aux": 3e-05,
+      "address": {
+        "write_ids": [
+          1,
+          1,
+          3,
+          2
+        ],
+        "read_ids": [
+          1,
+          1,
+          3,
+          2
+        ],
+        "unique_writes": 3,
+        "unique_reads": 3,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 0.88281,
+          "whole": 0.5625,
+          "constant": 0.26042,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.8776,
+          "whole": 0.52083,
+          "constant": 0.29167,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.8776,
+          "whole": 0.5625,
+          "constant": 0.29167,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "facts": 4,
+      "arm": "diversity_only",
+      "parameters": 11459,
+      "train_seconds": 9.578,
+      "final_loss": 0.38392,
+      "final_aux": 1e-05,
+      "address": {
+        "write_ids": [
+          2,
+          0,
+          0,
+          1
+        ],
+        "read_ids": [
+          2,
+          3,
+          1,
+          0
+        ],
+        "unique_writes": 3,
+        "unique_reads": 4,
+        "paired_matches": 1
+      },
+      "eval": {
+        "16": {
+          "bit": 0.83333,
+          "whole": 0.48958,
+          "constant": 0.21875,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.77604,
+          "whole": 0.32292,
+          "constant": 0.10417,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.76302,
+          "whole": 0.3125,
+          "constant": 0.17708,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "facts": 8,
+      "arm": "align_only",
+      "parameters": 11507,
+      "train_seconds": 14.922,
+      "final_loss": 0.13667,
+      "final_aux": 9e-05,
+      "address": {
+        "write_ids": [
+          4,
+          7,
+          2,
+          0,
+          3,
+          1,
+          1,
+          6
+        ],
+        "read_ids": [
+          4,
+          7,
+          2,
+          0,
+          3,
+          1,
+          1,
+          6
+        ],
+        "unique_writes": 7,
+        "unique_reads": 7,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 0.94661,
+          "whole": 0.59375,
+          "constant": 0.02083,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.94531,
+          "whole": 0.58333,
+          "constant": 0.02083,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.94531,
+          "whole": 0.57292,
+          "constant": 0.01042,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "facts": 8,
+      "arm": "diversity_only",
+      "parameters": 11507,
+      "train_seconds": 14.968,
+      "final_loss": 0.29352,
+      "final_aux": 3e-05,
+      "address": {
+        "write_ids": [
+          4,
+          5,
+          6,
+          3,
+          4,
+          1,
+          5,
+          2
+        ],
+        "read_ids": [
+          4,
+          5,
+          3,
+          7,
+          0,
+          1,
+          6,
+          2
+        ],
+        "unique_writes": 6,
+        "unique_reads": 8,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 0.83724,
+          "whole": 0.125,
+          "constant": 0.08333,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.83594,
+          "whole": 0.11458,
+          "constant": 0.09375,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.83203,
+          "whole": 0.11458,
+          "constant": 0.09375,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "facts": 2,
+      "arm": "align_only",
+      "parameters": 11435,
+      "train_seconds": 7.234,
+      "final_loss": 0.00324,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          1,
+          0
+        ],
+        "read_ids": [
+          1,
+          0
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "facts": 2,
+      "arm": "diversity_only",
+      "parameters": 11435,
+      "train_seconds": 7.219,
+      "final_loss": 0.25965,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          1,
+          0
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 0
+      },
+      "eval": {
+        "16": {
+          "bit": 0.91146,
+          "whole": 0.82292,
+          "constant": 0.48958,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.83333,
+          "whole": 0.66667,
+          "constant": 0.625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.73438,
+          "whole": 0.46875,
+          "constant": 0.59375,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "facts": 4,
+      "arm": "align_only",
+      "parameters": 11459,
+      "train_seconds": 9.515,
+      "final_loss": 0.25808,
+      "final_aux": 2e-05,
+      "address": {
+        "write_ids": [
+          2,
+          1,
+          0,
+          1
+        ],
+        "read_ids": [
+          2,
+          1,
+          0,
+          1
+        ],
+        "unique_writes": 3,
+        "unique_reads": 3,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 0.85938,
+          "whole": 0.46875,
+          "constant": 0.20833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.86198,
+          "whole": 0.46875,
+          "constant": 0.19792,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.86979,
+          "whole": 0.47917,
+          "constant": 0.20833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "facts": 4,
+      "arm": "diversity_only",
+      "parameters": 11459,
+      "train_seconds": 9.469,
+      "final_loss": 0.00177,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "read_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "unique_writes": 4,
+        "unique_reads": 4,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "facts": 8,
+      "arm": "align_only",
+      "parameters": 11507,
+      "train_seconds": 15.078,
+      "final_loss": 0.2148,
+      "final_aux": 7e-05,
+      "address": {
+        "write_ids": [
+          4,
+          6,
+          4,
+          7,
+          0,
+          7,
+          2,
+          3
+        ],
+        "read_ids": [
+          4,
+          6,
+          4,
+          7,
+          0,
+          7,
+          2,
+          3
+        ],
+        "unique_writes": 6,
+        "unique_reads": 6,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 0.87891,
+          "whole": 0.30208,
+          "constant": 0.01042,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.88151,
+          "whole": 0.30208,
+          "constant": 0.01042,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.88021,
+          "whole": 0.3125,
+          "constant": 0.01042,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "facts": 8,
+      "arm": "diversity_only",
+      "parameters": 11507,
+      "train_seconds": 15.063,
+      "final_loss": 0.25996,
+      "final_aux": 2e-05,
+      "address": {
+        "write_ids": [
+          1,
+          6,
+          5,
+          7,
+          0,
+          2,
+          4,
+          5
+        ],
+        "read_ids": [
+          2,
+          6,
+          5,
+          7,
+          0,
+          3,
+          4,
+          1
+        ],
+        "unique_writes": 7,
+        "unique_reads": 8,
+        "paired_matches": 5
+      },
+      "eval": {
+        "16": {
+          "bit": 0.82161,
+          "whole": 0.11458,
+          "constant": 0.01042,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.8112,
+          "whole": 0.10417,
+          "constant": 0.01042,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.79818,
+          "whole": 0.0625,
+          "constant": 0.01042,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "facts": 2,
+      "arm": "align_only",
+      "parameters": 11435,
+      "train_seconds": 7.282,
+      "final_loss": 0.00181,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          0,
+          1
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "facts": 2,
+      "arm": "diversity_only",
+      "parameters": 11435,
+      "train_seconds": 7.218,
+      "final_loss": 0.0018,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          0,
+          1
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "facts": 4,
+      "arm": "align_only",
+      "parameters": 11459,
+      "train_seconds": 9.532,
+      "final_loss": 0.25371,
+      "final_aux": 1e-05,
+      "address": {
+        "write_ids": [
+          2,
+          0,
+          3,
+          3
+        ],
+        "read_ids": [
+          2,
+          0,
+          3,
+          3
+        ],
+        "unique_writes": 3,
+        "unique_reads": 3,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 0.88542,
+          "whole": 0.57292,
+          "constant": 0.1875,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.88802,
+          "whole": 0.5625,
+          "constant": 0.19792,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.89062,
+          "whole": 0.58333,
+          "constant": 0.1875,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "facts": 4,
+      "arm": "diversity_only",
+      "parameters": 11459,
+      "train_seconds": 9.532,
+      "final_loss": 0.00163,
+      "final_aux": 0.0,
+      "address": {
+        "write_ids": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "read_ids": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "unique_writes": 4,
+        "unique_reads": 4,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.11458,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.11458,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.11458,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "facts": 8,
+      "arm": "align_only",
+      "parameters": 11507,
+      "train_seconds": 14.984,
+      "final_loss": 0.00143,
+      "final_aux": 3e-05,
+      "address": {
+        "write_ids": [
+          5,
+          6,
+          1,
+          2,
+          0,
+          3,
+          7,
+          4
+        ],
+        "read_ids": [
+          5,
+          6,
+          1,
+          2,
+          0,
+          3,
+          7,
+          4
+        ],
+        "unique_writes": 8,
+        "unique_reads": 8,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "facts": 8,
+      "arm": "diversity_only",
+      "parameters": 11507,
+      "train_seconds": 14.922,
+      "final_loss": 0.00156,
+      "final_aux": 0.0001,
+      "address": {
+        "write_ids": [
+          3,
+          6,
+          4,
+          2,
+          0,
+          1,
+          7,
+          5
+        ],
+        "read_ids": [
+          3,
+          6,
+          4,
+          2,
+          0,
+          1,
+          7,
+          5
+        ],
+        "unique_writes": 8,
+        "unique_reads": 8,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    }
+  ],
+  "complete": true,
+  "elapsed_seconds": 216.047,
+  "weights_file": "single_hint_weights.pt"
+}

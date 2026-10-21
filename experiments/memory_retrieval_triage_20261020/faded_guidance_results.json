@@ -1,0 +1,889 @@
+{
+  "protocol": {
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "slots": [
+      2,
+      4,
+      8
+    ],
+    "arms": [
+      "linear_fade",
+      "fade_by_half"
+    ],
+    "updates": 240,
+    "batch": 12,
+    "heldout_histories": 96,
+    "delays": [
+      16,
+      64,
+      256
+    ],
+    "cpu_threads": 6,
+    "cuda": false,
+    "guidance_starts_at_one": true,
+    "guidance_ends_at_zero": true,
+    "reference": "write_read_alignment_results.json and alignment_seed43_results.json"
+  },
+  "caveat": "Hints disclose WRITE_i--QUERY_i pairs during early training. Hint fading does NOT establish independent discovery.",
+  "runs": [
+    {
+      "seed": 17,
+      "slots": 2,
+      "arm": "linear_fade",
+      "train_wall_s": 7.062,
+      "parameters": 11435,
+      "final_ce": 0.002,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          0,
+          1
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 2,
+      "arm": "fade_by_half",
+      "train_wall_s": 7.234,
+      "parameters": 11435,
+      "final_ce": 0.002,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          0,
+          1
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.53125,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "arm": "linear_fade",
+      "train_wall_s": 9.813,
+      "parameters": 11459,
+      "final_ce": 0.17762,
+      "mean_last20_aux": 0.006556,
+      "addr": {
+        "write_ids": [
+          1,
+          2,
+          3,
+          1
+        ],
+        "read_ids": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "unique_writes": 3,
+        "unique_reads": 4,
+        "paired_matches": 3
+      },
+      "eval": {
+        "16": {
+          "bit": 0.90365,
+          "whole": 0.61458,
+          "constant": 0.21875,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.88281,
+          "whole": 0.53125,
+          "constant": 0.19792,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.8724,
+          "whole": 0.48958,
+          "constant": 0.15625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 4,
+      "arm": "fade_by_half",
+      "train_wall_s": 9.625,
+      "parameters": 11459,
+      "final_ce": 0.09935,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "read_ids": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "unique_writes": 3,
+        "unique_reads": 4,
+        "paired_matches": 3
+      },
+      "eval": {
+        "16": {
+          "bit": 0.99479,
+          "whole": 0.97917,
+          "constant": 0.15625,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.99479,
+          "whole": 0.97917,
+          "constant": 0.15625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.99219,
+          "whole": 0.96875,
+          "constant": 0.16667,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "arm": "linear_fade",
+      "train_wall_s": 15.313,
+      "parameters": 11507,
+      "final_ce": 0.00119,
+      "mean_last20_aux": 8e-06,
+      "addr": {
+        "write_ids": [
+          4,
+          7,
+          2,
+          0,
+          3,
+          1,
+          5,
+          6
+        ],
+        "read_ids": [
+          4,
+          7,
+          2,
+          0,
+          3,
+          1,
+          5,
+          6
+        ],
+        "unique_writes": 8,
+        "unique_reads": 8,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "slots": 8,
+      "arm": "fade_by_half",
+      "train_wall_s": 15.125,
+      "parameters": 11507,
+      "final_ce": 0.12627,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          4,
+          7,
+          2,
+          0,
+          3,
+          1,
+          1,
+          6
+        ],
+        "read_ids": [
+          4,
+          7,
+          2,
+          0,
+          3,
+          1,
+          1,
+          6
+        ],
+        "unique_writes": 7,
+        "unique_reads": 7,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 0.94922,
+          "whole": 0.60417,
+          "constant": 0.02083,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.94531,
+          "whole": 0.58333,
+          "constant": 0.02083,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.94271,
+          "whole": 0.57292,
+          "constant": 0.02083,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "arm": "linear_fade",
+      "train_wall_s": 7.406,
+      "parameters": 11435,
+      "final_ce": 0.00326,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          1,
+          0
+        ],
+        "read_ids": [
+          1,
+          0
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 2,
+      "arm": "fade_by_half",
+      "train_wall_s": 7.25,
+      "parameters": 11435,
+      "final_ce": 0.00326,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          1,
+          0
+        ],
+        "read_ids": [
+          1,
+          0
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.45833,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "arm": "linear_fade",
+      "train_wall_s": 9.813,
+      "parameters": 11459,
+      "final_ce": 0.00236,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          2,
+          1,
+          0,
+          3
+        ],
+        "read_ids": [
+          2,
+          1,
+          0,
+          3
+        ],
+        "unique_writes": 4,
+        "unique_reads": 4,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 4,
+      "arm": "fade_by_half",
+      "train_wall_s": 9.641,
+      "parameters": 11459,
+      "final_ce": 0.00235,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          2,
+          1,
+          0,
+          3
+        ],
+        "read_ids": [
+          2,
+          1,
+          0,
+          3
+        ],
+        "unique_writes": 4,
+        "unique_reads": 4,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0625,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "arm": "linear_fade",
+      "train_wall_s": 15.484,
+      "parameters": 11507,
+      "final_ce": 0.10804,
+      "mean_last20_aux": 0.00045,
+      "addr": {
+        "write_ids": [
+          5,
+          6,
+          4,
+          7,
+          0,
+          7,
+          2,
+          3
+        ],
+        "read_ids": [
+          5,
+          6,
+          4,
+          7,
+          0,
+          7,
+          2,
+          3
+        ],
+        "unique_writes": 7,
+        "unique_reads": 7,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 0.93359,
+          "whole": 0.46875,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.93359,
+          "whole": 0.46875,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.9349,
+          "whole": 0.48958,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "slots": 8,
+      "arm": "fade_by_half",
+      "train_wall_s": 15.437,
+      "parameters": 11507,
+      "final_ce": 0.10808,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          5,
+          6,
+          4,
+          7,
+          0,
+          7,
+          2,
+          3
+        ],
+        "read_ids": [
+          5,
+          6,
+          4,
+          7,
+          0,
+          7,
+          2,
+          3
+        ],
+        "unique_writes": 7,
+        "unique_reads": 7,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 0.93229,
+          "whole": 0.45833,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.93099,
+          "whole": 0.45833,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.93359,
+          "whole": 0.47917,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "slots": 2,
+      "arm": "linear_fade",
+      "train_wall_s": 7.453,
+      "parameters": 11435,
+      "final_ce": 0.00178,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          0,
+          1
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "slots": 2,
+      "arm": "fade_by_half",
+      "train_wall_s": 7.453,
+      "parameters": 11435,
+      "final_ce": 0.00178,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          0,
+          1
+        ],
+        "read_ids": [
+          0,
+          1
+        ],
+        "unique_writes": 2,
+        "unique_reads": 2,
+        "paired_matches": 2
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.42708,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "slots": 4,
+      "arm": "linear_fade",
+      "train_wall_s": 9.859,
+      "parameters": 11459,
+      "final_ce": 0.00178,
+      "mean_last20_aux": 1e-06,
+      "addr": {
+        "write_ids": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "read_ids": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "unique_writes": 4,
+        "unique_reads": 4,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.11458,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.11458,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.11458,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "slots": 4,
+      "arm": "fade_by_half",
+      "train_wall_s": 9.687,
+      "parameters": 11459,
+      "final_ce": 0.25418,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          2,
+          0,
+          3,
+          3
+        ],
+        "read_ids": [
+          2,
+          0,
+          3,
+          3
+        ],
+        "unique_writes": 3,
+        "unique_reads": 3,
+        "paired_matches": 4
+      },
+      "eval": {
+        "16": {
+          "bit": 0.88542,
+          "whole": 0.57292,
+          "constant": 0.19792,
+          "histories": 96
+        },
+        "64": {
+          "bit": 0.89062,
+          "whole": 0.57292,
+          "constant": 0.19792,
+          "histories": 96
+        },
+        "256": {
+          "bit": 0.88802,
+          "whole": 0.57292,
+          "constant": 0.19792,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "slots": 8,
+      "arm": "linear_fade",
+      "train_wall_s": 15.453,
+      "parameters": 11507,
+      "final_ce": 0.00164,
+      "mean_last20_aux": 3e-06,
+      "addr": {
+        "write_ids": [
+          5,
+          6,
+          1,
+          2,
+          0,
+          3,
+          7,
+          4
+        ],
+        "read_ids": [
+          5,
+          6,
+          1,
+          2,
+          0,
+          3,
+          7,
+          4
+        ],
+        "unique_writes": 8,
+        "unique_reads": 8,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "slots": 8,
+      "arm": "fade_by_half",
+      "train_wall_s": 15.25,
+      "parameters": 11507,
+      "final_ce": 0.00164,
+      "mean_last20_aux": 0.0,
+      "addr": {
+        "write_ids": [
+          5,
+          6,
+          1,
+          2,
+          0,
+          3,
+          7,
+          4
+        ],
+        "read_ids": [
+          5,
+          6,
+          1,
+          2,
+          0,
+          3,
+          7,
+          4
+        ],
+        "unique_writes": 8,
+        "unique_reads": 8,
+        "paired_matches": 8
+      },
+      "eval": {
+        "16": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "64": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        },
+        "256": {
+          "bit": 1.0,
+          "whole": 1.0,
+          "constant": 0.0,
+          "histories": 96
+        }
+      }
+    }
+  ],
+  "complete": true,
+  "elapsed_seconds": 220.89,
+  "weights_file": "faded_guidance_weights.pt"
+}

@@ -1,0 +1,74 @@
+{
+  "combined_count_checks": [
+    {
+      "constant_max": "1000000000000",
+      "threshold": "10^63",
+      "section_exponent": "1/3",
+      "margins": [
+        3601446921622085.0,
+        1.3683930230806416e+17,
+        4.629025866328461e+16
+      ]
+    },
+    {
+      "constant_max": "1000000000000000000",
+      "threshold": "10^78",
+      "section_exponent": "1/3",
+      "margins": [
+        9.404115294028875e+21,
+        1.3529650152224464e+22,
+        4.6276184319682187e+21
+      ]
+    },
+    {
+      "constant_max": "1000000000000",
+      "threshold": "10^80",
+      "section_exponent": "1/4",
+      "margins": [
+        1.2327785292541309e+17,
+        1.5299710121644874e+17,
+        3.881385635389641e+16
+      ]
+    },
+    {
+      "constant_max": "1000000000000000000",
+      "threshold": "10^100",
+      "section_exponent": "1/4",
+      "margins": [
+        9.086873803184314e+21,
+        1.5067395114952175e+22,
+        3.8799785486597667e+21
+      ]
+    }
+  ],
+  "auxiliary_support_counterexample": {
+    "original_actual_peak": 3,
+    "augmented_public_envelope_peak": 4,
+    "extra_input_exact": "atanh(tanh(pre))-pre = 0",
+    "refutes": "Proposition 7.2 actual-support equality, not its upper bound"
+  },
+  "clipped_map_noninjectivity": {
+    "theta0": [
+      "1",
+      "0"
+    ],
+    "theta1": [
+      "99/101",
+      "20/101"
+    ],
+    "same_code": [
+      1,
+      1,
+      1
+    ],
+    "does_not_refute": "continuous antipodal robustness contract"
+  },
+  "all_eta_state_overstatement": {
+    "n": 100000000,
+    "eta": 100,
+    "time": 2,
+    "pre_upper_exact": "661/180",
+    "claimed_lower_exact": "88387/500",
+    "scope": "refutes blanket all-eta state claim; outside prescribed coupling"
+  }
+}

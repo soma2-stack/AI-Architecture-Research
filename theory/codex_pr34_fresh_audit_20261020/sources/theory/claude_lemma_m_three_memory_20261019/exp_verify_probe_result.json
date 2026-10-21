@@ -1,0 +1,392 @@
+[
+ {
+  "n": 256,
+  "offsets": [
+   0,
+   0,
+   0
+  ],
+  "own_signals": [
+   0.6176334,
+   0.6176334,
+   0.6176334
+  ],
+  "context_dependence_pct": 1.766,
+  "additivity_error_pct": 1.7153,
+  "probe_reported_pct": [
+   1.766,
+   1.7153
+  ],
+  "distinct": 8,
+  "xmax": 0.45113371103567396,
+  "m_peak": 7,
+  "endpoint_max_state_diff": 3.885780586188048e-16,
+  "nine_term_reconstruction_residual": 8.881784197001252e-16,
+  "bath_s_at_T/2,T": [
+   -0.09422942669137568,
+   -0.11169740470210407
+  ],
+  "mean_devmass": 2.2725679660778884,
+  "k": 128,
+  "worst_interaction": {
+   "memory": 1,
+   "context_lo": [
+    1,
+    0,
+    1
+   ],
+   "context_hi": [
+    1,
+    1,
+    1
+   ]
+  },
+  "single_bit_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.031431665062575845,
+   "Lcyc": 0.0,
+   "Loff": 0.5216286522355545,
+   "Lbus": 0.05473720840816046,
+   "W": 0.009835875625975599,
+   "Fent": 0.0
+  },
+  "interaction_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.001423532039476351,
+   "Lcyc": 0.0,
+   "Loff": 0.0,
+   "Lbus": 0.009483782533858731,
+   "W": 0.0,
+   "Fent": 0.0
+  }
+ },
+ {
+  "n": 256,
+  "offsets": [
+   0,
+   4,
+   8
+  ],
+  "own_signals": [
+   0.61710067,
+   0.59407446,
+   0.5669669
+  ],
+  "context_dependence_pct": 2.8271,
+  "additivity_error_pct": 2.7833,
+  "probe_reported_pct": [
+   2.8271,
+   2.7833
+  ],
+  "distinct": 8,
+  "xmax": 0.4511275610229964,
+  "m_peak": 7,
+  "endpoint_max_state_diff": 2.220446049250313e-16,
+  "nine_term_reconstruction_residual": 8.881784197001252e-16,
+  "bath_s_at_T/2,T": [
+   -0.09422942669137568,
+   -0.11179603295654937
+  ],
+  "mean_devmass": 2.2738427958052077,
+  "k": 128,
+  "worst_interaction": {
+   "memory": 0,
+   "context_lo": [
+    0,
+    1,
+    1
+   ],
+   "context_hi": [
+    1,
+    1,
+    1
+   ]
+  },
+  "single_bit_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.031367288270719315,
+   "Lcyc": 0.0,
+   "Loff": 0.5214011580908735,
+   "Lbus": 0.05449634702227729,
+   "W": 0.009835875625975432,
+   "Fent": 0.0
+  },
+  "interaction_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.0024552531242885978,
+   "Lcyc": 0.0,
+   "Loff": 0.0,
+   "Lbus": 0.014991091780072269,
+   "W": 0.0,
+   "Fent": 0.0
+  }
+ },
+ {
+  "n": 256,
+  "offsets": [
+   0,
+   8,
+   16
+  ],
+  "own_signals": [
+   0.61652734,
+   0.56707405,
+   0.50387322
+  ],
+  "context_dependence_pct": 2.8747,
+  "additivity_error_pct": 2.8354,
+  "probe_reported_pct": [
+   2.8747,
+   2.8354
+  ],
+  "distinct": 8,
+  "xmax": 0.45110602950452006,
+  "m_peak": 7,
+  "endpoint_max_state_diff": 3.3306690738754696e-16,
+  "nine_term_reconstruction_residual": 6.661338147750939e-16,
+  "bath_s_at_T/2,T": [
+   -0.09422942669137568,
+   -0.11174769492058516
+  ],
+  "mean_devmass": 2.2754064293056313,
+  "k": 128,
+  "worst_interaction": {
+   "memory": 0,
+   "context_lo": [
+    0,
+    1,
+    1
+   ],
+   "context_hi": [
+    1,
+    1,
+    1
+   ]
+  },
+  "single_bit_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.03128656488066593,
+   "Lcyc": 0.0,
+   "Loff": 0.5206180423136413,
+   "Lbus": 0.05478685562247812,
+   "W": 0.009835875625975599,
+   "Fent": 0.0
+  },
+  "interaction_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.002405446061758451,
+   "Lcyc": 0.0,
+   "Loff": 0.0,
+   "Lbus": 0.015317855433881117,
+   "W": 0.0,
+   "Fent": 0.0
+  }
+ },
+ {
+  "n": 512,
+  "offsets": [
+   0,
+   0,
+   0
+  ],
+  "own_signals": [
+   0.66603501,
+   0.66603501,
+   0.66603501
+  ],
+  "context_dependence_pct": 0.8469,
+  "additivity_error_pct": 0.8356,
+  "probe_reported_pct": [
+   0.8469,
+   0.8356
+  ],
+  "distinct": 8,
+  "xmax": 0.45038412936925476,
+  "m_peak": 7,
+  "endpoint_max_state_diff": 1.942890293094024e-16,
+  "nine_term_reconstruction_residual": 1.3322676295501878e-15,
+  "bath_s_at_T/2,T": [
+   -0.0650564631110197,
+   -0.07268760457568764
+  ],
+  "mean_devmass": 3.980060462189769,
+  "k": 256,
+  "worst_interaction": {
+   "memory": 2,
+   "context_lo": [
+    1,
+    1,
+    0
+   ],
+   "context_hi": [
+    1,
+    1,
+    1
+   ]
+  },
+  "single_bit_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.048363863182655766,
+   "Lcyc": 0.0,
+   "Loff": 0.46396130390711815,
+   "Lbus": 0.1493130447800171,
+   "W": 0.00439680241417334,
+   "Fent": 0.0
+  },
+  "interaction_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.0006447894965142462,
+   "Lcyc": 0.0,
+   "Loff": 5.551115123125783e-17,
+   "Lbus": 0.004996097667808008,
+   "W": 0.0,
+   "Fent": 0.0
+  }
+ },
+ {
+  "n": 512,
+  "offsets": [
+   0,
+   4,
+   8
+  ],
+  "own_signals": [
+   0.66585799,
+   0.66461345,
+   0.66208028
+  ],
+  "context_dependence_pct": 1.3535,
+  "additivity_error_pct": 1.3434,
+  "probe_reported_pct": [
+   1.3535,
+   1.3434
+  ],
+  "distinct": 8,
+  "xmax": 0.4503837693555581,
+  "m_peak": 7,
+  "endpoint_max_state_diff": 2.498001805406602e-16,
+  "nine_term_reconstruction_residual": 1.5543122344752192e-15,
+  "bath_s_at_T/2,T": [
+   -0.0650564631110197,
+   -0.07271953350092993
+  ],
+  "mean_devmass": 3.9801538446377207,
+  "k": 256,
+  "worst_interaction": {
+   "memory": 0,
+   "context_lo": [
+    0,
+    1,
+    1
+   ],
+   "context_hi": [
+    1,
+    1,
+    1
+   ]
+  },
+  "single_bit_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.04835212439033022,
+   "Lcyc": 0.0,
+   "Loff": 0.4639313842362899,
+   "Lbus": 0.1491776839172988,
+   "W": 0.00439680241417334,
+   "Fent": 0.0
+  },
+  "interaction_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.001084536402519494,
+   "Lcyc": 0.0,
+   "Loff": -2.7755575615628914e-16,
+   "Lbus": 0.007928018558946093,
+   "W": 0.0,
+   "Fent": 0.0
+  }
+ },
+ {
+  "n": 512,
+  "offsets": [
+   0,
+   8,
+   16
+  ],
+  "own_signals": [
+   0.66566017,
+   0.66203989,
+   0.65377105
+  ],
+  "context_dependence_pct": 1.4387,
+  "additivity_error_pct": 1.4291,
+  "probe_reported_pct": [
+   1.4387,
+   1.4291
+  ],
+  "distinct": 8,
+  "xmax": 0.45037247163636646,
+  "m_peak": 7,
+  "endpoint_max_state_diff": 0.0,
+  "nine_term_reconstruction_residual": 1.3877787807814457e-15,
+  "bath_s_at_T/2,T": [
+   -0.0650564631110197,
+   -0.072747018997739
+  ],
+  "mean_devmass": 3.980316776765418,
+  "k": 256,
+  "worst_interaction": {
+   "memory": 0,
+   "context_lo": [
+    0,
+    1,
+    1
+   ],
+   "context_hi": [
+    1,
+    1,
+    1
+   ]
+  },
+  "single_bit_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.04832934750102926,
+   "Lcyc": 0.0,
+   "Loff": 0.46381306967903535,
+   "Lbus": 0.14912094910626514,
+   "W": 0.004396802414173229,
+   "Fent": 0.0
+  },
+  "interaction_parts_on_own_column": {
+   "Kpos": 0.0,
+   "Kneg": 0.0,
+   "Kuni": 0.0,
+   "Kbus": 0.001135902677399457,
+   "Lcyc": 0.0,
+   "Loff": 0.0,
+   "Lbus": 0.008440710663916967,
+   "W": 0.0,
+   "Fent": 0.0
+  }
+ }
+]
