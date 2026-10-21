@@ -1,0 +1,23 @@
+name: Validate PR35 memory report
+on:
+  push:
+    branches: [codex/pr35-trainable-balanced-memory-20261020]
+    paths:
+      - 'docs/pr35_memory/**'
+      - '.github/workflows/pr35-memory-report.yml'
+permissions:
+  contents: read
+jobs:
+  recompute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Recompute report and verify every CSV scalar
+        run: |
+          python docs/pr35_memory/summarize.py docs/pr35_memory/raw \
+            --output "${RUNNER_TEMP}/recomputed.json" \
+            --verify-csv docs/pr35_memory/summary.csv
+          python -m compileall -q prototypes/pr35_memory docs/pr35_memory/summarize.py
