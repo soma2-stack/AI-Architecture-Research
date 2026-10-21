@@ -30,6 +30,16 @@ Nothing in this note has been independently verified, except where a Codex audit
 * §R2 lists the repairs; `repairs2_check.py` reproduces every counterexample.
 * §10 is new research: query-aware, cost-aware heterogeneous retention.
 
+**Revision (Step 3.7).**
+* Codex's audit of `18f8005` (`theory/codex_pr37_step36_audit_20261020/AUDIT.md`) is copied
+  verbatim and not edited.
+* §R3 lists the repairs; `repairs3_check.py` reproduces both (10.6) counterexamples and every
+  presentation fix.
+* (10.6) and Conjecture 10.5 are withdrawn.
+* §11 is new research: Theorem 11.3 bounds the actual filtered response by the variation of the
+  external forcing. The bound is tight (Prop. 11.6). Prop. 11.7 gives the exact cross-history
+  kernel-difference term. Checks are in `filtered_check.py`.
+
 ## Summary
 
 1. **Complete ledger** [PROVED bookkeeping, §1]. At a joint zero of Theorem 4's `Phi` and
@@ -131,7 +141,25 @@ Nothing in this note has been independently verified, except where a Codex audit
    * *Obstruction.* The remaining obstruction is a damped **transient** bound (10.6).
    * *Mechanism search.* The contrast-pump search found no mechanism beating plain retention or
      the stationary ceiling.
-8. **Status.**
+8. **Step 3.7** [§R3, §11].
+   * *Withdrawn.* (10.6) and Conjecture 10.5 are **REFUTED**: Codex's exact scalar witness and
+     legal zero-input family are reproduced. Unweighted forcing tails are not retained memory.
+   * *New and rigorous.* **Theorem 11.3 (variation ceiling).** For **any** gates (anti-holes
+     included), any nonautonomous bath, signed feedback, initial vector and captures, every query
+     satisfies `|chi^T y_T| <= A V(phi) + 2A(||y_(t1)||_1 + sum ||c_t||_1)`. Here
+     `phi = k F^ext/(gamma s~^2)` and `V` is its total variation. There is no factor `P`, no
+     horizon factor, and no unweighted tail. Prop. 10.3's ceiling now holds for every transient
+     with constant forcing (Cor. 11.5).
+   * *Tight.* A nested-hold staircase (holes and bath rows only) reaches `(2K+1)x` the stationary
+     ceiling with `K` forcing reversals, and `.91`–`.99` of the bound (Prop. 11.6, operator
+     level). So any "universal constant times the stationary ceiling" transient bound is
+     **REFUTED**. Within the barrier budget this mechanism gives at most `O(log n)` (ANALYSIS).
+   * *Cross-history.* Prop. 11.7 gives an exact split into forcing-difference, kernel-difference,
+     initial and capture terms. The kernel term is bounded by a gate-difference budget `Gamma`.
+     A legal equal-support pair with exact common endpoints has an own-sized kernel term
+     (`.42` of the stationary scale) that dominates the readout difference. Tail-listing zeros
+     therefore do not control it.
+9. **Status.**
    * Lemma M_rest (U1, U2) remains **OPEN**.
    * The original problem (`D = Omega(n)` at `mT = o(n^(3/2))`, full `d_F`) remains **OPEN**.
 
@@ -172,6 +200,25 @@ plus full-vector cross-checks.
 *Preserved (Codex PASS):* every Step-3.5 repair of the first audit; Theorem 7.3 (off-cycle);
 Cor. 7.4(a); Theorem 7.5 with zero initial content; Lemma 7.2's R0 identity and its `I` bound;
 the reset numerics.
+
+## R3. Repairs after Codex's Step-3.6 audit of `18f8005`
+
+The audit is `theory/codex_pr37_step36_audit_20261020/AUDIT.md`, copied verbatim and not
+edited. `repairs3_check.py` reproduces each finding without importing Codex's scripts.
+
+| # | Codex finding | Repair | Status now | Check |
+|---|---|---|---|---|
+| 1 | (10.6) bounds the wrong quantity. "Prop. 10.3 proves (10.6) with `C = 1` for stationary responses" is false (**FAIL**). | (10.6) and Conjecture 10.5 are withdrawn (§10.6, original text kept). Unweighted tails accumulate increments that every bath row has forgotten; rows see `Psi_u` only through their age weights. The replacement is Theorem 11.3 on the actual filtered response. | **REFUTED**; replaced (§11) | (A1) exact rational ratio `gamma P (1-a ghat) L/k = 200000399/79992000 = 2.50026`. (A2) legal zero-input family, full-vector R0 at `n = 2^18`, `P = 65533`: ratio `.738 / 2.956 / 6.533` at `T = 600 / 2400 / 5300` vs limit `s_0^2(T-1)/2 = .748 / 2.994 / 6.613` (Codex `n = 1e8`: `6.611`). Filtered content stays `.39`–`.50` of the scale. |
+| 2 | §10.8's tail-listing route omits the kernel term `sum_u (Lambda+_u - Lambda-_u) Psi-_u` (**PARTIAL**) | The route is withdrawn as written. Prop. 11.7 gives the exact cross-history split. A legal equal-support example has a dominant kernel term. | route withdrawn; identity PROVED | `filtered_check.py` (E) |
+| 3 | Prop. 10.3: a nonautonomous bath must also be frozen; `<=` when `F^ext = 0`; source specialisation only for the source-leak forcing (**PARTIAL as written, PASS frozen**) | All three are stated. The adiabatic reading is withdrawn, since no rate argument exists; Cor. 11.5 now gives the transient statement. | PROVED (frozen bath) | (D) alternating bath: no common stationary state |
+| 4 | Theorem 7.5': `.6605` is false (`.6605031771...`); the exactness sentence is wrong; the recorded `1.8226e-8` is the old bound (**PASS, presentation**) | `.660504`. On the `P = 1` witness, initial mean `6.8524e-9` plus `Acq` `6.8514e-9` gives the total `1.37039e-8`. The displayed (c) bound is `2.2762e-8`; `1.8226e-8` is the older `1.33`-coefficient bound. | PROVED (unchanged constants) | (B) rational enclosure of `exp(1/4)`; 60-digit witness |
+| 5 | Cor. 10.2: integer `1 <= W <= L`; at `W = L` the old weight is `0`, not `rho(t1)`; initial-vector norm (**PASS**) | `<=` at `W = L`. Initial term `A ||y_(t1)||_inf {2(Lam+1) m_W (1+Lam/W) + P e^(-kappa W/2)}`. The informal "near-exact throughout" is replaced by the cumulative-deficit split. | PROVED | (C) exact rationals |
+| 6 | Prop. 10.4: first-step boundary (**PASS**) | `Phi_(t1) = 0`; no older average at the first step; the weighted term is `0` when `theta = 0`. | PROVED | — |
+| 7 | Lemma 7.2 proof line: the subinterval length is `a' s_t/2` | Fixed. | PROVED | — |
+| 8 | `phase2_check.py` caps the nominal `P` at 3000 | The P4 note now says so. The denominator proof covers the boundary. | — | — |
+
+*Preserved (Codex PASS):* Theorem 7.5'; Theorem 10.1; Cor. 10.2's bound; Prop. 10.3 with a frozen
+bath; Prop. 10.4; all Step-3.6 repairs.
 
 ## 0. Contract and notation
 
@@ -867,6 +914,33 @@ dimension satisfies `D <= C (mT)^(4/3)/n + C' log^2 n`, and this order is attain
   * Measure `P max|Psi| / (k max|F^ext|/(gamma s~^2))` and the readout against the stationary ceiling.
   * A ratio growing with cycles or with `n` would refute the conjecture.
 
+**Next audit targets (Step 3.7).** Codex's Step-3.6 audit covered B1–B6 (B6 refuted (10.6)).
+* **C1 — Lemma 11.2 (sliding box).**
+  * Check both one-step inequalities, the uses of `eps P <= 1` (`M~ >= eps pi`, `eps pi >= m~`)
+    and the clipping at 0.
+  * Check the resulting box `S_t in [mt_T, Mt_T]` and `||p^(t)||_inf <= R_chi`.
+  * Note that no gate sign is used: are anti-holes and `r_t(l)` near 0 really covered?
+* **C2 — Theorem 11.3.**
+  * Check the Abel step and the reduction of the R0 credit (any reference `ghat`) to the
+    population operator, including the definition of `F^ext` and the off-cycle identity
+    `v = a y_(t-1)`.
+  * Check whether `P < k/gamma` is needed beyond `eps P <= 1`.
+  * Rerun `filtered_check.py` (A) exactly, and test adversarial gates of your own.
+* **C3 — Prop. 11.6 (tightness).**
+  * Independently evaluate the staircase (`K = 1..6`) and confirm that the ratio to the
+    stationary ceiling grows like `2K+1`.
+  * Check the cost analysis (`K = O(log n)` within `mT <= c n^(3/2)`).
+* **C4 — Prop. 11.7 (cross-history split).**
+  * Check the perturbation identity and the bound `R_chi Gamma + V(psi)`.
+  * Rebuild Example (E) independently: equal support, exact common endpoints, dominant kernel
+    term.
+* **C5 — experiment.** Try to realize Prop. 11.6 legally: a two-history staircase with
+  hierarchical holds and balanced source pulses, at larger `n` (class reduction), with stage
+  levels of `Delta phi` matched. Does the difference readout exceed `A |Delta phi|` by a factor
+  growing with `K`?
+* **C6 — `Gamma` versus cost.** Bound the gate-difference budget by input differences, relaxation
+  and common-field contributions, or find a legal family where `Gamma` is large at small `mT`.
+
 ## 7. Heterogeneous retention with sparse staggered resets (Step 3.5, separate research section)
 
 **Codex's observation** (AUDIT §7.3; reproduced exactly below).
@@ -952,7 +1026,7 @@ dimension satisfies `D <= C (mT)^(4/3)/n + C' log^2 n`, and this order is attain
 *Proof.* `s_(t+1) = tanh(a' s_t + beta'_t)` (bath identity, PR #29 D2, with the dense field), so
 `s_(t+1) - y_(t+1) = integral sech^2 = a'(s_t - y^pred_t) - I_t`. The bounds follow from
 `tanh^2 >= 0`. For the lower bound, `y^pred_t <= s_t/2` makes the integration interval contain
-`[atanh(s_(t+1)) - a s_t/2, atanh(s_(t+1))]`. On that subinterval `z >= s_(t+1) - s_t/2 >= 0`,
+`[atanh(s_(t+1)) - a' s_t/2, atanh(s_(t+1))]`. On that subinterval `z >= s_(t+1) - s_t/2 >= 0`,
 and `tanh^2` is increasing there. QED
 
 **Leakage model [ANALYSIS: linear-drift, steady-bath approximation].**
@@ -1278,9 +1352,14 @@ experiment so far. The original problem remains **OPEN**.
       |Acq| <= A [1.661 M* + .661 |sigma_(t1)| + .643 P omega_(t1) + 1.643 P Q].
 
 * *(c) Total.* `|chi_Hs^T y_T| <= A [1.661 (M* + |sigma_(t1)|) + 1.643 P (omega_(t1) + Q)]`.
-* *Exactness.* For `E = Q = 0`, `Acq = chibar (sigma_T - Lambda_T sigma_(t1))` exactly. On Codex's
-  counterexample (`P = 1`) this equals the actual readout to `1e-69`; the bound in (c) is
-  `1.82e-8 >= 1.37e-8` (`repairs2_check.py` (A)).
+* *Exactness.* For `E = Q = 0`, `Acq = chibar (sigma_T - Lambda_T sigma_(t1))` exactly.
+  * On Codex's counterexample (`P = 1`), `Acq` alone is **not** the total readout. The initial
+    mean (`6.8524e-9`) plus `Acq` (`6.8514e-9`) equals the total `1.37039e-8`, with identity
+    residual `< 1e-50`.
+  * The displayed bound (c) evaluates to `2.2762e-8`.
+  * The `1.8226e-8` recorded by `repairs2_check.py` (A) is the older `1.33`-coefficient repair
+    bound. Both exceed the actual value (`repairs3_check.py` (B); corrected in Step 3.7 after
+    Codex AUDIT §2).
 
 *Proof.*
 * *(a)* This is Theorem 7.5's bootstrap with the initial terms retained (Codex PASS).
@@ -1293,7 +1372,12 @@ experiment so far. The original problem remains **OPEN**.
   * The Gronwall spread bound of Theorem 7.5 gives
     `Ymax <= (M* + |sigma_(t1)|)(1 + E e^E)/P + e^E (omega_(t1) + Q)`.
   * `chi^T y_T = chibar sigma_T + chi^T d_T`. Collect terms.
-  * Constants: `2E(1 + E e^E) <= .6605` and `2 E e^E <= .6421` at `E = 1/4`.
+  * Constants at `E = 1/4`:
+    * `2E(1 + E e^E) = .66050318 <= .660504`;
+    * `2E e^E = .64201271 <= .6421`.
+
+    This is a rational Taylor enclosure (`repairs3_check.py` (B)). The displayed `.661` and `.643`
+    dominate both. The first version's `<= .6605` was false (Codex AUDIT §2).
 * *(c)* Add `|chibar Lambda sigma_(t1)| <= A |sigma_(t1)|` and `|a^L chi^T d_(t1)| <= A P omega_(t1)`.
 
 QED **[NUMERICAL]** `phase2_check.py` (P3): twelve heterogeneous histories with nonzero, spread
@@ -1338,20 +1422,29 @@ QED **[NUMERICAL]** `phase2_check.py` (P1–P2), `n = 128, 256`, strongly hetero
 ### 10.3 Corollary 10.2 (cost-aware age split) [PROVED, under (H)]
 
 **Corollary 10.2.**
-* *Setup.* Fix `W <= L`, and let `m_W` be the peak actual width on `[T - W - Lam, T]`.
+* *Setup.* Fix an integer `1 <= W <= L`, and let `m_W` be the peak actual width on `[T - W - Lam, T]`.
 * *Statement.* For every legal one-step or F-step query,
 
       |forced readout| <= A P max_(T-W<=u<T) |Psi_u|
                           + A [2(Lam+1) m_W (1 + Lam/W) + P e^(-kappa W/2)] max_(u<T-W) |Psi_u|,
 
-  and the initial-content term obeys the same bound with `|y_(t1)|` in place of `|Psi|`.
-* *Meaning.* Forcing older than `W` reaches the readout only through rows that were kept as
-  near-exact retainers throughout the last `W` steps. Their number is limited by the **input
-  budget**: about `2(Lam+1) m_W`, not `P`.
+  and the initial-content term obeys
+
+      |sum_i chi_i rho_i(t1) y_(t1)(i)| <= A ||y_(t1)||_inf [2(Lam+1) m_W (1 + Lam/W) + P e^(-kappa W/2)].
+* *Meaning.*
+  * Forcing older than `W` reaches the readout with full weight only through rows whose
+    cumulative gate deficit over the last `W` steps is small.
+  * Their number is limited by the **input budget**: about `2(Lam+1) m_W`, not `P`.
+  * It is a cumulative-deficit split with a nonzero residual. It does not say that every
+    surviving row was always close to a perfect hole.
+  * A large **current** tail can still be seen by all `P` rows.
 
 *Proof.*
-* The old part of row `i` has total weight `sum_(u<T-W) lambda_u(i) = rho_i(T-W)`, which is at most
-  `exp(-eps_i)` with `eps_i := sum_(v in (T-W,T]) (1 - g_v(i))`.
+* The old part of row `i` has total weight `sum_(u<T-W) lambda_u(i)`.
+  * For `W < L` it equals `rho_i(T-W)`.
+  * For `W = L` the sum is empty, so it is `0 <= rho_i(t1)`. (The first version's equality there
+    was false; Codex AUDIT §4.)
+  * In all cases it is `<= rho_i(T-W) <= exp(-eps_i)`, with `eps_i := sum_(v in (T-W,T]) (1 - g_v(i))`.
 * Theorem 7.3 (off-cycle, expanded window) gives `N_i >= (W - eps_i/kappa)/(Lam+1)`, so
   `rho_i(T-W) <= exp(-kappa (W - (Lam+1) N_i)^+)`.
 * Rows with `N_i >= W/(2(Lam+1))` number at most `2(Lam+1) m_W (W + Lam)/W`. Every other row has
@@ -1359,20 +1452,30 @@ QED **[NUMERICAL]** `phase2_check.py` (P1–P2), `n = 128, 256`, strongly hetero
 
 QED
 
-### 10.4 Proposition 10.3 (stationary ceiling, any time-invariant heterogeneous gates) [PROVED]
+### 10.4 Proposition 10.3 (stationary ceiling, any time-invariant heterogeneous gates, frozen bath) [PROVED]
 
 **Proposition 10.3.**
-* *Setup.* Let the gates on `Hs` be time-invariant (`g_l` arbitrary in `(0,1]`, anti-holes
-  allowed), with `P < k/gamma`. Let the external part of the forcing be constant:
-  `F^ext := F - (feedback of Hs)`. Ignore captures.
+* *Setup.*
+  * The gates on `Hs` are time-invariant (`g_l` arbitrary in `(0,1]`, anti-holes allowed),
+    with `P < k/gamma`.
+  * The **bath reference `ghat` is constant as well** (frozen bath).
+  * The external part of the forcing, `F^ext := F - (feedback of Hs)`, is constant.
+  * Captures are zero.
+  * *Why the frozen bath is needed.* With `g_l = 1` and an alternating bath, the common-mode
+    stationarity equation cannot hold for both bath values when `F^ext != 0`. A frozen bath is
+    therefore a necessary premise, not a removable one (Codex AUDIT §5;
+    `repairs3_check.py` (D)).
 * *Stationary solution.* It exists, is unique, and is
   `y*_l = F*/(1 - a g_l)`, with
 
       F* = F^ext / (1 - gamma P/k + gamma s~^2 U/k),   U := sum_l 1/(1 - a g_l),   s~^2 := 1 - a ghat.
 
-* *Ceiling.* For every query, `|chi_Hs^T y*| <= A |F^ext| U / (1 - gamma P/k + gamma s~^2 U/k) < A |F^ext| k/(gamma s~^2)`.
-* *Source specialisation.* For the source leak of a hole-type source (`0 <= delta_j <= s^2`), this
-  is `< A |Y(j)|`.
+* *Ceiling.* For every query, `|chi_Hs^T y*| <= A |F^ext| U / (1 - gamma P/k + gamma s~^2 U/k) <= A |F^ext| k/(gamma s~^2)`.
+  The second inequality is strict when `F^ext != 0` and `P >= 1`.
+* *Source specialisation.* Take the **source-leak forcing alone**, excluding captures, injection
+  and other leaks: `|F^ext_source| = (gamma/k) a delta_j |Y(j)|` with `0 <= delta_j <= 1 - ghat`.
+  * Then the ceiling is `< A |Y(j)|`.
+  * This does not bound an arbitrary `F^ext` by the source's own content.
 
 *Proof.*
 * Stationarity requires `y_l (1 - a g_l) = F*` and `F* = F^ext - (gamma a/k) sum_l delta_l y_l`.
@@ -1382,15 +1485,22 @@ QED
 * `|chi^T y*| <= A F* U`.
 
 QED **[NUMERICAL]** `phase2_check.py` (P4): 2000 random configurations (holes, partial holes,
-anti-holes, `P` up to `.99 k/gamma`, `n` up to `1e8`):
+anti-holes, `n` up to `1e8`):
+* the nominal `P` "up to `.99 k/gamma`" is in fact **capped at 3000** by the script (Codex AUDIT
+  §9), so the sampling does not reach that limit at large `n`; the denominator proof, not the
+  sampling, covers the boundary;
 * the closed form agrees with a direct linear solve to `5e-9`;
 * the worst ratio to the ceiling is `.070`;
 * the minimum denominator is `.395`.
 
 *Meaning.*
-* In the stationary (adiabatic) limit, **no heterogeneity of any kind** lifts the centered
+* At a stationary state with a frozen bath, **no heterogeneity of any kind** lifts the centered
   readout above the own-sized ceiling `A k |F^ext|/(gamma s~^2)`.
-* Only **transients**, i.e. time-varying gates or forcing, can do more.
+* No adiabatic extension is claimed: there is no rate or error argument.
+* *Transients (Step 3.7).*
+  * With constant forcing, Cor. 11.5 gives the same ceiling for **every** transient.
+  * Time-varying forcing can exceed it, but only by the variation `V(phi)` (Theorem 11.3).
+  * That excess is attained (Prop. 11.6).
 
 ### 10.5 Proposition 10.4 (no internal amplification by positive-deviation populations) [PROVED]
 
@@ -1408,7 +1518,9 @@ anti-holes, `P` up to `.99 k/gamma`, `n` up to `1e8`):
 
   where:
   * `<Phi>_v` is a convex combination of `{Phi_u : t1 <= u <= v-2}`, with weights
-    `delta_v(l) lambda^(v-1)_u(l) / sum delta`;
+    `delta_v(l) lambda^(v-1)_u(l) / sum delta`.
+  * Boundary cases: at the first step (`v = t1+1`), `Phi_(t1) = 0` and there is no older
+    average; when `theta_v = 0` the weighted term is defined as `0` (Codex AUDIT §5).
   * `I_v := -(gamma a/k) sum_l delta_v(l)[rho^(v-1)_l(t1) y_(t1)(l) + C_(v-1)(l)]`.
 * *Consequence.*
 
@@ -1433,7 +1545,26 @@ QED **[NUMERICAL]** `phase2_check.py` (P5): the identity holds to `1e-13`, and
 * Members with `delta < 0` (anti-holes) break the convexity. Their leak sits in `F^ext`, where it
   is a feedback, not an exogenous term.
 
-### 10.6 The precise remaining obstruction [OPEN]
+### 10.6 The unweighted-tail bound (10.6) [REFUTED; Conjecture 10.5 WITHDRAWN in Step 3.7]
+
+**Withdrawal.** (10.6) is false, and the sentence "Prop. 10.3 proves (10.6) with `C = 1` for
+stationary responses" was wrong.
+* *Why.* A stationary state does not bound its unweighted forcing primitive. With every
+  population gate equal to a constant bath gate (`delta = 0`, `F = f`), the state is bounded by
+  `f/(1 - a ghat)`, while `Psi_0 = L f` grows. The ratio is
+  `gamma P (1 - a ghat) L / k`, which is `200000399/79992000` at `n = 2e8`, `P = 1000`,
+  `ghat = 399/400`, `L = n/2`.
+* *Legal version.* Codex's zero-input family has no inputs and zero initial credit, and its
+  population consists of undriven bath rows. The ratio tends to `s_0^2 (T-1)/2`, which defeats
+  every `C`.
+* Both are reproduced in `repairs3_check.py` (A).
+* *Retained memory.* Unweighted tails accumulate forcing increments that every bath row has
+  forgotten. A row sees `Psi_u` only through its age weights `lambda_u(i)`, which for bath rows
+  concentrate within `~1/s~^2` steps of `T`. The filtered content stays at `~ .5` of the scale.
+* *Replacement.* Theorem 11.3 bounds the filtered response itself. It also shows that transients
+  can exceed the stationary ceiling, but only by the variation of the forcing (Prop. 11.6).
+
+*Original Step 3.6 text (kept for the record; its claims (10.6) and Conjecture 10.5 are withdrawn):*
 
 The new results reduce strongly heterogeneous retention, exactly, to **one scalar sequence per
 column**: the tail sums `Psi_u` of the common forcing (Theorem 10.1).
@@ -1455,7 +1586,7 @@ with a universal `C`.
   `Theta(mT)`, which is `>> k` in the relevant regime. So a perturbative bootstrap fails
   (`(gamma/k) Sigma_P >> 1`).
 
-**Conjecture 10.5 (transient ceiling).** (10.6) holds with a universal constant `C` for every
+**Conjecture 10.5 (transient ceiling)** [WITHDRAWN]. (10.6) holds with a universal constant `C` for every
 population with gates in `(0,1]`. This is internal; the evidence is §10.7 and Codex's E7.
 
 ### 10.7 Phase 3 decision experiment: the contrast pump [NUMERICAL]
@@ -1503,8 +1634,10 @@ ceiling (`<= .62 A`). The endpoint gap is `0.0` and the inputs are `<= .3802`.
   present without any switching (A only).
 * All saturated ratios stay below the stationary ceiling (`<= .62 A`).
 
-This supports Conjecture 10.5 with `C <= 1` in this family. No legal mechanism evading the
-ceiling was found.
+This was read as support for Conjecture 10.5, which is now withdrawn (§10.6).
+* The saturation itself stands. It is consistent with Theorem 11.3, whose variation bound is not
+  tight for the pump.
+* The pump does not use the hierarchical group sizes that Prop. 11.6's staircase needs.
 
 ### 10.8 Does this constrain the original target? [ANALYSIS]
 
@@ -1520,7 +1653,13 @@ ceiling was found.
   * no dimension-counting principle converts per-column bounds into a bound on `D` (§7.5
     withdrawal);
   * every statement is for the selected metric. Nothing here bounds the full gradient metric.
-* *Conditional route to a heavy-column listing [ANALYSIS].*
+* *Conditional route to a heavy-column listing [ANALYSIS; WITHDRAWN as written in Step 3.7].*
+  * At equal tails the readout difference keeps the kernel term
+    `sum_u (Lambda+_u - Lambda-_u) Psi-_u` (Codex AUDIT §7).
+  * Prop. 11.7 gives the exact split, and Example (E) is a legal equal-support pair in which that
+    term dominates.
+  * The bullets below are kept for the record. They are valid only where the two histories'
+    population gates agree.
   * At zeros of a listing that kills the window tail sums `Delta Psi_u(j)`
     (`u in [T-W, T]`, `W` values per heavy column, i.e. `~ W (mT)^(4/3)/n` coordinates), Cor. 10.2
     leaves only the old part.
@@ -1533,7 +1672,329 @@ ceiling was found.
   `n = 1e12`) found no legal heterogeneous mechanism exceeding the stationary ceiling.
 * **The original problem remains OPEN.**
 
-## 11. Status (after the Step 3.6 repairs)
+## 11. Step 3.7: the actual filtered response
+
+§10.6's unweighted-tail bound is false (§R3, item 1). This section bounds the quantity that
+matters instead: the **filtered, query-weighted response**
+`sup_(chi legal) |sum_u Lambda_u(chi) Psi_u|`, with Theorem 10.1's exact age weights kept.
+The bound is exact up to one Abel summation, it covers every case Step 3.7 lists, and it is tight.
+
+*Setting.* §10's setting, with `P < k/gamma`, i.e. `eps P <= 1` for `eps := gamma/k`.
+* Write `r_t(l) := a g_t(l)` in `(0, 1]` for `l in Hs`.
+* Write `rhat_t := a ghat_t` for the bath reference (any reference in `(0,1)`; §10 uses the
+  undriven off-cycle gate), and `s~^2_t := 1 - rhat_t > 0`.
+* Off the cycle, `v_t(l) = a y_(t-1)(l)`, so the `Hs` part of `F_t` equals
+  `-eps sum_(l in Hs) (r_t(l) - rhat_t) y_(t-1)(l)`.
+* The row recursion of Theorem 10.1 becomes the **population operator**:
+
+      y_t = M_t y_(t-1) + F^ext_t 1 + c_t,      M_t := diag(r_t) - eps 1 (r_t - rhat_t 1)^T,
+
+  * `F^ext_t := F_t + eps sum_(Hs) (r_t(l) - rhat_t) y_(t-1)(l)` is the forcing from outside
+    `Hs` (Prop. 10.4's `F^ext`: source leak, front rows, other deviating rows, injection);
+  * `c_t(i) := kappa_t(i) v_t(0)` are the captures.
+* *Allowed in full generality:* gates (time-varying, heterogeneous, holes, partial holes,
+  anti-holes); the bath (nonautonomous); signed feedback; the initial vector; captures;
+  injections; and the query `chi` (any real vector, `A := max|chi_i|`).
+
+### 11.1 Exact adjoint representation [PROVED]
+
+**Lemma 11.1.**
+* *Recursion.* Let `p^(T) := chi`, `pi_t := 1^T p^(t)`, and
+
+      p^(t-1)(l) = r_t(l) p^(t)(l) - eps (r_t(l) - rhat_t) pi_t      (p^(t-1) = M_t^T p^(t)).
+
+* *Statement.* Then, exactly,
+
+      chi^T y_T = p^(t1) . y_(t1) + sum_(t in I) pi_t F^ext_t + sum_(t in I) p^(t) . c_t.
+
+*Proof.* Unroll `y_T = M_T ... M_(t1+1) y_(t1) + sum_t M_T ... M_(t+1) (F^ext_t 1 + c_t)` and
+transpose. QED
+
+*Note.* All feedback from `Hs`, at every order and with any sign, is inside `pi`. `F^ext` is
+genuinely external to `Hs` (it may still depend on the history).
+
+### 11.2 The sliding-box lemma [PROVED]
+
+**Lemma 11.2.**
+* *Notation.* `Mt_t := max(max_l p^(t)(l), 0)` and `mt_t := min(min_l p^(t)(l), 0)`.
+* *Assumptions.* `eps P <= 1`, `0 <= r_t(l) <= 1`, `rhat_t <= 1`.
+* *Statement.* For every `t`,
+
+      Mt_(t-1) <= Mt_t - eps s~^2_t pi_t,        mt_(t-1) >= mt_t - eps s~^2_t pi_t.
+
+* *Consequences.* Put `S_t := sum_(u=t+1)^T eps s~^2_u pi_u` (so `S_T = 0`). Then
+  * `S_t in [mt_T, Mt_T]` for every `t`;
+  * `p^(t)(l) in [mt_T - S_t, Mt_T - S_t]`;
+  * hence `||p^(t)||_inf <= R_chi := Mt_T - mt_T <= 2A`.
+
+*Proof.*
+* *Upper end.* `M~ - eps s~^2 pi - p'_l = M~ - r_l p_l - eps pi (1 - r_l)`, using
+  `s~^2 = 1 - rhat`. With `p_l <= M~` and `r_l >= 0` this is `>= (1 - r_l)(M~ - eps pi)`.
+  * This is `>= 0` because `r_l <= 1` and `M~ >= eps pi`.
+  * The latter holds for `pi <= 0` since `M~ >= 0`, and for `pi > 0` since
+    `pi <= P M~` and `eps P <= 1`.
+* *Lower end.* `p'_l - (m~ - eps s~^2 pi) = r_l p_l - m~ + eps pi (1 - r_l)`. With `p_l >= m~`
+  this is `>= (1 - r_l)(eps pi - m~)`.
+  * This is `>= 0`: for `pi >= 0` since `m~ <= 0`, and for `pi < 0` since `pi >= P m~`.
+* *Clipping at 0 is harmless.* `M~ - eps s~^2 pi >= 0` always, since
+  `eps s~^2 pi <= eps P s~^2 M~ < M~`; symmetrically `m~ - eps s~^2 pi <= 0`.
+* *Box.* Summing from `T` gives `Mt_t <= Mt_T - S_t` and `mt_t >= mt_T - S_t`. Combined with
+  `mt_t <= 0 <= Mt_t`, this gives the box.
+
+QED
+
+No gate sign is used. Anti-holes, signed feedback and a nonautonomous bath are all covered.
+
+### 11.3 Theorem 11.3 (variation ceiling for the filtered response) [PROVED]
+
+**Theorem 11.3.**
+* *Normalized forcing.* `phi_t := F^ext_t / (eps s~^2_t) = k F^ext_t / (gamma (1 - a ghat_t))`.
+* *Variation.* `V(phi) := |phi_(t1+1)| + sum_(t=t1+1)^(T-1) |phi_(t+1) - phi_t|`.
+* *Exact form.* `chi^T y_T = sum_t phi_t (S_(t-1) - S_t) + p^(t1) . y_(t1) + sum_t p^(t) . c_t`.
+* *Bound.* For every real query,
+
+      |chi^T y_T|  <=  max(Mt_T, -mt_T) V(phi)  +  R_chi ( ||y_(t1)||_1 + sum_(t in I) ||c_t||_1 ).
+
+  For a legal query (`|chi_i| <= A`): `|chi^T y_T| <= A V(phi) + 2A(||y_(t1)||_1 + sum_t ||c_t||_1)`.
+  In particular the **filtered L1 content** obeys
+  `sum_i |y_T(i)| <= V(phi) + 2(||y_(t1)||_1 + sum_t ||c_t||_1)`.
+
+*Proof.*
+* Lemma 11.1, with `eps s~^2_t pi_t = S_(t-1) - S_t`.
+* Abel summation:
+  `sum_t phi_t (S_(t-1) - S_t) = phi_(t1+1) S_(t1) + sum_(t=t1+1)^(T-1) (phi_(t+1) - phi_t) S_t`, using `S_T = 0`.
+* Lemma 11.2 bounds `|S_t| <= max(Mt_T, -mt_T)` and `||p^(t)||_inf <= R_chi`.
+
+QED
+
+**Corollary 11.4 (Theorem 10.1's forced part).** Since
+`sum_u Lambda_u(chi) Psi_u = chi^T y_T - sum_i chi_i rho_i(t1) y_(t1)(i) - chi^T C_T` and `rho <= 1`,
+
+    |sum_u Lambda_u(chi) Psi_u|  <=  A V(phi) + 3A ( ||y_(t1)||_1 + sum_t ||c_t||_1 ).
+
+**Corollary 11.5 (Prop. 10.3 for every transient).**
+* *Statement.* If `F^ext` and the bath are constant on `I`, then `V(phi) = |phi|` and
+  `|chi^T y_T| <= A k |F^ext| / (gamma s~^2) + 2A(||y_(t1)||_1 + sum_t ||c_t||_1)`.
+* *Scope.* This holds for **arbitrary time-varying heterogeneous gates**, anti-holes included.
+* *Meaning.* It is Prop. 10.3's stationary ceiling, now with no stationarity assumption. More
+  generally, a monotone `phi` gives `V(phi) <= 2 max|phi|`.
+
+*Reading.*
+* Retained memory is bounded by the **variation** of the external forcing in ceiling units, not by
+  its accumulated sum.
+* *What disappears relative to §10.*
+  * Neither the factor `P` (Theorem 10.1 (ii), Prop. 10.4) nor the horizon appears.
+  * The unweighted tails never appear.
+  * The only loss is the Abel step.
+* *Relation to Prop. 10.4.* For rapidly alternating forcing, Prop. 10.4's `2AP sum|F^ext|` can be
+  smaller (it needs `delta >= 0`). The minimum of the two holds.
+* *Codex's zero-input background.*
+  * There `phi_1 = 0` and `phi_t -> -g_0/s_0^2` for `t >= 2`, so `V(phi) ~ max|phi|`.
+  * The bound holds with room. Full-vector R0 at `n = 16384`: filtered content / bound
+    = `.257` at `T = 600` and `.361` at `T = 2400`.
+  * At those same runs, the withdrawn (10.6) ratio is `.459` and `1.795`, and it grows like
+    `s_0^2 (T-1)/2` (`filtered_check.py` (D); `repairs3_check.py` (A2) at `n = 2^18`).
+
+**[NUMERICAL]** `filtered_check.py`:
+* *(A) Exact rationals.* 40 random cases (`eps P in {1, 99/100, 1/2, 1/50}`, the boundary
+  included; holes, partial holes, anti-holes, nonautonomous bath). Exactly verified:
+  * all 584 sliding-box steps;
+  * the box confinement;
+  * the decomposition identity;
+  * the bound.
+* *(B) Float stress.* 300 cases (anti-holes, switching blocks, nonautonomous bath, initial
+  vectors, captures): worst ratio to the bound `.989`, decomposition residual `<= 9.4e-15`.
+
+### 11.4 Tightness: the nested-hold staircase [NUMERICAL + ANALYSIS; operator level]
+
+**Proposition 11.6 (transients exceed the stationary ceiling by the variation).**
+* *Construction.* Groups `G_0, ..., G_K` with sizes `N_0 < N_1 < ... < N_K`, ratio `rho_N`,
+  and `eps N_K = .9`.
+* *Gates.* Group `c` is a bath row (`r = rhat`) before stage `c`, and a hole (`r = a`) from
+  stage `c` until `T`. Only `delta >= 0` occurs: **no anti-holes are needed**.
+* *Forcing.* `F^ext = +-f`, alternating between stages and `+f` in the last. Stage `c` lasts
+  `8/(eps s~^2 sum_(c'<=c) N_c')` steps.
+* *Mechanism.* In stage `c` the holders' common mode swings from `-+C` to `+-C`
+  (`C := f/(eps s~^2)`, Lemma D). The swing is shared equally per row, so the newest (dominant)
+  group takes almost all of `2C`, and the older groups keep their contents.
+* *Outcome.* The final L1 content is `~ (C + 2KC)`, i.e. `(2K+1) C`, while `V(phi) = (2K+1) C`.
+
+*Exact class-operator evaluation* (matrix powers of the augmented map; `n_eff = 2e12`,
+`s~^2 = .0025`):
+
+| `K` | 1 | 2 | 3 | 4 | 6 | 3 (`rho_N = 200`) |
+|---|---|---|---|---|---|---|
+| readout / stationary ceiling `A max|phi|` | 2.808 | 4.617 | 6.425 | 8.234 | 11.81 | 6.933 |
+| readout / `V(phi)` | .936 | .923 | .918 | .915 | .909 | .990 |
+
+(`rho_N = 20` except the last column.)
+
+*Consequences.*
+* No inequality `filtered response <= C A max|phi|` with a universal `C` holds for transients. It
+  is **REFUTED** at the operator level, numerically with large margin for `C < 11.8`, and for
+  every `C` by the idealised analysis.
+* `V(phi)` cannot be replaced by `max|phi|`.
+* The ratio to Theorem 11.3's bound tends to 1 as `rho_N` grows.
+
+*What this is not.*
+* It is an operator construction with prescribed forcing.
+* It is not a legal history, not a two-history section and not a robust dimension.
+* The cost analysis below shows it is at most logarithmic in `n` within the barrier budget.
+
+*Cost [ANALYSIS].*
+* *Time.* The smallest group's stage sets `T >~ rho_N^K / s~^2`.
+* *Width.* The last stage holds `N_K ~ k` rows for `L_K ~ 9/s~^2` steps. Theorem 7.3 charges
+  near-exact retention at least one input per row in an expanded window of length `Lam + L_K`,
+  so `m >~ N_K/(Lam + L_K)`.
+* *Budget.* Hence `mT >~ k rho_N^K / ((Lam + L_K) s~^2)`. The budget `mT <= c n^(3/2)` then
+  allows only `K <~ log(c (Lam + L_K) s~^2 sqrt(n)) / log rho_N = O(log n)`.
+* *Conclusion.* This mechanism yields at most a **logarithmic** factor over the own-sized ceiling
+  within the barrier budget. A larger amplification would need a different mechanism, and
+  Theorem 11.3 caps every mechanism by `V(phi)`.
+
+### 11.5 Legal histories [NUMERICAL]
+
+`filtered_check.py` (D, F) simulates full-vector R0 histories at `n = 16384`. They are legal:
+inputs `|x| <= .468`, every nonzero input counted.
+* *Reduction to Lemma 11.1.* The credit column is reduced exactly to the population operator,
+  using the measured `F^ext`, captures and bath:
+  * row recursion residual `<= 6.9e-14`;
+  * decomposition residual `<= 1.7e-14`.
+* *Bound.* Theorem 11.3 holds in every case.
+
+| history | `P` | peak `m` | readout / bound | readout / `A max|phi|` |
+|---|---|---|---|---|
+| zero input (Codex's background), `T = 600 / 2400` | 3000 | 0 | `.257 / .361` | `.260 / .367` |
+| held population, source alternating hole/anti-hole, `T = 4000` | 2500 | 2501 | `7.7e-4` | `2.5e-3` |
+| anti-hole duty cycles, source alternating, `T = 4000` | 2500 | 1567 | `3.8e-6` | `1.8e-5` |
+| one-history two-group staircase, `T = 14500` | 4093 | 4094 | `2.4e-3` | `4.9e-3` |
+| two-history staircase (F), `T = 51045`, groups `400 / 3600` | 4000 | 4002 | `2.4e-3` | `9.2e-3` (`.88` / `1.19` of the two sustained `|Delta phi|` levels) |
+
+*Why single legal histories stay far below.*
+* A single history's source forcing is dominated by the injection plus the source's own leak.
+  Its sign is fixed (`phi ~ -(own content)`), and source gate switches produce short spikes that
+  dominate `max|phi|`.
+* Alternation of sign needs **differences** of histories. That is §11.6's setting, and (F).
+
+*(F), the legal two-history staircase.*
+* *Setup.* A balanced source pair `(j, j')` is pulsed `(+amp, -amp)` for 7 steps: first in
+  history 0, then in history 1. The second pulse reverses the sign of `Delta Y(j)`. The
+  population controls are common (nested holds `400`, then `+3600` rows).
+* *Exactness.* Population gate gap `0`, bath gap `0`, endpoint gap `0`; inputs `<= .381`;
+  decomposition residual `1.7e-14`.
+* *Result.* The difference readout is `8095`. The sustained `Delta phi` levels in the two stages
+  are `+9176` and `-6780`, so the readout is only `.88`–`1.19x` one sustained level. Ideally the
+  staircase would give `~3x`.
+* *Why it falls short.* The stage levels are unequal. The 7-step pulses create `Delta phi` spikes
+  (`max|Delta phi| = 8.8e5`) that dominate both `max|phi|` and `V`. And at `n = 16384` the stages
+  cannot be both long and hierarchical.
+* *Scope.* The run is far over the barrier budget (`mT = 2.0e8` vs `n^(3/2) = 2.1e6`).
+* *Verdict.* A legal history exceeding the stationary ceiling by a clear factor was **not found**.
+  The operator-level amplification of Prop. 11.6 remains **unrealized legally**; this is not a
+  proof that it is impossible.
+
+### 11.6 Cross-history kernel differences [PROVED identity and bound; NUMERICAL example]
+
+Two histories `+-` are read with a common query `chi`. With matched endpoints the final gate box,
+hence the frozen legal query, is common.
+
+**Proposition 11.7 (exact difference split).**
+* *Identity.* Exactly,
+
+      chi^T (y+_T - y-_T) = sum_t pi+_t Delta F^ext_t                     (forcing difference)
+                          + sum_t (pi+_t - pi-_t) F^ext-_t                (kernel difference)
+                          + [p+^(t1) . y+_(t1) - p-^(t1) . y-_(t1)] + sum_t [p+^(t) . c+_t - p-^(t) . c-_t].
+
+  This is Theorem 10.1's `Lambda+ Delta Psi + (Lambda+ - Lambda-) Psi-`, with the population
+  feedback moved into the operators, so that `F^ext` is genuinely external.
+* *Forcing difference.* By Theorem 11.3 it is `<= A V(Delta phi)`, where
+  `Delta phi := Delta F^ext/(eps s~+^2)`.
+* *Kernel term.* Let `z` be the `-` population's response to `F^ext-` alone
+  (`z_t = M-_t z_(t-1) + F^ext-_t 1`, `z_(t1) = 0`). Then
+
+      sum_t (pi+_t - pi-_t) F^ext-_t = sum_s p+^(s) . (Delta r_s (.) z_(s-1))  -  eps sum_s pi+_s (Delta r_s - Delta rhat_s 1) . z_(s-1).
+
+* *Bound.* Hence
+
+      |kernel term| <= R_chi Gamma + max(Mt_T, -mt_T) V(psi),
+      Gamma := sum_s sum_(l in Hs) |Delta r_s(l)| |z_(s-1)(l)|,   psi_s := -(Delta r_s - Delta rhat_s 1) . z_(s-1) / s~+^2_s.
+
+  Crudely, `V(psi) <= 2 (Gamma + sum_s |Delta rhat_s| |1^T z_(s-1)|) / min s~^2`.
+
+*Proof.*
+* Expand `y^a - y^b`, the responses of `M+` and `M-` to the same forcing:
+  `sum_s M+_T ... M+_(s+1) (M+_s - M-_s) y^b_(s-1)`, with
+  `(M+ - M-) y = Delta r (.) y - eps 1 (Delta r - Delta rhat 1)^T y`.
+* Transpose against `chi`.
+* Bound the first part by Lemma 11.2 (`||p+^(s)||_inf <= R_chi`), and the second by Theorem 11.3
+  applied to the forcing `-eps (Delta r_s - Delta rhat_s 1) . z_(s-1)`.
+
+QED
+
+*Answers to Step 3.7's four questions.*
+* **(a) Bounded by legal input cost?**
+  * The kernel term is bounded by the gate-difference budget `Gamma` (plus bath differences).
+  * `Gamma` vanishes when the two histories' population gates agree.
+  * Gate differences occur only where states differ. Turning `Gamma` into an input-cost bound
+    needs the relaxation and common-field contributions, which are **OPEN** quantitatively.
+  * A crude count (common-field differences `~ gamma m/k` acting on every row for `T` steps)
+    does not make `Gamma` small in the barrier regime (`mT/k >> 1`).
+* **(b) Controlled at Theorem 4's joint listing zeros?** **No**, not by tail or forcing zeros
+  alone. Example (E) below: `Delta F^ext` is `<= 4.1%` of `F^ext`, yet the kernel term dominates.
+* **(c) Represented by few public quantities?**
+  * Not in general. The term is bilinear in the code-dependent gate pattern `Delta r` and the
+    response `z`.
+  * Equal public **support** schedules do not equate the kernels. In (E) every driven row and
+    time agree.
+* **(d) Does it invalidate a listing method?**
+  * It invalidates any listing argument that zeroes tails or forcing but drops the kernel term,
+    including §10.8's conditional route as written (withdrawn).
+  * A valid listing must also list or bound `Gamma`-type quantities.
+
+**Example (E) [NUMERICAL, legal pair].** `filtered_check.py` (E):
+* *Setup.* R0, `n = 16384`, `T = 3000`, population `P = 2000`.
+* *Histories.* History `+` holds the population at `0`. History `-` holds the **same rows at the
+  same times** at `+-.38`, balanced so that every other state agrees.
+* *Common to both.* The source schedule is identical; the last step resets the population to `0`.
+* *Legality and endpoints.* Endpoint gap `2.2e-16`; input support identical (`m = 2001` in both);
+  inputs `<= .449`.
+* *Readout difference* (common `chi = 1` on `Hs`): `-2039.3`.
+
+| term | value |
+|---|---|
+| forcing difference `sum pi+ Delta F^ext` | `79.6` |
+| **kernel term** | **`-2100.2`** (`.42` of the stationary scale) |
+| capture and initial differences | `-18.7` |
+| identity residual / kernel-identity error | `1.3e-11` / `2.6e-15` |
+| `Gamma`; kernel bound `R_chi Gamma + V(psi)` | `6413.5`; `9071.1` |
+
+*Scope.* This is a legal two-history demonstration that the kernel term is own-sized at equal
+support and exact common endpoints. It is **not** a robust `D`-dimensional section: one pair, no
+dimension count, no budget claim.
+
+### 11.7 What this does for Lemma M_rest and the original target [ANALYSIS]
+
+* **Route A (upper bound).**
+  * *Per history.* The centered (retention) memory of one column satisfies
+    `<= A V(phi) + 2A(init + capture)` for every legal schedule, query, gate pattern and bath.
+    For source-leak forcing, `V(phi)` is the variation of `a delta(j) Y(j)/s~^2`, i.e. of the
+    source's own content in ceiling units.
+  * *Two histories.* The memory difference is `A V(Delta phi)` plus the kernel term
+    (Prop. 11.7).
+  * *Remaining.* A per-column reduction of U2 to (i) the variation of the external forcing
+    difference and (ii) the gate-difference budget `Gamma`. Neither is yet bounded by listable
+    or cost quantities in the barrier regime.
+* **Route B (counterexample search).**
+  * Transient amplification above the stationary ceiling **exists** (Prop. 11.6, operator level)
+    and is attained up to the variation.
+  * Within the barrier budget the staircase gives at most `O(log n)`.
+  * The legal two-history test (F) did **not** realize it: `.88`–`1.19x` one sustained level, with spikes dominating.
+  * No polynomial amplification mechanism is known. Theorem 11.3 rules out any amplification
+    beyond `V(phi)`.
+* **Not shown.** No dimension theorem, no full-metric bound, and no robust `D`-dimensional
+  construction. **The original problem remains OPEN.**
+
+## 12. Status (after Step 3.7)
 
 | Item | Status |
 |---|---|
@@ -1556,19 +2017,28 @@ ceiling was found.
 | Theorem 7.3 cycle addendum with expanded-window front count `1 + floor((H+Lam-1)/d)` | PROVED (corrected) |
 | Theorem 7.5, zero initial content (and its first display with nonzero initial content) | PROVED (Codex PASS) |
 | Theorem 7.5's nonzero-initial readout extension (first version) | **REFUTED** (Codex, factor `1.50387`, reproduced) |
-| **Theorem 7.5'** (complete initial vector: damped mean, propagated contrast, explicit remainder) | PROVED (new; unaudited) |
+| **Theorem 7.5'** (complete initial vector: damped mean, propagated contrast, explicit remainder) | PROVED (Codex PASS; presentation constants corrected in Step 3.7) |
 | Cor. 7.4(a): no proved bound changes under reset schedules | PROVED (Codex PASS) |
 | Cor. 7.4(b), universal finite-`H` factor `Lam+1` | **REFUTED** (zero-input one-step example); asymptotic form PROVED |
 | Leakage model, symmetric-target improvement, cost law `~ beta H^(3/2)` | ANALYSIS + NUMERICAL (approximate; exact discrete averages given) |
 | Per-column dimension condition (§7.5, §8.1, first version) | **WITHDRAWN** (Codex AUDIT §6) |
 | Staggered resets: finite-`n` gain | NUMERICAL; no proved bound changes; for near-exact local retention the asymptotic saving is `<= Lam+1` (PROVED); other asymptotic effects OPEN |
-| **Theorem 10.1** (convex-combination representation, any gates, any initial vector, all captures, query-aware) | PROVED (new; unaudited) |
-| **Cor. 10.2** (cost-aware age split: old memory through `<~ 2(Lam+1) m_W` retainers) | PROVED (new; unaudited) |
-| **Prop. 10.3** (stationary ceiling for any time-invariant heterogeneous gates) | PROVED (new; unaudited) |
-| **Prop. 10.4** (no internal amplification by positive-deviation populations) | PROVED (new; unaudited) |
-| Damped transient bound (10.6) / Conjecture 10.5 | **OPEN** (contrast pump and Codex E7: no counterexample) |
+| **Theorem 10.1** (convex-combination representation, any gates, any initial vector, all captures, query-aware) | PROVED (Codex PASS) |
+| **Cor. 10.2** (cost-aware age split: old memory through `<~ 2(Lam+1) m_W` retainers) | PROVED (Codex PASS; `1 <= W <= L`, `<=` at `W = L`) |
+| **Prop. 10.3** (stationary ceiling for time-invariant heterogeneous gates) | PROVED for a **frozen bath** (Codex PASS in that scope) |
+| **Prop. 10.4** (no internal amplification by positive-deviation populations) | PROVED (Codex PASS) |
+| Unweighted-tail bound (10.6) / Conjecture 10.5 | **REFUTED** (Codex; exact scalar and legal zero-input family, reproduced); withdrawn |
+| §10.8 tail-listing route | **WITHDRAWN** as written (missing kernel term) |
+| **Lemma 11.1, Lemma 11.2** (exact adjoint representation; sliding box, any gates, `eps P <= 1`) | PROVED (new; unaudited) |
+| **Theorem 11.3** (variation ceiling: filtered response `<= A V(phi) + 2A(init + capture)`) | PROVED (new; unaudited) |
+| **Cor. 11.4, 11.5** (Theorem 10.1's forced part; Prop. 10.3's ceiling for every constant-forcing transient) | PROVED (new; unaudited) |
+| Transient bound "`C` times the stationary ceiling" with universal `C` | **REFUTED** at operator level (Prop. 11.6 staircase, `(2K+1)x`; NUMERICAL + ANALYSIS) |
+| Staircase amplification within the barrier budget `<= O(log n)` | ANALYSIS |
+| **Prop. 11.7** (exact cross-history split; kernel term `<= R_chi Gamma + V(psi)`) | PROVED (new; unaudited) |
+| Kernel term controlled by tail/forcing listing zeros | **REFUTED** by a legal equal-support pair (NUMERICAL, Example (E)) |
+| Kernel term bounded by legal input cost (`Gamma` vs cost) | **OPEN** |
 | Contrast pump beats plain retention or the stationary ceiling | **NOT OBSERVED** (NUMERICAL, §10.7) |
-| Strongly heterogeneous retention (`E > 1/4`) ceiling | **OPEN**, reduced exactly to the scalar tail sums `Psi` (Theorem 10.1); stationary case PROVED (Prop. 10.3) |
+| Strongly heterogeneous retention (`E > 1/4`) ceiling | per history **PROVED** in variation form (Theorem 11.3), tight (Prop. 11.6); across histories reduced to `V(Delta phi)` plus the kernel term (Prop. 11.7), which is **OPEN** quantitatively |
 | Lemma M_rest (U1, U2): heavy columns, own-spread capture, cycle relays | **OPEN** |
 | Code-dependent (d) (U4), full-metric groups (U5), driven sources in Theorem M (U6) | **OPEN** |
 | Conjecture C3: sub-barrier robust dimension `Theta((mT)^(4/3)/n)` | CONJECTURE (internal) |

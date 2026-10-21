@@ -1,0 +1,66 @@
+{
+  "A1_scalar_witness": {
+    "ratio_exact": "200000399/79992000",
+    "ratio": 2.5002550130013,
+    "formula": "gamma P (1 - a ghat) L / k",
+    "filtered_over_scale": 1.0001000100010001e-05
+  },
+  "A2_zero_input_family": {
+    "n": 262144,
+    "P": 65533,
+    "inputs": 0,
+    "initial_credit": 0,
+    "cases": {
+      "600": {
+        "P_Psi_star": 299.4871287071239,
+        "C1_scale_min_bath": 405.56336761096827,
+        "ratio_10p6": 0.7384471888358597,
+        "limit_ratio_s0sq_Tminus1_over_2": 0.7475038489154225,
+        "filtered_content_L1": 156.6604721316406,
+        "filtered_over_scale": 0.3862786549349182
+      },
+      "2400": {
+        "P_Psi_star": 1201.9274509436668,
+        "C1_scale_min_bath": 406.5936993282543,
+        "ratio_10p6": 2.9560897105129946,
+        "limit_ratio_s0sq_Tminus1_over_2": 2.9937591545043385,
+        "filtered_content_L1": 203.28388993019908,
+        "filtered_over_scale": 0.4999681260827468
+      },
+      "5300": {
+        "P_Psi_star": 2656.363578921618,
+        "C1_scale_min_bath": 406.60694169730004,
+        "ratio_10p6": 6.533001054613467,
+        "limit_ratio_s0sq_Tminus1_over_2": 6.612726035730925,
+        "filtered_content_L1": 203.87198056213498,
+        "filtered_over_scale": 0.5013981800485545
+      }
+    }
+  },
+  "B_theorem75p": {
+    "2E(1+E e^E)_interval": [
+      0.6605031770859677,
+      0.6605031770859677
+    ],
+    "2E e^E_upper": 0.6420127083438707,
+    ".6605_is_false_.660504_is_safe": true,
+    "witness_abs_initial_mean": 6.852411576286232e-09,
+    "witness_abs_Acq": 6.851447496316959e-09,
+    "witness_abs_total": 1.370385907260319e-08,
+    "total_equals_initial_mean_plus_Acq": true,
+    "old_1p33_repair_bound": 1.8226132658154182e-08,
+    "displayed_75prime_c_bound": 2.276211003398052e-08
+  },
+  "C_cor102": {
+    "cases": 20,
+    "W<L": "old weight == rho(T-W) exactly",
+    "W=L": "old weight 0 < rho(t1) (use <=)"
+  },
+  "D_prop103": {
+    "alternating_bath_has_no_common_stationary_state": true,
+    "y_star_two_baths": [
+      16.66470255490408,
+      14.283982666480574
+    ]
+  }
+}

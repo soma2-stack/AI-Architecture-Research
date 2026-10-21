@@ -1,0 +1,285 @@
+{
+  "A_exact_rational": {
+    "cases": 40,
+    "lemma_steps_checked_exactly": 584,
+    "worst_ratio_to_bound": 0.02464548761803671,
+    "eps_P_values": [
+      "1",
+      "99/100",
+      "1/2",
+      "1/50"
+    ]
+  },
+  "B_float_stress": {
+    "cases": 300,
+    "max_ratio_to_bound": 0.9888287856119589,
+    "worst_case": {
+      "case": 2,
+      "P": 9,
+      "T": 378,
+      "kind": 2
+    },
+    "decomposition_rel_residual": 9.421511258060644e-15
+  },
+  "C_staircase": [
+    {
+      "K": 1,
+      "group_sizes": [
+        44999955000.0,
+        899999100000.0
+      ],
+      "stage_lengths": [
+        71112,
+        3387
+      ],
+      "T": 74499,
+      "readout_L1": 1123300817573161.4,
+      "stationary_ceiling_A_max_phi": 399999599999999.94,
+      "ratio_to_stationary_ceiling": 2.808254852187756,
+      "ratio_to_variation_bound": 0.936084950729252,
+      "variation_bound_over_ceiling": 3
+    },
+    {
+      "K": 2,
+      "group_sizes": [
+        2249997750.0,
+        44999955000.0,
+        899999100000.0
+      ],
+      "stage_lengths": [
+        1422223,
+        67725,
+        3379
+      ],
+      "T": 1493327,
+      "readout_L1": 1846792359783174.5,
+      "stationary_ceiling_A_max_phi": 399999599999999.94,
+      "ratio_to_stationary_ceiling": 4.616985516443453,
+      "ratio_to_variation_bound": 0.9233971032886906,
+      "variation_bound_over_ceiling": 5
+    },
+    {
+      "K": 3,
+      "group_sizes": [
+        112499888.0,
+        2249997750.0,
+        44999955000.0,
+        899999100000.0
+      ],
+      "stage_lengths": [
+        28444445,
+        1354498,
+        67565,
+        3378
+      ],
+      "T": 29869886,
+      "readout_L1": 2570112871432014.0,
+      "stationary_ceiling_A_max_phi": 399999599999999.94,
+      "ratio_to_stationary_ceiling": 6.42528860386864,
+      "ratio_to_variation_bound": 0.9178983719812343,
+      "variation_bound_over_ceiling": 7
+    },
+    {
+      "K": 4,
+      "group_sizes": [
+        5624994.0,
+        112499888.0,
+        2249997750.0,
+        44999955000.0,
+        899999100000.0
+      ],
+      "stage_lengths": [
+        568888927,
+        27089948,
+        1351281,
+        67556,
+        3378
+      ],
+      "T": 597401090,
+      "readout_L1": 3293398893393580.0,
+      "stationary_ceiling_A_max_phi": 399999599999999.94,
+      "ratio_to_stationary_ceiling": 8.233505466989419,
+      "ratio_to_variation_bound": 0.914833940776602,
+      "variation_bound_over_ceiling": 9
+    },
+    {
+      "K": 6,
+      "group_sizes": [
+        14062.0,
+        281250.0,
+        5624994.0,
+        112499888.0,
+        2249997750.0,
+        44999955000.0,
+        899999100000.0
+      ],
+      "stage_lengths": [
+        227563419144,
+        10835986347,
+        540512062,
+        27022392,
+        1351112,
+        67556,
+        3378
+      ],
+      "T": 238968361991,
+      "readout_L1": 4724438023963665.0,
+      "stationary_ceiling_A_max_phi": 399999599999999.94,
+      "ratio_to_stationary_ceiling": 11.811106871016035,
+      "ratio_to_variation_bound": 0.9085466823858489,
+      "variation_bound_over_ceiling": 13
+    },
+    {
+      "K": 3,
+      "group_sizes": [
+        112500.0,
+        22499978.0,
+        4499995500.0,
+        899999100000.0
+      ],
+      "stage_lengths": [
+        28444416001,
+        141514646,
+        707556,
+        3538
+      ],
+      "T": 28586641741,
+      "readout_L1": 2773049971725343.5,
+      "stationary_ceiling_A_max_phi": 399999599999999.94,
+      "ratio_to_stationary_ceiling": 6.932631861945222,
+      "ratio_to_variation_bound": 0.9903759802778889,
+      "variation_bound_over_ceiling": 7
+    }
+  ],
+  "D_legal": {
+    "zero_input_T600": {
+      "readout_L1": 128.9172417340291,
+      "decomposition_rel_residual": 4.850224834618374e-15,
+      "variation_bound": 502.1475946156635,
+      "variation_part": 501.6511964619025,
+      "ratio_to_bound": 0.2567317719259424,
+      "stationary_scale_A_max_phi": 496.43609190273617,
+      "ratio_to_stationary_scale": 0.25968547379364815,
+      "withdrawn_10p6_ratio_P_Psistar_over_scale": 0.4590336845546605,
+      "init_L1": 0.0,
+      "capture_L1": 0.49639815376100777,
+      "m": 0,
+      "xmax": 0.0,
+      "row_residual_rel": 2.3547853375843905e-14
+    },
+    "zero_input_T2400": {
+      "readout_L1": 194.87136297974686,
+      "decomposition_rel_residual": 1.3126371210336384e-15,
+      "variation_bound": 539.8385827765212,
+      "variation_part": 535.4820653362206,
+      "ratio_to_bound": 0.36098079907048514,
+      "stationary_scale_A_max_phi": 530.2669607770542,
+      "ratio_to_stationary_scale": 0.36749670900518105,
+      "withdrawn_10p6_ratio_P_Psistar_over_scale": 1.7951670994952447,
+      "init_L1": 0.0,
+      "capture_L1": 4.356517440300679,
+      "m": 0,
+      "xmax": 0.0,
+      "row_residual_rel": 2.3547853375843905e-14
+    },
+    "hold_source_alternating": {
+      "readout_L1": 100.69875584632443,
+      "decomposition_rel_residual": 1.9757142413601125e-15,
+      "variation_bound": 131378.48412641097,
+      "variation_part": 131367.07599768188,
+      "ratio_to_bound": 0.0007664782899263259,
+      "stationary_scale_A_max_phi": 40623.455050540695,
+      "ratio_to_stationary_scale": 0.0024788328742851263,
+      "withdrawn_10p6_ratio_P_Psistar_over_scale": 0.007676372026676695,
+      "init_L1": 0.0,
+      "capture_L1": 11.408128729089682,
+      "m": 2501,
+      "xmax": 0.39995479964955966,
+      "row_residual_rel": 2.160150309666455e-14
+    },
+    "antihole_duty_source_alternating": {
+      "readout_L1": 0.493583191607684,
+      "decomposition_rel_residual": 7.16093850883226e-15,
+      "variation_bound": 129325.43014944141,
+      "variation_part": 129121.32619826047,
+      "ratio_to_bound": 3.816598104775884e-06,
+      "stationary_scale_A_max_phi": 26885.087393230475,
+      "ratio_to_stationary_scale": 1.83589952447752e-05,
+      "withdrawn_10p6_ratio_P_Psistar_over_scale": 0.037113186048373076,
+      "init_L1": 0.0,
+      "capture_L1": 204.10395118093766,
+      "m": 1567,
+      "xmax": 0.46724462963102953,
+      "row_residual_rel": 6.837105180719395e-14
+    },
+    "legal_staircase_K1": {
+      "readout_L1": 2729.556425804235,
+      "decomposition_rel_residual": 1.9992142895634523e-15,
+      "variation_bound": 1139417.049928078,
+      "variation_part": 1138700.8737850918,
+      "ratio_to_bound": 0.002395572741321125,
+      "stationary_scale_A_max_phi": 559951.6330543263,
+      "ratio_to_stationary_scale": 0.0048746289227080694,
+      "withdrawn_10p6_ratio_P_Psistar_over_scale": 0.10196062381631238,
+      "init_L1": 0.0,
+      "capture_L1": 358.0880714931064,
+      "m": 4094,
+      "xmax": 0.40002488233302375,
+      "row_residual_rel": 2.135948810335158e-14,
+      "T": 14500,
+      "T1": 12000,
+      "groups": [
+        150,
+        3943
+      ]
+    }
+  },
+  "E_kernel_pair": {
+    "n": 16384,
+    "T": 3000,
+    "P": 2000,
+    "endpoint_gap_max_abs": 2.220446049250313e-16,
+    "same_input_support": true,
+    "m_plus": 2001,
+    "m_minus": 2001,
+    "xmax": 0.4483740331444821,
+    "readout_difference": -2039.31590845513,
+    "term_DeltaFext": 79.58007798626234,
+    "term_kernel": -2100.1814218017566,
+    "term_capture_and_init": -18.714564639622388,
+    "sum_of_terms_minus_D": 1.318767317570746e-11,
+    "kernel_identity_rel_error": 2.5983318174274716e-15,
+    "Gamma_gate_difference_budget": 6413.507447126574,
+    "kernel_bound": 9071.09325413507,
+    "kernel_over_stationary_scale": -0.4218574489534168,
+    "max_abs_DeltaFext_over_max_abs_Fext": 0.04143801703397091
+  },
+  "F_legal_staircase_pair": {
+    "n": 16384,
+    "T": 51045,
+    "groups": [
+      400,
+      3600
+    ],
+    "pulse_times": [
+      24304,
+      48608
+    ],
+    "peak_width_m": 4002,
+    "mT": 204282090,
+    "n_1p5": 2097152.0,
+    "xmax": 0.3800384863953052,
+    "population_gate_gap": 0.0,
+    "bath_gap": 0.0,
+    "endpoint_gap": 0.0,
+    "difference_readout_L1": 8095.063797785487,
+    "decomposition_rel_residual": 1.696511644605959e-14,
+    "stationary_scale_A_max_Delta_phi": 879719.3498321936,
+    "ratio_to_stationary_scale": 0.009201870800420179,
+    "variation_bound": 3363900.862922861,
+    "ratio_to_variation_bound": 0.0024064513574135965,
+    "Delta_phi_first_stage": 9175.83973545617,
+    "Delta_phi_last_stage": -6780.04599239467
+  },
+  "seconds": 376.62143379999907
+}
