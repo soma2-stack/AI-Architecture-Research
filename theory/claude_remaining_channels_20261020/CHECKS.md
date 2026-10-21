@@ -1,4 +1,4 @@
-# Checks — the remaining memory channels (2026-10-20; Step 3.5 repairs and resets appended)
+# Checks — the remaining memory channels (2026-10-20; Step 3.5 and Step 3.6 appended)
 
 All scripts are CPU-only. Run each with `python -I <script>` from this folder, with BLAS threads
 `<= 4`.
@@ -76,3 +76,21 @@ They are not edited.
   realistic rate is in the ANALYSIS of §7.3–7.5.
 * No `D`-dimensional robust section is claimed at simulable `n`. Single-column readouts (`<= 48`)
   are far below `tau = 3709`.
+
+## Step 3.6 checks (after Codex's audit of `c48640d`)
+
+| Script | What it checks | Result |
+|---|---|---|
+| `repairs2_check.py` **[A–E]** | Independent reproduction of Codex's Step-3.5 counterexamples. (A) Theorem 7.5's nonzero-initial readout at `n = 1e8`, `P = 1`, `m = 1`, `T = 3` (class reduction, 60-digit mpmath, full-vector cross-check at `n = 4096, 16384`), plus the repaired bound and the exact decomposition. (B) negative total drift at `n = 1e8`, `m = 5000`, `T = 3`. (C) front starts in the expanded window. (D) zero-input one-step retention. (E) exact discrete reset averages | (A) `sigma_2 = -1.99529190667e-8`, `sigma_3 = -3.99030305149e-8`, actual `1.37038590726e-8` vs old bound `9.11242517010e-9`, violation `1.50386519689` (= Codex), repaired bound `1.82261326582e-8 >=` actual, decomposition residual `1e-69`, input `.04999292`; class vs full-vector `<= 1e-9` relative. (B) `s_3 - s_2 = -4.3915769561e-5`, drift `-2.4176145647e-6`, `I = 4.1497655483e-5`, max input `.48606740279`, identity residual `1e-63`. (C) 2 front starts vs `1 + H/d = 1.991`; safe count 2. (D) `.9975048568094 > .9970044955034`. (E) exact for `R = 16..1024` |
+| `phase2_check.py` **[P1–P5]** | (P1) one common forcing in the exact retainer recursion; (P2) Theorem 10.1 convex representation; (P3) Theorem 7.5' with nonzero, spread initial vectors; (P4) Prop. 10.3 stationary ceiling (2000 random heterogeneous configurations, anti-holes included); (P5) Prop. 10.4 identity and sup bound for positive-deviation populations. Small-`n` full matrices, operator-level gates | (P1) `<= 6.2e-14`; (P2) reconstruction `<= 8.8e-14`, `lambda >= 0`, `sum lambda = 1` exactly, forced/`Psi*` `<= .742`; (P3) worst ratios `.045 / .183 / .179`; (P4) closed form `5e-9`, worst ratio to ceiling `.070`, min denominator `.395`; (P5) identity `<= 9.7e-14`, `max|Phi| / sum(...) <= .442` |
+| `exp_pump.py` (+ `--long`) | Phase-3 decision experiment: contrast pump vs control vs A only, `n = 65536`, exact recurrences, legal inputs (`<= .3803`), exactly common states at every cycle end | PROOF.md §10.7 tables. Pump saturates at `.142` (`P_A = 4000`) and `~.155–.16` (`P_A = 1000`, 30 cycles). A only reaches `.196 / .213`; control `.003`. All ratios `<= .62 A`; endpoint gap `0.0` |
+
+**Codex's Step-3.5 audit files** (`theory/codex_pr37_step35_audit_20261020/`, 37 files) are copied
+verbatim. `__pycache__` was omitted. `AUDIT.md` is byte-identical. They are not edited.
+
+**Self-review (Step 3.6).**
+* Theorem 10.1 and Props. 10.3–10.4 are exact, with explicit remainders. None of them closes the
+  damped transient bound (10.6). That bound is OPEN and labelled so.
+* Cor. 10.2 inherits Theorem 7.3, hence (H) and PR #27 Lemma 2.5.
+* The pump experiment is a finite test. Its widths (`~ P_A + P_B`) are structural, not
+  resource-efficient.

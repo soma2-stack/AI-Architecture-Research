@@ -1,0 +1,104 @@
+[
+  {
+    "n": 4096,
+    "P": 32,
+    "family": "hold",
+    "source_pattern": "single",
+    "full": {
+      "readout": 0.7940688404861429,
+      "peak_own": 32.525713553600504,
+      "max_input": 0.3800293940317698,
+      "width": 34,
+      "total": 4632,
+      "endpoint_gap": 2.7755575615628914e-16
+    },
+    "class_readout": 0.794068840486125,
+    "readout_error": 1.787459069646502e-14
+  },
+  {
+    "n": 4096,
+    "P": 32,
+    "family": "mixed",
+    "source_pattern": "single",
+    "full": {
+      "readout": 0.7942805385245839,
+      "peak_own": 32.525713553600504,
+      "max_input": 0.380030205563519,
+      "width": 3,
+      "total": 164,
+      "endpoint_gap": 0.0
+    },
+    "class_readout": 0.7942805385245726,
+    "readout_error": 1.1324274851176597e-14
+  },
+  {
+    "n": 4096,
+    "P": 32,
+    "family": "strong_targets",
+    "source_pattern": "single",
+    "full": {
+      "readout": 0.8859766418671267,
+      "peak_own": 32.525713553600504,
+      "max_input": 0.3800286845174295,
+      "width": 34,
+      "total": 4632,
+      "endpoint_gap": 1.942890293094024e-16
+    },
+    "class_readout": 0.8859766418670789,
+    "readout_error": 4.773959005888173e-14
+  },
+  {
+    "n": 8192,
+    "P": 48,
+    "family": "alternating",
+    "source_pattern": "single",
+    "full": {
+      "readout": 0.5234891375240489,
+      "peak_own": 32.621026336542016,
+      "max_input": 0.38002826265481987,
+      "width": 50,
+      "total": 6888,
+      "endpoint_gap": 0.0
+    },
+    "class_readout": 0.5234891375240224,
+    "readout_error": 2.653433028854124e-14
+  },
+  {
+    "n": 8192,
+    "P": 48,
+    "family": "anti",
+    "source_pattern": "single",
+    "full": {
+      "readout": 0.4304587256529423,
+      "peak_own": 32.621026336542016,
+      "max_input": 0.47107538577069286,
+      "width": 15,
+      "total": 1881,
+      "endpoint_gap": 0.0
+    },
+    "class_readout": 0.43045872565286925,
+    "readout_error": 7.30526750203353e-14
+  },
+  {
+    "n": 8192,
+    "P": 48,
+    "family": "anti",
+    "source_pattern": "bipolar",
+    "full": {
+      "readout": 0.15207685211156424,
+      "peak_own": 26.384081391894387,
+      "max_input": 0.47107538577069286,
+      "width": 15,
+      "total": 1881,
+      "endpoint_gap": 1.6653345369377348e-15
+    },
+    "class_readout": 0.15207685211151706,
+    "readout_error": 4.718447854656915e-14
+  },
+  {
+    "previous_full_vector_control": "n65536 P2048 reset64",
+    "class_readout": 47.68014150339607,
+    "previous_full_vector_readout": 47.68014150339765,
+    "peak_m_matches": true
+  }
+]
