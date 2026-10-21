@@ -13,7 +13,17 @@ head `aa47ca5` (Codex). Nothing in PRs #28–#35 is modified. Inherited, used as
 Labels: [PROVED] complete proof here or by exact citation; [ANALYSIS] estimates for a stated
 mechanism, not a theorem; [NUMERICAL] finite computation, never a proof of a universal claim;
 [OPEN]; [CONJECTURE] an internal conjecture of this programme, not an established limitation.
-Nothing in this note has been independently verified.
+Nothing in this note has been independently verified, except where a Codex audit is cited.
+
+**Revision (2026-10-20, Step 3.5).**
+* Codex audited the first version (`ac759bb`) in
+  `theory/codex_pr37_independent_audit_20261020/AUDIT.md`. The audit files are copied verbatim
+  into this branch and are not edited.
+* Every finding is repaired in place below. §R lists each finding and its repair, and
+  `repairs_check.py` reproduces every repair numerically or exactly.
+* §7 is a new, separate research section on heterogeneous retention with staggered sparse
+  resets.
+* §8 attempts the original target with that mechanism.
 
 ## Summary
 
@@ -35,22 +45,35 @@ Nothing in this note has been independently verified.
    queries (every `F >= 1`), with `|Psi_MF| <= F_s(1.81e6 + 6667 ln F_s) + 1.73e15 F_s^2 (mT/n)^2
    + 1.4e8 F_s^(4/3) (mT)^(4/3)/n` and residual `<= (14/256) tau`, for `n >= 1e10`. This closes
    U3 at a polylogarithmic factor (`F_s ~ 8 ln n`). The constants are certified exactly.
-3. **Lemma D (common-mode damping), Lemma R and Cor. R2** [PROVED, §3]. For a homogeneous set `H` of held rows, the
-   sum of their contents in any credit column is multiplied by `a(1 - gamma |H| delta_H/k)` each
-   step, plus explicit forcing. Corollary D2: a hole set retaining only one row's leak never holds
-   more than that row's peak own content. This is a rigorous ceiling on PR #32's
-   excess-retention mechanism in its homogeneous form.
+3. **Lemma D (common-mode damping), Prop. R1, Lemma R, Cor. R2** [§3].
+   * *Lemma D* [PROVED]. For a homogeneous set `H` of held rows, the sum of their contents in any
+     credit column is multiplied by `a(1 - gamma |H| delta_H/k)` each step, plus explicit forcing.
+     The scalar reading needs `H` to move with the permutation and avoid row 0.
+   * *Corollary D2* [PROVED]. Relative to the **damped** initial condition, a hole set retaining
+     one row's leak gains at most that row's peak **full transformed content** `max|Y(j)|`
+     (own plus bus, not the own scalar), plus explicit remainders.
+   * *Corollary D3* [PROVED in corrected form; the first version was PARTIAL]. It is the readout
+     version of D2. It needs a zero initial common component, or subtraction of the damped
+     baseline, and its weight constants `.3435` / `1.18` apply only to non-spike rows.
+   * *Prop. R1* [PROVED]. An exact all-order creation formula for off-cycle columns, using the
+     true (contracting) U-map.
+   * *Lemma R* [PROVED]. The w-response of every legal query is `< 2.2696` (one-step) or
+     `< 2.3296` (F-step), for all `n >= 1e8` in S4's domain.
+   * *Cor. R2* [PROVED as a budget bound]. The source-specific creation reaches any legal readout,
+     at every order, with at most `2.33 (gamma/sqrt k) S'_j`. Here `S'_j` is an absolute creation
+     budget that includes a modulated-injection term. Its own-leak component is `< 2.5x` the
+     first-order **upper-budget scale**.
 
-   Prop. R1 gives an exact all-order creation formula for off-cycle columns, using the true
-   (contracting) U-map. With it, Cor. R2 shows that, at every order and for every legal query,
-   an off-cycle source's own leak reaches the readout with at most `2.5x` its first-order gather
-   scale. No relay, feedback loop or query amplifies it. The two residual parts (the common
-   W-part and the capture of the own spread by deviating rows) are identified exactly.
+     The first version's reading, "no relay or query amplifies the source's leak beyond 2.5x its
+     first-order value", is **REFUTED** (Codex's example, reproduced): `S_j = 0` but nonzero
+     readout. No universal no-amplification statement is made.
 4. **Route 2: the relay and other second-order mechanisms** [ANALYSIS + NUMERICAL, §4].
    * Second-order gather through held arrival rows ("relay") reads the pair's leak once per
      arrival. Undamped, it would be cubic in hold length.
    * Lemma D's common-mode damping keeps it own-sized per column (`<= C s x peak own`, ANALYSIS).
-     Its source-specific part is `<= 2.5x` first order (Cor. R2, PROVED).
+     Its own-leak component is `< 2.5x` the first-order upper-budget scale (Cor. R2). The other
+     relay components (injection, common part, own-spread capture, captured arrivals) are
+     **OPEN**. The relay is *not shown* to beat the first-order law; it is not refuted as a whole.
    * Measured at `n = 65536`, it peaks at 22% of the direct first-order readout and then
      collapses. Its resource law is the quadratic `(mT/n)^2` law, which is weaker than the
      gather skeleton below the barrier.
@@ -59,9 +82,51 @@ Nothing in this note has been independently verified.
    * Synthesis [CONJECTURE C3]: at sub-barrier budgets the robust dimension of the selected
      metric is `Theta((mT)^(4/3)/n)`. No mechanism found approaches linear dimension below
      `mT = Theta(n^(3/2))`.
-5. **Status.**
+5. **Step 3.5: heterogeneous retention with sparse staggered resets** [§7].
+   * Codex's finding reproduces exactly: retainers reset once per 64 steps with staggered phases
+     keep `99.18%` of the continuous-hold signal at `m = 34` instead of `2050`.
+   * Staggering is what turns the per-row saving into an `mT` saving. Synchronous resets save
+     nothing (Lemma 7.1, PROVED).
+   * The leakage follows the universal free drift `beta' ~ s^3/3` (Lemma 7.2, PROVED identity).
+     A symmetric reset target cuts the loss about `3.6x` at equal cost.
+   * Two rigorous results:
+     * Theorem 7.3: near-exact retention costs `>= (H - eps/kappa)/(Lam+1)` drives for **every**
+       schedule.
+     * Theorem 7.5: a near-homogeneous heterogeneous retention set obeys the own-sized ceiling.
+   * **Verdict.** A genuine finite-`n` efficiency gain (constants up to `~1/(beta sqrt H)`).
+     **No change of any asymptotic law**, and no proved bound is affected.
+6. **Phase 3: the original target** [§8]. The obstacle is three bottlenecks. Each is proved
+   for its main case:
+   * leak dilution (Theorem M(d), Cor. R2);
+   * the retention ceiling (Cor. D3, Theorem 7.5);
+   * the non-free retention cost (Theorem 7.3).
+
+   They leave `D = Theta(n)` at `mT = Theta(n^(3/2))` for every mechanism examined. A
+   counterexample would have to come from strongly heterogeneous retention, own-spread capture,
+   heavy-column time profiles, cycle relays or the full metric. All of these remain OPEN.
+7. **Status.**
    * Lemma M_rest (U1, U2) remains **OPEN**.
    * The original problem (`D = Omega(n)` at `mT = o(n^(3/2))`, full `d_F`) remains **OPEN**.
+
+## R. Repairs after Codex's independent audit of `ac759bb`
+
+Codex's audit is `theory/codex_pr37_independent_audit_20261020/AUDIT.md`, copied verbatim and not
+edited. Every finding is addressed below.
+* The repairs are made in place in §§0–6.
+* `repairs_check.py` reproduces each one independently: it does not import Codex's scripts.
+
+| # | Finding (Codex verdict) | Repair | Status now | Check |
+|---|---|---|---|---|
+| 1 | Cor. R2's comparison with the old own-leak budget `S_j` and the actual first-order readout (**FAIL as written**). The new budget `S'_j` contains the modulated injection `sum |delta| c_t`. | `S'_j` is stated as an absolute creation budget. Its own-leak component (`< 2.5x` the first-order **upper-budget** scale) is separated from the injection component (bounded only by its own budget). The universal no-amplification reading is withdrawn. The light-column consequence pays for the injection explicitly (`2.479 < 2.5`). | displayed `S'_j` bound PROVED; old reading **REFUTED** | (A): Codex's legal `n = 1e8`, `T = 3`, `m = 2` example rebuilt by a class reduction. `S_j = 0` in both histories, readout `5.2002316515e-6`, response `-.919149760425`, inputs `<= .2527`, exact endpoint. A full-vector cross-check at `n = 4096, 16384` agrees to `8e-14`. |
+| 2 | Cor. D3 omitted the attenuation of pre-existing common content (**PARTIAL**); `A` constants only for non-spike rows. | The forcing-acquired part subtracts the damped baseline `Lambda sigma_(t1)` (equivalently, a zero initial common component). `A := max_(i in H)|chi_i|`, and `.3435`/`1.18` only for non-spike `H`. D2's source content is stated as `Y(j)`, not `O(j)`; no general own-credit ceiling is claimed. | PROVED in corrected form | (B): exact rational diagnostic, `-9.99999855e-7` with the undamped baseline, `0` with the damped one. |
+| 3 | Theorem M_F: "`n/F_s` is increasing" is false (**nonfatal**); Lemma 2.1's quantifier omitted the negative-capture condition; the near-column offset was ambiguous. | The continuous envelope `f(n) >= F_s` is used, with `n/f(n)` increasing. Lemma 2.1 quantifies over admissible `tau'` only. The offset is `d-1-r` from the arrival endpoint. | PROVED (scope unchanged) | (C): jump `182 -> 183` at `n = 11785591396 -> 11785591400`; `sqrt(1e10/f(1e10)) = 7419.18 >= 5357.9`. `constants_mf.py` passes unchanged. |
+| 4 | Ledger: one-step vs F-step scope, notation, allocation (**PARTIAL**). | Prop. 1.1 uses `nu_l Delta O_l` (own part), not §0's `Y = UB'`. Prop. S2's coefficient bounds are marked one-step; their F-step versions are OPEN. Table 1.2 is a ledger of components plus scope obligations, not nineteen summands. T8 is charged (`47/64 + 1.3335e-4`). Front quantities use S4's exponential in `sqrt(k)`. | PROVED bookkeeping; F-step centered coefficients OPEN | (D): Lemma 1.3 coefficient `1.33344e-4`. |
+| 5 | Lemma R: all-size constants and the F-step terminal case. | S4's `4 exp(-.0297 sqrt k + .92)` is used: `< 2.26959` (one-step), `< 2.32957` (F-step). Terminal F-step case: `<= A_1 + 1 = 2.18`. | PROVED | (E). |
+| 6 | "The relay is refuted" was too broad. | Only the own-leak component is controlled. The relay is **not shown to beat** the first-order law, and it is not refuted as a whole. | OPEN beyond the controlled component | — |
+
+*Preserved (Codex PASS):* Prop. R1; Lemma R as displayed; the displayed `S'_j` inequality of Cor.
+R2; Lemma D; Cor. D2 within its restrictions; Theorem M_F within its scope; Lemma 1.3 in Theorem
+4's below-budget scope; the identities of Prop. 1.1 and the nine-term decomposition.
 
 ## 0. Contract and notation
 
@@ -87,10 +152,12 @@ Everything is as in PR #28 §0, PR #31 §0 and PR #32 §0. In brief:
 its actual-R memory weights, `nu` the R0 weights with the same future gates and `chi := U nu`.
 Then, exactly, for every pair of histories,
 
-    nu_R^T Delta B_T = [T1] + [T2] + [T3] + sum_(l>=1) nu_l Delta(c (.) Y_l) + chi^T Delta Z + (chi - nu)^T Delta O,
+    nu_R^T Delta B_T = [T1] + [T2] + [T3] + sum_(l>=1) nu_l Delta O_l + chi^T Delta Z + (chi - nu)^T Delta O,
 
 with `[T1] = nu_R^T Delta(B_T - B'_T)`, `[T2] = (nu_R - nu)^T Delta B'_T`,
-`[T3] = sum_src nu_i Delta B'_T(i,:)` (PR #28 Step 3). Moreover:
+`[T3] = sum_src nu_i Delta B'_T(i,:)` (PR #28 Step 3). Here `O_l` is the own (local-skeleton) part
+of row `l`. In PR #28's notation it is `c (.) Ybar_l^unit`, with the unit-source own profile. It is
+not §0's `Y = U B'`; the first version overloaded `Y` here (Codex AUDIT §6.2). Moreover:
 * `chi^T Delta Z = sum_(f in Sp) chi(d-f) Delta Z_T(d-f) + sum_(i notin Sp) chi(i) Delta Z_T(i)`.
   * `Sp = {1, ..., min(F, F_s - 1)}` if `F < F_s`, and `Sp` is empty otherwise.
   * `||chi||_2 <= HI^F sqrt(k)`.
@@ -101,8 +168,11 @@ with `[T1] = nu_R^T Delta(B_T - B'_T)`, `[T2] = (nu_R - nu)^T Delta B'_T`,
   `p_t = d-f-(T-t)`, with the **common** arrival stream `a_t = a Y_(t-1)(d-1)`:
   `Delta Z_T(d-f) = Delta F1_f + Delta(K_bus + L_bus)_f + Delta F_ent,f`, where
   `F1 = K_pos + K_neg + K_uni + L_cyc + L_off + W`.
-* The centered part has the two-stream form (PR #32 Prop. S1) with the coefficient split of
-  Prop. S2.
+* The centered part has the two-stream form (PR #32 Prop. S1), which is linear in `chi` and holds
+  for every F.
+  * Prop. S2's coefficient **bounds** are one-step bounds (`|eps_i| <= .3435`).
+  * For `F >= 2` they must be re-derived with the multi-spike set `Sp` and the cap `A = 1.18`.
+    That is not done here **[OPEN]**.
 
 *Proof.*
 * The first display is PR #28 Step 3. It uses only `B'(0,:) = 0` and the definitions.
@@ -131,8 +201,14 @@ histories):
 * the non-spike `max |chi_i| <= .203` and `|w^T chi| <= 1.11` for these queries.
 
 **Table 1.2 (ledger at a joint zero of `Phi` and `Psi_M` (or `Psi_MF`)).** Allocations are
-fractions of `tau`. "Bounded" means proved at every joint zero, for every legal query, in the
-stated scope.
+fractions of `tau`. "Bounded" means proved at every joint zero, in the stated scope and for the
+stated query class.
+* The table is a **ledger**, not nineteen additive summands.
+  * T1–T16 are components of the exact identity of Proposition 1.1, some of them further split.
+  * T17–T19 are scope obligations.
+* The centered coefficient bounds (T13, T15, T16, from Prop. S2) are **one-step** bounds.
+* Front-row quantities use S4's dimension-dependent bound `g_1(t) <= 4 exp(-.0297 sqrt(k) + .92)`
+  (`t >= 2`), not a fixed shorthand.
 
 | # | Term | Status | Bound / source |
 |---|---|---|---|
@@ -145,23 +221,26 @@ stated scope.
 | T7 | own, released rows (outside `C ∪ E*`) | bounded | `1/32` (Step 4) |
 | T8 | own-type correction `(chi-nu)^T Delta O` | bounded (reduction, Lemma 1.3) | `<= 1.4e-4` |
 | T9 | gather, first order `F1` on spike rows | bounded | `30/256` one-step (Theorem M, verified); `14/256` all queries (Theorem M_F, §2, unaudited); (d) needs public schedules |
-| T10 | gather entries `F_ent` | bounded if `m+1 <= 1e-5 n` | Lemma S4 (`g_1 <= e^-207`); OPEN for `1e-5 n < m+1 <= 5e-5 n` |
-| T11 | gather `K_bus` (captured bus of arrivals) | **uncontrolled (U1)**; off-cycle source-specific part bounded (Cor. R2) | §3.2, §4.1 |
-| T12 | gather `L_bus` (leaked bus of all deviating rows) | **uncontrolled (U1)**; off-cycle source-specific part bounded (Cor. R2) | §3.2, §4.1 |
-| T13 | centered capture by deviating positions `C^cent a` | **uncontrolled (U2)** | budget `D_t` (Prop. S2) |
+| T10 | gather entries `F_ent` | bounded if `m+1 <= 1e-5 n` | Lemma S4 (`g_1 <= 4 e^(-.0297 sqrt k + .92)`); OPEN for `1e-5 n < m+1 <= 5e-5 n` |
+| T11 | gather `K_bus` (captured bus of arrivals) | **uncontrolled (U1)**; off-cycle source-specific creation bounded by its budget `S'_j` (Cor. R2) | §3.2, §4.1 |
+| T12 | gather `L_bus` (leaked bus of all deviating rows) | **uncontrolled (U1)**; off-cycle source-specific creation bounded by its budget `S'_j` (Cor. R2) | §3.2, §4.1 |
+| T13 | centered capture by deviating positions `C^cent a` | **uncontrolled (U2)** | budget `D_t` (Prop. S2, one-step) |
 | T14 | centered delay-line entries `C^ent, R^ent` | bounded if `m+1 <= 1e-5 n` | Lemma S4 |
-| T15 | centered bath-coherent retention `R^bath lhat` | **uncontrolled (U2)** | coefficient `<= .3435 sqrt(k) + 203` |
-| T16 | centered excess retention `R^exc lhat` | **uncontrolled (U2)** | Lemma S3 budget; homogeneous ceiling Cor. D2 |
+| T15 | centered bath-coherent retention `R^bath lhat` | **uncontrolled (U2)** | coefficient `<= .3435 sqrt(k) + 203` (one-step; F-step not derived) |
+| T16 | centered excess retention `R^exc lhat` | **uncontrolled (U2)** | Lemma S3 budget (one-step); homogeneous damped-baseline ceiling Cor. D3; staggered-reset retention §7 |
 | T17 | full `d_F` columns beyond `E`; full R/W/b groups | upper bounds **OPEN (U5)** | lower bounds pass up (PR #35 Prop. 5.1) |
 | T18 | Theorem M(d) for code-dependent schedules | **OPEN (U4)** | — |
 | T19 | driven source rows in Theorem M | **OPEN (U6)** | Theorem 4 allows them; Theorem M assumes undriven |
 
 *Allocation.*
-* The non-bus terms use `31/64` of `tau`, plus the unallocated `2e-7 sqrt(n)`.
+* The non-bus terms T4–T7 use `31/64` of `tau`. T8 adds `<= 1.3335e-4 tau` (Lemma 1.3), and
+  the unallocated `2e-7 sqrt(n)` remains. The first version omitted T8 from this total (Codex
+  AUDIT §6.2).
 * With Hypothesis B's budget `1/4` for the whole bus, the first-order gather uses `30/256`
   (one-step) or `14/256` (all queries). The rest of the bus, T10–T16, must fit in `34/256`
   (one-step) or `50/256` (all queries). That is Lemma M_rest.
-* The proven total would then be `(47/64) tau + 2e-7 sqrt(n) < tau` (PR #31 Prop. M2).
+* The proven total would then be `(47/64) tau + 1.3335e-4 tau + 2e-7 sqrt(n) < tau` (PR #31
+  Prop. M2 with T8 charged; the slack is ample).
 
 *What is and is not a full-metric statement.*
 * Every bound in Table 1.2 is for the selected metric `d_F,E`.
@@ -169,7 +248,7 @@ stated scope.
 * No upper bound here transfers to the full `d_F` or the R/W/b metric. Lower bounds
   (constructions) do transfer (PR #35 Prop. 5.1).
 
-**Lemma 1.3 (own-type correction) [PROVED, conditional on the linearity reading below].** At
+**Lemma 1.3 (own-type correction) [PROVED in Theorem 4's below-budget scope; the linearity reading was confirmed by Codex's audit].** At
 every zero of `Phi`, for every legal query, `||(chi - nu)^T Delta O|| <= 1.4e-4 tau`.
 
 *Proof.*
@@ -185,10 +264,14 @@ every zero of `Phi`, for every legal query, `||(chi - nu)^T Delta O|| <= 1.4e-4 
 
 QED
 
-*What the auditor must confirm.* The proof reads Lemma 3.4 (Step 3(e)), Lemma 7.3(c) and the
-Step-4 release estimate as bounds that are linear in the weight cap for **arbitrary** weight
-vectors with that cap. Their written proofs bound each coordinate by `nu_max` times a
-query-independent sum, so this holds. Still, it should be checked line by line.
+*Audit status.*
+* Codex checked that Lemma 3.4, Lemma 7.3(c) and the Step-4 release estimate are linear in an
+  arbitrary weight cap (AUDIT §6.1).
+* The exact coefficient at `n = 1e8` is
+  `(2.18 gamma/sqrt k)(23/(64 x 1.2) + 1/(8 HI)) = 1.33344e-4`. It decreases in `n`
+  (`repairs_check.py` (D)).
+* Scope: Theorem 4's below-budget estimates (source and release premises included). This is not
+  an unrestricted-horizon bound obtained from (H) alone.
 
 *Remark.* PR #31 §5.4 listed the own-type correction inside Lemma M_rest. Lemma 1.3 removes it
 from there.
@@ -201,7 +284,9 @@ never uses the query: every part bounds a **content** norm and multiplies by `HI
 This makes the extension mechanical.
 
 **Lemma 2.1 (content form of Theorem M).** Under Theorem M's hypotheses, fix any cycle U-row
-`i = d-f` (`1 <= f <= d-2`) and any `tau' > 0` with `tau' <= tau`. There is an odd continuous
+`i = d-f` (`1 <= f <= d-2`) and any `tau' in (0, tau]` that satisfies the negative-capture
+condition `HI gamma 1.26 c_* sqrt(n) (tau/tau') <= .0566 n/256`. The first version omitted this
+condition from the quantifier. There is an odd continuous
 listing `Psi^(f)(tau')` such that, at each of its zeros,
 
     HI sqrt(k) || Delta F1_f || <= (14/256) tau',
@@ -211,7 +296,9 @@ where `F1_f` is the first-order part of row `d-f`'s nine-term decomposition. Wit
     |Psi^(f)(tau')| <= lam* + 1 + r^2 2.1e14 (mT/n)^2 + 2 + r^(2/3) 1.4e8 (mT)^(4/3)/n,
 
 made up of:
-* (a) captured own arrivals: the near columns `j < lam*` (offset from the row's path end) are
+* (a) captured own arrivals: the near columns `j < lam*` are listed. The offset of cycle column
+  `r` is `j = d-1-r`, measured from the **arrival** own-profile endpoint `d-1` for every `f`.
+  These near columns are
   listed **exactly** (block length 1), `lam* := max(1800004 + ceil(2 ln(r)/kappa), r^2 (3.897e7 mT/n)^2)`;
 * (b) negative capture: nothing listed;
 * (c) bounded variation (`K_uni + L_cyc + W`): block averages with `B_L = (tau' sqrt(k)/(c_b mT))^2`,
@@ -272,8 +359,14 @@ QED
   `||sum_f chi(d-f) Delta F1_f|| <= HI sqrt(k) sqrt(F_s) max_f ||Delta F1_f||`.
 * Lemma 2.1 with `tau' = tau/sqrt(F_s)` (so `r = sqrt(F_s)`) gives
   `HI sqrt(k) ||Delta F1_f|| <= (14/256) tau/sqrt(F_s)` at every zero, for every `f <= F_s - 1`.
-* The condition in (b) becomes `sqrt(n/F_s) >= 5357.9`. It holds at `n = 1e10`
-  (`sqrt(n/F_s) >= 7419`), and `n/F_s` is increasing in `n` [c].
+* The condition in (b) becomes `sqrt(n/F_s) >= 5357.9`.
+  * `F_s` is a ceiling, so `n/F_s` is **not** monotone. The first version's monotonicity
+    sentence was false (Codex). Between `n = 11785591396` and `11785591400`, `F_s` jumps from
+    182 to 183, and `n/F_s` drops from `64755996.7` to `64402138.8`.
+  * Use the continuous envelope `f(n) := 1 + ln(1.01 sqrt(n/2))/r_H >= F_s` instead. Since
+    `f'(n) = 1/(2 r_H n)` and `f(n) > 1/(2 r_H)`, the ratio `n/f(n)` is increasing.
+  * Hence `n/F_s >= n/f(n) >= 1e10/f(1e10)`, and `sqrt(1e10/f(1e10)) = 7419.18 >= 5357.9`
+    for every `n >= 1e10` [c] (`repairs_check.py` (C); `constants_mf.py` already used `f`).
 * The count: `r^2 = F_s`, `r^(2/3) = F_s^(1/3)`, `ceil(ln(F_s)/kappa) <= 6667 ln F_s + 1`, and
   `(3.897e7)^2 + 2.1e14 <= 1.73e15` [c]. Summing over `F_s - 1` rows gives the display.
 * For `F >= F_s` the set `Sp` is empty and there is nothing to prove.
@@ -294,7 +387,7 @@ QED
   second-order terms `K_bus`, `L_bus` of the same rows (T11–T12) and the centered rows remain
   uncontrolled.
 
-## 3. Route 1: common-mode damping and the no-amplification lemma [PROVED]
+## 3. Route 1: common-mode damping and the w-response lemma [PROVED]
 
 ### 3.1 Held sets: common-mode damping
 
@@ -327,8 +420,9 @@ The leak sum over `j in H` equals `delta_H sum_(j in H) v_t(j)`. QED
 **[NUMERICAL]** `ledger_check.py` (C3): for six off-cycle rows held at state 0 (gate exactly 1),
 the identity holds to absolute error `<= 2.9e-13`, on hole sums up to `279`.
 
-*Reading.* For holes (`g_H = 1`, `delta_H = s_t^2`) the common mode is multiplied each step by
-`a(1 - mu_t)`, with
+*Reading.* For holes (`g_H = 1`, `delta_H = s_t^2`) that move with the permutation
+(`H_t = pi(H_(t-1))`, so `sum_H v_t = a sigma_(t-1)`) and avoid row 0, the common mode is
+multiplied each step by `a(1 - mu_t)`, with
 
     mu_t := gamma |H| s_t^2 / k        (common-mode damping rate).
 
@@ -349,8 +443,12 @@ i.e. the leak of the source row `j` plus everything else (`e_t` collects the cap
         <= max_(u in I) |a y_(u-1)(j)| + (gamma|H|/k) sum_(u in I) delta_u(j)^- |a y_(u-1)(j)| + sum_(u in I) |e_u|.
 
 In particular, in the **pure-leak case** (`e = 0`, and `delta(j) >= 0`, e.g. a held source pair),
-the content the hole set gains on column `j` never exceeds the source row's peak content
-`max_u |y_(u-1)(j)|`, however many holes there are and however long they are held.
+the content the hole set gains on column `j`, measured relative to the **damped** initial
+condition `Lambda sigma_(t1)`, never exceeds `max_u |y_(u-1)(j)|`. This holds however many holes
+there are and however long they are held.
+* Here `y(j) = Y(j)` is the source row's **full transformed credit** (own plus bus). It is not the
+  local own scalar `O(j)`, and replacing one by the other would make an upper-bound argument
+  circular (Codex AUDIT §4.1).
 
 *Proof.*
 * Unroll Lemma D: `sigma_(t2) = Lambda(t1,t2) sigma_(t1) + sum_u Lambda(u,t2) f_u`, with
@@ -366,27 +464,41 @@ the content the hole set gains on column `j` never exceeds the source row's peak
 
 QED
 
-**Corollary D3 (readout of a homogeneous retention set) [PROVED].**
-* *Contents.* Members of a homogeneous hole set receive **identical** increments each step:
-  the same gate, the same `kappa`, the same leak, and the same `iota` (for columns outside
-  `H`). So `y_t(i) = zeta_t + a^(t-t1) eps_i` with `sum_i eps_i = 0`.
-* *Bound.* The part of the readout `sum_(i in H) chi_i y_T(i)` acquired after `t1` is
-  `(sum_H chi_i)(zeta_T - a^(T-t1) zeta_(t1))`. Its size is `<= A |sigma_T - a^(T-t1) sigma_(t1)|`
-  with `A = max|chi_i|` (`.3435` one-step, `1.18` F-step).
-* *Pure-leak case.* By Cor. D2, every query reads at most `A x (peak content of the source row)`
-  from a homogeneous retention set.
+**Corollary D3 (readout of a homogeneous retention set) [PROVED in this corrected form].**
+* *Contents.* Members of a homogeneous hole set (moving with the permutation, avoiding row 0,
+  and `j notin H`) receive **identical** increments each step: the same gate, the same `kappa`,
+  the same leak, and the same `iota`. So `y_t(i) = zeta_t + a^(t-t1) eps_i` with
+  `sum_i eps_i = 0`, and `sigma_t = |H| zeta_t`.
+* *Decomposition.* Write `Lambda := a^(T-t1) prod_(t in (t1,T]) (1 - mu_t)` for the damped
+  baseline factor. Then
+
+      sum_(i in H) chi_i y_T(i) = (sum_H chi_i / |H|) Lambda sigma_(t1) + a^(T-t1) sum_H chi_i eps_i
+                                  + (sum_H chi_i / |H|) (sigma_T - Lambda sigma_(t1)).
+
+  The first two terms are the initial-condition part. The last is the **forcing-acquired** part.
+* *Bound.* The forcing-acquired part is `<= A |sigma_T - Lambda sigma_(t1)|`, with
+  `A := max_(i in H) |chi_i|`. The pure-leak case of Cor. D2 then gives `<= A x max_u |Y_(u-1)(j)|`.
+* *Weights.* The values `A = .3435` (one-step) and `1.18` (F-step) hold only if `H` contains no
+  spike row.
+* *The repair.* The first version subtracted the **undamped** baseline `a^(T-t1) sigma_(t1)`.
+  That differs by `a^(T-t1)(prod(1-mu) - 1) sigma_(t1)`, which is nonzero whenever
+  `sigma_(t1) != 0`. Codex's exact pure-forcing diagnostic (`a = 1-1e-8`, `mu = 1e-8`,
+  `sigma = 10`, 10 steps) gives `-9.99999855e-7` with zero source (`repairs_check.py` (B)).
+  Equivalently, the old statement is correct when the initial common component is zero.
 
 *What this does and does not cover.*
 * It is a **ceiling on one mechanism**: PR #32's excess-retention leak in its homogeneous form,
   where retainers are identical rows re-driven together. That was the strongest centered
   mechanism found (§5 there).
-* It shows the mechanism stores at most an own-sized afterimage. It is not a listing theorem.
+* It shows the mechanism stores at most an afterimage of size `max|Y(j)|`. It is not a listing
+  theorem, and no general **own**-credit ceiling follows: bounding `Y(j)` by own content needs
+  further control.
 * Inhomogeneous retainers (different gates), retainers that also capture arrivals carrying
   column `j`, and sources with large negative deviation are covered only through the explicit
   remainder terms. These are not bounded here.
 * The resource consequence is [ANALYSIS], §4.3.
 
-### 3.2 Off-cycle sources: no relay or query amplifies the source-specific leak [PROVED]
+### 3.2 Off-cycle sources: the all-order creation formula and the source-specific creation budget [PROVED]
 
 Lemma D concerns held sets. Here every order and every query are handled at once, for the leak
 of a single off-cycle source. The key is to propagate with the **true** U-row map
@@ -423,10 +535,21 @@ for driven, held and bath columns.
 
       | chi^T Phi^U(T,t) w |  <=  HI (1 + sqrt(2) gamma + sqrt(k) max_(u in (t,T]) g_1(u)),
 
-  and `|chi^T w| <= HI + .3436` at `t = T`. In Lemma S4's domain (`g_1 <= e^-207`) the
-  right-hand side is `<= 2.27`.
-* *F-step queries* (`0 < nu_0 <= 1`, `||nu|| <= HI^F sqrt k`): the same bound with the first
-  `HI` replaced by 1, i.e. `<= 2.33` in S4's domain.
+  and `|chi^T w| <= HI + .3436` at `t = T`.
+  * In Lemma S4's domain use its dimension-dependent bound
+    `g_1(t) <= 4 exp(-.0297 sqrt(k) + .92)` for `t >= 2`. This suffices, because the first
+    propagation after a creation at `t >= 1` is at `t+1 >= 2`.
+  * Since `x e^(-.0297 x)` decreases for `x = sqrt(k) >= 7071`, the right-hand side is
+    `< 2.26959` for **every** `n >= 1e8` [c] (`repairs_check.py` (E); Codex certificate
+    `< 2.269585040`).
+  * The first version's shorthand `g_1 <= e^-207` does not by itself control `sqrt(k) g_1` for
+    unbounded `n`.
+* *F-step queries* (`0 < nu_0 <= 1`, `||nu|| <= HI^F sqrt k`).
+  * For `t < T`: the same bound with the first `HI` replaced by 1, i.e. `< 2.32957` in S4's
+    domain [c].
+  * At `t = T`: `|chi^T w| = |chi_0 - u^T chi| <= A_1 + 1 = 2.18` when `F < F_s`, using the
+    non-spike bound of PR #28 Lemma 1.2' (`chi_0` is non-exceptional). When `F >= F_s` the bound is
+    `<= ||chi|| ||w|| < 2`. (The first version did not write out this terminal case.)
 
 *Proof.*
 * `chi^T Phi^U w = nu^T Phi^st (U w) = -nu^T Phi^st e_0 + nu^T Phi^st u`, since `w = e_0 - u`.
@@ -445,20 +568,51 @@ spike and 40 random drives per step:
 * the largest ratio to the stated bound is `.73`. Early in the history the front row is not
   yet saturated (`g_1` up to `.998`); the bound accounts for this.
 
-**Corollary R2 (source-specific leak, all orders, all queries) [PROVED in S4's domain].**
-Split `c_t g_t(j) = c_t ghat_t + c_t delta_t(j)`. For every off-cycle column `j`, every legal
-query and every history, the part of the readout `chi^T Z_T(., j)` generated by the
-source-specific creation `(gamma/sqrt k) delta_t(j)(a O_(t-1)(j) + c_t) w` is
+**Corollary R2 (source-specific creation, all orders, all queries) [PROVED in S4's domain, as a
+budget bound].** Split `c_t g_t(j) = c_t ghat_t + c_t delta_t(j)`. For every off-cycle column
+`j`, every legal query and every history, the part of the readout `chi^T Z_T(., j)` generated by
+the source-specific creation `(gamma/sqrt k) delta_t(j)(a O_(t-1)(j) + c_t) w` is
 
     <= 2.33 (gamma/sqrt k) S'_j,     S'_j := sum_t |delta_t(j)| (a O_(t-1)(j) + c_t).
 
 This counts every order: captures of captures, leaks of leaks, relays through held arrivals,
 and the centered rows. It is uniform over the whole legal query family.
 
-*Reading.*
-* The first-order gather readout of the same source has the scale `HI (gamma/sqrt k) S_j`
-  (Theorem M(d)). So **no relay, no feedback and no choice of query amplifies an off-cycle
-  source's own leak by more than the factor `2.33/HI < 2.5`** over its first-order gather value.
+*The two components.* `S'_j` is an **absolute creation budget**. It is **not** Theorem M(d)'s
+own-leak budget `S_j := sum_t |delta_t(j)| O_(t-1)(j)`:
+* *Own-leak component* `(gamma a/sqrt k) delta_t(j) O_(t-1)(j) w`. Its all-order readout is
+  `<= 2.33 (gamma a/sqrt k) S_j`, which is `< 2.5 x HI (gamma a/sqrt k) S_j`. The latter is the
+  first-order gather **upper-budget scale**. This is a comparison of upper budgets, not with the
+  actual signed first-order readout, which can cancel.
+* *Modulated-injection component* `(gamma/sqrt k) c_t delta_t(j) w`. Its readout is
+  `<= 2.33 (gamma/sqrt k) sum_t |delta_t(j)| c_t`. It is **not** bounded by `S_j`.
+
+**Counterexample to the first version's reading [REFUTED: "no relay, feedback or query
+amplifies an off-cycle source's leak by more than 2.5x its first-order value"].** This is Codex
+AUDIT §3.1, reproduced independently by a class reduction in `repairs_check.py` (A).
+* *Setup.* `n = 1e8`, R0, an off-cycle pair `(j, j')`, `T = 3`, `m = 2`, undriven sources,
+  public supports.
+  * `t = 1`: zero inputs (`c_1 = 0`, so `O_1(j) = 0`).
+  * `t = 2`: the pair is set to `(+.2, -.2)` in history `+` and to `(0, 0)` in history `-`.
+  * `t = 3`: both histories reset the pair to the common bulk value `s_3`.
+* *Exact common endpoint.* The differences are balanced, so the endpoints coincide exactly.
+* *Legality.* Inputs are `<= .252725487874 < 1/2`.
+* *Budgets.* In both histories `S_j = 0` (`delta_1 = 0`, `O_1 = 0`, `delta_3 = 0`). But
+  `Delta delta_2(j) = -.04` and `c_2 = .9999999999`.
+* *Readout.* With the uniform query `g = HI 1`, the injection component contributes
+  `-.04 (gamma/sqrt k) c_2 chi^T M_3 w`, with `chi^T M_3 w = -.919149760425` (60 digits). That is
+  `5.2002316515e-6 != 0`.
+* *Cross-check.* A full-vector float64 simulation of the same history at `n = 4096` and `16384`
+  matches the class formula to `<= 8.1e-14` relative, with exactly equal endpoints.
+* *Conclusion.* `S_j` does not bound the source-specific creation's readout. A bound by the
+  actual first-order readout, which is signed and can cancel, does not follow either. The
+  displayed `S'_j` inequality is unaffected.
+
+*Reading (corrected).*
+* The own-leak part of an off-cycle source's creation is never amplified, at any order and by
+  any query, beyond `2.5x` the first-order upper-budget scale.
+* The injection part is bounded by its own budget.
+* **No universal no-amplification statement for the whole bus is claimed.**
 * The remaining two parts of `xi_t` are not covered:
   * the common part `c_t ghat_t w`, the same for every off-cycle column, which is the
     W-injection seen through T15;
@@ -467,9 +621,16 @@ and the centered rows. It is uniform over the whole legal query family.
     columns it is identical across columns.
 
   These are where U1/U2 remain open on off-cycle columns.
-* *Listing consequence.* For off-cycle columns with `N_j < N_0`, Cor. R2 bounds the
-  source-specific part uniformly in the query. With Theorem M(d)'s threshold rescaled by
-  `(2.5)^(2/3)`, these columns contribute `<= tau/64`.
+* *Listing consequence (light columns).* For off-cycle columns with `N_j < N_0`, Cor. R2 bounds
+  the source-specific creation's readout uniformly in the query.
+  * The missing injection must be paid for explicitly. With `L = Lam + 1 = 450001` and integer
+    `N_j >= 1`, `a O_(t-1)(j) + c_t <= (2L+1) c_* N_j`, against Theorem M(d)'s own envelope
+    `2 c_* L N_j`.
+  * Relative to that **envelope** calculation, not to the actual `S_j`, the factor is
+    `(2.33/HI)(1 + 1/(2L)) < 2.479 < 2.5`.
+  * With Theorem M(d)'s threshold rescaled by `2.5^(2/3)`, the light columns contribute
+    `<= tau/64` (source-specific creation only), and the heavy-column count rises by
+    `2.5^(2/3) < 1.85`.
 * For the heavy columns `N_j >= N_0`, the readout `sum_t mu_t(j) chi^T Phi^U(T,t) w` depends on
   the query through a whole time profile, so one listed scalar per column no longer suffices.
   This is exactly where PR #32's excess-retention mechanism lives. **[OPEN]**
@@ -509,11 +670,14 @@ and the centered rows. It is uniform over the whole legal query family.
 *What actually happens.* The `H_g` arrival holes hold column `j`'s leak as a common mode, so
 Lemma D applies:
 * the common mode is damped at rate `gamma H_g s^2/k`;
-* in the pure-leak case the holes' sum never exceeds the source's peak content (Cor. D2);
-* by Cor. R2, the source-specific part of the relay, at all orders, is `<= 2.5 x` the source's
-  first-order gather scale.
+* in the pure-leak case, relative to the damped baseline, the holes' sum never exceeds the
+  source's peak content `max|Y(j)|` (Cor. D2);
+* by Cor. R2, the **own-leak component** of the relay, at all orders, is `< 2.5x` the source's
+  first-order upper-budget scale. The injection component is bounded only by its own budget.
 
-The relay can redistribute the leak, but not amplify it.
+The other relay components are not bounded here: the common part, the own-spread capture
+`U Delta w`, and captures of arrivals that carry column `j`. The measurements below show no
+amplification, but that is finite evidence, not a proof.
 
 **[NUMERICAL]** `exp_relay.py` v2, `n = 65536`:
 * setup: `H_p = 2000`; a gap `G = 3000` (`s^2 G ~ 7`) between the pair's release and the gather
@@ -549,8 +713,9 @@ The relay can redistribute the leak, but not amplify it.
 
 ### 4.2 Retention (centered channel) after Lemma D
 
-* *Homogeneous retainers.* Cor. D3: the centered readout of an identical retainer set is
-  `<= A x (peak source content)`. PR #32's measured excess-retention leak (readout linear in `P`
+* *Homogeneous retainers.* Cor. D3: the **forcing-acquired** centered readout of an identical
+  retainer set (with the damped baseline subtracted, non-spike retainers) is
+  `<= A x max|Y(j)|`. PR #32's measured excess-retention leak (readout linear in `P`
   up to `P = 1600 << k/(s^2 L)`) is consistent with this; it sat far from the ceiling because
   `gamma P s^2 L/k ~ .3`.
 * *Differential modes.* Holes that join at different times hold zero-sum differences, which the
@@ -587,8 +752,9 @@ The relay can redistribute the leak, but not amplify it.
 | Mechanism | Per-column readout vs cost | Robust dimension (sub-barrier) | Status |
 |---|---|---|---|
 | first-order gather leak (Theorem M(d) channel) | `~ cost^2/sqrt(n)` | `Theta((mT)^(4/3)/n)` | lower bound PROVED at `m = 3` (PR #35); listing upper bound PROVED (first-order part) |
-| relay (second-order gather) | `<= C s x cost` (damping-limited) | `<~ (mT/(s n))^2` | ANALYSIS + NUMERICAL; source-specific part PROVED `<= 2.5 x` first order (Cor. R2) |
-| homogeneous retention (centered) | `<= A x cost` | `<~ (mT/(s^2 n))^2` | ceiling PROVED (Cor. D3); law ANALYSIS |
+| relay (second-order gather) | `<= C s x cost` (damping-limited) | `<~ (mT/(s n))^2` | ANALYSIS + NUMERICAL; own-leak component PROVED `< 2.5x` the first-order upper-budget scale (Cor. R2); rest OPEN |
+| homogeneous retention (centered) | `<= A x cost` | `<~ (mT/(s^2 n))^2` | damped-baseline ceiling PROVED (Cor. D3, corrected); law ANALYSIS |
+| staggered sparse-reset retention (§7) | per retainer-step cost `~ beta sqrt(H)` instead of 1 (for `H <~ 1/beta^2`) | same exponents; constants improved only for `H <~ 1/beta^2` | ANALYSIS + NUMERICAL; cost lemmas PROVED (§7) |
 | inhomogeneous retention | conjecturally `<= 2A x cost` | same | OPEN (E4) |
 | bath-coherent block | `O(sqrt k + 1/s^2)` gain, short memory | `(mT/n)^2`-type | ANALYSIS (PR #32) |
 
@@ -607,75 +773,382 @@ dimension satisfies `D <= C (mT)^(4/3)/n + C' log^2 n`, and this order is attain
 
 ## 5. Focused specifications for Codex
 
-These are small targeted checks, not campaigns. Each states what would change a conclusion.
+*Done in Codex's audit of `ac759bb`.*
+* E1 (Lemma 1.3 linearity): PASS.
+* E2 (Theorem M_F): PASS with nonfatal corrections, now repaired.
+* E3 (Lemma D, Lemma R): Lemma D, D2 and R PASS; D3 PARTIAL, now repaired.
+* E4 (inhomogeneous retention search): no growth found.
+* E5 and E6: not run.
 
-**E1 (audit) — Lemma 1.3's linearity reading.**
-* *Task.* Read PR #28's Lemma 3.4, Lemma 7.3(c) and Step 4. Confirm that each bound holds for an
-  arbitrary weight vector with `|w_l| <= w_max`, and scales linearly in `w_max`.
-* *Outcome.* If any of them uses the specific query structure, Lemma 1.3 must be re-proved and
-  the own-type correction returns to Lemma M_rest.
+**Next audit targets (Step 3.5).**
+* **A1 — repairs.**
+  * Re-check Cor. R2's corrected statement: the own-leak/injection split and the light-column
+    factor `2.479`.
+  * Re-check Cor. D3's damped-baseline decomposition.
+  * Rerun `repairs_check.py`, whose class reduction is independent of `independent_math.py`.
+* **A2 — Theorem 7.3.**
+  * Check the use of PR #27 Lemma 2.5: off-cycle chains stay in their row; chains above the bath
+    are excluded; at most `Lam + 1` protected positions per drive.
+  * Check the deficit-to-retention inequality `prod g <= exp(-sum(1-g))`.
+* **A3 — Theorem 7.5 (near-homogeneous ceiling).**
+  * Check the exact recursion with the new term `rho_t`.
+  * Check the spread recursion, which includes the capture differences
+    `(gamma/sqrt k)(g(i) - g(i')) v(0)`.
+  * Check the Gronwall/bootstrap constants (`E <= 1/4`, `1.494`, `1.284`, `1.33`, `1.29`).
+* **A4 — Lemma 7.2.** Check the drift identity, its common-field premise for R0 and the
+  prescribed dense matrix, and the lower bound `1.6e-6` under (H) (per-step bath change
+  `<= 1e-3`).
+* **E7 (experiment, decisive for §8.4(a)).** Strongly heterogeneous retention (`E > 1/4`).
+  * Mix leaky and exact retainers, use rotating duty cycles at large periods, and use retainer
+    sets that join and leave mid-retention.
+  * Measure the forcing-acquired centered readout over the peak `|Y(j)|` against `n`
+    (`65536, 262144`) and against `P`.
+  * Growth with `n` would locate a mechanism outside Theorem 7.5.
+* **E8 (optional).** Staggered resets applied to PR #35's skeleton construction. Measure the
+  constant-factor gain in `mT` at fixed robust readout (`n = 65536`, `D = 3`). This tests §8.3's
+  "same law, better constants" claim on a real `D`-dimensional section.
 
-**E2 (audit) — Theorem M_F.**
-* *Task.* Check Lemma 2.1's three changes to PR #31's proof:
-  * the path of row `d-f`, with the arrival stream of row `d-1`;
-  * the exact near listing;
-  * the `ln(r)` shift of `lam*`.
-  Then check the Cauchy–Schwarz step over at most `F_s - 1` rows, and rerun
-  `constants_mf.py`.
-* *Specific risk.* (G1) is stated for the arrival own profile `O_(t-1)(d-1)`. Confirm that no
-  part of Theorem M's proof uses the gather row's own path in (G1).
+## 7. Heterogeneous retention with sparse staggered resets (Step 3.5, separate research section)
 
-**E3 (audit) — Lemma D and Cors. D2–D3.**
-* *Task.* Check the summation of Lemma 1.2 over a homogeneous set and the telescoping bound
-  `sum_u mu_u prod_(v>u)(1 - mu_v) <= 1`.
-* *Task.* Check the claim that homogeneous members receive identical increments. Columns inside
-  `H` receive an own-type injection that breaks this; the corollaries are stated for `j notin H`.
+**Codex's observation** (AUDIT §7.3; reproduced exactly below).
+* *Setup.* `n = 65536`, `P = 2048` off-cycle retainers.
+* *Continuous holds:* peak width `m = 2050`.
+* *One reset per 64 steps with staggered phases:* `m = 34`, and the one-column centered readout
+  keeps `99.2%` (`47.68` vs `48.07`), with `60x` smaller `mT`.
 
-**E4 (experiment) — inhomogeneous retention search.**
-* *Question.* Can retainers with **different** gate histories hold more than an own-sized
-  afterimage? Cor. D3 does not cover them.
-* *Setup.* `n = 65536` (and `262144` if feasible), column-restricted simulator
-  (`claude_lemma_m_rest_20261016/colsim.py`), one held pair `(j, j')` with a mid-hold pulse,
-  released, then a gap `G >= 6/s^2`.
-* *Retainer families.*
-  * staggered start times;
-  * staggered stop times;
-  * alternating hole / free-relaxation duty cycles;
-  * a minority of anti-holes (rows driven to `|h| ~ .4`).
-* *Measure.*
-  * the best centered readout at `T` (`best_query` in colsim) divided by the peak
-    `|Delta O_j|`;
-  * readout per retainer drive.
-* *Decisive outcome.* A ratio growing with `n`, or with the number of retainers beyond
-  `O(1/s)`, would refute the conjectured own-sized ceiling and would be the first sign of a
-  centered mechanism beating the quadratic law.
+**Questions.**
+1. Is this a real saving under the original resource definition (peak actual width x full
+   horizon, every nonzero input counted), or a shifted cost?
+2. What is the trade-off among reset period, width, leakage, retained signal and `mT`?
+3. Does it change any asymptotic memory law?
 
-**E5 (experiment) — relay ceiling at larger n.**
-* *Task.* Repeat `exp_relay.py` (version 2, with the gap) at `n = 262144`. Scan
-  `H_p in {1e3, 4e3}` and `H_g` up to `d/2`.
-* *Measure.* The relay readout against `HI s x peak|Delta O_j|`.
-* *Decisive outcome.* A growth law in `H_g` steeper than the damping-limited prediction.
+**Answers in brief.**
+1. It is real and legitimate: staggering converts the per-row duty saving into a peak-width
+   saving (Lemma 7.1), and no cost moves elsewhere.
+2. The leakage obeys an explicit drift law (Lemma 7.2, a proved identity). §7.2's model
+   predicts the measured losses within a factor `~1.5` and errs on the conservative side.
+3. **No change to any asymptotic law.**
+   * Near-exact retention over `H` steps costs `>= (H - eps/kappa)/(Lam+1)` drives for **every**
+     schedule (Theorem 7.3, rigorous).
+   * The realistic optimum `~ beta H^(3/2)` exceeds `H` once `H >~ 1/beta^2` (Cor. 7.4(c)).
+   * The proved listing theorems already charge drives this way.
+   * Resets improve constants by up to `~1/(beta sqrt(H))`; that is large at moderate `n` and
+     shrinks to `O(1)` as `n` grows.
 
-**E6 (experiment, optional) — F-step channel split on the PR #35 construction.**
-* *Task.* On `S_K` at `n = 65536`, evaluate the readout of F-step queries (`F = 2..8`) split into
-  the rows `d-f`.
-* *Purpose.* This confirms that Theorem M_F's channel (rows `d-2, ...`) carries no hidden
-  separation in the known construction. It is a sanity check, not a test of a theorem.
+### 7.1 Staggering and the resource definition [PROVED]
 
-## 6. Status
+**Lemma 7.1 (staggering).**
+* *Setup.* Let `P` rows each need one nonzero input in every window of `R` consecutive steps
+  during an interval of length `H`, plus a background of width `m_0`.
+* *Synchronous phases.* The peak actual width is `P + m_0`.
+* *Staggered phases* (row `i` driven at `t = i mod R`): the peak width is `ceil(P/R) + m_0`.
+* *Lower bound.* Any schedule with `N_tot` nonzero inputs over a horizon `T` has
+  `m >= N_tot/T`. The staggered schedule attains this up to rounding.
+
+*Proof.* Count the inputs per step. QED
+
+*Consequence.*
+* Under `mT` (peak x horizon), sparse resets save **only if staggered**. My synchronous control
+  (`sync 64`) keeps the readout but has `m = 2050`, so it saves nothing.
+* Staggering does not move any cost elsewhere: the horizon is unchanged, every reset is a
+  counted nonzero input, and the total drive count equals the additive count.
+
+### 7.2 Why sparse resets work: the free drift [PROVED identity + ANALYSIS model]
+
+**Lemma 7.2 (free drift of an undriven row).**
+* *Setup.* For R0 or the prescribed dense matrix, every undriven memory row `i >= 2` evolves by
+  `y_(t+1) = tanh(a y^pred_t + beta'_t)`. Here `y^pred_t` is the time-`t` state of its
+  predecessor along the geometric path: the row itself off the cycle, row `i-1` on the cycle.
+  The field `beta'_t = atanh(s_(t+1)) - a s_t` is common to all such rows.
+* *Identity.* Exactly,
+
+      y_(t+1) - y^pred_t = (s_(t+1) - s_t) + (1 - a)(s_t - y^pred_t) + I_t,
+      I_t := integral_(a y^pred_t + beta'_t)^(atanh s_(t+1)) tanh^2(z) dz.
+
+* *Consequences.*
+  * If `y^pred_t <= s_t/2` and `s_(t+1) >= s_t/2`, then `I_t >= (a s_t/2) tanh^2(s_(t+1) - s_t/2)`.
+    Under (H) (`s >= s_lo = .025`) and a slow bath (`s_(t+1) >= s_t - 10^-3`, the case in every
+    construction and experiment here), this is `>= 1.6e-6`.
+  * In a steady bath (`s_(t+1) = s_t = s`) and at `y = 0`, the per-step drift is
+    `(1-a) s + I_t = tanh(beta'_t) =: beta`, with `beta = s/n + s^3/3 + O(s^5)`. Here
+    `I_t = (atanh s - s) - (beta' - tanh beta')`.
+
+*Proof.* `s_(t+1) = tanh(a s_t + beta'_t)` (bath identity, PR #29 D2), so
+`s_(t+1) - y_(t+1) = integral sech^2 = a(s_t - y^pred_t) - I_t`. The bounds follow from
+`tanh^2 >= 0`. For the lower bound, `y^pred_t <= s_t/2` makes the integration interval contain
+`[atanh(s_(t+1)) - a s_t/2, atanh(s_(t+1))]`. On that subinterval `z >= s_(t+1) - s_t/2 >= 0`,
+and `tanh^2` is increasing there. QED
+
+**Leakage model [ANALYSIS].**
+* *Free path.* A retainer reset to `y_0` and left free drifts as `y_tau ~ y_0 + beta tau`, with
+  `beta ~ s^3/3` (`beta = 4.76e-5` at `n = 65536`, `s = .052`). Its gate deficit is
+  `1 - g = y^2`.
+* *Period deficit.*
+  * Over a period `R`, target `y_0 = 0` gives an average deficit `(beta R)^2/3`.
+  * The **symmetric target** `y_0 = -beta R/2` gives `(beta R)^2/12`, four times smaller.
+* *Retained fraction.* A deposit retained for `H_ret` steps keeps a fraction
+  `~ exp(-H_ret x deficit)` of what an exact hole keeps.
+
+**[NUMERICAL]** `exp_resets.py` (`n = 65536`, `P = 2048`, `H_p = 1800`, exact recurrences,
+`max |x| <= .3801`):
+
+Short gap `G = 3000` (`T = 5300`). Bath `s = .0520`, `beta = 4.76e-5`. The predicted ratio is
+`exp(-H_ret x deficit)` with mean retention time `H_ret = 900 + G`.
+
+| schedule | `R` | target | readout | ratio to hold | predicted | peak `m` | `mT` | drives |
+|---|---|---|---|---|---|---|---|---|
+| hold (continuous) | — | 0 | `48.0728` | 1 | — | 2050 | 10,865,000 | 9,836,048 |
+| no retainers | — | — | `.1799` | `.0037` | — | 2 | 10,600 | 3,600 |
+| staggered | 16 | 0 | `48.0547` | `.9996` | `.9992` | 130 | 689,000 | 618,128 |
+| staggered | 64 | 0 | `47.6801` | `.9918` | `.9880` | 34 | 180,200 | 157,232 |
+| staggered | 64 | `-beta R/2` | `47.9629` | `.9977` | `.9970` | 34 | 180,200 | 157,232 |
+| synchronous | 64 | 0 | `47.6060` | `.9903` | `.9880` | **2050** | 10,865,000 | 157,200 |
+| staggered | 256 | 0 | `42.0143` | `.8740` | `.8243` | 10 | 53,000 | 42,008 |
+| staggered | 256 | `-beta R/2` | `46.3530` | `.9642` | `.9529` | 10 | 53,000 | 42,008 |
+| staggered | 1024 | 0 | `9.5831` | `.1993` | `.0455` | 4 | 21,200 | 13,202 |
+| staggered | 1024 | `-beta R/2` | `26.9979` | `.5616` | `.4618` | 4 | 21,200 | 13,202 |
+
+Long gap `G = 12000` (`T = 14300`, `exp_resets.py --long`):
+
+| schedule | `R` | target | readout | ratio to hold | predicted | peak `m` | `mT` |
+|---|---|---|---|---|---|---|---|
+| hold (continuous) | — | 0 | `8.8113` | 1 | — | 2050 | 29,315,000 |
+| staggered | 64 | 0 | `8.5736` | `.9730` | `.9609` | 34 | 486,200 |
+| staggered | 64 | `-beta R/2` | `8.7332` | `.9911` | `.9901` | 34 | 486,200 |
+| staggered | 256 | 0 | `5.3189` | `.6036` | `.5278` | 10 | 143,000 |
+| staggered | 256 | `-beta R/2` | `7.6533` | `.8686` | `.8524` | 10 | 143,000 |
+
+* *Longer retention needs shorter periods.* At `R = 64` the loss grows from `0.82%` to `2.7%`
+  when the gap grows from 3000 to 12000, as the deficit law predicts (`R ∝ H^(-1/2)` at fixed
+  fidelity).
+* *Common-mode damping even for exact holes.* The continuous-hold readout itself falls from
+  `48.07` to `8.81` over the extra 9000 steps. Lemma D's rate
+  `gamma P s^2/k = 1.7e-4` predicts a factor `e^(-1.5) ~ .22`; the measured factor is `.18`.
+  The retained memory is damping-limited, not leakage-limited.
+
+* My `hold` and `stag 64` rows reproduce Codex's numbers exactly (`48.0728`, `47.6801`;
+  `mT = 10865000`, `180200`).
+* *Model accuracy.* For `beta R <= .012` (`R <= 256`) the linear-drift model predicts the
+  losses within a factor `~1.5` in the exponent, always conservatively. At `R = 1024`
+  (`beta R ~ s`) the free path reaches the bath, and the model overstates the loss by
+  `2–3.4x`.
+* *Symmetric target.* At equal cost it reduces the loss by `3.6x` (`R = 64`) and `3.5x`
+  (`R = 256`); the model says `4x`.
+* *Synchronous resets.* They keep the signal but save no `mT` (Lemma 7.1).
+* *Saturation.* All readouts saturate in the bath-damping sense. The continuous-hold retention
+  itself is damping-limited (`gamma P s^2 x 4800/k ~ .8`), which is why it tolerates moderate
+  leakage.
+
+### 7.3 A cost-aware retention theorem for every schedule [PROVED]
+
+**Theorem 7.3 (cost of near-exact retention).**
+* *Assumptions.* (H) (inheriting PR #27's verified protected-set Lemma 2.5, with
+  `kappa = 1.5e-4`, `Lam = 4.5e5`).
+* *Setup.* Let `i` be an off-cycle memory row, `I` an interval of length `H`, and `eps >= 0`.
+* *Statement.* If the gate deficit satisfies `sum_(t in I)(1 - g_t(i)) <= eps`, which holds in
+  particular if row `i` retains at least a fraction `e^(-eps)` of its content over `I`, then the
+  number `N_i` of nonzero inputs to row `i` in `[min I - Lam, max I]` satisfies
+
+      N_i  >=  (H - eps/kappa) / (Lam + 1).
+
+* *Cycle rows.* For a cycle row tracked along its path, the same holds with `N_i` replaced by
+  `N_i + (number of front passages) <= N_i + 1 + H/d`.
+* *Scope.* This holds for **every** schedule: continuous, staggered, duty-cycled,
+  heterogeneous, with arbitrary joins and leaves.
+
+*Proof.*
+* Since `prod_I g_t(i) <= exp(-sum_I (1 - g_t(i)))`, retention at fraction `e^(-eps)` forces
+  deficit `<= eps`.
+* Positions with gate `<= 1 - kappa` contribute `>= kappa` each, so at most `eps/kappa` of them
+  occur.
+* The other `>= H - eps/kappa` positions have gate `> 1 - kappa`. By PR #27 Lemma 2.5 they are
+  scheduled, or lie on a chain started within `Lam` steps by a drive, or on a front chain.
+  * Chains above the bath have gate `<= 1 - s_lo^2 < 1 - kappa`, so they are excluded.
+  * Off-cycle chains stay in their row.
+* Each drive of row `i` therefore covers at most `Lam + 1` such positions.
+
+QED
+
+**Corollary 7.4 (what sparse resets can and cannot change).**
+* *(a) [PROVED]* Theorem 4, Theorem M, Theorem M_F and every listing built on PR #27's protected
+  sets already charge retention at this rate, for arbitrary schedules. **No proved upper bound
+  changes under staggered or duty-cycled resets.**
+* *(b) [PROVED]* In any construction, replacing continuous holds by any reset strategy saves at
+  most a factor `Lam + 1` in drives per near-exactly retained row-step.
+* *(c) [ANALYSIS]* The realistic optimum in a steady bath is a symmetric-target reset with period
+  `R ~ sqrt(12 eps/H)/beta`. It costs `~ beta H^(3/2)/sqrt(12 eps)` per retainer, against `H` for
+  continuous holds.
+  * Resets therefore help only while `H <~ 12 eps/beta^2`.
+  * With `beta >= 1.6e-6` (Lemma 7.2, slow bath) that threshold is `<~ 5e12 eps`. In the regime of PR #35's
+    construction (`H ~ 250 n^(2/3) >~ 1e12` at `n >= 1e16`) they give little.
+  * For the asymptotic question (`n -> infinity`, `H` growing polynomially) the cost per retained
+    row-step is `Theta(1)`.
+
+### 7.4 Heterogeneous retainers: a near-homogeneous ceiling [PROVED]
+
+**Theorem 7.5 (near-homogeneous retention ceiling) [PROVED].** This extends Cor. D2–D3 to
+heterogeneous, staggered-reset retainers.
+* *Assumptions.* `Hs` is a fixed set of `P` off-cycle retainers. The credit column `j` is off the
+  cycle with `j notin Hs`, and `I = (t1, T]`.
+* *Gate spread.* Suppose `1 - eta_t <= g_t(i) <= 1` for `i in Hs`, `t in I`, and put
+  `E := sum_(t in I) eta_t <= 1/4`. Staggered resets with period `R` and target 0 have
+  `eta_t <= (beta R)^2`, so `E ~ |I| (beta R)^2`.
+* *Notation.*
+  * `Y_src := max_u |a Y_(u-1)(j)| + (gamma P/k) sum_u delta_u(j)^- |a Y_(u-1)(j)|`.
+  * `R_e := sum_u |e_u|`: Lemma D's remainder of captures, other leaks and injection.
+  * `Q := (gamma/sqrt k) sum_u eta_u |v_u(0)|`, with `v_u(0)` the arrival's column-`j` content.
+* *Statement.* With zero initial content on `Hs` (`y_(t1)(i) = 0`),
+
+      max_(u in I) |sigma_u(Hs)|  <=  1.494 (Y_src + R_e + 1.284 E P Q),
+      | sum_(i in Hs) chi_i y_T(i) |  <=  A (1.33 max_u |sigma_u| + 1.29 P Q),    A = max_(i in Hs) |chi_i|.
+
+* *Nonzero initial content.* Replace `sigma` by `sigma - Lambda sigma_(t1)`, and add
+  `.331 |sigma_(t1)|` and `1.284 E P omega_(t1)` inside the first bracket, where `omega` is the
+  spread of the initial contents.
+
+*Proof.*
+1. *Exact recursion.* Sum Lemma 1.2 over `Hs`, writing
+   `delta_t(l) = s_t^2 - (1 - g_t(l))` for `l in Hs`:
+
+       sigma_t = a(1 - mu_t) sigma_(t-1) + rho_t - (gamma P/k) delta_t(j) a Y_(t-1)(j) + e_t,
+       rho_t := -a(1 - gamma P/k) sum_(l in Hs)(1 - g_t(l)) Y_(t-1)(l),
+
+   with `mu_t = gamma P s_t^2/k`. This is Lemma D plus the single new term `rho_t`, and
+   `|rho_t| <= eta_t sum_Hs |y_(t-1)|`.
+2. *Spread.* All members receive the same field and leak. Their gates differ by `<= eta_t`, and
+   their captures by `(gamma/sqrt k) eta_t |v_t(0)|`. So the spread
+   `omega_t := max_(i,i' in Hs) |y_t(i) - y_t(i')|` obeys
+   `omega_t <= omega_(t-1) + eta_t max_Hs |y_(t-1)| + (gamma/sqrt k) eta_t |v_t(0)|`.
+3. *Gronwall.* With `max_Hs |y| <= |sigma|/P + omega`, this gives
+   `omega <= e^E (E max|sigma|/P + Q)` and `sum_Hs |y| <= |sigma| + P omega`.
+4. *Unrolling.* As in Cor. D2, the source term contributes `<= Y_src` (because
+   `(gamma P/k) delta^+ <= mu`, and the telescoping sum is `<= 1`). The `rho` terms contribute
+   `<= E (M + P omega_max)`, where `M = max |sigma|`.
+5. *Bootstrap.* `M (1 - E - E^2 e^E) <= Y_src + R_e + E P e^E Q`. For `E <= 1/4` the factor is
+   `>= .6697`, which gives the first display.
+6. *Readout.* `|sum chi_i y_T(i)| <= A(|sigma_T| + P omega_T)` with the same `omega` bound.
+
+QED
+
+*Reading.*
+* Near-exact heterogeneous retainers (cumulative gate spread `E <= 1/4`) obey the same
+  own-sized ceiling as identical ones, up to the factor `~2` and the explicit arrival term `Q`.
+* Staggered resets with `R <= 1/(2 beta sqrt|I|)` (target 0) or `R <= 1/(beta sqrt|I|)` (symmetric)
+  qualify. Codex's `R = 64` run has `E ~ .045`. `R = 256` qualifies only with the symmetric
+  target (`E ~ .18`); with target 0 it has `E ~ .7`.
+* Theorem 7.3 then prices them at `>= P (|I| - E/kappa)/(Lam + 1)` drives.
+* Together these form the requested cost-aware heterogeneous-retention theorem, in the
+  near-homogeneous regime.
+* **[OPEN]** Strongly heterogeneous retention (`E > 1/4`: leaky, anti-hole or duty-cycled sets).
+  Codex's E4 searched staggered starts, stops, duty cycles and anti-holes, and found readout/peak
+  `<= .065` (`n <= 262144`), with no growth.
+
+### 7.5 Dimension-aware assessment [ANALYSIS]
+
+A `99%` single-column signal is not a robust `D`-dimensional memory. What `D` dimensions require:
+* *Columns.* At least `D` columns (sources) with readout `>= tau/sqrt(D)` each, under one query
+  per `theta` (Borsuk–Ulam with saturation codes, PR #35).
+* *Retainers.* They are shared, because credit columns never mix: one retention set serves all
+  columns. The per-column ceiling (Cor. D3 / Theorem 7.5) is `~ 2A max|Y(j)|`, so each source
+  needs peak content `~ tau/(2A sqrt D) ~ .08 n/sqrt(D)`.
+* *Source holds.* A source pair holds for `H_p ~ n/sqrt(D)` steps.
+  * Continuous holds cost `~ n sqrt(D)` in total, which gives `D ~ (mT/n)^2`.
+  * Near-exact sparse resets cost `~ beta H_p^(3/2)` per source, i.e.
+    `~ beta n^(3/2) D^(1/4)` in total.
+
+  Hence
+
+      mT  ~  min( n sqrt(D),  beta n^(3/2) D^(1/4) ) + (retainer cost),
+
+  and for `D = Theta(n)`: `mT ~ min(n^(3/2), beta n^(7/4))`.
+* *Exponent.* At `n <~ beta^-4 ~ 1e17–1e21` the reset branch is cheaper by the factor
+  `beta n^(1/4)`. Its exponent `7/4` is *worse* than `3/2`, and the minimum is
+  `Theta(n^(3/2))` asymptotically. Neither branch is `o(n^(3/2))` for `D = Theta(n)`.
+* *At `n = 65536`.* The single-column readout `48` would need `~ (tau/48)^2 ~ 6000`
+  saturated columns to reach `tau = 3709`. That is a finite-`n` estimate at
+  `mT ~ .1 n^(3/2)`, not a sub-barrier rate.
+
+### 7.6 Alternative schedules tried
+
+* *Symmetric target* (`y_0 = -beta R/2`). It has the same cost and a `4x` lower deficit, so the
+  period can double at equal fidelity. This is the best simple improvement found; see the table.
+* *Synchronous resets.* Same fidelity, no `mT` saving (Lemma 7.1).
+* *Long gaps.* The fidelity of a fixed `R` decays with retention time as predicted. Long-horizon
+  memories need shorter periods, `R ∝ H^(-1/2)`.
+* *Not pursued, with reasons.*
+  * Field-cancelling drives that make the common drift `beta' ~ 0`: they would require
+    `Theta(n)` simultaneously high rows (width `>> c0 n`).
+  * Anti-hole compensation: covered by §4.3 and Codex's E4 negative result.
+
+## 8. Phase 3: the original target with sparse resets [ANALYSIS, with proved ingredients]
+
+*Target:* `D = Omega(n)` and `mT = o(n^(3/2))`, with the original exact endpoints, legal
+inputs and metric. I do not assume the barrier.
+
+**8.1 Necessary conditions for any construction.**
+* *Width.* Sub-barrier sections satisfy `T >= .001 sqrt(n)` (PR #28 bound (20)). So
+  `mT <= 5e-8 n^(3/2)` forces `m <= 5e-5 n`, i.e. (H). Wide-and-short histories are excluded.
+* *Per column.* Borsuk–Ulam plus saturation codes need `>= D` columns, each read at
+  `>= tau/sqrt(D) = .0566 n/sqrt(D)` by one query per `theta`. That is `.0566 sqrt(n)` at
+  `D = n`.
+
+**8.2 The three bottlenecks.**
+
+| Bottleneck | What limits it | Status |
+|---|---|---|
+| (i) Dilution of the leak | An off-cycle source deposits `(gamma/k) delta O` into **every** row. The gather reads one row with gain `sqrt(k)`, so the first-order per-column readout is `<= HI (gamma/sqrt k) S_j`. All-order own-leak relays add at most `2.5x` (Cor. R2). | PROVED for the first-order and own-leak parts |
+| (ii) Retention cannot undo the dilution | Reading the leak coherently in many retainers (centered channel) meets common-mode damping. The forcing-acquired readout is `<= ~2A max\|Y(j)\|`: own-sized, linear in the source's cost. | PROVED for homogeneous (Cor. D3) and near-homogeneous (Theorem 7.5) retainers; OPEN for strongly heterogeneous retainers |
+| (iii) Retention is not free | Keeping a row near the neutral point fights the universal drift (`>= 1.6e-6` below half-bath in a slow bath, Lemma 7.2). Near-exact retention costs `>= 1/(Lam+1)` drives per row-step for every schedule (Theorem 7.3), and realistically `~ beta sqrt(H)`. | PROVED (Theorem 7.3); realistic rate ANALYSIS |
+
+**8.3 Consequence for the known channels** [ANALYSIS, combining 8.2].
+* *First-order gather.* Per-column readout `~ cost^2/sqrt(n)` gives `D ~ (mT)^(4/3)/n`, now with
+  constants improved by resets. The exponent is unchanged, because (iii) makes long holds cost
+  `Theta(1)` per step asymptotically.
+* *Relay and retention.* Per-column readout `<~ cost` gives `D ~ (mT/n)^2`, again with improved
+  constants.
+* *Reset variants.* The reset version of either law has cost exponent at least as large (§7.5:
+  `beta n^(7/4)` versus `n^(3/2)` at `D = n`).
+* So with every mechanism examined, `D = Theta(n)` needs `mT = Omega(n^(3/2))`, up to constants.
+  Sparse resets lower those constants by a large factor at moderate `n`, and by a bounded factor
+  (`<= Lam + 1`, rigorously) in the asymptotic regime.
+
+**8.4 Where a counterexample would have to live.** A sub-barrier linear-memory construction
+needs at least one of:
+* (a) a **strongly heterogeneous** retention set (`E > 1/4`), outside Theorem 7.5, that beats the
+  own-sized ceiling by a factor growing with `n`. Codex's E4 found none: readout/peak `<= .065`;
+* (b) a mechanism through the **own-spread capture** `U Delta w`, or through **heavy columns'**
+  query-dependent time profiles, that evades bottleneck (i) (both OPEN, §3.2);
+* (c) a **cycle-column relay** with signed capture kernels (OPEN);
+* (d) a channel in the **full metric** beyond the selected column (U5, OPEN).
+
+None of these is excluded by a proof. None of them has produced a growing advantage in any
+experiment so far. The original problem remains **OPEN**.
+
+## 9. Status (after the Step 3.5 repairs)
 
 | Item | Status |
 |---|---|
-| Prop. 1.1: complete exact readout decomposition for every legal query (F-step via `chi = U nu`, nine-term identity on every spike row) | PROVED; checked to `1.2e-14` |
-| Table 1.2: classification of the 19 ledger terms | PROVED bookkeeping |
-| Lemma 1.3: own-type correction `<= 1.4e-4 tau` at zeros of `Phi` | PROVED (reduction; linearity reading to be audited, E1) |
-| Lemma 2.1, **Theorem M_F**: first-order gather listable for **all** legal queries, `F_s^2 (mT/n)^2 + F_s^(4/3) (mT)^(4/3)/n` count, residual `14/256` (`n >= 1e10`, public schedules for (d)) | PROVED; constants certified; not independently verified |
-| Lemma D, Cors. D2–D3: exact common-mode damping; single-source and homogeneous-retention ceilings | PROVED; identity checked to `2.9e-13` |
-| Prop. R1: exact all-order creation for off-cycle columns (true U-map) | PROVED; checked to `2.5e-13` |
-| Lemma R, Cor. R2: w-response `<= 2.27` (one-step) / `2.33` (F-step); source-specific off-cycle leak `<= 2.5x` first order, all orders, all queries (S4 domain) | PROVED; bound checked at `n = 65536` (ratio `.73`) |
-| Heavy off-cycle columns and the own-spread part `U Delta w` | **OPEN** (part of U1/U2) |
-| Relay mechanism (second-order gather through held arrivals): damping-limited, own-sized per column, quadratic resource law | ANALYSIS + NUMERICAL (§4) |
-| Conjecture C3: sub-barrier robust dimension `Theta((mT)^(4/3)/n)` (selected metric) | CONJECTURE (internal; lower bound proved only at constant width) |
-| Lemma M_rest: second-order gather (U1) and centered channel (U2) listings | **OPEN** |
+| Prop. 1.1: complete exact readout decomposition (F-step via `chi = U nu`; nine-term identity on every spike row) | PROVED (Codex PASS after notation fix) |
+| Table 1.2: ledger of components and scope obligations | PROVED bookkeeping; F-step centered coefficient bounds **OPEN** |
+| Lemma 1.3: own-type correction `<= 1.3335e-4 tau` | PROVED in Theorem 4's below-budget scope (Codex PASS) |
+| Lemma 2.1, **Theorem M_F**: first-order gather listable for all legal queries | PROVED within scope (Codex PASS); monotonicity sentence replaced by the envelope argument |
+| Lemma D | PROVED (Codex PASS) |
+| Cor. D2 (relative to the damped baseline; source content `Y(j)`) | PROVED (Codex PASS within restrictions) |
+| Cor. D3 (damped baseline or zero initial content; non-spike `A`) | PROVED in corrected form (first version PARTIAL) |
+| Prop. R1 | PROVED (Codex PASS) |
+| Lemma R (`< 2.26959` / `< 2.32957`, all `n >= 1e8`, S4 domain; terminal F-step `<= 2.18`) | PROVED (Codex PASS; constants recertified) |
+| Cor. R2: displayed `S'_j` budget bound; own-leak component `< 2.5x` the first-order upper-budget scale | PROVED |
+| Cor. R2's first reading ("no amplification beyond 2.5x the first-order value") | **REFUTED** (Codex's `n = 1e8` example, reproduced) |
+| Relay as a whole | **OPEN** (not shown to beat first order; controlled only in its own-leak component) |
+| Lemma 7.1 (staggering and peak width) | PROVED |
+| Lemma 7.2 (free-drift identity; drift `>= 1.6e-6` below half-bath in a slow bath) | PROVED |
+| Theorem 7.3 (near-exact retention costs `>= (H - eps/kappa)/(Lam+1)` drives, every schedule) | PROVED (inherits PR #27 Lemma 2.5) |
+| Theorem 7.5 (near-homogeneous retention ceiling, `E <= 1/4`) | PROVED |
+| Cor. 7.4(a,b): no proved bound changes; at most a factor `Lam+1` saving | PROVED |
+| Leakage model, symmetric-target improvement, cost law `~ beta H^(3/2)` | ANALYSIS + NUMERICAL |
+| Staggered resets improve an asymptotic memory law | **NO** for every mechanism examined (ANALYSIS; Theorem 7.3 rigorous); constants improved at moderate `n` |
+| Strongly heterogeneous retention (`E > 1/4`) ceiling | **OPEN** (Codex E4 negative evidence) |
+| Lemma M_rest (U1, U2): heavy columns, own-spread capture, cycle relays | **OPEN** |
 | Code-dependent (d) (U4), full-metric groups (U5), driven sources in Theorem M (U6) | **OPEN** |
+| Conjecture C3: sub-barrier robust dimension `Theta((mT)^(4/3)/n)` | CONJECTURE (internal) |
 | Original problem (`D = Omega(n)` at `mT = o(n^(3/2))`, full `d_F`) | **OPEN** |

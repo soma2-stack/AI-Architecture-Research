@@ -6,7 +6,9 @@ inherited constants (s_hi = .1009, C_chain = 558, Lam + 1 = 450001, kappa = 1.5e
 tau >= .0566 n) are those certified there; they are restated, not re-derived.
 
 Checks:
-  * F_s upper bound F_s <= 1 + (ln 1.01 + .5 ln(n/2))/r_H, r_H = -ln HI, and the ratio n/F_s increasing;
+  * F_s upper bound F_s <= f(n) := 1 + (ln 1.01 + .5 ln(n/2))/r_H, r_H = -ln HI. Since F_s is a ceiling,
+    n/F_s is NOT monotone (Codex audit); the argument uses the continuous envelope: n/f(n) increases
+    because f(n) > 1/(2 r_H), so n/F_s >= n/f(n) >= 1e10/f(1e10) for n >= 1e10;
   * K_neg on every spike row: HI gamma 1.26 c_* sqrt(n) sqrt(F_s) <= tau/256 for n >= 1e10;
   * far-short arrivals at the floor lambda_0 = 1800004 + ceil(ln(F_s)/kappa);
   * far-long cutoff coefficient (unchanged 3.897e7), now with the factor F_s;
@@ -53,7 +55,7 @@ def main():
     n0 = D("1e10")
     Fs0 = Fs_upper(n0)
     r["F_s upper bound at n = 1e10"] = str(Fs0)[:10]
-    # d/dn [n / Fs_upper(n)] > 0  <=>  Fs_upper(n) > 1/(2 r_H): true since Fs_upper >= 1 + ... > 8.1
+    # continuous envelope: d/dn [n / f(n)] > 0  <=>  f(n) > 1/(2 r_H); then n/F_s >= n/f(n) >= 1e10/f(1e10)
     assert Fs0 > 1 / (2 * rH)
     kneg_need = 256 * HI * g * D("1.26") * cmax / tau_n            # need sqrt(n/F_s) >= this
     r["K_neg: required sqrt(n/F_s)"] = str(kneg_need)[:10]

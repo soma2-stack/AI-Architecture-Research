@@ -1,60 +1,50 @@
-# Status — the remaining memory channels (Step 3)
+# Status — the remaining memory channels (Step 3 + Step 3.5 repairs)
 
 * **Branch:** `claude/remaining-channels-20261020`.
-* **Base:** PR #35 `aa47ca5`.
-* **Owner:** Claude.
-* **Verification:** no independent verification yet.
+* **Base:** PR #35 `aa47ca5`. First version: `ac759bb`. Draft PR #37.
+* **Audit:** Codex's independent audit of `ac759bb` is copied verbatim into
+  `theory/codex_pr37_independent_audit_20261020/` and is not edited.
+* **Verification:** the Step 3.5 additions (§R repairs, §7, §8) are not yet independently
+  verified.
 
 ## Current search lens
 
-Close or refute Lemma M_rest by splitting the bus into exactly identified channels. Two tools
-from this step:
-* common-mode damping (Lemma D);
-* the contracting true U-map (Prop. R1 / Lemma R).
+Cost-aware retention. Which memory mechanisms survive once every retained row-step is priced
+(Theorem 7.3), and where an own-sized ceiling is proved (Cor. D3, Theorem 7.5) and where it is
+not.
 
 ## Strongest results
 
-| Result | Status | Scope |
-|---|---|---|
-| Prop. 1.1 + Table 1.2: complete ledger | PROVED | every legal query |
-| Theorem M_F: first-order gather, all legal queries | PROVED, certified | (H), `n >= 1e10`, public schedules for (d), undriven sources |
-| Lemma 1.3: own-type correction `<= 1.4e-4 tau` | PROVED (reduction) | zeros of `Phi`; linearity reading to audit |
-| Lemma D, Cors. D2–D3: common-mode damping, retention ceilings | PROVED | homogeneous hole sets |
-| Prop. R1, Lemma R, Cor. R2: no amplification of off-cycle source leaks | PROVED | S4 domain (`m+1 <= 1e-5 n`), every order and query |
+| Result | Status |
+|---|---|
+| Ledger (Prop. 1.1, Table 1.2), Theorem M_F, Lemma 1.3, Lemma D, Cor. D2, Prop. R1, Lemma R | PROVED; Codex PASS (repaired presentation) |
+| Cor. D3 (damped baseline) | PROVED in corrected form |
+| Cor. R2 (`S'_j` budget; own-leak component `< 2.5x` the upper-budget scale) | PROVED; first reading REFUTED |
+| Lemma 7.1 (staggering), Lemma 7.2 (free drift), Theorem 7.3 (retention cost, every schedule), Theorem 7.5 (near-homogeneous ceiling) | PROVED (author; unaudited) |
+| Staggered sparse resets | real finite-`n` constant gain; no asymptotic law changes (ANALYSIS + Theorem 7.3) |
 
 ## Killed or closed directions
 
-* The relay as a beating mechanism. Its source-specific part is proved `<= 2.5x` first
-  order; measured at 22% of the direct readout.
-* Anti-hole damping compensation: costs more than it saves (ANALYSIS).
-* Codes or queries changing the per-column law (ANALYSIS).
-* Experiment-design note: without a release gap, relaxation leaks fake second-order effects.
+* Cor. R2's universal no-amplification reading (refuted).
+* "Relay refuted" (withdrawn as too broad; the relay is OPEN beyond its own-leak component).
+* Synchronous resets as an `mT` saving (Lemma 7.1).
+* Resets as an asymptotic improvement (Theorem 7.3 and the `beta H^(3/2)` law).
 
 ## Open
 
-* U1 and U2 listings. Remaining pieces:
-  * heavy off-cycle columns (query-dependent time profiles);
-  * cycle-column relays (signed capture kernels);
-  * the own-spread capture term `U Delta w`;
-  * the common W-part (T15).
-* Scope gaps:
-  * code-dependent Theorem M(d) and M_F(d) (U4);
-  * driven sources (U6);
-  * the full metric (U5);
-  * `F_ent` for `1e-5 n < m+1 <= 5e-5 n`.
-* Lowering Theorem M_F's `F_s^2` to `F_s` needs per-row F-step weights.
-* Original problem: OPEN.
-* Conjecture C3: internal.
-
-## Unresolved prior-art questions
-
-None new. The mechanisms are internal to this model; no external literature claim is made.
+* Strongly heterogeneous retention (`E > 1/4`).
+* Heavy-column time profiles.
+* Own-spread capture `U Delta w`.
+* Cycle-column relays.
+* F-step centered coefficients.
+* U4–U6.
+* Lemma M_rest.
+* The original problem.
+* Conjecture C3 (internal).
 
 ## Exact next action
 
-1. Run Codex E4 (inhomogeneous retention). If the readout-over-peak ratio stays bounded,
-   attempt an ℓ1 version of Cor. D2 for gate-homogeneous sets with joins and leaves. That would
-   close the retention part of U2 up to heavy columns.
-2. Then attack the heavy-column problem. Express the query's time profile
-   `chi^T Phi^U(T,t) w` through the window equalities at zeros of `Phi`, and test whether a
-   window-length basis suffices.
+1. Codex audits A1–A4 (PROOF.md §5).
+2. Run E7: strongly heterogeneous retention against `n`. If the readout over peak `|Y(j)|`
+   stays bounded, attempt a weighted version of Theorem 7.5 with retention-time weights
+   `exp(-D_i(u,T))` for leaky members.
