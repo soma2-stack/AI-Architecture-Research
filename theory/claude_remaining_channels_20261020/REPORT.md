@@ -1,5 +1,29 @@
 # Report — the remaining memory channels (Steps 3, 3.5, 3.6, 3.7)
 
+## Owner freeze — 2026-10-21
+
+New mathematical research, experiments, training, and automatic follow-up work are frozen.
+Read the [canonical claim register in consolidation PR38](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md) before proposing work.
+Historical next-action lists below are inactive provenance, not authorization. OPEN and
+PENDING describe evidence gaps; they do not assign another task. Only explicit owner
+authorization can reopen a retired direction. This update preserves evidence and does not
+merge a scientific PR or claim that PR38 is already on main.
+
+## C5 decision — NO-GO; repeat proposal withdrawn
+
+Completed Task 6 withdraws a repeat C5 legal staircase experiment. The existing
+Step 3.7 audit already supplies finite legal matched-forcing gains and full tested
+peak-width-times-horizon accounting. At n=1e12, K=3, mT=14072696764922505,
+mT/n^(3/2)=.01407270; legal retainer gain is 2.533122x, but normalized selected
+full-column signal is only 2.4532e-12. These are finite one-column results, not a
+robust growing-dimensional section or proof of asymptotic little-o budget.
+Do not repeat C5 or its failed pulse predecessor automatically. Existing audit and
+raw results remain unchanged.
+
+Gamma, forcing variation versus actual cost, and the full dimension problem remain
+OPEN because the verified identities do not provide a dimension-useful cost bound
+or robust independent section. They are future questions, not current assignments.
+
 * **Branch:** `claude/remaining-channels-20261020`, draft PR #37.
 * **Audits:** the three earlier Codex audits (`ac759bb`, `c48640d`, `18f8005`) and the independent
   Step 3.7 audit are preserved verbatim; none was edited.
