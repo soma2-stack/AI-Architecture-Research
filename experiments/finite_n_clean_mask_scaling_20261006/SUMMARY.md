@@ -1,5 +1,11 @@
 # Clean-Mask Multichannel CUDA Scaling
 
+**OWNER FREEZE — 2026-10-21.** This document is archived evidence/protocol, not current
+authorization. Read the [claim register](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing work. Historical run commands, permission statements and next steps
+are inactive; no new research, experiment, training, official matrix or automated
+continuation is authorized. Original results and protocols below are preserved.
+
 | Test | Verdict | Strongest Measurement |
 |---|---|---|
 | R=8 clean vs legacy at n=2048 | PASS | clean 1.88452e-05; legacy 0.00250616 (legacy/clean 133.0×) |

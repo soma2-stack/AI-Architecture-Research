@@ -1,5 +1,11 @@
 # AUTOMATED_MECHANISM_SEARCH_PREREGISTRATION.md
 
+**OWNER FREEZE — 2026-10-21.** This document is archived evidence/protocol, not current
+authorization. Read the [claim register](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing work. Historical run commands, permission statements and next steps
+are inactive; no new research, experiment, training, official matrix or automated
+continuation is authorized. Original results and protocols below are preserved.
+
 ## Status
 
 **COMPLETE: OMD-PILOT-1 FAILED AT PHASE A; MIXED-REGIME OMD-1 NOT AUTHORIZED**

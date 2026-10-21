@@ -1,5 +1,12 @@
 # AI Architecture Research
 
+**2026-10-21 OWNER RESEARCH FREEZE.** Read [docs/CLAIM_REGISTER.md](docs/CLAIM_REGISTER.md)
+before proposing any research or experiment. PR36's 3,000-update rerun is withdrawn;
+PR37's repeat C5 is NO-GO. OPEN questions and historical next-action lists are not
+authorization. [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
+contains the proposed authoritative organizational consolidation and awaits an owner
+merge decision; it is not yet live on main.
+
 This repository preserves research on computational mechanisms, architecture novelty, and robust recurrent learning-credit memory. The current theory asks how much continuous learning state is required to answer later normalized gradient queries. It has mathematical constructions and scoped negative results, with substantial open questions.
 
 ## Main theorem target
@@ -18,20 +25,20 @@ $$
 
 Here, **D** is the robust learning-credit dimension, **n** is the recurrent width, **m** is the active history/input width, and **T** is the time horizon.
 
-In plain language: can robust learning-credit dimension scale linearly with model width while the total coordinate-time cost remains strictly below the n³⁄² scaling boundary?
+In plain language: can robust learning-credit dimension scale linearly with model width while peak actual input support times the complete horizon remains strictly below the n³⁄² scaling boundary?
 
 **Current status: OPEN.**
 
 Read in this order:
 
-1. [README.md](README.md)
-2. [AGENTS.md](AGENTS.md) — repository governance
-3. [04_RESEARCH_STATE.md](04_RESEARCH_STATE.md) — brief resume point
-4. [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) — authoritative current theory
-5. [theory/INDEX.md](theory/INDEX.md) — all theory folders and evidence relationships
-6. [experiments/INDEX.md](experiments/INDEX.md) — finite-size evidence and limits
-7. [theory/codex_linear_dimension_frontier_20261006/PROOF.md](theory/codex_linear_dimension_frontier_20261006/PROOF.md) — current proof record
-8. [docs/history/SHARED_RESEARCH_MAP.md](docs/history/SHARED_RESEARCH_MAP.md) — current checkpoint followed by historical context
+1. [AGENTS.md](AGENTS.md) — locked repository governance.
+2. [docs/CLAIM_REGISTER.md](docs/CLAIM_REGISTER.md) — current freeze, claims, exact evidence and retirement decisions.
+3. [04_RESEARCH_STATE.md](04_RESEARCH_STATE.md) — current organizational resume point.
+4. [theory/CURRENT_THEORY.md](theory/CURRENT_THEORY.md) and [theory/INDEX.md](theory/INDEX.md) — scoped theory navigation.
+5. [experiments/INDEX.md](experiments/INDEX.md) — completed, stopped, unrun and unavailable records.
+
+Historical proof folders and docs/history/SHARED_RESEARCH_MAP.md retain provenance;
+their old “current” and “next” wording does not supersede the register or authorize work.
 
 `theory/` contains proofs, scoped derivations, reviews, and drafts. `experiments/` contains diagnostic and certification code, frozen inputs, replay outputs, and other experimental evidence. Experiments do not automatically validate a theorem or establish an architecture.
 

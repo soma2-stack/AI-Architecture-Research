@@ -1,11 +1,17 @@
 # Documentation archive
 
+Current organizational authority is the [claim register](CLAIM_REGISTER.md), proposed
+in unmerged PR38. Read its research freeze and do-not-repeat policy before any proposal.
+The research state/theory/experiment indexes are navigation to that single ledger.
+History, protocols and notebook resume blocks below are archival and confer no
+current research authorization.
+
 The repository root is intentionally kept small. Current work starts from the root README, AGENTS.md, 04_RESEARCH_STATE.md, and theory/CURRENT_THEORY.md.
 
 ## History
 
 - [00_PRIOR_RESEARCH.md](history/00_PRIOR_RESEARCH.md) — earlier research snapshot.
-- [SHARED_RESEARCH_MAP.md](history/SHARED_RESEARCH_MAP.md) — current checkpoint followed by preserved chronological context.
+- [SHARED_RESEARCH_MAP.md](history/SHARED_RESEARCH_MAP.md) — archived checkpoints and chronological context; not a current assignment.
 
 ## Agent notebooks
 

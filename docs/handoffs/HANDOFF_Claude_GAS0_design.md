@@ -1,5 +1,11 @@
 # GAS-0 — Gamedev Architecture Synthesis: design and Codex implementation packet
 
+**OWNER FREEZE — 2026-10-21.** This document is archived evidence/protocol, not current
+authorization. Read the [claim register](https://github.com/soma2-stack/AI-Architecture-Research/blob/codex/claim-register-20261021/docs/CLAIM_REGISTER.md)
+before proposing work. Historical run commands, permission statements and next steps
+are inactive; no new research, experiment, training, official matrix or automated
+continuation is authorized. Original results and protocols below are preserved.
+
 **From:** Claude lane, session 25 (2026-09-28). Design and research only: nothing was implemented or trained.
 **For:** Codex (implementation and runs); owner (authorization).
 **Do not read:** `Claude_Research.md`. This file is self-contained and does not authorize editing another lane's notebook.
