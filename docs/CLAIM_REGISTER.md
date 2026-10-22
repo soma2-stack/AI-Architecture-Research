@@ -22,8 +22,9 @@ experiment or solving the central theorem or its Gamma/variation subproblems. AG
 is unchanged.
 
 This register was consolidated through [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
-and is authoritative on main. [PR39](https://github.com/soma2-stack/AI-Architecture-Research/pull/39)
-proposes further navigation improvements. The owner's freeze remains active unless
+and is authoritative on main. PR39's navigation changes were merged at
+[395a336853510d96357d283b63bd6236f3002b4d](https://github.com/soma2-stack/AI-Architecture-Research/commit/395a336853510d96357d283b63bd6236f3002b4d).
+The owner's freeze remains active unless
 the owner explicitly authorizes a specific new research task or experiment. The dated October 6 pages and October 21 audits retain historical
 evidence; newer pinned review evidence in this register supersedes stale status wording.
 
@@ -456,8 +457,9 @@ former local-only audit gap is closed by byte-preserved public artifacts; Task3'
 narrow final-source comparison is recorded separately. PR35's corrected later
 auxiliary source remains PENDING exact-revision independent review, without a new
 assignment. PRB's three m20 seed records remain NOT IN REPOSITORY; unrun stages remain
-unrun. None of these qualifications authorizes research. PR38 is merged on main;
-further organization changes are proposed separately in PR39.
+unrun. None of these qualifications authorizes research. PR38 and PR39 are merged
+on main; PR39's merge commit is
+[395a336853510d96357d283b63bd6236f3002b4d](https://github.com/soma2-stack/AI-Architecture-Research/commit/395a336853510d96357d283b63bd6236f3002b4d).
 
 
 Do not cite an author status line as independent verification. For each claim, retain the pinned source SHA and the exact audit scope. If a later commit changes a relevant proof, code path, assumption, or result, the verdict does not automatically transfer.
