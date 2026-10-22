@@ -1,0 +1,92 @@
+{
+  "experiment": "MAIN-21",
+  "status": "COMPLETE",
+  "start_timestamp_utc": "2026-10-22T04:18:07.772755+00:00",
+  "run_segments": [
+    "2026-10-22T04:18:07.772755+00:00"
+  ],
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "pytorch_version": "2.13.0+cu130",
+  "cuda_runtime_version": "13.0",
+  "cuda_available": true,
+  "device": "cuda:0",
+  "gpu_name": "NVIDIA GeForce RTX 3060",
+  "gpu_total_memory_bytes": 12884377600,
+  "dtype": "torch.float64",
+  "preflight_gpu_sample": {
+    "temperature_c": 30.0,
+    "memory_used_mib": 1800,
+    "utilization_percent": 21,
+    "power_w": 21.32,
+    "timestamp_utc": "2026-10-22T04:18:07.726583+00:00"
+  },
+  "initial_torch_allocated_vram_bytes": 0,
+  "initial_torch_reserved_vram_bytes": 0,
+  "torch_num_threads": 1,
+  "torch_num_interop_threads": 1,
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "resource_policy": {
+    "device": "cuda:0",
+    "required_gpu": "NVIDIA GeForce RTX 3060",
+    "dtype": "torch.float64",
+    "cuda_required": true,
+    "cpu_fallback": false,
+    "torch_threads": 1,
+    "inter_op_threads": 1,
+    "thread_env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "target_gpu_temperature_c_max": 81,
+    "mandatory_stop_gpu_temperature_c_above": 86,
+    "mandatory_stop_gpu_memory_mib_at_or_above": 10240,
+    "monitor_interval_seconds": 10,
+    "wall_time_cap_seconds": null
+  },
+  "original_wall_limit_disabled": true,
+  "original_wall_limit_seconds": 5400,
+  "original_reference_wall_limit_seconds": 3500,
+  "overrides_applied": {
+    "run_clean_scaling.WALL_LIMIT": "1e12 seconds",
+    "run_clean_scaling.OPTIONAL_STOP": "1e12 seconds",
+    "reference_cuda.LIMIT": "1e12 seconds",
+    "scientific recurrence, dimensions, masks, clear schedule and thresholds": "unchanged"
+  },
+  "reused_k_source": {
+    "main21_results": "experiments\\finite_n_clean_mask_scaling_20261006\\results.json",
+    "main25_results": "experiments\\finite_n_r20_r32_scaling_20261006\\results.json",
+    "main21_reference_sha256": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55",
+    "main25_reference_sha256": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55",
+    "same_core_reference": true
+  },
+  "monitor_log": "gpu_telemetry.csv",
+  "end_timestamp_utc": "2026-10-22T05:02:04.881474+00:00",
+  "total_runtime_seconds": 2637.108079000027,
+  "peak_allocated_vram_bytes": 104513024,
+  "peak_reserved_vram_bytes": 188743680,
+  "last_gpu_sample": {
+    "temperature_c": 45.0,
+    "memory_used_mib": 1937,
+    "utilization_percent": 55,
+    "power_w": 86.12,
+    "timestamp_utc": "2026-10-22T05:02:01.583784+00:00"
+  },
+  "safety_stop_reason": null,
+  "telemetry_error": null,
+  "max_temperature_c_sampled": 48.0,
+  "max_memory_used_mib_sampled": 2056,
+  "artifact_sha256": {
+    "continuation_config.json": "6dd1ae5b0d9b3b7b78f8d3b41c369e97cab0aa935472c490f9c1cb10fff846a3",
+    "run_authorized_continuation.py": "0bb070e0da1eadb931672dd3a67882031c2aeb039753ce230933131985020dda",
+    "results.json": "4e3fd060e80d30dd67add7688e02c4414afe1d0890d5a2af792c9cd8126fff8c",
+    "reused_k_comparison.json": "55eb727475b8af77ae546bc2c9f6ae3650c34f5cc4129673a4ce8763b1aa741d",
+    "gpu_telemetry.csv": "cde103e1effa406fb4de2ac5f0704c5c82b65cb8459c448709e92f0182d31bec"
+  }
+}

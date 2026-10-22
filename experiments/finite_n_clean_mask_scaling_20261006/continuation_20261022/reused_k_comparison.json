@@ -1,0 +1,68 @@
+{
+  "experiment": "MAIN-21 clean-mask K scaling",
+  "status": "RECOVERED_FROM_EXISTING_COMPLETED_CASES; NO_RERUN",
+  "source_reference_sha256": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55",
+  "n": 2048,
+  "R": 8,
+  "family": "sum_free",
+  "clear_multiplier": 2.0,
+  "threshold": 0.001,
+  "complete_crosstalk_range": [
+    1.884520303275105e-05,
+    1.884520303898978e-05
+  ],
+  "complete_crosstalk_peak_to_peak": 6.238729693443246e-15,
+  "rows": [
+    {
+      "K": 8,
+      "complete_crosstalk": 1.884520303848675e-05,
+      "protected_crosstalk": 1.884246796492573e-05,
+      "oldest_newest_diagonal_ratio": 4.9904556052924936e-18,
+      "max_absolute_leakage": 2.664379331850411e-13,
+      "source": "../../finite_n_r20_r32_scaling_20261006/results.json#Kscale_n2048_K8_R8_sum_free_c2_age256",
+      "source_sha256": "11e568306133a0313bb112d4f1a4d27a39b03ad059199501b3f3677b0f5b6980",
+      "equal_age_steps_recorded": 256,
+      "endpoint_reuse_note": "The inherited MAIN25 rows recorded additional read-only age-256 checkpoints. The original recurrence only uses equal_age_steps to collect observations; it does not alter state transitions. The endpoint matrix and geometry match MAIN21."
+    },
+    {
+      "K": 16,
+      "complete_crosstalk": 1.884520303275105e-05,
+      "protected_crosstalk": 1.8842467963939328e-05,
+      "oldest_newest_diagonal_ratio": 4.990455605294172e-18,
+      "max_absolute_leakage": 2.6643793314431433e-13,
+      "source": "../../finite_n_r20_r32_scaling_20261006/results.json#Kscale_n2048_K16_R8_sum_free_c2_age256",
+      "source_sha256": "11e568306133a0313bb112d4f1a4d27a39b03ad059199501b3f3677b0f5b6980",
+      "equal_age_steps_recorded": 256,
+      "endpoint_reuse_note": "The inherited MAIN25 rows recorded additional read-only age-256 checkpoints. The original recurrence only uses equal_age_steps to collect observations; it does not alter state transitions. The endpoint matrix and geometry match MAIN21."
+    },
+    {
+      "K": 32,
+      "complete_crosstalk": 1.884520303898978e-05,
+      "protected_crosstalk": 1.884246796443563e-05,
+      "oldest_newest_diagonal_ratio": 4.9904556052904536e-18,
+      "max_absolute_leakage": 2.48848619918456e-13,
+      "source": "../results.json#reproduce_n2048_K32_R8_sum_free_c2",
+      "source_sha256": "5ed2703836a670a72c28d69f2e79080e2747d8a4bef4ee85a7ee0b0374ecfeeb",
+      "equal_age_steps_recorded": null,
+      "endpoint_reuse_note": "Exact MAIN21 completed K=32 endpoint case; reused without rerun."
+    },
+    {
+      "K": 64,
+      "complete_crosstalk": 1.8845203035220452e-05,
+      "protected_crosstalk": 1.884246796433451e-05,
+      "oldest_newest_diagonal_ratio": 4.990455605314201e-18,
+      "max_absolute_leakage": 2.488486199014115e-13,
+      "source": "../../finite_n_r20_r32_scaling_20261006/results.json#Kscale_n2048_K64_R8_sum_free_c2_age256",
+      "source_sha256": "11e568306133a0313bb112d4f1a4d27a39b03ad059199501b3f3677b0f5b6980",
+      "equal_age_steps_recorded": 256,
+      "endpoint_reuse_note": "The inherited MAIN25 rows recorded additional read-only age-256 checkpoints. The original recurrence only uses equal_age_steps to collect observations; it does not alter state transitions. The endpoint matrix and geometry match MAIN21."
+    }
+  ],
+  "provenance": {
+    "main21_results": "experiments\\finite_n_clean_mask_scaling_20261006\\results.json",
+    "main25_results": "experiments\\finite_n_r20_r32_scaling_20261006\\results.json",
+    "main21_reference_sha256": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55",
+    "main25_reference_sha256": "cbb1c10df9e10222938060a02a386f9e2a3f780ded5c8ebd251ed0ce9dc4df55",
+    "same_core_reference": true
+  }
+}

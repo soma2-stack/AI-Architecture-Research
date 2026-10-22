@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "completed_tests": [
+    "authorized_clear_n1024_K16_R8_sum_free_c0.5",
+    "authorized_clear_n1024_K16_R8_sum_free_c1",
+    "authorized_clear_n1024_K16_R8_sum_free_c2",
+    "authorized_clear_n1024_K16_R8_sum_free_c4",
+    "authorized_higher_R_n2048_K32_R20_sum_free_c2",
+    "authorized_higher_R_n2048_K32_R24_sum_free_c2",
+    "authorized_higher_R_n2048_K32_R32_sum_free_c2"
+  ],
+  "failed_tests": [],
+  "skipped_tests": [],
+  "pending_tests": [],
+  "elapsed_runtime_seconds": 2637.648565899988,
+  "peak_allocated_vram_bytes": 104513024,
+  "peak_reserved_vram_bytes": 188743680,
+  "max_temperature_c_sampled": 48.0,
+  "max_memory_used_mib_sampled": 2056,
+  "safety_stop_reason": null
+}
