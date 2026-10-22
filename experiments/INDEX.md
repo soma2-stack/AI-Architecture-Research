@@ -88,3 +88,7 @@ All entries below are **NUMERICAL FINITE-SIZE EVIDENCE ONLY**. They do not prove
 | [R20–R32 scaling checkpoint](finite_n_r20_r32_scaling_20261006/) | **CHECKPOINT / PARTIAL BATTERY.** TEST 1 K scaling and TEST 2 mask-family comparison are complete; TEST 3 R=20/24/32 and later width, matched-age, and higher-R tests were not run. K scaling was flat over tested values; sum-free masks passed through R=16, while alias-prone legacy masks failed at R=8/12/16 around 0.25%. No clean-mask capacity limit was observed in this scope. |
 
 See each folder's `SUMMARY.md`, `results.json`, `run_metadata.json`, and `progress.json` where present for measured values and run provenance. Useful plots and the scripts needed to reproduce the recorded protocol are retained.
+
+## Local archival evidence preserved — 2026-10-21
+
+Historical memory-retrieval triage scripts, raw results, reports and twelve checkpoints are preserved at [the local-evidence archival revision](https://github.com/soma2-stack/AI-Architecture-Research/tree/41f1c80dc87d38f4e5ee9f962ff4ddba40a4d12a/experiments/memory_retrieval_triage_20261020). Local prototype history remains on that preservation branch. This is artifact availability; it adds no independent performance verdict or permission to resume experiments. The [cleanup execution record](../docs/audits/REPOSITORY_CLEANUP_AUDIT.md) accounts for ignored files and embedded GAS-0 workspaces retained outside the working repository.

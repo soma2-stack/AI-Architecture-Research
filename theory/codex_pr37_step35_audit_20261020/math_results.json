@@ -1,0 +1,53 @@
+{
+  "rational_certificate": {
+    "cl_upper": 38962380.071668684,
+    "cb_upper": 807233.4706893703,
+    "sum_count_coeff_upper": 1722067696252046.5,
+    "far_short_upper_over_n": 1.5629431008231832e-59,
+    "response_1_upper": 2.269585039619068,
+    "response_F_upper": 2.3295701908126905,
+    "own_correction_over_tau_upper": 0.000133345632403494,
+    "Kneg_exact_squared_check": "n0/182 > required^2; f(n0)<182 certified by rational HI powers",
+    "Kneg_need": "5357.84587712686605801440590803021096455935346184795157961025784557254312003638526396809292",
+    "sqrt_n_over_Fenv": "7419.18052628308525450405010059284616824096330474537056115490858709607203478425371645051174"
+  },
+  "ceiling_monotonicity_counterexample": {
+    "n_left": 11785591396,
+    "Fs_left": 182,
+    "n_right": 11785591400,
+    "Fs_right": 183,
+    "ratio_left": 64755996.68131868,
+    "ratio_right": 64402138.797814205
+  },
+  "response_and_own_bounds": {
+    "one_step": "2.26958462638160888712788698716214553710992947907553991559267881821754306834760006317339481",
+    "F_step": "2.32956977757523093085067620707811776034964324326630485821378683822117262266916861077728506",
+    "2.33_over_HI": "2.47868424946543361478855231303411289461824189258494761842776838149385546740413904900780456",
+    "own_correction_over_tau": "0.000133344353431873537442766631363741399223231199442363869479431358429583094594868659005645809"
+  },
+  "matrix_residuals": {
+    "R1": 4.8627768478581856e-14,
+    "D": 1.7763568394002505e-14,
+    "row_recursion": 4.973799150320701e-14
+  },
+  "legal_S_vs_Sprime_counterexample": {
+    "n": 100000000,
+    "m": 2,
+    "T": 3,
+    "mT": 6,
+    "S_j_both_histories": "0 exactly",
+    "source_creation_readout_difference": "0.00000520023165147574336422727790508074305602003846917914799783478511899534545670879688397461899",
+    "response": "-0.919149760425252960144153257302768235744452127410568115647300189875956830009109337275806865",
+    "max_input": "0.252725487873702074601119921416074820840876047288215468198797303222243294542644078215133446",
+    "common_endpoint": "exact by balanced reset; source gates differ only at t=2"
+  },
+  "D3_initial_content_counterexample": {
+    "mu": "1/100000000",
+    "a": "99999999/100000000",
+    "sigma_initial": "10",
+    "steps": 10,
+    "source_peak": 0,
+    "claimed_acquired_nonzero": -9.999998550000101e-07,
+    "scope": "scalar homogeneous pure-leak component with nonzero initial content; not a new legal robust section"
+  }
+}

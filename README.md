@@ -50,3 +50,5 @@ Owner disposition and independent review are separate axes. ACCEPTED records own
 
 
 Older handoffs, protocols, audits, preservation manifests, and historical maps are grouped under [`docs/`](docs/README.md) so the repository root stays focused on the files needed for current work.
+
+Repository maintenance, branch/PR dispositions and local preservation: [cleanup execution record](docs/audits/REPOSITORY_CLEANUP_AUDIT.md). Scientific status remains governed by the claim register.

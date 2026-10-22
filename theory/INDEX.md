@@ -10,6 +10,37 @@ Public PR34/35 audit provenance: [evidence map](../docs/CLAIM_REGISTER.md#preser
 Route7A/private-survivor disposition: [record](../docs/CLAIM_REGISTER.md#route-7a-and-private-survivors).
 Consistent status meanings: [definitions](../docs/CLAIM_REGISTER.md#status-meanings).
 
+## Preserved audit artifacts — 2026-10-21
+
+The folders below are copied from their exact published Git objects, including frozen
+supporting code/results. **PRESERVED is availability, not an upgraded scientific
+verdict.** Original report scopes and the claim register control claim status; no
+checker or proof audit was rerun. Original layout-dependent links in frozen reports
+resolve through the SHA-pinned `immutableAuditLinkResolution` map; audit bytes remain
+unchanged. Per-file hashes and source revisions are in the
+[cleanup inventory](../docs/audits/REPOSITORY_CLEANUP_DATA.json).
+
+| Audit folder | Exact source revision |
+|---|---|
+| [codex_pr24_hostile_review_20261013](codex_pr24_hostile_review_20261013/) | [`50bb5ffabf33b28099238acb6440cb1a349079e3`](https://github.com/soma2-stack/AI-Architecture-Research/tree/50bb5ffabf33b28099238acb6440cb1a349079e3/theory/codex_pr24_hostile_review_20261013) |
+| [gemini_pr26_neutral_hole_audit_20261013](gemini_pr26_neutral_hole_audit_20261013/) | [`2f3a3d248e02306408195312f3ca258ac8b357e8`](https://github.com/soma2-stack/AI-Architecture-Research/tree/2f3a3d248e02306408195312f3ca258ac8b357e8/theory/gemini_pr26_neutral_hole_audit_20261013) |
+| [codex_pr27_repair_verification_20261015](codex_pr27_repair_verification_20261015/) | [`c9874081461139373a276efeb47394d50781c0e3`](https://github.com/soma2-stack/AI-Architecture-Research/tree/c9874081461139373a276efeb47394d50781c0e3/theory/codex_pr27_repair_verification_20261015) |
+| [codex_pr28_repair_verification_20261014](codex_pr28_repair_verification_20261014/) | [`0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88`](https://github.com/soma2-stack/AI-Architecture-Research/tree/0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88/theory/codex_pr28_repair_verification_20261014) |
+| [codex_cross_pr_final_audit_20261015](codex_cross_pr_final_audit_20261015/) | [`0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88`](https://github.com/soma2-stack/AI-Architecture-Research/tree/0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88/theory/codex_cross_pr_final_audit_20261015) |
+| [codex_pr29_independent_audit_20261015](codex_pr29_independent_audit_20261015/) | [`f05694454956edab849ebe7d1858131eaca4174c`](https://github.com/soma2-stack/AI-Architecture-Research/tree/f05694454956edab849ebe7d1858131eaca4174c/theory/codex_pr29_independent_audit_20261015) |
+| [codex_pr29_dense_transfer_audit_20261015](codex_pr29_dense_transfer_audit_20261015/) | [`f05694454956edab849ebe7d1858131eaca4174c`](https://github.com/soma2-stack/AI-Architecture-Research/tree/f05694454956edab849ebe7d1858131eaca4174c/theory/codex_pr29_dense_transfer_audit_20261015) |
+| [codex_pr31_repair_audit_20261016](codex_pr31_repair_audit_20261016/) | [`35cdb7a4f3c7f3ae1df7ed1941547428a9b774ab`](https://github.com/soma2-stack/AI-Architecture-Research/tree/35cdb7a4f3c7f3ae1df7ed1941547428a9b774ab/theory/codex_pr31_repair_audit_20261016) |
+| [codex_pr33_independent_audit_20261019](codex_pr33_independent_audit_20261019/) | [`d620d015057c4026a1c2c31c3828df570bc9fb3b`](https://github.com/soma2-stack/AI-Architecture-Research/tree/d620d015057c4026a1c2c31c3828df570bc9fb3b/theory/codex_pr33_independent_audit_20261019) |
+| [codex_pr34_independent_audit_20261019](codex_pr34_independent_audit_20261019/) | [`d620d015057c4026a1c2c31c3828df570bc9fb3b`](https://github.com/soma2-stack/AI-Architecture-Research/tree/d620d015057c4026a1c2c31c3828df570bc9fb3b/theory/codex_pr34_independent_audit_20261019) |
+| [codex_pr34_fresh_audit_20261020](codex_pr34_fresh_audit_20261020/) | [`d620d015057c4026a1c2c31c3828df570bc9fb3b`](https://github.com/soma2-stack/AI-Architecture-Research/tree/d620d015057c4026a1c2c31c3828df570bc9fb3b/theory/codex_pr34_fresh_audit_20261020) |
+| [codex_pr35_independent_audit_20261020](codex_pr35_independent_audit_20261020/) | [`61163c58bf835c52874025272c8fa1f155bce974`](https://github.com/soma2-stack/AI-Architecture-Research/tree/61163c58bf835c52874025272c8fa1f155bce974/theory/codex_pr35_independent_audit_20261020) |
+| [codex_pr37_independent_audit_20261020](codex_pr37_independent_audit_20261020/) | [`f7931ad3b0237e295571dfb48860a1338f8a2fa9`](https://github.com/soma2-stack/AI-Architecture-Research/tree/f7931ad3b0237e295571dfb48860a1338f8a2fa9/theory/codex_pr37_independent_audit_20261020) |
+| [codex_pr37_step35_audit_20261020](codex_pr37_step35_audit_20261020/) | [`f7931ad3b0237e295571dfb48860a1338f8a2fa9`](https://github.com/soma2-stack/AI-Architecture-Research/tree/f7931ad3b0237e295571dfb48860a1338f8a2fa9/theory/codex_pr37_step35_audit_20261020) |
+| [codex_pr37_step36_audit_20261020](codex_pr37_step36_audit_20261020/) | [`f7931ad3b0237e295571dfb48860a1338f8a2fa9`](https://github.com/soma2-stack/AI-Architecture-Research/tree/f7931ad3b0237e295571dfb48860a1338f8a2fa9/theory/codex_pr37_step36_audit_20261020) |
+| [codex_pr37_step37_audit_20261021](codex_pr37_step37_audit_20261021/) | [`f7931ad3b0237e295571dfb48860a1338f8a2fa9`](https://github.com/soma2-stack/AI-Architecture-Research/tree/f7931ad3b0237e295571dfb48860a1338f8a2fa9/theory/codex_pr37_step37_audit_20261021) |
+| [gemini_route7a_autonomous_survivor_audit_20261008](gemini_route7a_autonomous_survivor_audit_20261008/) | [`075c5ffdb0c08a37245260c55df401654761bc96`](https://github.com/soma2-stack/AI-Architecture-Research/tree/075c5ffdb0c08a37245260c55df401654761bc96/theory/gemini_route7a_autonomous_survivor_audit_20261008) |
+
+
 ## Historical folder inventory
 
 The October6-era inventory below is retained with targeted Route7A/private-survivor
