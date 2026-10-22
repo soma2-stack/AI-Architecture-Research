@@ -198,13 +198,51 @@ These are mathematical/numerical checks, not neural-memory training. They are co
 
 AMS v2–v8, the settled PR23 tasks, AMS v9 scope design, PR26 budget failure, Hypothesis B refutation, PR33 certificate failure, PR36 negative surrogate, historical finite-dimensional certificates, Route7A line, and private-survivor comparison are closed/retired from automatic reruns. Their status is not changed by archival. See the [claim register](../docs/CLAIM_REGISTER.md) for scientific scope and freeze rules. The October 21 audit inventory includes CSL, CFWM, EFD, PRB, and additional historic experiment folders; their artifacts remain searchable under [experiments](./) and are not all independently re-audited here.
 
+## REMAINING RESEARCH QUESTIONS — OWNER APPROVAL REQUIRED
+
+These dispositions close or hold the recorded protocols; they do not claim that an unrun stage was completed. A disposition is separate from the execution status and scientific outcome in each inventory row. For every row marked COMPLETED, the administrative disposition is **CLOSED — SUCCESS**, **CLOSED — FAILED**, or **CLOSED — INCONCLUSIVE** according to its stated scoped outcome; mixed, family-level, and outcome-unspecified finite studies are **CLOSED — INCONCLUSIVE** for any broader claim. Their reports remain the evidence of what did and did not succeed.
+
+### 1. Already answered — no further work
+
+The completed PR23, EFD, PRB, AMS, main-tree, preserved memory, PR34/PR35, PR36/PR37, and Route 7A/private-survivor records above are administratively closed with the outcome shown in their rows. This includes scoped successes as well as failures and inconclusive results; closure does not promote a result beyond its stated task, seed set, finite range, or audited commit. Do not rerun an unchanged protocol to obtain a more favorable outcome. In particular, Exp009/014/015/016 answer only their recorded finite-task, checkpoint, or equivalence questions; PR36's 123-run surrogate is negative for its tested task; and PR37's audit does not support another C5 run.
+
+### 2. Unfinished but not worth continuing
+
+| Record | Disposition and reason |
+|---|---|
+| PR23 Exp010 four-slot screen | **CLOSED — SUPERSEDED.** Its single incomplete run does not change the screen's near-zero protected result or justify another unchanged comparison; later PR23 work already tested longer training and controls. |
+| AMS v4, initial v5, and v9 numeric stages | **CLOSED — WITHDRAWN.** v4 failed representability, initial v5 was invalidated by generator defects, and v9 stopped at its scope gate with zero programs generated. Do not treat absent stages as negative measurements or resume the same search. |
+| MAIN-20 feature-revision downstream phases; MAIN-31 OMD-PILOT-1 Phases B/C | **CLOSED — WITHDRAWN.** Their Phase A criteria failed; downstream impact was not tested and is not needed to interpret that gate failure. |
+| MAIN-21 higher-R clean-mask sweep; MAIN-25 TEST3 at R20/24/32; clean-mask clear sweep | **CLOSED — WITHDRAWN.** The recorded finite results through R16 remain; these later sweeps were not run and no current claim depends on completing them. |
+| MAIN-29 GAS-0 Phase 2 | **CLOSED — WITHDRAWN.** It was not authorized in the original audit scope. |
+| PRB-Z4c Latin-square probes | **CLOSED — WITHDRAWN.** The script is present but there is no run; no existing decision requires it. |
+| Exact online credit Stage C | **CLOSED — WITHDRAWN.** B/B2 remained inconclusive and B2 explicitly says not to proceed to C. |
+| Corrected chronological Route 7A replay | **CLOSED — WITHDRAWN as an experiment.** The replay has execution evidence but still lacks independent review. Preserve that review gap; do not rerun the replay or treat its result as independently verified. |
+| PR36 3,000-update rerun and PR37 repeat C5 | **CLOSED — WITHDRAWN.** Both were proposals, not executed runs; the former follows a negative 123-run surrogate, and the latter is NO-GO under the existing audit. |
+| Preserved memory campaign, including address-temperature warmup | **CLOSED — INCONCLUSIVE for general architecture claims.** The warmup met its pooled mean criterion but had only 2/3 candidate seeds at 96/96 and familiar synthetic token identities. The prior bounded decision explicitly stopped further address-allocation investigation; do not reopen it as a follow-up. |
+
+### 3. Unfinished and potentially worth investigating
+
+**None of the recorded experiment protocols currently meets the evidence bar for further scientific work.** The original growing-dimensional learning-credit target remains OPEN, but it is a research question, not an experiment assignment. Before proposing a test, a candidate mechanism must first have a precise claim, survive the project's novelty and decomposition screens, and identify a falsifiable property that existing PR23–PR37 evidence does not already test. This section grants no authorization; any future experiment requires the owner's explicit approval.
+
+### 4. Missing evidence that cannot currently be recovered
+
+| Record | Disposition and gap |
+|---|---|
+| PRB-Z4 seeds 1–3 | **BLOCKED — MISSING EVIDENCE.** The raw records are not in the repository or available inventory. The existing n=7 files support only the recorded partial result. Do not infer the absent seeds or silently replace them with a new run. |
+| MAIN-43 CSL bundle | **CLOSED — INCONCLUSIVE at family level.** Scripts, individual outputs, and logs exist, but there is no unified registration/criterion-to-run map. This is a missing consolidated verdict, not evidence that execution never happened; preserve the artifacts and do not repeat runs until their identity can be mapped. |
+
+### 5. New experiment proposals supported by previous results
+
+**No new experiment is currently justified by this inventory.** The strongest positive memory signal (address-temperature warmup) is bounded and its follow-up line was explicitly closed after the final test. The PR35-inspired surrogate failed its matched campaign, and the PR37 C5 repeat was judged NO-GO. A proposal to test a genuinely new mechanism may be reconsidered only after it passes the conceptual/prior-art gates above and states a new, measurable outcome; it must name matched recurrent baselines, a mechanism-removal control, held-out data, seeds, compute budget, and predeclared success/failure thresholds. This is a design standard, not a queued experiment.
+
 ## What is learned and what merits future work
 
 Positive scoped results include PR23 Exp009's 5/5 finite-task training result, the PR23 Exp014/015 checkpoint-localization and continuation findings, Exp016's equivalence check, finite clean-mask/capture certificates through their stated sizes, PR34/35/37 mathematical findings at their audited revisions, and the memory address-warmup result. These findings do not establish the original target or a generally superior architecture.
 
 The strongest negative results are the protected-cell equivalence in Exp016, unstable four-slot recall despite longer training, failures of the tested AMS grammars, the PR36 negative surrogate, the invalid original Route7A replay, failure of PR33's all-n certificate, and repeated mismatches between finite/operator evidence and the required peak-width×horizon/full-gradient target. Preserve them; do not repeat unchanged experiments.
 
-**No currently documented experiment is recommended for automatic execution.** Under the active freeze, the next experimental candidate must wait for explicit owner authorization and a distinct falsifiable claim that survives the claim-register/repetition screen. The warmup result is the best current bounded memory signal, but its reused synthetic test set and seed101 regression make further benchmark optimization unjustified without a new protocol and untouched test distribution. The general D=Ω(n), mT=o(n^(3/2)) target remains OPEN.
+**No currently documented experiment is recommended for execution.** The next step toward the original goal is conceptual candidate work under the project's novelty gates, followed by a separately owner-authorized experiment only if a distinct falsifiable question survives. The general D=Ω(n), mT=o(n^(3/2)) target remains OPEN; it has not been assigned as an automatic task.
 
 ## Navigation and protocol for future authorized runs
 
