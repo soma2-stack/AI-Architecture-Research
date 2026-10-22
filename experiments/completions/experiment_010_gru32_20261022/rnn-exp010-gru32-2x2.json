@@ -1,0 +1,229 @@
+{
+  "status": "complete",
+  "config": {
+    "variants": [
+      "gru32"
+    ],
+    "tasks": [
+      [
+        2,
+        2
+      ]
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "delay": 64,
+    "eval_delays": [
+      64,
+      256
+    ],
+    "steps": 800,
+    "batch": 12,
+    "eval_batch": 128,
+    "eval_every": 200,
+    "lr": 0.002,
+    "clip": 1.0,
+    "max_wall_seconds": 1050.0
+  },
+  "environment": {
+    "torch": "2.14.1+cpu",
+    "cpu_threads": 1,
+    "python": "3.12.15",
+    "cuda_available": false,
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "scope": "synthetic supervised scaling pilot. Delta-rule has grammar-aware inductive bias; oracle is reference rule, not trained model. NOT formal theorem evidence.",
+  "runs": [
+    {
+      "variant": "gru32",
+      "slots": 2,
+      "values": 2,
+      "seed": 17,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 13888,
+      "elapsed_s": 38.832,
+      "loss_first": 0.8276004195213318,
+      "loss_last": 0.001942096627317369,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.453125,
+          "loss": 0.42994776368141174
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.06974085420370102
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.003572676097974181
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.001942096627317369
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 65,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.4921875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru32",
+      "slots": 2,
+      "values": 2,
+      "seed": 29,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 13888,
+      "elapsed_s": 38.413,
+      "loss_first": 0.677141010761261,
+      "loss_last": 0.002667304128408432,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0422535203397274,
+          "whole": 0.421875,
+          "loss": 0.527761697769165
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.12071004509925842
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.004765891935676336
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.002667304128408432
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 74,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.421875,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 63,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5078125,
+          "histories": 128
+        }
+      }
+    },
+    {
+      "variant": "gru32",
+      "slots": 2,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 13888,
+      "elapsed_s": 37.955,
+      "loss_first": 1.640090823173523,
+      "loss_last": 0.4499029219150543,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 0.0,
+          "whole": 0.3203125,
+          "loss": 0.7095043659210205
+        },
+        {
+          "step": 400,
+          "whole_varied": 0.032258063554763794,
+          "whole": 0.53125,
+          "loss": 0.559593677520752
+        },
+        {
+          "step": 600,
+          "whole_varied": 0.0,
+          "whole": 0.515625,
+          "loss": 0.5519694685935974
+        },
+        {
+          "step": 800,
+          "whole_varied": 0.0,
+          "whole": 0.515625,
+          "loss": 0.4499029219150543
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 0.75,
+          "whole": 0.5,
+          "whole_varied": 0.0,
+          "varied_count": 64,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 0.765625,
+          "whole": 0.53125,
+          "whole_varied": 0.016393441706895828,
+          "varied_count": 61,
+          "whole_guess_chance": 0.25,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.5234375,
+          "histories": 128
+        }
+      }
+    }
+  ],
+  "skipped": [],
+  "elapsed_seconds": 117.283
+}
