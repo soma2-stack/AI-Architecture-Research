@@ -1,0 +1,17 @@
+{
+ "L: |aJ+.05| <= ": "0.07624452",
+ "L: tanh^(17)(1)": "0.28179355",
+ "L: first spike input <= ": "0.38303807",
+ "L: pulse first step <= ": "0.456244",
+ "L: reset after pulse <= ": "0.438951",
+ "L: later pulse steps <= ": "0.093537",
+ "L: park <= ": "0.1009",
+ "P: v_max^2 = tanh(.38)^2": "0.13155670",
+ "P: Pi(1)": "0.62744511",
+ "P: Pi(z)/z lower bound on [0, .1]": "0.67462455",
+ "P: pi0 = min Pi(z)/z (certified lower bound)": "0.62728330",
+ "P: c_s = 1/(7(1-xmax)^6)": "0.33300685",
+ "F: front deviation mass per step <= ": "39.7222862",
+ "R: cR": "0.00049885",
+ "R: H > h n^(3/4) + 14 with h = ": "38.07303"
+}

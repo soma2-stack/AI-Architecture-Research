@@ -1,3 +1,199 @@
+# Repository engineering cleanup — 2026-10-21
+
+**Current record: PARTIALLY CLEANED, final owner decision pending.** This is an execution
+record, not another scientific audit. [Machine-readable inventory and hashes](REPOSITORY_CLEANUP_DATA.json)
+are under `current_cleanup_20261021`; older JSON fields and the October 4 report below
+remain historical snapshots. The [claim register](../CLAIM_REGISTER.md) remains the
+scientific authority. The research freeze and original OPEN target are unchanged.
+
+## Completed engineering
+
+- Refreshed GitHub main at `b56a8ae486826928f2b45ace7e866bdfa03c4e07` (PR38 merged); inspected all 24 remote branches and 15 open PRs individually.
+- Inventoried all 371 Git references across three repositories, 83 distinct tracked trees, 6,192 paths and 6,460 path/blob versions; also 22 embedded GAS-0 replay repositories. No historical checker was run.
+- Preserved 94,583 physical files (17,557,327,934 logical bytes) in 13,733 hash-verified content blobs (5,674,878,774 bytes), plus 25 verified portable Git bundles. No source-copy errors or missing roots. Five audit/checkpoint samples were restored and hash verified.
+- Backup: `E:\AI-Architecture-Research-preservation\cleanup-20261021`. Manifest SHA-256 `484ea076bcbfbcdd056d96298861d9bd4ad4def3a4d23c01c161503a233cd915`. `preserve_repository.py restore --root <original-root> --destination <new-empty-root>` restores file bytes; use `git bundle clone` for portable history and `git worktree repair` for relocated linked checkouts. Backup includes raw Git metadata, reflogs, ignored checkpoints, environments and embedded workspaces.
+- Renamed divergent local main to `preserve/local-main-20261021`, published all its history and 448 local-only files plus 12 checkpoints at [`41f1c80dc87d38f4e5ee9f962ff4ddba40a4d12a`](https://github.com/soma2-stack/AI-Architecture-Research/commit/41f1c80dc87d38f4e5ee9f962ff4ddba40a4d12a). It retains all 107 commits absent main, including 13 absent every previous remote branch. No scientific history was merged into main.
+- Created a clean local main at GitHub main, imported the other two repositories' refs into recovery namespaces, and archived nine stale local branch names transactionally. Three working branch names remain: main, this review branch and the local-evidence preservation branch.
+- Archived 40 ignored/generated entries (including an embedded workspace), removed 22 verified empty directories, and left the canonical E: checkout clean. No unique raw file was discarded.
+- Relocated seven inactive checkouts into the external archive, repaired Git links, detached and locked linked archives. Six E: audit checkouts are locked **in place** because NTFS lacks Delete permission. The owner-attached Desktop clone is retained pending its final retirement decision.
+- Copied 17 existing independent audit folders / 573 files verbatim from pinned Git objects, including PR24/26/27/28/29/31/33/34/35/37 and the Route7A conditional audit. Frozen sources, checkers and raw artifacts are preserved as evidence; copying conveys no new proof verdict.
+- Added raw-byte .gitattributes protection for all 17 copied audit folders; 54 artifacts contain CRLF that must not be normalized.
+- Moved three historical root documents to docs/history, repaired six relative file links in the Codex archival notebook without changing prose, and repaired the missing Gemini audit target by preserving the original folder.
+- Corrected stale PR descriptions #23, #27, #28, #29 and #30 using existing evidence. PR34–37 heads and scientific contents were not changed.
+
+## File, duplicate and large-artifact decisions
+
+GitHub baseline: **5,065 files, 774,121,553 bytes**, including 3,879 experiment files
+and 1,149 theory files. All original paths/objects are recorded in the JSON. Every
+baseline file remains at the same path or one of the three recorded history renames;
+only navigation/maintenance data and six notebook link targets are edited.
+
+The review tree adds 573 original audit artifacts; this is preservation, not evidence
+of new research. Root documents fall from eight to five. The baseline has no tracked
+Python caches, virtual environments, OS junk or temporary `.pyc/.tmp/.bak` files.
+
+**All 136 exact-duplicate groups / 254 extra copies / 29,055,108 bytes are retained
+with explicit reasons in the JSON.** Largest groups are invalid-run records, frozen
+inputs and independent review copies. Equal bytes do not erase those roles. Distinct
+named parameter outputs are not silently coalesced. Large `.npz`, zipped matrices and
+checkpoint archives remain at their historical paths; no Git/LFS history rewrite or
+external artifact migration is authorized. The ignored Desktop environment is captured
+in the verified local backup and included in the retirement approval scope.
+
+`.github/CODEOWNERS`, `.devcontainer/devcontainer.json`, AGENTS.md, primary scientific
+sources and all original proof/result binaries remain unchanged. Local prototypes and
+memory-triage records are preserved on the archival branch; they are not promoted to
+verified architecture results. Directory and file-purpose labels are engineering
+inventory, not a re-audit of every historical proof.
+
+## Immutable audit-source link context
+
+The 167 layout-dependent relative references inside preserved audits/source snapshots are
+kept verbatim. The JSON field `immutableAuditLinkResolution` maps each to a verified
+SHA-pinned GitHub target in its original repository layout, or explicitly labels a
+later archival target. This supplies navigation without editing original audits or
+importing their primary unmerged scientific sources. It does not extend any verdict
+to a later revision. Active repository links are checked separately.
+
+## Every remote branch
+
+Ahead means commits absent pinned main, not exclusive scientific contribution.
+Stack dependencies, exclusive counts, exact source paths and current versus historical
+PR base SHAs are in the JSON. ARCHIVE is a disposition, not proof refutation.
+
+| Branch | Inspected head | Disposition | Ahead main | Evidence / limit |
+|---|---|---|---:|---|
+| astra/private-survivor-independent-20261008 | `6297b112bcd7f0bea312a98cc81ecd956127825b` | ARCHIVE | 2 | No open PR. PARTIAL/INCONCLUSIVE comparison; fixed-gap echo conditional author theorem PENDING; weak echo OPEN. Cited main register Route7A table. Preserve 26 branch-added files, no rerun. |
+| claude/dense-transfer-20261020 | `61163c58bf835c52874025272c8fa1f155bce974` | KEEP | 10 | KEEP draft, partly independently verified with later-source limitation; no merge |
+| claude/gallant-bardeen-ybxn57 | `d8ed873a28ed952161a461917a45a812d6253d2b` | ARCHIVE | 1 | No open PR. Unique d8ed873 multi-donor joint-section author derivations; REPORT explicitly requires independent review, no exponent below3/4 proved, conditional H_TM unclosed. Preserve 4 scientific files plus index historical delta; do not upgrade author PROVED. |
+| claude/hypothesis-b-bus-20261015 | `f05694454956edab849ebe7d1858131eaca4174c` | CONSOLIDATE | 5 | PROPOSE CLOSE after verified refutation and original audit artifacts are archived |
+| claude/lemma-m-bus-capacity-20261015 | `35cdb7a4f3c7f3ae1df7ed1941547428a9b774ab` | CONSOLIDATE | 2 | KEEP stack anchor until later-stack archival resolution; no direct merge |
+| claude/lemma-m-rest-20261016 | `cef12b3eb6e5a8e6dbc75904253222b57eda188c` | ARCHIVE | 3 | KEEP stack anchor until dependent PRs archived; no direct merge |
+| claude/lemma-m-sequential-repair-20261020 | `d620d015057c4026a1c2c31c3828df570bc9fb3b` | KEEP | 8 | KEEP draft; preserve exact audits; no scientific merge authorized |
+| claude/lemma-m-three-memory-20261019 | `d6801c2bb1b311b3d132312535b87c86064d2eb9` | ARCHIVE | 4 | KEEP stack anchor until PR34–35/37 resolution; later PROPOSE CLOSE as superseded/refuted |
+| claude/multiprobe-memory-20261014 | `0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88` | ARCHIVE | 6 | PROPOSE CLOSE as retired conditional route, preserving audited foundations |
+| claude/narrow-capture-hub-20261013 | `c9874081461139373a276efeb47394d50781c0e3` | CONSOLIDATE | 13 | PROPOSE CLOSE after scoped result and audits archived |
+| claude/neutral-path-tax-20261013 | `e13311b1d4d6d7ea227f7c9caa1931636cb55502` | ARCHIVE | 1 | PROPOSE CLOSE as wrong-budget route after source+negative audit preserved |
+| claude/remaining-channels-20261020 | `f7931ad3b0237e295571dfb48860a1338f8a2fa9` | KEEP | 15 | KEEP draft as audited PARTIAL/OPEN archive; repeatC5 withdrawn; no scientific merge |
+| claude/shift-holonomy-audit-20261013 | `d899895aab81b36a3128a375ae2238b08f73f4af` | CONSOLIDATE | 2 | PROPOSE CLOSE after coordinated QSR+independent-review archival consolidation |
+| codex/claim-register-20261021 | `1433bee0a518923600f8cf94d4eeea5224e65f7d` | ARCHIVE | 0 | PR38 merged asb56a8ae; branch tree identical main and0ahead. Redundant branch eligible owner-approved eventual deletion, retain exact commit reference. |
+| codex/pr24-independent-hostile-review | `50bb5ffabf33b28099238acb6440cb1a349079e3` | CONSOLIDATE | 1 | PROPOSE CLOSE after byte-preserving review-folder consolidation alongside PR24 |
+| codex/pr35-trainable-balanced-memory-20261020 | `bbc16f6224e254dc6a326ff1e283cf792b25e990` | ARCHIVE | 62 | PROPOSE CLOSE after full negative evidence/checkpoint provenance indexed; no rerun |
+| codex/route7a-long-window-20261008 | `075c5ffdb0c08a37245260c55df401654761bc96` | CONSOLIDATE | 1 | 6 branch-added audit files. Existing Gemini audit at075c5ff verifies conditional donor code/combinedD=o(n) only with imported premises,fixedb=.05,W>=88006,n>=exp(exp(4.8e6)); finite<=1e6,W<=64 not applicable/refuted. Preserve audit verbatim; no simulation. |
+| docs/claude-research-handoff-20261015 | `afb6f3c5d09f0ffbaba23aca1dfa2db4fb73b347` | ARCHIVE | 1 | PROPOSE CLOSE as superseded navigation after SHA indexed |
+| gemini/astra-route7a-feedback-audit-20261008 | `1fa6b00018f7dceb72b689c4ebdbe3928ba717f9` | ARCHIVE | 0 | Already ancestor of main;0ahead. Scoped conditional feedback audit remains in main, not a universal result. Eligible redundant branch retirement after preserving reference. |
+| gemini/pr26-neutral-hole-audit-20261013 | `2f3a3d248e02306408195312f3ca258ac8b357e8` | CONSOLIDATE | 2 | Contains PR26 plus2 independent audit files REVIEW.md,indep_sim.py. Independently rejects required peak-width budget. Additive byte-preserving audit consolidation safe; no author-branch merge. |
+| main | `b56a8ae486826928f2b45ace7e866bdfa03c4e07` | KEEP | 0 | Canonical GitHub authority atb56a8ae; PR38 merged. Do not blindly add107 local-main commits. |
+| preserve/all-research-20261004 | `d1767d0a62dba90b03fd21e512b3db0c4efcd133` | ARCHIVE | 0 | Already ancestor of main;0ahead. Historical preservation provenance intact, no automatic merge/deletion. |
+| preserve/local-theory-20261004 | `74232f2d1d386db45ccd5712fc684da0d82d6733` | ARCHIVE | 0 | Already ancestor of main;0ahead. Historical local-theory evidence preservation intact, no automatic merge/deletion. |
+| prototype/rnn-llm-architecture-v0-20261007 | `192df629e060def0983c4e85f70c4dd01b15b6a0` | ARCHIVE | 57 | PROPOSE CLOSE after preserved source and negative records are indexed |
+
+New archival branch `preserve/local-main-20261021` retains unique local work without
+scientific acceptance; `codex/repository-cleanup-20261021` carries this engineering
+review. Neither authorizes research. No remote branch has been deleted.
+
+## Every open scientific PR
+
+No scientific PR has been merged or closed by this pass. Independent review scope
+is narrower than branch contents; stacked heads do not automatically contain newer
+lower-PR audit-preservation commits. This is why audits are preserved independently.
+
+| PR | Disposition | Contribution | Existing review scope | Proposed owner resolution |
+|---|---|---|---|---|
+| [#23](https://github.com/soma2-stack/AI-Architecture-Research/pull/23) | ARCHIVE | Finite protected-cell copy-task successes and later memory/equivalence investigations; reusable GRU/LSTM harness. | C01 VERIFIED finite task; C02 REFUTED novelty; October21 audits. Initially inspected body had obsolete 127-tests/untrained wording; corrected during this cleanup. | PROPOSE CLOSE after preserved source and negative records are indexed |
+| [#24](https://github.com/soma2-stack/AI-Architecture-Research/pull/24) | CONSOLIDATE | Repaired modified quadratic-shift recurrence result, separate from original dense-tanh contract. | C03 REFUTED transfer to original target; C04 VERIFIED scoped QSR through PR25 review including n/1004 correction. | PROPOSE CLOSE after coordinated QSR+independent-review archival consolidation |
+| [#25](https://github.com/soma2-stack/AI-Architecture-Research/pull/25) | CONSOLIDATE | Independent hostile QSR review, rational identities and rounding counterexample. | C04 VERIFIED within scoped modified QSR model, original target OPEN. | PROPOSE CLOSE after byte-preserving review-folder consolidation alongside PR24 |
+| [#26](https://github.com/soma2-stack/AI-Architecture-Research/pull/26) | ARCHIVE | Neutral-hole Householder broadcast candidate and finite numerical checks. | C05 REFUTED peak-width budget: m about n/2,T about n/4 => mT about n²/8, not summed support. | PROPOSE CLOSE as wrong-budget route after source+negative audit preserved |
+| [#27](https://github.com/soma2-stack/AI-Architecture-Research/pull/27) | CONSOLIDATE | Fixed-K selected-subspace/public-schedule resource inequality. | C06 VERIFIED within listed assumptions; final PR27 repair audit plus cross-PR audit on PR28; no full-gradient barrier. | PROPOSE CLOSE after scoped result and audits archived |
+| [#28](https://github.com/soma2-stack/AI-Architecture-Research/pull/28) | ARCHIVE | Multi-probe ingredients and conditional Theorem4. | C07 PARTIAL: Theorem4 implication survives but original B is refuted by PR29; no unconditional barrier. | PROPOSE CLOSE as retired conditional route, preserving audited foundations |
+| [#29](https://github.com/soma2-stack/AI-Architecture-Research/pull/29) | CONSOLIDATE | R0 and prescribed-dense counterexamples to original Hypothesis B; scoped structure. | C08 REFUTED original B with independent R0+dense audits; C09 extended full-group Proposition0.2 OPEN. | PROPOSE CLOSE after verified refutation and original audit artifacts are archived |
+| [#30](https://github.com/soma2-stack/AI-Architecture-Research/pull/30) | ARCHIVE | Root handoff/documentation only. | C10 REFUTED independent-result interpretation; main claim register supersedes status. Initially inspected body incorrectly said dense audits were not committed; corrected during this cleanup. | PROPOSE CLOSE as superseded navigation after SHA indexed |
+| [#31](https://github.com/soma2-stack/AI-Architecture-Research/pull/31) | CONSOLIDATE | First-order gather/two-channel listing; incomplete higher-order scope. | C11 VERIFIED within scope via October21 evidence and PR37 audit history; M_rest open. | KEEP stack anchor until later-stack archival resolution; no direct merge |
+| [#32](https://github.com/soma2-stack/AI-Architecture-Research/pull/32) | ARCHIVE | Two-stream bus structure/contraction and partial operator reduction. | C12 PARTIAL; full M_rest not closed. | KEEP stack anchor until dependent PRs archived; no direct merge |
+| [#33](https://github.com/soma2-stack/AI-Architecture-Research/pull/33) | ARCHIVE | Three-memory probe plus original sequential quarter-root construction. | C13 REFUTED universal second-order certificate at extreme n; later PR34 repair separately scoped. | KEEP stack anchor until PR34–35/37 resolution; later PROPOSE CLOSE as superseded/refuted |
+| [#34](https://github.com/soma2-stack/AI-Architecture-Research/pull/34) | KEEP | Repaired R0 quarter-root theorem plus two original independently preserved audit records. | C14 VERIFIED at39af3a97; C15 narrow final f515e48 PASS for Lemma5.0R/Prop5.4 via separate comparison; C31 audit availability verified. | KEEP draft; preserve exact audits; no scientific merge authorized |
+| [#35](https://github.com/soma2-stack/AI-Architecture-Research/pull/35) | KEEP | Prescribed-dense cube-root exact-real construction and original audit provenance. | C16 VERIFIED atb984ef9 only; aa47ca5 auxiliary corrections PENDING exact-revision review; C16a different certificate scopes; C17 practical interpretation REFUTED. | KEEP draft, partly independently verified with later-source limitation; no merge |
+| [#36](https://github.com/soma2-stack/AI-Architecture-Research/pull/36) | ARCHIVE | Trainable balanced-pair surrogate,123 matched600-update runs; no registered control advantage. | C18 REFUTED advantage, C19 REFUTED theorem-falsification interpretation; 3,000-update proposal WITHDRAWN. | PROPOSE CLOSE after full negative evidence/checkpoint provenance indexed; no rerun |
+| [#37](https://github.com/soma2-stack/AI-Architecture-Research/pull/37) | KEEP | Remaining channels Steps3–3.7 with preserved independent audits and documentation repairs. | C20 theorem VERIFIED audited bath assumptions; C21 signed-monotone REFUTED; C22–24 PARTIAL operator/legal/dimension distinction; common-query identity passes, kernel bound OPEN. | KEEP draft as audited PARTIAL/OPEN archive; repeatC5 withdrawn; no scientific merge |
+
+## Every local checkout
+
+The canonical local working repository is **E:\AI-Architecture-Research**. Its main
+tracks GitHub main; the separate cleanup worktree is the sole active review checkout.
+Other linked archives are detached/locked; the standalone atlas archive and Desktop
+legacy clone retain their original raw work. All original refs and dirty/ignored file
+records are in the verified snapshot; all original commit IDs are retained.
+
+| Original checkout | Disposition | Current location |
+|---|---|---|
+| `C:\Users\coler\AppData\Local\Temp\ai-atlas-review` | ARCHIVE | `E:\AI-Architecture-Research-preservation\cleanup-20261021\checkouts\02-ai-atlas-review` |
+| `C:\Users\coler\AppData\Local\Temp\ai-ch` | ARCHIVE | `E:\AI-Architecture-Research-preservation\cleanup-20261021\checkouts\04-ai-ch` |
+| `C:\Users\coler\AppData\Local\Temp\ai-dt` | ARCHIVE | `E:\AI-Architecture-Research-preservation\cleanup-20261021\checkouts\05-ai-dt` |
+| `C:\Users\coler\AppData\Local\Temp\ai-m3r` | ARCHIVE | `E:\AI-Architecture-Research-preservation\cleanup-20261021\checkouts\06-ai-m3r` |
+| `C:\Users\coler\AppData\Local\Temp\ai-memory-freeze` | ARCHIVE | `E:\AI-Architecture-Research-preservation\cleanup-20261021\checkouts\07-ai-memory-freeze` |
+| `E:\AI-Architecture-Research-PR34-checkers` | ARCHIVE IN PLACE | `E:\AI-Architecture-Research-PR34-checkers` |
+| `E:\AI-Architecture-Research-PR35-checkers` | ARCHIVE IN PLACE | `E:\AI-Architecture-Research-PR35-checkers` |
+| `E:\AI-Architecture-Research-PR37-audit` | ARCHIVE IN PLACE | `E:\AI-Architecture-Research-PR37-audit` |
+| `E:\AI-Architecture-Research-PR37-step35-audit` | ARCHIVE IN PLACE | `E:\AI-Architecture-Research-PR37-step35-audit` |
+| `E:\AI-Architecture-Research-PR37-step36-audit` | ARCHIVE IN PLACE | `E:\AI-Architecture-Research-PR37-step36-audit` |
+| `E:\AI-Architecture-Research-PR37-step37-audit` | ARCHIVE IN PLACE | `E:\AI-Architecture-Research-PR37-step37-audit` |
+| `C:\Users\coler\.codex\worktrees\pr24-hostile-review\ai new` | ARCHIVE | `E:\AI-Architecture-Research-preservation\cleanup-20261021\checkouts\14-ai new` |
+| `C:\Users\coler\AppData\Local\Temp\ai-m3` | ARCHIVE | `E:\AI-Architecture-Research-preservation\cleanup-20261021\checkouts\15-ai-m3` |
+| `E:\AI-Architecture-Research` | KEEP canonical; clean main matches GitHub | `E:\AI-Architecture-Research` |
+| `C:\Users\coler\AppData\Local\Temp\AI-Architecture-Research-claim-register` | KEEP until cleanup review/merge is resolved | `C:\Users\coler\AppData\Local\Temp\AI-Architecture-Research-claim-register` |
+| `C:\Users\coler\OneDrive\Desktop\ai new` | ARCHIVE pending approval; owner-attached legacy clone, all raw work and environment backed up; refs imported into canonical repository | `C:\Users\coler\OneDrive\Desktop\ai new` |
+
+## Engineering verification
+
+**PASS (repository integrity; not a new proof audit).** The independent helper checked
+all 573 source blobs/modes, all 5,065 baseline-file dispositions, three exact moves,
+six link-only notebook edits, all branch/PR/checkout dispositions, the five corrected
+live PR descriptions and all 167 immutable-context link mappings. No scientific
+claim was upgraded. The parent additionally verified 36,696 relocated physical data
+files against the preservation snapshot, 371 original refs / 86 distinct ref objects,
+566 relative file targets and 83 SHA-pinned project targets. Missing active link
+targets: **0**. All thirteen archived checkout heads match their inspected revisions.
+Maintenance whitespace checks pass; original audit CRLF/trailing whitespace remains
+verbatim. The claim register, AGENTS.md, other lane notebooks, CODEOWNERS and
+development-container configuration retain their baseline Git blobs.
+
+The machine record contains both verification results and a complete current-file
+inventory reconstructed from preservation accounting plus explicit documentation
+overrides. Its own Git hash is supplied by the containing commit rather than a
+self-referential checksum. Validation scripts used file/Git/JSON operations only;
+no scientific checker, experiment, training or proof-development process was run.
+
+## Single consolidated owner approval required
+
+All non-destructive preparation is complete in this review branch. These operations
+are deliberately **not reported as completed**:
+
+1. Approve and merge the documentation/evidence/organization cleanup PR; do not merge
+   scientific PR34–37. Fast-forward canonical local main only after that merge.
+2. Close PRs **#23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33, #36** after preserving their
+   scoped evidence; their remote source histories remain available. Keep #34, #35 and
+   #37 open and frozen. Closing does not label all their auxiliary claims false.
+3. Delete only the four already-merged remote refs listed below, after checking their
+   exact heads again. Their commits are ancestors of main; no open PR depends on them.
+   - `codex/claim-register-20261021` at `1433bee0a518923600f8cf94d4eeea5224e65f7d`.
+   - `gemini/astra-route7a-feedback-audit-20261008` at `1fa6b00018f7dceb72b689c4ebdbe3928ba717f9`.
+   - `preserve/all-research-20261004` at `d1767d0a62dba90b03fd21e512b3db0c4efcd133`.
+   - `preserve/local-theory-20261004` at `74232f2d1d386db45ccd5712fc684da0d82d6733`.
+
+4. Retire the fourteen legacy checkout copies listed in the JSON (seven relocated,
+   six locked in place and the Desktop legacy clone), and retire the cleanup worktree
+   after an approved merge. Preserve the external snapshot, Git bundles and archival
+   history branch. Scoped NTFS Delete permission repair is required for the owned E:
+   archive/audit directories; no research-folder ACL has been changed in preparation.
+
+No unique data, remote scientific branch, scientific PR or main merge is removed or
+resolved implicitly. Until owner approval and successful application/verification of
+those operations, the repository is **PARTIALLY CLEANED**, not FULLY CLEANED.
+
+---
+
+## Historical October 4 execution record (preserved below)
+
 # Repository consolidation and artifact audit — 2026-10-04
 
 Audit only. No historical evidence deletion, migration, branch deletion, history rewriting, or broad ignore change was performed. Machine-readable complete duplicate groups, branch commits, and sizes: [REPOSITORY_CLEANUP_DATA.json](REPOSITORY_CLEANUP_DATA.json).

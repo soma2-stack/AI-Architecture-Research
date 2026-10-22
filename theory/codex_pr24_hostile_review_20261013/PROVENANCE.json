@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-13",
+  "reviewer": "Codex, independent verifier",
+  "target_pr": "https://github.com/soma2-stack/AI-Architecture-Research/pull/24",
+  "target_commit": "acb1be84c2cd4b72f399b5d3aa963e46092fa18a",
+  "base_commit": "f8a96fb8b8dfe0c072e82dc57b8c23cbc20de89c",
+  "review_branch": "codex/pr24-independent-hostile-review",
+  "governance_blob_sha256": "08f8876af75dd5586f24ebdf5908876d9d1a0f8c6141de570958b57d0f9dc8d8",
+  "target_artifact_sha256": {
+    "theory/claude_shift_holonomy_audit_20261013/PROOF.md": "b24251bd21d4b2083fab997bed69c9bdc0573190eabe4cbd17517af96845ee75",
+    "theory/claude_shift_holonomy_audit_20261013/REPORT.md": "e8721bd28ae19ad76a68a0b818abb19ccbb82aaae01d63c1bc7c97690619e9b3",
+    "theory/claude_shift_holonomy_audit_20261013/REVIEW_HANDOFF.md": "b94e7ed27b62800efa988c591146edfadde0685ca0f5c8ffe11642fcd3cc476a",
+    "theory/claude_shift_holonomy_audit_20261013/checks.py": "0b0275ee281b081abfff0e364aa806e07e1dd210bad0453ac3b2108831ed6292",
+    "theory/claude_shift_holonomy_audit_20261013/CHECKS.md": "bbdaeae20723f1003c51f8e6aceafdf94eb30b2452c765495a2bc36341c57049",
+    "theory/claude_shift_holonomy_audit_20261013/STATUS.md": "a0fa8940938974ab3cabc18c81a17f3578e1fa13bc7b7756b781e6ecae2bceec",
+    "theory/claude_shift_holonomy_audit_20261013/PROVENANCE.json": "170efe06156bdd0f5677cda8ed2ff45a2f7d11bb1e8ecf6ac513a9778049773b"
+  },
+  "review_artifact_sha256": {
+    "REVIEW.md": "218cb9f82df90153e59b2ad4badac4331f958650d02e7a378a53db59e6b1758f",
+    "independent_checks.py": "33672c06e5c70527eeda37f12a9c5e11b42c5de58ff972fd079826fef441bf06",
+    "independent_results.json": "70a096f818fd2a9a95d00eaf56ac78b6d3a83a6cbe8092ed900bb5e5cf71e419"
+  },
+  "notebooks_read": [],
+  "existing_files_modified": [],
+  "author_checker_executed": false,
+  "author_checker_imported": false,
+  "training_started": false,
+  "gpu_used": false,
+  "independent_implementation": "Forward tangent propagation, exact fractions, fixed-input central differences, exhaustive signs, angular cells, arithmetic counterexamples.",
+  "original_problem_status": "OPEN, unchanged",
+  "summary": "Core QSR theorem verified; Corollary 5.5 finite-n floor claim refuted and corrected; augmented-model Corollary 5.6 verified with routing/metric scope; tanh equivalence unproved; Lemma 8.1 local only.",
+  "compute": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "seed": 240513,
+    "threads": 1,
+    "author_code_imported": false
+  },
+  "cpu_runtime_seconds": 1.2249493999988772,
+  "hash_semantics": "SHA-256 of UTF-8 LF-normalized Git blob bytes."
+}

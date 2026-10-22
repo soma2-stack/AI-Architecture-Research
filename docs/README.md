@@ -10,6 +10,8 @@ The repository root is intentionally kept small. Current work starts from the ro
 
 ## History
 
+- [01_MISSION.md](history/01_MISSION.md), [02_RESEARCH_METHOD.md](history/02_RESEARCH_METHOD.md), and [03_IDEA_CRITERIA.md](history/03_IDEA_CRITERIA.md) — original mission/method/criteria; archival, not authorization.
+
 - [00_PRIOR_RESEARCH.md](history/00_PRIOR_RESEARCH.md) — earlier research snapshot.
 - [SHARED_RESEARCH_MAP.md](history/SHARED_RESEARCH_MAP.md) — archived checkpoints and chronological context; not a current assignment.
 
@@ -32,3 +34,5 @@ The [protocols/](protocols/) folder contains preregistrations and proposed autom
 ## Audits and preservation records
 
 The [audits/](audits/) folder contains repository-cleanup audits, validation snapshots, preservation manifests, and scoped audit addenda. These files document past consolidation/validation work; they are not substitutes for the current theory summary.
+
+Current repository engineering dispositions and verified local preservation: [cleanup execution record](audits/REPOSITORY_CLEANUP_AUDIT.md).

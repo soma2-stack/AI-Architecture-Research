@@ -1,11 +1,12 @@
 # AI Architecture Research
 
-**2026-10-21 OWNER RESEARCH FREEZE.** Read [docs/CLAIM_REGISTER.md](docs/CLAIM_REGISTER.md)
-before proposing any research or experiment. PR36's 3,000-update rerun is withdrawn;
-PR37's repeat C5 is NO-GO. OPEN questions and historical next-action lists are not
-authorization. [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
-contains the organizational consolidation, which is proposed until an owner-approved
-merge and authoritative on main after that merge.
+**Research is frozen unless the owner explicitly authorizes a specific new task.**
+Read the [claim register](docs/CLAIM_REGISTER.md) before proposing work. PR36's
+3,000-update rerun is withdrawn; PR37's repeat C5 is NO-GO. OPEN questions and old
+next-action lists are not authorization. The organizational register from
+[PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is merged
+and authoritative on main. [PR39](https://github.com/soma2-stack/AI-Architecture-Research/pull/39)
+proposes additional repository navigation and experiment-record improvements.
 
 This repository preserves research on computational mechanisms, architecture novelty, and robust recurrent learning-credit memory. The current theory asks how much continuous learning state is required to answer later normalized gradient queries. It has mathematical constructions and scoped negative results, with substantial open questions.
 
@@ -29,6 +30,17 @@ In plain language: can robust learning-credit dimension scale linearly with mode
 
 **Current status: OPEN.**
 
+## Start here
+
+| Destination | What it answers |
+|---|---|
+| [Current research](theory/CURRENT_THEORY.md) · [claim register](docs/CLAIM_REGISTER.md) | What is established, refuted, independently verified, or still open; exact evidence and scope. |
+| [Experiments](experiments/INDEX.md) | What was run, its recorded outcome, and links to reports, code, raw results, and related claims. |
+| [Active work](04_RESEARCH_STATE.md#current-authorization) | What is currently authorized. The present freeze remains unless the owner explicitly authorizes a particular task. |
+| [Archived work](theory/INDEX.md#historical-folder-inventory) · [experiment archive](experiments/INDEX.md#historical-october6-finite-size-index-preserved) | Where older, failed, superseded, withdrawn, and unrun work is preserved. |
+
+### Research and evidence
+
 Read in this order:
 
 1. [AGENTS.md](AGENTS.md) — locked repository governance.
@@ -50,3 +62,5 @@ Owner disposition and independent review are separate axes. ACCEPTED records own
 
 
 Older handoffs, protocols, audits, preservation manifests, and historical maps are grouped under [`docs/`](docs/README.md) so the repository root stays focused on the files needed for current work.
+
+Repository maintenance, branch/PR dispositions and local preservation: [cleanup execution record](docs/audits/REPOSITORY_CLEANUP_AUDIT.md). Scientific status remains governed by the claim register.
