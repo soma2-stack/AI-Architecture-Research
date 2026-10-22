@@ -15,8 +15,9 @@ new work must name its scope rather than relying on either old proposal.
 
 Read [docs/CLAIM_REGISTER.md](docs/CLAIM_REGISTER.md) **before proposing any work**.
 The claim register from [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
-is merged and authoritative on main. [PR39](https://github.com/soma2-stack/AI-Architecture-Research/pull/39)
-contains proposed navigation and experiment-template improvements. Historical
+is merged and authoritative on main. PR39's navigation and experiment-template
+improvements were merged at
+[395a336853510d96357d283b63bd6236f3002b4d](https://github.com/soma2-stack/AI-Architecture-Research/commit/395a336853510d96357d283b63bd6236f3002b4d). Historical
 next-action wording does not authorize work; AGENTS.md is unchanged.
 
 - Completed Tasks1–6 are preserved; do not restart them.

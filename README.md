@@ -5,8 +5,8 @@ Read the [claim register](docs/CLAIM_REGISTER.md) before proposing work. PR36's
 3,000-update rerun is withdrawn; PR37's repeat C5 is NO-GO. OPEN questions and old
 next-action lists are not authorization. The organizational register from
 [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is merged
-and authoritative on main. [PR39](https://github.com/soma2-stack/AI-Architecture-Research/pull/39)
-proposes additional repository navigation and experiment-record improvements.
+and authoritative on main. PR39's cleanup and navigation changes were merged at
+[395a336853510d96357d283b63bd6236f3002b4d](https://github.com/soma2-stack/AI-Architecture-Research/commit/395a336853510d96357d283b63bd6236f3002b4d).
 
 This repository preserves research on computational mechanisms, architecture novelty, and robust recurrent learning-credit memory. The current theory asks how much continuous learning state is required to answer later normalized gradient queries. It has mathematical constructions and scoped negative results, with substantial open questions.
 

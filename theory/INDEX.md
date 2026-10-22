@@ -3,8 +3,9 @@
 **Read [the claim register](../docs/CLAIM_REGISTER.md) before proposing research.**
 The current freeze remains unless the owner explicitly authorizes a specific task.
 The register from [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
-is merged and authoritative on main; [PR39](https://github.com/soma2-stack/AI-Architecture-Research/pull/39)
-proposes navigation improvements. The main target remains OPEN. This index is navigation, not another
+is merged and authoritative on main. PR39's navigation changes were merged at
+[395a336853510d96357d283b63bd6236f3002b4d](https://github.com/soma2-stack/AI-Architecture-Research/commit/395a336853510d96357d283b63bd6236f3002b4d).
+The main target remains OPEN. This index is navigation, not another
 claim ledger, and PENDING entries do not schedule review or experiments.
 
 Current PR23–PR37 findings and exact revisions: [register](../docs/CLAIM_REGISTER.md#claims).
