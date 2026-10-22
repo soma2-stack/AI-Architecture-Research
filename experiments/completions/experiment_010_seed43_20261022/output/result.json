@@ -1,0 +1,103 @@
+{
+  "status": "complete",
+  "config": {
+    "variants": [
+      "delta_rule"
+    ],
+    "tasks": [
+      [
+        8,
+        2
+      ]
+    ],
+    "seeds": [
+      43
+    ],
+    "delay": 64,
+    "eval_delays": [
+      64,
+      256
+    ],
+    "steps": 800,
+    "batch": 12,
+    "eval_batch": 128,
+    "eval_every": 200,
+    "lr": 0.002,
+    "clip": 1.0,
+    "max_wall_seconds": 1050.0
+  },
+  "environment": {
+    "torch": "2.14.1+cpu",
+    "cpu_threads": 1,
+    "python": "3.12.14",
+    "cuda_available": false,
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "scope": "synthetic supervised scaling pilot. Delta-rule has grammar-aware inductive bias; oracle is reference rule, not trained model. NOT formal theorem evidence.",
+  "runs": [
+    {
+      "variant": "delta_rule",
+      "slots": 8,
+      "values": 2,
+      "seed": 43,
+      "steps": 800,
+      "status": "complete",
+      "parameters": 130,
+      "elapsed_s": 57.916,
+      "loss_first": 0.32720860838890076,
+      "loss_last": 0.00020716431026812643,
+      "curve": [
+        {
+          "step": 200,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0020056471694260836
+        },
+        {
+          "step": 400,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0006659867358393967
+        },
+        {
+          "step": 600,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.0003384225128684193
+        },
+        {
+          "step": 800,
+          "whole_varied": 1.0,
+          "whole": 1.0,
+          "loss": 0.00020716431026812643
+        }
+      ],
+      "eval": {
+        "64": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 128,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0,
+          "histories": 128
+        },
+        "256": {
+          "per_slot": 1.0,
+          "whole": 1.0,
+          "whole_varied": 1.0,
+          "varied_count": 127,
+          "whole_guess_chance": 0.00390625,
+          "copy_latest_upper_chance_varied": 0.0,
+          "oracle_replay_whole": 1.0,
+          "last_write_copy_whole": 0.0078125,
+          "histories": 128
+        }
+      }
+    }
+  ],
+  "skipped": [],
+  "elapsed_seconds": 59.046
+}
