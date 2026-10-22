@@ -6,7 +6,7 @@
 
 > **Central target — OPEN.** Robust growing-dimensional learning-credit separation under the required resource budget remains open: establish a family with D = Ω(n) at peak-width-times-horizon cost mT = o(n^(3/2)), or prove a correctly scoped obstruction. Exact-real credit/gradient distinguishability, selected-subspace bounds, finite synthetic recall, and ordinary prediction accuracy are not interchangeable evidence for this target.
 
-Status counts in this version: **9 VERIFIED (within scope), 14 REFUTED, 6 PARTIAL, 2 OPEN, 2 NOT RUN** (33 records). “VERIFIED” means the stated limited claim has evidence; it does not extend beyond the listed assumptions or commit.
+Status counts in this version: **9 VERIFIED (within scope), 14 REFUTED, 7 PARTIAL, 2 OPEN, 1 NOT RUN** (33 records). “VERIFIED” means the stated limited claim has evidence; it does not extend beyond the listed assumptions or commit.
 
 The change from the corrected Task5 tally is C31: public audit availability is now
 verified after preservation. This is an artifact-availability update, not an upgrade
@@ -350,10 +350,10 @@ scientific scope below is retained for reference, not assigned for automatic wor
 
 #### C27 — The finite masked-capture battery establishes high-R scaling
 
-- **Status:** NOT RUN
-- **Evidence:** experiments/finite_n_r20_r32_scaling_20261006/SUMMARY.md and experiments/INDEX.md at f8a96fb8b8dfe0c072e82dc57b8c23cbc20de89c; October 21 Scientific Evidence Audit.
-- **Limit:** Clean sum-free masks passed only in tested cases through R=16; alias-prone masks failed at R=8/12/16. The R20/R24/R32 battery was not run.
-- **Further work:** None authorized. The unrun cases stay NOT RUN; their presence in an old plan is not a current assignment.
+- **Status:** PARTIAL
+- **Evidence:** [MAIN-25 TEST3 scoped report and raw evidence](../experiments/finite_n_r20_r32_scaling_20261006/test3_20261022/REPORT.md); earlier [checkpoint summary](../experiments/finite_n_r20_r32_scaling_20261006/SUMMARY.md) at f8a96fb8b8dfe0c072e82dc57b8c23cbc20de89c; October 21 Scientific Evidence Audit.
+- **Limit:** At n=4096, sum-free R=16/20/24 cases passed the finite strict normalized cross-talk threshold, but cross-talk rose with R and oldest-channel retention was extremely small (2.14e-53 at R=24). R=32 was stopped before a complete result. Alias-prone masks failed at R=8/12/16 in the earlier n=2048 comparisons. This does not establish useful old-record recall, asymptotic scaling, or the mathematical high-R claim.
+- **Further work:** No continuation is authorized. Do not infer an R=32 verdict or treat the registered remainder as an automatic assignment.
 
 #### C28 — GAS-0 demonstrates a new learned architecture
 
@@ -420,7 +420,7 @@ Execution/availability states below are separate from numbered-claim counts.
 | AMS v9 V0-SCOPE | STOPPED BEFORE TRAINING for insufficient scientific justification; Stages 0 implementation/probes and 1–3 NOT RUN | [existing report](../experiments/automated_mechanism_search_v9/runs/v0_scope/REPORT.md), not a failed trained model |
 | AMS v10 | NOT RUN / no authorized continuation in inspected records | B2 stop and v9 records explicitly exclude v10; no tracked v10 run record found. Do not prepare or launch it |
 | Exact online credit Stage C | STOPPED; NOT RUN, not authorized after inconclusive Stage B/B2 | [B2 corrected report](../experiments/exact_online_credit_stage_b2_20260930/corrected_single_thread/REPORT.md) and README; original runtime-nonconforming records retained |
-| MAIN-25 n=4096 R20/R24/R32 TEST3 | NOT RUN; distinct from MAIN-21's completed n=2048 sweep | [checkpoint summary](../experiments/finite_n_r20_r32_scaling_20261006/SUMMARY.md); completed TEST1/TEST2 retained separately |
+| MAIN-25 n=4096 TEST3 | PARTIAL: R16/R20/R24 completed and passed; R32 was runtime-stopped before a complete result. Distinct from MAIN-21's completed n=2048 sweep. | [scoped TEST3 report and raw evidence](../experiments/finite_n_r20_r32_scaling_20261006/test3_20261022/REPORT.md); TEST1/TEST2 retained separately |
 | MAIN-21 clean-mask clear sweep | COMPLETED - MIXED: clear=0.5 gives 1.5436552e-03 (FAIL); clear=1/2/4 give 1.9312219e-04 / 2.1079717e-05 / 1.8837580e-05 (PASS). Increased clear reduces normalized cross-talk, while additional elapsed age coincides with sharply reduced oldest-channel signal. | [continuation report](../experiments/finite_n_clean_mask_scaling_20261006/continuation_20261022/REPORT.md) |
 | MAIN-21 clean-mask K scaling | COMPLETED by verified reuse, without rerun: K=8/16/32/64 complete cross-talk ranges from 1.884520303275105e-05 to 1.884520303898978e-05 (6.24e-15 peak-to-peak); no measurable K-related separation change. This does not resolve the extremely small oldest/newest signal ratio. | [K provenance and comparison](../experiments/finite_n_clean_mask_scaling_20261006/continuation_20261022/reused_k_comparison.json); [report](../experiments/finite_n_clean_mask_scaling_20261006/continuation_20261022/REPORT.md) |
 | PRB Z.4 seeds 1–3 | **RECOVERED for m=20; original grid 12/12 complete** | [Original nine-row file](../experiments/prb/z4_n7.jsonl) is untouched. The [verbatim twelve-row file](../experiments/prb/recovery_20261022/z4_n7.recovered_original.jsonl) was recovered from unreachable Git blob `4f9a7f4aee4b252b08f85af0d8a802f42114893c` in the older local repository. Its original nine-row prefix and original console summaries match; see [recovery/integrity verification](../experiments/prb/recovery_20261022/REPORT.md). No model was run. This closes the raw-availability gap, not checkpoint/software pinning or independent reproduction. |
