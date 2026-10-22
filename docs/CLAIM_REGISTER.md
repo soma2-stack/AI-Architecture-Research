@@ -15,13 +15,16 @@ of any mathematical claim.
 ## Research freeze and do-not-repeat policy
 
 **Owner decision, 2026-10-21: new mathematical research, simulations, training and
-experiments are frozen.** This organizational cleanup authorizes documentation and
-evidence preservation only. It does not authorize solving the central theorem or its
-Gamma/variation subproblems. It does not amend AGENTS.md.
+experiments are frozen unless separately authorized.** The original cleanup authorized
+documentation and evidence preservation; the current owner task also authorizes
+navigation and experiment-template documentation. Neither authorizes running an
+experiment or solving the central theorem or its Gamma/variation subproblems. AGENTS.md
+is unchanged.
 
-This register in [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38) is proposed until an owner-approved merge.
-**It becomes authoritative on main only when the owner approves and merges PR38.** The owner's freeze
-already applies. The dated October 6 pages and October 21 audits retain historical
+This register was consolidated through [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
+and is authoritative on main. [PR39](https://github.com/soma2-stack/AI-Architecture-Research/pull/39)
+proposes further navigation improvements. The owner's freeze remains active unless
+the owner explicitly authorizes a specific new research task or experiment. The dated October 6 pages and October 21 audits retain historical
 evidence; newer pinned review evidence in this register supersedes stale status wording.
 
 1. **Read this register first** before proposing research, an experiment, training,
@@ -453,8 +456,8 @@ former local-only audit gap is closed by byte-preserved public artifacts; Task3'
 narrow final-source comparison is recorded separately. PR35's corrected later
 auxiliary source remains PENDING exact-revision independent review, without a new
 assignment. PRB's three m20 seed records remain NOT IN REPOSITORY; unrun stages remain
-unrun. None of these qualifications blocks the organizational consolidation or
-authorizes research. PR38 remains a proposal until the owner merges it.
+unrun. None of these qualifications authorizes research. PR38 is merged on main;
+further organization changes are proposed separately in PR39.
 
 
 Do not cite an author status line as independent verification. For each claim, retain the pinned source SHA and the exact audit scope. If a later commit changes a relevant proof, code path, assumption, or result, the verdict does not automatically transfer.
