@@ -1,0 +1,40 @@
+{
+  "scope": "Static integrity, schema, configuration/world and original console comparison; no model execution.",
+  "raw_git_blob": "4f9a7f4aee4b252b08f85af0d8a802f42114893c",
+  "raw_sha256": "956e261ae9ed1a7e1d95de8ec62fdb0c1f5557041ef9816ccceb1b00c40e387d",
+  "raw_bytes": 9443,
+  "first_nine_rows_byte_identical_to_original": true,
+  "complete_grid": true,
+  "unique_rows": 12,
+  "recovered_keys": [
+    [
+      7,
+      20,
+      1
+    ],
+    [
+      7,
+      20,
+      2
+    ],
+    [
+      7,
+      20,
+      3
+    ]
+  ],
+  "two_method_records_per_row": true,
+  "loss_curve_sample_count_per_method": 10,
+  "metrics_finite_in_range": true,
+  "heldout_denominators_consistent": true,
+  "recovered_worlds_match_existing_same_seed_m10_m35": true,
+  "console_count_and_rounded_metrics_match_all_three_m_values": true,
+  "original_source_write_plus_documented_cli_fix_matches_pinned_source": true,
+  "intermediate_10_row_git_blob": "71476c51c7830cf3402bcb292e4d751ed8fb8e79",
+  "intermediate_is_exact_prefix": true,
+  "unreachable_source_commits_checked": 3,
+  "associated_original_commit_containing_12_row_blob_found": false,
+  "training_runs": 0,
+  "simulations": 0,
+  "model_inference_runs": 0
+}

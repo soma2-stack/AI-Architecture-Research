@@ -1,0 +1,708 @@
+{
+  "checked_utc": "2026-10-22T03:02:43.041256+00:00",
+  "base_main": "a9a644712f16a566f058c63446a0bd7bc8521b79",
+  "source_commit": "2feeef85ff9168b844c591c961a8bd568a731f2d",
+  "training_runs": 0,
+  "simulations": 0,
+  "model_modules_imported": false,
+  "target": {
+    "n": 7,
+    "m": 20,
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "recovered_records": 3,
+  "github": {
+    "pr_heads_checked": [
+      {
+        "headRefOid": "f4bdacc77ceb58ba893ab873b741e096acd55994",
+        "number": 42
+      },
+      {
+        "headRefOid": "46d47580d0a37b2ba3121263c49bd47a5526d051",
+        "number": 41
+      },
+      {
+        "headRefOid": "b07b46d0b443e05b8e4b1cec7c272aff7526ae56",
+        "number": 40
+      },
+      {
+        "headRefOid": "0d3fd1e13ada889d6b21b082f5c36b09d21ba3a9",
+        "number": 39
+      },
+      {
+        "headRefOid": "1433bee0a518923600f8cf94d4eeea5224e65f7d",
+        "number": 38
+      },
+      {
+        "headRefOid": "f7931ad3b0237e295571dfb48860a1338f8a2fa9",
+        "number": 37
+      },
+      {
+        "headRefOid": "bbc16f6224e254dc6a326ff1e283cf792b25e990",
+        "number": 36
+      },
+      {
+        "headRefOid": "61163c58bf835c52874025272c8fa1f155bce974",
+        "number": 35
+      },
+      {
+        "headRefOid": "d620d015057c4026a1c2c31c3828df570bc9fb3b",
+        "number": 34
+      },
+      {
+        "headRefOid": "d6801c2bb1b311b3d132312535b87c86064d2eb9",
+        "number": 33
+      },
+      {
+        "headRefOid": "cef12b3eb6e5a8e6dbc75904253222b57eda188c",
+        "number": 32
+      },
+      {
+        "headRefOid": "35cdb7a4f3c7f3ae1df7ed1941547428a9b774ab",
+        "number": 31
+      },
+      {
+        "headRefOid": "afb6f3c5d09f0ffbaba23aca1dfa2db4fb73b347",
+        "number": 30
+      },
+      {
+        "headRefOid": "f05694454956edab849ebe7d1858131eaca4174c",
+        "number": 29
+      },
+      {
+        "headRefOid": "0cc0a2317520cc342fdfdedfd9bb2c4be9a4ae88",
+        "number": 28
+      },
+      {
+        "headRefOid": "c9874081461139373a276efeb47394d50781c0e3",
+        "number": 27
+      },
+      {
+        "headRefOid": "e13311b1d4d6d7ea227f7c9caa1931636cb55502",
+        "number": 26
+      },
+      {
+        "headRefOid": "50bb5ffabf33b28099238acb6440cb1a349079e3",
+        "number": 25
+      },
+      {
+        "headRefOid": "d899895aab81b36a3128a375ae2238b08f73f4af",
+        "number": 24
+      },
+      {
+        "headRefOid": "192df629e060def0983c4e85f70c4dd01b15b6a0",
+        "number": 23
+      },
+      {
+        "headRefOid": "755d16fc7319cb73c6c0433b2638df3a2326410b",
+        "number": 22
+      },
+      {
+        "headRefOid": "5a9cae006494f7458446af6731aeb48124d04ade",
+        "number": 21
+      },
+      {
+        "headRefOid": "8e64c850aea05586dbbcd178f2b396f0de4ebe19",
+        "number": 20
+      },
+      {
+        "headRefOid": "da390e858ff2ff1acb356c98820c36e9053effe4",
+        "number": 19
+      },
+      {
+        "headRefOid": "a03b88717579df0157aa1b6a61f672cc59602b86",
+        "number": 18
+      },
+      {
+        "headRefOid": "5747359ee4be16a04ef2fdc66ace1c3500fc4399",
+        "number": 17
+      },
+      {
+        "headRefOid": "1acd16d1157d989a8ae25168a8b3dc8f628b29e6",
+        "number": 16
+      },
+      {
+        "headRefOid": "8325d3c9bf33ba4d7d909fb6736e7d02b4c6ec35",
+        "number": 15
+      },
+      {
+        "headRefOid": "d8d6761d047046a1338749c1f6fd8c8466a9e964",
+        "number": 14
+      },
+      {
+        "headRefOid": "ec27e353ab658ea3f68ab53f53a06841a120474d",
+        "number": 13
+      },
+      {
+        "headRefOid": "deaa05d661beebf811635b23c41acd056d9d909d",
+        "number": 12
+      },
+      {
+        "headRefOid": "9dd8a5e409e6c61551179eb3610a80fc84ec09d9",
+        "number": 11
+      },
+      {
+        "headRefOid": "1ca7fc2f520ce7a177d9dff7653fddbab6537821",
+        "number": 10
+      },
+      {
+        "headRefOid": "68cc330e8cdf23958f51aa285ca8dee0116170fe",
+        "number": 9
+      },
+      {
+        "headRefOid": "ef635b12045f574adcf4a0b7c3056c8f95954fbe",
+        "number": 8
+      },
+      {
+        "headRefOid": "3617547d324f2a929918ebe352bb10ea4442155a",
+        "number": 7
+      },
+      {
+        "headRefOid": "dcea4510df75d85326455d8a31049c8c084a64bb",
+        "number": 6
+      },
+      {
+        "headRefOid": "baedbce6a9b1d54756b72d298404bd57b8cfc327",
+        "number": 5
+      },
+      {
+        "headRefOid": "a1a58187f56f80b5a570dabd916c01e16385dd73",
+        "number": 4
+      },
+      {
+        "headRefOid": "939653d89572f8178b1952df9a978bef09113ae5",
+        "number": 3
+      },
+      {
+        "headRefOid": "f91df88b5cbba25722e0759dff2fc6e1d775f35f",
+        "number": 2
+      },
+      {
+        "headRefOid": "ad32b9b7b99d739f95f17a99fa652857e67048ca",
+        "number": 1
+      }
+    ],
+    "pr_bodies_checked": 42,
+    "issue_comments_checked": 16,
+    "review_comments_checked": 28,
+    "discussion_target_record_hits": 0,
+    "available_actions_artifacts": [
+      {
+        "id": 12397288918,
+        "name": "exp010-seed43-completion",
+        "expired": false,
+        "run_id": 39712291341
+      },
+      {
+        "id": 12273386216,
+        "name": "pr35-memory-seed17-39436715677-1",
+        "expired": false,
+        "run_id": 39436715677
+      },
+      {
+        "id": 12273352964,
+        "name": "pr35-memory-seed29-39436715677-1",
+        "expired": false,
+        "run_id": 39436715677
+      },
+      {
+        "id": 12272218320,
+        "name": "pr35-memory-seed43-39436715677-1",
+        "expired": false,
+        "run_id": 39436715677
+      },
+      {
+        "id": 11529190109,
+        "name": "rnn-exp010-4x4",
+        "expired": false,
+        "run_id": 37727194566
+      },
+      {
+        "id": 11529056628,
+        "name": "rnn-exp010-8x2",
+        "expired": false,
+        "run_id": 37727194566
+      },
+      {
+        "id": 11528781090,
+        "name": "rnn-exp010-4x2",
+        "expired": false,
+        "run_id": 37727194566
+      },
+      {
+        "id": 11528542346,
+        "name": "rnn-exp010-8x4",
+        "expired": false,
+        "run_id": 37727194566
+      },
+      {
+        "id": 11528177612,
+        "name": "rnn-exp010-8x4",
+        "expired": false,
+        "run_id": 37727092728
+      },
+      {
+        "id": 11528089255,
+        "name": "rnn-exp010-2x2",
+        "expired": false,
+        "run_id": 37727194566
+      },
+      {
+        "id": 11528058016,
+        "name": "rnn-exp010-4x2",
+        "expired": false,
+        "run_id": 37727092728
+      },
+      {
+        "id": 11528038134,
+        "name": "rnn-exp010-4x4",
+        "expired": false,
+        "run_id": 37727092728
+      },
+      {
+        "id": 11527798662,
+        "name": "rnn-exp010-2x2",
+        "expired": false,
+        "run_id": 37727092728
+      },
+      {
+        "id": 11527708920,
+        "name": "rnn-exp010-8x2",
+        "expired": false,
+        "run_id": 37727092728
+      },
+      {
+        "id": 11527336461,
+        "name": "rnn-exp009-evidence-seed29",
+        "expired": false,
+        "run_id": 37722877885
+      },
+      {
+        "id": 11527190703,
+        "name": "rnn-exp009-evidence-seed43",
+        "expired": false,
+        "run_id": 37722877885
+      },
+      {
+        "id": 11527036766,
+        "name": "rnn-exp009-evidence-seed71",
+        "expired": false,
+        "run_id": 37722877885
+      },
+      {
+        "id": 11526971110,
+        "name": "rnn-exp009-evidence-seed17",
+        "expired": false,
+        "run_id": 37722877885
+      },
+      {
+        "id": 11526414815,
+        "name": "rnn-exp009-evidence-seed59",
+        "expired": false,
+        "run_id": 37722877885
+      },
+      {
+        "id": 11524164056,
+        "name": "rnn-exp008-evidence",
+        "expired": false,
+        "run_id": 37718282627
+      },
+      {
+        "id": 11523909289,
+        "name": "rnn-exp007-evidence",
+        "expired": false,
+        "run_id": 37717052321
+      },
+      {
+        "id": 11523851964,
+        "name": "rnn-exp006-evidence",
+        "expired": false,
+        "run_id": 37715859355
+      },
+      {
+        "id": 11523437239,
+        "name": "rnn-exp005-evidence",
+        "expired": false,
+        "run_id": 37714510923
+      },
+      {
+        "id": 11522386803,
+        "name": "rnn-exp004-evidence",
+        "expired": false,
+        "run_id": 37712871182
+      },
+      {
+        "id": 11521787214,
+        "name": "rnn-exp001-evidence",
+        "expired": false,
+        "run_id": 37710484513
+      },
+      {
+        "id": 11521681195,
+        "name": "rnn-exp001-smoke",
+        "expired": false,
+        "run_id": 37709910186
+      },
+      {
+        "id": 11521634516,
+        "name": "rnn-exp002-evidence",
+        "expired": false,
+        "run_id": 37710980507
+      },
+      {
+        "id": 11521486386,
+        "name": "rnn-exp001-evidence",
+        "expired": false,
+        "run_id": 37710011831
+      },
+      {
+        "id": 11521399760,
+        "name": "rnn-exp003-evidence",
+        "expired": false,
+        "run_id": 37712102670
+      },
+      {
+        "id": 11521052224,
+        "name": "rnn-exp001-smoke",
+        "expired": false,
+        "run_id": 37709819748
+      }
+    ],
+    "prb_named_artifacts": 0
+  },
+  "history": {
+    "raw_versions": [
+      {
+        "git_blob": "22c5dd5cf14d8361035295495895114f694b7bf8",
+        "sha256": "5462a5731da79825e478018bee15d0a3037e125a11c9fd4f47f1e0bf7ec49b2b",
+        "rows": 8,
+        "keys": [
+          [
+            7,
+            20,
+            0
+          ],
+          [
+            7,
+            10,
+            0
+          ],
+          [
+            7,
+            35,
+            0
+          ],
+          [
+            7,
+            10,
+            1
+          ],
+          [
+            7,
+            35,
+            1
+          ],
+          [
+            7,
+            10,
+            2
+          ],
+          [
+            7,
+            35,
+            2
+          ],
+          [
+            7,
+            10,
+            3
+          ]
+        ]
+      },
+      {
+        "git_blob": "3376e2aed3416551533b9ec940a7e0c05176936c",
+        "sha256": "456e8a5a01678b29ea1c65faec285dcad71d899c40b4343aeb171dea0b3a9c66",
+        "rows": 9,
+        "keys": [
+          [
+            7,
+            20,
+            0
+          ],
+          [
+            7,
+            10,
+            0
+          ],
+          [
+            7,
+            35,
+            0
+          ],
+          [
+            7,
+            10,
+            1
+          ],
+          [
+            7,
+            35,
+            1
+          ],
+          [
+            7,
+            10,
+            2
+          ],
+          [
+            7,
+            35,
+            2
+          ],
+          [
+            7,
+            10,
+            3
+          ],
+          [
+            7,
+            35,
+            3
+          ]
+        ]
+      }
+    ],
+    "accessible_git_stores": [
+      "E:/AI-Architecture-Research/.git",
+      "C:/Users/coler/OneDrive/Desktop/ai new/.git"
+    ],
+    "third_store": "C:/Users/coler/AppData/Local/Temp/ai-atlas-review/.git",
+    "third_store_missing_but_bundle_preserved": "history-2.bundle",
+    "third_store_bundle_heads": 79,
+    "third_store_bundle_heads_missing_from_accessible_objects": 0,
+    "third_store_raw_versions": [
+      "22c5dd5cf14d8361035295495895114f694b7bf8",
+      "3376e2aed3416551533b9ec940a7e0c05176936c"
+    ]
+  },
+  "backup": {
+    "root": "E:\\AI-Architecture-Research-preservation\\cleanup-20261021",
+    "manifest": "snapshot.json",
+    "manifest_sha256": "484ea076bcbfbcdd056d96298861d9bd4ad4def3a4d23c01c161503a233cd915",
+    "matches_VERIFIED_json": true,
+    "prb_physical_paths": 400,
+    "prb_original_roots": 16,
+    "prb_unique_contents": 36,
+    "z4_unique_contents_hash_verified": 8,
+    "z4_raw_sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+    "additional_text_log_jsonl_unique_contents_searched": 877,
+    "text_search_target_shape_hit_classified_as_unrelated_Z2": 1,
+    "additional_json_unique_contents_searched": 2583,
+    "additional_json_Z4_shape_candidates": 0,
+    "archives_member_lists_checked": 6,
+    "archive_member_names_matching_prb_or_z4": 0
+  },
+  "live_raw_files": [
+    {
+      "path": "E:\\AI-Architecture-Research\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "C:\\Users\\coler\\AppData\\Local\\Temp\\AI-Architecture-Research-claim-register\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-PR34-checkers\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-PR35-checkers\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-PR37-audit\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-PR37-step35-audit\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-PR37-step36-audit\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-PR37-step37-audit\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-preservation\\cleanup-20261021\\checkouts\\04-ai-ch\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-preservation\\cleanup-20261021\\checkouts\\05-ai-dt\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-preservation\\cleanup-20261021\\checkouts\\06-ai-m3r\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-preservation\\cleanup-20261021\\checkouts\\07-ai-memory-freeze\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-preservation\\cleanup-20261021\\checkouts\\14-ai new\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    },
+    {
+      "path": "E:\\AI-Architecture-Research-preservation\\cleanup-20261021\\checkouts\\15-ai-m3\\experiments\\prb\\z4_n7.jsonl",
+      "sha256": "b892c81b0fd817b6d76329f99f4a932225e66a2076175ec6e71c958d3706a109",
+      "rows": 9,
+      "target_rows": 0
+    }
+  ],
+  "canonical_source_and_evidence": {
+    "z4_grad.py": {
+      "git_blob": "7a9489ebf94975a8aa1894220691fb3c6f926cd5",
+      "sha256_git_bytes": "c531e4bab23eea1800efa1072061c3749fb26cec1b3f45d978a76dc6c445956f"
+    },
+    "prb_common.py": {
+      "git_blob": "22ce97d0b0e1573bd524a8c4e4e61987f8932765",
+      "sha256_git_bytes": "cb5870aff95ba771de34320abee0723fbac004089d8d5eba19e6b074bccd4a04"
+    },
+    "z4_log_a.txt": {
+      "git_blob": "79ea6733456eb35589e1d97dcd17fd13ebc0be3d",
+      "sha256_git_bytes": "32c8c34666363b811977f2ffb59486ea4d2a79ced86c4fcaca26c496eb31b51e"
+    },
+    "z4_log_b.txt": {
+      "git_blob": "1b2fb4bf21552549137396d573cafeaac11097b5",
+      "sha256_git_bytes": "bfb041454d9c884b7635f4e17b9381c9ff2db82cf1787ffe3550b4dd55eaa421"
+    },
+    "z4_n7.jsonl": {
+      "git_blob": "3376e2aed3416551533b9ec940a7e0c05176936c",
+      "sha256_git_bytes": "456e8a5a01678b29ea1c65faec285dcad71d899c40b4343aeb171dea0b3a9c66"
+    }
+  },
+  "available_result_summary": [
+    {
+      "m": 10,
+      "seeds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "free_unseen_mean": 0.09615384615384615,
+      "sinkhorn_unseen_mean": 0.3974358974358974,
+      "digit_interface_all_1": true,
+      "scorer_search_all_1": true
+    },
+    {
+      "m": 20,
+      "seeds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "free_unseen_mean": 0.034482758620689655,
+      "sinkhorn_unseen_mean": 0.8362068965517242,
+      "digit_interface_all_1": true,
+      "scorer_search_all_1": true
+    },
+    {
+      "m": 35,
+      "seeds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "free_unseen_mean": 0.017857142857142856,
+      "sinkhorn_unseen_mean": 0.8035714285714286,
+      "digit_interface_all_1": true,
+      "scorer_search_all_1": true
+    }
+  ],
+  "limitations": [
+    "The original 12-row blob had no associated commit found; do not invent a producer commit. Source and execution are corroborated by original commands, exact source correspondence, existing nine-row prefix, intermediate ten-row blob, and final console metrics.",
+    "Original model checkpoint/tokenizer revision and original package versions remain unpinned; raw evidence recovery is not an independent model reproduction.",
+    "Initial ref, physical backup and Actions searches did not contain the missing rows; recovery required the older repository's unreachable objects."
+  ],
+  "review_base_pr": 42,
+  "review_base_sha": "f4bdacc77ceb58ba893ab873b741e096acd55994",
+  "recovery": {
+    "source_git_store": "C:\\Users\\coler\\OneDrive\\Desktop\\ai new\\.git",
+    "classification": "Previously unreachable Git blob, not in the ref/tree or physical-file inventories.",
+    "blob": "4f9a7f4aee4b252b08f85af0d8a802f42114893c",
+    "bytes": 9443,
+    "sha256": "956e261ae9ed1a7e1d95de8ec62fdb0c1f5557041ef9816ccceb1b00c40e387d",
+    "preserved_as": "z4_n7.recovered_original.jsonl",
+    "verification": "VERIFICATION.json",
+    "console_evidence": "ORIGINAL_CONSOLE_EXCERPTS.json",
+    "full_original_grid_rows": 12,
+    "original_tracked_file_modified": false,
+    "no_associated_original_commit_found": true,
+    "intermediate_10_row_blob": "71476c51c7830cf3402bcb292e4d751ed8fb8e79",
+    "verified_utc": "2026-10-22T03:21:26.210868+00:00"
+  },
+  "local_archive_search": {
+    "repository_scoped_claude_log": "C:\\Users\\coler\\.claude\\projects\\C--Users-coler-OneDrive-Desktop-ai-new\\bf5b89dc-e7b7-471c-b904-8d3c97af4ae4.jsonl",
+    "original_tool_summary_timestamp": "2026-09-27T23:50:21.905Z",
+    "original_count_12": true,
+    "original_explicit_seed_command": "python z4_grad.py 7 20 1,2,3 12",
+    "repository_codex_metadata_entries": 169,
+    "repository_codex_rollouts_available": 8,
+    "repository_codex_rollouts_containing_z4_references": 3,
+    "codex_raw_target_hits": 0,
+    "matching_archived_rollouts_available": 0,
+    "original_claude_task_output_folder_empty": true,
+    "target_shape_candidate_blobs_in_older_store": 2,
+    "unreachable_blobs_enumerated_by_store": {
+      "canonical": 7,
+      "older_desktop": 165
+    },
+    "candidate_blob_size_range_checked_bytes": [
+      1000,
+      50000
+    ]
+  },
+  "replay_required": false
+}
