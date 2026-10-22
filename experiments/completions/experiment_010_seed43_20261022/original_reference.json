@@ -1,0 +1,145 @@
+{
+  "experiment": "010",
+  "source_commit": "eb71064db54285d5b4d0007413b6769aadba24f1",
+  "historical_report_commit": "192df629e060def0983c4e85f70c4dd01b15b6a0",
+  "original_ci_run": 37727194566,
+  "original_shard_sha256": "aabd75ea4f13173e48298ebac8e728774ddd48a7905eb4f2467a02083b3c0fb3",
+  "original_environment": {
+    "torch": "2.14.1+cpu",
+    "cpu_threads": 1,
+    "python": "3.12.14",
+    "cuda_available": false,
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "original_shard_config": {
+    "variants": [
+      "protected",
+      "protected_no_retain",
+      "gru24",
+      "delta_rule"
+    ],
+    "tasks": [
+      [
+        8,
+        2
+      ]
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "delay": 64,
+    "eval_delays": [
+      64,
+      256
+    ],
+    "steps": 800,
+    "batch": 12,
+    "eval_batch": 128,
+    "eval_every": 200,
+    "lr": 0.002,
+    "clip": 1.0,
+    "max_wall_seconds": 1050.0
+  },
+  "original_partial_record": {
+    "variant": "delta_rule",
+    "slots": 8,
+    "values": 2,
+    "seed": 43,
+    "steps": 586,
+    "status": "time_limit",
+    "parameters": 130,
+    "elapsed_s": 99.781,
+    "loss_first": 0.32720860838890076,
+    "loss_last": 0.0003522845508996397,
+    "curve": [
+      {
+        "step": 200,
+        "whole_varied": 1.0,
+        "whole": 1.0,
+        "loss": 0.0020056471694260836
+      },
+      {
+        "step": 400,
+        "whole_varied": 1.0,
+        "whole": 1.0,
+        "loss": 0.0006659867358393967
+      }
+    ],
+    "eval": {
+      "64": {
+        "per_slot": 1.0,
+        "whole": 1.0,
+        "whole_varied": 1.0,
+        "varied_count": 128,
+        "whole_guess_chance": 0.00390625,
+        "copy_latest_upper_chance_varied": 0.0,
+        "oracle_replay_whole": 1.0,
+        "last_write_copy_whole": 0.0,
+        "histories": 128
+      },
+      "256": {
+        "per_slot": 1.0,
+        "whole": 1.0,
+        "whole_varied": 1.0,
+        "varied_count": 127,
+        "whole_guess_chance": 0.00390625,
+        "copy_latest_upper_chance_varied": 0.0,
+        "oracle_replay_whole": 1.0,
+        "last_write_copy_whole": 0.0078125,
+        "histories": 128
+      }
+    }
+  },
+  "source_sha256": {
+    "prototypes/rnn_llm_architecture/candidates.py": "4a340122845f64bdfd195764f02e012c46476296c63eef9a7a9e5b68cb33b4a4",
+    "prototypes/rnn_llm_architecture/capacity_010.py": "03fdbfcc4da9833e946c460b448f830d4eeae633eac8634d09dceef331d5d3fa",
+    "prototypes/rnn_llm_architecture/conftest.py": "468e87ab9daeede040c8b94d8c995357f692901a9e6411c746155c00df8d0258",
+    "prototypes/rnn_llm_architecture/event_gated.py": "1f92cb0ca0fe6e37b23cb4dd9c95b19ddec38dc9ebd8e08e9f21c91dd834adcd",
+    "prototypes/rnn_llm_architecture/experiment_002.py": "12ba1086778adb5633f9e12a72bcac28b2061f6c91ec83af8aa9731df332b420",
+    "prototypes/rnn_llm_architecture/experiment_003.py": "71ef1ea0d7780839a2af48c8c3a4ed1e5e069f7d9fcbb074de087118ee244c47",
+    "prototypes/rnn_llm_architecture/experiment_004.py": "95a18650e1eb8172a9cf1135ba7729eae88c3744606e2f65c0457bb6bb1c3b76",
+    "prototypes/rnn_llm_architecture/experiment_005.py": "372a9cba78d6009e975497e04b480ee0ade26b8ebac29274dcc63928e69698ad",
+    "prototypes/rnn_llm_architecture/experiment_006.py": "c1c074961e209a70db3474c51cee0cc0957b2b55e613db903699c0ce62e91ae9",
+    "prototypes/rnn_llm_architecture/experiment_007.py": "a0c3169759f4236228bf72ab192bf67709bda547e562d8e29184a7710ac057bb",
+    "prototypes/rnn_llm_architecture/experiment_008.py": "3f59572a68461fba768c83dfe8768683969e7c81604fdc66adcd66088a9ea4af",
+    "prototypes/rnn_llm_architecture/experiment_009.py": "0223103cf263124d074c67ffcecdedd9410555e25472bfe992b3499dd8150292",
+    "prototypes/rnn_llm_architecture/experiment_009_report.py": "d8541bb4835ba9cefbe6ef4536669a72f3fb4fc8a35764a9f3d6eb9a3285a4d0",
+    "prototypes/rnn_llm_architecture/full_reference.py": "c8da0bc7ae7efe23d95030c322d9158d86627890b807f298ea96f18cb2ee6922",
+    "prototypes/rnn_llm_architecture/gated.py": "e13c5b282294cece6bad92db7485a671000629ee09235cd5860486ce4a63a034",
+    "prototypes/rnn_llm_architecture/learning_pilot.py": "29108b79bee3756ff98b931df997391f1581dbba58fd36e20156dc99fc2fef58",
+    "prototypes/rnn_llm_architecture/model.py": "f4beb2f975f614d03a7048a62aae1dd58477047670e54fc52973148b77959b20",
+    "prototypes/rnn_llm_architecture/reports/experiment_009_exploratory/explore_a.py": "93bc1c21338f1996e948b8d661051dfc2e58aa53b682f516601ade545ee6275a",
+    "prototypes/rnn_llm_architecture/reports/experiment_009_exploratory/explore_b.py": "c1a5ed0f355db9f8711c7f5519fd6d8e6c2c9c070522f347f1c1cac531746cc0",
+    "prototypes/rnn_llm_architecture/reports/experiment_009_exploratory/explore_c.py": "0acc6e005f570b6ead618547b8171c0611be6b79f8026a1b80c9d3ca8ad5f836",
+    "prototypes/rnn_llm_architecture/reports/experiment_009_exploratory/explore_d.py": "6e6d820a846837eea64988dcf10586a6def36bef34ab37b7abb66d573bc5e1d2",
+    "prototypes/rnn_llm_architecture/state_gated.py": "3803cbcbbfcbca3950ae630c9a2c06db0383a97cad576a1fa51e920ed7e1131d",
+    "prototypes/rnn_llm_architecture/test_candidates.py": "6b1cc4ce753db69b316c144963b69436e9b339b71e41def8a505ef99fd91edd5",
+    "prototypes/rnn_llm_architecture/test_capacity_010.py": "540e60ca28aed5296d5e6026e0c7e73f59a03a36ab4d8defa464b9dead828d51",
+    "prototypes/rnn_llm_architecture/test_event_gated.py": "0e04efc40ab70720c1a8d8a37a5d2254e7a4fb693631d4cc1cc98aa52b240d53",
+    "prototypes/rnn_llm_architecture/test_experiment_002.py": "bdd187a05e209203d1ab9f7569a313be3da33569a40b6b9cd11be395ff49d91e",
+    "prototypes/rnn_llm_architecture/test_experiment_003.py": "e32ef48e2ee8be9ec41171964457176447b4e55f46681050c09b67b02c4b842b",
+    "prototypes/rnn_llm_architecture/test_experiment_004.py": "b3513480b2f12723fec10e32a7479757adfe70b3affd993f9e88d2a5fbaee345",
+    "prototypes/rnn_llm_architecture/test_experiment_005.py": "27c40a48bc55453e35fa2f849c68777c3114914e244b598dafd260278adeb8ed",
+    "prototypes/rnn_llm_architecture/test_experiment_006.py": "137f804d9de76775333d630e71c3ddbd6d0c302c1a9835e050fba909a2c45584",
+    "prototypes/rnn_llm_architecture/test_experiment_007.py": "180e51f401dd7e8d4a5bb19fb11431df103f4b7490438436c3e78fc19aaac398",
+    "prototypes/rnn_llm_architecture/test_experiment_008.py": "a3ca73cbd12f43785832012589311ed31867b606598288207fc0b579d13ab4db",
+    "prototypes/rnn_llm_architecture/test_experiment_009.py": "f9469d5feb6430dca081d4c421d4e0f862f312bd100c6a32e2c6a061b05d0d48",
+    "prototypes/rnn_llm_architecture/test_experiment_009_report.py": "a555def6f04493d08d56b9816a291e741615d0b1bd7eb386c245dcb5b59a0a9e",
+    "prototypes/rnn_llm_architecture/test_full_reference.py": "68cfd43b1c376a2b6a760a09b360140890f03a529e919098d86f9dddc539ae97",
+    "prototypes/rnn_llm_architecture/test_gated.py": "73aeb3f64c6f5632f782dd1416c4c0813ba6535ebddacc347fe2a1d582f0cd84",
+    "prototypes/rnn_llm_architecture/test_learning_pilot.py": "1933152981050598996f453f61b7700180b6e649f4d82548aa15ba115271106f",
+    "prototypes/rnn_llm_architecture/test_model.py": "0d8824b27af1de296e8386f30c104c15444ff3801e0ede10f69d59d8f07c4584",
+    "prototypes/rnn_llm_architecture/test_state_gated.py": "923ffeb48c4df82541302c4eb676e5c53be7d78bb46828d93a41464bf1342c87",
+    "prototypes/rnn_llm_architecture/test_theory_reference.py": "5d3968a917ce59a4f331ad7a7db79b31375a178d30a78a72985aaae52163451b",
+    "prototypes/rnn_llm_architecture/test_validation.py": "aafb671522543013c224c88f4db6c02b929cf14c69a3298dbc39b78cd66c0537",
+    "prototypes/rnn_llm_architecture/theory_reference.py": "5cc1a8b05f579a23017c42a1258140e827b0c26f6221ac84f3093aabae192dea",
+    "prototypes/rnn_llm_architecture/validation.py": "8ca13e6aedae3bafca7a804f5cb71c54a1eed71f6b14c7bcfbb4444d294d5783"
+  },
+  "replay_scope": "Only delta_rule, 8 slots, 2 values, seed 43, 800 updates. Fresh deterministic replay because no checkpoint was saved.",
+  "prefix_tolerance": {
+    "rel_tol": 1e-05,
+    "abs_tol": 1e-08
+  }
+}
