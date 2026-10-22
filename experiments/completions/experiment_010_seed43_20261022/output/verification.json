@@ -1,0 +1,87 @@
+{
+  "one_condition_only": true,
+  "all_800_updates_completed": true,
+  "configuration_matches_original_condition": true,
+  "source_hashes_match": true,
+  "original_software_versions_match": true,
+  "prefix_tolerance_fixed_before_execution": {
+    "rel_tol": 1e-05,
+    "abs_tol": 1e-08
+  },
+  "training_prefix_checks": {
+    "loss_first": {
+      "historical": 0.32720860838890076,
+      "replay": 0.32720860838890076,
+      "absolute_difference": 0.0,
+      "matches": true
+    },
+    "loss_at_200": {
+      "historical": 0.0020056471694260836,
+      "replay": 0.0020056471694260836,
+      "absolute_difference": 0.0,
+      "matches": true
+    },
+    "loss_at_400": {
+      "historical": 0.0006659867358393967,
+      "replay": 0.0006659867358393967,
+      "absolute_difference": 0.0,
+      "matches": true
+    }
+  },
+  "training_prefix_matches": true,
+  "evaluation_comparison": {
+    "64": {
+      "at_586_updates": {
+        "per_slot": 1.0,
+        "whole": 1.0,
+        "whole_varied": 1.0,
+        "varied_count": 128,
+        "whole_guess_chance": 0.00390625,
+        "copy_latest_upper_chance_varied": 0.0,
+        "oracle_replay_whole": 1.0,
+        "last_write_copy_whole": 0.0,
+        "histories": 128
+      },
+      "at_800_updates": {
+        "per_slot": 1.0,
+        "whole": 1.0,
+        "whole_varied": 1.0,
+        "varied_count": 128,
+        "whole_guess_chance": 0.00390625,
+        "copy_latest_upper_chance_varied": 0.0,
+        "oracle_replay_whole": 1.0,
+        "last_write_copy_whole": 0.0,
+        "histories": 128
+      }
+    },
+    "256": {
+      "at_586_updates": {
+        "per_slot": 1.0,
+        "whole": 1.0,
+        "whole_varied": 1.0,
+        "varied_count": 127,
+        "whole_guess_chance": 0.00390625,
+        "copy_latest_upper_chance_varied": 0.0,
+        "oracle_replay_whole": 1.0,
+        "last_write_copy_whole": 0.0078125,
+        "histories": 128
+      },
+      "at_800_updates": {
+        "per_slot": 1.0,
+        "whole": 1.0,
+        "whole_varied": 1.0,
+        "varied_count": 127,
+        "whole_guess_chance": 0.00390625,
+        "copy_latest_upper_chance_varied": 0.0,
+        "oracle_replay_whole": 1.0,
+        "last_write_copy_whole": 0.0078125,
+        "histories": 128
+      }
+    }
+  },
+  "wall_seconds_including_interpreter_startup": 60.15818977799999,
+  "child_cpu_user_seconds": 59.864287999999995,
+  "child_cpu_system_seconds": 0.24698499999999998,
+  "child_peak_rss_kib_linux": 341128,
+  "scope": "Completion of one fixed-budget screen condition; no architecture-success threshold was registered."
+}
