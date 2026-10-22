@@ -1,0 +1,21 @@
+{
+  "status": "STOPPED",
+  "completed_tests": [
+    "main4096_n4096_K8_R16_sum_free_c2_age256",
+    "main4096_n4096_K8_R20_sum_free_c2_age256",
+    "main4096_n4096_K8_R24_sum_free_c2_age256"
+  ],
+  "pending_tests": [],
+  "skipped_tests": [],
+  "failed_tests": [
+    "main4096_n4096_K8_R32_sum_free_c2_age256"
+  ],
+  "elapsed_runtime_seconds": 7180.387861900032,
+  "current_case": null,
+  "peak_allocated_vram_bytes": 59316224,
+  "peak_reserved_vram_bytes": 90177536,
+  "largest_R_tested": 24,
+  "largest_R_passing": 24,
+  "first_failing_R": null,
+  "stop_reason": "planned cases completed or no additional eligible cases"
+}
