@@ -1,6 +1,6 @@
 # Canonical claim register
 
-**Updated:** 2026-10-21
+**Updated:** 2026-10-22 (PRB-Z4 original evidence recovered; mathematical claim scopes unchanged)
 **Repository:** [soma2-stack/AI-Architecture-Research](https://github.com/soma2-stack/AI-Architecture-Research)
 **Purpose:** A concise, evidence-linked record of major research claims and their current scope. This is a curated register, not a re-audit of every historical theory folder.
 
@@ -423,7 +423,7 @@ Execution/availability states below are separate from numbered-claim counts.
 | R20/R24/R32 unfinished TEST 3 | NOT RUN | [checkpoint summary](../experiments/finite_n_r20_r32_scaling_20261006/SUMMARY.md); completed TEST1/TEST2 retained separately |
 | Clean-mask clear sweep | NOT RUN | [summary](../experiments/finite_n_clean_mask_scaling_20261006/SUMMARY.md), omitted at 90-minute guard |
 | Original clean-mask K batch | STOPPED/PARTIAL: no per-K entries returned before guard | Same summary; do not confuse with the separate completed K tests in the later R20–R32 checkpoint |
-| PRB Z.4 seeds 1–3 | **NOT IN REPOSITORY for m=20 only**. Seeds 1–3 at m=10 and 35 ARE present | [z4_n7.jsonl](../experiments/prb/z4_n7.jsonl) has nine records: (seed0,m20) and seeds0–3 at m10/35; [z4_log_a.txt](../experiments/prb/z4_log_a.txt) lines7–12 also preserve seeds1–3 at10/35. The historical 12-run aggregate lacks the three m20 rows; do not invent them or rerun them |
+| PRB Z.4 seeds 1–3 | **RECOVERED for m=20; original grid 12/12 complete** | [Original nine-row file](../experiments/prb/z4_n7.jsonl) is untouched. The [verbatim twelve-row file](../experiments/prb/recovery_20261022/z4_n7.recovered_original.jsonl) was recovered from unreachable Git blob `4f9a7f4aee4b252b08f85af0d8a802f42114893c` in the older local repository. Its original nine-row prefix and original console summaries match; see [recovery/integrity verification](../experiments/prb/recovery_20261022/REPORT.md). No model was run. This closes the raw-availability gap, not checkpoint/software pinning or independent reproduction. |
 | PRB Z.4c Latin-square probes | NOT RUN in the inspected records | z4c_latin.py is present; no corresponding result/log found. Script presence is not execution |
 | OMD-PILOT-1 Phases B/C | NOT RUN after Phase A failed (3/36 pairs passed the required all-controls gate) | [raw pilot JSON](../experiments/omd_t1/pilot_controls/results/pilot_result.json); no extraction/downstream result |
 | GAS-0 Phase 2 | NOT AUTHORIZED in original audit scope; no official matrix in inspected repository | [README](../experiments/gas0/README.md); later dev/pilot/smoke activity is preserved separately and does not establish official treatment effects |
@@ -456,8 +456,10 @@ every theory folder, rerun scripts or rehash historical checkpoints. PR34/PR35's
 former local-only audit gap is closed by byte-preserved public artifacts; Task3's
 narrow final-source comparison is recorded separately. PR35's corrected later
 auxiliary source remains PENDING exact-revision independent review, without a new
-assignment. PRB's three m20 seed records remain NOT IN REPOSITORY; unrun stages remain
-unrun. None of these qualifications authorizes research. PR38 and PR39 are merged
+assignment. PRB's three m20 seed records were recovered verbatim on 2026-10-22; the
+original twelve-row grid is now preserved, with reproducibility limitations recorded
+in its recovery report. Other unrun stages remain unrun. None of these qualifications
+authorizes research. PR38 and PR39 are merged
 on main; PR39's merge commit is
 [395a336853510d96357d283b63bd6236f3002b4d](https://github.com/soma2-stack/AI-Architecture-Research/commit/395a336853510d96357d283b63bd6236f3002b4d).
 
