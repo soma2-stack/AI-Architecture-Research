@@ -75,7 +75,7 @@ not expanded by re-running experiments or inferring missing fields.
 | [exact_online_credit_stage_b2_20260930](exact_online_credit_stage_b2_20260930/REPORT.md) | STOPPED / inconclusive; use corrected_single_thread report; no StageC |
 | [exact_online_credit_stage_b_20260930](exact_online_credit_stage_b_20260930/REPORT.md) | ARCHIVED completed stage record; not authorization to continue |
 | [feature_revision_20260930](feature_revision_20260930/REPORT.md) | ARCHIVED report/certificate/review; retain exact source scope, no automatic replay |
-| [finite_n_clean_mask_scaling_20261006](finite_n_clean_mask_scaling_20261006/SUMMARY.md) | PARTIAL finite tests; original K batch stopped, clean clear sweep NOT RUN |
+| [finite_n_clean_mask_scaling_20261006](finite_n_clean_mask_scaling_20261006/SUMMARY.md) | COMPLETED - MIXED: R20/24/32 pass the original <0.001 cross-talk threshold; clear=0.5 fails and clear=1/2/4 pass; K=8/16/32/64 remains flat within 6.24e-15. Oldest-channel signal becomes extremely small; see [continuation report](finite_n_clean_mask_scaling_20261006/continuation_20261022/REPORT.md). |
 | [finite_n_clear_scaling_20261006](finite_n_clear_scaling_20261006/SUMMARY.md) | ARCHIVED finite numerical evidence; no asymptotic claim |
 | [finite_n_early_capture_20261006](finite_n_early_capture_20261006/SUMMARY.md) | ARCHIVED finite numerical evidence; no asymptotic claim |
 | [finite_n_multistage_capture_20261006](finite_n_multistage_capture_20261006/SUMMARY.md) | ARCHIVED finite numerical evidence; no asymptotic claim |
@@ -114,8 +114,8 @@ All entries below are **NUMERICAL FINITE-SIZE EVIDENCE ONLY**. They do not prove
 | [Multistage capture](finite_n_multistage_capture_20261006/) | Multiple capture and trace-correction checks; cross-talk misses the stated threshold in the smallest case and improves with width. |
 | [Clear scaling](finite_n_clear_scaling_20261006/) | Clearing, multichannel, age, and control sweeps; the legacy R=8 channel set misses the 0.1% threshold. |
 | [R=8 diagnosis](finite_n_r8_diagnosis_20261006/) | Diagnoses alias-prone masks and compares a sum-free R=8 family; the finite comparison is not a general scaling result. |
-| [Clean-mask scaling](finite_n_clean_mask_scaling_20261006/) | Clean protected Walsh channels pass the recorded finite tests through R=16; R=20/24/32 were not run in this completed folder. |
-| [R20–R32 scaling checkpoint](finite_n_r20_r32_scaling_20261006/) | **CHECKPOINT / PARTIAL BATTERY.** TEST 1 K scaling and TEST 2 mask-family comparison are complete; TEST 3 R=20/24/32 and later width, matched-age, and higher-R tests were not run. K scaling was flat over tested values; sum-free masks passed through R=16, while alias-prone legacy masks failed at R=8/12/16 around 0.25%. No clean-mask capacity limit was observed in this scope. |
+| [Clean-mask scaling](finite_n_clean_mask_scaling_20261006/) | MAIN-21 completed its scoped original K, clearing, and R20/24/32 conditions; finite normalized cross-talk passes through R32, with clear=0.5 failing. This is numerical recurrence evidence, not trained-RNN recall. MAIN-25 TEST3 at n=4096 remains NOT RUN. |
+| [R20–R32 scaling checkpoint](finite_n_r20_r32_scaling_20261006/) | **MAIN-25 CHECKPOINT / PARTIAL BATTERY.** TEST 1 K scaling and TEST 2 mask-family comparison are complete; MAIN-25 TEST 3 at n=4096, R=20/24/32 and later width, matched-age, and higher-R tests were not run. MAIN-21's separate n=2048 R20/24/32 conditions are complete. K scaling was flat over tested values; sum-free masks passed through R=16, while alias-prone legacy masks failed at R=8/12/16 around 0.25%. No clean-mask capacity limit was observed in this scope. |
 
 See each folder's `SUMMARY.md`, `results.json`, `run_metadata.json`, and `progress.json` where present for measured values and run provenance. Useful plots and the scripts needed to reproduce the recorded protocol are retained.
 

@@ -6,6 +6,19 @@ before proposing work. Historical run commands, permission statements and next s
 are inactive; no new research, experiment, training, official matrix or automated
 continuation is authorized. Original results and protocols below are preserved.
 
+**Scoped owner authorization: 2026-10-22.** MAIN-21 alone was explicitly reopened to
+finish its original K, clearing-duration, and R-scaling conditions. That continuation
+is now complete; this creates no standing authorization for other experiments or
+further MAIN-21 runs. See the [continuation report](continuation_20261022/REPORT.md)
+and its linked raw outputs. The report supersedes the initial-run status only for
+those conditions; the original run and its 17 completed cases remain unchanged.
+
+## Historical initial-run snapshot (2026-10-06)
+
+The table and initial-run analysis below preserve what was known when the first run
+stopped at its 90-minute convenience guard. Their K/clear/higher-R statuses are
+historical; use the dated continuation report for the completed current status.
+
 | Test | Verdict | Strongest Measurement |
 |---|---|---|
 | R=8 clean vs legacy at n=2048 | PASS | clean 1.88452e-05; legacy 0.00250616 (legacy/clean 133.0×) |
