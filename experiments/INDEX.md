@@ -1,5 +1,7 @@
 # Experiment inventory — 2026-10-21
 
+**Complete deduplicated register:** [MASTER_REGISTER.md](MASTER_REGISTER.md) covers all 46 main-tree experiment folders, the numbered PR23 branch experiments, nested EFD/PRB/AMS protocols, the preserved memory-retrieval campaign, and named withdrawn or unrun proposals. It records execution separately from scientific outcome and explains its counting rule.
+
 **Current authorization: experiments are frozen unless the owner explicitly approves
 a specific run.** Read the [claim register](../docs/CLAIM_REGISTER.md) before proposing
 or running one. The register from [PR38](https://github.com/soma2-stack/AI-Architecture-Research/pull/38)
