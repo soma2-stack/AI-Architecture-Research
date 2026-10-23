@@ -14,6 +14,7 @@ never pruned (swapping a commuting, out-of-order pair would give a smaller plan)
 Question: can I(a,b|s) be LEARNED from raw interaction (execute both orders from the
 same state, compare outcomes — no domain description), how many samples are needed,
 and what do learned-predicate errors cost (lost / longer plans) vs. the search savings?
+Validity notes and preserved-result limitations: ../EXPERIMENT_VALIDITY_REPAIRS.md.
 """
 import numpy as np, itertools, json, sys, time, torch
 torch.set_num_threads(4)
@@ -148,6 +149,31 @@ def evaluate(world, tasks, planner, max_depth):
                 longer=longer, n=len(tasks), secs=time.time() - t0)
 
 
+def evaluate_pipeline(world, tasks, mode, max_depth, net=None, thr=0.99,
+                      training_secs=None, diagnostic_secs=0.):
+    """Keep search-only timing, and separately charge preparation and training.
+
+    Each learned threshold row includes the shared training run once; threshold
+    rows are alternative configurations and their totals must not be summed.
+    Common benchmark/task generation is excluded for every method.
+    """
+    if training_secs is None and mode != "learned":
+        training_secs = 0.
+    start = time.perf_counter()
+    planner = Planner(world, mode, net, thr)
+    if mode == "learned":
+        planner.precompute()
+    setup_secs = time.perf_counter() - start
+    result = evaluate(world, tasks, planner, max_depth)
+    pipeline_secs = time.perf_counter() - start
+    result.update(setup_secs=setup_secs, training_secs=training_secs,
+                  diagnostic_secs=diagnostic_secs, pipeline_secs=pipeline_secs,
+                  total_secs=(training_secs + diagnostic_secs + pipeline_secs)
+                             if training_secs is not None else None,
+                  cost_scope="one_training_run_plus_diagnostics_setup_and_search; task_generation_excluded")
+    return result
+
+
 def make_tasks(world, n, lo, hi, seed):
     rng = np.random.default_rng(seed)
     tasks = []
@@ -178,15 +204,20 @@ if __name__ == "__main__":
     world = LineWorld(L, k)
     tasks = make_tasks(world, ntask, lo, hi, 7)
     out = {"L": L, "k": k, "plan_len": [lo, hi]}
-    out["none"] = evaluate(world, tasks, Planner(world, "none"), hi)
-    out["oracle"] = evaluate(world, tasks, Planner(world, "oracle"), hi)
+    out["none"] = evaluate_pipeline(world, tasks, "none", hi)
+    out["oracle"] = evaluate_pipeline(world, tasks, "oracle", hi)
     print(json.dumps(out), flush=True)
     for n in [100, 300, 1000, 3000, 10000, 30000]:
+        training_start = time.perf_counter()
         net = train_predicate(world, n, seed=n)
+        training_secs = time.perf_counter() - training_start
         for thr in [0.5, 0.9, 0.99]:
+            diagnostic_start = time.perf_counter()
             acc = predicate_accuracy(world, net, thr, 3000, 99)
-            ev = evaluate(world, tasks, Planner(world, "learned", net, thr).precompute(), hi)
+            diagnostic_secs = time.perf_counter() - diagnostic_start
+            ev = evaluate_pipeline(world, tasks, "learned", hi, net, thr,
+                                   training_secs=training_secs, diagnostic_secs=diagnostic_secs)
             r = dict(n_train=n, thr=thr, **acc, **ev)
             out.setdefault("learned", []).append(r)
             print(json.dumps(r), flush=True)
-    json.dump(out, open(f"cfwm_L{L}_k{k}.json", "w"), indent=1)
+    json.dump(out, open(f"cfwm_validity_L{L}_k{k}.json", "w"), indent=1)

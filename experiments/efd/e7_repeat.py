@@ -3,9 +3,11 @@ E7 — deciding what computation to repeat (and how often): reachability in rand
 Input: N x N grid, walls with density 0.42 (near percolation, so reachability is long-range), one start cell. Target: per-cell "reachable from start" (4-connectivity).
 Train N=9; test N=9,15,21,31 (longer shortest paths need more propagation steps).
 Models: fixed-depth CNN (12 conv layers); weight-tied recurrent CNN with input recall ("deep thinking" style,
-Bansal et al. 2022), trained with 20 iterations, tested with 20 / 60 / 200 iterations and with halting at a fixed
-point; small Transformer over cells (4 layers, 2D learned-free: row/col sinusoidal); classical BFS.
+Bansal et al. 2022), trained with 20 iterations, tested with 20 / 60 / 200 iterations and with batch-wide binary
+prediction-stability halting (not a hidden-state fixed-point certificate); small Transformer over cells
+(4 layers, 2D learned-free: row/col sinusoidal); classical BFS.
 Metric: fraction of grids solved exactly, and per-cell accuracy on open cells.
+Validity notes and preserved-result limitations: ../EXPERIMENT_VALIDITY_REPAIRS.md.
 """
 import json, sys, time
 from collections import deque
@@ -32,6 +34,27 @@ def make_grid(rng, N, dens=0.42):
 def batch(rng, B, N):
     xs, ys = zip(*[make_grid(rng, N) for _ in range(B)])
     return torch.tensor(np.array(xs)), torch.tensor(np.array(ys))
+
+
+def bfs_predict(x):
+    """Predict from the supplied grid only; do not read the generator's labels."""
+    predictions = []
+    for grid in x.detach().cpu().numpy():
+        walls, start = grid
+        reached = np.zeros_like(walls, dtype=bool)
+        queue = deque(map(tuple, np.argwhere(start > 0)))
+        for row, col in queue:
+            reached[row, col] = True
+        while queue:
+            row, col = queue.popleft()
+            for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                nr, nc = row + dr, col + dc
+                if (0 <= nr < walls.shape[0] and 0 <= nc < walls.shape[1]
+                        and walls[nr, nc] == 0 and not reached[nr, nc]):
+                    reached[nr, nc] = True
+                    queue.append((nr, nc))
+        predictions.append(2 * reached.astype(np.float32) - 1)
+    return torch.as_tensor(np.array(predictions), dtype=x.dtype, device=x.device)
 
 
 class FixedCNN(nn.Module):
@@ -101,7 +124,8 @@ def job(args):
     kind, seed = args
     seed_all(seed); rng = np.random.default_rng(seed); t0 = time.time()
     if kind == "bfs":
-        return dict(kind=kind, seed=seed, res={N: dict(solved=1.0, cell=1.0) for N in (9, 15, 21, 31)})
+        return dict(kind=kind, seed=seed, res=evaluate(bfs_predict, seed),
+                    secs=round(time.time() - t0, 1), reference_measured=True)
     m = {"cnn": FixedCNN, "recur": RecurCNN, "tf": CellTF}[kind]()
     opt = torch.optim.Adam(m.parameters(), lr=1e-3)
     steps = 3000
@@ -117,7 +141,8 @@ def job(args):
         res["halt_max300"] = evaluate(lambda x: m(x, iters=300, halt=True), seed)
     else:
         res["fixed"] = evaluate(lambda x: m(x), seed)
-    return dict(kind=kind, seed=seed, res=res, secs=round(time.time() - t0, 1))
+    return dict(kind=kind, seed=seed, res=res, secs=round(time.time() - t0, 1),
+                halt_criterion="batch_binary_prediction_stability" if kind == "recur" else None)
 
 
 if __name__ == "__main__":
@@ -125,5 +150,5 @@ if __name__ == "__main__":
         seed_all(0); rng = np.random.default_rng(0); x, y = make_grid(rng, 9); print(x[0], "\n", y); sys.exit()
     jobs = [("bfs", 1)] + [(k, s) for k in ["cnn", "recur", "tf"] for s in [1, 2, 3]]
     res = pool_run(job, jobs, procs=int(sys.argv[1]) if len(sys.argv) > 1 else 10)
-    json.dump(res, open("e7_results.json", "w"), indent=1)
+    json.dump(res, open("e7_validity_results.json", "w"), indent=1)
     print("done")

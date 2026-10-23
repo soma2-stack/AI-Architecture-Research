@@ -10,6 +10,7 @@ Learners: meta-trained Transformer (bidirectional over the episode), meta-traine
 (enumerate compositions up to depth 4 over the primitives; with (e) the search may also induce N as a position
 permutation from its demos, i.e. a DSL extended by one induced primitive).
 Metric: exact-match accuracy of the 6-digit output.
+Validity notes and preserved-result limitations: ../EXPERIMENT_VALIDITY_REPAIRS.md.
 """
 import json, sys, time, itertools
 import numpy as np
@@ -40,7 +41,7 @@ def rand_x(rng):
 
 
 # token layout: digits 0..9, SEP=10 (between in/out), EOE=11 (end of example), Q=12 (query marker), PAD=13
-SEP, EOE, Q, V = 10, 11, 12, 14
+SEP, EOE, Q, PAD, V = 10, 11, 12, 13, 14
 
 
 def episode(prog, rng, K=4, pre=None):
@@ -64,8 +65,9 @@ class TFModel(nn.Module):
     def forward(self, tok):
         B, T = tok.shape
         x = torch.cat([self.emb(tok) + self.pos(torch.arange(T))[None], self.qry[None].expand(B, -1, -1)], 1)
+        valid = torch.cat([tok != PAD, torch.ones(B, L, dtype=torch.bool, device=tok.device)], 1)
         for b in self.blocks:
-            x = b(x)
+            x = b(x, valid[:, None, None, :])
         return self.out(self.ln(x[:, -L:]))
 
 
@@ -76,7 +78,10 @@ class GRUModel(nn.Module):
         self.dec = nn.GRU(d, d, batch_first=True); self.qry = nn.Parameter(torch.randn(L, d) * 0.1); self.out = nn.Linear(d, 10)
 
     def forward(self, tok):
-        _, h = self.rnn(self.emb(tok))
+        # Batch padding is not part of an episode. Read the last real token.
+        packed = nn.utils.rnn.pack_padded_sequence(
+            self.emb(tok), (tok != PAD).sum(1).cpu(), batch_first=True, enforce_sorted=False)
+        _, h = self.rnn(packed)
         y, _ = self.dec(self.qry[None].expand(tok.shape[0], -1, -1), h[-1:].contiguous())
         return self.out(y)
 
@@ -93,7 +98,7 @@ def batch(rng, B, mode="train"):
                 t, y = episode(PAIRS[int(rng.integers(len(PAIRS)))], rng)
         toks.append(t); tgts.append(y)
     T = max(len(t) for t in toks)
-    toks = [t + [13] * (T - len(t)) for t in toks]
+    toks = [t + [PAD] * (T - len(t)) for t in toks]
     return torch.tensor(toks), torch.tensor(tgts)
 
 
@@ -151,9 +156,12 @@ def job(args):
     seed_all(seed); rng = np.random.default_rng(seed)
     t0 = time.time()
     sets = test_sets(np.random.default_rng(seed + 99))
+    config = dict(length=L, tf_width=int(os.environ.get("E4D", "128")),
+                  batch_size=int(os.environ.get("E4B", "48")), steps=steps,
+                  input_version="padding_masked_v1", new_primitive_family_seen_in_training=True)
     if kind == "search":
         res = {k: float(np.mean([program_search(t) == y for t, y in v])) for k, v in sets.items()}
-        return dict(kind=kind, seed=seed, acc=res, secs=round(time.time() - t0, 1))
+        return dict(kind=kind, seed=seed, acc=res, config=config, secs=round(time.time() - t0, 1))
     m = TFModel() if kind == "tf" else GRUModel()
     opt = torch.optim.AdamW(m.parameters(), lr=5e-4, weight_decay=0.01)
     sch = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1, (s + 1) / 300) * max(0.05, 1 - s / steps))
@@ -165,19 +173,19 @@ def job(args):
     with torch.no_grad():
         for k, v in sets.items():
             T = max(len(t) for t, _ in v)
-            tok = torch.tensor([t + [13] * (T - len(t)) for t, _ in v]); y = torch.tensor([y for _, y in v])
+            tok = torch.tensor([t + [PAD] * (T - len(t)) for t, _ in v]); y = torch.tensor([y for _, y in v])
             res[k] = float((m(tok).argmax(-1) == y).all(-1).float().mean())
-    return dict(kind=kind, seed=seed, steps=steps, acc=res, secs=round(time.time() - t0, 1))
+    return dict(kind=kind, seed=seed, steps=steps, acc=res, config=config, secs=round(time.time() - t0, 1))
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "quick":
         print(job(("search", 1, 0))); print(job(("tf", 1, 300))); sys.exit()
     jobs = [("search", 1, 0)] + [(k, s, 6000) for k in ["tf", "gru"] for s in [1, 2, 3]]
-    out = "e4_results.json"
+    out = "e4_validity_results.json"
     if len(sys.argv) > 2 and sys.argv[2] == "b":        # E4b: easier (L from env), smaller TF, 20k steps
         jobs = [("search", 1, 0)] + [("tf", s, 20000) for s in [1, 2, 3]]
-        out = "e4b_results.json"
+        out = "e4b_validity_results.json"
     t0 = time.time()
     res = pool_run(job, jobs, procs=int(sys.argv[1]) if len(sys.argv) > 1 else 7)
     json.dump(res, open(out, "w"), indent=1)
