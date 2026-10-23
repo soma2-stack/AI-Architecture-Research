@@ -4,8 +4,9 @@ Facts over variables v0..v15 (mod-10 arithmetic): "v_i = c" and "v_i = v_j + d".
 Answer: the value (0..9) if determined by the facts, else UNKNOWN (class 10).
 Facts form random acyclic constraint forests; a component is determined iff it contains a constant fact.
 Train: <= 6 variables, query hop-distance to the constant <= 2. Test: up to 14 variables, hop distance 1..7.
-Balanced determined / undetermined. Learners: Transformer encoder over fact tokens (set-structured: per-fact
-position only), GRU over the serialised facts, classical union-find with offsets.
+Balanced determined / undetermined. Learners: Transformer encoder over fact tokens (within-fact roles
+plus rotary token positions), GRU over the serialised facts, classical union-find with offsets.
+See E5_ENCODING_REPAIR.md for the original encoding defect and historical-result limitations.
 """
 import json, sys, time
 import numpy as np
@@ -99,7 +100,9 @@ class TF(nn.Module):
     def __init__(self, d=128, layers=6):
         super().__init__()
         self.emb = nn.Embedding(VOC, d); self.fp = nn.Embedding(4, d)
-        self.blocks = nn.ModuleList([Block(d, 4, "none", causal=False) for _ in range(layers)])
+        # Role embeddings alone erase fact membership. Token positions preserve the
+        # four-token fact boundaries, using parameter-free RoPE already in common.py.
+        self.blocks = nn.ModuleList([Block(d, 4, "rope", causal=False) for _ in range(layers)])
         self.ln = nn.LayerNorm(d); self.out = nn.Linear(d, 11)
 
     def forward(self, tok, fpos):
@@ -168,10 +171,11 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "quick":
         print(job(("unionfind", 1, 0))); print(job(("tf", 1, 200))); sys.exit()
     jobs = [("unionfind", 1, 0)] + [(k, s, 6000) for k in ["tf", "gru"] for s in [1, 2, 3]]
-    out = "e5_results.json"
+    # Keep the original positionless-Transformer results as historical evidence.
+    out = "e5_rope_results.json"
     if len(sys.argv) > 2 and sys.argv[2] == "b":
         jobs = [("unionfind", 1, 0)] + [(k, s, 12000) for k in ["tf", "gru"] for s in [1, 2]]
-        out = "e5b_results.json"
+        out = "e5b_rope_results.json"
     res = pool_run(job, jobs, procs=int(sys.argv[1]) if len(sys.argv) > 1 else 7)
     json.dump(res, open(out, "w"), indent=1)
     print("done")
