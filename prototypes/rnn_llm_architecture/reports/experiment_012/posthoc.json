@@ -1,0 +1,160 @@
+{
+  "label": "POST-HOC, not preregistered",
+  "partial_runs": [
+    {
+      "arch": "gru24",
+      "init": 17,
+      "data": 17,
+      "onset": 2000,
+      "final_loss": 0.3620761881470681,
+      "prev_loss": 0.41941609823703774,
+      "still_descending": true
+    },
+    {
+      "arch": "gru24",
+      "init": 29,
+      "data": 17,
+      "onset": 1750,
+      "final_loss": 0.412389684677124,
+      "prev_loss": 0.414637298822403,
+      "still_descending": false
+    },
+    {
+      "arch": "gru24",
+      "init": 29,
+      "data": 29,
+      "onset": 1350,
+      "final_loss": 0.40302221417427064,
+      "prev_loss": 0.40706260991096493,
+      "still_descending": false
+    },
+    {
+      "arch": "gru24",
+      "init": 29,
+      "data": 43,
+      "onset": 1350,
+      "final_loss": 0.41737843406200403,
+      "prev_loss": 0.41539095079898836,
+      "still_descending": false
+    },
+    {
+      "arch": "gru24",
+      "init": 43,
+      "data": 29,
+      "onset": 2200,
+      "final_loss": 0.22575601717829707,
+      "prev_loss": 0.2307518875598907,
+      "still_descending": false
+    },
+    {
+      "arch": "gru24",
+      "init": 43,
+      "data": 43,
+      "onset": 1650,
+      "final_loss": 0.41900982594490055,
+      "prev_loss": 0.4121505556702615,
+      "still_descending": false
+    },
+    {
+      "arch": "gru32",
+      "init": 17,
+      "data": 29,
+      "onset": 2850,
+      "final_loss": 0.4882551004886627,
+      "prev_loss": 0.5860776687860489,
+      "still_descending": true
+    },
+    {
+      "arch": "gru32",
+      "init": 29,
+      "data": 43,
+      "onset": 2100,
+      "final_loss": 0.41873188841342923,
+      "prev_loss": 0.41246243840456015,
+      "still_descending": false
+    },
+    {
+      "arch": "gru32",
+      "init": 43,
+      "data": 29,
+      "onset": 2550,
+      "final_loss": 0.4475408364534378,
+      "prev_loss": 0.4870313453674317,
+      "still_descending": true
+    },
+    {
+      "arch": "protected",
+      "init": 29,
+      "data": 17,
+      "onset": 1900,
+      "final_loss": 0.40550953572988513,
+      "prev_loss": 0.41975163090229034,
+      "still_descending": false
+    },
+    {
+      "arch": "protected",
+      "init": 29,
+      "data": 29,
+      "onset": 1200,
+      "final_loss": 0.41316690617799756,
+      "prev_loss": 0.4092051630616188,
+      "still_descending": false
+    },
+    {
+      "arch": "protected",
+      "init": 29,
+      "data": 43,
+      "onset": 1300,
+      "final_loss": 0.2814511384963989,
+      "prev_loss": 0.40949759751558307,
+      "still_descending": true
+    },
+    {
+      "arch": "protected",
+      "init": 43,
+      "data": 17,
+      "onset": 1850,
+      "final_loss": 0.24656293457746506,
+      "prev_loss": 0.40673716837167745,
+      "still_descending": true
+    }
+  ],
+  "partial_still_descending": 5,
+  "n_partial": 13,
+  "settled_partial_final_losses": [
+    0.226,
+    0.403,
+    0.406,
+    0.412,
+    0.413,
+    0.417,
+    0.419,
+    0.419
+  ],
+  "plateau_only_final_loss_by_data_seed": {
+    "17": [
+      0.594,
+      0.594,
+      0.594,
+      0.594,
+      0.594,
+      0.595,
+      0.595,
+      0.595
+    ],
+    "29": [
+      0.578,
+      0.591,
+      0.591,
+      0.591,
+      0.591
+    ],
+    "43": [
+      0.599,
+      0.599,
+      0.599,
+      0.599,
+      0.6
+    ]
+  }
+}

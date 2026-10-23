@@ -1,0 +1,158 @@
+﻿{
+    "module":  "capacity_011",
+    "device":  "cpu",
+    "workers":  10,
+    "threads_per_worker":  1,
+    "started":  "2026-10-08T01:40:50.0710515-04:00",
+    "ended":  "2026-10-08T01:48:13.6784033-04:00",
+    "runtime_s":  443.6,
+    "repo":  "E:\\Rnn LLM\\AI-Architecture-Research",
+    "branch":  "prototype/rnn-llm-architecture-v0-20261007",
+    "commit":  "9db24f4050429eb62f378d96c26c42288eb4b2b7",
+    "tracked_changes":  false,
+    "shard_arg":  "jobs",
+    "extra_args":  "--steps 3000",
+    "max_wall_seconds":  1800,
+    "software":  {
+                     "python":  "3.11.9",
+                     "torch":  "2.13.0+cu130",
+                     "torch_cuda":  "13.0",
+                     "cuda_available":  true,
+                     "gpu":  "NVIDIA GeForce RTX 3060",
+                     "numpy":  "2.4.6"
+                 },
+    "cpu":  "Intel(R) Core(TM) i7-14700K",
+    "logical_processors":  28,
+    "env":  {
+                "PYTHONDONTWRITEBYTECODE":  "1",
+                "PYTHONHASHSEED":  "0",
+                "OMP_NUM_THREADS":  "1",
+                "PYTHONUTF8":  "1",
+                "CUDA_VISIBLE_DEVICES":  "-1",
+                "MKL_NUM_THREADS":  "1"
+            },
+    "peak_temp_c_observed":  31,
+    "tests_run":  true,
+    "shards":  [
+                   {
+                       "shard":  "gru32:17",
+                       "exit_code":  0,
+                       "runtime_s":  186.4,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_17.json\" --max-wall-seconds 1800 --jobs gru32:17 --steps 3000"
+                   },
+                   {
+                       "shard":  "gru24:17",
+                       "exit_code":  0,
+                       "runtime_s":  219.6,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_17.json\" --max-wall-seconds 1800 --jobs gru24:17 --steps 3000"
+                   },
+                   {
+                       "shard":  "gru24:29",
+                       "exit_code":  0,
+                       "runtime_s":  217.8,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_29.json\" --max-wall-seconds 1800 --jobs gru24:29 --steps 3000"
+                   },
+                   {
+                       "shard":  "gru32:29",
+                       "exit_code":  0,
+                       "runtime_s":  223.7,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_29.json\" --max-wall-seconds 1800 --jobs gru32:29 --steps 3000"
+                   },
+                   {
+                       "shard":  "protected_no_retain:17",
+                       "exit_code":  0,
+                       "runtime_s":  226.2,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_17.json\" --max-wall-seconds 1800 --jobs protected_no_retain:17 --steps 3000"
+                   },
+                   {
+                       "shard":  "delta_rule:17",
+                       "exit_code":  0,
+                       "runtime_s":  242.4,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_17.json\" --max-wall-seconds 1800 --jobs delta_rule:17 --steps 3000"
+                   },
+                   {
+                       "shard":  "delta_rule:29",
+                       "exit_code":  0,
+                       "runtime_s":  246,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_29.json\" --max-wall-seconds 1800 --jobs delta_rule:29 --steps 3000"
+                   },
+                   {
+                       "shard":  "protected_no_retain:29",
+                       "exit_code":  0,
+                       "runtime_s":  279.8,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_29.json\" --max-wall-seconds 1800 --jobs protected_no_retain:29 --steps 3000"
+                   },
+                   {
+                       "shard":  "protected:17",
+                       "exit_code":  0,
+                       "runtime_s":  287.3,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_17.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_17.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_17.json\" --max-wall-seconds 1800 --jobs protected:17 --steps 3000"
+                   },
+                   {
+                       "shard":  "protected:29",
+                       "exit_code":  0,
+                       "runtime_s":  291.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_29.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_29.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_29.json\" --max-wall-seconds 1800 --jobs protected:29 --steps 3000"
+                   },
+                   {
+                       "shard":  "gru24:43",
+                       "exit_code":  0,
+                       "runtime_s":  179.6,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru24_43.json\" --max-wall-seconds 1800 --jobs gru24:43 --steps 3000"
+                   },
+                   {
+                       "shard":  "gru32:43",
+                       "exit_code":  0,
+                       "runtime_s":  179.1,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\gru32_43.json\" --max-wall-seconds 1800 --jobs gru32:43 --steps 3000"
+                   },
+                   {
+                       "shard":  "delta_rule:43",
+                       "exit_code":  0,
+                       "runtime_s":  189.3,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\delta_rule_43.json\" --max-wall-seconds 1800 --jobs delta_rule:43 --steps 3000"
+                   },
+                   {
+                       "shard":  "protected:43",
+                       "exit_code":  0,
+                       "runtime_s":  234.2,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_43.json\" --max-wall-seconds 1800 --jobs protected:43 --steps 3000"
+                   },
+                   {
+                       "shard":  "protected_no_retain:43",
+                       "exit_code":  0,
+                       "runtime_s":  217.3,
+                       "output":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_43.json",
+                       "log":  "E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_43.log",
+                       "command":  "C:\\Users\\coler\\AppData\\Local\\Programs\\Python\\Python311\\python.exe -X utf8 -m prototypes.rnn_llm_architecture.capacity_011 --output \"E:\\Rnn LLM\\rnn-results\\capacity_011_20261008_014029\\protected_no_retain_43.json\" --max-wall-seconds 1800 --jobs protected_no_retain:43 --steps 3000"
+                   }
+               ]
+}
