@@ -5,7 +5,9 @@ Phase B: new tokens 13..25; token 13+i denotes element pi(i) for an unknown bije
 written in the B encoding, predict the held-out B pairs.
 Methods: scratch (B examples only), FT-all, FT-embed (body frozen, learn B embeddings/unembeddings),
 FT-embed-tied (B symbol has one embedding used for input and output), each for an MLP body and a Transformer body;
-exact-match memory; classical constraint search over pi (majority vote over all consistent pi).
+exact-match memory; classical constraint search over pi (majority over enumerated consistent pi,
+with an explicit enumeration cap; the search is given the true operation table).
+Validity notes and preserved-result limitations: ../EXPERIMENT_VALIDITY_REPAIRS.md.
 """
 import json, sys, time, itertools
 import numpy as np
@@ -119,7 +121,9 @@ def fit_assign(net, ta, tb, tc, ea, eb, ec, mode, steps=1500, lr=0.05):
     return acc_hard, trl, c
 
 
-def csp_predict(T, ex, test_pairs, cap=20000):
+def csp_predict(T, ex, test_pairs, cap=20000, return_details=False):
+    if cap < 1:
+        raise ValueError("cap must be positive")
     # variables: pi(i) for B symbols i in 0..12 ; constraint T[pi(a), pi(b)] = pi(c)
     sols = []
     assign = [-1] * P; used = [False] * P
@@ -152,7 +156,13 @@ def csp_predict(T, ex, test_pairs, cap=20000):
             inv = {v: i for i, v in enumerate(s)}
             z = inv[T[s[x], s[y]]]; votes[z] = votes.get(z, 0) + 1
         preds.append(max(votes, key=votes.get) if votes else -1)
-    return np.array(preds), len(sols)
+    details = dict(solutions_cap=cap, cap_reached=len(sols) >= cap,
+                   enumeration_exhaustive=len(sols) < cap,
+                   prediction_rule="majority_over_enumerated_solutions",
+                   prior_knowledge="true_operation_table")
+    # At exactly the cap, conservatively decline to certify exhaustive enumeration.
+    result = (np.array(preds), len(sols))
+    return (*result, details) if return_details else result
 
 
 def job(args):
@@ -189,9 +199,9 @@ def job(args):
         # CSP
         ex = [(x, y, truthB[(x, y)]) for x, y in tr]
         t0 = time.time()
-        pr, nsol = csp_predict(T, ex, te)
+        pr, nsol, details = csp_predict(T, ex, te, return_details=True)
         out.append(dict(kind=kind, seed=seed, nB=nB, method="csp", acc=float((pr == ec).mean()), nsol=nsol,
-                        secs=round(time.time() - t0, 2)))
+                        secs=round(time.time() - t0, 2), **details))
         for body in ["mlp", "tf"]:
             for mode in ["assign_soft", "assign_sinkhorn"]:
                 accs, losses, correct_bind = [], [], []
@@ -250,5 +260,5 @@ if __name__ == "__main__":
     jobs = [(k, s, nBs) for k in ["add", "latin"] for s in [1, 2, 3, 4, 5]]
     t0 = time.time()
     res = pool_run(job, jobs, procs=10)
-    json.dump([x for r in res for x in r], open("e2_results.json", "w"), indent=1)
+    json.dump([x for r in res for x in r], open("e2_validity_results.json", "w"), indent=1)
     print("done", round(time.time() - t0, 1))
